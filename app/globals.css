@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand Colours */
+  --color-background: #ffffff;
+  --color-surface: #f8f8f8;
+  --color-surface-hover: #f0f0f0;
+  --color-border: #e5e5e5;
+  --color-border-hover: #d4d4d4;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #525252;
+  --color-text-muted: #a3a3a3;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-muted: rgba(37, 99, 235, 0.07);
+
+  --color-accent-warm: #e8a317;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* Category Tints */
+  --color-cat-finance: #dbeafe;
+  --color-cat-cooking: #ffedd5;
+  --color-cat-games: #fce7f3;
+  --color-cat-developer: #e0e7ff;
+  --color-cat-text: #f3e8ff;
+  --color-cat-converters: #d1fae5;
+  --color-cat-health: #ccfbf1;
+  --color-cat-wedding: #fdf2f8;
+  --color-cat-education: #fef9c3;
+  --color-cat-home: #fed7aa;
+  --color-cat-business: #e0f2fe;
+  --color-cat-travel: #cffafe;
+  --color-cat-datetime: #ede9fe;
+  --color-cat-maths: #d1fae5;
+  --color-cat-creative: #fbcfe8;
+  --color-cat-parenting: #d9f99d;
+  --color-cat-automotive: #e5e7eb;
+  --color-cat-seasonal: #fecaca;
+  --color-cat-fun: #fef08a;
+
+  /* Typography */
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Fraunces", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --radius-badge: 4px;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Utility classes for mono numbers */
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}

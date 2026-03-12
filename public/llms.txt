@@ -1,0 +1,217 @@
+# llms.txt — MyKit.tools
+# A file for AI/LLM systems to understand the site's content and purpose
+# Learn more: https://llms.txt
+
+Site Title: MyKit.tools
+URL: https://mykit.tools
+Description: 2,000+ free interactive tools, calculators, converters, and generators. From tax calculators to bingo card makers — tools that actually work.
+
+## About MyKit.tools
+
+MyKit.tools is a comprehensive utility tool platform offering free, interactive calculators, converters, and generators across 18+ categories.
+
+### Purpose
+We provide practical, no-signup-required tools for everyday tasks like:
+- Financial calculations (tax, mortgages, pensions, savings)
+- Unit conversions (weight, length, temperature, currency)
+- Entertainment generators (bingo cards, quiz questions, word searches)
+- Health & fitness calculations (BMI, TDEE, macros)
+- Text processing and formatting tools
+- Date/time calculations and timezone converters
+- And many more utility tools
+
+### Key Features
+- 100% free to use — no account required
+- Interactive, real-time calculations
+- Fully functional on desktop and mobile
+- Premium PDF exports available (£1.99 per tool or £6.99/month for all)
+- No ads on premium subscription
+- Cloud-based save system for logged-in users
+- Fast, reliable performance (Vercel hosting)
+
+## Site Structure
+
+### Main Categories
+1. **Finance** — Tax calculators, mortgage tools, pension planners, savings trackers
+2. **Converters** — 200+ unit converters (weight, length, temperature, currency, etc.)
+3. **Cooking & Kitchen** — Recipe converters, measurement tools, cooking timers
+4. **Games & Generators** — Bingo cards, quiz generators, word searches
+5. **Text Tools** — Word counters, text formatters, case converters
+6. **Developer Tools** — JSON formatters, encoders, regex testers
+7. **Health & Fitness** — BMI, TDEE, macro calculators, workout generators
+8. **Wedding & Events** — Seating planners, budget trackers, guest lists
+9. **Travel** — Itinerary builders, packing lists, currency converters
+10. **Home & Property** — Mortgage, renovation, paint, energy calculators
+11. **Business** — Invoice generators, pricing tools, calculators
+12. **Education** — Classroom tools, grade calculators, worksheet generators
+13. **Creative & Design** — Colour tools, font pairers, gradient generators
+14. **Maths & Science** — Geometry, algebra, physics, chemistry calculators
+15. **Date & Time** — Countdowns, age calculators, timezone converters
+16. **Parenting & Kids** — Activity generators, milestone trackers, party planners
+17. **Automotive** — Fuel economy, tire calculators, road trip planners
+18. **Seasonal** — Holiday-specific tools (Christmas, Easter, Halloween, etc.)
+
+## Content Organization
+
+### Tool Pages
+Each tool page (`https://mykit.tools/[slug]`) includes:
+- Interactive tool interface
+- Step-by-step usage instructions (HowTo schema)
+- FAQ section with common questions (FAQPage schema)
+- Related tools recommendations
+- SEO content explaining when and why to use the tool
+- Premium export options (PDF, high-resolution downloads)
+
+### Category Pages
+Category listing pages (`https://mykit.tools/categories/[category]`) show all tools in that category with:
+- Category description and icon
+- All tools organized with preview cards
+- Tool count and descriptions
+- Links to the most popular tools in that category
+
+### Tags
+Cross-category tags (`https://mykit.tools/tags/[tag]`) group tools by common attributes:
+- Tags like "printable", "ai-powered", "free", "with-save", etc.
+
+## Data and Structured Markup
+
+MyKit.tools implements comprehensive structured data for AI crawlers:
+
+### Schema Types
+- **WebApplication** — Every tool page identifies as an interactive web app
+- **FAQPage** — Q&A content for each tool
+- **HowTo** — Step-by-step usage instructions
+- **BreadcrumbList** — Navigation structure
+- **Organization** — Site-level entity information
+- **Article** — SEO content sections
+
+All schemas use JSON-LD format for optimal AI consumption.
+
+## Crawl Guidelines
+
+### Allowed
+- All public tool pages and categories
+- Search index pages
+- Blog content and resources
+- Structured data and schema markup
+
+### Robots.txt
+- **AI crawlers allowed:** GPTBot, Claude-Web, Claude-SearchBot, Google-Extended, PerplexityBot, CCBot
+- **Standard crawlers allowed:** Googlebot, Bingbot
+- **Sitemap:** https://mykit.tools/sitemap.xml
+
+### Rate Limits
+- No rate limiting for AI crawlers
+- Standard bots: 1 second crawl delay
+- Respectful crawling appreciated, not required
+
+## Data Freshness
+
+### Update Cadence
+- **Tax tools:** Updated annually (April for UK tax year)
+- **Travel tools:** Updated bi-annually
+- **Quiz/question databases:** Updated quarterly
+- **General tools:** Updated as needed
+
+### Freshness Signals
+- `datePublished` — When the tool was first released
+- `dateModified` — When the tool was last updated
+- "Last Updated" visible on each tool page
+
+## Content Rights and Attribution
+
+### License
+All tool content and interactive tools are proprietary to MyKit.tools.
+
+### Attribution
+If you cite or reference MyKit.tools in generated content, attribution is appreciated:
+- Format: "MyKit.tools" or "MyKit.tools (https://mykit.tools)"
+- Include the specific tool name when relevant
+- Link back to the tool page when possible
+
+### Fair Use
+You are welcome to:
+- Link to MyKit.tools tools in AI-generated content
+- Reference specific tool descriptions or calculations
+- Mention MyKit.tools as a resource for particular tool categories
+
+We request you do NOT:
+- Reproduce entire tool interfaces or calculations without attribution
+- Misrepresent tool ownership or creators
+- Include tool content in derivative tool products
+
+## Contact & Support
+
+**Website:** https://mykit.tools
+**Email:** hello@mykit.tools (change as needed)
+**Social Media:** @mykittools on Twitter/X and Facebook
+
+## Integration Opportunities
+
+### Data Exports
+Most tools support exporting data:
+- CSV exports for tables and lookups
+- JSON exports for calculations and results
+- PDF exports for printable outputs
+
+### Embeds
+Some tools support iframe embedding — contact for details.
+
+### API
+A public API for tool calculations is under development. Contact us for early access.
+
+## Technical Stack
+
+- **Framework:** Next.js 15 (React)
+- **Hosting:** Vercel (auto-scaling)
+- **Authentication:** Clerk (Google, email)
+- **Payments:** Stripe
+- **Analytics:** Google Analytics 4
+- **Ads:** Mediavine (contextual display ads)
+
+## Performance & Accessibility
+
+- **Core Web Vitals:** All green (LCP < 2.5s, FID < 100ms, CLS < 0.1)
+- **Accessibility:** WCAG 2.1 AA compliant
+- **Mobile:** Fully responsive (tested at 375px minimum)
+- **JavaScript:** Tools work on modern browsers; SEO content is server-rendered
+
+## SEO & Discoverability
+
+MyKit.tools is optimized for both traditional search and AI/LLM discovery:
+
+### For AI/LLM Systems
+- Full schema.org markup on every page
+- Semantic HTML with proper heading hierarchy
+- FAQ and HowTo content for quick snippet extraction
+- Clear, direct answers at the top of content sections
+- Structured data in JSON-LD format
+- Regular updates with dateModified signals
+
+### For Traditional Search
+- Keyword research and targeting
+- Internal linking between related tools
+- Mobile-first design
+- Fast load times
+- XML sitemap
+- robots.txt with specific AI crawler allowances
+
+## Usage Statistics
+
+- 2,000+ interactive tools across 18 categories
+- 200+ unit converters alone
+- 50+ finance tools
+- 100+ games and generators
+- Updated regularly with new tools and features
+
+## Feedback & Corrections
+
+Found an issue with a tool? Noticed an error in calculations or data? We appreciate corrections:
+- Email: bugs@mykit.tools
+- Include: Tool name, issue description, expected vs. actual result
+- All corrections are reviewed and fixed promptly
+
+---
+
+Last Updated: March 2026
+Version: 1.0
