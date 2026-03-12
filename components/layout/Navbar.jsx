@@ -49,7 +49,7 @@ export default function Navbar() {
             </button>
 
             {/* Auth */}
-            <div className="hidden sm:block">
+            <div>
               <Show when="signed-out">
                 <SignInButton mode="modal">
                   <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors cursor-pointer">
