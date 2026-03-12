@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { SignInButton, UserButton, Show } from "@clerk/nextjs";
 import ToolSearch from "@/components/tools/ToolSearch";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
@@ -47,13 +48,26 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Sign in placeholder */}
-            <Link
-              href="/account"
-              className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors"
-            >
-              Sign in
-            </Link>
+            {/* Auth */}
+            <div className="hidden sm:block">
+              <Show when="signed-out">
+                <SignInButton mode="modal">
+                  <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors cursor-pointer">
+                    Sign in
+                  </button>
+                </SignInButton>
+              </Show>
+              <Show when="signed-in">
+                <UserButton
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-9 h-9",
+                    },
+                  }}
+                />
+              </Show>
+            </div>
 
             {/* Mobile hamburger */}
             <button

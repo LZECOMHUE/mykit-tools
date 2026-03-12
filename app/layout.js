@@ -1,5 +1,6 @@
 import "./globals.css";
 import { generateOrganizationSchema } from "@/lib/seo";
+import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
 
 export const viewport = {
@@ -91,7 +92,11 @@ export default function RootLayout({ children }) {
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <ClerkProvider>
+          {children}
+        </ClerkProvider>
+      </body>
 
       {/* Google Analytics */}
       {process.env.NEXT_PUBLIC_GA_ID && (
