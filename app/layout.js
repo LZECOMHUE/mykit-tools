@@ -1,5 +1,6 @@
 import "./globals.css";
 import { generateOrganizationSchema } from "@/lib/seo";
+import Script from "next/script";
 
 export const viewport = {
   width: "device-width",
@@ -91,6 +92,30 @@ export default function RootLayout({ children }) {
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </head>
       <body className="antialiased">{children}</body>
+
+      {/* Google Analytics */}
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('consent', 'default', {
+                analytics_storage: 'granted',
+                ad_storage: 'denied',
+              });
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                page_path: window.location.pathname,
+              });
+            `}
+          </Script>
+        </>
+      )}
     </html>
   );
 }
