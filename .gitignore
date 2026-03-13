@@ -34,6 +34,20 @@ yarn-error.log*
 .env*
 !.env.example
 
+# local utility scripts
+push.bat
+push.py
+install-and-run.bat
+
+# internal strategy / planning docs
+QUICK-SEO-REFERENCE.md
+README-SEO-UPDATES.md
+SEO-CHANGES-SUMMARY.md
+SEO-CHECKLIST.md
+SEO-IMPLEMENTATION-GUIDE.md
+CLAUDE.md
+roadmap*
+
 # vercel
 .vercel
 
