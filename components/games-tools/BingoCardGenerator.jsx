@@ -76,8 +76,16 @@ export default function BingoCardGenerator() {
       return null;
     }
 
-    const shuffled = [...words].sort(() => Math.random() - 0.5);
+    // Seed-based shuffle so each card is unique but deterministic per cardNum
+    const seeded = [...words];
+    for (let i = seeded.length - 1; i > 0; i--) {
+      const j = Math.floor(((Math.sin(cardNum * 1000 + i) + 1) / 2) * (i + 1));
+      [seeded[i], seeded[j]] = [seeded[j], seeded[i]];
+    }
+    const shuffled = seeded.slice(0, squaresNeeded);
+
     const card = [];
+    let cellIdx = 0;
 
     for (let row = 0; row < gridSizeInt; row++) {
       const cardRow = [];
@@ -85,8 +93,8 @@ export default function BingoCardGenerator() {
         if (freeSpace && row === Math.floor(gridSizeInt / 2) && col === Math.floor(gridSizeInt / 2)) {
           cardRow.push("FREE");
         } else {
-          const idx = card.length;
-          cardRow.push(shuffled[idx % shuffled.length]);
+          cardRow.push(shuffled[cellIdx]);
+          cellIdx++;
         }
       }
       card.push(cardRow);
