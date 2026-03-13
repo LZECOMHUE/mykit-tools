@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { SignInButton, UserButton, Show } from "@clerk/nextjs";
 import ToolSearch from "@/components/tools/ToolSearch";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
+
+// Only use Clerk when keys are configured
+const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+let SignInButton, UserButton, Show;
+if (clerkReady) {
+  const clerk = require("@clerk/nextjs");
+  SignInButton = clerk.SignInButton;
+  UserButton = clerk.UserButton;
+  Show = clerk.Show;
+}
 
 export default function Navbar() {
   const [megaOpen, setMegaOpen] = useState(false);
@@ -48,26 +57,28 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Auth */}
-            <div>
-              <Show when="signed-out">
-                <SignInButton mode="modal">
-                  <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors cursor-pointer">
-                    Sign in
-                  </button>
-                </SignInButton>
-              </Show>
-              <Show when="signed-in">
-                <UserButton
-                  afterSignOutUrl="/"
-                  appearance={{
-                    elements: {
-                      avatarBox: "w-9 h-9",
-                    },
-                  }}
-                />
-              </Show>
-            </div>
+            {/* Auth — only renders when Clerk is configured */}
+            {Show && (
+              <div>
+                <Show when="signed-out">
+                  <SignInButton mode="modal">
+                    <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors cursor-pointer">
+                      Sign in
+                    </button>
+                  </SignInButton>
+                </Show>
+                <Show when="signed-in">
+                  <UserButton
+                    afterSignOutUrl="/"
+                    appearance={{
+                      elements: {
+                        avatarBox: "w-9 h-9",
+                      },
+                    }}
+                  />
+                </Show>
+              </div>
+            )}
 
             {/* Mobile hamburger */}
             <button

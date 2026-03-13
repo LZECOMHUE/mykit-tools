@@ -1,20 +1,33 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
-import { SignInButton, UserButton, Show } from "@clerk/nextjs";
 import { categories } from "@/lib/categories";
+
+// Only use Clerk when keys are configured
+const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+let SignInButton, UserButton, Show;
+if (clerkReady) {
+  const clerk = require("@clerk/nextjs");
+  SignInButton = clerk.SignInButton;
+  UserButton = clerk.UserButton;
+  Show = clerk.Show;
+}
 import ToolSearch from "@/components/tools/ToolSearch";
 
 export default function MobileNav({ onClose }) {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
   }, []);
 
-  return (
+  const content = (
     <div className="fixed inset-0 z-[100] bg-white" style={{ backgroundColor: '#ffffff' }}>
       <div className="flex items-center justify-between px-4 h-16 border-b border-border">
         <span className="text-xl font-bold font-heading text-text-primary">
@@ -52,25 +65,30 @@ export default function MobileNav({ onClose }) {
           ))}
         </div>
 
-        <div className="mt-6 pt-6 border-t border-border">
-          <Show when="signed-out">
-            <SignInButton mode="modal">
-              <button
-                onClick={onClose}
-                className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-accent rounded-[var(--radius-input)] cursor-pointer"
-              >
-                Sign in
-              </button>
-            </SignInButton>
-          </Show>
-          <Show when="signed-in">
-            <div className="flex items-center gap-3 px-3">
-              <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
-              <span className="text-sm text-text-secondary">My Account</span>
-            </div>
-          </Show>
-        </div>
+        {Show && (
+          <div className="mt-6 pt-6 border-t border-border">
+            <Show when="signed-out">
+              <SignInButton mode="modal">
+                <button
+                  onClick={onClose}
+                  className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-accent rounded-[var(--radius-input)] cursor-pointer"
+                >
+                  Sign in
+                </button>
+              </SignInButton>
+            </Show>
+            <Show when="signed-in">
+              <div className="flex items-center gap-3 px-3">
+                <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
+                <span className="text-sm text-text-secondary">My Account</span>
+              </div>
+            </Show>
+          </div>
+        )}
       </div>
     </div>
   );
+
+  if (!mounted) return null;
+  return createPortal(content, document.body);
 }

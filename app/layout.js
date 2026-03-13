@@ -1,7 +1,13 @@
 import "./globals.css";
 import { generateOrganizationSchema } from "@/lib/seo";
-import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
+
+// Only import ClerkProvider when Clerk keys are configured
+const hasClerk = !!(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
+let ClerkProvider;
+if (hasClerk) {
+  ClerkProvider = require("@clerk/nextjs").ClerkProvider;
+}
 
 export const viewport = {
   width: "device-width",
@@ -93,9 +99,11 @@ export default function RootLayout({ children }) {
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </head>
       <body className="antialiased">
-        <ClerkProvider>
-          {children}
-        </ClerkProvider>
+        {hasClerk && ClerkProvider ? (
+          <ClerkProvider>{children}</ClerkProvider>
+        ) : (
+          children
+        )}
       </body>
 
       {/* Google Analytics */}

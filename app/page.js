@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ToolCard from "@/components/tools/ToolCard";
 import ToolCounter from "@/components/layout/ToolCounter";
+import SurpriseButton from "@/components/layout/SurpriseButton";
 import { tools, getCategoryCounts } from "@/lib/tool-registry";
 import { categories } from "@/lib/categories";
 
@@ -44,6 +45,7 @@ export default function HomePage() {
               >
                 Browse Categories
               </Link>
+              <SurpriseButton />
             </div>
           </div>
         </section>
