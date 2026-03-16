@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useMyKit } from '@/lib/mykit-context';
-import { useAuth } from '@/lib/mock-auth';
+import { useIsSignedIn } from '@/lib/use-auth';
 import { getToolBySlug } from '@/lib/tool-registry';
 import { categories } from '@/lib/categories';
 import Button from '@/components/ui/Button';
@@ -363,6 +363,39 @@ function SavedProjectsSection({ savedProjects, onDelete }) {
   );
 }
 
+// Sign-in prompt that works with both Clerk and mock auth
+const clerkReady = typeof window !== 'undefined' && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+let SignInButton;
+if (clerkReady) {
+  try { SignInButton = require('@clerk/nextjs').SignInButton; } catch {}
+}
+
+function SignInPrompt({ signIn }) {
+  return (
+    <div className="bg-surface border border-border rounded-[12px] p-12 text-center">
+      <p className="text-4xl mb-4">{'\uD83D\uDEE0\uFE0F'}</p>
+      <h2 className="font-heading text-xl font-bold text-text-primary mb-2">Sign in to access MyKit</h2>
+      <p className="text-sm text-text-secondary mb-6">
+        Save your favourite tools, track purchases, and pick up where you left off.
+      </p>
+      {SignInButton ? (
+        <SignInButton mode="modal">
+          <button className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[8px] transition-colors cursor-pointer">
+            Sign in to get started
+          </button>
+        </SignInButton>
+      ) : (
+        <button
+          onClick={signIn}
+          className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[8px] transition-colors cursor-pointer"
+        >
+          Sign in to get started
+        </button>
+      )}
+    </div>
+  );
+}
+
 function AddToolSearch({ onAdd }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -412,28 +445,14 @@ function AddToolSearch({ onAdd }) {
 }
 
 export default function MyKitDashboard() {
-  const auth = useAuth();
+  const auth = useIsSignedIn();
   const mykit = useMyKit();
   const [newFolderName, setNewFolderName] = useState('');
   const [showNewFolder, setShowNewFolder] = useState(false);
   const [activeTab, setActiveTab] = useState('tools');
 
   if (!auth.isSignedIn) {
-    return (
-      <div className="bg-surface border border-border rounded-[12px] p-12 text-center">
-        <p className="text-4xl mb-4">{'\uD83D\uDEE0\uFE0F'}</p>
-        <h2 className="font-heading text-xl font-bold text-text-primary mb-2">Sign in to access MyKit</h2>
-        <p className="text-sm text-text-secondary mb-6">
-          Save your favourite tools, track purchases, and pick up where you left off.
-        </p>
-        <button
-          onClick={auth.signIn}
-          className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[8px] transition-colors cursor-pointer"
-        >
-          Sign in to get started
-        </button>
-      </div>
-    );
+    return <SignInPrompt signIn={auth.signIn} />;
   }
 
   if (!mykit.loaded) {

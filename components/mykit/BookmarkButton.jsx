@@ -1,10 +1,10 @@
 'use client';
 
 import { useMyKit } from '@/lib/mykit-context';
-import { useAuth } from '@/lib/mock-auth';
+import { useIsSignedIn } from '@/lib/use-auth';
 
 export default function BookmarkButton({ slug }) {
-  const auth = useAuth();
+  const auth = useIsSignedIn();
   const mykit = useMyKit();
 
   if (!auth.isSignedIn || !mykit.loaded) return null;
