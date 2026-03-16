@@ -56,8 +56,12 @@ export default function Footer() {
               <Link href="/blog" className="text-sm text-text-secondary hover:text-accent transition-colors">
                 Blog
               </Link>
-              <span className="text-sm text-text-muted">Privacy Policy</span>
-              <span className="text-sm text-text-muted">Terms of Service</span>
+              <Link href="/privacy" className="text-sm text-text-secondary hover:text-accent transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-text-secondary hover:text-accent transition-colors">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>
