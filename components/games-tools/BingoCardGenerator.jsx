@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
@@ -45,6 +45,94 @@ export default function BingoCardGenerator() {
   const [freeSpace, setFreeSpace] = useState(true);
   const [customWords, setCustomWords] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!cards || cards.length === 0 || !cards[0]) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const grid = GRID_SIZES.find((g) => g.value === gridSize)?.size || 5;
+    const cellSize = 120;
+    const cardsPerPage = 2;
+    const height = 80 + (Math.ceil(cards.length / cardsPerPage) * (cellSize * grid + 100)) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 24px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Bingo Cards', 40, y);
+
+    y += 50;
+
+    cards.forEach((card, cardIdx) => {
+      if (!card) return;
+
+      let cardX = 60;
+      if (cardIdx % cardsPerPage === 1) {
+        cardX = 450;
+      } else if (cardIdx % cardsPerPage === 0 && cardIdx > 0) {
+        y += cellSize * grid + 80;
+        cardX = 60;
+      }
+
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('BINGO', cardX, y);
+
+      ctx.fillStyle = '#a3a3a3';
+      ctx.font = '10px sans-serif';
+      ctx.fillText('Card ' + (cardIdx + 1), cardX, y + 15);
+
+      let cellY = y + 30;
+
+      card.forEach((row, rowIdx) => {
+        let cellX = cardX;
+        row.forEach((cell, colIdx) => {
+          ctx.strokeStyle = '#d4d4d4';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(cellX, cellY, cellSize / grid + 2, cellSize / grid + 2);
+
+          if (cell === 'FREE') {
+            ctx.fillStyle = '#2563eb';
+            ctx.fillRect(cellX, cellY, cellSize / grid + 2, cellSize / grid + 2);
+            ctx.fillStyle = '#ffffff';
+          } else {
+            ctx.fillStyle = '#1a1a1a';
+          }
+
+          ctx.font = 'bold 11px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(cell, cellX + cellSize / grid / 2 + 1, cellY + cellSize / grid / 2 + 4);
+
+          cellX += cellSize / grid + 2;
+        });
+
+        cellY += cellSize / grid + 2;
+      });
+    });
+
+    let watermarkY = height - 20;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, watermarkY);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'bingo-cards.jpg';
+    link.click();
+  };
 
   const gridSizeInt = GRID_SIZES.find((g) => g.value === gridSize)?.size || 5;
   const numCardsInt = Math.max(1, Math.min(30, parseInt(numCards) || 6));
@@ -258,11 +346,11 @@ export default function BingoCardGenerator() {
               </div>
 
               <Button
-                onClick={() => window.print()}
+                onClick={downloadAsJPG}
                 variant="secondary"
                 className="w-full"
               >
-                🖨️ Print Bingo Cards
+                Download JPG
               </Button>
             </div>
           </Card>

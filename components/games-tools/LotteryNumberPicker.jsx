@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 
@@ -145,6 +145,93 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
     }, (newMain.length + newBonus.length) * 200);
   };
 
+  const downloadAsJPG = () => {
+    if (mainNumbers.length === 0) return;
+    const canvas = document.createElement("canvas");
+    const w = 600;
+    const h = 320;
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+
+    // background
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, w, h);
+
+    // header bar
+    ctx.fillStyle = config.mainColor === "#ffffff" ? "#2563eb" : config.mainColor;
+    ctx.fillRect(0, 0, w, 60);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 24px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(`${config.name} - Lucky Numbers`, w / 2, 40);
+
+    // draw main number balls
+    const totalBalls = mainNumbers.length + bonusNumbers.length;
+    const ballR = 28;
+    const gap = 20;
+    const totalWidth = totalBalls * (ballR * 2 + gap) - gap;
+    let startX = (w - totalWidth) / 2 + ballR;
+    const ballY = 140;
+
+    mainNumbers.forEach((num) => {
+      ctx.beginPath();
+      ctx.arc(startX, ballY, ballR, 0, Math.PI * 2);
+      if (config.mainBorder) {
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.strokeStyle = config.mainColor === "#ffffff" ? "#2563eb" : config.mainColor;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.fillStyle = config.mainColor === "#ffffff" ? "#2563eb" : config.mainColor;
+      } else {
+        ctx.fillStyle = config.mainColor;
+        ctx.fill();
+        ctx.fillStyle = "#ffffff";
+      }
+      ctx.font = "bold 20px monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(num), startX, ballY);
+      startX += ballR * 2 + gap;
+    });
+
+    // bonus balls
+    bonusNumbers.forEach((num) => {
+      ctx.beginPath();
+      ctx.arc(startX, ballY, ballR, 0, Math.PI * 2);
+      ctx.fillStyle = config.bonusColor;
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 20px monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(num), startX, ballY);
+      startX += ballR * 2 + gap;
+    });
+
+    // labels
+    ctx.fillStyle = "#525252";
+    ctx.font = "12px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("Main Numbers", w / 2 - 50, ballY + 50);
+    ctx.fillText(config.bonusName, w / 2 + 120, ballY + 50);
+
+    // footer
+    ctx.fillStyle = "#a3a3a3";
+    ctx.font = "11px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(`Draws: ${config.draws}  |  Jackpot odds: ${config.jackpotOdds}`, w / 2, h - 40);
+    ctx.fillText("mykit.tools", w / 2, h - 20);
+
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/jpeg", 0.95);
+    link.download = `${config.name.toLowerCase().replace(/\s+/g, "-")}-numbers.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const quickPick5Lines = () => {
     const lines = [];
     for (let i = 0; i < 5; i++) {
@@ -283,14 +370,14 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2">
           <Button
             onClick={pickNumbers}
             disabled={isAnimating}
             size="lg"
             className="w-full"
           >
-            {isAnimating ? "Picking..." : "🎰 Pick My Numbers"}
+            {isAnimating ? "Picking..." : "Pick My Numbers"}
           </Button>
           <Button
             onClick={quickPick5Lines}
@@ -300,6 +387,15 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
             className="w-full"
           >
             Quick Pick 5 Lines
+          </Button>
+          <Button
+            onClick={downloadAsJPG}
+            disabled={isAnimating || mainNumbers.length === 0}
+            variant="secondary"
+            size="lg"
+            className="w-full"
+          >
+            Download JPG
           </Button>
         </div>
       </Card>

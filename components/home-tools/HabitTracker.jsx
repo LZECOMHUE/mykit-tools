@@ -5,6 +5,7 @@ import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
+import { downloadAsJPG, drawSectionHeading } from '@/lib/download-utils';
 
 const daysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
@@ -64,6 +65,30 @@ export default function HabitTracker() {
   const colors = theme === 'colourful'
     ? ['bg-blue-100', 'bg-green-100', 'bg-purple-100', 'bg-pink-100', 'bg-yellow-100', 'bg-red-100', 'bg-teal-100', 'bg-indigo-100', 'bg-orange-100', 'bg-cyan-100']
     : ['bg-surface'];
+
+  const handleDownloadJPG = () => {
+    downloadAsJPG({
+      filename: 'habit-tracker.jpg',
+      width: 900,
+      height: 1200,
+      title: 'Habit Tracker',
+      subtitle: monthName,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+
+        habits.forEach((habit, habitIdx) => {
+          const completion = getHabitCompletion(habitIdx);
+          ctx.fillText(`${habit} - ${completion}% complete`, area.x, y);
+          y += 20;
+        });
+      },
+    });
+  };
 
   return (
     <div className="space-y-6">
@@ -176,6 +201,9 @@ export default function HabitTracker() {
               );
             })}
           </div>
+          <Button onClick={handleDownloadJPG} variant="secondary" className="w-full mt-4">
+            Download JPG
+          </Button>
         </div>
       )}
     </div>

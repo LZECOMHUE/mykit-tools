@@ -155,7 +155,7 @@ export default function ScreenTimeCalculator() {
           </div>
 
           <div className="bg-accent-muted border border-accent rounded-[var(--radius-card)] p-4">
-            <p className="text-text-secondary text-xs mb-1">Recommended Screen</p>
+            <p className="text-accent text-xs mb-1">Recommended Screen</p>
             <p className="font-mono-num text-2xl font-bold text-accent">{hoursCalculation.recommendedScreen}h</p>
           </div>
         </div>

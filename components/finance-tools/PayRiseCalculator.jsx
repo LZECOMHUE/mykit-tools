@@ -181,7 +181,7 @@ export default function PayRiseCalculator() {
             <span className="text-text-primary font-semibold">{fmt(results.newSalary)}</span>
           </div>
 
-          <div className="flex justify-between py-2 border-b border-border bg-white bg-opacity-50 px-3 rounded-[var(--radius-input)]">
+          <div className="flex justify-between py-2 border-b border-border bg-white opacity-50 px-3 rounded-[var(--radius-input)]">
             <span className={`font-semibold ${results.increaseAmount >= 0 ? 'text-accent' : 'text-error'}`}>
               Annual Increase:
             </span>
@@ -217,8 +217,8 @@ export default function PayRiseCalculator() {
       {results.realTermsComparison && (
         <div className={`rounded-[var(--radius-card)] p-6 border ${
           results.realTermsComparison.isGain
-            ? 'bg-accent bg-opacity-5 border-accent'
-            : 'bg-error bg-opacity-5 border-error'
+            ? 'bg-blue-50 border-accent'
+            : 'bg-red-50 border-error'
         }`}>
           <h3 className="text-text-primary font-semibold mb-4">Real Terms Comparison</h3>
 
@@ -238,7 +238,7 @@ export default function PayRiseCalculator() {
             </div>
 
             <div className={`flex justify-between py-2 px-3 rounded-[var(--radius-input)] ${
-              results.realTermsComparison.isGain ? 'bg-accent bg-opacity-10' : 'bg-error bg-opacity-10'
+              results.realTermsComparison.isGain ? 'bg-blue-100' : 'bg-red-100'
             }`}>
               <span className={`font-semibold ${results.realTermsComparison.isGain ? 'text-accent' : 'text-error'}`}>
                 Real increase:

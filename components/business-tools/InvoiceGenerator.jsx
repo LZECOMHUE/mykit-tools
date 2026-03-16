@@ -3,6 +3,7 @@
 import { useState, useRef, useMemo } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import { downloadAsJPG, drawTable } from '@/lib/download-utils';
 import { generateInvoicePDF } from '@/lib/worksheet-pdf';
 
 const CURRENCIES = [
@@ -137,6 +138,102 @@ export default function InvoiceGenerator() {
       discountType,
       discountValue,
       notes,
+    });
+  };
+
+  const downloadAsJPGFile = () => {
+    downloadAsJPG({
+      filename: `invoice-${invoiceNumber.replace(/\//g, '-')}.jpg`,
+      width: 800,
+      height: 1100,
+      title: 'INVOICE',
+      subtitle: invoiceNumber,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('FROM', area.x, y);
+        ctx.font = '11px sans-serif';
+        ctx.fillText(businessName, area.x, y + 16);
+        ctx.fillText(businessAddress, area.x, y + 30);
+        ctx.fillStyle = '#525252';
+        ctx.font = '10px sans-serif';
+        ctx.fillText(businessEmail, area.x, y + 44);
+        ctx.fillText(businessPhone, area.x, y + 56);
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText('Invoice Date', area.x + area.width, y);
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(formatDate(invoiceDate), area.x + area.width, y + 16);
+        ctx.fillText('Due Date', area.x + area.width, y + 32);
+        ctx.fillText(formatDate(calculations.dueDate), area.x + area.width, y + 48);
+
+        y += 80;
+        ctx.strokeStyle = '#e5e5e5';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(area.x, y);
+        ctx.lineTo(area.x + area.width, y);
+        ctx.stroke();
+
+        y += 12;
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('BILL TO', area.x, y);
+        ctx.font = '11px sans-serif';
+        ctx.fillText(clientName, area.x, y + 16);
+        ctx.fillText(clientAddress, area.x, y + 30);
+        ctx.fillStyle = '#525252';
+        ctx.font = '10px sans-serif';
+        ctx.fillText(clientEmail, area.x, y + 44);
+
+        y += 80;
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'left';
+
+        const tableRows = lineItems.map((item) => [
+          item.description,
+          item.quantity.toString(),
+          formatCurrency(item.unitPrice),
+          formatCurrency((item.quantity * item.unitPrice).toString()),
+        ]);
+
+        y = drawTable(ctx, {
+          x: area.x,
+          y: y,
+          width: area.width,
+          headers: ['Description', 'Qty', 'Rate', 'Amount'],
+          rows: tableRows,
+          colWidths: [2, 0.8, 1, 1],
+          accentColor: '#2563eb',
+        });
+
+        y += 8;
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#525252';
+        ctx.fillText(`Subtotal: ${formatCurrency(calculations.subtotal)}`, area.x + area.width, y);
+        y += 14;
+
+        if (parseFloat(discountValue) > 0) {
+          ctx.fillText(`Discount: ${formatCurrency(calculations.discount)}`, area.x + area.width, y);
+          y += 14;
+        }
+
+        ctx.fillText(`Tax (${taxRate}%): ${formatCurrency(calculations.taxAmount)}`, area.x + area.width, y);
+        y += 16;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(`TOTAL: ${formatCurrency(calculations.total)}`, area.x + area.width, y);
+      },
     });
   };
 
@@ -535,7 +632,7 @@ export default function InvoiceGenerator() {
                 </div>
               </div>
 
-              <div className="border-t border-border pt-4 bg-accent bg-opacity-10 rounded-lg p-4">
+              <div className="border-t border-border pt-4 bg-blue-100 rounded-lg p-4">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold text-text-primary">
                     Total Due
@@ -728,7 +825,7 @@ export default function InvoiceGenerator() {
               </div>
 
               {/* Download Button */}
-              <div className="border-t border-border p-4">
+              <div className="border-t border-border p-4 space-y-2">
                 <Button
                   onClick={downloadAsPDF}
                   variant="primary"
@@ -736,6 +833,14 @@ export default function InvoiceGenerator() {
                   className="w-full"
                 >
                   Download PDF
+                </Button>
+                <Button
+                  onClick={downloadAsJPGFile}
+                  variant="secondary"
+                  size="md"
+                  className="w-full"
+                >
+                  Download JPG
                 </Button>
               </div>
             </Card>

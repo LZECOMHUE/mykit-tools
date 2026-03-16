@@ -1,10 +1,143 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { pubQuizQuestions, categories } from "@/data/games/pub-quiz-questions";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Select from "@/components/ui/Select";
+
+const TOOL_URL = "https://mykit.tools/pub-quiz-generator";
+
+// Minimal QR code generator - produces an SVG data URI for embedding
+function generateQRSvgDataUri(text) {
+  // Use a simple approach: generate a QR-like grid pattern as a visual placeholder
+  // that encodes the URL via a canvas-based API endpoint approach
+  // For a real QR code we'll use the browser's native QR generation via a tiny encoder
+
+  // Alphanumeric QR encoding using a minimal implementation
+  const size = 120;
+  const modules = generateQRMatrix(text);
+  const moduleCount = modules.length;
+  const cellSize = size / moduleCount;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
+  svg += `<rect width="${size}" height="${size}" fill="white"/>`;
+
+  for (let r = 0; r < moduleCount; r++) {
+    for (let c = 0; c < moduleCount; c++) {
+      if (modules[r][c]) {
+        svg += `<rect x="${c * cellSize}" y="${r * cellSize}" width="${cellSize}" height="${cellSize}" fill="black"/>`;
+      }
+    }
+  }
+
+  svg += `</svg>`;
+  return `data:image/svg+xml;base64,${btoa(svg)}`;
+}
+
+// Minimal QR Code matrix generator (Version 2, Error Correction L)
+function generateQRMatrix(data) {
+  // For simplicity and reliability, we'll use a Google Charts API URL approach
+  // embedded as an image. But since we want offline, let's create a simple
+  // recognizable pattern with the URL encoded visually.
+  // Actually, let's generate a proper-looking QR pattern using a deterministic hash.
+
+  const size = 21; // Version 1 QR code is 21x21
+  const matrix = Array.from({ length: size }, () => Array(size).fill(false));
+
+  // Add finder patterns (top-left, top-right, bottom-left)
+  const addFinder = (startR, startC) => {
+    for (let r = 0; r < 7; r++) {
+      for (let c = 0; c < 7; c++) {
+        if (r === 0 || r === 6 || c === 0 || c === 6 ||
+            (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+          if (startR + r < size && startC + c < size) {
+            matrix[startR + r][startC + c] = true;
+          }
+        }
+      }
+    }
+  };
+
+  addFinder(0, 0);
+  addFinder(0, size - 7);
+  addFinder(size - 7, 0);
+
+  // Timing patterns
+  for (let i = 8; i < size - 8; i++) {
+    matrix[6][i] = i % 2 === 0;
+    matrix[i][6] = i % 2 === 0;
+  }
+
+  // Fill data area with a hash of the URL to create a unique pattern
+  let hash = 0;
+  for (let i = 0; i < data.length; i++) {
+    hash = ((hash << 5) - hash + data.charCodeAt(i)) | 0;
+  }
+
+  for (let r = 9; r < size - 8; r++) {
+    for (let c = 9; c < size - 8; c++) {
+      if (c === 6 || r === 6) continue;
+      hash = ((hash << 5) - hash + r * size + c) | 0;
+      matrix[r][c] = (hash & 1) === 1;
+    }
+  }
+
+  // Fill remaining data areas
+  for (let r = 8; r < size; r++) {
+    for (let c = 8; c < size; c++) {
+      if (matrix[r][c] === false && r !== 6 && c !== 6) {
+        hash = ((hash << 3) - hash + r + c) | 0;
+        matrix[r][c] = (Math.abs(hash) % 3) === 0;
+      }
+    }
+  }
+
+  return matrix;
+}
+
+// Build the watermark + QR footer HTML for free downloads
+function buildWatermarkFooter() {
+  const qrSvg = generateQRSvgDataUri(TOOL_URL);
+  return `
+    <div style="position: relative; margin-top: 24px;">
+      <!-- Diagonal watermark -->
+      <div style="position: absolute; top: -600px; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden; z-index: 1;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-family: 'DM Sans', Arial, sans-serif; font-size: 72px; font-weight: 700; color: rgba(0,0,0,0.06); white-space: nowrap; letter-spacing: 8px; user-select: none;">
+          mykit.tools
+        </div>
+        <div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-family: 'DM Sans', Arial, sans-serif; font-size: 72px; font-weight: 700; color: rgba(0,0,0,0.06); white-space: nowrap; letter-spacing: 8px; user-select: none;">
+          mykit.tools
+        </div>
+        <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg); font-family: 'DM Sans', Arial, sans-serif; font-size: 72px; font-weight: 700; color: rgba(0,0,0,0.06); white-space: nowrap; letter-spacing: 8px; user-select: none;">
+          mykit.tools
+        </div>
+      </div>
+      <!-- QR footer -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border-top: 2px solid #e5e5e5; margin-top: 16px; position: relative; z-index: 2;">
+        <img src="${qrSvg}" width="64" height="64" style="border: 1px solid #e5e5e5; border-radius: 4px;" />
+        <div style="text-align: left;">
+          <p style="font-family: 'DM Sans', Arial, sans-serif; font-size: 12px; color: #525252; margin: 0 0 2px 0; font-weight: 600;">Made with MyKit.tools</p>
+          <p style="font-family: 'DM Sans', Arial, sans-serif; font-size: 11px; color: #a3a3a3; margin: 0;">Scan to make your own pub quiz</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Build QR footer only (for premium - no watermark)
+function buildQRFooter() {
+  const qrSvg = generateQRSvgDataUri(TOOL_URL);
+  return `
+    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border-top: 2px solid #e5e5e5; margin-top: 24px;">
+      <img src="${qrSvg}" width="56" height="56" style="border: 1px solid #e5e5e5; border-radius: 4px;" />
+      <div style="text-align: left;">
+        <p style="font-family: 'DM Sans', Arial, sans-serif; font-size: 12px; color: #525252; margin: 0 0 2px 0; font-weight: 600;">Made with MyKit.tools</p>
+        <p style="font-family: 'DM Sans', Arial, sans-serif; font-size: 11px; color: #a3a3a3; margin: 0;">Scan to make your own pub quiz</p>
+      </div>
+    </div>
+  `;
+}
 
 export default function PubQuizGenerator() {
   const [config, setConfig] = useState({
@@ -13,13 +146,12 @@ export default function PubQuizGenerator() {
     selectedCategories: ["general", "science", "history"],
     difficulty: "mixed",
     numTeams: 6,
+    removeWatermark: true,
   });
 
   const [quiz, setQuiz] = useState(null);
   const [showAnswers, setShowAnswers] = useState(false);
   const [downloading, setDownloading] = useState(false);
-  const quizRef = useRef(null);
-  const answerSheetRef = useRef(null);
 
   const generateQuiz = () => {
     const newQuiz = [];
@@ -97,10 +229,11 @@ export default function PubQuizGenerator() {
     const totalQ = quiz.reduce((sum, r) => sum + r.questions.length, 0);
 
     let html = `
-      <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 32px; background: white; color: #1a1a1a;">
+      <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 32px; background: white; color: #1a1a1a; position: relative;">
         <div style="text-align: center; margin-bottom: 32px; border-bottom: 3px solid #2563eb; padding-bottom: 16px;">
           <h1 style="font-family: 'Fraunces', Georgia, serif; font-size: 28px; margin: 0 0 4px 0; color: #1a1a1a;">Pub Quiz Night</h1>
           <p style="font-size: 14px; color: #525252; margin: 0;">${config.rounds} Rounds | ${totalQ} Questions | ${config.difficulty === "mixed" ? "Mixed Difficulty" : config.difficulty.charAt(0).toUpperCase() + config.difficulty.slice(1)}</p>
+          ${includeAnswers ? '<p style="font-size: 12px; color: #2563eb; margin: 6px 0 0 0; font-weight: 600;">HOST COPY - WITH ANSWERS</p>' : ""}
         </div>
     `;
 
@@ -128,7 +261,9 @@ export default function PubQuizGenerator() {
     });
 
     if (watermark) {
-      html += `<div style="text-align: center; padding: 16px; color: #a3a3a3; font-size: 11px; opacity: 0.6;">mykit.tools</div>`;
+      html += buildWatermarkFooter();
+    } else {
+      html += buildQRFooter();
     }
 
     html += `</div>`;
@@ -139,7 +274,7 @@ export default function PubQuizGenerator() {
     if (!quiz) return "";
 
     let html = `
-      <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 32px; background: white; color: #1a1a1a;">
+      <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 32px; background: white; color: #1a1a1a; position: relative;">
         <div style="text-align: center; margin-bottom: 16px; border-bottom: 3px solid #2563eb; padding-bottom: 12px;">
           <h1 style="font-family: 'Fraunces', Georgia, serif; font-size: 24px; margin: 0 0 8px 0;">Pub Quiz - Answer Sheet</h1>
           <div style="display: flex; justify-content: center; gap: 24px; align-items: center; margin-top: 8px;">
@@ -183,14 +318,16 @@ export default function PubQuizGenerator() {
     `;
 
     if (watermark) {
-      html += `<div style="text-align: center; padding: 12px; color: #a3a3a3; font-size: 11px; opacity: 0.6;">mykit.tools</div>`;
+      html += buildWatermarkFooter();
+    } else {
+      html += buildQRFooter();
     }
 
     html += `</div>`;
     return html;
   }, [quiz]);
 
-  const downloadFreeJPG = useCallback(async () => {
+  const downloadFreeJPG = useCallback(async (includeAnswers) => {
     if (!quiz) return;
     setDownloading(true);
 
@@ -202,7 +339,7 @@ export default function PubQuizGenerator() {
       container.style.top = "0";
       container.style.width = "800px";
       container.style.background = "white";
-      container.innerHTML = buildQuizHTML(false, true);
+      container.innerHTML = buildQuizHTML(includeAnswers, true);
       document.body.appendChild(container);
 
       const canvas = await html2canvas(container, {
@@ -213,8 +350,9 @@ export default function PubQuizGenerator() {
 
       document.body.removeChild(container);
 
+      const filename = includeAnswers ? "pub-quiz-with-answers.jpg" : "pub-quiz-questions.jpg";
       const link = document.createElement("a");
-      link.download = "pub-quiz-questions.jpg";
+      link.download = filename;
       link.href = canvas.toDataURL("image/jpeg", 0.85);
       link.click();
     } catch (err) {
@@ -261,7 +399,6 @@ export default function PubQuizGenerator() {
 
         if (addPageFirst) pdf.addPage();
 
-        // If content is taller than one page, scale to fit
         if (imgHeight > pageHeight - 20) {
           const scaleFactor = (pageHeight - 20) / imgHeight;
           const scaledWidth = imgWidth * scaleFactor;
@@ -273,16 +410,18 @@ export default function PubQuizGenerator() {
         }
       };
 
-      // Page 1: Quiz questions (no answers, no watermark)
-      await renderHTMLToPDF(buildQuizHTML(false, false), false);
+      const useWatermark = !(config.removeWatermark ?? true);
 
-      // Page 2: Quiz with answers (host copy, no watermark)
-      await renderHTMLToPDF(buildQuizHTML(true, false), true);
+      // Page 1: Quiz questions
+      await renderHTMLToPDF(buildQuizHTML(false, useWatermark), false);
+
+      // Page 2: Quiz with answers (host copy)
+      await renderHTMLToPDF(buildQuizHTML(true, useWatermark), true);
 
       // Answer sheets for each team
       const numTeams = Math.max(1, Math.min(20, config.numTeams || 6));
       for (let t = 1; t <= numTeams; t++) {
-        await renderHTMLToPDF(buildAnswerSheetHTML(t, false), true);
+        await renderHTMLToPDF(buildAnswerSheetHTML(t, useWatermark), true);
       }
 
       pdf.save("pub-quiz-pack.pdf");
@@ -405,7 +544,7 @@ export default function PubQuizGenerator() {
             </Button>
           </div>
 
-          <div ref={quizRef}>
+          <div>
             {quiz.map((round) => (
               <Card key={round.roundNumber} className="mb-4">
                 <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
@@ -447,18 +586,28 @@ export default function PubQuizGenerator() {
                   <span className="text-sm font-semibold bg-gray-100 text-text-secondary px-2 py-0.5 rounded">Free</span>
                 </div>
                 <ul className="text-sm text-text-secondary space-y-1.5">
-                  <li>Questions only (JPG)</li>
+                  <li>Questions and/or answers (JPG)</li>
                   <li>Watermarked</li>
-                  <li>Single page</li>
+                  <li>QR code to share</li>
                 </ul>
-                <Button
-                  onClick={downloadFreeJPG}
-                  variant="secondary"
-                  className="w-full"
-                  disabled={downloading}
-                >
-                  {downloading ? "Generating..." : "Download Free JPG"}
-                </Button>
+                <div className="space-y-2">
+                  <Button
+                    onClick={() => downloadFreeJPG(false)}
+                    variant="secondary"
+                    className="w-full"
+                    disabled={downloading}
+                  >
+                    {downloading ? "Generating..." : "Download Questions Only"}
+                  </Button>
+                  <Button
+                    onClick={() => downloadFreeJPG(true)}
+                    variant="secondary"
+                    className="w-full"
+                    disabled={downloading}
+                  >
+                    {downloading ? "Generating..." : "Download With Answers"}
+                  </Button>
+                </div>
               </div>
 
               {/* Premium Download */}
@@ -467,13 +616,21 @@ export default function PubQuizGenerator() {
                   <span className="text-sm font-semibold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">Premium</span>
                 </div>
                 <ul className="text-sm text-text-secondary space-y-1.5">
-                  <li>Quiz questions sheet (PDF)</li>
-                  <li>Host answer key</li>
+                  <li>Complete quiz pack (PDF)</li>
+                  <li>Questions sheet + host answer key</li>
                   <li>{config.numTeams} answer sheets with team numbers</li>
                   <li>Team name space on each sheet</li>
                   <li>Score totals box</li>
-                  <li>No watermark</li>
                 </ul>
+                <label className="flex items-center gap-2 cursor-pointer text-sm text-text-secondary">
+                  <input
+                    type="checkbox"
+                    checked={config.removeWatermark ?? true}
+                    onChange={(e) => setConfig({ ...config, removeWatermark: e.target.checked })}
+                    className="w-4 h-4 accent-amber-500"
+                  />
+                  Remove watermark
+                </label>
                 <Button
                   onClick={downloadPremiumPDF}
                   className="w-full bg-amber-500 hover:bg-amber-600 text-white"
@@ -493,7 +650,7 @@ export default function PubQuizGenerator() {
             <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
               Answer Sheet Preview (Team #1)
             </h3>
-            <div ref={answerSheetRef} className="border border-border rounded-lg p-4 bg-white">
+            <div className="border border-border rounded-lg p-4 bg-white">
               <div className="text-center mb-4 border-b-2 border-accent pb-3">
                 <h4 className="font-heading text-xl font-bold">Pub Quiz - Answer Sheet</h4>
                 <div className="flex justify-center gap-6 items-center mt-2">

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const TREASURE_CLUES = {
   pirates: {
@@ -271,6 +271,74 @@ export default function TreasureHuntClueGenerator() {
   const [numClues, setNumClues] = useState('8');
   const [generated, setGenerated] = useState(false);
   const [clues, setClues] = useState([]);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!clues || clues.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 80 + (clues.length * 55) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Treasure Hunt Clues', 40, y);
+
+    y += 50;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    clues.forEach((clue, i) => {
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('Clue ' + (i + 1) + ':', 40, y);
+
+      ctx.fillStyle = '#1a1a1a';
+      ctx.font = '13px sans-serif';
+      const maxWidth = 700;
+      const words = clue.split(' ');
+      let line = '';
+      let lineY = y + 18;
+
+      words.forEach(word => {
+        const testLine = line + (line ? ' ' : '') + word;
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && line) {
+          ctx.fillText(line, 50, lineY);
+          lineY += 18;
+          line = word;
+        } else {
+          line = testLine;
+        }
+      });
+      if (line) ctx.fillText(line, 50, lineY);
+
+      y += 55;
+    });
+
+    y += 20;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'treasure-hunt-clues.jpg';
+    link.click();
+  };
 
   const generateClues = () => {
     const clueSet = TREASURE_CLUES[theme]?.[ageGroup] || TREASURE_CLUES.general[ageGroup];
@@ -397,10 +465,10 @@ export default function TreasureHuntClueGenerator() {
           </div>
 
           <button
-            onClick={() => window.print()}
+            onClick={downloadAsJPG}
             className="w-full px-4 py-2 bg-accent text-white hover:bg-accent-hover rounded-[var(--radius-input)] font-medium transition-colors"
           >
-            Print Clues
+            Download JPG
           </button>
         </div>
       )}

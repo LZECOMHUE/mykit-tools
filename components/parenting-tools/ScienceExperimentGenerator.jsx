@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from '@/lib/download-utils';
 
 const EXPERIMENTS = {
   '3-5': {
@@ -346,6 +348,78 @@ export default function ScienceExperimentGenerator() {
     setExperiment(selected);
   };
 
+  const downloadExperiment = () => {
+    if (!experiment) return;
+
+    downloadAsJPG({
+      filename: 'science-experiment.jpg',
+      width: 900,
+      height: 1300,
+      title: experiment.title,
+      subtitle: 'Science Experiment',
+      accentColor: '#0891b2',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, 'Materials Needed', area.x, y, area.width);
+        y = drawBulletList(ctx, experiment.materials, area.x, y, { fontSize: 13, lineHeight: 22, maxWidth: area.width - 16 });
+
+        y += 12;
+        y = drawSectionHeading(ctx, 'Steps', area.x, y, area.width);
+        const stepItems = experiment.steps.map((step, idx) => `${idx + 1}. ${step}`);
+        y = drawBulletList(ctx, stepItems, area.x, y, { fontSize: 12, lineHeight: 24, maxWidth: area.width - 16 });
+
+        y += 12;
+        y = drawSectionHeading(ctx, 'What Happens?', area.x, y, area.width);
+        y += 8;
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#1a1a1a';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        const explWords = experiment.explanation.split(' ');
+        let line = '';
+        const textX = area.x;
+        explWords.forEach((word) => {
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > area.width - 16 && line) {
+            ctx.fillText(line, textX, y);
+            y += 22;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, textX, y);
+          y += 22;
+        }
+
+        y += 8;
+        y = drawSectionHeading(ctx, 'Safety Notes', area.x, y, area.width, '#dc2626');
+        y += 8;
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#1a1a1a';
+        const safeWords = experiment.safety.split(' ');
+        line = '';
+        safeWords.forEach((word) => {
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > area.width - 16 && line) {
+            ctx.fillText(line, textX, y);
+            y += 20;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, textX, y);
+        }
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -475,12 +549,17 @@ export default function ScienceExperimentGenerator() {
             </div>
           </div>
 
-          <button
-            onClick={handleGenerate}
-            className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
-          >
-            Generate Another
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={handleGenerate}
+              className="flex-1 bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+            >
+              Generate Another
+            </button>
+            <Button onClick={downloadExperiment} className="flex-1 bg-accent text-white">
+              Download JPG
+            </Button>
+          </div>
         </div>
       )}
     </div>

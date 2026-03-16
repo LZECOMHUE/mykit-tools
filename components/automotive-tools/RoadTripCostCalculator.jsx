@@ -182,7 +182,7 @@ export default function RoadTripCostCalculator() {
       {result && (
         <>
           {/* Main Cost */}
-          <div className="rounded-[var(--radius-card)] bg-accent bg-opacity-10 border border-accent p-4">
+          <div className="rounded-[var(--radius-card)] bg-blue-100 border border-accent p-4">
             <p className="text-text-secondary text-sm font-medium mb-2">
               Total Trip Cost
             </p>
@@ -220,7 +220,7 @@ export default function RoadTripCostCalculator() {
                 £{result.costPerMile}
               </p>
             </div>
-            <div className="rounded-[var(--radius-card)] bg-success bg-opacity-10 border border-success p-3">
+            <div className="rounded-[var(--radius-card)] bg-green-100 border border-success p-3">
               <p className="text-[11px] font-medium uppercase">Per Passenger</p>
               <p className="font-mono text-success text-lg mt-1">
                 £{result.costPerPassenger}

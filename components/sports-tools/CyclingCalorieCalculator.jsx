@@ -166,7 +166,7 @@ export default function CyclingCalorieCalculator() {
       {result && (
         <>
           {/* Main Result */}
-          <div className="rounded-[var(--radius-card)] bg-accent bg-opacity-10 border border-accent p-4">
+          <div className="rounded-[var(--radius-card)] bg-blue-100 border border-accent p-4">
             <p className="text-text-secondary text-sm font-medium mb-2">
               Estimated Calories Burned
             </p>

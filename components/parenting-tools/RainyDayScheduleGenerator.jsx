@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const ACTIVITY_SLOTS = {
   '3-5': {
@@ -154,6 +154,64 @@ export default function RainyDayScheduleGenerator() {
   const [supplies, setSupplies] = useState('basic');
   const [generated, setGenerated] = useState(false);
   const [schedule, setSchedule] = useState([]);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!schedule || schedule.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 100 + (schedule.length * 60) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Rainy Day Schedule', 40, y);
+
+    y += 45;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Starting at ' + startTime + ' - Total ' + totalDuration + ' minutes', 40, y);
+
+    y += 35;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    schedule.forEach((activity, i) => {
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText((i + 1) + '. ' + activity.name, 50, y);
+
+      ctx.fillStyle = '#525252';
+      ctx.font = '12px sans-serif';
+      ctx.fillText(activity.duration + ' min - ' + activity.supplies, 50, y + 18);
+
+      y += 60;
+    });
+
+    y += 10;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'rainy-day-schedule.jpg';
+    link.click();
+  };
 
   const generateSchedule = () => {
     const activities = ACTIVITY_SLOTS[ageGroup] || ACTIVITY_SLOTS['5-7'];
@@ -391,10 +449,10 @@ export default function RainyDayScheduleGenerator() {
           </div>
 
           <button
-            onClick={() => window.print()}
+            onClick={downloadAsJPG}
             className="w-full px-4 py-2 bg-accent text-white hover:bg-accent-hover rounded-[var(--radius-input)] font-medium transition-colors"
           >
-            Print Schedule
+            Download JPG
           </button>
         </div>
       )}

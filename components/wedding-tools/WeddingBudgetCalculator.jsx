@@ -164,7 +164,7 @@ export default function WeddingBudgetCalculator() {
         </div>
 
         {totalPercent !== 1 && (
-          <div className="bg-warning bg-opacity-10 border border-warning rounded p-3 text-warning text-sm">
+          <div className="bg-orange-100 border border-warning rounded p-3 text-warning text-sm">
             Total allocation: {(totalPercent * 100).toFixed(1)}% (should be 100%)
           </div>
         )}

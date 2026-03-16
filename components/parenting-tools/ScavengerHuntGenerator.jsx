@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const SCAVENGER_ITEMS = {
   '3-5': {
@@ -100,8 +100,48 @@ export default function ScavengerHuntGenerator() {
     setCheckedItems(newChecked);
   };
 
-  const printHunt = () => {
-    window.print();
+  const downloadAsJPG = () => {
+    if (!items || items.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 80 + (items.length * 40) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Hunt Checklist', 40, y);
+
+    y += 45;
+
+    ctx.font = '14px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    items.forEach((item, i) => {
+      ctx.fillText((i + 1) + '. ' + item, 50, y);
+      y += 40;
+    });
+
+    y += 10;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'scavenger-hunt-checklist.jpg';
+    link.click();
   };
 
   const completedCount = Object.values(checkedItems).filter(Boolean).length;
@@ -192,10 +232,10 @@ export default function ScavengerHuntGenerator() {
                 <p className="text-text-secondary text-sm mt-1">{LocationInfo[locationType]}</p>
               </div>
               <button
-                onClick={printHunt}
+                onClick={downloadAsJPG}
                 className="px-4 py-2 bg-accent text-white hover:bg-accent-hover rounded-[var(--radius-input)] font-medium text-sm transition-colors"
               >
-                Print
+                Download JPG
               </button>
             </div>
 

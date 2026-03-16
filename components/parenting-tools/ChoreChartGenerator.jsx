@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList, drawTable } from '@/lib/download-utils';
 
 const choresByAge = {
   '3-5': ['Pick up toys', 'Put books on shelf', 'Water plants', 'Wipe table', 'Put dishes in sink', 'Sort socks'],
@@ -50,6 +52,49 @@ export default function ChoreChartGenerator() {
       newNames.push(kidNames[i - 1] || `Child ${i}`);
     }
     setKidNames(newNames);
+  };
+
+  const downloadChart = () => {
+    if (!chart) return;
+
+    downloadAsJPG({
+      filename: 'chore-chart.jpg',
+      width: 900,
+      height: 1000,
+      title: 'Weekly Chore Chart',
+      subtitle: `${ageGroup} years old`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, 'Weekly Chore Assignment', area.x, y, area.width);
+        y += 16;
+
+        ctx.font = '13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = '#525252';
+        ctx.fillText(`Age Group: ${ageGroup} years | Chores per day: ${chorePerDay}`, area.x, y);
+        y += 24;
+
+        const headers = ['Day', ...kidNames];
+        const rows = weekDays.map(day => [day, ...kidNames.map(name => chart[day][name])]);
+
+        y = drawTable(ctx, {
+          x: area.x,
+          y,
+          width: area.width,
+          headers,
+          rows,
+          accentColor: '#2563eb'
+        });
+
+        y += 16;
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#525252';
+        ctx.fillText('Tip: Rotate the chart weekly. Move each child down one row to try new chores.', area.x, y);
+      }
+    });
   };
 
   return (
@@ -131,32 +176,38 @@ export default function ChoreChartGenerator() {
 
       {/* Chart Display */}
       {chart && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 overflow-x-auto">
-          <h3 className="text-text-primary font-semibold mb-4">Weekly Chore Chart</h3>
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-2 px-3 text-text-secondary font-medium">Day</th>
-                {kidNames.map((name) => (
-                  <th key={name} className="text-left py-2 px-3 text-text-secondary font-medium">
-                    {name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {weekDays.map((day) => (
-                <tr key={day} className="border-b border-border hover:bg-white">
-                  <td className="py-3 px-3 font-medium text-text-primary">{day}</td>
-                  {kidNames.map((kidName) => (
-                    <td key={`${day}-${kidName}`} className="py-3 px-3 text-text-secondary">
-                      {chart[day][kidName]}
-                    </td>
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 overflow-x-auto">
+            <h3 className="text-text-primary font-semibold mb-4">Weekly Chore Chart</h3>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-2 px-3 text-text-secondary font-medium">Day</th>
+                  {kidNames.map((name) => (
+                    <th key={name} className="text-left py-2 px-3 text-text-secondary font-medium">
+                      {name}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {weekDays.map((day) => (
+                  <tr key={day} className="border-b border-border hover:bg-white">
+                    <td className="py-3 px-3 font-medium text-text-primary">{day}</td>
+                    {kidNames.map((kidName) => (
+                      <td key={`${day}-${kidName}`} className="py-3 px-3 text-text-secondary">
+                        {chart[day][kidName]}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <Button onClick={downloadChart} className="w-full bg-accent text-white">
+            Download JPG
+          </Button>
         </div>
       )}
 

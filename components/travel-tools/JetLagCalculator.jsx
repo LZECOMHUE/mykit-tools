@@ -203,10 +203,10 @@ export default function JetLagCalculator() {
         {/* Severity */}
         <div className={`rounded-[var(--radius-card)] border p-3 ${
           data.severity === 'severe'
-            ? 'bg-error bg-opacity-10 border-error'
+            ? 'bg-red-100 border-error'
             : data.severity === 'moderate'
-            ? 'bg-warning bg-opacity-10 border-warning'
-            : 'bg-success bg-opacity-10 border-success'
+            ? 'bg-orange-100 border-warning'
+            : 'bg-green-100 border-success'
         }`}>
           <p className="text-[11px] font-medium uppercase">Jet Lag Severity</p>
           <p className={`text-sm mt-1 font-medium ${
@@ -221,7 +221,7 @@ export default function JetLagCalculator() {
         </div>
 
         {/* Recovery Time */}
-        <div className="rounded-[var(--radius-card)] bg-accent bg-opacity-10 border border-accent p-3">
+        <div className="rounded-[var(--radius-card)] bg-blue-100 border border-accent p-3">
           <p className="text-text-secondary text-[11px] font-medium uppercase">
             Estimated Recovery Time
           </p>

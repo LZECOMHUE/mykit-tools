@@ -276,7 +276,7 @@ export default function SavingsGoalCalculator() {
 
       {/* Key Insight */}
       {results.stillNeeded <= 0 && (
-        <div className="bg-accent bg-opacity-10 border border-accent rounded-[12px] p-4">
+        <div className="bg-blue-100 border border-accent rounded-[12px] p-4">
           <p className="text-accent font-medium text-sm">
             Congratulations! You have already reached your savings goal. Your goal is
             achievable ahead of schedule.

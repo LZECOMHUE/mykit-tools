@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
+import { downloadAsJPG, drawSectionHeading, drawBulletList, drawKeyValue } from "@/lib/download-utils";
 
 export default function SecretSantaGenerator() {
   const [participants, setParticipants] = useState(["Alice", "Bob"]);
@@ -111,6 +112,70 @@ export default function SecretSantaGenerator() {
 
   const isValidConfiguration =
     participants.filter((p) => p.trim()).length >= 3;
+
+  const handleDownloadJPG = () => {
+    if (!assignments) return;
+
+    downloadAsJPG({
+      filename: "secret-santa.jpg",
+      width: 800,
+      height: 1000,
+      title: "Secret Santa Assignments",
+      subtitle: `Budget: GBP${budget} | Participants: ${assignments.length}`,
+      accentColor: "#2563eb",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, "Your Assignments", area.x, y, area.width);
+        y += 8;
+
+        const assignmentItems = assignments.map(
+          (a) => `${a.giver} buys for ${a.receiver}`
+        );
+        y = drawBulletList(ctx, assignmentItems, area.x, y, {
+          maxWidth: area.width,
+        });
+        y += 16;
+
+        y = drawSectionHeading(ctx, "Details", area.x, y, area.width);
+        y += 8;
+
+        y = drawKeyValue(
+          ctx,
+          "Budget per Person",
+          `GBP${budget}`,
+          area.x,
+          y,
+          area.width * 0.6,
+          { bold: true }
+        );
+        y += 8;
+
+        y = drawKeyValue(
+          ctx,
+          "Number of Participants",
+          assignments.length,
+          area.x,
+          y,
+          area.width * 0.6,
+          { bold: true }
+        );
+        y += 16;
+
+        ctx.fillStyle = "#525252";
+        ctx.font = "12px sans-serif";
+        ctx.textAlign = "left";
+        const tips = [
+          "Keep assignments secret until the reveal",
+          "Consider personalising your gift",
+          "Remember to stay within budget",
+        ];
+        tips.forEach((tip, i) => {
+          ctx.fillText(tip, area.x, y + i * 18);
+        });
+      },
+    });
+  };
 
   return (
     <div className="space-y-8">
@@ -235,15 +300,24 @@ export default function SecretSantaGenerator() {
               ))}
             </div>
 
-            <div className="mt-6 pt-6 border-t border-border">
-              <p className="text-text-secondary text-sm font-medium mb-2">
-                Hints
-              </p>
-              <ul className="text-text-muted text-sm space-y-1 list-disc list-inside">
-                <li>Budget: £{budget} per person</li>
-                <li>Keep it secret until the big reveal</li>
-                <li>Consider personalising your gift</li>
-              </ul>
+            <div className="mt-6 pt-6 border-t border-border flex gap-2">
+              <Button
+                onClick={handleDownloadJPG}
+                variant="secondary"
+                className="flex-1"
+              >
+                Download JPG
+              </Button>
+              <div className="flex-1">
+                <p className="text-text-secondary text-sm font-medium mb-2">
+                  Hints
+                </p>
+                <ul className="text-text-muted text-xs space-y-1 list-disc list-inside">
+                  <li>Budget: £{budget} per person</li>
+                  <li>Keep it secret until the big reveal</li>
+                  <li>Consider personalising your gift</li>
+                </ul>
+              </div>
             </div>
           </Card>
         </div>

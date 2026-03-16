@@ -413,7 +413,7 @@ export default function SelfEsteemScale() {
                 }}
                 className={`text-left p-4 rounded-[var(--radius-input)] border-2 transition-all ${
                   answers[question.id] === value
-                    ? 'border-accent bg-accent bg-opacity-10'
+                    ? 'border-accent bg-blue-100'
                     : 'border-border hover:border-accent'
                 }`}
               >

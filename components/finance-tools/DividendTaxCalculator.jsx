@@ -1,301 +1,163 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import { TAX_YEARS, DIVIDEND_TAX, CURRENT_TAX_YEAR } from "@/data/tax-rates";
-import { formatCurrency, formatPercentage } from "@/lib/format";
-
-const fmt = (n) => {
-  if (n === null || isNaN(n)) return "—";
-  return formatCurrency(n);
-};
+import { useState, useMemo } from 'react';
 
 export default function DividendTaxCalculator() {
-  const [salary, setSalary] = useState("");
-  const [dividendIncome, setDividendIncome] = useState("");
-  const [taxYear, setTaxYear] = useState(CURRENT_TAX_YEAR);
-
-  const taxYearData = useMemo(() => TAX_YEARS[taxYear], [taxYear]);
-  const dividendData = useMemo(() => DIVIDEND_TAX[taxYear], [taxYear]);
+  const [totalDividends, setTotalDividends] = useState(5000);
+  const [otherIncome, setOtherIncome] = useState(35000);
 
   const results = useMemo(() => {
-    const sal = parseFloat(salary) || 0;
-    const div = parseFloat(dividendIncome) || 0;
+    const allowance = 1000;
+    const basicRateLimit = 50270;
+    const higherRateLimit = 125140;
 
-    if (sal < 0 || div < 0) return null;
-    if (div === 0) return null;
+    let taxableIncome = otherIncome;
+    let taxableDividends = Math.max(0, totalDividends - allowance);
+    let tax = 0;
+    let breakdown = [];
 
-    const pa = taxYearData.personalAllowance;
-    const bands = taxYearData.incomeTaxBands;
-    const allowance = dividendData.allowance;
-    const dividendRates = dividendData.rates;
+    // Basic rate dividends (8.75%)
+    const basicRateDividends = Math.min(
+      taxableDividends,
+      Math.max(0, basicRateLimit - taxableIncome)
+    );
+    const basicRateTax = basicRateDividends * 0.0875;
+    tax += basicRateTax;
+    breakdown.push({
+      band: 'Basic Rate',
+      rate: 8.75,
+      amount: basicRateDividends,
+      tax: basicRateTax,
+    });
 
-    // Determine which tax band salary falls into
-    let salaryInBand = sal - pa;
-    if (salaryInBand < 0) salaryInBand = 0;
+    taxableIncome += basicRateDividends;
+    taxableDividends -= basicRateDividends;
 
-    let remainingBasicBand = Math.max(0, bands[0].to - Math.max(pa, 0) - salaryInBand);
-    let remainingHigherBand = Math.max(0, bands[1].to - Math.max(bands[0].to, pa + salaryInBand));
-    let additionalBandUsed = salaryInBand > remainingBasicBand + remainingHigherBand;
+    // Higher rate dividends (33.75%)
+    const higherRateDividends = Math.min(
+      taxableDividends,
+      Math.max(0, higherRateLimit - taxableIncome)
+    );
+    const higherRateTax = higherRateDividends * 0.3375;
+    tax += higherRateTax;
+    breakdown.push({
+      band: 'Higher Rate',
+      rate: 33.75,
+      amount: higherRateDividends,
+      tax: higherRateTax,
+    });
 
-    // Tax-free dividend allowance
-    let taxableDividends = Math.max(0, div - allowance);
+    taxableIncome += higherRateDividends;
+    taxableDividends -= higherRateDividends;
 
-    // Allocate dividends to bands
-    let dividendAtBasic = 0;
-    let dividendAtHigher = 0;
-    let dividendAtAdditional = 0;
-
-    if (taxableDividends > 0) {
-      if (remainingBasicBand > 0) {
-        dividendAtBasic = Math.min(taxableDividends, remainingBasicBand);
-        taxableDividends -= dividendAtBasic;
-      }
-
-      if (taxableDividends > 0 && remainingHigherBand > 0) {
-        dividendAtHigher = Math.min(taxableDividends, remainingHigherBand);
-        taxableDividends -= dividendAtHigher;
-      }
-
-      if (taxableDividends > 0) {
-        dividendAtAdditional = taxableDividends;
-      }
-    }
-
-    const taxAtBasic = dividendAtBasic * dividendRates.basic;
-    const taxAtHigher = dividendAtHigher * dividendRates.higher;
-    const taxAtAdditional = dividendAtAdditional * dividendRates.additional;
-
-    const totalTax = taxAtBasic + taxAtHigher + taxAtAdditional;
-    const netIncome = div - totalTax;
-    const effectiveRate = div > 0 ? (totalTax / div) * 100 : 0;
+    // Additional rate dividends (39.35%)
+    const additionalRateTax = taxableDividends * 0.3935;
+    tax += additionalRateTax;
+    breakdown.push({
+      band: 'Additional Rate',
+      rate: 39.35,
+      amount: taxableDividends,
+      tax: additionalRateTax,
+    });
 
     return {
       allowance,
-      taxableDividends: div - allowance,
-      dividendAtBasic,
-      dividendAtHigher,
-      dividendAtAdditional,
-      taxAtBasic,
-      taxAtHigher,
-      taxAtAdditional,
-      totalTax,
-      netIncome,
-      effectiveRate,
-      totalIncome: sal + div,
+      taxableDividends: totalDividends - allowance,
+      totalTax: tax,
+      netDividends: totalDividends - tax,
+      effectiveRate: ((tax / totalDividends) * 100).toFixed(2),
+      breakdown: breakdown.filter((b) => b.amount > 0),
     };
-  }, [salary, dividendIncome, taxYear, taxYearData, dividendData]);
-
-  const inputStyle =
-    "w-full px-3 py-2.5 text-sm rounded-[var(--radius-input)] border border-border bg-white text-text-primary placeholder:text-text-muted outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 font-mono-num";
-  const selectStyle =
-    "w-full px-3 py-2.5 text-sm rounded-[var(--radius-input)] border border-border bg-white text-text-primary outline-none focus:border-accent cursor-pointer";
+  }, [totalDividends, otherIncome]);
 
   return (
-    <div className="max-w-2xl space-y-6">
-      {/* Input card */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-        {/* Salary */}
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
-            Annual salary (optional)
+            Total Dividends
           </label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">£</span>
+            <span className="absolute left-3 top-2 text-text-primary">£</span>
             <input
               type="number"
-              value={salary}
-              onChange={(e) => setSalary(e.target.value)}
-              placeholder="e.g. 45000"
-              className={`${inputStyle} pl-7`}
-              step="any"
+              value={totalDividends}
+              onChange={(e) => setTotalDividends(Number(e.target.value))}
+              className="w-full pl-7 pr-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-text-primary mb-2">
+            Other Income (Salary, etc.)
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-2 text-text-primary">£</span>
+            <input
+              type="number"
+              value={otherIncome}
+              onChange={(e) => setOtherIncome(Number(e.target.value))}
+              className="w-full pl-7 pr-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
           </div>
           <p className="text-xs text-text-muted mt-1">
-            Enter your salary to see which tax band your dividends fall into
+            Used to determine which tax band applies to dividends
           </p>
-        </div>
-
-        {/* Dividend Income */}
-        <div>
-          <label className="block text-sm font-medium text-text-primary mb-2">
-            Total dividend income
-          </label>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">£</span>
-            <input
-              type="number"
-              value={dividendIncome}
-              onChange={(e) => setDividendIncome(e.target.value)}
-              placeholder="e.g. 5000"
-              className={`${inputStyle} pl-7`}
-              step="any"
-            />
-          </div>
-          <p className="text-xs text-text-muted mt-1">
-            Include all dividend income from shares, investments, trusts
-          </p>
-        </div>
-
-        {/* Tax year selector */}
-        <div>
-          <label className="block text-sm font-medium text-text-primary mb-2">
-            Tax year
-          </label>
-          <select value={taxYear} onChange={(e) => setTaxYear(e.target.value)} className={selectStyle}>
-            <option value="2025/26">2025/26 (current)</option>
-            <option value="2024/25">2024/25</option>
-            <option value="2023/24">2023/24</option>
-          </select>
         </div>
       </div>
 
-      {/* Results */}
-      {results && (
-        <div className="space-y-4">
-          {/* Summary card */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div>
-                <p className="text-xs font-medium text-text-secondary mb-1">Dividend tax</p>
-                <p className="text-2xl font-bold font-mono-num text-text-primary">
-                  {fmt(results.totalTax)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium text-text-secondary mb-1">Effective rate</p>
-                <p className="text-2xl font-bold font-mono-num text-accent">
-                  {formatPercentage(results.effectiveRate, 2)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium text-text-secondary mb-1">Net dividend</p>
-                <p className="text-2xl font-bold font-mono-num text-text-primary">
-                  {fmt(results.netIncome)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs font-medium text-text-secondary mb-1">Total income</p>
-                <p className="text-2xl font-bold font-mono-num text-text-primary">
-                  {fmt(results.totalIncome)}
-                </p>
-              </div>
-            </div>
-          </div>
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6 space-y-4">
+        <h3 className="font-heading text-lg font-bold text-text-primary">
+          Tax Summary
+        </h3>
 
-          {/* Tax-free allowance info */}
-          <div className="bg-accent-muted border border-accent/20 rounded-[var(--radius-card)] p-4">
-            <p className="text-sm text-text-primary">
-              <span className="font-medium">First {fmt(results.allowance)} is tax-free</span>
-              <span className="text-text-secondary ml-1">
-                — the dividend tax-free allowance for {taxYear}
-              </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Tax-Free Allowance</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-accent">
+              £{results.allowance.toLocaleString('en-GB')}
             </p>
           </div>
 
-          {/* Breakdown by tax band */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] overflow-hidden">
-            <div className="px-6 py-4 border-b border-border bg-surface">
-              <h3 className="text-sm font-semibold text-text-primary">Tax breakdown by band</h3>
-            </div>
-            <div className="divide-y divide-border">
-              {/* Basic rate */}
-              <div className="px-6 py-3 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-primary">
-                    Basic rate ({formatPercentage(dividendData.rates.basic * 100, 2)})
-                  </p>
-                  <p className="text-xs text-text-muted">
-                    {fmt(results.dividendAtBasic)} × {formatPercentage(dividendData.rates.basic * 100, 2)}
-                  </p>
-                </div>
-                <p className="text-sm font-semibold font-mono-num text-text-primary">
-                  {fmt(results.taxAtBasic)}
-                </p>
-              </div>
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Tax Due</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-text-primary">
+              £{results.totalTax.toLocaleString('en-GB', { maximumFractionDigits: 2 })}
+            </p>
+          </div>
 
-              {/* Higher rate */}
-              {results.dividendAtHigher > 0 && (
-                <div className="px-6 py-3 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-text-primary">
-                      Higher rate ({formatPercentage(dividendData.rates.higher * 100, 2)})
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {fmt(results.dividendAtHigher)} × {formatPercentage(dividendData.rates.higher * 100, 2)}
-                    </p>
-                  </div>
-                  <p className="text-sm font-semibold font-mono-num text-text-primary">
-                    {fmt(results.taxAtHigher)}
-                  </p>
-                </div>
-              )}
-
-              {/* Additional rate */}
-              {results.dividendAtAdditional > 0 && (
-                <div className="px-6 py-3 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-text-primary">
-                      Additional rate ({formatPercentage(dividendData.rates.additional * 100, 2)})
-                    </p>
-                    <p className="text-xs text-text-muted">
-                      {fmt(results.dividendAtAdditional)} × {formatPercentage(dividendData.rates.additional * 100, 2)}
-                    </p>
-                  </div>
-                  <p className="text-sm font-semibold font-mono-num text-text-primary">
-                    {fmt(results.taxAtAdditional)}
-                  </p>
-                </div>
-              )}
-
-              {/* Total */}
-              <div className="px-6 py-3 bg-surface flex items-center justify-between font-semibold">
-                <p className="text-sm text-text-primary">Total dividend tax</p>
-                <p className="font-mono-num text-text-primary">{fmt(results.totalTax)}</p>
-              </div>
-            </div>
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Net Dividends</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-accent">
+              £{results.netDividends.toLocaleString('en-GB', { maximumFractionDigits: 2 })}
+            </p>
           </div>
         </div>
-      )}
-
-      {/* Information section */}
-      <div className="bg-surface rounded-[var(--radius-card)] px-6 py-4 space-y-3">
-        <div>
-          <h3 className="text-sm font-semibold text-text-primary mb-2">How dividend tax works</h3>
-          <p className="text-sm text-text-secondary leading-relaxed">
-            You get a dividend allowance (tax-free amount) each year. Dividends above this are taxed at different rates
-            depending on your income tax band:
-          </p>
-        </div>
-        <ul className="space-y-2 text-sm text-text-secondary">
-          <li className="flex gap-2">
-            <span className="text-accent font-semibold">→</span>
-            <span>
-              <span className="font-medium text-text-primary">Basic rate ({formatPercentage(dividendData.rates.basic * 100, 2)}):</span> If
-              your total income falls in the basic rate band (up to {fmt(taxYearData.incomeTaxBands[0].to)})
-            </span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-accent font-semibold">→</span>
-            <span>
-              <span className="font-medium text-text-primary">Higher rate ({formatPercentage(dividendData.rates.higher * 100, 2)}):</span> If
-              your income enters the higher rate band ({fmt(taxYearData.incomeTaxBands[1].from)} to{" "}
-              {fmt(taxYearData.incomeTaxBands[1].to)})
-            </span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-accent font-semibold">→</span>
-            <span>
-              <span className="font-medium text-text-primary">Additional rate ({formatPercentage(dividendData.rates.additional * 100, 2)}):</span> If
-              your income exceeds {fmt(taxYearData.incomeTaxBands[1].to)}
-            </span>
-          </li>
-        </ul>
-        <p className="text-xs text-text-muted pt-2 border-t border-border">
-          <span className="font-medium text-text-secondary">Tax year {taxYear}:</span> Personal allowance is{" "}
-          {fmt(taxYearData.personalAllowance)}, dividend allowance is {fmt(dividendData.allowance)}. This tool
-          calculates income tax on dividends only — it does not include National Insurance or other taxes.
-        </p>
       </div>
+
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+        <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
+          Tax Breakdown by Band
+        </h3>
+        <div className="space-y-3">
+          {results.breakdown.map((item) => (
+            <div key={item.band} className="border border-border rounded-[var(--radius-input)] p-3">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-medium text-text-primary">{item.band} ({item.rate}%)</span>
+                <span className="font-mono font-bold text-accent">£{item.tax.toLocaleString('en-GB', { maximumFractionDigits: 2 })}</span>
+              </div>
+              <p className="text-sm text-text-secondary">
+                Dividends: £{item.amount.toLocaleString('en-GB', { maximumFractionDigits: 0 })}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
+        Rates for 2025/26 tax year. This is for reference only, not financial advice. Consult a tax specialist for your situation.
+      </p>
     </div>
   );
 }

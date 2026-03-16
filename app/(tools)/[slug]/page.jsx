@@ -6,6 +6,8 @@ import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import AdSlot from "@/components/premium/AdSlot";
 import RelatedTools from "@/components/tools/RelatedTools";
 import ToolSEOContent from "@/components/tools/ToolSEOContent";
+import BookmarkButton from "@/components/mykit/BookmarkButton";
+import TrackRecent from "@/components/mykit/TrackRecent";
 import { getSEOContent } from "@/data/seo-content";
 
 // Generate static params for all registered tools
@@ -39,11 +41,17 @@ export default async function ToolPage({ params }) {
   return (
     <>
       <Breadcrumbs tool={tool} />
+      <TrackRecent slug={slug} />
 
-      <h1 className="font-heading text-3xl font-bold text-text-primary">
-        {tool.name}
-      </h1>
-      <p className="text-text-secondary mt-1 mb-5 text-sm">{tool.description}</p>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h1 className="font-heading text-3xl font-bold text-text-primary">
+            {tool.name}
+          </h1>
+          <p className="text-text-secondary mt-1 mb-5 text-sm">{tool.description}</p>
+        </div>
+        <BookmarkButton slug={slug} />
+      </div>
 
       <AdSlot position="above-tool" />
 

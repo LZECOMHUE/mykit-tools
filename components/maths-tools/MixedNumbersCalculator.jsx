@@ -310,7 +310,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Result Card */}
-          <div className="bg-accent bg-opacity-5 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Result
             </h3>
@@ -468,7 +468,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Conversion Results */}
-          <div className="bg-accent bg-opacity-5 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Conversions
             </h3>
@@ -558,7 +558,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Simplification Result */}
-          <div className="bg-accent bg-opacity-5 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Simplification
             </h3>

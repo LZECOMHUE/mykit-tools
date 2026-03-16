@@ -1,14 +1,87 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function PubQuizAnswerSheetPrinter() {
   const [teamName, setTeamName] = useState('');
   const [numRounds, setNumRounds] = useState('5');
   const [questionsPerRound, setQuestionsPerRound] = useState('10');
+  const printRef = useRef(null);
 
-  const handlePrint = () => {
-    window.print();
+  const downloadAsJPG = () => {
+    const rounds = parseInt(numRounds) || 0;
+    const questions = parseInt(questionsPerRound) || 0;
+    if (rounds === 0 || questions === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 120 + (rounds * (questions * 25 + 80)) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Pub Quiz Answer Sheet', 40, y);
+
+    y += 45;
+
+    if (teamName) {
+      ctx.fillStyle = '#525252';
+      ctx.font = '16px sans-serif';
+      ctx.fillText('Team: ' + teamName, 40, y);
+      y += 35;
+    }
+
+    ctx.font = '12px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+
+    for (let r = 0; r < rounds; r++) {
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('Round ' + (r + 1), 50, y);
+
+      y += 25;
+
+      ctx.fillStyle = '#1a1a1a';
+      ctx.font = '12px sans-serif';
+
+      for (let q = 0; q < questions; q++) {
+        ctx.fillText((q + 1) + '. _________________________________', 50, y);
+        y += 25;
+      }
+
+      ctx.fillStyle = '#525252';
+      ctx.font = '11px sans-serif';
+      ctx.fillText('Score: _____ / ' + questions, width - 150, y - (questions * 25) + 10);
+
+      y += 40;
+    }
+
+    y += 20;
+    ctx.fillStyle = '#2563eb';
+    ctx.font = 'bold 14px sans-serif';
+    ctx.fillText('Total Score: _____ / ' + (rounds * questions), 50, y);
+
+    y += 40;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'pub-quiz-answer-sheet.jpg';
+    link.click();
   };
 
   const rounds = parseInt(numRounds) || 0;
@@ -61,10 +134,10 @@ export default function PubQuizAnswerSheetPrinter() {
         </div>
 
         <button
-          onClick={handlePrint}
+          onClick={downloadAsJPG}
           className="w-full rounded-[var(--radius-card)] bg-accent text-white px-4 py-2 text-sm font-medium hover:bg-accent-hover transition-colors"
         >
-          Print Answer Sheet
+          Download JPG
         </button>
       </div>
 

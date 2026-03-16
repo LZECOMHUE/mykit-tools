@@ -127,7 +127,7 @@ export default function UKCouncilTaxCalculator() {
             </div>
 
             {calculated.singlePersonDiscount && (
-              <div className="bg-white bg-opacity-10 rounded-lg p-3 border border-white border-opacity-20">
+              <div className="bg-white opacity-10 rounded-lg p-3 border border-white border-opacity-20">
                 <p className="text-sm">Single person discount applied: 25% reduction</p>
               </div>
             )}

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const PHONICS_DATA = {
   '3-5': {
@@ -38,6 +38,62 @@ export default function PhonicsTreasureHunt() {
 
   const [hunt, setHunt] = useState(null);
   const [selectedSounds, setSelectedSounds] = useState([]);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!hunt || hunt.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 100 + (hunt.length * 80) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Phonics Treasure Hunt Setup', 40, y);
+
+    y += 50;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Hide letter cards at ' + hunt.length + ' different stations', 40, y);
+
+    y += 35;
+
+    hunt.forEach((station, i) => {
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('Station ' + station.number + ' - Sound: ' + station.sound, 50, y);
+
+      ctx.fillStyle = '#525252';
+      ctx.font = '12px sans-serif';
+      ctx.fillText('Words: ' + station.words.join(', '), 50, y + 18);
+
+      y += 80;
+    });
+
+    y += 10;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'phonics-treasure-hunt.jpg';
+    link.click();
+  };
 
   const availableSounds = PHONICS_DATA[config.ageGroup]?.sounds || [];
 
@@ -213,10 +269,10 @@ export default function PhonicsTreasureHunt() {
               Create Another
             </button>
             <button
-              onClick={() => window.print()}
+              onClick={downloadAsJPG}
               className="bg-white border border-border text-text-primary py-3 rounded-[var(--radius-input)] font-medium hover:bg-surface transition"
             >
-              Print Instructions
+              Download JPG
             </button>
           </div>
         </div>

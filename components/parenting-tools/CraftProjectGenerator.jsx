@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from '@/lib/download-utils';
 
 const CRAFTS = {
   '3-5': {
@@ -378,6 +380,31 @@ export default function CraftProjectGenerator() {
     setCraft(selected);
   };
 
+  const downloadCraft = () => {
+    if (!craft) return;
+
+    downloadAsJPG({
+      filename: 'craft-project.jpg',
+      width: 900,
+      height: 1200,
+      title: craft.title,
+      subtitle: `Time: ${craft.time}`,
+      accentColor: '#8b5cf6',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, 'What You Need', area.x, y, area.width);
+        y = drawBulletList(ctx, craft.materials, area.x, y, { fontSize: 13, lineHeight: 22, maxWidth: area.width - 16 });
+
+        y += 12;
+        y = drawSectionHeading(ctx, 'How to Make It', area.x, y, area.width);
+
+        const stepItems = craft.instructions.map((instruction, idx) => `Step ${idx + 1}: ${instruction}`);
+        y = drawBulletList(ctx, stepItems, area.x, y, { fontSize: 12, lineHeight: 24, maxWidth: area.width - 16 });
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -466,12 +493,17 @@ export default function CraftProjectGenerator() {
             </div>
           </div>
 
-          <button
-            onClick={handleGenerate}
-            className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
-          >
-            Get Another Idea
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={handleGenerate}
+              className="flex-1 bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+            >
+              Get Another Idea
+            </button>
+            <Button onClick={downloadCraft} className="flex-1 bg-accent text-white">
+              Download JPG
+            </Button>
+          </div>
         </div>
       )}
     </div>

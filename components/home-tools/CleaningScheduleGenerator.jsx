@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadAsJPG } from '@/lib/download-utils';
 import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
@@ -93,6 +94,45 @@ export default function CleaningScheduleGenerator() {
     setSchedule(generatedSchedule);
   };
 
+  const handleDownloadJPG = () => {
+    if (!schedule) return;
+
+    downloadAsJPG({
+      filename: `cleaning-schedule-${frequency}.jpg`,
+      width: 700,
+      height: 1000,
+      title: 'Cleaning Rota',
+      subtitle: `${frequency.charAt(0).toUpperCase() + frequency.slice(1)} Schedule`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        schedule.slice(0, 7).forEach((daySchedule) => {
+          ctx.fillStyle = '#1a1a1a';
+          ctx.font = 'bold 12px sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(daySchedule.dayName, area.x, y);
+          y += 16;
+
+          daySchedule.tasks.slice(0, 3).forEach((item) => {
+            ctx.fillStyle = '#2563eb';
+            ctx.beginPath();
+            ctx.arc(area.x + 40, y + 5, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#1a1a1a';
+            ctx.font = '10px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(`Person ${item.person}: ${item.task} (${item.room})`, area.x + 50, y);
+            y += 12;
+          });
+
+          y += 6;
+        });
+      },
+    });
+  };
+
   return (
     <div className="space-y-6">
       <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
@@ -141,9 +181,17 @@ export default function CleaningScheduleGenerator() {
 
       {schedule && (
         <div className="space-y-4">
-          <h3 className="font-heading text-lg font-bold text-text-primary">
-            {frequency === 'daily' ? 'Daily' : frequency === 'weekly' ? 'Weekly' : 'Fortnightly'} Cleaning Rota
-          </h3>
+          <div className="flex justify-between items-center">
+            <h3 className="font-heading text-lg font-bold text-text-primary">
+              {frequency === 'daily' ? 'Daily' : frequency === 'weekly' ? 'Weekly' : 'Fortnightly'} Cleaning Rota
+            </h3>
+            <Button
+              onClick={handleDownloadJPG}
+              variant="secondary"
+            >
+              Download JPG
+            </Button>
+          </div>
           <div className="space-y-4">
             {schedule.map((daySchedule) => (
               <div key={daySchedule.day} className="bg-surface border border-border rounded-[var(--radius-card)] p-6">

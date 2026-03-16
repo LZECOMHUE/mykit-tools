@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadAsJPG, drawCheckItem } from '@/lib/download-utils';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
@@ -45,6 +46,65 @@ export default function MovingHouseChecklist() {
     }));
   };
 
+  const handleDownloadJPG = () => {
+    if (!movingDate) return;
+
+    downloadAsJPG({
+      filename: `moving-checklist-${movingDate}.jpg`,
+      width: 700,
+      height: 1000,
+      title: 'Moving House Checklist',
+      subtitle: `Moving on ${new Date(movingDate).toLocaleDateString('en-GB')}`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(`Progress: ${progressPercent}%`, area.x, y);
+        y += 20;
+
+        const categories = Object.keys(groupedTasks).slice(0, 4);
+
+        categories.forEach((category) => {
+          ctx.fillStyle = '#1a1a1a';
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillText(category, area.x, y);
+          y += 14;
+
+          const categoryTasks = groupedTasks[category];
+          categoryTasks.slice(0, 2).forEach((task) => {
+            const key = `${category}-${categoryTasks.indexOf(task)}`;
+            const isChecked = checked[key] || false;
+
+            ctx.strokeStyle = isChecked ? '#16a34a' : '#e5e5e5';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(area.x + 8, y + 2, 12, 12);
+
+            if (isChecked) {
+              ctx.strokeStyle = '#16a34a';
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.moveTo(area.x + 11, y + 8);
+              ctx.lineTo(area.x + 13, y + 11);
+              ctx.lineTo(area.x + 17, y + 4);
+              ctx.stroke();
+            }
+
+            ctx.fillStyle = isChecked ? '#1a1a1a' : '#a3a3a3';
+            ctx.font = '9px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(task.item, area.x + 24, y + 7);
+            y += 12;
+          });
+
+          y += 4;
+        });
+      },
+    });
+  };
+
   const groupedTasks = {};
   if (movingDate) {
     const baseDate = new Date(movingDate);
@@ -82,6 +142,14 @@ export default function MovingHouseChecklist() {
 
       {movingDate && (
         <div className="space-y-6">
+          <Button
+            onClick={handleDownloadJPG}
+            variant="primary"
+            className="w-full"
+          >
+            Download Checklist JPG
+          </Button>
+
           <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-heading text-lg font-bold text-text-primary">Progress</h3>

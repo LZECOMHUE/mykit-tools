@@ -177,7 +177,7 @@ export default function GolfHandicapCalculator() {
 
       {/* Handicap Index Display */}
       {calculations.roundsValid ? (
-        <Card className="bg-accent bg-opacity-5 border-2 border-accent">
+        <Card className="bg-blue-50 border-2 border-accent">
           <div className="text-center">
             <p className="text-sm font-medium text-text-secondary uppercase mb-2">Your Handicap Index (WHS)</p>
             <div className="font-mono text-5xl font-bold text-accent mb-2">
@@ -189,7 +189,7 @@ export default function GolfHandicapCalculator() {
           </div>
         </Card>
       ) : (
-        <Card className="bg-warning bg-opacity-10 border border-warning">
+        <Card className="bg-orange-100 border border-warning">
           <p className="text-sm text-text-primary">
             <span className="font-medium">Need 3+ rounds</span> to calculate handicap. Currently have {calculations.totalRounds}.
           </p>
@@ -220,7 +220,7 @@ export default function GolfHandicapCalculator() {
                   const isUsed = sorted.slice(0, calculations.usedRounds).includes(differential);
 
                   return (
-                    <tr key={round.id} className={`border-b border-border ${isUsed ? 'bg-success bg-opacity-5' : ''}`}>
+                    <tr key={round.id} className={`border-b border-border ${isUsed ? 'bg-green-50' : ''}`}>
                       <td className="px-3 py-2 text-text-secondary">Round {idx + 1}</td>
                       <td className="px-3 py-2 text-center font-mono text-text-primary">{round.grossScore}</td>
                       <td className="px-3 py-2 text-center text-text-secondary text-xs">{round.courseRating}</td>
@@ -307,7 +307,7 @@ export default function GolfHandicapCalculator() {
               </div>
 
               {courseHandicap !== null && (
-                <Card className="bg-accent bg-opacity-5 p-3">
+                <Card className="bg-blue-50 p-3">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium text-text-primary">{newCourse || 'Custom Course'}</span>
                     <span className="font-mono font-bold text-accent text-lg">{courseHandicap}</span>
@@ -320,7 +320,7 @@ export default function GolfHandicapCalculator() {
       )}
 
       {/* WHS Explanation */}
-      <Card className="bg-info bg-opacity-5 border border-info">
+      <Card className="bg-blue-50 border border-info">
         <h4 className="font-medium text-text-primary mb-2">World Handicap System (WHS) Explained</h4>
         <div className="text-sm text-text-secondary space-y-2">
           <p>
@@ -338,7 +338,7 @@ export default function GolfHandicapCalculator() {
         </div>
       </Card>
 
-      <Card className="bg-warning bg-opacity-5 border border-warning">
+      <Card className="bg-orange-50 border border-warning">
         <p className="text-xs text-text-secondary">
           <strong>Disclaimer:</strong> For estimation purposes only. Official handicaps are maintained through your golf club. Course ratings and slope ratings come from your club or local golf union.
         </p>

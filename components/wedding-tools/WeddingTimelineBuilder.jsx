@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { downloadAsJPG } from "@/lib/download-utils";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
@@ -148,6 +149,51 @@ export default function WeddingTimelineBuilder() {
     });
   };
 
+  const handleDownloadJPG = () => {
+    if (!timeline) return;
+
+    downloadAsJPG({
+      filename: `wedding-timeline-${new Date().toISOString().split('T')[0]}.jpg`,
+      width: 700,
+      height: 1000,
+      title: "Wedding Day Timeline",
+      subtitle: "Your Special Day Schedule",
+      accentColor: "#e8a317",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        timeline.events.forEach((event) => {
+          ctx.fillStyle = "#e8a317";
+          ctx.beginPath();
+          ctx.arc(area.x + 6, y + 7, 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = "#e8a317";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(area.x + 6, y + 11);
+          ctx.lineTo(area.x + 6, y + 18);
+          ctx.stroke();
+
+          ctx.fillStyle = "#1a1a1a";
+          ctx.font = "bold 12px monospace";
+          ctx.textAlign = "left";
+          ctx.fillText(event.time, area.x + 18, y);
+
+          ctx.fillStyle = "#1a1a1a";
+          ctx.font = "bold 11px sans-serif";
+          ctx.fillText(event.title, area.x + 18, y + 16);
+
+          ctx.fillStyle = "#525252";
+          ctx.font = "10px sans-serif";
+          ctx.fillText(event.duration + " - " + event.details, area.x + 18, y + 30);
+
+          y += 50;
+        });
+      },
+    });
+  };
+
   return (
     <div className="space-y-8">
       <Card>
@@ -261,6 +307,14 @@ export default function WeddingTimelineBuilder() {
                 </div>
               ))}
             </div>
+
+            <Button
+              onClick={handleDownloadJPG}
+              variant="primary"
+              className="w-full mt-4 mb-4"
+            >
+              Download JPG
+            </Button>
 
             <div className="mt-6 pt-6 border-t border-border">
               <p className="text-text-secondary text-sm font-medium mb-2">

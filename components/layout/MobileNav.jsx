@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { categories } from "@/lib/categories";
+import { useAuth } from "@/lib/mock-auth";
 
 // Only use Clerk when keys are configured
 const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
@@ -18,6 +19,7 @@ import ToolSearch from "@/components/tools/ToolSearch";
 
 export default function MobileNav({ onClose }) {
   const [mounted, setMounted] = useState(false);
+  const auth = useAuth();
 
   useEffect(() => {
     setMounted(true);
@@ -65,7 +67,7 @@ export default function MobileNav({ onClose }) {
           ))}
         </div>
 
-        {Show && (
+        {Show ? (
           <div className="mt-6 pt-6 border-t border-border">
             <Show when="signed-out">
               <SignInButton mode="modal">
@@ -83,6 +85,46 @@ export default function MobileNav({ onClose }) {
                 <span className="text-sm text-text-secondary">My Account</span>
               </div>
             </Show>
+          </div>
+        ) : auth.loaded && (
+          <div className="mt-6 pt-6 border-t border-border">
+            {auth.isSignedIn ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 px-3">
+                  <div className="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold">
+                    {auth.user.firstName[0]}{auth.user.lastName[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-text-primary">{auth.user.firstName} {auth.user.lastName}</p>
+                    <p className="text-xs text-text-muted">{auth.user.email}</p>
+                  </div>
+                  {auth.isPro && (
+                    <span className="text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full ml-auto">PRO</span>
+                  )}
+                </div>
+                <div className="flex gap-2 px-3">
+                  <button
+                    onClick={auth.togglePro}
+                    className="flex-1 text-center px-3 py-2 text-xs font-medium text-text-secondary border border-border rounded-[var(--radius-input)] hover:bg-surface-hover transition-colors cursor-pointer"
+                  >
+                    Toggle {auth.isPro ? 'Free' : 'Pro'}
+                  </button>
+                  <button
+                    onClick={() => { auth.signOut(); onClose(); }}
+                    className="flex-1 text-center px-3 py-2 text-xs font-medium text-error border border-border rounded-[var(--radius-input)] hover:bg-red-50 transition-colors cursor-pointer"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => { auth.signIn(); onClose(); }}
+                className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-accent rounded-[var(--radius-input)] cursor-pointer"
+              >
+                Sign in
+              </button>
+            )}
           </div>
         )}
       </div>

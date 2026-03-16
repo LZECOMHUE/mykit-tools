@@ -107,7 +107,7 @@ export default function CSSMinifier() {
               </div>
               <div className="text-[11px] text-text-muted mt-1">Saved</div>
             </div>
-            <div className="rounded-[var(--radius-card)] bg-success bg-opacity-10 border border-success p-3 text-center">
+            <div className="rounded-[var(--radius-card)] bg-green-100 border border-success p-3 text-center">
               <div className="text-lg font-bold font-mono text-success">
                 {stats.savedPercent}%
               </div>

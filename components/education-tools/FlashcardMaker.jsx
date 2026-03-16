@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadAsJPG, drawBulletList } from '@/lib/download-utils';
 
 export default function FlashcardMaker() {
   const [cards, setCards] = useState([
@@ -66,6 +67,28 @@ export default function FlashcardMaker() {
     setCurrentCardIndex(0);
     setIsFlipped(false);
     setKnown(new Set());
+  };
+
+  const handleDownloadJPG = () => {
+    const cardPairs = validCards.map((c) => `Q: ${c.front} | A: ${c.back}`);
+
+    downloadAsJPG({
+      filename: 'flashcards.jpg',
+      width: 800,
+      height: 1200,
+      title: 'Flashcard Set',
+      subtitle: `${validCards.length} Cards`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawBulletList(ctx, cardPairs, area.x, y, {
+          maxWidth: area.width,
+          fontSize: 11,
+          lineHeight: 26,
+        });
+      },
+    });
   };
 
   if (isStudyMode && validCards.length > 0) {
@@ -236,6 +259,12 @@ export default function FlashcardMaker() {
                   Start Study
                 </button>
               </div>
+              <button
+                onClick={handleDownloadJPG}
+                className="w-full px-6 py-3 bg-white border border-border text-text-primary rounded-[var(--radius-input)] font-medium hover:bg-surface transition-colors"
+              >
+                Download JPG
+              </button>
             </div>
           )}
 

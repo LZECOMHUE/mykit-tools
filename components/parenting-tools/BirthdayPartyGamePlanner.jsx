@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const PARTY_GAMES = {
   '3-5': [
@@ -76,6 +76,82 @@ export default function BirthdayPartyGamePlanner() {
   const [generated, setGenerated] = useState(false);
   const [schedule, setSchedule] = useState([]);
   const [materials, setMaterials] = useState([]);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!schedule || schedule.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 100 + (schedule.length * 90) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Birthday Party Game Schedule', 40, y);
+
+    y += 50;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Total time: ' + totalDuration + ' minutes', 40, y);
+
+    y += 35;
+
+    ctx.font = '12px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    schedule.forEach((game, i) => {
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.fillText((i + 1) + '. ' + game.name, 50, y);
+
+      ctx.fillStyle = '#525252';
+      ctx.font = '11px sans-serif';
+      ctx.fillText(game.duration + ' min | ' + game.players + ' players', 50, y + 18);
+
+      const maxWidth = 700;
+      const ruleWords = game.rules.split(' ');
+      let ruleLine = '';
+      let ruleY = y + 32;
+
+      ruleWords.forEach(word => {
+        const testLine = ruleLine + (ruleLine ? ' ' : '') + word;
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && ruleLine) {
+          ctx.fillText(ruleLine, 50, ruleY);
+          ruleY += 16;
+          ruleLine = word;
+        } else {
+          ruleLine = testLine;
+        }
+      });
+      if (ruleLine) ctx.fillText(ruleLine, 50, ruleY);
+
+      y += 90;
+    });
+
+    y += 10;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'party-game-schedule.jpg';
+    link.click();
+  };
 
   const generateSchedule = () => {
     const games = PARTY_GAMES[ageGroup] || PARTY_GAMES['5-7'];
@@ -261,10 +337,10 @@ export default function BirthdayPartyGamePlanner() {
           </div>
 
           <button
-            onClick={() => window.print()}
+            onClick={downloadAsJPG}
             className="w-full px-4 py-2 bg-accent text-white hover:bg-accent-hover rounded-[var(--radius-input)] font-medium transition-colors"
           >
-            Print Schedule
+            Download JPG
           </button>
         </div>
       )}

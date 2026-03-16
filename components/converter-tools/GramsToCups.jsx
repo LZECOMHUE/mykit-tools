@@ -112,7 +112,7 @@ export default function GramsToCups() {
 
           {/* Output */}
           {cupsDecimal !== null && (
-            <div className="bg-accent bg-opacity-5 rounded-lg p-4 md:p-6 border border-accent border-opacity-20">
+            <div className="bg-blue-50 rounded-lg p-4 md:p-6 border border-accent border-opacity-20">
               <p className="text-text-muted text-sm font-medium mb-1">Result</p>
               <div className="flex items-baseline gap-3">
                 <div className="font-mono-num text-4xl font-semibold text-text-primary">

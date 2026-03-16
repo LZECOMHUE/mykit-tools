@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import { downloadAsJPG, drawBulletList } from '@/lib/download-utils';
 
 const CitationGenerator = () => {
   const [sources, setSources] = useState([{ id: 1, type: 'book', data: {} }]);
@@ -521,6 +522,59 @@ const CitationGenerator = () => {
     copyToClipboard(bibliography, 'bib');
   };
 
+  const handleDownloadJPG = () => {
+    const bibliography = sources
+      .map((source) => generateCitation(source, activeTab))
+      .filter((c) => c)
+      .sort();
+
+    const formatLabel =
+      CITATION_FORMATS.find((f) => f.id === activeTab)?.label || 'Citations';
+
+    downloadAsJPG({
+      filename: 'citations.jpg',
+      width: 900,
+      height: 1200,
+      title: 'Bibliography',
+      subtitle: `${formatLabel} Format`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#525252';
+        ctx.font = '12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+
+        bibliography.forEach((citation, i) => {
+          ctx.fillText(`${i + 1}.`, area.x, y);
+
+          const words = citation.split(' ');
+          let line = '';
+          let lineY = y;
+          const textX = area.x + 24;
+
+          words.forEach((word) => {
+            const testLine = line + (line ? ' ' : '') + word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > area.width - 24 && line) {
+              ctx.fillText(line, textX, lineY);
+              lineY += 18;
+              line = word;
+            } else {
+              line = testLine;
+            }
+          });
+          if (line) {
+            ctx.fillText(line, textX, lineY);
+          }
+
+          y = lineY + 24;
+        });
+      },
+    });
+  };
+
   const currentSource = sources.find((s) => s.id === activeSourceId);
   const fields = currentSource ? getFields(currentSource.type) : [];
 
@@ -539,7 +593,7 @@ const CitationGenerator = () => {
                 onClick={() => changeSourceType(activeSourceId, typeKey)}
                 className={`p-3 text-sm font-medium rounded-lg border-2 transition-all text-center ${
                   isActive
-                    ? 'border-accent bg-accent bg-opacity-10 text-accent'
+                    ? 'border-accent bg-blue-100 text-accent'
                     : 'border-border bg-white text-text-primary hover:border-text-muted'
                 }`}
               >
@@ -572,7 +626,7 @@ const CitationGenerator = () => {
                 <label className="text-sm font-medium text-text-primary">Authors</label>
                 <button
                   onClick={() => addAuthor(activeSourceId)}
-                  className="text-xs bg-accent bg-opacity-10 text-accent px-2 py-1 rounded hover:bg-opacity-20"
+                  className="text-xs bg-blue-100 text-accent px-2 py-1 rounded hover:opacity-80"
                   disabled={(currentSource?.data.authors?.length || 0) >= 5}
                 >
                   + Add Author
@@ -896,7 +950,7 @@ const CitationGenerator = () => {
               onClick={() => setActiveTab(format.id)}
               className={`px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all ${
                 activeTab === format.id
-                  ? 'border-accent bg-accent bg-opacity-10 text-accent'
+                  ? 'border-accent bg-blue-100 text-accent'
                   : 'border-border bg-white text-text-primary hover:border-text-muted'
               }`}
             >
@@ -966,13 +1020,22 @@ const CitationGenerator = () => {
               ))}
           </div>
 
-          <Button
-            onClick={copyBibliography}
-            variant={copiedIndex === 'bib' ? 'primary' : 'secondary'}
-            className="w-full mt-4"
-          >
-            {copiedIndex === 'bib' ? '✓ Copied!' : '📋 Copy All Citations'}
-          </Button>
+          <div className="flex gap-2 mt-4">
+            <Button
+              onClick={copyBibliography}
+              variant={copiedIndex === 'bib' ? 'primary' : 'secondary'}
+              className="flex-1"
+            >
+              {copiedIndex === 'bib' ? '✓ Copied!' : '📋 Copy All Citations'}
+            </Button>
+            <Button
+              onClick={handleDownloadJPG}
+              variant="secondary"
+              className="flex-1"
+            >
+              Download JPG
+            </Button>
+          </div>
         </Card>
       )}
     </div>

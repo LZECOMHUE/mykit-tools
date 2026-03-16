@@ -110,7 +110,7 @@ export default function JavaScriptMinifier() {
               </div>
               <div className="text-[11px] text-text-muted mt-1">Saved</div>
             </div>
-            <div className="rounded-[var(--radius-card)] bg-success bg-opacity-10 border border-success p-3 text-center">
+            <div className="rounded-[var(--radius-card)] bg-green-100 border border-success p-3 text-center">
               <div className="text-lg font-bold font-mono text-success">
                 {stats.savedPercent}%
               </div>
@@ -145,7 +145,7 @@ export default function JavaScriptMinifier() {
           </div>
 
           {/* Warning */}
-          <div className="rounded-[var(--radius-card)] bg-warning bg-opacity-10 border border-warning p-3">
+          <div className="rounded-[var(--radius-card)] bg-orange-100 border border-warning p-3">
             <p className="text-warning text-[13px]">
               Note: This is a basic minifier. For production use, consider dedicated tools like Terser, UglifyJS, or esbuild.
             </p>

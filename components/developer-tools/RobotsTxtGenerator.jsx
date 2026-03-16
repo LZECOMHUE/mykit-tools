@@ -268,7 +268,7 @@ export default function RobotsTxtGenerator() {
           <h3 className="text-lg font-semibold text-text-primary">robots.txt</h3>
           <button
             onClick={handleCopy}
-            className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-opacity-90"
+            className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"
           >
             {copied ? '✓ Copied' : 'Copy'}
           </button>

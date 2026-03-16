@@ -159,7 +159,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* CSS Copy */}
-      <div className="bg-accent bg-opacity-10 border border-accent rounded-[12px] p-4 sm:p-6">
+      <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-6">
         <p className="text-text-muted text-xs mb-3 uppercase font-semibold">
           CSS Output
         </p>
@@ -250,7 +250,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* Info Box */}
-      <div className="bg-info bg-opacity-10 border border-info rounded-[12px] p-4 sm:p-6">
+      <div className="bg-blue-100 border border-info rounded-[12px] p-4 sm:p-6">
         <p className="text-info text-sm font-medium mb-2">Why use REM?</p>
         <p className="text-text-secondary text-sm">
           REM units are relative to the root element's font size, making them perfect for scalable,

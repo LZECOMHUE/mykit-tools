@@ -226,7 +226,7 @@ ${ogImageUrl ? `<meta name="twitter:image" content="${ogImageUrl}">` : ''}`;
           <h3 className="text-lg font-semibold text-text-primary">Generated Meta Tags</h3>
           <button
             onClick={handleCopyMeta}
-            className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-opacity-90"
+            className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"
           >
             {copied ? '✓ Copied' : 'Copy HTML'}
           </button>

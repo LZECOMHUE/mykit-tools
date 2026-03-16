@@ -169,7 +169,7 @@ export default function TimeCalculator() {
       <div
         className={`p-6 rounded-[var(--radius-card)] border border-border mb-6 transition-colors ${
           totalSeconds > 0
-            ? 'bg-accent bg-opacity-10 border-accent'
+            ? 'bg-blue-100 border-accent'
             : 'bg-surface'
         }`}
       >

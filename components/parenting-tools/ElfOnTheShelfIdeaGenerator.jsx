@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from '@/lib/download-utils';
 
 const ELF_IDEAS = [
   {
@@ -221,6 +223,77 @@ export default function ElfOnTheShelfIdeaGenerator() {
     setIdea(selected);
   };
 
+  const downloadIdea = () => {
+    if (!idea) return;
+
+    downloadAsJPG({
+      filename: 'elf-idea.jpg',
+      width: 900,
+      height: 1200,
+      title: `Day ${idea.day}: ${idea.name}`,
+      subtitle: 'Elf on the Shelf Idea',
+      accentColor: '#dc2626',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, 'Setup Instructions', area.x, y, area.width);
+        y += 8;
+        ctx.font = '13px sans-serif';
+        ctx.fillStyle = '#1a1a1a';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        const setupWords = idea.setup.split(' ');
+        let line = '';
+        const textX = area.x;
+        setupWords.forEach((word) => {
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > area.width - 16 && line) {
+            ctx.fillText(line, textX, y);
+            y += 22;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, textX, y);
+          y += 22;
+        }
+
+        y += 12;
+        y = drawSectionHeading(ctx, 'Supplies Needed', area.x, y, area.width);
+        y = drawBulletList(ctx, idea.supplies, area.x, y, { fontSize: 12, lineHeight: 20, maxWidth: area.width - 16 });
+
+        y += 12;
+        ctx.fillStyle = '#dc2626';
+        ctx.fillRect(area.x, y, area.width, 1);
+        y += 12;
+
+        y = drawSectionHeading(ctx, 'Morning Reveal', area.x, y, area.width, '#dc2626');
+        y += 8;
+        ctx.font = '13px sans-serif';
+        ctx.fillStyle = '#1a1a1a';
+        const revealWords = idea.reveal.split(' ');
+        line = '';
+        revealWords.forEach((word) => {
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > area.width - 16 && line) {
+            ctx.fillText(line, textX, y);
+            y += 22;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, textX, y);
+        }
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -306,12 +379,17 @@ export default function ElfOnTheShelfIdeaGenerator() {
             </div>
           </div>
 
-          <button
-            onClick={handleGenerate}
-            className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
-          >
-            Get Another Idea
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={handleGenerate}
+              className="flex-1 bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+            >
+              Get Another Idea
+            </button>
+            <Button onClick={downloadIdea} className="flex-1 bg-accent text-white">
+              Download JPG
+            </Button>
+          </div>
         </div>
       )}
     </div>

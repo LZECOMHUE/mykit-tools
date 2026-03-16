@@ -221,8 +221,8 @@ export default function StressLevelAssessment() {
           <p className="mt-2 text-text-secondary">Based on the Perceived Stress Scale (PSS-10)</p>
         </div>
 
-        <div className="rounded-[var(--radius-card)] border-2 border-warning bg-warning bg-opacity-5 p-4">
-          <p className="text-sm text-text-secondary">
+        <div className="rounded-[var(--radius-card)] border-2 border-warning bg-orange-50 p-4">
+          <p className="text-sm text-text-primary">
             <strong>Important:</strong> This tool is for educational purposes only and is not a clinical assessment. If you are experiencing significant stress, anxiety, or depression, please consult with a healthcare professional.
           </p>
         </div>
@@ -318,8 +318,8 @@ export default function StressLevelAssessment() {
 
   return (
     <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
-      <div className="rounded-[var(--radius-card)] border-2 border-info bg-info bg-opacity-5 p-4">
-        <p className="text-sm text-text-secondary">
+      <div className="rounded-[var(--radius-card)] border-2 border-info bg-blue-50 p-4">
+        <p className="text-sm text-text-primary">
           This assessment is based on the Perceived Stress Scale (PSS-10), a validated measure of stress. Answer honestly about the last month.
         </p>
       </div>
@@ -351,7 +351,7 @@ export default function StressLevelAssessment() {
               }}
               className={`w-full rounded-[var(--radius-input)] border-2 p-4 text-left transition-all ${
                 answers[question.id] === option.score
-                  ? 'border-accent bg-accent bg-opacity-10'
+                  ? 'border-accent bg-blue-100'
                   : 'border-border hover:border-accent'
               }`}
             >

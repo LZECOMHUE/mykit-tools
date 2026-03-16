@@ -493,7 +493,7 @@ export default function LoveLanguageQuiz() {
                 onClick={() => setAnswers({ ...answers, [question.id]: key })}
                 className={`w-full text-left p-4 rounded-[var(--radius-input)] border-2 transition-all ${
                   answers[question.id] === key
-                    ? 'border-accent bg-accent bg-opacity-10'
+                    ? 'border-accent bg-blue-100'
                     : 'border-border hover:border-accent'
                 }`}
               >

@@ -65,9 +65,10 @@ export default function EnergyCostCalculator() {
     const costPerKwh = electricity / 100;
 
     const applianceCosts = appliances.map(app => {
-      const kwh = (app.wattage / 1000) * app.hoursPerDay;
-      const hourly = kwh * costPerKwh;
-      const daily = hourly * 24;
+      const kwhPerHour = app.wattage / 1000;
+      const dailyKwh = kwhPerHour * app.hoursPerDay;
+      const hourly = kwhPerHour * costPerKwh;
+      const daily = dailyKwh * costPerKwh;
       const weekly = daily * 7;
       const monthly = daily * 30.44;
       const annual = daily * 365;
@@ -80,7 +81,7 @@ export default function EnergyCostCalculator() {
         weekly,
         monthly,
         annual,
-        kwh,
+        dailyKwh,
       };
     });
 
@@ -299,7 +300,7 @@ export default function EnergyCostCalculator() {
                   <div className="flex-1">
                     <p className="font-medium text-text-primary">{cost.name}</p>
                     <p className="text-xs text-text-muted">
-                      {(cost.kwh * 365).toFixed(0)} kWh/year
+                      {(cost.dailyKwh * 365).toFixed(0)} kWh/year
                     </p>
                   </div>
                   <div className="w-32 bg-surface rounded-full h-2 overflow-hidden">

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Input from '@/components/ui/Input';
-import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
 
 const nameDatabase = {
@@ -54,23 +53,14 @@ const nameDatabase = {
 
 export default function HowCommonIsYourName() {
   const [firstName, setFirstName] = useState('');
-  const [gender, setGender] = useState('any');
   const [result, setResult] = useState(null);
 
   const handleSearch = () => {
     if (!firstName.trim()) return;
 
     const nameLower = firstName.toLowerCase().trim();
-    let data = null;
-    let detectedGender = gender;
-
-    if (gender === 'any') {
-      data = nameDatabase.male[nameLower] || nameDatabase.female[nameLower];
-      detectedGender = nameDatabase.male[nameLower] ? 'male' : 'female';
-    } else {
-      const db = gender === 'male' ? nameDatabase.male : nameDatabase.female;
-      data = db[nameLower];
-    }
+    let data = nameDatabase.male[nameLower] || nameDatabase.female[nameLower];
+    let detectedGender = nameDatabase.male[nameLower] ? 'male' : 'female';
 
     if (data) {
       setResult({
@@ -110,17 +100,6 @@ export default function HowCommonIsYourName() {
             placeholder="e.g. James, Sarah, Oliver"
             className="w-full"
           />
-        </div>
-
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-2">
-            Gender
-          </label>
-          <Select value={gender} onChange={(e) => setGender(e.target.value)} className="w-full">
-            <option value="any">Any</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </Select>
         </div>
 
         <Button onClick={handleSearch} disabled={!firstName.trim()} className="bg-accent text-white w-full">

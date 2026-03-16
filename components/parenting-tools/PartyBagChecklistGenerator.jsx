@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const PARTY_BAG_ITEMS = {
   '3-5': {
@@ -137,6 +137,62 @@ export default function PartyBagChecklistGenerator() {
   });
 
   const [checklist, setChecklist] = useState(null);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!checklist) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 120 + (checklist.items.length * 45) + 100;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Party Bag Shopping List', 40, y);
+
+    y += 50;
+
+    ctx.font = '12px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Items: ' + checklist.items.length + ' | Cost per bag: GBP' + checklist.itemTotal.toFixed(2) + ' | Total for ' + checklist.quantity + ' bags: GBP' + checklist.totalCost.toFixed(2), 40, y);
+
+    y += 35;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    checklist.items.forEach((item, i) => {
+      ctx.fillText((i + 1) + '. ' + item.name, 50, y);
+      ctx.fillStyle = '#2563eb';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText('GBP' + item.cost.toFixed(2), 700, y);
+      ctx.fillStyle = '#1a1a1a';
+      ctx.font = '13px sans-serif';
+      y += 45;
+    });
+
+    y += 20;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'party-bag-checklist.jpg';
+    link.click();
+  };
 
   const handleGenerate = () => {
     const budgetValue = parseFloat(config.budget.replace('£', ''));
@@ -341,10 +397,10 @@ export default function PartyBagChecklistGenerator() {
               Generate New List
             </button>
             <button
-              onClick={() => window.print()}
+              onClick={downloadAsJPG}
               className="bg-white border border-border text-text-primary py-3 rounded-[var(--radius-input)] font-medium hover:bg-surface transition"
             >
-              Print List
+              Download JPG
             </button>
           </div>
         </div>

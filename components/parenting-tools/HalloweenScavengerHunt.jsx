@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const HUNT_ITEMS = {
   'not-scary': {
@@ -133,6 +133,57 @@ export default function HalloweenScavengerHunt() {
   });
 
   const [hunt, setHunt] = useState(null);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!hunt) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 60 + (hunt.length * 45) + 120;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 40;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Halloween Scavenger Hunt Checklist', 40, y);
+
+    y += 45;
+
+    ctx.font = 'bold 16px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Find and check off all ' + hunt.length + ' items. Good luck!', 40, y);
+
+    y += 35;
+
+    ctx.font = '14px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    hunt.forEach((item, i) => {
+      ctx.fillText((i + 1) + '. ' + item, 50, y);
+      y += 35;
+    });
+
+    y += 20;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'halloween-scavenger-hunt.jpg';
+    link.click();
+  };
 
   const handleGenerate = () => {
     const scare = config.scareLevel;
@@ -300,10 +351,10 @@ export default function HalloweenScavengerHunt() {
               Create Another Hunt
             </button>
             <button
-              onClick={() => window.print()}
+              onClick={downloadAsJPG}
               className="bg-white border border-border text-text-primary py-3 rounded-[var(--radius-input)] font-medium hover:bg-surface transition"
             >
-              Print This List
+              Download JPG
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -9,6 +9,97 @@ export default function GuessTheNameGame() {
   const [itemName, setItemName] = useState("");
   const [numSlips, setNumSlips] = useState(20);
   const [showPreview, setShowPreview] = useState(false);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!itemName.trim()) return;
+
+    const numSlipsInt = Math.max(10, Math.min(100, parseInt(numSlips) || 20));
+    const slips = Array.from({ length: numSlipsInt }, (_, i) => i + 1);
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 100 + Math.ceil(slips.length / 3) * 200 + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 24px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Guess the Mystery Item - Entry Slips', 40, y);
+
+    y += 50;
+
+    ctx.fillStyle = '#525252';
+    ctx.font = '12px sans-serif';
+    ctx.fillText('Print, cut, and distribute these slips. The mystery item is: ' + itemName, 40, y);
+
+    y += 40;
+
+    const slipsPerRow = 3;
+    let slipNum = 1;
+
+    for (let row = 0; row < Math.ceil(slips.length / slipsPerRow); row++) {
+      for (let col = 0; col < slipsPerRow && slipNum <= slips.length; col++) {
+        const slipX = 50 + col * 250;
+        const slipY = y + row * 200;
+
+        ctx.strokeStyle = '#d4d4d4';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(slipX, slipY, 220, 180);
+
+        ctx.fillStyle = '#2563eb';
+        ctx.font = 'bold 16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('#' + slipNum, slipX + 110, slipY + 30);
+
+        ctx.fillStyle = '#525252';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Your Name:', slipX + 15, slipY + 60);
+
+        ctx.strokeStyle = '#d4d4d4';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(slipX + 15, slipY + 75);
+        ctx.lineTo(slipX + 205, slipY + 75);
+        ctx.stroke();
+
+        ctx.fillText('Your Guess:', slipX + 15, slipY + 105);
+
+        ctx.beginPath();
+        ctx.moveTo(slipX + 15, slipY + 120);
+        ctx.lineTo(slipX + 205, slipY + 120);
+        ctx.stroke();
+
+        ctx.fillStyle = '#a3a3a3';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Guess the Item', slipX + 110, slipY + 160);
+
+        slipNum++;
+      }
+    }
+
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'guess-the-item-slips.jpg';
+    link.click();
+  };
 
   const generateSlips = () => {
     if (!itemName.trim()) return;
@@ -144,11 +235,11 @@ export default function GuessTheNameGame() {
               </div>
 
               <Button
-                onClick={() => window.print()}
+                onClick={downloadAsJPG}
                 variant="secondary"
                 className="w-full"
               >
-                🖨️ Print Entry Slips
+                Download JPG
               </Button>
             </div>
           </Card>

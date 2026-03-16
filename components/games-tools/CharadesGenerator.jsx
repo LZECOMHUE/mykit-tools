@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from "@/lib/download-utils";
 
 const CHARADES = {
   movies: [
@@ -103,6 +104,50 @@ export default function CharadesGenerator() {
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
+  const handleDownloadJPG = () => {
+    const categoryLabel = {
+      movies: "Movies & Shows",
+      tv: "TV Shows",
+      animals: "Animals",
+      actions: "Actions",
+      objects: "Objects",
+    }[category] || "Charades";
+
+    downloadAsJPG({
+      filename: "charades.jpg",
+      width: 800,
+      height: 1000,
+      title: "Charades Game",
+      subtitle: `Category: ${categoryLabel}`,
+      accentColor: "#2563eb",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(
+          ctx,
+          `${categoryLabel} Words`,
+          area.x,
+          y,
+          area.width
+        );
+        y += 8;
+
+        const wordList = CHARADES[category] || CHARADES.movies;
+        const displayWords = wordList.slice(0, 20);
+        y = drawBulletList(ctx, displayWords, area.x, y, {
+          maxWidth: area.width,
+        });
+
+        y += 16;
+        ctx.fillStyle = "#525252";
+        ctx.font = "12px sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Time per round: " + DIFFICULTIES[difficulty].timerSeconds + " seconds", area.x, y);
+        ctx.fillText("Difficulty: " + difficulty.charAt(0).toUpperCase() + difficulty.slice(1), area.x, y + 18);
+      },
+    });
+  };
+
   if (!gameStarted) {
     return (
       <div className="space-y-6">
@@ -133,13 +178,23 @@ export default function CharadesGenerator() {
               helper={DIFFICULTIES[difficulty].description}
             />
 
-            <Button
-              onClick={() => setGameStarted(true)}
-              size="lg"
-              className="w-full"
-            >
-              Start Game
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                onClick={() => setGameStarted(true)}
+                size="lg"
+                className="flex-1"
+              >
+                Start Game
+              </Button>
+              <Button
+                onClick={handleDownloadJPG}
+                variant="secondary"
+                size="lg"
+                className="flex-1"
+              >
+                Download JPG
+              </Button>
+            </div>
           </div>
         </Card>
       </div>

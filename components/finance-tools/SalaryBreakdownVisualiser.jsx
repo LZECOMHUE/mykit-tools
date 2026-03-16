@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { downloadAsJPG, drawKeyValue } from '@/lib/download-utils';
 
 export default function SalaryBreakdownVisualiser() {
   const [annualSalary, setAnnualSalary] = useState('35000');
@@ -104,6 +105,96 @@ export default function SalaryBreakdownVisualiser() {
 
   const handleExpenseChange = (key, value) => {
     setExpenses({ ...expenses, [key]: value });
+  };
+
+  const handleDownloadJPG = () => {
+    downloadAsJPG({
+      filename: 'salary-breakdown.jpg',
+      width: 800,
+      height: 1000,
+      title: 'Salary Breakdown',
+      subtitle: fmt(parseFloat(annualSalary) || 0) + ' Annual',
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawKeyValue(
+          ctx,
+          'Annual Salary',
+          fmt(calculations.monthly * 12),
+          area.x,
+          y,
+          area.width * 0.6,
+          { bold: true }
+        );
+
+        y = drawKeyValue(
+          ctx,
+          'Monthly Gross',
+          fmt(calculations.monthly),
+          area.x,
+          y,
+          area.width * 0.6
+        );
+
+        y = drawKeyValue(
+          ctx,
+          'Pension',
+          fmt(calculations.pension),
+          area.x,
+          y,
+          area.width * 0.6
+        );
+
+        y = drawKeyValue(
+          ctx,
+          'National Insurance',
+          fmt(calculations.ni),
+          area.x,
+          y,
+          area.width * 0.6
+        );
+
+        y = drawKeyValue(
+          ctx,
+          'Income Tax',
+          fmt(calculations.incomeTax),
+          area.x,
+          y,
+          area.width * 0.6
+        );
+
+        if (calculations.studentLoan > 0) {
+          y = drawKeyValue(
+            ctx,
+            'Student Loan',
+            fmt(calculations.studentLoan),
+            area.x,
+            y,
+            area.width * 0.6
+          );
+        }
+
+        y += 8;
+        ctx.strokeStyle = '#e5e5e5';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(area.x, y);
+        ctx.lineTo(area.x + area.width * 0.6, y);
+        ctx.stroke();
+        y += 12;
+
+        y = drawKeyValue(
+          ctx,
+          'Monthly Take Home',
+          fmt(calculations.monthlyTakeHome),
+          area.x,
+          y,
+          area.width * 0.6,
+          { bold: true, fontSize: 14 }
+        );
+      },
+    });
   };
 
   const colors = {
@@ -402,9 +493,17 @@ export default function SalaryBreakdownVisualiser() {
         </div>
       </div>
 
+      {/* Download Button */}
+      <button
+        onClick={handleDownloadJPG}
+        className="w-full px-4 py-3 bg-white border border-border text-text-primary rounded-[12px] font-medium hover:bg-surface transition-colors"
+      >
+        Download JPG
+      </button>
+
       {/* Status Message */}
       {remaining > 0 && (
-        <div className="bg-accent bg-opacity-10 border border-accent rounded-[12px] p-4 sm:p-6">
+        <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-6">
           <p className="text-accent font-medium text-sm">
             Great! You have {fmt(remaining)} left over each month after expenses. Consider
             increasing savings or investments.
@@ -413,7 +512,7 @@ export default function SalaryBreakdownVisualiser() {
       )}
 
       {remaining < 0 && (
-        <div className="bg-error bg-opacity-10 border border-error rounded-[12px] p-4 sm:p-6">
+        <div className="bg-red-100 border border-error rounded-[12px] p-4 sm:p-6">
           <p className="text-error font-medium text-sm">
             Warning: Your expenses exceed your take-home pay by {fmt(Math.abs(remaining))} per
             month. Consider reviewing your budget.
@@ -422,7 +521,7 @@ export default function SalaryBreakdownVisualiser() {
       )}
 
       {remaining === 0 && (
-        <div className="bg-warning bg-opacity-10 border border-warning rounded-[12px] p-4 sm:p-6">
+        <div className="bg-orange-100 border border-warning rounded-[12px] p-4 sm:p-6">
           <p className="text-warning font-medium text-sm">
             Your expenses match your take-home pay exactly. Any unexpected costs could be
             problematic.

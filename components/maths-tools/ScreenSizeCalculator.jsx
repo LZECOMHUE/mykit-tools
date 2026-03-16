@@ -223,7 +223,7 @@ export default function ScreenSizeCalculator() {
         </h3>
         <div className="flex items-center justify-center py-8 px-4">
           <div
-            className="bg-accent bg-opacity-20 border-2 border-accent rounded-[4px]"
+            className="bg-blue-200 border-2 border-accent rounded-[4px]"
             style={{
               width: `${Math.min(
                 300,
@@ -313,7 +313,7 @@ export default function ScreenSizeCalculator() {
       </div>
 
       {/* Conversion Reference */}
-      <div className="bg-info bg-opacity-10 border border-info rounded-[12px] p-4 sm:p-6">
+      <div className="bg-blue-100 border border-info rounded-[12px] p-4 sm:p-6">
         <p className="text-text-secondary text-sm mb-2">
           <span className="font-medium text-info">Conversion:</span> 1 inch = 2.54 cm
         </p>

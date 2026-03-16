@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { downloadAsJPG, drawBulletList } from "@/lib/download-utils";
 import { henDoActivities, packingList } from "@/data/wedding/hen-do-activities";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -92,6 +93,86 @@ export default function HenDoPlanner() {
     setExpandedActivities(newSet);
   };
 
+  const handleDownloadJPG = () => {
+    if (!plan) return;
+
+    const activityLines = plan.activities.map(
+      (a) => `${a.name} - ${a.duration} (${a.costPerPerson})`
+    );
+
+    downloadAsJPG({
+      filename: `hen-do-plan-${config.location}-${config.budgetTier}.jpg`,
+      width: 700,
+      height: 1000,
+      title: "Hen Do Plan",
+      subtitle: `${config.numberOfAttendees} attendees`,
+      accentColor: "#e8a317",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = "#1a1a1a";
+        ctx.font = "bold 12px sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Itinerary", area.x, y);
+        y += 20;
+
+        activityLines.forEach((line) => {
+          ctx.fillStyle = "#e8a317";
+          ctx.beginPath();
+          ctx.arc(area.x + 6, y + 5, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = "#1a1a1a";
+          ctx.font = "11px sans-serif";
+          ctx.textAlign = "left";
+          ctx.fillText(line, area.x + 16, y);
+          y += 18;
+        });
+
+        y += 12;
+        ctx.strokeStyle = "#e5e5e5";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(area.x, y);
+        ctx.lineTo(area.x + area.width, y);
+        ctx.stroke();
+        y += 16;
+
+        ctx.fillStyle = "#1a1a1a";
+        ctx.font = "bold 13px sans-serif";
+        ctx.fillText("Total Budget", area.x, y);
+        ctx.textAlign = "right";
+        ctx.font = "bold 13px monospace";
+        ctx.fillText(plan.totalCostPerPerson, area.x + area.width, y);
+        y += 20;
+
+        ctx.fillStyle = "#1a1a1a";
+        ctx.font = "bold 12px sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Packing List", area.x, y);
+        y += 18;
+
+        const maxPackingItems = Math.min(6, plan.packing.length);
+        for (let i = 0; i < maxPackingItems; i++) {
+          ctx.fillStyle = "#e8a317";
+          ctx.fillRect(area.x, y - 2, 3, 3);
+
+          ctx.fillStyle = "#1a1a1a";
+          ctx.font = "10px sans-serif";
+          ctx.textAlign = "left";
+          ctx.fillText(plan.packing[i], area.x + 8, y);
+          y += 14;
+        }
+
+        if (plan.packing.length > maxPackingItems) {
+          ctx.fillStyle = "#525252";
+          ctx.font = "9px sans-serif";
+          ctx.fillText(`+ ${plan.packing.length - maxPackingItems} more items`, area.x + 8, y);
+        }
+      },
+    });
+  };
+
   return (
     <div className="space-y-8">
       <Card>
@@ -164,12 +245,22 @@ export default function HenDoPlanner() {
       {plan && (
         <div className="space-y-4">
           <Card>
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">
-              Your Hen Do Itinerary
-            </h2>
-            <p className="text-accent font-mono font-bold mb-6">
-              {plan.totalCostPerPerson} per person
-            </p>
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">
+                  Your Hen Do Itinerary
+                </h2>
+                <p className="text-accent font-mono font-bold">
+                  {plan.totalCostPerPerson} per person
+                </p>
+              </div>
+              <Button
+                onClick={handleDownloadJPG}
+                variant="secondary"
+              >
+                Download JPG
+              </Button>
+            </div>
 
             <div className="space-y-2 mb-6">
               {plan.activities.map((activity, idx) => (

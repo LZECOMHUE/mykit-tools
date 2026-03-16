@@ -1,328 +1,142 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { formatCurrency, formatPercentage } from '@/lib/format';
-import { IHT_RATES } from '@/data/tax-rates';
 
 export default function InheritanceTaxCalculator() {
-  const [estateValue, setEstateValue] = useState(750000);
-  const [residenceValue, setResidenceValue] = useState(350000);
-  const [includesResidence, setIncludesResidence] = useState(true);
-  const [passToChildren, setPassToChildren] = useState(true);
-  const [isMarried, setIsMarried] = useState(false);
-  const [unusedAllowance, setUnusedAllowance] = useState(false);
-  const [giftsInLast7Years, setGiftsInLast7Years] = useState(0);
-  const [charityPercentage, setCharityPercentage] = useState(0);
+  const [estateValue, setEstateValue] = useState(500000);
+  const [giftsInSevenYears, setGiftsInSevenYears] = useState(10000);
+  const [maritalStatus, setMaritalStatus] = useState('single');
 
   const results = useMemo(() => {
-    // Start with the estate value
-    let taxableEstate = estateValue;
+    const nilRateBand = 325000;
+    const residenceNilRateBand = 175000;
+    const ihtRate = 0.4;
 
-    // Apply gifts made in last 7 years (reduce the nil-rate band)
-    const giftAllowance = Math.max(0, IHT_RATES.nilRateBand - giftsInLast7Years);
-
-    // Calculate nil-rate band
-    let nilRateBand = IHT_RATES.nilRateBand;
-    if (isMarried && unusedAllowance) {
-      nilRateBand = IHT_RATES.nilRateBand * 2; // £650,000
+    let totalAllowance = nilRateBand;
+    if (maritalStatus === 'married' || maritalStatus === 'civil') {
+      totalAllowance = nilRateBand * 2;
     }
 
-    // Calculate residence nil-rate band (RNRB)
-    let residenceNilRateBand = 0;
-    if (includesResidence && passToChildren) {
-      residenceNilRateBand = IHT_RATES.residenceNilRateBand; // £175,000
-      if (isMarried && unusedAllowance) {
-        residenceNilRateBand = IHT_RATES.residenceNilRateBand * 2; // £350,000
-      }
-
-      // Apply RNRB taper for estates over £2m
-      if (estateValue > IHT_RATES.taperThreshold) {
-        const excessAmount = estateValue - IHT_RATES.taperThreshold;
-        const rnrbTaper = excessAmount * IHT_RATES.taperRate;
-        residenceNilRateBand = Math.max(0, residenceNilRateBand - rnrbTaper);
-      }
-    }
-
-    // Total allowances
-    const totalAllowances = nilRateBand + residenceNilRateBand;
-
-    // Taxable amount (after allowances)
-    let ihtBillBefore = Math.max(0, taxableEstate - totalAllowances);
-
-    // Determine IHT rate based on charity bequest
-    let ihtRate = IHT_RATES.standardRate;
-    let charityAmount = 0;
-
-    if (charityPercentage > 0) {
-      charityAmount = (taxableEstate * charityPercentage) / 100;
-      if (charityPercentage >= 10) {
-        ihtRate = IHT_RATES.charityRate; // 36% instead of 40%
-      }
-    }
-
-    // Calculate IHT on the taxable amount
-    const ihtBill = ihtBillBefore * ihtRate;
-
-    // Calculate effective rate
-    const effectiveRate = estateValue > 0 ? (ihtBill / estateValue) * 100 : 0;
-
-    // Tax-free amount
-    const taxFreeAmount = Math.min(totalAllowances, taxableEstate);
-
-    // Amount subject to tax
-    const taxableAmount = Math.max(0, taxableEstate - totalAllowances);
+    const grossEstate = estateValue + giftsInSevenYears;
+    const taxableEstate = Math.max(0, grossEstate - totalAllowance);
+    const ihtDue = taxableEstate * ihtRate;
 
     return {
-      nilRateBand,
-      residenceNilRateBand,
-      totalAllowances,
-      charityAmount,
-      ihtRate: ihtRate * 100,
-      ihtBill,
-      effectiveRate,
-      taxFreeAmount,
-      taxableAmount,
-      giftsUsedAllowance: Math.min(giftsInLast7Years, IHT_RATES.nilRateBand),
+      nilRateBand: totalAllowance,
+      grossEstate,
+      taxableEstate,
+      ihtDue,
+      netEstate: estateValue - ihtDue,
+      effectiveRate: grossEstate > 0 ? ((ihtDue / grossEstate) * 100).toFixed(2) : 0,
     };
-  }, [estateValue, residenceValue, includesResidence, passToChildren, isMarried, unusedAllowance, giftsInLast7Years, charityPercentage]);
+  }, [estateValue, giftsInSevenYears, maritalStatus]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">UK Inheritance Tax Calculator</h2>
-
-      {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-input)] p-4 mb-6 text-sm text-text-primary">
-        <p className="font-medium text-blue-900 mb-2">About Inheritance Tax</p>
-        <p className="text-blue-800">This calculator estimates IHT based on 2025/26 thresholds. It does not account for business property relief, agricultural property relief, or other complex reliefs. Always seek professional advice.</p>
-      </div>
-
-      {/* Inputs */}
-      <div className="space-y-4 mb-8">
-        {/* Estate Value */}
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
-            Total Estate Value (£)
+            Estate Value
           </label>
-          <input
-            type="number"
-            value={estateValue}
-            onChange={(e) => setEstateValue(parseFloat(e.target.value) || 0)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent"
-            min="0"
-            step="10000"
-          />
-          <p className="text-xs text-text-muted mt-1">Property, savings, investments, pensions (some exceptions), insurance payouts</p>
-        </div>
-
-        {/* Main Residence Value and Toggle */}
-        <div>
-          <div className="flex items-center gap-2 mb-2">
-            <input
-              type="checkbox"
-              id="includesResidence"
-              checked={includesResidence}
-              onChange={(e) => setIncludesResidence(e.target.checked)}
-              className="w-4 h-4 accent-accent"
-            />
-            <label htmlFor="includesResidence" className="text-sm font-medium text-text-primary">
-              Estate includes main residence
-            </label>
-          </div>
-          {includesResidence && (
+          <div className="relative">
+            <span className="absolute left-3 top-2 text-text-primary">£</span>
             <input
               type="number"
-              value={residenceValue}
-              onChange={(e) => setResidenceValue(parseFloat(e.target.value) || 0)}
-              className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent"
-              min="0"
-              step="10000"
-              placeholder="Main residence value"
+              value={estateValue}
+              onChange={(e) => setEstateValue(Number(e.target.value))}
+              className="w-full pl-7 pr-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
-          )}
-          <p className="text-xs text-text-muted mt-1">Unlocks residence nil-rate band (RNRB) of £175,000 per person</p>
+          </div>
         </div>
 
-        {/* Passing to Direct Descendants */}
-        {includesResidence && (
-          <div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="passToChildren"
-                checked={passToChildren}
-                onChange={(e) => setPassToChildren(e.target.checked)}
-                className="w-4 h-4 accent-accent"
-              />
-              <label htmlFor="passToChildren" className="text-sm font-medium text-text-primary">
-                Residence passes to direct descendants (children, grandchildren)
-              </label>
-            </div>
-            <p className="text-xs text-text-muted mt-1">Required to claim RNRB. Does not apply if passed to spouse/civil partner</p>
-          </div>
-        )}
-
-        {/* Married/Civil Partnership */}
         <div>
-          <div className="flex items-center gap-2">
+          <label className="block text-sm font-medium text-text-primary mb-2">
+            Gifts in Last 7 Years
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-2 text-text-primary">£</span>
             <input
-              type="checkbox"
-              id="isMarried"
-              checked={isMarried}
-              onChange={(e) => setIsMarried(e.target.checked)}
-              className="w-4 h-4 accent-accent"
+              type="number"
+              value={giftsInSevenYears}
+              onChange={(e) => setGiftsInSevenYears(Number(e.target.value))}
+              className="w-full pl-7 pr-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
-            <label htmlFor="isMarried" className="text-sm font-medium text-text-primary">
-              Married or in a civil partnership
-            </label>
           </div>
-          <p className="text-xs text-text-muted mt-1">Allows use of spouse's unused allowances</p>
         </div>
 
-        {/* Unused Spouse Allowance */}
-        {isMarried && (
-          <div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="unusedAllowance"
-                checked={unusedAllowance}
-                onChange={(e) => setUnusedAllowance(e.target.checked)}
-                className="w-4 h-4 accent-accent"
-              />
-              <label htmlFor="unusedAllowance" className="text-sm font-medium text-text-primary">
-                Spouse/partner had unused nil-rate band when they died
-              </label>
-            </div>
-            <p className="text-xs text-text-muted mt-1">Doubles your allowances if their full allowance was unused</p>
-          </div>
-        )}
-
-        {/* Gifts Made in Last 7 Years */}
-        <div>
+        <div className="md:col-span-2">
           <label className="block text-sm font-medium text-text-primary mb-2">
-            Gifts Made in Last 7 Years (£) <span className="text-text-muted">Optional</span>
+            Marital Status
           </label>
-          <input
-            type="number"
-            value={giftsInLast7Years}
-            onChange={(e) => setGiftsInLast7Years(parseFloat(e.target.value) || 0)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent"
-            min="0"
-            step="10000"
-          />
-          <p className="text-xs text-text-muted mt-1">Reduce available nil-rate band (£3,000 annual exemption applies first)</p>
-        </div>
-
-        {/* Charity Bequest */}
-        <div>
-          <label className="block text-sm font-medium text-text-primary mb-2">
-            Percentage Passing to Charity (%) <span className="text-text-muted">Optional</span>
-          </label>
-          <input
-            type="number"
-            value={charityPercentage}
-            onChange={(e) => setCharityPercentage(parseFloat(e.target.value) || 0)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent"
-            min="0"
-            max="100"
-            step="1"
-          />
-          <p className="text-xs text-text-muted mt-1">10%+ reduces rate to 36%. No IHT on charitable gifts</p>
-        </div>
-      </div>
-
-      {/* Results Summary */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border space-y-4">
-        <div>
-          <p className="text-text-secondary text-sm mb-1">Estimated Inheritance Tax Bill</p>
-          <p className="text-3xl font-bold text-accent font-mono-num">
-            {formatCurrency(results.ihtBill)}
+          <select
+            value={maritalStatus}
+            onChange={(e) => setMaritalStatus(e.target.value)}
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+          >
+            <option value="single">Single</option>
+            <option value="married">Married/Civil Partnership</option>
+          </select>
+          <p className="text-xs text-text-muted mt-1">
+            Married couples can transfer unused allowance to surviving spouse
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <p className="text-text-secondary text-sm mb-1">Effective Tax Rate</p>
-            <p className="text-xl font-bold text-text-primary font-mono-num">
-              {formatPercentage(results.effectiveRate, 2)}
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6 space-y-4">
+        <h3 className="font-heading text-lg font-bold text-text-primary">
+          Inheritance Tax Calculation
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Nil Rate Band</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-accent">
+              £{results.nilRateBand.toLocaleString('en-GB')}
             </p>
           </div>
-          <div>
-            <p className="text-text-secondary text-sm mb-1">Tax-Free Amount</p>
-            <p className="text-xl font-bold text-text-primary font-mono-num">
-              {formatCurrency(results.taxFreeAmount)}
+
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Gross Estate</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-text-primary">
+              £{results.grossEstate.toLocaleString('en-GB')}
+            </p>
+          </div>
+
+          <div className="bg-surface rounded-[var(--radius-input)] p-4">
+            <p className="text-sm text-text-secondary mb-1">Taxable Estate</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-text-primary">
+              £{results.taxableEstate.toLocaleString('en-GB')}
+            </p>
+          </div>
+
+          <div className="bg-surface rounded-[var(--radius-input)] p-4 border border-accent border-opacity-30">
+            <p className="text-sm text-text-secondary mb-1">IHT Due at 40%</p>
+            <p className="text-2xl md:text-3xl font-mono font-bold text-accent">
+              £{results.ihtDue.toLocaleString('en-GB', { maximumFractionDigits: 0 })}
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Breakdown */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border">
-        <h3 className="text-lg font-bold text-text-primary mb-4">Tax-Free Allowances Breakdown</h3>
-        <div className="space-y-3">
-          <div className="flex justify-between items-center pb-3 border-b border-border">
-            <span className="text-text-secondary">Nil-Rate Band</span>
-            <span className="font-mono-num font-bold text-text-primary">
-              {formatCurrency(results.nilRateBand)}
-            </span>
-          </div>
-
-          {results.residenceNilRateBand > 0 && (
-            <div className="flex justify-between items-center pb-3 border-b border-border">
-              <span className="text-text-secondary">Residence Nil-Rate Band (RNRB)</span>
-              <span className="font-mono-num font-bold text-text-primary">
-                {formatCurrency(results.residenceNilRateBand)}
-              </span>
-            </div>
-          )}
-
-          <div className="flex justify-between items-center pt-3 bg-blue-50 px-3 py-2 rounded">
-            <span className="text-text-primary font-medium">Total Tax-Free Allowance</span>
-            <span className="font-mono-num font-bold text-text-primary">
-              {formatCurrency(results.totalAllowances)}
-            </span>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-border">
-            <div className="flex justify-between items-center pb-3">
-              <span className="text-text-secondary">Estate Value</span>
-              <span className="font-mono-num font-bold text-text-primary">
-                {formatCurrency(estateValue)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center pb-3">
-              <span className="text-text-secondary">Less: Tax-Free Allowances</span>
-              <span className="font-mono-num text-text-primary">
-                −{formatCurrency(results.taxFreeAmount)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center pb-3 border-t border-border pt-3">
-              <span className="text-text-secondary">Taxable Amount</span>
-              <span className="font-mono-num font-bold text-text-primary">
-                {formatCurrency(results.taxableAmount)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-text-secondary">IHT Rate Applied</span>
-              <span className="font-mono-num font-bold text-accent">
-                {formatPercentage(results.ihtRate, 0)}
-              </span>
-            </div>
-          </div>
+        <div className="bg-blue-50 border border-accent border-opacity-20 rounded-[var(--radius-input)] p-3">
+          <p className="text-sm text-text-primary">
+            <span className="font-mono font-bold">Net to Beneficiaries:</span>
+            <span className="ml-2">£{results.netEstate.toLocaleString('en-GB', { maximumFractionDigits: 0 })}</span>
+          </p>
         </div>
       </div>
 
-      {/* Key Facts */}
-      <div className="bg-white rounded-[var(--radius-card)] p-4 border border-border text-xs text-text-muted space-y-2">
-        <p><strong className="text-text-primary">Key Facts:</strong></p>
-        <ul className="list-disc list-inside space-y-1 text-text-secondary">
-          <li>IHT applies to estates over the nil-rate band (£325,000 in 2025/26)</li>
-          <li>RNRB increases if main residence passes to direct descendants</li>
-          <li>Married couples can inherit unused allowances (up to £650,000 each)</li>
-          <li>10%+ to charity reduces rate from 40% to 36%</li>
-          <li>This is an estimate. Seek professional advice for complex estates</li>
-        </ul>
+      <div className="space-y-3">
+        <div className="bg-surface rounded-[var(--radius-input)] p-4">
+          <p className="text-sm font-medium text-text-primary mb-1">How It Works</p>
+          <p className="text-sm text-text-secondary">
+            The first £{results.nilRateBand.toLocaleString('en-GB')} is free from tax. Above that, 40% IHT applies. Gifts made more than 7 years ago don't count.
+          </p>
+        </div>
       </div>
+
+      <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
+        Not legal or tax advice. IHT rules are complex. Consult a solicitor or tax advisor for your situation.
+      </p>
     </div>
   );
 }

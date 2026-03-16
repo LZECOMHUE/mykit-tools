@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { downloadAsJPG } from '@/lib/download-utils';
 
 const EMAIL_TEMPLATES = {
   complaint: {
@@ -240,6 +241,52 @@ export default function EmailTemplateGenerator() {
     }
   };
 
+  const handleDownloadJPG = () => {
+    downloadAsJPG({
+      filename: 'email-template.jpg',
+      width: 800,
+      height: 1100,
+      title: 'Email Template',
+      subtitle: `${type.charAt(0).toUpperCase() + type.slice(1)} - ${tone.charAt(0).toUpperCase() + tone.slice(1)}`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = '12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+
+        const lines = email.split('\n');
+        let y = area.y;
+        const lineHeight = 18;
+
+        lines.forEach((line) => {
+          const words = line.split(' ');
+          let currentLine = '';
+
+          words.forEach((word) => {
+            const testLine = currentLine + (currentLine ? ' ' : '') + word;
+            const metrics = ctx.measureText(testLine);
+
+            if (metrics.width > area.width && currentLine) {
+              ctx.fillText(currentLine, area.x, y);
+              y += lineHeight;
+              currentLine = word;
+            } else {
+              currentLine = testLine;
+            }
+          });
+
+          if (currentLine) {
+            ctx.fillText(currentLine, area.x, y);
+            y += lineHeight;
+          }
+
+          if (line === '') y += 4;
+        });
+      },
+    });
+  };
+
   return (
     <div className="w-full space-y-6">
       {/* Configuration */}
@@ -332,12 +379,20 @@ export default function EmailTemplateGenerator() {
             {email}
           </p>
         </div>
-        <button
-          onClick={handleCopyEmail}
-          className="w-full mt-3 rounded-[var(--radius-card)] bg-accent text-white px-4 py-2 text-sm font-medium hover:bg-accent-hover transition-colors"
-        >
-          Copy Email
-        </button>
+        <div className="flex gap-2 mt-3">
+          <button
+            onClick={handleCopyEmail}
+            className="flex-1 rounded-[var(--radius-card)] bg-accent text-white px-4 py-2 text-sm font-medium hover:bg-accent-hover transition-colors"
+          >
+            Copy Email
+          </button>
+          <button
+            onClick={handleDownloadJPG}
+            className="flex-1 rounded-[var(--radius-card)] bg-white border border-border text-text-primary px-4 py-2 text-sm font-medium hover:bg-surface transition-colors"
+          >
+            Download JPG
+          </button>
+        </div>
       </div>
     </div>
   );

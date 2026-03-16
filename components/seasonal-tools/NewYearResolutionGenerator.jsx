@@ -174,7 +174,7 @@ export default function NewYearResolutionGenerator() {
                 onClick={() => handleCategoryToggle(cat.value)}
                 className={`w-full text-left px-4 py-3 rounded-lg border-2 font-medium transition-colors ${
                   selectedCategories.includes(cat.value)
-                    ? 'bg-accent bg-opacity-10 border-accent text-accent'
+                    ? 'bg-blue-100 border-accent text-accent'
                     : 'border-border text-text-primary hover:bg-surface'
                 }`}
               >

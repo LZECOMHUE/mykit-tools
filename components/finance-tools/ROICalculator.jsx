@@ -134,7 +134,7 @@ export default function ROICalculator() {
             <span className="text-text-primary font-semibold">{fmt(results.finalValue)}</span>
           </div>
 
-          <div className="flex justify-between py-2 border-b border-border bg-white bg-opacity-50 px-3 rounded-[var(--radius-input)]">
+          <div className="flex justify-between py-2 border-b border-border bg-white opacity-50 px-3 rounded-[var(--radius-input)]">
             <span className={`font-semibold ${results.gainLoss >= 0 ? 'text-accent' : 'text-error'}`}>
               Gain/Loss:
             </span>
@@ -143,7 +143,7 @@ export default function ROICalculator() {
             </span>
           </div>
 
-          <div className="flex justify-between py-2 bg-accent bg-opacity-10 px-3 rounded-[var(--radius-input)]">
+          <div className="flex justify-between py-2 bg-blue-100 px-3 rounded-[var(--radius-input)]">
             <span className="text-accent font-semibold">ROI:</span>
             <span className="text-accent font-bold text-lg">
               {results.roi >= 0 ? '+' : ''}{results.roi.toFixed(2)}%

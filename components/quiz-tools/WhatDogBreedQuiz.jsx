@@ -419,7 +419,7 @@ export default function WhatDogBreedQuiz() {
               }}
               className={`w-full rounded-[var(--radius-input)] border-2 p-4 text-left transition-all ${
                 answers[question.id] === option.breed
-                  ? 'border-accent bg-accent bg-opacity-10'
+                  ? 'border-accent bg-blue-100'
                   : 'border-border hover:border-accent'
               }`}
             >

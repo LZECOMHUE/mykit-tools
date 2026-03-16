@@ -110,7 +110,7 @@ export default function CelebrityBirthdayTwin() {
 
           <div className="border-t border-white border-opacity-20 pt-4 space-y-2">
             {matches.map((match, idx) => (
-              <div key={idx} className="bg-white bg-opacity-10 rounded-lg p-3">
+              <div key={idx} className="bg-white opacity-10 rounded-lg p-3">
                 <p className="text-lg">{match}</p>
               </div>
             ))}

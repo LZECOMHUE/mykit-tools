@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading } from '@/lib/download-utils';
 
 const ACTIVITIES = {
   '3-5': [
@@ -145,6 +147,69 @@ export default function KidsActivitySpinner() {
 
   const activities = getFilteredActivities();
 
+  const downloadCurrentActivity = () => {
+    if (!currentActivity) return;
+
+    downloadAsJPG({
+      filename: 'activity.jpg',
+      width: 900,
+      height: 1000,
+      title: currentActivity.name,
+      subtitle: 'Activity Suggestion',
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.font = '14px sans-serif';
+        ctx.fillStyle = '#2563eb';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText('Duration:', area.x, y);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#1a1a1a';
+        ctx.fillText(currentActivity.duration, area.x + area.width, y);
+        ctx.textAlign = 'left';
+        y += 28;
+
+        y = drawSectionHeading(ctx, 'What to Do', area.x, y, area.width);
+        y += 8;
+        ctx.font = '13px sans-serif';
+        ctx.fillStyle = '#1a1a1a';
+        const descWords = currentActivity.description.split(' ');
+        let line = '';
+        const textX = area.x;
+        descWords.forEach((word) => {
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > area.width - 16 && line) {
+            ctx.fillText(line, textX, y);
+            y += 22;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, textX, y);
+          y += 22;
+        }
+
+        if (currentActivity.supplies !== 'None') {
+          y += 8;
+          y = drawSectionHeading(ctx, 'You Will Need', area.x, y, area.width);
+          y += 8;
+          ctx.font = '13px sans-serif';
+          ctx.fillStyle = '#1a1a1a';
+          const supplies = currentActivity.supplies.split(',').map(s => s.trim());
+          supplies.forEach((supply) => {
+            ctx.fillText('- ' + supply, area.x + 16, y);
+            y += 20;
+          });
+        }
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -239,13 +304,18 @@ export default function KidsActivitySpinner() {
           </button>
 
           {currentActivity && !spinning && (
-            <div className="w-full bg-white border border-border rounded-[var(--radius-card)] p-6 text-center">
-              <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">{currentActivity.name}</h2>
-              <p className="text-accent font-mono font-bold text-lg mb-4">{currentActivity.duration}</p>
-              <p className="text-text-primary mb-3">{currentActivity.description}</p>
-              {currentActivity.supplies !== 'None' && (
-                <p className="text-text-secondary text-sm"><span className="font-medium">You\'ll need:</span> {currentActivity.supplies}</p>
-              )}
+            <div className="w-full space-y-3">
+              <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 text-center">
+                <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">{currentActivity.name}</h2>
+                <p className="text-accent font-mono font-bold text-lg mb-4">{currentActivity.duration}</p>
+                <p className="text-text-primary mb-3">{currentActivity.description}</p>
+                {currentActivity.supplies !== 'None' && (
+                  <p className="text-text-secondary text-sm"><span className="font-medium">You\'ll need:</span> {currentActivity.supplies}</p>
+                )}
+              </div>
+              <Button onClick={downloadCurrentActivity} className="w-full bg-accent text-white">
+                Download JPG
+              </Button>
             </div>
           )}
 

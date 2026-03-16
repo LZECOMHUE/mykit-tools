@@ -233,7 +233,7 @@ export default function MentalAgeQuiz() {
           </div>
         </Card>
 
-        <div className="rounded-[var(--radius-card)] border-2 border-info bg-info bg-opacity-5 p-4">
+        <div className="rounded-[var(--radius-card)] border-2 border-info bg-blue-50 p-4">
           <p className="text-sm text-text-secondary">
             <strong>Fun Fact:</strong> This quiz is purely for entertainment. Your actual age is what matters! Your chronological age, life experience, and wisdom are unique to you. This mental age is just a playful reflection of how you approach life right now.
           </p>
@@ -345,7 +345,7 @@ export default function MentalAgeQuiz() {
 
   return (
     <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
-      <div className="rounded-[var(--radius-card)] border-2 border-info bg-info bg-opacity-5 p-4">
+      <div className="rounded-[var(--radius-card)] border-2 border-info bg-blue-50 p-4">
         <p className="text-sm text-text-secondary">
           This is a fun, lighthearted quiz about your approach to life. It\'s not scientific and is just for entertainment!
         </p>
@@ -378,7 +378,7 @@ export default function MentalAgeQuiz() {
               }}
               className={`w-full rounded-[var(--radius-input)] border-2 p-4 text-left transition-all ${
                 answers[question.id] === option.ageAdd
-                  ? 'border-accent bg-accent bg-opacity-10'
+                  ? 'border-accent bg-blue-100'
                   : 'border-border hover:border-accent'
               }`}
             >

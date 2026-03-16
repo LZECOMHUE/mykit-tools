@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from '@/lib/download-utils';
 
 // Pre-built clue sets for each age group and location
 const CLUE_SETS = {
@@ -227,6 +229,33 @@ export default function EasterEggHuntClueGenerator() {
     setGenerated(true);
   };
 
+  const downloadHunt = () => {
+    if (!generated || clues.length === 0) return;
+
+    downloadAsJPG({
+      filename: 'easter-egg-hunt-clues.jpg',
+      width: 900,
+      height: 1100,
+      title: 'Easter Egg Hunt',
+      subtitle: `${ageGroup} years, ${location}`,
+      accentColor: '#d97706',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, 'Rhyming Clues', area.x, y, area.width);
+
+        const clueItems = clues.map((clue, idx) => `${idx + 1}. ${clue}`);
+        y = drawBulletList(ctx, clueItems, area.x, y, { fontSize: 12, lineHeight: 24, maxWidth: area.width - 16 });
+
+        y += 12;
+        y = drawSectionHeading(ctx, 'Parent Cheat Sheet', area.x, y, area.width);
+
+        const spotItems = hidingSpots.map((spot, idx) => `${idx + 1}. ${spot}`);
+        y = drawBulletList(ctx, spotItems, area.x, y, { fontSize: 11, lineHeight: 20, maxWidth: area.width - 16 });
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -340,6 +369,10 @@ export default function EasterEggHuntClueGenerator() {
           <div className="bg-amber-50 border border-amber-200 rounded-[var(--radius-card)] p-4">
             <p className="text-sm text-amber-900"><span className="font-bold">Pro tip:</span> Print the clues on colourful paper or egg-shaped cards for extra fun. Number them so children find them in order.</p>
           </div>
+
+          <Button onClick={downloadHunt} className="w-full bg-accent text-white">
+            Download JPG
+          </Button>
         </div>
       )}
     </div>

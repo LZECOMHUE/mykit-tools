@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from '@/lib/download-utils';
 
 const babyNames = {
   male: {
@@ -55,6 +57,30 @@ export default function BabyNameGenerator() {
 
   const handleRemoveLiked = (name) => {
     setLiked(liked.filter((n) => n !== name));
+  };
+
+  const downloadShortlist = () => {
+    if (liked.length === 0) return;
+
+    const namesList = liked.map(name => {
+      const meaning = nameMeanings[name];
+      return meaning ? `${name} - ${meaning}` : name;
+    });
+
+    downloadAsJPG({
+      filename: 'baby-names-shortlist.jpg',
+      width: 900,
+      height: 900,
+      title: 'Baby Name Shortlist',
+      subtitle: `${gender === 'male' ? 'Boys' : 'Girls'} - ${style} style`,
+      accentColor: gender === 'male' ? '#2563eb' : '#ec4899',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawSectionHeading(ctx, `Your Favourite Names (${liked.length})`, area.x, y, area.width);
+        y = drawBulletList(ctx, namesList, area.x, y, { fontSize: 14, lineHeight: 26, maxWidth: area.width - 16 });
+      }
+    });
   };
 
   return (
@@ -170,6 +196,9 @@ export default function BabyNameGenerator() {
                   ))}
                 </div>
               )}
+              <Button onClick={downloadShortlist} className="w-full bg-accent text-white mt-4">
+                Download Shortlist as JPG
+              </Button>
             </div>
           )}
         </>

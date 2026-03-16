@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawTable } from '@/lib/download-utils';
 
 export default function ChristmasDinnerPlanner() {
   const [guests, setGuests] = useState('6');
@@ -74,6 +75,56 @@ export default function ChristmasDinnerPlanner() {
       numVeg,
       numVegan,
       numMeat,
+    });
+  };
+
+  const downloadPlan = () => {
+    if (!plan) return;
+
+    downloadAsJPG({
+      filename: 'christmas-dinner-plan.jpg',
+      width: 900,
+      height: 1400,
+      title: 'Christmas Dinner Plan',
+      subtitle: `${plan.numGuests} guests at ${plan.servingTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`,
+      accentColor: '#dc2626',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#525252';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`${plan.numMeat} meat | ${plan.numVeg} vegetarian | ${plan.numVegan} vegan`, area.x, y);
+        y += 24;
+
+        y = drawSectionHeading(ctx, 'Cooking Timeline', area.x, y, area.width);
+
+        plan.timeline.forEach((item) => {
+          ctx.font = 'bold 11px monospace';
+          ctx.fillStyle = '#2563eb';
+          ctx.fillText(item.time, area.x, y);
+          ctx.font = '11px sans-serif';
+          ctx.fillStyle = '#1a1a1a';
+          ctx.fillText(item.task, area.x + 50, y);
+          y += 18;
+        });
+
+        y += 8;
+        y = drawSectionHeading(ctx, 'Shopping List', area.x, y, area.width);
+
+        const headers = ['Item', 'Qty', 'Notes'];
+        const rows = plan.shoppingList.map(item => [item.item, String(item.qty), item.notes]);
+
+        y = drawTable(ctx, {
+          x: area.x,
+          y,
+          width: area.width,
+          headers,
+          rows,
+          accentColor: '#dc2626'
+        });
+      }
     });
   };
 
@@ -187,6 +238,10 @@ export default function ChristmasDinnerPlanner() {
               </table>
             </div>
           </div>
+
+          <Button onClick={downloadPlan} className="w-full bg-accent text-white">
+            Download JPG
+          </Button>
         </div>
       )}
     </div>

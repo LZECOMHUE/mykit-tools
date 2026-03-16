@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const FORFEITS = {
   '3-5': {
@@ -178,6 +178,57 @@ export default function PassTheParcelForfeitGenerator() {
   const [difficulty, setDifficulty] = useState('medium');
   const [generated, setGenerated] = useState(false);
   const [forfeits, setForfeits] = useState([]);
+  const printRef = useRef(null);
+
+  const downloadAsJPG = () => {
+    if (!forfeits || forfeits.length === 0) return;
+
+    const canvas = document.createElement('canvas');
+    const scale = 2;
+    const width = 800;
+    const height = 80 + (forfeits.length * 45) + 80;
+
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(scale, scale);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    let y = 50;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Forfeit List for Pass the Parcel', 40, y);
+
+    y += 50;
+
+    ctx.font = '13px sans-serif';
+    ctx.fillStyle = '#525252';
+    ctx.fillText('Call out the forfeit when each layer is unwrapped', 40, y);
+
+    y += 35;
+
+    ctx.font = '14px sans-serif';
+    ctx.fillStyle = '#1a1a1a';
+    forfeits.forEach((forfeit, i) => {
+      ctx.fillText((i + 1) + '. ' + forfeit, 50, y);
+      y += 45;
+    });
+
+    y += 10;
+    ctx.fillStyle = '#a3a3a3';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('mykit.tools', width / 2, height - 20);
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg', 0.95);
+    link.download = 'forfeit-list.jpg';
+    link.click();
+  };
 
   const generateForfeits = () => {
     const forfeitSet = FORFEITS[ageGroup]?.[difficulty] || FORFEITS['5-7'].easy;
@@ -319,10 +370,10 @@ export default function PassTheParcelForfeitGenerator() {
           </div>
 
           <button
-            onClick={() => window.print()}
+            onClick={downloadAsJPG}
             className="w-full px-4 py-2 bg-accent text-white hover:bg-accent-hover rounded-[var(--radius-input)] font-medium transition-colors"
           >
-            Print Forfeit List
+            Download JPG
           </button>
         </div>
       )}

@@ -235,7 +235,7 @@ export default function DartsScoreTracker() {
           </div>
         </Card>
       ) : winner !== null ? (
-        <Card className="bg-success bg-opacity-10 border border-success p-8 text-center">
+        <Card className="bg-green-100 border border-success p-8 text-center">
           <h2 className="text-2xl font-heading font-bold text-success mb-2">🎉 Game Over!</h2>
           <p className="text-xl text-text-primary mb-4 font-bold">{players[winner].name} wins!</p>
           <Button onClick={handleNewGame}>New Game</Button>
@@ -248,7 +248,7 @@ export default function DartsScoreTracker() {
               <Card
                 key={p.id}
                 className={`p-4 transition ${
-                  idx === currentPlayerIdx ? 'ring-2 ring-accent bg-accent bg-opacity-5' : ''
+                  idx === currentPlayerIdx ? 'ring-2 ring-accent bg-blue-50' : ''
                 }`}
               >
                 <div className="text-xs font-medium text-text-secondary uppercase mb-1">{p.name}</div>
@@ -264,7 +264,7 @@ export default function DartsScoreTracker() {
 
           {/* Current player turn */}
           {currentPlayer && (
-            <Card className="bg-accent bg-opacity-5 border-2 border-accent">
+            <Card className="bg-blue-50 border-2 border-accent">
               <h3 className="text-lg font-heading font-bold text-text-primary mb-4">{currentPlayer.name} - Turn</h3>
 
               <div className="mb-4 p-3 bg-white rounded-[var(--radius-input)] border border-border">
@@ -275,7 +275,7 @@ export default function DartsScoreTracker() {
               </div>
 
               {currentPlayer.remaining <= 170 && currentPlayer.remaining > 0 && (
-                <div className="mb-4 p-3 bg-success bg-opacity-10 rounded-[var(--radius-input)] border border-success">
+                <div className="mb-4 p-3 bg-green-100 rounded-[var(--radius-input)] border border-success">
                   <div className="text-xs font-medium text-success mb-1">Suggested Checkout</div>
                   <div className="font-mono font-bold text-success">
                     {getSuggestedCheckout(currentPlayer.remaining) || 'Out of range'}
@@ -284,7 +284,7 @@ export default function DartsScoreTracker() {
               )}
 
               {currentPlayer.remaining <= 2 && currentPlayer.remaining > 0 && (
-                <div className="mb-4 p-3 bg-warning bg-opacity-10 rounded-[var(--radius-input)] border border-warning">
+                <div className="mb-4 p-3 bg-orange-100 rounded-[var(--radius-input)] border border-warning">
                   <span className="text-warning font-bold">On checkout!</span>
                 </div>
               )}

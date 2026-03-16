@@ -287,7 +287,7 @@ export default function TournamentBracketGenerator() {
                         <div
                           onClick={() => handleSetWinner(roundIdx, matchIdx, match.team1)}
                           className={`p-3 border-b border-border cursor-pointer transition ${
-                            match.winner === match.team1 ? 'bg-success bg-opacity-20' : 'hover:bg-surface'
+                            match.winner === match.team1 ? 'bg-green-200' : 'hover:bg-surface'
                           }`}
                         >
                           <div className="text-sm font-medium text-text-primary">
@@ -299,7 +299,7 @@ export default function TournamentBracketGenerator() {
                         <div
                           onClick={() => handleSetWinner(roundIdx, matchIdx, match.team2)}
                           className={`p-3 cursor-pointer transition ${
-                            match.winner === match.team2 ? 'bg-success bg-opacity-20' : 'hover:bg-surface'
+                            match.winner === match.team2 ? 'bg-green-200' : 'hover:bg-surface'
                           }`}
                         >
                           <div className="text-sm font-medium text-text-primary">

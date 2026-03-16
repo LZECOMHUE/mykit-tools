@@ -4,441 +4,514 @@ import { useState, useCallback, useMemo } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
-const ODDS_FORMATS = {
-  FRACTIONAL: 'fractional',
-  DECIMAL: 'decimal',
-  AMERICAN: 'american',
-};
+// ── Odds conversion utilities ──────────────────────────
 
-const EACH_WAY_ODDS = [
-  { label: '1/4 odds', divisor: 4 },
-  { label: '1/5 odds', divisor: 5 },
-  { label: '1/6 odds', divisor: 6 },
-];
+function toDecimal(input, format) {
+  const val = (input || '').toString().trim();
+  if (!val) return 0;
 
-// Odds conversion functions
-const convertToDecimal = (value, format) => {
-  if (format === ODDS_FORMATS.DECIMAL) return parseFloat(value) || 0;
-  if (format === ODDS_FORMATS.FRACTIONAL) {
-    const [num, den] = value.split('/').map(Number);
-    return isNaN(num) || isNaN(den) ? 0 : num / den + 1;
+  if (format === 'decimal') {
+    const n = parseFloat(val);
+    return isNaN(n) || n < 1 ? 0 : n;
   }
-  if (format === ODDS_FORMATS.AMERICAN) {
-    const american = parseFloat(value) || 0;
-    return american > 0 ? american / 100 + 1 : 100 / Math.abs(american) + 1;
+
+  if (format === 'fractional') {
+    // Accept "5/1", "11/4", "evens"
+    if (val.toLowerCase() === 'evens' || val === '1/1') return 2;
+    const parts = val.split('/');
+    if (parts.length !== 2) return 0;
+    const [num, den] = parts.map(Number);
+    if (isNaN(num) || isNaN(den) || den === 0) return 0;
+    return num / den + 1;
   }
+
+  if (format === 'american') {
+    const n = parseFloat(val);
+    if (isNaN(n) || n === 0) return 0;
+    return n > 0 ? n / 100 + 1 : 100 / Math.abs(n) + 1;
+  }
+
   return 0;
-};
+}
 
-const convertFromDecimal = (decimal, format) => {
-  if (format === ODDS_FORMATS.DECIMAL) return decimal.toFixed(2);
-  if (format === ODDS_FORMATS.FRACTIONAL) {
-    const num = (decimal - 1) * 1000;
-    const den = 1000;
-    const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
-    const divisor = gcd(Math.round(num), den);
-    return `${Math.round(num) / divisor}/${den / divisor}`;
-  }
-  if (format === ODDS_FORMATS.AMERICAN) {
-    return decimal > 2 ? `+${Math.round((decimal - 1) * 100)}` : `${Math.round(-100 / (decimal - 1))}`;
-  }
-  return '0';
-};
+function fromDecimal(decimal, format) {
+  if (decimal <= 1) return '';
 
-const formatGBP = (value) => {
-  return new Intl.NumberFormat('en-GB', {
-    style: 'currency',
-    currency: 'GBP',
-    minimumFractionDigits: 2,
-  }).format(value);
-};
+  if (format === 'decimal') return decimal.toFixed(2);
 
-export default function BettingOddsCalculator() {
-  const [mode, setMode] = useState('single'); // single, accumulator, eachway
-  const [oddsFormat, setOddsFormat] = useState(ODDS_FORMATS.DECIMAL);
-
-  // Single bet state
-  const [singleStake, setSingleStake] = useState('10');
-  const [singleOdds, setSingleOdds] = useState('2.00');
-
-  // Accumulator state
-  const [accaSelections, setAccaSelections] = useState([
-    { id: 1, odds: '2.00', name: 'Selection 1' },
-  ]);
-  const [accaStake, setAccaStake] = useState('10');
-  const [nextAccaId, setNextAccaId] = useState(2);
-
-  // Each-way state
-  const [ewStake, setEwStake] = useState('10');
-  const [ewOdds, setEwOdds] = useState('5.00');
-  const [ewPlaceOddsDivisor, setEwPlaceOddsDivisor] = useState(4);
-
-  // Calculations
-  const singleCalc = useMemo(() => {
-    const stake = parseFloat(singleStake) || 0;
-    const decimalOdds = convertToDecimal(singleOdds, oddsFormat);
-    const totalReturn = stake * decimalOdds;
-    const profit = totalReturn - stake;
-    return {
-      decimalOdds,
-      totalReturn: totalReturn >= 0 ? totalReturn : 0,
-      profit: profit >= 0 ? profit : 0,
-    };
-  }, [singleStake, singleOdds, oddsFormat]);
-
-  const accaCalc = useMemo(() => {
-    const stake = parseFloat(accaStake) || 0;
-    const decimalOdds = accaSelections.reduce((acc, sel) => {
-      const odds = convertToDecimal(sel.odds, oddsFormat);
-      return acc * odds;
-    }, 1);
-    const totalReturn = stake * decimalOdds;
-    const profit = totalReturn - stake;
-    return {
-      decimalOdds,
-      totalReturn: totalReturn >= 0 ? totalReturn : 0,
-      profit: profit >= 0 ? profit : 0,
-      selections: accaSelections.length,
-    };
-  }, [accaStake, accaSelections, oddsFormat]);
-
-  const ewCalc = useMemo(() => {
-    const stake = parseFloat(ewStake) || 0;
-    const decimalOdds = convertToDecimal(ewOdds, oddsFormat);
-    const winStake = stake / 2;
-    const placeStake = stake / 2;
-    const placeOdds = (decimalOdds - 1) / ewPlaceOddsDivisor + 1;
-
-    const winReturn = winStake * decimalOdds;
-    const placeReturn = placeStake * placeOdds;
-    const totalReturn = winReturn + placeReturn;
-    const profit = totalReturn - stake;
-
-    return {
-      decimalOdds,
-      winReturn: winReturn >= 0 ? winReturn : 0,
-      placeReturn: placeReturn >= 0 ? placeReturn : 0,
-      totalReturn: totalReturn >= 0 ? totalReturn : 0,
-      profit: profit >= 0 ? profit : 0,
-      placeOdds: placeOdds.toFixed(2),
-    };
-  }, [ewStake, ewOdds, ewPlaceOddsDivisor, oddsFormat]);
-
-  const handleAddSelection = useCallback(() => {
-    setAccaSelections([...accaSelections, { id: nextAccaId, odds: '2.00', name: `Selection ${nextAccaId}` }]);
-    setNextAccaId(nextAccaId + 1);
-  }, [accaSelections, nextAccaId]);
-
-  const handleRemoveSelection = useCallback(
-    (id) => {
-      if (accaSelections.length > 1) {
-        setAccaSelections(accaSelections.filter((s) => s.id !== id));
+  if (format === 'fractional') {
+    if (decimal === 2) return 'Evens';
+    // Find clean fraction
+    const profit = decimal - 1;
+    // Try common denominators
+    for (const den of [1, 2, 4, 5, 8, 10, 20, 25, 50, 100]) {
+      const num = profit * den;
+      if (Math.abs(num - Math.round(num)) < 0.001) {
+        return `${Math.round(num)}/${den}`;
       }
-    },
-    [accaSelections]
-  );
+    }
+    const num = Math.round(profit * 100);
+    const den = 100;
+    const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+    const d = gcd(num, den);
+    return `${num / d}/${den / d}`;
+  }
 
-  const handleUpdateSelection = useCallback(
-    (id, field, value) => {
-      setAccaSelections(accaSelections.map((s) => (s.id === id ? { ...s, [field]: value } : s)));
-    },
-    [accaSelections]
+  if (format === 'american') {
+    return decimal >= 2
+      ? `+${Math.round((decimal - 1) * 100)}`
+      : `${Math.round(-100 / (decimal - 1))}`;
+  }
+
+  return '';
+}
+
+function impliedProbability(decimalOdds) {
+  return decimalOdds > 0 ? (1 / decimalOdds) * 100 : 0;
+}
+
+const formatGBP = (value) =>
+  new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2 }).format(value);
+
+// ── Quick stake buttons ──────────────────────────
+
+const QUICK_STAKES = [1, 2, 5, 10, 20, 50];
+
+function StakeInput({ value, onChange, label = 'Your Stake' }) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-text-primary mb-2">{label}</label>
+      <div className="relative">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted font-medium">£</span>
+        <input
+          type="number"
+          min="0"
+          step="0.01"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder="0.00"
+          className="w-full pl-8 pr-3 py-2.5 border border-border rounded-[var(--radius-input)] text-text-primary font-mono text-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+        />
+      </div>
+      <div className="flex gap-1.5 mt-2">
+        {QUICK_STAKES.map((amt) => (
+          <button
+            key={amt}
+            onClick={() => onChange(String(amt))}
+            className={`flex-1 py-1 text-xs font-medium rounded border transition cursor-pointer ${
+              value === String(amt)
+                ? 'bg-accent text-white border-accent'
+                : 'bg-white border-border text-text-secondary hover:border-accent hover:text-accent'
+            }`}
+          >
+            £{amt}
+          </button>
+        ))}
+      </div>
+    </div>
   );
+}
+
+function OddsInput({ value, onChange, format, label = 'Odds' }) {
+  const placeholder = format === 'fractional' ? 'e.g. 5/1' : format === 'decimal' ? 'e.g. 6.00' : 'e.g. +500';
+  const hint = format === 'fractional' ? 'Fractional (5/1)' : format === 'decimal' ? 'Decimal (6.00)' : 'American (+500)';
 
   return (
-    <div className="space-y-6">
-      {/* Mode Selection */}
-      <div className="flex flex-wrap gap-3">
-        <button
-          onClick={() => setMode('single')}
-          className={`px-4 py-2 rounded-[var(--radius-input)] font-medium transition ${
-            mode === 'single'
-              ? 'bg-accent text-white'
-              : 'bg-surface border border-border text-text-primary hover:bg-surface-hover'
-          }`}
-        >
-          Single Bet
-        </button>
-        <button
-          onClick={() => setMode('accumulator')}
-          className={`px-4 py-2 rounded-[var(--radius-input)] font-medium transition ${
-            mode === 'accumulator'
-              ? 'bg-accent text-white'
-              : 'bg-surface border border-border text-text-primary hover:bg-surface-hover'
-          }`}
-        >
-          Accumulator
-        </button>
-        <button
-          onClick={() => setMode('eachway')}
-          className={`px-4 py-2 rounded-[var(--radius-input)] font-medium transition ${
-            mode === 'eachway'
-              ? 'bg-accent text-white'
-              : 'bg-surface border border-border text-text-primary hover:bg-surface-hover'
-          }`}
-        >
-          Each-Way
-        </button>
+    <div>
+      <label className="block text-sm font-medium text-text-primary mb-2">{label}</label>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="w-full px-3 py-2.5 border border-border rounded-[var(--radius-input)] text-text-primary font-mono text-lg focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+      />
+      <p className="text-xs text-text-muted mt-1">{hint}</p>
+    </div>
+  );
+}
+
+// ── Result display ──────────────────────────
+
+function ResultCard({ label, value, highlight = false, sub }) {
+  return (
+    <div className={`rounded-[var(--radius-card)] p-4 text-center ${highlight ? 'bg-accent/5 border-2 border-accent' : 'bg-white border border-border'}`}>
+      <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">{label}</p>
+      <p className={`font-mono text-2xl font-bold ${highlight ? 'text-accent' : 'text-text-primary'}`}>{value}</p>
+      {sub && <p className="text-xs text-text-muted mt-1">{sub}</p>}
+    </div>
+  );
+}
+
+// ── Odds conversion display ──────────────────────────
+
+function OddsConversion({ decimalOdds, currentFormat }) {
+  if (decimalOdds <= 1) return null;
+  const formats = ['fractional', 'decimal', 'american'];
+
+  return (
+    <div className="flex gap-3 py-2">
+      {formats.map((fmt) => (
+        <div key={fmt} className={`flex-1 text-center py-2 rounded-[var(--radius-input)] ${fmt === currentFormat ? 'bg-accent/10 border border-accent/20' : 'bg-surface'}`}>
+          <p className="text-[10px] text-text-muted uppercase mb-0.5">{fmt}</p>
+          <p className="font-mono font-bold text-sm text-text-primary">{fromDecimal(decimalOdds, fmt)}</p>
+        </div>
+      ))}
+      <div className="flex-1 text-center py-2 rounded-[var(--radius-input)] bg-surface">
+        <p className="text-[10px] text-text-muted uppercase mb-0.5">Implied Prob.</p>
+        <p className="font-mono font-bold text-sm text-text-primary">{impliedProbability(decimalOdds).toFixed(1)}%</p>
+      </div>
+    </div>
+  );
+}
+
+// ── Main component ──────────────────────────
+
+const MODES = [
+  { id: 'single', label: 'Single Bet', desc: 'One selection, one outcome' },
+  { id: 'accumulator', label: 'Accumulator', desc: 'Multiple selections, all must win' },
+  { id: 'eachway', label: 'Each-Way', desc: 'Win and place bet combined' },
+];
+
+const EW_TERMS = [
+  { value: 4, label: '1/4 odds (most common)', desc: 'Handicap, most races 5-7 runners' },
+  { value: 5, label: '1/5 odds', desc: 'Races with 8+ runners, big fields' },
+  { value: 3, label: '1/3 odds', desc: 'Some festival races' },
+];
+
+export default function BettingOddsCalculator() {
+  const [mode, setMode] = useState('single');
+  const [oddsFormat, setOddsFormat] = useState('fractional');
+
+  // Single bet
+  const [singleStake, setSingleStake] = useState('10');
+  const [singleOdds, setSingleOdds] = useState('5/1');
+
+  // Accumulator
+  const [accaStake, setAccaStake] = useState('5');
+  const [accaLegs, setAccaLegs] = useState([
+    { id: 1, odds: '2/1', name: '' },
+    { id: 2, odds: '3/1', name: '' },
+  ]);
+  const [nextId, setNextId] = useState(3);
+
+  // Each-way
+  const [ewStake, setEwStake] = useState('10');
+  const [ewOdds, setEwOdds] = useState('8/1');
+  const [ewTerms, setEwTerms] = useState(4);
+
+  // ── Single bet calc ──
+  const singleResult = useMemo(() => {
+    const stake = parseFloat(singleStake) || 0;
+    const dec = toDecimal(singleOdds, oddsFormat);
+    if (dec <= 0 || stake <= 0) return null;
+    const returns = stake * dec;
+    const profit = returns - stake;
+    return { dec, returns, profit, probability: impliedProbability(dec) };
+  }, [singleStake, singleOdds, oddsFormat]);
+
+  // ── Accumulator calc ──
+  const accaResult = useMemo(() => {
+    const stake = parseFloat(accaStake) || 0;
+    if (stake <= 0 || accaLegs.length === 0) return null;
+
+    const decimals = accaLegs.map((leg) => toDecimal(leg.odds, oddsFormat));
+    if (decimals.some((d) => d <= 0)) return null;
+
+    const combinedDec = decimals.reduce((a, b) => a * b, 1);
+    const returns = stake * combinedDec;
+    const profit = returns - stake;
+    const probability = decimals.reduce((a, d) => a * (1 / d), 1) * 100;
+
+    return { combinedDec, returns, profit, probability, legs: accaLegs.length };
+  }, [accaStake, accaLegs, oddsFormat]);
+
+  // ── Each-way calc ──
+  const ewResult = useMemo(() => {
+    const totalStake = parseFloat(ewStake) || 0;
+    if (totalStake <= 0) return null;
+
+    const dec = toDecimal(ewOdds, oddsFormat);
+    if (dec <= 0) return null;
+
+    const halfStake = totalStake / 2;
+    const placeOdds = (dec - 1) / ewTerms + 1;
+
+    // If selection WINS: both win and place pay out
+    const winReturns = halfStake * dec;
+    const placeReturns = halfStake * placeOdds;
+    const totalIfWin = winReturns + placeReturns;
+    const profitIfWin = totalIfWin - totalStake;
+
+    // If selection PLACES only: only place pays
+    const totalIfPlace = placeReturns;
+    const profitIfPlace = totalIfPlace - totalStake;
+
+    return {
+      dec,
+      placeOdds,
+      halfStake,
+      totalIfWin,
+      profitIfWin,
+      totalIfPlace,
+      profitIfPlace,
+      winReturns,
+      placeReturns,
+    };
+  }, [ewStake, ewOdds, ewTerms, oddsFormat]);
+
+  // ── Acca handlers ──
+  const addLeg = useCallback(() => {
+    setAccaLegs((prev) => [...prev, { id: nextId, odds: oddsFormat === 'fractional' ? '2/1' : oddsFormat === 'decimal' ? '3.00' : '+200', name: '' }]);
+    setNextId((n) => n + 1);
+  }, [nextId, oddsFormat]);
+
+  const removeLeg = useCallback((id) => {
+    setAccaLegs((prev) => (prev.length > 1 ? prev.filter((l) => l.id !== id) : prev));
+  }, []);
+
+  const updateLeg = useCallback((id, field, value) => {
+    setAccaLegs((prev) => prev.map((l) => (l.id === id ? { ...l, [field]: value } : l)));
+  }, []);
+
+  return (
+    <div className="space-y-5">
+      {/* Mode selector */}
+      <div className="grid grid-cols-3 gap-2">
+        {MODES.map((m) => (
+          <button
+            key={m.id}
+            onClick={() => setMode(m.id)}
+            className={`p-3 rounded-[var(--radius-card)] text-left transition cursor-pointer ${
+              mode === m.id
+                ? 'bg-accent text-white ring-2 ring-accent ring-offset-2'
+                : 'bg-white border border-border text-text-primary hover:border-accent'
+            }`}
+          >
+            <div className="font-medium text-sm">{m.label}</div>
+            <div className={`text-xs mt-0.5 ${mode === m.id ? 'text-white/80' : 'text-text-muted'}`}>{m.desc}</div>
+          </button>
+        ))}
       </div>
 
-      {/* Odds Format Selection */}
-      <Card>
-        <div className="flex flex-wrap gap-2">
-          <span className="text-text-secondary text-sm font-medium">Odds format:</span>
-          {Object.values(ODDS_FORMATS).map((format) => (
-            <button
-              key={format}
-              onClick={() => setOddsFormat(format)}
-              className={`px-3 py-1 text-sm rounded-[var(--radius-input)] transition ${
-                oddsFormat === format
-                  ? 'bg-accent text-white'
-                  : 'bg-surface border border-border text-text-primary hover:bg-surface-hover'
-              }`}
-            >
-              {format === ODDS_FORMATS.FRACTIONAL && '5/1'}
-              {format === ODDS_FORMATS.DECIMAL && '6.00'}
-              {format === ODDS_FORMATS.AMERICAN && '+500'}
-            </button>
-          ))}
-        </div>
-      </Card>
+      {/* Odds format */}
+      <div className="flex items-center gap-2 bg-surface rounded-[var(--radius-card)] p-3">
+        <span className="text-sm font-medium text-text-secondary mr-2">Format:</span>
+        {['fractional', 'decimal', 'american'].map((fmt) => (
+          <button
+            key={fmt}
+            onClick={() => setOddsFormat(fmt)}
+            className={`px-3 py-1.5 text-sm rounded-[var(--radius-input)] font-medium transition cursor-pointer ${
+              oddsFormat === fmt
+                ? 'bg-white border border-accent text-accent shadow-sm'
+                : 'text-text-muted hover:text-text-primary'
+            }`}
+          >
+            {fmt === 'fractional' ? '5/1' : fmt === 'decimal' ? '6.00' : '+500'}
+          </button>
+        ))}
+      </div>
 
-      {/* SINGLE BET MODE */}
+      {/* ── SINGLE BET ── */}
       {mode === 'single' && (
         <div className="space-y-4">
           <Card>
-            <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Single Bet Calculator</h3>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-text-primary mb-2">Stake (£)</label>
-                <input
-                  type="number"
-                  value={singleStake}
-                  onChange={(e) => setSingleStake(e.target.value)}
-                  placeholder="Enter stake"
-                  className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-opacity-20"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-text-primary mb-2">
-                  Odds ({oddsFormat === ODDS_FORMATS.FRACTIONAL ? '5/1' : oddsFormat === ODDS_FORMATS.DECIMAL ? '6.00' : '+500'})
-                </label>
-                <input
-                  type="text"
-                  value={singleOdds}
-                  onChange={(e) => setSingleOdds(e.target.value)}
-                  placeholder={oddsFormat === ODDS_FORMATS.FRACTIONAL ? '5/1' : oddsFormat === ODDS_FORMATS.DECIMAL ? '6.00' : '+500'}
-                  className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-opacity-20"
-                />
-              </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <StakeInput value={singleStake} onChange={setSingleStake} />
+              <OddsInput value={singleOdds} onChange={setSingleOdds} format={oddsFormat} />
             </div>
+
+            {singleResult && <OddsConversion decimalOdds={singleResult.dec} currentFormat={oddsFormat} />}
           </Card>
 
-          {/* Results */}
-          <div className="grid sm:grid-cols-3 gap-4">
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Decimal Odds</div>
-              <div className="font-mono text-2xl font-bold text-accent">{singleCalc.decimalOdds.toFixed(2)}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Potential Return</div>
-              <div className="font-mono text-2xl font-bold text-text-primary">{formatGBP(singleCalc.totalReturn)}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Profit</div>
-              <div className="font-mono text-2xl font-bold text-accent">{formatGBP(singleCalc.profit)}</div>
-            </Card>
-          </div>
-        </div>
-      )}
-
-      {/* ACCUMULATOR MODE */}
-      {mode === 'accumulator' && (
-        <div className="space-y-4">
-          <Card>
-            <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Accumulator Calculator</h3>
-
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-text-primary mb-2">Total Stake (£)</label>
-              <input
-                type="number"
-                value={accaStake}
-                onChange={(e) => setAccaStake(e.target.value)}
-                placeholder="Enter stake"
-                className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-opacity-20"
-              />
+          {singleResult && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <ResultCard label="Stake" value={formatGBP(parseFloat(singleStake) || 0)} />
+              <ResultCard label="Total Return" value={formatGBP(singleResult.returns)} highlight />
+              <ResultCard label="Profit" value={formatGBP(singleResult.profit)} highlight />
+              <ResultCard label="Win Chance" value={`${singleResult.probability.toFixed(1)}%`} sub="Implied probability" />
             </div>
-
-            <div className="space-y-3 mb-4">
-              <div className="flex justify-between items-center">
-                <h4 className="font-medium text-text-primary">Selections ({accaSelections.length})</h4>
-                <Button onClick={handleAddSelection} variant="secondary" size="sm">
-                  + Add Selection
-                </Button>
-              </div>
-
-              {accaSelections.map((sel, idx) => (
-                <div key={sel.id} className="p-3 bg-surface rounded-[var(--radius-input)] space-y-2">
-                  <div className="flex items-end gap-2">
-                    <div className="flex-1">
-                      <label className="block text-xs font-medium text-text-secondary mb-1">Selection {idx + 1} Name</label>
-                      <input
-                        type="text"
-                        value={sel.name}
-                        onChange={(e) => handleUpdateSelection(sel.id, 'name', e.target.value)}
-                        placeholder="e.g., Man United to win"
-                        className="w-full px-2 py-1.5 border border-border rounded text-sm focus:outline-none focus:border-accent"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <label className="block text-xs font-medium text-text-secondary mb-1">Odds</label>
-                      <input
-                        type="text"
-                        value={sel.odds}
-                        onChange={(e) => handleUpdateSelection(sel.id, 'odds', e.target.value)}
-                        placeholder="2.00"
-                        className="w-full px-2 py-1.5 border border-border rounded text-sm focus:outline-none focus:border-accent"
-                      />
-                    </div>
-                    {accaSelections.length > 1 && (
-                      <Button
-                        onClick={() => handleRemoveSelection(sel.id)}
-                        variant="secondary"
-                        size="sm"
-                        className="px-2"
-                      >
-                        ✕
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          {/* Results */}
-          <div className="grid sm:grid-cols-4 gap-4">
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Combined Odds</div>
-              <div className="font-mono text-2xl font-bold text-accent">{accaCalc.decimalOdds.toFixed(2)}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Legs</div>
-              <div className="font-mono text-2xl font-bold text-text-primary">{accaCalc.selections}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Potential Return</div>
-              <div className="font-mono text-2xl font-bold text-text-primary">{formatGBP(accaCalc.totalReturn)}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Profit</div>
-              <div className="font-mono text-2xl font-bold text-accent">{formatGBP(accaCalc.profit)}</div>
-            </Card>
-          </div>
-
-          {accaSelections.length > 1 && (
-            <Card className="bg-warning bg-opacity-10 border border-warning">
-              <p className="text-sm text-text-primary">
-                <span className="font-medium">Break-even:</span> {accaSelections.length} of {accaSelections.length} selections need to win for profit.
-              </p>
-            </Card>
           )}
         </div>
       )}
 
-      {/* EACH-WAY MODE */}
-      {mode === 'eachway' && (
+      {/* ── ACCUMULATOR ── */}
+      {mode === 'accumulator' && (
         <div className="space-y-4">
           <Card>
-            <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Each-Way Calculator</h3>
+            <StakeInput value={accaStake} onChange={setAccaStake} />
 
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-text-primary mb-2">Total Stake (£) — split equally between Win & Place</label>
-                <input
-                  type="number"
-                  value={ewStake}
-                  onChange={(e) => setEwStake(e.target.value)}
-                  placeholder="Enter stake"
-                  className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-opacity-20"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-text-primary mb-2">
-                  Win Odds ({oddsFormat === ODDS_FORMATS.FRACTIONAL ? '5/1' : oddsFormat === ODDS_FORMATS.DECIMAL ? '6.00' : '+500'})
-                </label>
-                <input
-                  type="text"
-                  value={ewOdds}
-                  onChange={(e) => setEwOdds(e.target.value)}
-                  placeholder={oddsFormat === ODDS_FORMATS.FRACTIONAL ? '5/1' : oddsFormat === ODDS_FORMATS.DECIMAL ? '6.00' : '+500'}
-                  className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-opacity-20"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-text-primary mb-2">Place Odds Reduction</label>
-                <select
-                  value={ewPlaceOddsDivisor}
-                  onChange={(e) => setEwPlaceOddsDivisor(parseInt(e.target.value))}
-                  className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
+            <div className="mt-5">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-medium text-text-primary text-sm">Selections ({accaLegs.length} legs)</h4>
+                <button
+                  onClick={addLeg}
+                  className="text-sm text-accent font-medium hover:underline cursor-pointer"
                 >
-                  {EACH_WAY_ODDS.map((opt) => (
-                    <option key={opt.divisor} value={opt.divisor}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
+                  + Add selection
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                {accaLegs.map((leg, idx) => {
+                  const dec = toDecimal(leg.odds, oddsFormat);
+                  return (
+                    <div key={leg.id} className="flex items-center gap-2 p-2.5 bg-surface rounded-[var(--radius-input)]">
+                      <span className="text-xs font-bold text-text-muted w-5 text-center">{idx + 1}</span>
+                      <input
+                        type="text"
+                        value={leg.name}
+                        onChange={(e) => updateLeg(leg.id, 'name', e.target.value)}
+                        placeholder={`Selection ${idx + 1}`}
+                        className="flex-1 px-2 py-1.5 border border-border rounded text-sm bg-white focus:outline-none focus:border-accent"
+                      />
+                      <input
+                        type="text"
+                        value={leg.odds}
+                        onChange={(e) => updateLeg(leg.id, 'odds', e.target.value)}
+                        placeholder={oddsFormat === 'fractional' ? '2/1' : '3.00'}
+                        className="w-20 px-2 py-1.5 border border-border rounded text-sm font-mono bg-white text-center focus:outline-none focus:border-accent"
+                      />
+                      {dec > 0 && (
+                        <span className="text-xs text-text-muted w-10 text-right font-mono">{impliedProbability(dec).toFixed(0)}%</span>
+                      )}
+                      {accaLegs.length > 1 && (
+                        <button
+                          onClick={() => removeLeg(leg.id)}
+                          className="text-text-muted hover:text-error text-sm px-1 cursor-pointer"
+                          title="Remove"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </Card>
 
-          {/* Results */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Win Stake (£)</div>
-              <div className="font-mono text-lg font-bold text-text-primary">
-                {formatGBP(parseFloat(ewStake) / 2 || 0)}
+          {accaResult && (
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <ResultCard label="Combined Odds" value={fromDecimal(accaResult.combinedDec, oddsFormat)} sub={`${accaResult.combinedDec.toFixed(2)} decimal`} />
+                <ResultCard label="Total Return" value={formatGBP(accaResult.returns)} highlight />
+                <ResultCard label="Profit" value={formatGBP(accaResult.profit)} highlight />
+                <ResultCard label="Win Chance" value={`${accaResult.probability.toFixed(2)}%`} sub={`All ${accaResult.legs} must win`} />
               </div>
-              <div className="text-xs text-text-muted mt-2">@ {ewCalc.decimalOdds.toFixed(2)}</div>
-              <div className="font-mono text-xl font-bold text-accent mt-1">{formatGBP(ewCalc.winReturn)}</div>
-            </Card>
-            <Card className="bg-accent bg-opacity-5">
-              <div className="text-xs font-medium text-text-secondary uppercase mb-2">Place Stake (£)</div>
-              <div className="font-mono text-lg font-bold text-text-primary">
-                {formatGBP(parseFloat(ewStake) / 2 || 0)}
-              </div>
-              <div className="text-xs text-text-muted mt-2">@ {ewCalc.placeOdds}</div>
-              <div className="font-mono text-xl font-bold text-accent mt-1">{formatGBP(ewCalc.placeReturn)}</div>
-            </Card>
-          </div>
 
-          <Card className="bg-accent bg-opacity-5">
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <span className="text-text-secondary">Total Potential Return:</span>
-                <span className="font-mono text-2xl font-bold text-text-primary">{formatGBP(ewCalc.totalReturn)}</span>
+              <div className="bg-amber-50 border border-amber-200 rounded-[var(--radius-card)] p-3 text-sm text-amber-800">
+                {accaResult.probability < 5
+                  ? `With a ${accaResult.probability.toFixed(2)}% chance, this bet would win roughly ${Math.round(1 / (accaResult.probability / 100))} times out of ${Math.round(1 / (accaResult.probability / 100))} attempts on average.`
+                  : `Combined probability: ${accaResult.probability.toFixed(1)}%. Every leg must win for a payout.`
+                }
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-text-secondary">Total Profit:</span>
-                <span className="font-mono text-2xl font-bold text-accent">{formatGBP(ewCalc.profit)}</span>
-              </div>
-            </div>
-          </Card>
+            </>
+          )}
         </div>
       )}
 
-      {/* Disclaimer */}
-      <Card className="bg-warning bg-opacity-5 border border-warning">
-        <p className="text-xs text-text-secondary leading-relaxed">
-          <strong>Disclaimer:</strong> For entertainment and calculation purposes only. Please gamble responsibly. Contact{' '}
-          <span className="font-medium">GambleAware.org</span> | <span className="font-medium">BeGambleAware.org</span> |{' '}
-          <span className="font-medium">National Gambling Helpline: 0808 8020 133</span>
+      {/* ── EACH-WAY ── */}
+      {mode === 'eachway' && (
+        <div className="space-y-4">
+          <Card>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <StakeInput value={ewStake} onChange={setEwStake} label="Total Stake (Win + Place)" />
+              <OddsInput value={ewOdds} onChange={setEwOdds} format={oddsFormat} label="Win Odds" />
+            </div>
+
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-text-primary mb-2">Place Terms</label>
+              <div className="space-y-1.5">
+                {EW_TERMS.map((term) => (
+                  <label
+                    key={term.value}
+                    className={`flex items-center gap-3 p-2.5 rounded-[var(--radius-input)] border cursor-pointer transition ${
+                      ewTerms === term.value ? 'border-accent bg-accent/5' : 'border-border bg-white hover:border-border-hover'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="ew-terms"
+                      checked={ewTerms === term.value}
+                      onChange={() => setEwTerms(term.value)}
+                      className="text-accent"
+                    />
+                    <div>
+                      <span className="text-sm font-medium text-text-primary">{term.label}</span>
+                      <span className="text-xs text-text-muted ml-2">{term.desc}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </Card>
+
+          {ewResult && (
+            <>
+              {/* How each-way works explanation */}
+              <div className="bg-surface rounded-[var(--radius-card)] p-4 text-sm text-text-secondary">
+                <p className="font-medium text-text-primary mb-1">How this works:</p>
+                <p>Your £{parseFloat(ewStake).toFixed(2)} is split into two equal bets of {formatGBP(ewResult.halfStake)} each: one on the selection to <strong>win</strong> and one on it to <strong>place</strong> (typically top 2-4 finishers). The place odds are the win odds divided by {ewTerms}.</p>
+              </div>
+
+              {/* Win scenario */}
+              <Card>
+                <h4 className="font-medium text-sm text-text-primary mb-3">If your selection WINS:</h4>
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  <div className="bg-surface p-3 rounded-[var(--radius-input)]">
+                    <p className="text-xs text-text-muted">Win bet returns</p>
+                    <p className="font-mono font-bold text-lg text-text-primary">{formatGBP(ewResult.winReturns)}</p>
+                    <p className="text-xs text-text-muted">{formatGBP(ewResult.halfStake)} at {fromDecimal(ewResult.dec, oddsFormat)}</p>
+                  </div>
+                  <div className="bg-surface p-3 rounded-[var(--radius-input)]">
+                    <p className="text-xs text-text-muted">Place bet returns</p>
+                    <p className="font-mono font-bold text-lg text-text-primary">{formatGBP(ewResult.placeReturns)}</p>
+                    <p className="text-xs text-text-muted">{formatGBP(ewResult.halfStake)} at {ewResult.placeOdds.toFixed(2)}</p>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center pt-3 border-t border-border">
+                  <span className="font-medium text-text-primary">Total return:</span>
+                  <span className="font-mono text-2xl font-bold text-accent">{formatGBP(ewResult.totalIfWin)}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-text-secondary text-sm">Profit:</span>
+                  <span className="font-mono font-bold text-accent">{formatGBP(ewResult.profitIfWin)}</span>
+                </div>
+              </Card>
+
+              {/* Place-only scenario */}
+              <Card>
+                <h4 className="font-medium text-sm text-text-primary mb-3">If your selection PLACES only:</h4>
+                <div className="bg-surface p-3 rounded-[var(--radius-input)] mb-3">
+                  <p className="text-xs text-text-muted">Place bet returns</p>
+                  <p className="font-mono font-bold text-lg text-text-primary">{formatGBP(ewResult.placeReturns)}</p>
+                  <p className="text-xs text-text-muted">Win bet loses ({formatGBP(ewResult.halfStake)} lost)</p>
+                </div>
+                <div className="flex justify-between items-center pt-3 border-t border-border">
+                  <span className="font-medium text-text-primary">Total return:</span>
+                  <span className="font-mono text-xl font-bold text-text-primary">{formatGBP(ewResult.totalIfPlace)}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-text-secondary text-sm">
+                    {ewResult.profitIfPlace >= 0 ? 'Profit:' : 'Loss:'}
+                  </span>
+                  <span className={`font-mono font-bold ${ewResult.profitIfPlace >= 0 ? 'text-success' : 'text-error'}`}>
+                    {ewResult.profitIfPlace >= 0 ? formatGBP(ewResult.profitIfPlace) : `-${formatGBP(Math.abs(ewResult.profitIfPlace))}`}
+                  </span>
+                </div>
+              </Card>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Responsible gambling notice */}
+      <div className="bg-amber-50 border border-amber-200 rounded-[var(--radius-card)] p-4">
+        <p className="text-xs text-amber-800 leading-relaxed">
+          <strong>Please gamble responsibly.</strong> This calculator is for reference only and does not encourage gambling. If you or someone you know has a gambling problem, contact the <strong>National Gambling Helpline: 0808 8020 133</strong> or visit <strong>BeGambleAware.org</strong> for free, confidential support.
         </p>
-      </Card>
+      </div>
     </div>
   );
 }

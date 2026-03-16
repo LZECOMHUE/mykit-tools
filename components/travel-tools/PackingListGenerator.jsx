@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { downloadAsJPG, drawBulletList } from '@/lib/download-utils';
+import Button from '@/components/ui/Button';
 
 // ── Base packing lists by destination type ──────────────────
 
@@ -158,6 +160,60 @@ export default function PackingListGenerator() {
     }
   };
 
+  const handleDownloadJPG = () => {
+    const destTypeLabel = {
+      beach: 'Beach Holiday',
+      city: 'City Break',
+      mountains: 'Mountains / Outdoors',
+      cold: 'Cold Climate',
+    };
+
+    const durationLabel = {
+      weekend: 'Weekend (2-3 days)',
+      '1week': '1 Week',
+      '2weeks': '2 Weeks',
+      month: '1 Month',
+    };
+
+    const allItemsList = allItems.slice(0, 30);
+
+    downloadAsJPG({
+      filename: `packing-list-${destType}-${duration}.jpg`,
+      width: 700,
+      height: 1000,
+      title: 'Packing List',
+      subtitle: `${destTypeLabel[destType]} - ${durationLabel[duration]}`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Items to Pack', area.x, y);
+        y += 18;
+
+        const itemsToShow = Math.floor((area.height - y) / 14);
+        allItemsList.slice(0, itemsToShow).forEach((item) => {
+          ctx.fillStyle = '#2563eb';
+          ctx.fillRect(area.x + 4, y - 3, 8, 8);
+
+          ctx.fillStyle = '#1a1a1a';
+          ctx.font = '10px sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(item, area.x + 18, y);
+          y += 14;
+        });
+
+        if (allItemsList.length > itemsToShow) {
+          ctx.fillStyle = '#525252';
+          ctx.font = '9px sans-serif';
+          ctx.fillText(`+ ${allItemsList.length - itemsToShow} more items`, area.x + 18, y);
+        }
+      },
+    });
+  };
+
   // Only count items that are still in the current list
   const checkedCount = allItems.filter((item) => checked.has(item)).length;
   const completionPercent = allItems.length > 0 ? (checkedCount / allItems.length) * 100 : 0;
@@ -248,12 +304,22 @@ export default function PackingListGenerator() {
               ({allItems.length} items)
             </span>
           </h3>
-          <button
-            onClick={toggleAll}
-            className="text-accent text-sm font-medium hover:underline cursor-pointer"
-          >
-            {checkedCount === allItems.length ? 'Clear All' : 'Check All'}
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={toggleAll}
+              className="text-accent text-sm font-medium hover:underline cursor-pointer"
+            >
+              {checkedCount === allItems.length ? 'Clear All' : 'Check All'}
+            </button>
+            <Button
+              onClick={handleDownloadJPG}
+              variant="secondary"
+              size="sm"
+              className="text-xs"
+            >
+              Download JPG
+            </Button>
+          </div>
         </div>
 
         {/* Progress Bar */}

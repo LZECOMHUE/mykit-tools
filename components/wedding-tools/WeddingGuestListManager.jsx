@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
+import { downloadAsJPG, drawTable } from '@/lib/download-utils';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
@@ -168,6 +169,49 @@ export default function WeddingGuestListManager() {
     declined: 'text-red-700',
     pending: 'text-yellow-700',
     no_response: 'text-gray-700',
+  };
+
+  const handleDownloadJPG = () => {
+    const rows = filteredGuests.map((guest) => [
+      guest.name,
+      guest.rsvpStatus.replace('_', ' '),
+      guest.dietary !== 'none' ? guest.dietary : '-',
+    ]);
+
+    downloadAsJPG({
+      filename: `wedding-guest-list-${new Date().toISOString().split('T')[0]}.jpg`,
+      width: 800,
+      height: 1000,
+      title: 'Guest List',
+      subtitle: `${stats.totalInvited} guests`,
+      accentColor: '#e8a317',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = '#1a1a1a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(`Total: ${stats.totalInvited}`, area.x, y);
+        ctx.fillText(`Accepted: ${stats.accepted}`, area.x + area.width / 2, y);
+        y += 16;
+
+        ctx.fillText(`Declined: ${stats.declined}`, area.x, y);
+        ctx.fillText(`Pending: ${stats.pending}`, area.x + area.width / 2, y);
+        y += 24;
+
+        if (rows.length > 0) {
+          y = drawTable(ctx, {
+            x: area.x,
+            y: y,
+            width: area.width,
+            headers: ['Name', 'RSVP', 'Dietary'],
+            rows: rows.slice(0, 12),
+            colWidths: [2, 1, 1.2],
+            accentColor: '#e8a317',
+          });
+        }
+      },
+    });
   };
 
   return (
@@ -409,6 +453,15 @@ export default function WeddingGuestListManager() {
           </div>
         </Card>
       )}
+
+      {/* Download Button */}
+      <Button
+        onClick={handleDownloadJPG}
+        variant="primary"
+        className="w-full sm:w-auto"
+      >
+        Download Guest List JPG
+      </Button>
 
       {/* Filters and Sort */}
       <div className="space-y-3">

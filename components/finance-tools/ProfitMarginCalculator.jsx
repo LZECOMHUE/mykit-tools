@@ -101,7 +101,7 @@ export default function ProfitMarginCalculator() {
             <span className="text-text-primary font-semibold">{fmt(results.cost)}</span>
           </div>
 
-          <div className="flex justify-between py-2 border-b border-border bg-white bg-opacity-50 px-3 rounded-[var(--radius-input)]">
+          <div className="flex justify-between py-2 border-b border-border bg-white opacity-50 px-3 rounded-[var(--radius-input)]">
             <span className="text-text-primary font-semibold">Gross Profit:</span>
             <span className="text-accent font-bold">{fmt(results.grossProfit)}</span>
           </div>
@@ -133,7 +133,7 @@ export default function ProfitMarginCalculator() {
             </div>
           </div>
 
-          <div className="bg-accent bg-opacity-10 rounded-[var(--radius-input)] p-3">
+          <div className="bg-blue-100 rounded-[var(--radius-input)] p-3">
             <p className="text-text-primary text-xs font-semibold mb-1">Key Difference</p>
             <p className="text-text-secondary text-xs">
               Markup is always higher than margin because profit is divided by a smaller number (cost vs revenue). A 50% markup ≠ 50% margin.

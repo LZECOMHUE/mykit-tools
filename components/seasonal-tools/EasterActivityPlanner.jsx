@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading } from '@/lib/download-utils';
 
 const activities = {
   '3-5': {
@@ -67,6 +68,62 @@ export default function EasterActivityPlanner() {
     }
   };
 
+  const downloadSchedule = () => {
+    if (!schedule || schedule.length === 0) return;
+
+    downloadAsJPG({
+      filename: 'easter-activity-schedule.jpg',
+      width: 900,
+      height: 1000,
+      title: 'Easter Activity Schedule',
+      subtitle: `${ageGroup} years - ${duration === 'morning' ? 'Morning' : 'Afternoon'}`,
+      accentColor: '#f97316',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#525252';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`Location: ${location === 'indoor' ? 'Indoor' : 'Garden'}`, area.x, y);
+        y += 24;
+
+        schedule.forEach((activity, idx) => {
+          y = drawSectionHeading(ctx, `Activity ${idx + 1}: ${activity.name}`, area.x, y, area.width, '#f97316');
+          y += 8;
+
+          ctx.font = '12px sans-serif';
+          ctx.fillStyle = '#2563eb';
+          ctx.fillText(`Duration: ${activity.duration} min`, area.x, y);
+          y += 20;
+
+          ctx.font = '12px sans-serif';
+          ctx.fillStyle = '#1a1a1a';
+          const instrWords = activity.instructions.split(' ');
+          let line = '';
+          const textX = area.x;
+          instrWords.forEach((word) => {
+            const testLine = line + (line ? ' ' : '') + word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > area.width - 16 && line) {
+              ctx.fillText(line, textX, y);
+              y += 20;
+              line = word;
+            } else {
+              line = testLine;
+            }
+          });
+          if (line) {
+            ctx.fillText(line, textX, y);
+            y += 20;
+          }
+
+          y += 8;
+        });
+      }
+    });
+  };
+
   return (
     <div className="space-y-6">
       <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
@@ -122,6 +179,10 @@ export default function EasterActivityPlanner() {
               Tip: Build in 15-minute breaks between activities. Have supplies ready before you start. Keep water and snacks available throughout.
             </p>
           </div>
+
+          <Button onClick={downloadSchedule} className="w-full bg-accent text-white">
+            Download Schedule as JPG
+          </Button>
         </div>
       )}
     </div>

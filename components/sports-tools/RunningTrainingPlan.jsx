@@ -5,215 +5,265 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { generateTrainingPlanPDF } from '@/lib/worksheet-pdf';
 
-const RACE_TYPES = {
-  '5K': { distance: 5, weeks: [8, 12, 16] },
-  '10K': { distance: 10, weeks: [10, 12, 16] },
-  'Half Marathon': { distance: 21.1, weeks: [12, 16, 20] },
-  'Marathon': { distance: 42.2, weeks: [16, 20] },
+// Research-backed race configs
+// Sources: Hal Higdon, Jack Daniels Running Formula, Runner's World plans
+const RACE_CONFIGS = {
+  '5K': {
+    distance: 5,
+    weekOptions: { beginner: 8, intermediate: 6, advanced: 6 },
+    peakWeekly: { beginner: 20, intermediate: 30, advanced: 40 },
+    longRunPeak: { beginner: 8, intermediate: 10, advanced: 12 },
+  },
+  '10K': {
+    distance: 10,
+    weekOptions: { beginner: 12, intermediate: 10, advanced: 8 },
+    peakWeekly: { beginner: 28, intermediate: 40, advanced: 55 },
+    longRunPeak: { beginner: 12, intermediate: 16, advanced: 18 },
+  },
+  'Half Marathon': {
+    distance: 21.1,
+    weekOptions: { beginner: 16, intermediate: 12, advanced: 12 },
+    peakWeekly: { beginner: 35, intermediate: 50, advanced: 65 },
+    longRunPeak: { beginner: 18, intermediate: 22, advanced: 24 },
+  },
+  'Marathon': {
+    distance: 42.2,
+    weekOptions: { beginner: 20, intermediate: 18, advanced: 16 },
+    peakWeekly: { beginner: 50, intermediate: 65, advanced: 85 },
+    longRunPeak: { beginner: 32, intermediate: 35, advanced: 38 },
+  },
 };
 
-const FITNESS_LEVELS = {
-  beginner: { label: 'Beginner (never run)', baseWeekly: 15, label_km: true },
-  novice: { label: 'Novice (run occasionally)', baseWeekly: 25, label_km: true },
-  intermediate: { label: 'Intermediate (run regularly)', baseWeekly: 35, label_km: true },
-  advanced: { label: 'Advanced (race regularly)', baseWeekly: 45, label_km: true },
-};
+const LEVELS = [
+  { value: 'beginner', label: 'Beginner (new to running or this distance)' },
+  { value: 'intermediate', label: 'Intermediate (run 3+ times per week)' },
+  { value: 'advanced', label: 'Advanced (race regularly, structured training)' },
+];
+
+const DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const DAY_LETTERS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
 const WORKOUT_TYPES = {
-  easy: { name: 'Easy Run', pace: 'Easy', color: 'bg-blue-100', icon: '🏃' },
-  tempo: { name: 'Tempo Run', pace: 'Moderate', color: 'bg-yellow-100', icon: '⚡' },
-  intervals: { name: 'Intervals', pace: 'Hard', color: 'bg-red-100', icon: '🔥' },
-  long: { name: 'Long Run', pace: 'Easy-Moderate', color: 'bg-purple-100', icon: '🏅' },
-  cross: { name: 'Cross Training', pace: 'Varied', color: 'bg-green-100', icon: '🚴' },
-  rest: { name: 'Rest/Recovery', pace: 'Rest', color: 'bg-gray-100', icon: '😴' },
+  easy: { name: 'Easy Run', color: 'bg-blue-100 text-blue-800', icon: '🏃', desc: 'Conversational pace. You should be able to talk in full sentences. Builds aerobic base without excess fatigue.' },
+  tempo: { name: 'Tempo Run', color: 'bg-yellow-100 text-yellow-800', icon: '⚡', desc: 'Comfortably hard pace you could hold for about an hour in a race. Improves lactate threshold.' },
+  intervals: { name: 'Intervals', color: 'bg-red-100 text-red-800', icon: '🔥', desc: 'Fast repeats (e.g. 6x800m) with recovery jogs between. Builds speed and VO2 max.' },
+  long: { name: 'Long Run', color: 'bg-purple-100 text-purple-800', icon: '🏅', desc: 'Slow and steady at easy pace. The cornerstone of endurance training. Builds stamina and mental toughness.' },
+  cross: { name: 'Cross Training', color: 'bg-green-100 text-green-800', icon: '🚴', desc: 'Cycling, swimming, or strength work. Maintains fitness with lower impact on joints.' },
+  rest: { name: 'Rest Day', color: 'bg-gray-100 text-gray-500', icon: '😴', desc: 'Complete rest or very easy walking. Essential for adaptation and injury prevention.' },
 };
 
-const generateTrainingPlan = (config) => {
-  const { race, level, weeks, daysPerWeek, startDate, units } = config;
-  const raceDistance = RACE_TYPES[race].distance;
-  const baseWeekly = FITNESS_LEVELS[level].baseWeekly;
-  const weeksDays = [];
+// Build a research-backed weekly schedule template
+// Beginner: 3 runs/week, Intermediate: 4-5 runs, Advanced: 5-6 runs
+function getWeekTemplate(level, phase) {
+  // phase: 'base' | 'build' | 'peak' | 'taper'
+  if (level === 'beginner') {
+    if (phase === 'taper') return ['easy', 'rest', 'easy', 'rest', 'rest', 'easy', 'rest'];
+    return ['easy', 'rest', 'easy', 'rest', 'rest', 'long', 'rest'];
+  }
+  if (level === 'intermediate') {
+    if (phase === 'taper') return ['easy', 'rest', 'easy', 'rest', 'easy', 'rest', 'rest'];
+    if (phase === 'base') return ['easy', 'rest', 'easy', 'rest', 'easy', 'long', 'rest'];
+    // build/peak: add quality sessions
+    return ['easy', 'tempo', 'rest', 'easy', 'rest', 'long', 'rest'];
+  }
+  // advanced
+  if (phase === 'taper') return ['easy', 'tempo', 'rest', 'easy', 'rest', 'easy', 'rest'];
+  if (phase === 'base') return ['easy', 'easy', 'tempo', 'rest', 'easy', 'long', 'rest'];
+  // build/peak
+  return ['easy', 'intervals', 'easy', 'tempo', 'rest', 'long', 'rest'];
+}
 
-  for (let w = 0; w < weeks; w++) {
-    const isTaper = w >= weeks - 2;
-    const isCutback = (w + 1) % 4 === 0 && !isTaper;
-    const progressionFactor = isTaper ? 0.7 : isCutback ? 0.8 : 1 + (w / weeks) * 0.3;
+function generatePlan(race, level) {
+  const config = RACE_CONFIGS[race];
+  const totalWeeks = config.weekOptions[level];
+  const peakWeekly = config.peakWeekly[level];
+  const longRunPeak = config.longRunPeak[level];
 
-    const weeklyDistance = baseWeekly * progressionFactor;
-    const days = [];
+  // Phase breakdown (research standard):
+  // Base: ~30% of weeks, Build: ~40%, Peak: ~15%, Taper: ~15% (min 2 weeks)
+  const taperWeeks = Math.max(2, Math.round(totalWeeks * 0.12));
+  const peakWeeks = Math.max(1, Math.round(totalWeeks * 0.15));
+  const buildWeeks = Math.max(2, Math.round(totalWeeks * 0.40));
+  const baseWeeks = totalWeeks - buildWeeks - peakWeeks - taperWeeks;
 
-    // Distribute workouts
-    const workoutConfig = {
-      3: ['easy', 'easy', 'long', 'rest', 'rest', 'rest', 'rest'],
-      4: ['easy', 'tempo', 'easy', 'long', 'rest', 'rest', 'rest'],
-      5: ['easy', 'tempo', 'easy', 'intervals', 'long', 'rest', 'rest'],
-      6: ['easy', 'tempo', 'easy', 'intervals', 'easy', 'long', 'rest'],
-    };
+  const plan = [];
 
-    const config_workouts = workoutConfig[daysPerWeek] || workoutConfig[3];
+  for (let w = 0; w < totalWeeks; w++) {
+    let phase = 'base';
+    if (w >= baseWeeks + buildWeeks + peakWeeks) phase = 'taper';
+    else if (w >= baseWeeks + buildWeeks) phase = 'peak';
+    else if (w >= baseWeeks) phase = 'build';
 
-    let dailyTotal = 0;
-    let longRunDistance = weeklyDistance * 0.35;
+    // Gradual progression with cutback weeks every 4th week
+    const isCutback = (w + 1) % 4 === 0 && phase !== 'taper';
+    const isTaper = phase === 'taper';
 
-    for (let d = 0; d < 7; d++) {
-      const workoutType = config_workouts[d];
-      let distance = 0;
-
-      if (workoutType === 'long') {
-        distance = longRunDistance;
-      } else if (workoutType === 'rest') {
-        distance = 0;
-      } else {
-        const remaining = weeklyDistance - dailyTotal - longRunDistance;
-        const activeRunDays = config_workouts.filter((w) => w !== 'rest' && w !== 'long').length;
-        distance = remaining / activeRunDays;
-      }
-
-      days.push({
-        day: d,
-        type: workoutType,
-        distance: parseFloat(distance.toFixed(1)),
-      });
-
-      if (workoutType !== 'rest') {
-        dailyTotal += distance;
-      }
+    // Calculate target weekly volume
+    let weekProgress;
+    if (phase === 'base') {
+      // Ramp from 50% to 70% of peak
+      weekProgress = 0.5 + (w / Math.max(1, baseWeeks - 1)) * 0.2;
+    } else if (phase === 'build') {
+      // Ramp from 70% to 90% of peak
+      const buildIdx = w - baseWeeks;
+      weekProgress = 0.7 + (buildIdx / Math.max(1, buildWeeks - 1)) * 0.2;
+    } else if (phase === 'peak') {
+      weekProgress = 1.0;
+    } else {
+      // Taper: reduce from 70% down to 40%
+      const taperIdx = w - (baseWeeks + buildWeeks + peakWeeks);
+      weekProgress = 0.7 - (taperIdx / Math.max(1, taperWeeks - 1)) * 0.3;
     }
 
-    weeksDays.push({
+    if (isCutback) weekProgress *= 0.75;
+
+    const targetWeekly = Math.round(peakWeekly * weekProgress);
+
+    // Long run distance (peaks at longRunPeak, tapers down)
+    let longTarget;
+    if (phase === 'taper') {
+      longTarget = Math.round(longRunPeak * 0.5);
+    } else if (phase === 'peak') {
+      longTarget = longRunPeak;
+    } else {
+      // Gradual build: start at 40% of peak long run, build to peak
+      const overallProgress = w / Math.max(1, baseWeeks + buildWeeks + peakWeeks - 1);
+      longTarget = Math.round(longRunPeak * (0.4 + overallProgress * 0.6));
+    }
+    if (isCutback) longTarget = Math.round(longTarget * 0.7);
+
+    const template = getWeekTemplate(level, phase);
+    const runDays = template.filter(t => t !== 'rest' && t !== 'cross');
+    const nonLongRuns = runDays.filter(t => t !== 'long');
+    const remainingDistance = Math.max(0, targetWeekly - longTarget);
+    const perRun = nonLongRuns.length > 0 ? remainingDistance / nonLongRuns.length : 0;
+
+    // Distribute: tempo/interval runs get slightly more, easy gets slightly less
+    const days = template.map((type, dayIdx) => {
+      let distance = 0;
+      if (type === 'long') {
+        distance = longTarget;
+      } else if (type === 'rest' || type === 'cross') {
+        distance = 0;
+      } else if (type === 'tempo' || type === 'intervals') {
+        distance = Math.round(perRun * 1.1);
+      } else {
+        // easy run
+        distance = Math.round(perRun * 0.9) || Math.round(perRun);
+      }
+
+      return {
+        day: dayIdx, // 0=Mon ... 6=Sun
+        type,
+        workout: WORKOUT_TYPES[type].name,
+        distance: Math.max(0, distance),
+      };
+    });
+
+    // Recalculate actual total
+    const weeklyTotal = days.reduce((sum, d) => sum + d.distance, 0);
+
+    plan.push({
       week: w + 1,
+      phase,
       days,
-      weeklyTotal: parseFloat(dailyTotal.toFixed(1)),
+      weeklyTotal,
+      longRun: longTarget,
       isTaper,
       isCutback,
     });
   }
 
-  return weeksDays;
-};
-
-const getWorkoutTips = (type) => {
-  const tips = {
-    easy: 'Should be conversational pace. Recover slowly if needed.',
-    tempo: 'Comfortably hard. You can speak short sentences.',
-    intervals: 'Fast repeats with recovery periods. Push hard on the fast sections.',
-    long: 'Build endurance gradually. Start slow, finish strong.',
-    cross: 'Swimming, cycling, strength training. Low impact recovery.',
-    rest: 'Take the day off or very light activity like walking.',
-  };
-  return tips[type] || '';
-};
+  return plan;
+}
 
 export default function RunningTrainingPlan() {
   const [race, setRace] = useState('5K');
   const [level, setLevel] = useState('beginner');
-  const [weeks, setWeeks] = useState(8);
-  const [daysPerWeek, setDaysPerWeek] = useState(3);
+  const [units, setUnits] = useState('km');
   const [startDate, setStartDate] = useState(() => {
     const d = new Date();
-    d.setDate(d.getDate() + 7);
+    d.setDate(d.getDate() + ((8 - d.getDay()) % 7 || 7)); // next Monday
     return d.toISOString().split('T')[0];
   });
-  const [units, setUnits] = useState('km');
   const [plan, setPlan] = useState(null);
-  const [expandedTips, setExpandedTips] = useState(new Set());
+  const [selectedWeek, setSelectedWeek] = useState(0);
 
-  const handleGeneratePlan = useCallback(() => {
-    const generatedPlan = generateTrainingPlan({
-      race,
-      level,
-      weeks: parseInt(weeks),
-      daysPerWeek: parseInt(daysPerWeek),
-      startDate,
-      units,
-    });
-    setPlan(generatedPlan);
-  }, [race, level, weeks, daysPerWeek, startDate, units]);
+  const config = RACE_CONFIGS[race];
+  const totalWeeks = config.weekOptions[level];
 
-  const raceTypeWeeks = useMemo(() => {
-    return RACE_TYPES[race]?.weeks || [8, 12, 16];
-  }, [race]);
+  const handleGenerate = useCallback(() => {
+    const generated = generatePlan(race, level);
+    setPlan(generated);
+    setSelectedWeek(0);
+  }, [race, level]);
+
+  const displayDistance = useCallback((km) => {
+    if (units === 'mi') return Math.round(km * 0.621371);
+    return km;
+  }, [units]);
+
+  const displayPlan = useMemo(() => {
+    if (!plan) return null;
+    return plan.map(week => ({
+      ...week,
+      weeklyTotal: displayDistance(week.weeklyTotal),
+      longRun: displayDistance(week.longRun),
+      days: week.days.map(d => ({
+        ...d,
+        distance: displayDistance(d.distance),
+      })),
+    }));
+  }, [plan, displayDistance]);
 
   const downloadPlan = useCallback(() => {
-    if (!plan) return;
-    generateTrainingPlanPDF({ race, plan, units, startDate });
-  }, [plan, race, units, startDate]);
+    if (!displayPlan) return;
+    // Pass workout names as strings for PDF compatibility
+    const pdfPlan = displayPlan.map(week => ({
+      ...week,
+      days: week.days.map(d => ({
+        ...d,
+        day: DAY_NAMES[d.day] || String(d.day),
+        workout: String(WORKOUT_TYPES[d.type]?.name || 'Rest'),
+        distance: d.distance,
+      })),
+    }));
+    generateTrainingPlanPDF({ race, plan: pdfPlan, units, startDate });
+  }, [displayPlan, race, units, startDate]);
+
+  const currentWeek = displayPlan ? displayPlan[selectedWeek] : null;
 
   return (
     <div className="space-y-6">
       {/* Configuration */}
       <Card>
-        <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Training Plan Configuration</h3>
+        <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Plan Your Training</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">Goal Race</label>
             <select
               value={race}
-              onChange={(e) => setRace(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
+              onChange={(e) => { setRace(e.target.value); setPlan(null); }}
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary bg-white focus:outline-none focus:border-accent"
             >
-              {Object.keys(RACE_TYPES).map((r) => (
-                <option key={r} value={r}>
-                  {r}
-                </option>
+              {Object.keys(RACE_CONFIGS).map(r => (
+                <option key={r} value={r}>{r} ({RACE_CONFIGS[r].distance} km)</option>
               ))}
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">Current Fitness Level</label>
+            <label className="block text-sm font-medium text-text-primary mb-2">Experience Level</label>
             <select
               value={level}
-              onChange={(e) => setLevel(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
+              onChange={(e) => { setLevel(e.target.value); setPlan(null); }}
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary bg-white focus:outline-none focus:border-accent"
             >
-              {Object.entries(FITNESS_LEVELS).map(([key, val]) => (
-                <option key={key} value={key}>
-                  {val.label}
-                </option>
+              {LEVELS.map(l => (
+                <option key={l.value} value={l.value}>{l.label}</option>
               ))}
             </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">Training Weeks</label>
-            <select
-              value={weeks}
-              onChange={(e) => setWeeks(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
-            >
-              {raceTypeWeeks.map((w) => (
-                <option key={w} value={w}>
-                  {w} weeks
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">Days Per Week</label>
-            <select
-              value={daysPerWeek}
-              onChange={(e) => setDaysPerWeek(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
-            >
-              {[3, 4, 5, 6].map((d) => (
-                <option key={d} value={d}>
-                  {d} days/week
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">Start Date</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
-            />
           </div>
 
           <div>
@@ -221,146 +271,170 @@ export default function RunningTrainingPlan() {
             <select
               value={units}
               onChange={(e) => setUnits(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary focus:outline-none focus:border-accent"
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary bg-white focus:outline-none focus:border-accent"
             >
               <option value="km">Kilometres</option>
               <option value="mi">Miles</option>
             </select>
           </div>
+
+          <div>
+            <label className="block text-sm font-medium text-text-primary mb-2">Start Date (Monday)</label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] text-text-primary bg-white focus:outline-none focus:border-accent"
+            />
+          </div>
         </div>
 
-        <Button onClick={handleGeneratePlan} className="w-full mt-4">
+        <div className="mt-4 p-3 bg-surface rounded-[var(--radius-input)] text-sm text-text-secondary">
+          <span className="font-medium text-text-primary">{totalWeeks}-week plan</span>
+          {' '}for {race} at {LEVELS.find(l => l.value === level)?.label.split('(')[0].trim().toLowerCase()} level.
+          Peak weekly volume: ~<span className="font-mono">{displayDistance(config.peakWeekly[level])}</span> {units}.
+          Longest run: ~<span className="font-mono">{displayDistance(config.longRunPeak[level])}</span> {units}.
+        </div>
+
+        <Button onClick={handleGenerate} className="w-full mt-4">
           Generate Training Plan
         </Button>
       </Card>
 
-      {/* Workout Type Reference */}
-      {plan && (
-        <Card>
-          <h3 className="text-sm font-medium text-text-secondary mb-3 uppercase">Workout Types</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-            {Object.entries(WORKOUT_TYPES).map(([key, type]) => (
-              <div key={key} className={`p-2 rounded-[var(--radius-input)] ${type.color}`}>
-                <div className="font-medium text-sm text-text-primary">{type.icon} {type.name}</div>
-                <div className="text-xs text-text-secondary">{type.pace}</div>
-              </div>
-            ))}
-          </div>
-        </Card>
-      )}
-
-      {/* Training Plan */}
-      {plan && (
+      {displayPlan && (
         <>
+          {/* Workout type key */}
           <Card>
-            <h3 className="text-lg font-heading font-bold text-text-primary mb-4">{race} Plan</h3>
-
-            <div className="space-y-4 max-h-96 overflow-y-auto">
-              {plan.map((week) => (
-                <div
-                  key={week.week}
-                  className={`p-4 rounded-[var(--radius-input)] border ${
-                    week.isTaper
-                      ? 'bg-success bg-opacity-5 border-success'
-                      : week.isCutback
-                      ? 'bg-warning bg-opacity-5 border-warning'
-                      : 'bg-surface border-border'
-                  }`}
-                >
-                  <div className="flex justify-between items-center mb-3">
-                    <div>
-                      <h4 className="font-bold text-text-primary">Week {week.week}</h4>
-                      <p className="text-sm text-text-secondary">
-                        {week.weeklyTotal}{units}/week
-                        {week.isTaper && ' (Taper)'}
-                        {week.isCutback && ' (Cutback)'}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="w-16 h-16 bg-white rounded-lg border border-border flex items-center justify-center">
-                        <div className="text-center">
-                          <div className="font-mono font-bold text-2xl text-accent">{week.weeklyTotal}</div>
-                          <div className="text-xs text-text-muted">{units}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-7 gap-1">
-                    {week.days.map((day, idx) => {
-                      const dayNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-                      const type = WORKOUT_TYPES[day.type];
-                      return (
-                        <div key={idx} className="text-center">
-                          <div className="text-xs font-medium text-text-secondary mb-1">{dayNames[day.day]}</div>
-                          <div
-                            className={`rounded-[var(--radius-input)] p-2 min-h-16 flex flex-col items-center justify-center ${type.color}`}
-                          >
-                            {day.type !== 'rest' ? (
-                              <>
-                                <div className="text-sm">{type.icon}</div>
-                                <div className="font-mono font-bold text-sm text-text-primary mt-1">
-                                  {day.distance}
-                                </div>
-                              </>
-                            ) : (
-                              <div className="text-lg">💤</div>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Expandable Tips */}
-                  <div className="mt-3 space-y-1">
-                    {week.days
-                      .filter((d) => d.type !== 'rest')
-                      .map((day, idx) => {
-                        const tipKey = `${week.week}-${day.day}`;
-                        const isExpanded = expandedTips.has(tipKey);
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                              const newExpanded = new Set(expandedTips);
-                              if (isExpanded) {
-                                newExpanded.delete(tipKey);
-                              } else {
-                                newExpanded.add(tipKey);
-                              }
-                              setExpandedTips(newExpanded);
-                            }}
-                            className="w-full text-left p-2 rounded text-xs bg-white border border-border hover:bg-surface transition"
-                          >
-                            <span className="font-medium text-text-primary">
-                              {WORKOUT_TYPES[day.type]?.name}
-                            </span>
-                            {isExpanded && (
-                              <div className="mt-2 text-text-secondary">{getWorkoutTips(day.type)}</div>
-                            )}
-                          </button>
-                        );
-                      })}
-                  </div>
+            <h3 className="text-sm font-medium text-text-secondary mb-3 uppercase tracking-wide">Workout Types</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {Object.entries(WORKOUT_TYPES).map(([key, type]) => (
+                <div key={key} className={`p-2 rounded-[var(--radius-input)] ${type.color}`}>
+                  <div className="font-medium text-sm">{type.icon} {type.name}</div>
                 </div>
               ))}
             </div>
           </Card>
 
+          {/* Overview bar chart */}
+          <Card>
+            <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Weekly Volume Overview</h3>
+            <div className="flex items-end gap-1 h-32">
+              {displayPlan.map((week, idx) => {
+                const maxVol = Math.max(...displayPlan.map(w => w.weeklyTotal));
+                const height = maxVol > 0 ? (week.weeklyTotal / maxVol) * 100 : 0;
+                const phaseColor = week.isTaper ? 'bg-green-400' : week.isCutback ? 'bg-amber-400' : week.phase === 'peak' ? 'bg-red-400' : week.phase === 'build' ? 'bg-blue-500' : 'bg-blue-300';
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedWeek(idx)}
+                    className={`flex-1 rounded-t transition-all cursor-pointer ${phaseColor} ${selectedWeek === idx ? 'ring-2 ring-accent ring-offset-1' : 'opacity-70 hover:opacity-100'}`}
+                    style={{ height: `${Math.max(height, 4)}%` }}
+                    title={`Week ${week.week}: ${week.weeklyTotal} ${units}`}
+                  />
+                );
+              })}
+            </div>
+            <div className="flex gap-1 mt-1">
+              {displayPlan.map((week, idx) => (
+                <div key={idx} className="flex-1 text-center">
+                  <span className={`text-[10px] font-mono ${selectedWeek === idx ? 'font-bold text-accent' : 'text-text-muted'}`}>
+                    {week.week}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-3 mt-3 text-xs text-text-secondary">
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-blue-300 inline-block" /> Base</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-blue-500 inline-block" /> Build</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-red-400 inline-block" /> Peak</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-green-400 inline-block" /> Taper</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-amber-400 inline-block" /> Cutback</span>
+            </div>
+          </Card>
+
+          {/* Selected week detail */}
+          {currentWeek && (
+            <Card>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-lg font-heading font-bold text-text-primary">
+                    Week {currentWeek.week}
+                    <span className={`ml-2 text-sm font-normal px-2 py-0.5 rounded-full ${
+                      currentWeek.isTaper ? 'bg-green-100 text-green-700' :
+                      currentWeek.isCutback ? 'bg-amber-100 text-amber-700' :
+                      currentWeek.phase === 'peak' ? 'bg-red-100 text-red-700' :
+                      currentWeek.phase === 'build' ? 'bg-blue-100 text-blue-700' :
+                      'bg-gray-100 text-gray-600'
+                    }`}>
+                      {currentWeek.isTaper ? 'Taper' : currentWeek.isCutback ? 'Cutback' : currentWeek.phase.charAt(0).toUpperCase() + currentWeek.phase.slice(1)}
+                    </span>
+                  </h3>
+                  <p className="text-sm text-text-secondary mt-1">
+                    Total: <span className="font-mono font-bold">{currentWeek.weeklyTotal}</span> {units}
+                    {' / '}Long run: <span className="font-mono font-bold">{currentWeek.longRun}</span> {units}
+                  </p>
+                </div>
+                <div className="flex gap-1">
+                  <button
+                    onClick={() => setSelectedWeek(Math.max(0, selectedWeek - 1))}
+                    disabled={selectedWeek === 0}
+                    className="px-3 py-1 text-sm border border-border rounded-[var(--radius-input)] disabled:opacity-30 hover:bg-surface cursor-pointer"
+                  >
+                    Prev
+                  </button>
+                  <button
+                    onClick={() => setSelectedWeek(Math.min(displayPlan.length - 1, selectedWeek + 1))}
+                    disabled={selectedWeek === displayPlan.length - 1}
+                    className="px-3 py-1 text-sm border border-border rounded-[var(--radius-input)] disabled:opacity-30 hover:bg-surface cursor-pointer"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+              {/* Day cards */}
+              <div className="space-y-2">
+                {currentWeek.days.map((day, idx) => {
+                  const type = WORKOUT_TYPES[day.type];
+                  return (
+                    <div key={idx} className={`flex items-center gap-3 p-3 rounded-[var(--radius-input)] border border-border ${day.type === 'rest' ? 'bg-gray-50' : 'bg-white'}`}>
+                      <div className="w-10 text-center">
+                        <div className="text-xs font-medium text-text-muted">{DAY_NAMES[day.day]}</div>
+                        <div className="text-lg">{type.icon}</div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-sm text-text-primary">{type.name}</div>
+                        <div className="text-xs text-text-secondary mt-0.5">{type.desc}</div>
+                      </div>
+                      {day.distance > 0 && (
+                        <div className="text-right">
+                          <div className="font-mono font-bold text-lg text-accent">{day.distance}</div>
+                          <div className="text-xs text-text-muted">{units}</div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+          )}
+
+          {/* Download */}
           <Button onClick={downloadPlan} className="w-full">
-            Download PDF
+            Download Training Plan PDF
           </Button>
 
-          <Card className="bg-info bg-opacity-5 border border-info">
-            <h4 className="font-medium text-text-primary mb-2">Training Tips</h4>
-            <ul className="text-sm text-text-secondary space-y-1 list-disc list-inside">
-              <li>Follow the pace guidance for each workout type</li>
-              <li>The final 2 weeks are tapered to peak for race day</li>
-              <li>Every 4th week is a cutback week for recovery</li>
-              <li>Listen to your body and adjust if needed</li>
-              <li>Strength training and stretching recommended on rest days</li>
-            </ul>
+          {/* Training guidance */}
+          <Card className="bg-blue-50 border-blue-200">
+            <h4 className="font-heading font-bold text-text-primary mb-2">Training Guidance</h4>
+            <div className="text-sm text-text-secondary space-y-2">
+              <p><span className="font-medium text-text-primary">Easy runs</span> should feel genuinely easy. If you can't hold a conversation, slow down. Most of your running (about 80%) should be at this effort.</p>
+              <p><span className="font-medium text-text-primary">Long runs</span> build endurance gradually. Run these at easy pace. Walk breaks are fine and encouraged for beginners.</p>
+              <p><span className="font-medium text-text-primary">Tempo runs</span> are at your lactate threshold, roughly the pace you could race for an hour. They should feel comfortably hard.</p>
+              <p><span className="font-medium text-text-primary">Intervals</span> are short fast efforts (e.g. 400m-1600m repeats) with recovery jogs. These build speed and VO2 max.</p>
+              <p><span className="font-medium text-text-primary">Cutback weeks</span> reduce volume by ~25% every 4th week to let your body adapt. Do not skip these.</p>
+              <p><span className="font-medium text-text-primary">Taper</span> in the final 2 weeks reduces volume significantly so you arrive at race day fresh, not fatigued.</p>
+            </div>
           </Card>
         </>
       )}

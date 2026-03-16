@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadAsJPG, drawBulletList } from '@/lib/download-utils';
 
 export default function HomeInventoryTracker() {
   const [rooms, setRooms] = useState([
@@ -63,6 +64,34 @@ export default function HomeInventoryTracker() {
 
   const totalItems = rooms.reduce((sum, room) => sum + room.items.length, 0);
 
+  const handleDownloadJPG = () => {
+    const inventoryList = [];
+    rooms.forEach((room) => {
+      inventoryList.push(`${room.name} - GBP${room.items.reduce((sum, item) => sum + item.value, 0).toFixed(2)}`);
+      room.items.forEach((item) => {
+        inventoryList.push(`  • ${item.name}: GBP${item.value.toFixed(2)}`);
+      });
+    });
+
+    downloadAsJPG({
+      filename: 'home-inventory.jpg',
+      width: 800,
+      height: 1200,
+      title: 'Home Inventory',
+      subtitle: `Total: GBP${totalValue.toFixed(2)}`,
+      accentColor: '#2563eb',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        y = drawBulletList(ctx, inventoryList, area.x, y, {
+          maxWidth: area.width,
+          fontSize: 11,
+          lineHeight: 18,
+        });
+      },
+    });
+  };
+
   return (
     <div className="w-full space-y-6">
       {/* Summary */}
@@ -79,7 +108,7 @@ export default function HomeInventoryTracker() {
           </div>
           <div className="text-[11px] text-text-muted mt-1">Items</div>
         </div>
-        <div className="rounded-[var(--radius-card)] bg-accent bg-opacity-10 border border-accent p-3 text-center">
+        <div className="rounded-[var(--radius-card)] bg-blue-100 border border-accent p-3 text-center">
           <div className="text-lg font-bold font-mono text-accent">
             £{totalValue.toFixed(2)}
           </div>
@@ -117,6 +146,16 @@ export default function HomeInventoryTracker() {
           />
         ))}
       </div>
+
+      {/* Download Button */}
+      {totalItems > 0 && (
+        <button
+          onClick={handleDownloadJPG}
+          className="w-full rounded-[var(--radius-card)] bg-accent text-white px-4 py-2 text-sm font-medium hover:bg-blue-700 transition-colors"
+        >
+          Download JPG
+        </button>
+      )}
 
       {/* Insurance Note */}
       <div className="rounded-[var(--radius-card)] bg-blue-50 border border-accent p-4">

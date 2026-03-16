@@ -1,6 +1,8 @@
 import "./globals.css";
 import { generateOrganizationSchema } from "@/lib/seo";
 import Script from "next/script";
+import MockAuthWrapper from "@/components/providers/MockAuthWrapper";
+import { MyKitProvider } from "@/lib/mykit-context";
 
 // Only import ClerkProvider when Clerk keys are configured
 const hasClerk = !!(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
@@ -100,9 +102,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased">
         {hasClerk && ClerkProvider ? (
-          <ClerkProvider>{children}</ClerkProvider>
+          <ClerkProvider>
+            <MyKitProvider>{children}</MyKitProvider>
+          </ClerkProvider>
         ) : (
-          children
+          <MockAuthWrapper>{children}</MockAuthWrapper>
         )}
       </body>
 

@@ -322,7 +322,7 @@ export default function ConcreteCalculator() {
         )}
       </Card>
 
-      <Card className="border-2 border-accent bg-accent bg-opacity-5">
+      <Card className="border-2 border-accent bg-blue-50">
         <h2 className="text-text-primary font-heading text-xl font-bold mb-3">Results</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

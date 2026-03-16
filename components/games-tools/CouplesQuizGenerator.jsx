@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Select from "@/components/ui/Select";
 import Input from "@/components/ui/Input";
+import { downloadAsJPG, drawSectionHeading, drawBulletList } from "@/lib/download-utils";
 
 export default function CouplesQuizGenerator() {
   const [config, setConfig] = useState({
@@ -63,6 +64,35 @@ export default function CouplesQuizGenerator() {
     });
     setShowAnswers(false);
     setCurrentPerson(1);
+  };
+
+  const handleDownloadJPG = () => {
+    if (!quiz) return;
+
+    downloadAsJPG({
+      filename: "couples-quiz.jpg",
+      width: 800,
+      height: 1200,
+      title: "How Well Do You Know Me?",
+      subtitle: `${quiz.person1} vs ${quiz.person2}`,
+      accentColor: "#2563eb",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        const questions = quiz.questions.map((q) => `${q.number}. ${q.question}`);
+        y = drawBulletList(ctx, questions, area.x, y, {
+          maxWidth: area.width,
+          fontSize: 11,
+          lineHeight: 20,
+        });
+
+        y += 16;
+        ctx.fillStyle = "#525252";
+        ctx.font = "12px sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Tone: " + quiz.tone.charAt(0).toUpperCase() + quiz.tone.slice(1), area.x, y);
+      },
+    });
   };
 
   return (
@@ -213,13 +243,22 @@ export default function CouplesQuizGenerator() {
               ))}
             </div>
 
-            <Button
-              onClick={() => setQuiz(null)}
-              variant="secondary"
-              className="w-full"
-            >
-              Create New Quiz
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                onClick={handleDownloadJPG}
+                variant="secondary"
+                className="flex-1"
+              >
+                Download JPG
+              </Button>
+              <Button
+                onClick={() => setQuiz(null)}
+                variant="secondary"
+                className="flex-1"
+              >
+                Create New Quiz
+              </Button>
+            </div>
           </Card>
 
           <Card className="bg-accent/10 border-accent">

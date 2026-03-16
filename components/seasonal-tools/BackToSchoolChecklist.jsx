@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Select from '@/components/ui/Select';
 import Checkbox from '@/components/ui/Checkbox';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading, drawCheckItem } from '@/lib/download-utils';
 
 const checklists = {
   reception: {
@@ -112,6 +114,42 @@ export default function BackToSchoolChecklist() {
     }));
   };
 
+  const downloadChecklist = () => {
+    const categories = Object.entries(checklist);
+
+    downloadAsJPG({
+      filename: 'back-to-school-checklist.jpg',
+      width: 900,
+      height: 1200,
+      title: 'Back to School Checklist',
+      subtitle: `${schoolYear === 'reception' ? 'Reception' : schoolYear === 'primary' ? 'Primary School' : 'Secondary School'}`,
+      accentColor: '#0891b2',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#2563eb';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`Progress: ${progress}% complete`, area.x, y);
+        y += 24;
+
+        categories.forEach(([category, items]) => {
+          const catName = category === 'uniform' ? 'Uniform' : category === 'stationery' ? 'Stationery' : 'Bags & Accessories';
+          y = drawSectionHeading(ctx, catName, area.x, y, area.width);
+
+          items.forEach((item, idx) => {
+            const itemKey = `${category}-${idx}`;
+            const isChecked = checked[itemKey] || false;
+            y = drawCheckItem(ctx, item, isChecked, area.x, y, { fontSize: 12, lineHeight: 22 });
+          });
+
+          y += 8;
+        });
+      }
+    });
+  };
+
   const categories = Object.entries(checklist);
   const totalItems = categories.reduce((sum, [_, items]) => sum + items.length, 0);
   const completedItems = Object.values(checked).filter(Boolean).length;
@@ -135,7 +173,7 @@ export default function BackToSchoolChecklist() {
           <h3 className="font-heading text-lg font-bold">Progress</h3>
           <span className="font-mono text-2xl font-bold">{progress}%</span>
         </div>
-        <div className="w-full bg-white bg-opacity-20 rounded-full h-2">
+        <div className="w-full bg-white opacity-20 rounded-full h-2">
           <div
             className="bg-white h-2 rounded-full transition-all"
             style={{ width: `${progress}%` }}
@@ -179,6 +217,10 @@ export default function BackToSchoolChecklist() {
           Write your child's name on uniform, shoes, lunch box, water bottle, and PE kit. This helps prevent items getting lost.
         </p>
       </div>
+
+      <Button onClick={downloadChecklist} className="w-full bg-accent text-white">
+        Download Checklist as JPG
+      </Button>
     </div>
   );
 }

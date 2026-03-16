@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { downloadAsJPG, drawSectionHeading } from '@/lib/download-utils';
 
 const ACTIVITIES = {
   'free': {
@@ -124,6 +126,46 @@ export default function AdventCalendarActivityGenerator() {
     setActivities(generated);
   };
 
+  const downloadActivities = () => {
+    if (!activities || activities.length === 0) return;
+
+    downloadAsJPG({
+      filename: 'advent-calendar.jpg',
+      width: 900,
+      height: 1400,
+      title: '24-Day Advent Calendar',
+      subtitle: 'Christmas Activities',
+      accentColor: '#dc2626',
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#525252';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`Age Group: ${config.ageGroup} years | Budget: ${config.budget}`, area.x, y);
+        y += 24;
+
+        activities.forEach((activity) => {
+          if (activity.day % 3 === 1) {
+            if (activity.day > 1) y += 8;
+            y = drawSectionHeading(ctx, `Days ${activity.day}-${Math.min(activity.day + 2, 24)}`, area.x, y, area.width, '#dc2626');
+          }
+
+          ctx.font = 'bold 12px sans-serif';
+          ctx.fillStyle = '#1a1a1a';
+          ctx.fillText(`Day ${activity.day}: ${activity.name}`, area.x, y);
+          y += 18;
+
+          ctx.font = '11px sans-serif';
+          ctx.fillStyle = '#525252';
+          ctx.fillText(`Time: ${activity.time} | Materials: ${activity.materials}`, area.x, y);
+          y += 18;
+        });
+      }
+    });
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
       <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
@@ -228,7 +270,7 @@ export default function AdventCalendarActivityGenerator() {
                 >
                   <div className="flex items-start justify-between mb-2">
                     <span className="font-mono font-bold text-accent text-lg">Day {activity.day}</span>
-                    <span className="text-text-muted text-xs bg-accent-muted px-2 py-1 rounded whitespace-nowrap">
+                    <span className="text-accent text-xs bg-accent-muted px-2 py-1 rounded whitespace-nowrap">
                       {activity.time}
                     </span>
                   </div>
@@ -245,12 +287,17 @@ export default function AdventCalendarActivityGenerator() {
             </div>
           </div>
 
-          <button
-            onClick={handleGenerate}
-            className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
-          >
-            Generate Another Set
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={handleGenerate}
+              className="flex-1 bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+            >
+              Generate Another Set
+            </button>
+            <Button onClick={downloadActivities} className="flex-1 bg-accent text-white">
+              Download JPG
+            </Button>
+          </div>
         </div>
       )}
     </div>

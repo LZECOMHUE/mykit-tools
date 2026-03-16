@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import { downloadAsJPG, drawBulletList } from "@/lib/download-utils";
 
 const SLICE_COLORS = [
   "#ef4444", "#3b82f6", "#22c55e", "#eab308",
@@ -86,6 +87,42 @@ export default function SpinTheWheel() {
 
   const sliceAngle = 360 / items.length;
 
+  const handleDownloadJPG = () => {
+    downloadAsJPG({
+      filename: "spin-the-wheel.jpg",
+      width: 800,
+      height: 1000,
+      title: "Spin The Wheel",
+      subtitle: `${items.length} Options`,
+      accentColor: "#2563eb",
+      render: (ctx, area) => {
+        let y = area.y;
+
+        ctx.fillStyle = "#1a1a1a";
+        ctx.font = "bold 14px sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Wheel Options:", area.x, y);
+        y += 24;
+
+        y = drawBulletList(ctx, items, area.x, y, {
+          maxWidth: area.width,
+        });
+
+        if (winner) {
+          y += 16;
+          ctx.fillStyle = "#16a34a";
+          ctx.font = "bold 14px sans-serif";
+          ctx.fillText("Last Winner:", area.x, y);
+          y += 24;
+
+          ctx.fillStyle = "#1a1a1a";
+          ctx.font = "bold 16px monospace";
+          ctx.fillText(winner, area.x, y);
+        }
+      },
+    });
+  };
+
   return (
     <div className="space-y-4">
       {/* Wheel */}
@@ -155,9 +192,12 @@ export default function SpinTheWheel() {
           </div>
 
           {/* Spin button */}
-          <div className="mt-4 w-full max-w-xs">
+          <div className="mt-4 w-full max-w-xs space-y-2">
             <Button onClick={spin} disabled={isSpinning || items.length < 2} size="lg" className="w-full">
               {isSpinning ? "Spinning…" : "🎯 Spin!"}
+            </Button>
+            <Button onClick={handleDownloadJPG} variant="secondary" size="lg" className="w-full">
+              Download JPG
             </Button>
           </div>
         </div>
