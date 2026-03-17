@@ -1,18 +1,11 @@
+import { clerkMiddleware } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 
-export default async function middleware(request) {
-  // Only run Clerk middleware if keys are configured
-  if (process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY) {
-    try {
-      const { clerkMiddleware } = await import('@clerk/nextjs/server')
-      return clerkMiddleware()(request)
-    } catch (e) {
-      console.error('Clerk middleware error:', e)
-      return NextResponse.next()
-    }
-  }
-  return NextResponse.next()
-}
+// Clerk middleware handles session management (sign-in, sign-out, token refresh).
+// When CLERK_SECRET_KEY is not set, clerkMiddleware still works -- it just
+// treats every request as unauthenticated and passes through, so it's safe
+// to export unconditionally.
+export default clerkMiddleware()
 
 export const config = {
   matcher: [
