@@ -349,6 +349,57 @@ export const financeSEO = {
     ],
   },
 
+  "pay-rise-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate a Pay Rise",
+        "A pay rise is calculated as a percentage increase on your current salary. To work it out manually, multiply your current salary by the percentage and divide by 100. For example, a 5% rise on a £30,000 salary is £1,500, giving you a new salary of £31,500.",
+        "Keep in mind that the amount you actually take home will be less than the gross increase. Higher earners may find that a pay rise pushes them into a higher tax band, meaning part of the increase is taxed at 40% instead of 20%. This calculator shows both the gross and net impact so you can see exactly what lands in your bank account."
+      ),
+      {
+        heading: "Common Pay Rise Examples (2025/26 Tax Year)",
+        table: {
+          headers: ["Current Salary", "3% Rise", "5% Rise", "10% Rise"],
+          rows: [
+            ["£25,000", "£25,750", "£26,250", "£27,500"],
+            ["£30,000", "£30,900", "£31,500", "£33,000"],
+            ["£40,000", "£41,200", "£42,000", "£44,000"],
+            ["£50,000", "£51,500", "£52,500", "£55,000"],
+            ["£75,000", "£77,250", "£78,750", "£82,500"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What Is a Good Pay Rise in 2025?",
+        "The average UK pay rise in 2025 is around 4-5% according to recent surveys, though this varies widely by sector. Public sector workers have seen rises of 2-3%, while tech and finance roles have averaged 5-7%. At a minimum, your pay rise should match inflation to avoid a real-terms pay cut.",
+        "If you have not received a rise in over a year, your purchasing power has likely fallen. Use this calculator to see what your salary would need to be to match the cost of living, then use that figure when negotiating with your employer."
+      ),
+      createAnswerFirstSection(
+        "Pay Rise vs Inflation",
+        "A pay rise only makes you better off if it exceeds inflation. If inflation is running at 3% and you receive a 3% rise, your real spending power has not changed. You need to beat inflation to genuinely earn more. CPI inflation in the UK was around 3-4% through early 2025.",
+        "When negotiating a raise, frame it in these terms. Asking for an 'inflation plus 2%' rise is more compelling than asking for a specific number, because it acknowledges the economic context and positions the request as reasonable."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much extra will I take home after a pay rise?",
+        "It depends on your tax band. A basic rate taxpayer (earning under £50,270) keeps about 68p of every extra £1 after income tax and National Insurance. A higher rate taxpayer (over £50,270) keeps about 58p. Use this calculator to see your exact take-home increase."
+      ),
+      createFAQ(
+        "Should I ask for a pay rise or a one-off bonus?",
+        "A pay rise is almost always better in the long term because it compounds. A £2,000 pay rise gives you £2,000 more every year for the rest of your career (plus future percentage rises on top). A £2,000 bonus is a one-time payment, taxed the same way, and does not increase your base salary."
+      ),
+      createFAQ(
+        "When is the best time to ask for a pay rise?",
+        "The best time is during your annual review, after completing a major project, or when you have taken on additional responsibilities. Avoid asking during company-wide cost-cutting. Come prepared with evidence of your contributions and market salary data for your role."
+      ),
+      createFAQ(
+        "Does a pay rise affect my student loan repayments?",
+        "Yes. Student loan repayments are calculated as a percentage of income above the threshold (£27,295 for Plan 2). A pay rise increases your repayments by 9% of the additional income above the threshold, but this also means you pay off your loan faster."
+      ),
+    ],
+  },
+
   "uk-buy-to-let-calculator": {
     sections: [
       createAnswerFirstSection(

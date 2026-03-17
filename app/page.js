@@ -28,6 +28,7 @@ export default function HomePage() {
     .slice(0, 6);
 
   const recentTools = [...tools]
+    .filter((t) => t.tier <= 2)
     .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
     .slice(0, 6);
 

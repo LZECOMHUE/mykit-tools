@@ -2,6 +2,8 @@
 // Import category files and spread into a single lookup map.
 
 import { financeSEO } from "./finance";
+import { convertersSEO } from "./converters";
+import { mathsSEO } from "./maths";
 
 // Add more category imports as SEO content is written:
 // import { educationSEO } from "./education";
@@ -9,6 +11,8 @@ import { financeSEO } from "./finance";
 
 const allSEOContent = {
   ...financeSEO,
+  ...convertersSEO,
+  ...mathsSEO,
   // ...educationSEO,
   // ...gameSEO,
 };

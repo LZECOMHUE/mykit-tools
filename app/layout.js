@@ -23,7 +23,7 @@ export const metadata = {
     template: "%s | MyKit.tools",
   },
   description:
-    "2,000+ free interactive tools, calculators, converters, and generators. From tax calculators to bingo card makers — tools that actually work.",
+    "700+ free interactive tools, calculators, converters, and generators. From tax calculators to bingo card makers - tools that actually work.",
   metadataBase: new URL("https://mykit.tools"),
   keywords:
     "free online tools, calculators, converters, generators, tax calculator, unit converter, bingo card maker",
@@ -53,7 +53,7 @@ export const metadata = {
     url: "https://mykit.tools",
     title: "MyKit.tools — Free Online Tools, Calculators & Generators",
     description:
-      "2,000+ free interactive tools, calculators, converters, and generators. From tax calculators to bingo card makers — tools that actually work.",
+      "700+ free interactive tools, calculators, converters, and generators. From tax calculators to bingo card makers - tools that actually work.",
     images: [
       {
         url: "https://mykit.tools/og-image.png",
@@ -68,7 +68,7 @@ export const metadata = {
     site: "@mykittools",
     title: "MyKit.tools — Free Online Tools, Calculators & Generators",
     description:
-      "2,000+ free interactive tools, calculators, converters, and generators.",
+      "700+ free interactive tools, calculators, converters, and generators.",
     image: "https://mykit.tools/og-image.png",
   },
 };

@@ -34,9 +34,17 @@ export default async function ToolPage({ params }) {
   const seoContent = getSEOContent(slug);
 
   // Build related tools list for SEO content internal linking
-  const seoRelatedTools = tool.relatedSlugs
+  // Merge from registry relatedSlugs and SEO content relatedTools
+  const registryRelated = tool.relatedSlugs
     ? tool.relatedSlugs.map(getToolBySlug).filter(Boolean)
     : [];
+  const seoRelated = seoContent?.relatedTools
+    ? seoContent.relatedTools.map((rt) => {
+        const found = getToolBySlug(rt.slug);
+        return found || { slug: rt.slug, name: rt.label };
+      })
+    : [];
+  const seoRelatedTools = registryRelated.length > 0 ? registryRelated : seoRelated;
 
   return (
     <>
