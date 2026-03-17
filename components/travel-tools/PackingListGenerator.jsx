@@ -175,41 +175,73 @@ export default function PackingListGenerator() {
       month: '1 Month',
     };
 
-    const allItemsList = allItems.slice(0, 30);
+    // Calculate height needed: each category heading + items
+    const categories = Object.entries(fullList);
+    const totalItems = allItems.length;
+    const totalCategories = categories.length;
+    // ~20px per item, ~28px per category heading, plus padding
+    const estimatedHeight = Math.max(800, 260 + totalCategories * 28 + totalItems * 18 + 40);
 
     downloadAsJPG({
       filename: `packing-list-${destType}-${duration}.jpg`,
       width: 700,
-      height: 1000,
+      height: estimatedHeight,
       title: 'Packing List',
-      subtitle: `${destTypeLabel[destType]} - ${durationLabel[duration]}`,
+      subtitle: `${destTypeLabel[destType]} - ${durationLabel[duration]} - ${totalItems} items`,
       accentColor: '#2563eb',
       render: (ctx, area) => {
         let y = area.y;
+        const colWidth = (area.width - 20) / 2;
+        const col1X = area.x;
+        const col2X = area.x + colWidth + 20;
 
-        ctx.fillStyle = '#1a1a1a';
-        ctx.font = 'bold 12px sans-serif';
-        ctx.textAlign = 'left';
-        ctx.fillText('Items to Pack', area.x, y);
-        y += 18;
+        // Split categories roughly evenly between two columns
+        let col1Items = 0;
+        let col2Items = 0;
+        const col1Cats = [];
+        const col2Cats = [];
+        const halfItems = Math.ceil(totalItems / 2);
 
-        const itemsToShow = Math.floor((area.height - y) / 14);
-        allItemsList.slice(0, itemsToShow).forEach((item) => {
-          ctx.fillStyle = '#2563eb';
-          ctx.fillRect(area.x + 4, y - 3, 8, 8);
-
-          ctx.fillStyle = '#1a1a1a';
-          ctx.font = '10px sans-serif';
-          ctx.textAlign = 'left';
-          ctx.fillText(item, area.x + 18, y);
-          y += 14;
-        });
-
-        if (allItemsList.length > itemsToShow) {
-          ctx.fillStyle = '#525252';
-          ctx.font = '9px sans-serif';
-          ctx.fillText(`+ ${allItemsList.length - itemsToShow} more items`, area.x + 18, y);
+        for (const [cat, items] of categories) {
+          if (col1Items <= halfItems && col1Items <= col2Items) {
+            col1Cats.push([cat, items]);
+            col1Items += items.length + 1;
+          } else {
+            col2Cats.push([cat, items]);
+            col2Items += items.length + 1;
+          }
         }
+
+        const drawColumn = (cats, startX, startY) => {
+          let cy = startY;
+          for (const [cat, items] of cats) {
+            // Category heading
+            ctx.fillStyle = '#1a1a1a';
+            ctx.font = 'bold 12px sans-serif';
+            ctx.textAlign = 'left';
+            const label = cat.charAt(0).toUpperCase() + cat.slice(1);
+            ctx.fillText(label, startX, cy);
+            cy += 18;
+
+            // Items with checkbox squares
+            for (const item of items) {
+              // Empty checkbox square
+              ctx.strokeStyle = '#d4d4d4';
+              ctx.lineWidth = 1;
+              ctx.strokeRect(startX + 2, cy - 7, 9, 9);
+
+              ctx.fillStyle = '#333';
+              ctx.font = '10px sans-serif';
+              ctx.fillText(item, startX + 18, cy);
+              cy += 16;
+            }
+            cy += 8; // gap between categories
+          }
+          return cy;
+        };
+
+        const endY1 = drawColumn(col1Cats, col1X, y);
+        const endY2 = drawColumn(col2Cats, col2X, y);
       },
     });
   };

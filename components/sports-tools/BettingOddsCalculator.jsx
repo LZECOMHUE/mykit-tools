@@ -3,6 +3,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import GamblingDisclaimer from '@/components/ui/GamblingDisclaimer';
 
 // ── Odds conversion utilities ──────────────────────────
 
@@ -506,12 +507,7 @@ export default function BettingOddsCalculator() {
         </div>
       )}
 
-      {/* Responsible gambling notice */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[var(--radius-card)] p-4">
-        <p className="text-xs text-amber-800 leading-relaxed">
-          <strong>Please gamble responsibly.</strong> This calculator is for reference only and does not encourage gambling. If you or someone you know has a gambling problem, contact the <strong>National Gambling Helpline: 0808 8020 133</strong> or visit <strong>BeGambleAware.org</strong> for free, confidential support.
-        </p>
-      </div>
+      <GamblingDisclaimer type="betting" />
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function PensionCalculator() {
     const monthlyGrowthRate = growthRate / 100 / 12;
 
     let pot = currentPot;
-    let totalContributions = currentPot;
+    let totalContributions = 0;
 
     for (let i = 0; i < yearsToRetirement * 12; i++) {
       pot = pot * (1 + monthlyGrowthRate) + (totalAnnualContribution / 12);
@@ -26,7 +26,7 @@ export default function PensionCalculator() {
 
     return {
       projectedPot: pot,
-      growthAmount: pot - totalContributions,
+      growthAmount: pot - currentPot - totalContributions,
       totalContributions: totalContributions,
       yearsToRetirement: yearsToRetirement,
     };

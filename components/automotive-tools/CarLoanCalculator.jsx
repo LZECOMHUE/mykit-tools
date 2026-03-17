@@ -176,25 +176,25 @@ export default function CarLoanCalculator() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <p className="text-text-muted text-sm mb-1">Monthly Payment</p>
-          <p className="font-mono-num text-2xl font-bold text-blue-600">
+          <p className="font-mono text-2xl font-bold text-blue-600">
             {fmt(calculations.monthlyPayment)}
           </p>
         </div>
         <div className="bg-green-50 border border-green-200 rounded-lg p-4">
           <p className="text-text-muted text-sm mb-1">Total Interest</p>
-          <p className="font-mono-num text-2xl font-bold text-green-600">
+          <p className="font-mono text-2xl font-bold text-green-600">
             {fmt(calculations.totalInterest)}
           </p>
         </div>
         <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
           <p className="text-text-muted text-sm mb-1">Total Cost</p>
-          <p className="font-mono-num text-2xl font-bold text-purple-600">
+          <p className="font-mono text-2xl font-bold text-purple-600">
             {fmt(calculations.totalPayment)}
           </p>
         </div>
         <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
           <p className="text-text-muted text-sm mb-1">Amount Financed</p>
-          <p className="font-mono-num text-2xl font-bold text-orange-600">
+          <p className="font-mono text-2xl font-bold text-orange-600">
             {fmt(calculations.principal)}
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function CarLoanCalculator() {
           ].map((item) => (
             <div key={item.label} className="flex justify-between items-center py-2 border-b border-border last:border-b-0">
               <span className="text-text-secondary">{item.label}</span>
-              <span className="font-mono-num font-semibold text-text-primary">
+              <span className="font-mono font-semibold text-text-primary">
                 {fmt(item.value)}
               </span>
             </div>
@@ -239,10 +239,10 @@ export default function CarLoanCalculator() {
               {amortization.map((row) => (
                 <tr key={row.month} className="border-b border-border hover:bg-white">
                   <td className="py-2 px-2 text-text-secondary">{row.month}</td>
-                  <td className="py-2 px-2 text-right font-mono-num text-text-primary">{fmt(row.payment)}</td>
-                  <td className="py-2 px-2 text-right font-mono-num text-text-primary">{fmt(row.principal)}</td>
-                  <td className="py-2 px-2 text-right font-mono-num text-text-primary">{fmt(row.interest)}</td>
-                  <td className="py-2 px-2 text-right font-mono-num font-semibold text-text-primary">{fmt(row.balance)}</td>
+                  <td className="py-2 px-2 text-right font-mono text-text-primary">{fmt(row.payment)}</td>
+                  <td className="py-2 px-2 text-right font-mono text-text-primary">{fmt(row.principal)}</td>
+                  <td className="py-2 px-2 text-right font-mono text-text-primary">{fmt(row.interest)}</td>
+                  <td className="py-2 px-2 text-right font-mono font-semibold text-text-primary">{fmt(row.balance)}</td>
                 </tr>
               ))}
             </tbody>

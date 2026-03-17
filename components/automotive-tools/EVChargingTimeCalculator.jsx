@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Select from '@/components/ui/Select';
 
 const EV_PRESETS = {
   'Tesla Model 3': 75,
@@ -72,21 +73,20 @@ export default function EVChargingTimeCalculator() {
           <label className="text-text-secondary text-sm font-medium">
             Battery Capacity (kWh)
           </label>
-          <div className="flex gap-2 mt-2">
-            <select
-              value={batteryCapacity}
-              onChange={(e) => {
-                const val = e.target.value;
-                if (val !== 'custom') setBatteryCapacity(val);
-              }}
-              className="flex-1 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              <option value="custom">Custom</option>
-              {Object.entries(EV_PRESETS).map(([car, capacity]) => (
-                <option key={car} value={capacity}>{car}</option>
-              ))}
-            </select>
-          </div>
+          <Select
+            options={[
+              { value: 'custom', label: 'Custom' },
+              ...Object.entries(EV_PRESETS).map(([car, capacity]) => ({
+                value: capacity.toString(),
+                label: car
+              }))
+            ]}
+            value={batteryCapacity}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (val !== 'custom') setBatteryCapacity(val);
+            }}
+          />
           <input
             type="number"
             value={batteryCapacity}
@@ -138,15 +138,14 @@ export default function EVChargingTimeCalculator() {
           <label className="text-text-secondary text-sm font-medium">
             Charger Type
           </label>
-          <select
+          <Select
+            options={Object.entries(CHARGER_TYPES).map(([key, { name }]) => ({
+              value: key,
+              label: name
+            }))}
             value={chargerType}
             onChange={(e) => setChargerType(e.target.value)}
-            className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            {Object.entries(CHARGER_TYPES).map(([key, { name }]) => (
-              <option key={key} value={key}>{name}</option>
-            ))}
-          </select>
+          />
         </div>
 
         {/* Cost per kWh */}

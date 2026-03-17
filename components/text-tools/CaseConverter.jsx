@@ -59,7 +59,7 @@ export default function CaseConverter() {
           className="w-full h-32 p-4 border border-border rounded-[var(--radius-input)] bg-surface text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
         />
         <p className="text-xs text-text-muted">
-          Characters: <span className="font-mono-num">{input.length}</span>
+          Characters: <span className="font-mono">{input.length}</span>
         </p>
       </div>
 
@@ -104,7 +104,7 @@ export default function CaseConverter() {
           />
           <div className="flex items-center justify-between">
             <p className="text-xs text-text-muted">
-              Characters: <span className="font-mono-num">{output.length}</span>
+              Characters: <span className="font-mono">{output.length}</span>
             </p>
             <Button onClick={handleCopy} className="text-sm">
               Copy

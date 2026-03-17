@@ -158,18 +158,18 @@ export default function ElectricityCostCalculator() {
                 Quick Select
               </label>
               <Select
-                defaultValue=""
+                options={[
+                  { value: '', label: 'Common appliances...' },
+                  ...Object.entries(APPLIANCE_PRESETS).map(([key, preset]) => ({
+                    value: key,
+                    label: preset.name,
+                  })),
+                ]}
+                value=""
                 onChange={(e) => {
                   if (e.target.value) selectPreset(calc.id, e.target.value);
                 }}
-              >
-                <option value="">Common appliances...</option>
-                {Object.entries(APPLIANCE_PRESETS).map(([key, preset]) => (
-                  <option key={key} value={key}>
-                    {preset.name}
-                  </option>
-                ))}
-              </Select>
+              />
             </div>
             <div>
               <label className="block text-text-secondary text-sm font-medium mb-1">

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import GamblingDisclaimer from "@/components/ui/GamblingDisclaimer";
 
 const LOTTERY_CONFIGS = {
   "uk-lotto": {
@@ -504,13 +505,7 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
         </Card>
       )}
 
-      {/* Disclaimer */}
-      <Card className="bg-amber-50 border-l-4 border-l-amber-400">
-        <p className="text-xs sm:text-sm text-text-secondary">
-          <span className="font-semibold text-amber-700">⚠️ Disclaimer:</span> For entertainment only.
-          Random numbers have no better chance of winning than any other combination. Please play responsibly.
-        </p>
-      </Card>
+      <GamblingDisclaimer type="lottery" />
     </div>
   );
 }

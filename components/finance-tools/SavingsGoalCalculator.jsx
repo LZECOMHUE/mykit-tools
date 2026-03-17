@@ -26,7 +26,7 @@ export default function SavingsGoalCalculator() {
 
     let perMonth = stillNeeded / months;
     let perWeek = perMonth / 4.33;
-    let perFortnight = perMonth * 2;
+    let perFortnight = (perMonth * 12) / 26;
 
     const breakdown = [];
     let balance = current;

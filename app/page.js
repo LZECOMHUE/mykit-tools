@@ -10,7 +10,12 @@ import { categories } from "@/lib/categories";
 export default function HomePage() {
   const counts = getCategoryCounts();
   const recentTools = [...tools]
-    .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+    .sort((a, b) => {
+      // Prioritise higher-tier tools (tier 1 first, then 2, then 3)
+      if (a.tier !== b.tier) return a.tier - b.tier;
+      // Within same tier, most recently added first
+      return new Date(b.dateAdded) - new Date(a.dateAdded);
+    })
     .slice(0, 6);
 
   return (
@@ -80,7 +85,7 @@ export default function HomePage() {
         {recentTools.length > 0 && (
           <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-              Recently Added
+              Popular Tools
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {recentTools.map((tool) => (

@@ -241,7 +241,7 @@ export default function ElectricityBillEstimator() {
                   <label className="text-sm font-medium text-text-primary">
                     Night Usage %
                   </label>
-                  <span className="font-mono-num text-text-primary">
+                  <span className="font-mono text-text-primary">
                     {economy7NightPercent}%
                   </span>
                 </div>
@@ -277,7 +277,7 @@ export default function ElectricityBillEstimator() {
           {/* kWh Used */}
           <Card className="space-y-2">
             <p className="text-xs text-text-secondary">kWh Used</p>
-            <p className="font-mono-num text-2xl font-bold text-text-primary">
+            <p className="font-mono text-2xl font-bold text-text-primary">
               {formatKwh(kwhUsed)}
             </p>
           </Card>
@@ -288,31 +288,31 @@ export default function ElectricityBillEstimator() {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-text-secondary">Electricity Usage</span>
-                <span className="font-mono-num text-text-primary">
+                <span className="font-mono text-text-primary">
                   {formatCurrency(electricityCost)}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-text-secondary">Standing Charge</span>
-                <span className="font-mono-num text-text-primary">
+                <span className="font-mono text-text-primary">
                   {formatCurrency(standingChargeCost)}
                 </span>
               </div>
               <div className="flex justify-between border-t border-border pt-2">
                 <span className="text-text-secondary">Subtotal</span>
-                <span className="font-mono-num text-text-primary">
+                <span className="font-mono text-text-primary">
                   {formatCurrency(subtotal)}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-text-secondary">VAT (5%)</span>
-                <span className="font-mono-num text-text-primary">
+                <span className="font-mono text-text-primary">
                   {formatCurrency(vat)}
                 </span>
               </div>
               <div className="flex justify-between border-t border-border pt-2 font-semibold">
                 <span className="text-text-primary">Total Bill</span>
-                <span className="font-mono-num text-lg text-accent">
+                <span className="font-mono text-lg text-accent">
                   {formatCurrency(totalBill)}
                 </span>
               </div>
@@ -377,20 +377,20 @@ export default function ElectricityBillEstimator() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-text-secondary">Previous Bill</span>
-                  <span className="font-mono-num text-text-primary">
+                  <span className="font-mono text-text-primary">
                     {formatCurrency(compareTotalBill)}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-text-secondary">Current Bill</span>
-                  <span className="font-mono-num text-text-primary">
+                  <span className="font-mono text-text-primary">
                     {formatCurrency(totalBill)}
                   </span>
                 </div>
                 <div className="flex justify-between border-t border-blue-300 pt-2 font-semibold">
                   <span className="text-blue-900">Difference</span>
                   <span
-                    className={`font-mono-num ${
+                    className={`font-mono ${
                       billDifference > 0
                         ? 'text-orange-700'
                         : 'text-green-700'
@@ -403,7 +403,7 @@ export default function ElectricityBillEstimator() {
                 <div className="flex justify-between">
                   <span className="text-blue-900">Usage Change</span>
                   <span
-                    className={`font-mono-num font-semibold ${
+                    className={`font-mono font-semibold ${
                       percentChange > 0
                         ? 'text-orange-700'
                         : 'text-green-700'

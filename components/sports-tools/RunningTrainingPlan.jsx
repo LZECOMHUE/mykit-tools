@@ -11,14 +11,14 @@ const RACE_CONFIGS = {
   '5K': {
     distance: 5,
     weekOptions: { beginner: 8, intermediate: 6, advanced: 6 },
-    peakWeekly: { beginner: 20, intermediate: 30, advanced: 40 },
-    longRunPeak: { beginner: 8, intermediate: 10, advanced: 12 },
+    peakWeekly: { beginner: 15, intermediate: 22, advanced: 32 },
+    longRunPeak: { beginner: 5, intermediate: 6, advanced: 8 },
   },
   '10K': {
     distance: 10,
     weekOptions: { beginner: 12, intermediate: 10, advanced: 8 },
-    peakWeekly: { beginner: 28, intermediate: 40, advanced: 55 },
-    longRunPeak: { beginner: 12, intermediate: 16, advanced: 18 },
+    peakWeekly: { beginner: 25, intermediate: 35, advanced: 50 },
+    longRunPeak: { beginner: 10, intermediate: 12, advanced: 14 },
   },
   'Half Marathon': {
     distance: 21.1,
@@ -53,24 +53,25 @@ const WORKOUT_TYPES = {
 };
 
 // Build a research-backed weekly schedule template
-// Beginner: 3 runs/week, Intermediate: 4-5 runs, Advanced: 5-6 runs
+// Beginner: 3 runs + 2 cross/strength, Intermediate: 4-5 runs, Advanced: 5-6 runs
 function getWeekTemplate(level, phase) {
   // phase: 'base' | 'build' | 'peak' | 'taper'
   if (level === 'beginner') {
-    if (phase === 'taper') return ['easy', 'rest', 'easy', 'rest', 'rest', 'easy', 'rest'];
-    return ['easy', 'rest', 'easy', 'rest', 'rest', 'long', 'rest'];
+    // Mon rest, Tue easy, Wed cross, Thu easy, Fri rest, Sat long, Sun cross
+    if (phase === 'taper') return ['rest', 'easy', 'cross', 'easy', 'rest', 'easy', 'rest'];
+    return ['rest', 'easy', 'cross', 'easy', 'rest', 'long', 'cross'];
   }
   if (level === 'intermediate') {
     if (phase === 'taper') return ['easy', 'rest', 'easy', 'rest', 'easy', 'rest', 'rest'];
-    if (phase === 'base') return ['easy', 'rest', 'easy', 'rest', 'easy', 'long', 'rest'];
+    if (phase === 'base') return ['easy', 'rest', 'easy', 'cross', 'easy', 'long', 'rest'];
     // build/peak: add quality sessions
-    return ['easy', 'tempo', 'rest', 'easy', 'rest', 'long', 'rest'];
+    return ['easy', 'tempo', 'rest', 'easy', 'cross', 'long', 'rest'];
   }
   // advanced
   if (phase === 'taper') return ['easy', 'tempo', 'rest', 'easy', 'rest', 'easy', 'rest'];
-  if (phase === 'base') return ['easy', 'easy', 'tempo', 'rest', 'easy', 'long', 'rest'];
+  if (phase === 'base') return ['easy', 'easy', 'tempo', 'rest', 'easy', 'long', 'cross'];
   // build/peak
-  return ['easy', 'intervals', 'easy', 'tempo', 'rest', 'long', 'rest'];
+  return ['easy', 'intervals', 'easy', 'tempo', 'rest', 'long', 'cross'];
 }
 
 function generatePlan(race, level) {

@@ -1,172 +1,170 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-
-// Hardcoded exchange rates (last updated March 12, 2026) - GBP base
-const EXCHANGE_RATES = {
-  'GBP': 1.0,
-  'USD': 1.27,
-  'EUR': 1.17,
-  'JPY': 189.45,
-  'AUD': 1.94,
-  'CAD': 1.75,
-  'CHF': 1.13,
-  'CNY': 9.15,
-  'INR': 105.20,
-  'MXN': 21.45,
-  'SGD': 1.72,
-  'HKD': 9.92,
-  'NZD': 2.09,
-  'SEK': 13.85,
-  'NOK': 13.70,
-  'DKK': 8.70,
-  'ZAR': 24.10,
-  'BRL': 6.35,
-  'AED': 4.66,
-  'SAR': 4.77,
-  'KWD': 0.39,
-  'SGD': 1.72,
-  'THB': 44.80,
-  'MYR': 5.90,
-  'PHP': 71.50,
-  'IDR': 20100,
-  'VND': 32000,
-  'KRW': 1650,
-  'TWD': 40.50,
-  'HKD': 9.92,
-  'PKR': 355.00
-};
-
-const CURRENCIES = Object.keys(EXCHANGE_RATES).sort();
+import { useState, useEffect } from 'react';
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Button from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
 
 export default function CurrencyConverter() {
-  const [amount, setAmount] = useState('100');
+  const [currencies, setCurrencies] = useState([]);
   const [fromCurrency, setFromCurrency] = useState('GBP');
   const [toCurrency, setToCurrency] = useState('USD');
+  const [amount, setAmount] = useState('1');
+  const [result, setResult] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [converting, setConverting] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState('');
+  const [error, setError] = useState('');
 
-  const result = useMemo(() => {
-    const num = parseFloat(amount);
-    if (isNaN(num) || num < 0) return null;
-
-    const rate = EXCHANGE_RATES[toCurrency] / EXCHANGE_RATES[fromCurrency];
-    const converted = num * rate;
-    const inverseRate = 1 / rate;
-
-    return {
-      converted: converted.toFixed(2),
-      rate: rate.toFixed(4),
-      inverseRate: inverseRate.toFixed(4)
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      try {
+        const res = await fetch('https://api.frankfurter.app/currencies');
+        const data = await res.json();
+        const currencyList = Object.entries(data).map(([code, name]) => ({
+          value: code,
+          label: `${code} - ${name}`
+        }));
+        currencyList.sort((a, b) => a.value.localeCompare(b.value));
+        setCurrencies(currencyList);
+      } catch (err) {
+        setError('Failed to load currencies');
+      }
+      setLoading(false);
     };
-  }, [amount, fromCurrency, toCurrency]);
 
-  const swapCurrencies = () => {
-    setFromCurrency(toCurrency);
-    setToCurrency(fromCurrency);
+    fetchCurrencies();
+  }, []);
+
+  const convert = async () => {
+    if (!amount || parseFloat(amount) <= 0) {
+      setError('Please enter a valid amount');
+      return;
+    }
+
+    setConverting(true);
+    setError('');
+
+    try {
+      const res = await fetch(
+        `https://api.frankfurter.app/latest?amount=${parseFloat(amount)}&from=${fromCurrency}&to=${toCurrency}`
+      );
+      const data = await res.json();
+
+      if (data.rates && data.rates[toCurrency]) {
+        setResult(data.rates[toCurrency]);
+        setLastUpdated(new Date(data.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        }));
+      } else {
+        setError('Conversion failed. Try again.');
+      }
+    } catch (err) {
+      setError('Failed to fetch exchange rate');
+    }
+    setConverting(false);
   };
 
+  const swap = () => {
+    setFromCurrency(toCurrency);
+    setToCurrency(fromCurrency);
+    setResult('');
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') convert();
+  };
+
+  if (loading) return <Card><p className="text-secondary">Loading currencies...</p></Card>;
+
+  const currencyOptions = currencies;
+
   return (
-    <div className="w-full space-y-6">
-      {/* Amount Input */}
-      <div>
-        <label className="text-text-secondary text-sm font-medium">
-          Amount
-        </label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          min="0"
-          step="0.01"
-          className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
-        />
-      </div>
-
-      {/* Currency Selection */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        {/* From */}
+    <Card>
+      <div className="space-y-6">
         <div>
-          <label className="text-text-secondary text-sm font-medium">
-            From
+          <label className="block text-sm font-medium text-secondary mb-2">
+            Amount
           </label>
-          <select
-            value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
-            className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            {CURRENCIES.map(curr => (
-              <option key={curr} value={curr}>{curr}</option>
-            ))}
-          </select>
+          <Input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Enter amount"
+            step="0.01"
+            min="0"
+          />
         </div>
 
-        {/* To */}
-        <div>
-          <label className="text-text-secondary text-sm font-medium">
-            To
-          </label>
-          <select
-            value={toCurrency}
-            onChange={(e) => setToCurrency(e.target.value)}
-            className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            {CURRENCIES.map(curr => (
-              <option key={curr} value={curr}>{curr}</option>
-            ))}
-          </select>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-secondary mb-2">
+              From
+            </label>
+            <Select
+              value={fromCurrency}
+              onChange={(e) => setFromCurrency(e.target.value)}
+              options={currencyOptions}
+            />
+          </div>
+
+          <div className="flex flex-col justify-end">
+            <Button onClick={swap} variant="secondary" className="w-full">
+              Swap
+            </Button>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-secondary mb-2">
+              To
+            </label>
+            <Select
+              value={toCurrency}
+              onChange={(e) => setToCurrency(e.target.value)}
+              options={currencyOptions}
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Swap Button */}
-      <button
-        onClick={swapCurrencies}
-        className="w-full rounded-[var(--radius-card)] bg-white border border-border text-text-primary px-4 py-2 text-sm font-medium hover:bg-surface transition-colors"
-      >
-        Swap Currencies
-      </button>
-
-      {/* Result */}
-      {result && (
-        <>
-          <div className="rounded-[var(--radius-card)] bg-blue-100 border border-accent p-4">
-            <p className="text-text-secondary text-sm font-medium mb-2">
-              Result
-            </p>
-            <p className="text-3xl font-bold font-mono text-accent">
-              {result.converted}
-            </p>
-            <p className="text-text-secondary text-sm mt-1">
-              {amount} {fromCurrency} = {result.converted} {toCurrency}
-            </p>
+        {error && (
+          <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
+            {error}
           </div>
+        )}
 
-          {/* Exchange Rates */}
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[var(--radius-card)] bg-surface border border-border p-3">
-              <p className="text-text-secondary text-[11px] font-medium uppercase">
-                Rate
-              </p>
-              <p className="font-mono text-text-primary mt-1">
-                1 {fromCurrency} = {result.rate} {toCurrency}
+        <Button
+          onClick={convert}
+          disabled={converting || !amount}
+          className="w-full"
+        >
+          {converting ? 'Converting...' : 'Convert'}
+        </Button>
+
+        {result && (
+          <div className="space-y-3">
+            <div className="p-4 bg-accent-muted rounded-lg border border-accent">
+              <p className="text-sm text-secondary mb-1">Result</p>
+              <p className="font-mono text-3xl font-bold text-primary">
+                {parseFloat(result).toFixed(2)} {toCurrency}
               </p>
             </div>
-            <div className="rounded-[var(--radius-card)] bg-surface border border-border p-3">
-              <p className="text-text-secondary text-[11px] font-medium uppercase">
-                Reverse Rate
-              </p>
-              <p className="font-mono text-text-primary mt-1">
-                1 {toCurrency} = {result.inverseRate} {fromCurrency}
-              </p>
-            </div>
-          </div>
-        </>
-      )}
 
-      {/* Disclaimer */}
-      <div className="rounded-[var(--radius-card)] bg-surface border border-border p-3">
-        <p className="text-text-secondary text-[11px]">
-          Note: Rates are approximate and last updated March 12, 2026. For live rates, check your bank or a financial service.
-        </p>
+            <div className="text-xs text-secondary text-center">
+              1 {fromCurrency} = {(parseFloat(result) / parseFloat(amount)).toFixed(4)} {toCurrency}
+            </div>
+
+            {lastUpdated && (
+              <div className="text-xs text-secondary text-center">
+                Exchange rate as of {lastUpdated}
+              </div>
+            )}
+          </div>
+        )}
       </div>
-    </div>
+    </Card>
   );
 }

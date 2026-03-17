@@ -115,13 +115,20 @@ export default function PaperSizeConverter() {
         <div className="p-4 bg-white border border-border rounded-lg">
           <p className="text-xs text-text-secondary mb-3">{currentSize.name}</p>
           <div className="flex justify-center mb-4">
-            <div
-              className="border-2 border-accent bg-blue-50"
-              style={{
-                width: Math.min(160, Math.max(80, (currentSize.mm.w / currentSize.mm.h) * 100)),
-                height: Math.min(160, Math.max(80, (currentSize.mm.h / currentSize.mm.w) * 100)),
-              }}
-            />
+            {(() => {
+              const maxH = 140;
+              const w = currentSize.mm.w;
+              const h = currentSize.mm.h;
+              const isPortrait = h >= w;
+              const boxH = isPortrait ? maxH : maxH * (h / w);
+              const boxW = isPortrait ? maxH * (w / h) : maxH;
+              return (
+                <div
+                  className="border-2 border-accent bg-blue-50 rounded-sm"
+                  style={{ width: boxW, height: boxH }}
+                />
+              );
+            })()}
           </div>
           <p className="text-xs text-text-secondary text-center">
             Aspect Ratio: {aspectRatio}:1

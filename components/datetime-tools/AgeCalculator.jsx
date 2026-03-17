@@ -130,7 +130,7 @@ export default function AgeCalculator() {
           {/* Main Age Display */}
           <div className="rounded-[var(--radius-card)] bg-white border border-border p-4">
             <div className="text-center">
-              <div className="text-5xl font-mono-num font-bold text-accent">
+              <div className="text-5xl font-mono font-bold text-accent">
                 {results.years}
               </div>
               <p className="text-text-secondary mt-2">
@@ -145,19 +145,19 @@ export default function AgeCalculator() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             <div className="rounded-[var(--radius-card)] bg-white border border-border p-4">
               <p className="text-text-muted text-xs font-medium uppercase">Total Days</p>
-              <p className="text-2xl font-mono-num font-bold text-text-primary mt-1">
+              <p className="text-2xl font-mono font-bold text-text-primary mt-1">
                 {results.totalDays.toLocaleString()}
               </p>
             </div>
             <div className="rounded-[var(--radius-card)] bg-white border border-border p-4">
               <p className="text-text-muted text-xs font-medium uppercase">Total Weeks</p>
-              <p className="text-2xl font-mono-num font-bold text-text-primary mt-1">
+              <p className="text-2xl font-mono font-bold text-text-primary mt-1">
                 {results.totalWeeks.toLocaleString()}
               </p>
             </div>
             <div className="rounded-[var(--radius-card)] bg-white border border-border p-4">
               <p className="text-text-muted text-xs font-medium uppercase">Total Months</p>
-              <p className="text-2xl font-mono-num font-bold text-text-primary mt-1">
+              <p className="text-2xl font-mono font-bold text-text-primary mt-1">
                 {results.totalMonths.toLocaleString()}
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function AgeCalculator() {
           <div className="space-y-3">
             <div className="rounded-[var(--radius-card)] bg-white border border-border p-4">
               <p className="text-text-muted text-sm font-medium">Days Until Next Birthday</p>
-              <p className="text-3xl font-mono-num font-bold text-accent mt-2">
+              <p className="text-3xl font-mono font-bold text-accent mt-2">
                 {results.daysUntilBirthday}
               </p>
             </div>

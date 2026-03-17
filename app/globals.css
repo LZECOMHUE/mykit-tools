@@ -45,6 +45,11 @@
   --color-cat-automotive: #e5e7eb;
   --color-cat-seasonal: #fecaca;
   --color-cat-fun: #fef08a;
+  --color-cat-quiz: #e9d5ff;
+  --color-cat-sports: #bae6fd;
+  --color-cat-pdf: #fde68a;
+  --color-cat-betting: #c4b5fd;
+  --color-cat-maps: #a7f3d0;
 
   /* Typography */
   --font-body: "DM Sans", sans-serif;

@@ -18,9 +18,11 @@ export default function TyreSizeCalculator() {
     if (!w || !a || !d) return null;
 
     const sidewallHeight = (w * a) / 100;
-    const overallDiameter = d * 25.4 + (sidewallHeight * 2) / 10;
+    const overallDiameterMm = d * 25.4 + (sidewallHeight * 2);
+    const overallDiameter = overallDiameterMm / 10;
     const circumference = Math.PI * overallDiameter;
-    const speedometerError = ((overallDiameter - (d * 25.4 + 2 * (w * a) / 1000)) / (d * 25.4 + 2 * (w * a) / 1000)) * 100;
+    const originalDiameterMm = d * 25.4 + 2 * (w * a) / 100;
+    const speedometerError = ((overallDiameterMm - originalDiameterMm) / originalDiameterMm) * 100;
 
     return {
       width: w.toFixed(1),

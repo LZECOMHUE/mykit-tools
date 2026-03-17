@@ -2,13 +2,19 @@
 
 import { useState, useMemo } from 'react';
 
+const parseDate = (dateStr) => {
+  if (!dateStr) return new Date();
+  const [y, m, d] = dateStr.split('-');
+  return new Date(y, m - 1, d);
+};
+
 export default function PregnancyDueDateCalculator() {
   const [dateMode, setDateMode] = useState('lmp');
   const [lmpDate, setLmpDate] = useState('2025-09-01');
   const [conceptionDate, setConceptionDate] = useState('2025-09-15');
 
   const calculations = useMemo(() => {
-    const startDate = dateMode === 'lmp' ? new Date(lmpDate) : new Date(conceptionDate);
+    const startDate = dateMode === 'lmp' ? parseDate(lmpDate) : parseDate(conceptionDate);
     const today = new Date();
 
     let dueDate;
@@ -70,12 +76,12 @@ export default function PregnancyDueDateCalculator() {
 
   return (
     <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">Pregnancy Due Date Calculator</h2>
+      <h2 className="text-2xl font-bold text-primary mb-6">Pregnancy Due Date Calculator</h2>
 
       <div className="space-y-4 mb-8">
         {/* Date Mode Toggle */}
         <div>
-          <label className="block text-sm font-medium text-text-secondary mb-2">Calculate from</label>
+          <label className="block text-sm font-medium text-secondary mb-2">Calculate from</label>
           <div className="flex gap-4">
             {['lmp', 'conception'].map((mode) => (
               <label key={mode} className="flex items-center gap-2 cursor-pointer">
@@ -87,7 +93,7 @@ export default function PregnancyDueDateCalculator() {
                   onChange={(e) => setDateMode(e.target.value)}
                   className="w-4 h-4 text-accent"
                 />
-                <span className="text-text-primary">
+                <span className="text-primary">
                   {mode === 'lmp' ? 'Last Menstrual Period' : 'Conception Date'}
                 </span>
               </label>
@@ -98,22 +104,22 @@ export default function PregnancyDueDateCalculator() {
         {/* Date Input */}
         {dateMode === 'lmp' ? (
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-2">Last Menstrual Period</label>
+            <label className="block text-sm font-medium text-secondary mb-2">Last Menstrual Period</label>
             <input
               type="date"
               value={lmpDate}
               onChange={(e) => setLmpDate(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
           </div>
         ) : (
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-2">Conception Date</label>
+            <label className="block text-sm font-medium text-secondary mb-2">Conception Date</label>
             <input
               type="date"
               value={conceptionDate}
               onChange={(e) => setConceptionDate(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
             />
           </div>
         )}
@@ -123,9 +129,9 @@ export default function PregnancyDueDateCalculator() {
       <div className="space-y-4 border-t border-border pt-6">
         {/* Due Date */}
         <div className="p-4 bg-white rounded-[var(--radius-input)] border border-border">
-          <p className="text-xs text-text-muted uppercase tracking-wide mb-1">Estimated Due Date</p>
-          <p className="font-mono-num text-2xl font-bold text-accent">{calculations.dueDate}</p>
-          <p className="text-xs text-text-secondary mt-2">
+          <p className="text-xs text-muted uppercase tracking-wide mb-1">Estimated Due Date</p>
+          <p className="font-mono text-2xl font-bold text-accent">{calculations.dueDate}</p>
+          <p className="text-xs text-secondary mt-2">
             {calculations.daysRemaining} days away • {calculations.weeksRemaining} weeks remaining
           </p>
         </div>
@@ -134,7 +140,7 @@ export default function PregnancyDueDateCalculator() {
         <div className="p-4 bg-blue-50 rounded-[var(--radius-input)] border border-blue-200">
           <div className="flex justify-between items-baseline mb-2">
             <p className="text-sm font-medium text-blue-700">Current Pregnancy Progress</p>
-            <p className="font-mono-num text-lg font-bold text-blue-600">
+            <p className="font-mono text-lg font-bold text-blue-600">
               {calculations.weeksSinceStart}w {calculations.daysIntoWeek}d
             </p>
           </div>
@@ -159,7 +165,7 @@ export default function PregnancyDueDateCalculator() {
             }`}>
               Viability (24w)
             </p>
-            <p className={`font-mono-num text-sm font-bold ${
+            <p className={`font-mono text-sm font-bold ${
               calculations.isViable ? 'text-green-600' : 'text-gray-600'
             }`}>
               {calculations.viabilityDate}
@@ -179,7 +185,7 @@ export default function PregnancyDueDateCalculator() {
             }`}>
               Full Term (37w)
             </p>
-            <p className={`font-mono-num text-sm font-bold ${
+            <p className={`font-mono text-sm font-bold ${
               calculations.isFullTerm ? 'text-green-600' : 'text-gray-600'
             }`}>
               {calculations.fullTermDate}
@@ -192,15 +198,15 @@ export default function PregnancyDueDateCalculator() {
 
         {/* Trimester Dates */}
         <div className="p-4 bg-white rounded-[var(--radius-input)] border border-border">
-          <p className="text-xs text-text-muted uppercase tracking-wide font-medium mb-3">Trimester Milestones</p>
+          <p className="text-xs text-muted uppercase tracking-wide font-medium mb-3">Trimester Milestones</p>
           <div className="space-y-2">
             <div className="flex justify-between items-center text-sm">
-              <span className="text-text-primary">1st Trimester Ends (13 weeks)</span>
-              <span className="font-mono-num text-text-secondary">{calculations.endFirstTrimester}</span>
+              <span className="text-primary">1st Trimester Ends (13 weeks)</span>
+              <span className="font-mono text-secondary">{calculations.endFirstTrimester}</span>
             </div>
             <div className="flex justify-between items-center text-sm border-t border-gray-100 pt-2">
-              <span className="text-text-primary">2nd Trimester Ends (26 weeks)</span>
-              <span className="font-mono-num text-text-secondary">{calculations.endSecondTrimester}</span>
+              <span className="text-primary">2nd Trimester Ends (26 weeks)</span>
+              <span className="font-mono text-secondary">{calculations.endSecondTrimester}</span>
             </div>
           </div>
         </div>
