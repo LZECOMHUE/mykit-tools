@@ -4,18 +4,31 @@ import Footer from "@/components/layout/Footer";
 import ToolCard from "@/components/tools/ToolCard";
 import ToolCounter from "@/components/layout/ToolCounter";
 import SurpriseButton from "@/components/layout/SurpriseButton";
-import { tools, getCategoryCounts } from "@/lib/tool-registry";
+import { tools, getToolBySlug, getCategoryCounts } from "@/lib/tool-registry";
 import { categories } from "@/lib/categories";
+
+// Curated popular tools that span different categories and showcase the site's breadth
+const POPULAR_SLUGS = [
+  "uk-tax-calculator",
+  "word-counter",
+  "password-generator",
+  "cups-to-grams",
+  "bmi-calculator",
+  "json-formatter",
+  "mortgage-calculator",
+  "colour-picker",
+  "percentage-calculator",
+];
 
 export default function HomePage() {
   const counts = getCategoryCounts();
+  const popularTools = POPULAR_SLUGS
+    .map((slug) => getToolBySlug(slug))
+    .filter(Boolean)
+    .slice(0, 6);
+
   const recentTools = [...tools]
-    .sort((a, b) => {
-      // Prioritise higher-tier tools (tier 1 first, then 2, then 3)
-      if (a.tier !== b.tier) return a.tier - b.tier;
-      // Within same tier, most recently added first
-      return new Date(b.dateAdded) - new Date(a.dateAdded);
-    })
+    .sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded))
     .slice(0, 6);
 
   return (
@@ -81,11 +94,25 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Popular tools */}
+        {popularTools.length > 0 && (
+          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
+              Popular Tools
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {popularTools.map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Recently added */}
         {recentTools.length > 0 && (
           <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-              Popular Tools
+              Recently Added
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {recentTools.map((tool) => (

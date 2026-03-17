@@ -1,3 +1,6 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 export const metadata = {
   title: "Terms of Service",
   description: "MyKit.tools terms of service. The rules and conditions for using our free and premium online tools.",
@@ -8,6 +11,8 @@ export const metadata = {
 
 export default function TermsOfServicePage() {
   return (
+    <>
+    <Navbar />
     <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-12">
       <h1 className="font-heading text-3xl font-bold text-text-primary mb-2">
         Terms of Service
@@ -208,5 +213,7 @@ export default function TermsOfServicePage() {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

@@ -1,3 +1,6 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 export const metadata = {
   title: "Privacy Policy",
   description: "MyKit.tools privacy policy. Learn how we collect, use, and protect your personal information.",
@@ -8,6 +11,8 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
+    <>
+    <Navbar />
     <div className="max-w-[800px] mx-auto px-4 sm:px-6 py-12">
       <h1 className="font-heading text-3xl font-bold text-text-primary mb-2">
         Privacy Policy
@@ -177,5 +182,7 @@ export default function PrivacyPolicyPage() {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
