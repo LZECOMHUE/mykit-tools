@@ -1,224 +1,263 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Button from '@/components/ui/Button';
 
-const timezones = [
-  { name: 'London (GMT/BST)', offset: 0 },
-  { name: 'Paris (CET/CEST)', offset: 1 },
-  { name: 'Dubai (GST)', offset: 4 },
-  { name: 'India (IST)', offset: 5.5 },
-  { name: 'Bangkok (ICT)', offset: 7 },
-  { name: 'Hong Kong (HKT)', offset: 8 },
-  { name: 'Tokyo (JST)', offset: 9 },
-  { name: 'Sydney (AEST/AEDT)', offset: 10 },
-  { name: 'New York (EST/EDT)', offset: -5 },
-  { name: 'Los Angeles (PST/PDT)', offset: -8 },
-  { name: 'Mexico City (CST/CDT)', offset: -6 },
-  { name: 'São Paulo (BRT)', offset: -3 },
+const TIMEZONES = [
+  { id: 'london',    name: 'London',       abbr: 'GMT',  offset: 0 },
+  { id: 'paris',     name: 'Paris',        abbr: 'CET',  offset: 1 },
+  { id: 'dubai',     name: 'Dubai',        abbr: 'GST',  offset: 4 },
+  { id: 'india',     name: 'India',        abbr: 'IST',  offset: 5.5 },
+  { id: 'bangkok',   name: 'Bangkok',      abbr: 'ICT',  offset: 7 },
+  { id: 'hongkong',  name: 'Hong Kong',    abbr: 'HKT',  offset: 8 },
+  { id: 'tokyo',     name: 'Tokyo',        abbr: 'JST',  offset: 9 },
+  { id: 'sydney',    name: 'Sydney',       abbr: 'AEST', offset: 10 },
+  { id: 'auckland',  name: 'Auckland',     abbr: 'NZST', offset: 12 },
+  { id: 'newyork',   name: 'New York',     abbr: 'EST',  offset: -5 },
+  { id: 'chicago',   name: 'Chicago',      abbr: 'CST',  offset: -6 },
+  { id: 'denver',    name: 'Denver',       abbr: 'MST',  offset: -7 },
+  { id: 'losangeles',name: 'Los Angeles',  abbr: 'PST',  offset: -8 },
+  { id: 'mexico',    name: 'Mexico City',  abbr: 'CST',  offset: -6 },
+  { id: 'saopaulo',  name: 'Sao Paulo',    abbr: 'BRT',  offset: -3 },
 ];
 
-const workingHours = { start: 9, end: 17 };
+const WORK_START = 9;
+const WORK_END = 17;
+
+function getZoneHour(baseHour, offset) {
+  return ((baseHour + offset) % 24 + 24) % 24;
+}
+
+function formatHour(h) {
+  const hr = Math.floor(h);
+  const min = Math.round((h % 1) * 60);
+  return `${String(hr).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+}
+
+function isWorking(hour) {
+  return hour >= WORK_START && hour < WORK_END;
+}
+
+// Colour for an hour cell
+function hourColor(hour) {
+  if (hour >= WORK_START && hour < WORK_END) return 'bg-emerald-100 text-emerald-800';
+  if (hour >= 7 && hour < 9) return 'bg-amber-50 text-amber-700'; // early morning
+  if (hour >= WORK_END && hour < 21) return 'bg-amber-50 text-amber-700'; // evening
+  return 'bg-zinc-100 text-zinc-400'; // night
+}
 
 export default function TimezoneMeetingPlanner() {
-  const [selectedZones, setSelectedZones] = useState(['London (GMT/BST)', 'New York (EST/EDT)', 'Tokyo (JST)']);
+  const [selectedIds, setSelectedIds] = useState(['london', 'newyork', 'tokyo']);
   const [baseHour, setBaseHour] = useState(14);
 
-  const zones = selectedZones.map((name) => ({
-    name,
-    ...timezones.find((tz) => tz.name === name),
-  }));
+  const selectedZones = useMemo(() =>
+    selectedIds.map(id => TIMEZONES.find(tz => tz.id === id)).filter(Boolean),
+  [selectedIds]);
 
-  const availableHours = useMemo(() => {
-    if (zones.length === 0) return [];
-
-    const hours = [];
-    for (let hour = 0; hour < 24; hour++) {
-      const zoneHours = zones.map((zone) => {
-        const zoneTime = (hour + zone.offset) % 24;
-        return {
-          zone: zone.name,
-          hour: zoneTime,
-          isWorking: zoneTime >= workingHours.start && zoneTime < workingHours.end,
-        };
-      });
-
-      const workingCount = zoneHours.filter((z) => z.isWorking).length;
-      const allWorking = workingCount === zones.length;
-
-      hours.push({
-        baseHour: hour,
-        zones: zoneHours,
-        workingCount,
-        allWorking,
-      });
-    }
-
-    return hours;
-  }, [zones]);
-
-  const currentTimes = useMemo(() => {
-    return zones.map((zone) => {
-      const zoneHour = (baseHour + zone.offset) % 24;
-      const isWorking = zoneHour >= workingHours.start && zoneHour < workingHours.end;
-      return {
-        zone: zone.name,
-        hour: zoneHour,
-        isWorking,
-        display: String(Math.floor(zoneHour)).padStart(2, '0') + ':00',
-      };
-    });
-  }, [baseHour, zones]);
-
-  const toggleZone = (zoneName) => {
-    if (selectedZones.includes(zoneName)) {
-      setSelectedZones(selectedZones.filter((z) => z !== zoneName));
-    } else {
-      setSelectedZones([...selectedZones, zoneName]);
-    }
+  const toggleZone = (id) => {
+    setSelectedIds(prev =>
+      prev.includes(id) ? prev.filter(z => z !== id) : [...prev, id]
+    );
   };
 
-  const formatHour = (hour) => {
-    const h = Math.floor(hour);
-    const m = (hour % 1) * 60;
-    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-  };
+  // Find overlap windows
+  const overlapSlots = useMemo(() => {
+    if (selectedZones.length < 2) return [];
+    const slots = [];
+    for (let h = 0; h < 24; h += 0.5) {
+      const allWorking = selectedZones.every(z => {
+        const zh = getZoneHour(h, z.offset);
+        return isWorking(zh);
+      });
+      if (allWorking) slots.push(h);
+    }
+    return slots;
+  }, [selectedZones]);
+
+  // Group consecutive overlap slots into ranges
+  const overlapRanges = useMemo(() => {
+    if (overlapSlots.length === 0) return [];
+    const ranges = [];
+    let start = overlapSlots[0];
+    let prev = overlapSlots[0];
+    for (let i = 1; i < overlapSlots.length; i++) {
+      if (overlapSlots[i] - prev > 0.5) {
+        ranges.push({ start, end: prev + 0.5 });
+        start = overlapSlots[i];
+      }
+      prev = overlapSlots[i];
+    }
+    ranges.push({ start, end: prev + 0.5 });
+    return ranges;
+  }, [overlapSlots]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      {/* Timezone Selection */}
-      <div className="space-y-3">
-        <h3 className="text-text-primary font-semibold">Select Timezones</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {timezones.map((tz) => (
-            <label
-              key={tz.name}
-              className={`flex items-center gap-2 p-3 rounded-[var(--radius-input)] cursor-pointer border ${
-                selectedZones.includes(tz.name)
-                  ? 'bg-accent-muted border-accent'
-                  : 'bg-white border-border hover:bg-surface'
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-5">
+      {/* Timezone pills */}
+      <div>
+        <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-2">Select Timezones</p>
+        <div className="flex flex-wrap gap-1.5">
+          {TIMEZONES.map(tz => (
+            <button
+              key={tz.id}
+              onClick={() => toggleZone(tz.id)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                selectedIds.includes(tz.id)
+                  ? 'bg-accent text-white'
+                  : 'bg-surface border border-border hover:bg-surface-hover text-text-primary'
               }`}
             >
-              <input
-                type="checkbox"
-                checked={selectedZones.includes(tz.name)}
-                onChange={() => toggleZone(tz.name)}
-                className="w-4 h-4"
-              />
-              <span className="text-sm text-text-primary font-medium">{tz.name}</span>
-            </label>
+              {tz.name}
+              <span className="ml-1 opacity-60">{tz.abbr}</span>
+            </button>
           ))}
         </div>
       </div>
 
-      {selectedZones.length > 0 ? (
+      {selectedZones.length > 0 && (
         <>
-          {/* Time Slider */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-            <label className="block text-text-secondary text-sm font-medium">
-              London Time: {formatHour(baseHour)}
-            </label>
+          {/* Time slider + current times */}
+          <div className="bg-surface border border-border rounded-xl p-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-text-muted uppercase tracking-wide">Meeting time (UTC)</span>
+              <span className="font-mono font-bold text-lg text-text-primary">{formatHour(baseHour)}</span>
+            </div>
             <input
               type="range"
               min="0"
-              max="23"
+              max="23.5"
               step="0.5"
               value={baseHour}
               onChange={(e) => setBaseHour(parseFloat(e.target.value))}
-              className="w-full cursor-pointer"
+              className="w-full h-2 rounded-lg appearance-none cursor-pointer"
+              style={{
+                background: `linear-gradient(to right, #2563eb 0%, #2563eb ${(baseHour / 23.5) * 100}%, #e5e5e5 ${(baseHour / 23.5) * 100}%, #e5e5e5 100%)`,
+              }}
             />
-            <div className="flex justify-between text-text-muted text-xs">
-              <span>00:00</span>
-              <span>12:00</span>
-              <span>23:30</span>
+            <div className="flex justify-between text-[10px] text-text-muted font-mono">
+              <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:30</span>
             </div>
           </div>
 
-          {/* Current Times for All Zones */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {currentTimes.map((time) => (
-              <div
-                key={time.zone}
-                className={`rounded-[var(--radius-card)] p-4 border ${
-                  time.isWorking
-                    ? 'bg-success/10 border-success'
-                    : 'bg-warning/10 border-warning'
-                }`}
-              >
-                <p className="text-text-secondary text-xs mb-1">{time.zone}</p>
-                <p className="font-mono-num text-2xl font-bold text-text-primary">
-                  {time.display}
-                </p>
-                <p className="text-xs mt-1 text-text-secondary">
-                  {time.isWorking ? '✓ Working Hours' : '⏰ Outside Working Hours'}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Best Meeting Times */}
-          <div className="bg-accent-muted border border-accent rounded-[var(--radius-card)] p-6 space-y-3">
-            <h4 className="text-text-primary font-semibold">Best Meeting Times (All zones within 9am-5pm)</h4>
-            {availableHours.filter((h) => h.allWorking).length > 0 ? (
-              <div className="space-y-2">
-                {availableHours
-                  .filter((h) => h.allWorking)
-                  .map((h) => (
-                    <button
-                      key={h.baseHour}
-                      onClick={() => setBaseHour(h.baseHour)}
-                      className={`w-full p-3 rounded-[var(--radius-input)] text-left transition-colors ${
-                        baseHour === h.baseHour
-                          ? 'bg-accent text-white'
-                          : 'bg-white border border-border hover:bg-surface'
-                      }`}
-                    >
-                      <span className="font-medium">
-                        {formatHour(h.baseHour)} London
-                      </span>
-                      <span className="text-xs ml-2">
-                        ({h.zones.map((z) => formatHour(z.hour)).join(', ')})
-                      </span>
-                    </button>
-                  ))}
-              </div>
-            ) : (
-              <p className="text-text-secondary text-sm">
-                ⚠️ No time works for all zones within working hours.
-              </p>
-            )}
-          </div>
-
-          {/* Overlap Summary */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
-            <p className="text-text-secondary text-sm mb-3">Zones with working hour overlap:</p>
-            <div className="flex flex-wrap gap-2">
-              {availableHours.map((h) => (
+          {/* Zone time cards - compact horizontal layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+            {selectedZones.map(zone => {
+              const zh = getZoneHour(baseHour, zone.offset);
+              const working = isWorking(zh);
+              return (
                 <div
-                  key={h.baseHour}
-                  className="flex items-center gap-2 px-3 py-2 bg-white rounded-[var(--radius-input)] border border-border text-xs"
+                  key={zone.id}
+                  className={`rounded-lg p-3 ${working ? 'bg-emerald-50 border border-emerald-200' : 'bg-surface border border-border'}`}
                 >
-                  <span className="font-medium text-text-primary">
-                    {formatHour(h.baseHour)} London
-                  </span>
-                  <span
-                    className={`font-mono-num font-bold ${
-                      h.allWorking
-                        ? 'text-success'
-                        : h.workingCount > 0
-                          ? 'text-warning'
-                          : 'text-error'
-                    }`}
-                  >
-                    {h.workingCount}/{zones.length}
-                  </span>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-medium text-text-secondary truncate">{zone.name}</span>
+                    <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${working ? 'bg-emerald-100 text-emerald-700' : 'bg-zinc-100 text-zinc-500'}`}>
+                      {zone.abbr}
+                    </span>
+                  </div>
+                  <div className="font-mono font-bold text-xl text-text-primary">
+                    {formatHour(zh)}
+                  </div>
+                  <div className={`text-[10px] mt-0.5 ${working ? 'text-emerald-600' : 'text-text-muted'}`}>
+                    {working ? 'Working hours' : zh >= 21 || zh < 7 ? 'Night time' : 'Outside work'}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Visual timeline - the main feature */}
+          <div className="bg-surface border border-border rounded-xl p-4 overflow-x-auto">
+            <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-3">24-Hour Overview</p>
+            <div className="min-w-[600px]">
+              {/* Hour labels */}
+              <div className="flex mb-1" style={{ paddingLeft: '100px' }}>
+                {Array.from({ length: 24 }).map((_, h) => (
+                  <div key={h} className="flex-1 text-center text-[9px] font-mono text-text-muted">
+                    {h % 3 === 0 ? `${String(h).padStart(2, '0')}` : ''}
+                  </div>
+                ))}
+              </div>
+
+              {/* Zone rows */}
+              {selectedZones.map(zone => (
+                <div key={zone.id} className="flex items-center mb-1">
+                  <div className="w-[100px] text-xs font-medium text-text-secondary truncate pr-2 flex-shrink-0">
+                    {zone.name}
+                  </div>
+                  <div className="flex flex-1 gap-px">
+                    {Array.from({ length: 48 }).map((_, i) => {
+                      const h = i / 2;
+                      const zh = getZoneHour(h, zone.offset);
+                      const isCurrent = Math.abs(h - baseHour) < 0.5;
+                      return (
+                        <button
+                          key={i}
+                          onClick={() => setBaseHour(h)}
+                          className={`flex-1 h-6 rounded-sm transition-all ${hourColor(zh)} ${
+                            isCurrent ? 'ring-2 ring-accent ring-offset-1 scale-y-125 z-10' : 'hover:opacity-80'
+                          }`}
+                          title={`${zone.name}: ${formatHour(zh)} (UTC ${formatHour(h)})`}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               ))}
+
+              {/* Legend */}
+              <div className="flex items-center gap-4 mt-2 pt-2 border-t border-border" style={{ paddingLeft: '100px' }}>
+                <div className="flex items-center gap-1 text-[10px] text-text-muted">
+                  <span className="w-3 h-3 rounded-sm bg-emerald-100 border border-emerald-200" /> Working (9-5)
+                </div>
+                <div className="flex items-center gap-1 text-[10px] text-text-muted">
+                  <span className="w-3 h-3 rounded-sm bg-amber-50 border border-amber-200" /> Early / Evening
+                </div>
+                <div className="flex items-center gap-1 text-[10px] text-text-muted">
+                  <span className="w-3 h-3 rounded-sm bg-zinc-100 border border-zinc-200" /> Night
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Overlap summary */}
+          {selectedZones.length >= 2 && (
+            <div className={`rounded-xl p-4 ${overlapRanges.length > 0 ? 'bg-emerald-50 border border-emerald-200' : 'bg-amber-50 border border-amber-200'}`}>
+              <p className="text-xs font-medium uppercase tracking-wide mb-2 text-text-secondary">
+                Overlap - all zones within 9am-5pm
+              </p>
+              {overlapRanges.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {overlapRanges.map((range, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setBaseHour(range.start)}
+                      className={`px-3 py-2 rounded-lg font-mono text-sm font-bold transition-all ${
+                        baseHour >= range.start && baseHour < range.end
+                          ? 'bg-accent text-white shadow-md'
+                          : 'bg-white border border-emerald-200 text-emerald-800 hover:bg-emerald-100'
+                      }`}
+                    >
+                      {formatHour(range.start)} - {formatHour(range.end)} UTC
+                    </button>
+                  ))}
+                  <p className="text-xs text-emerald-700 self-center ml-1">
+                    {overlapSlots.length / 2}h of overlap across {selectedZones.length} zones
+                  </p>
+                </div>
+              ) : (
+                <p className="text-sm text-amber-700">
+                  No overlap found where all {selectedZones.length} zones are within 9am-5pm. Try removing a zone or adjusting expectations.
+                </p>
+              )}
+            </div>
+          )}
         </>
-      ) : (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center text-text-muted">
-          <p>Select at least 2 timezones to find meeting times</p>
+      )}
+
+      {selectedZones.length === 0 && (
+        <div className="bg-surface border border-border rounded-xl p-8 text-center text-text-muted">
+          Select at least 2 timezones above to find meeting overlap
         </div>
       )}
     </div>

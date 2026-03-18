@@ -9,6 +9,7 @@ import {
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CategoryBrowser from "@/components/tools/CategoryBrowser";
+import FinanceCategoryBrowser from "@/components/tools/FinanceCategoryBrowser";
 
 export async function generateStaticParams() {
   return categories.map((c) => ({ category: c.slug }));
@@ -55,12 +56,16 @@ export default async function CategoryPage({ params }) {
 
         {/* Interactive browser (client component) */}
         {allTools.length > 0 ? (
-          <CategoryBrowser
-            allTools={allTools}
-            featuredTools={featured}
-            filterTags={filterTags}
-            categoryName={cat.name}
-          />
+          category === "finance" ? (
+            <FinanceCategoryBrowser allTools={allTools} />
+          ) : (
+            <CategoryBrowser
+              allTools={allTools}
+              featuredTools={featured}
+              filterTags={filterTags}
+              categoryName={cat.name}
+            />
+          )
         ) : (
           <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center text-text-muted">
             <p>Tools coming soon for this category.</p>

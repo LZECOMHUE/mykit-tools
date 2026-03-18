@@ -1,0 +1,147 @@
+{
+  "tunings": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "description": "The most common tuning. Used in most songs and resources.",
+      "strings": [
+        { "note": "E", "frequency": 82.41 },
+        { "note": "A", "frequency": 110 },
+        { "note": "D", "frequency": 146.83 },
+        { "note": "G", "frequency": 196 },
+        { "note": "B", "frequency": 246.94 },
+        { "note": "E", "frequency": 329.63 }
+      ]
+    },
+    {
+      "id": "drop-d",
+      "name": "Drop D",
+      "description": "Lower the low E string to D. Great for heavier sounds.",
+      "strings": [
+        { "note": "D", "frequency": 73.42 },
+        { "note": "A", "frequency": 110 },
+        { "note": "D", "frequency": 146.83 },
+        { "note": "G", "frequency": 196 },
+        { "note": "B", "frequency": 246.94 },
+        { "note": "E", "frequency": 329.63 }
+      ]
+    },
+    {
+      "id": "drop-c",
+      "name": "Drop C",
+      "description": "Down a full step from Drop D. Very heavy, metal tuning.",
+      "strings": [
+        { "note": "C", "frequency": 65.41 },
+        { "note": "G", "frequency": 98 },
+        { "note": "C", "frequency": 130.81 },
+        { "note": "F", "frequency": 174.61 },
+        { "note": "A", "frequency": 220 },
+        { "note": "D", "frequency": 293.66 }
+      ]
+    },
+    {
+      "id": "drop-b",
+      "name": "Drop B",
+      "description": "Drop C minus a semitone. Extremely heavy tuning.",
+      "strings": [
+        { "note": "B", "frequency": 61.74 },
+        { "note": "F#", "frequency": 92.50 },
+        { "note": "B", "frequency": 123.47 },
+        { "note": "E", "frequency": 164.81 },
+        { "note": "G#", "frequency": 207.65 },
+        { "note": "C#", "frequency": 277.18 }
+      ]
+    },
+    {
+      "id": "open-g",
+      "name": "Open G",
+      "description": "Tuned to a G major chord. Popular for slide guitar.",
+      "strings": [
+        { "note": "D", "frequency": 73.42 },
+        { "note": "G", "frequency": 98 },
+        { "note": "D", "frequency": 146.83 },
+        { "note": "G", "frequency": 196 },
+        { "note": "B", "frequency": 246.94 },
+        { "note": "D", "frequency": 293.66 }
+      ]
+    },
+    {
+      "id": "open-d",
+      "name": "Open D",
+      "description": "Tuned to a D major chord. Classic blues and folk tuning.",
+      "strings": [
+        { "note": "D", "frequency": 73.42 },
+        { "note": "A", "frequency": 110 },
+        { "note": "D", "frequency": 146.83 },
+        { "note": "F#", "frequency": 185 },
+        { "note": "A", "frequency": 220 },
+        { "note": "D", "frequency": 293.66 }
+      ]
+    },
+    {
+      "id": "dadgad",
+      "name": "DADGAD",
+      "description": "Modal tuning. Creates suspended, modal sounds. Used in Celtic and world music.",
+      "strings": [
+        { "note": "D", "frequency": 73.42 },
+        { "note": "A", "frequency": 110 },
+        { "note": "D", "frequency": 146.83 },
+        { "note": "G", "frequency": 196 },
+        { "note": "A", "frequency": 220 },
+        { "note": "D", "frequency": 293.66 }
+      ]
+    },
+    {
+      "id": "half-step-down",
+      "name": "Half Step Down",
+      "description": "Lower all strings by a semitone. Easier on hands, fuller tone.",
+      "strings": [
+        { "note": "Eb", "frequency": 77.78 },
+        { "note": "Ab", "frequency": 103.83 },
+        { "note": "Db", "frequency": 138.59 },
+        { "note": "Gb", "frequency": 185 },
+        { "note": "Bb", "frequency": 233.08 },
+        { "note": "Eb", "frequency": 311.13 }
+      ]
+    },
+    {
+      "id": "open-e",
+      "name": "Open E",
+      "description": "Tuned to an E major chord. Bright, piercing tone. Used in rock and slide guitar.",
+      "strings": [
+        { "note": "E", "frequency": 82.41 },
+        { "note": "B", "frequency": 123.47 },
+        { "note": "E", "frequency": 164.81 },
+        { "note": "G#", "frequency": 207.65 },
+        { "note": "B", "frequency": 246.94 },
+        { "note": "E", "frequency": 329.63 }
+      ]
+    },
+    {
+      "id": "open-a",
+      "name": "Open A",
+      "description": "Tuned to an A major chord. Warm, resonant. Used in blues and fingerstyle.",
+      "strings": [
+        { "note": "E", "frequency": 82.41 },
+        { "note": "A", "frequency": 110 },
+        { "note": "E", "frequency": 164.81 },
+        { "note": "A", "frequency": 220 },
+        { "note": "C#", "frequency": 277.18 },
+        { "note": "E", "frequency": 329.63 }
+      ]
+    },
+    {
+      "id": "open-c",
+      "name": "Open C",
+      "description": "Tuned to a C major chord. Warm and smooth. Used in folk and acoustic music.",
+      "strings": [
+        { "note": "C", "frequency": 65.41 },
+        { "note": "G", "frequency": 98 },
+        { "note": "C", "frequency": 130.81 },
+        { "note": "G", "frequency": 196 },
+        { "note": "C", "frequency": 261.63 },
+        { "note": "E", "frequency": 329.63 }
+      ]
+    }
+  ]
+}

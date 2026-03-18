@@ -7,6 +7,7 @@ export default function Select({
   error,
   id,
   className = "",
+  children,
   ...props
 }) {
   const selectId = id || label?.toLowerCase().replace(/\s+/g, "-");
@@ -30,12 +31,12 @@ export default function Select({
         }`}
         {...props}
       >
-        {options.map((opt) => {
+        {children || options.map((opt) => {
           const value = typeof opt === "string" ? opt : opt.value;
-          const label = typeof opt === "string" ? opt : opt.label;
+          const optLabel = typeof opt === "string" ? opt : opt.label;
           return (
             <option key={value} value={value}>
-              {label}
+              {optLabel}
             </option>
           );
         })}

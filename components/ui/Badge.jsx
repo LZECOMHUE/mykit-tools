@@ -18,8 +18,14 @@ const colorMap = {
   "cat-creative": "bg-cat-creative text-pink-800",
   "cat-parenting": "bg-cat-parenting text-lime-800",
   "cat-automotive": "bg-cat-automotive text-slate-700",
+  "cat-music": "bg-cat-music text-violet-800",
   "cat-seasonal": "bg-cat-seasonal text-red-800",
   "cat-fun": "bg-cat-fun text-yellow-800",
+  "cat-quiz": "bg-cat-quiz text-purple-800",
+  "cat-sports": "bg-cat-sports text-sky-800",
+  "cat-pdf": "bg-cat-pdf text-amber-800",
+  "cat-betting": "bg-cat-betting text-violet-800",
+  "cat-maps": "bg-cat-maps text-emerald-800",
 };
 
 export default function Badge({ category, label, className = "" }) {
