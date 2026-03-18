@@ -37,7 +37,7 @@ export default function CareerSacrificeCalculator() {
     const effectiveRemainingCareer = 67 - (ageAtBreak + yearsOut);
     const motherhoodPenalty = (currentSalary || salaryBefore) * penaltyRate * effectiveRemainingCareer;
 
-    const total = lostEarnings + lostPension + lostProgression + motherhoodPenalty;
+    const total = lostEarnings + pensionLoss + lostProgression + motherhoodPenalty;
     return { lostEarnings: Math.round(lostEarnings), lostPension: Math.round(pensionLoss), lostProgression: Math.round(lostProgression), motherhoodPenalty: Math.round(motherhoodPenalty), total: Math.round(total) };
   }, [salaryBefore, currentSalary, yearsOut, ageAtBreak, numberOfChildren]);
 
