@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased">
         {hasClerk && ClerkProvider ? (
-          <ClerkProvider>
+          <ClerkProvider afterSignOutUrl="/">
             <MyKitProvider>{children}</MyKitProvider>
           </ClerkProvider>
         ) : (

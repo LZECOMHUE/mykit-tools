@@ -81,7 +81,6 @@ export default function Navbar() {
                       <span className="hidden lg:inline">MyKit</span>
                     </Link>
                     <UserButton
-                      afterSignOutUrl="/"
                       appearance={{
                         elements: {
                           avatarBox: "w-9 h-9",
