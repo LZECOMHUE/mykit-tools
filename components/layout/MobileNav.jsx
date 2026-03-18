@@ -81,7 +81,7 @@ export default function MobileNav({ onClose }) {
             </Show>
             <Show when="signed-in">
               <div className="flex items-center gap-3 px-3">
-                <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
+                <UserButton appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
                 <span className="text-sm text-text-secondary">My Account</span>
               </div>
             </Show>
