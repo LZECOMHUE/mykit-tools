@@ -6,16 +6,25 @@ import ToolSearch from "@/components/tools/ToolSearch";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
 import { useAuth } from "@/lib/mock-auth";
+import { SignInButton, UserButton, Show, useClerk } from "@clerk/nextjs";
 
 // Only use Clerk when keys are configured
-const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-let SignInButton, UserButton, Show, SignOutButton;
-if (clerkReady) {
-  const clerk = require("@clerk/nextjs");
-  SignInButton = clerk.SignInButton;
-  UserButton = clerk.UserButton;
-  Show = clerk.Show;
-  SignOutButton = clerk.SignOutButton;
+const clerkReady = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+function ClerkSignOutButton({ className, children, onClick }) {
+  const { signOut } = useClerk();
+  return (
+    <button
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        signOut({ redirectUrl: '/' });
+        if (onClick) onClick();
+      }}
+    >
+      {children}
+    </button>
+  );
 }
 
 export default function Navbar() {
@@ -88,11 +97,9 @@ export default function Navbar() {
                         },
                       }}
                     />
-                    <SignOutButton>
-                      <button className="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors rounded-[var(--radius-input)] hover:bg-surface-hover cursor-pointer" title="Sign out">
-                        Sign out
-                      </button>
-                    </SignOutButton>
+                    <ClerkSignOutButton className="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors rounded-[var(--radius-input)] hover:bg-surface-hover cursor-pointer">
+                      Sign out
+                    </ClerkSignOutButton>
                   </div>
                 </Show>
               </div>

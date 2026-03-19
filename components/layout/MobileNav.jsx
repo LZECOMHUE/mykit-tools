@@ -5,18 +5,27 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { categories } from "@/lib/categories";
 import { useAuth } from "@/lib/mock-auth";
+import { SignInButton, UserButton, Show, useClerk } from "@clerk/nextjs";
+import ToolSearch from "@/components/tools/ToolSearch";
 
 // Only use Clerk when keys are configured
-const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-let SignInButton, UserButton, Show, SignOutButton;
-if (clerkReady) {
-  const clerk = require("@clerk/nextjs");
-  SignInButton = clerk.SignInButton;
-  UserButton = clerk.UserButton;
-  Show = clerk.Show;
-  SignOutButton = clerk.SignOutButton;
+const clerkReady = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+function ClerkSignOutButton({ className, children, onClick }) {
+  const { signOut } = useClerk();
+  return (
+    <button
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        signOut({ redirectUrl: '/' });
+        if (onClick) onClick();
+      }}
+    >
+      {children}
+    </button>
+  );
 }
-import ToolSearch from "@/components/tools/ToolSearch";
 
 export default function MobileNav({ onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -86,14 +95,12 @@ export default function MobileNav({ onClose }) {
                   <UserButton appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
                   <span className="text-sm text-text-secondary">My Account</span>
                 </div>
-                <SignOutButton>
-                  <button
-                    onClick={onClose}
-                    className="text-center px-3 py-2 text-xs font-medium text-error border border-border rounded-[var(--radius-input)] hover:bg-red-50 transition-colors cursor-pointer"
-                  >
-                    Sign out
-                  </button>
-                </SignOutButton>
+                <ClerkSignOutButton
+                  onClick={onClose}
+                  className="text-center px-3 py-2 text-xs font-medium text-error border border-border rounded-[var(--radius-input)] hover:bg-red-50 transition-colors cursor-pointer"
+                >
+                  Sign out
+                </ClerkSignOutButton>
               </div>
             </Show>
           </div>
