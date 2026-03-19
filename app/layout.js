@@ -3,13 +3,10 @@ import { generateOrganizationSchema } from "@/lib/seo";
 import Script from "next/script";
 import MockAuthWrapper from "@/components/providers/MockAuthWrapper";
 import { MyKitProvider } from "@/lib/mykit-context";
+import { ClerkProvider } from "@clerk/nextjs";
 
-// Only import ClerkProvider when Clerk keys are configured
+// Check if Clerk keys are configured
 const hasClerk = !!(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
-let ClerkProvider;
-if (hasClerk) {
-  ClerkProvider = require("@clerk/nextjs").ClerkProvider;
-}
 
 export const viewport = {
   width: "device-width",
@@ -101,7 +98,7 @@ export default function RootLayout({ children }) {
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </head>
       <body className="antialiased">
-        {hasClerk && ClerkProvider ? (
+        {hasClerk ? (
           <ClerkProvider afterSignOutUrl="/">
             <MyKitProvider>{children}</MyKitProvider>
           </ClerkProvider>

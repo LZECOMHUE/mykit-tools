@@ -71,7 +71,7 @@ export default function Navbar() {
             </button>
 
             {/* Auth — Clerk when configured, mock auth for local dev */}
-            {Show ? (
+            {clerkReady ? (
               <div>
                 <Show when="signed-out">
                   <SignInButton mode="modal">

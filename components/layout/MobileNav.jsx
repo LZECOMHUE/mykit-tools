@@ -77,7 +77,7 @@ export default function MobileNav({ onClose }) {
           ))}
         </div>
 
-        {Show ? (
+        {clerkReady ? (
           <div className="mt-6 pt-6 border-t border-border">
             <Show when="signed-out">
               <SignInButton mode="modal">
