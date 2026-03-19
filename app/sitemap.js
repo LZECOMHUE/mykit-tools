@@ -38,27 +38,10 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  // Tag pages — cross-category organization
-  // Extract unique tags from all tools
-  const allTags = new Set();
-  tools.forEach((tool) => {
-    if (tool.tags && Array.isArray(tool.tags)) {
-      tool.tags.forEach((tag) => allTags.add(tag));
-    }
-  });
-
-  const tagPages = Array.from(allTags).map((tag) => ({
-    url: `${BASE_URL}/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
-
   // Combine all pages
   return [
     ...homePage,
     ...toolPages,
     ...categoryPages,
-    ...tagPages,
   ];
 }
