@@ -4,17 +4,19 @@
 import { financeSEO } from "./finance";
 import { convertersSEO } from "./converters";
 import { mathsSEO } from "./maths";
+import { fitnessSEO } from "./fitness";
+import { gameSEO } from "./games";
 
 // Add more category imports as SEO content is written:
 // import { educationSEO } from "./education";
-// import { gameSEO } from "./games";
 
 const allSEOContent = {
   ...financeSEO,
   ...convertersSEO,
   ...mathsSEO,
+  ...fitnessSEO,
+  ...gameSEO,
   // ...educationSEO,
-  // ...gameSEO,
 };
 
 /**
