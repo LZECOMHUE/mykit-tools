@@ -8,12 +8,13 @@ import { useAuth } from "@/lib/mock-auth";
 
 // Only use Clerk when keys are configured
 const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-let SignInButton, UserButton, Show;
+let SignInButton, UserButton, Show, SignOutButton;
 if (clerkReady) {
   const clerk = require("@clerk/nextjs");
   SignInButton = clerk.SignInButton;
   UserButton = clerk.UserButton;
   Show = clerk.Show;
+  SignOutButton = clerk.SignOutButton;
 }
 import ToolSearch from "@/components/tools/ToolSearch";
 
@@ -80,9 +81,19 @@ export default function MobileNav({ onClose }) {
               </SignInButton>
             </Show>
             <Show when="signed-in">
-              <div className="flex items-center gap-3 px-3">
-                <UserButton appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
-                <span className="text-sm text-text-secondary">My Account</span>
+              <div className="flex items-center justify-between px-3">
+                <div className="flex items-center gap-3">
+                  <UserButton appearance={{ elements: { avatarBox: "w-9 h-9" } }} />
+                  <span className="text-sm text-text-secondary">My Account</span>
+                </div>
+                <SignOutButton>
+                  <button
+                    onClick={onClose}
+                    className="text-center px-3 py-2 text-xs font-medium text-error border border-border rounded-[var(--radius-input)] hover:bg-red-50 transition-colors cursor-pointer"
+                  >
+                    Sign out
+                  </button>
+                </SignOutButton>
               </div>
             </Show>
           </div>

@@ -9,12 +9,13 @@ import { useAuth } from "@/lib/mock-auth";
 
 // Only use Clerk when keys are configured
 const clerkReady = typeof window !== "undefined" && !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-let SignInButton, UserButton, Show;
+let SignInButton, UserButton, Show, SignOutButton;
 if (clerkReady) {
   const clerk = require("@clerk/nextjs");
   SignInButton = clerk.SignInButton;
   UserButton = clerk.UserButton;
   Show = clerk.Show;
+  SignOutButton = clerk.SignOutButton;
 }
 
 export default function Navbar() {
@@ -87,6 +88,11 @@ export default function Navbar() {
                         },
                       }}
                     />
+                    <SignOutButton>
+                      <button className="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors rounded-[var(--radius-input)] hover:bg-surface-hover cursor-pointer" title="Sign out">
+                        Sign out
+                      </button>
+                    </SignOutButton>
                   </div>
                 </Show>
               </div>
