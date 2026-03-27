@@ -441,4 +441,206 @@ export const financeSEO = {
       ),
     ],
   },
+
+  "workplace-pension-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Understanding Auto Enrolment in the UK",
+        "Every employer in the UK must automatically enrol eligible staff into a workplace pension scheme and pay money into it. The minimum total contribution is 8% of your qualifying earnings: 5% from you, and 3% from your employer.",
+        "Your employer might pay more than the legal minimum, and they might calculate contributions on your full salary rather than just qualifying earnings. A workplace pension calculator (like this one) cuts through the confusion and shows exactly how much is deposited each month."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "Is the workplace pension a legal requirement?",
+        "Yes, auto enrolment is a legal duty for employers. However, employees have the right to opt out manually if they wish. Opting out is rarely recommended, as you lose your employer's matched contribution — essentially turning down tax-free free money."
+      ),
+      createFAQ(
+        "How are pensionable earnings calculated?",
+        "For 2025/26, qualifying or 'pensionable' earnings are the portion of your salary between £6,240 and £50,270. If your salary is £30,000, your qualifying earnings are £23,760. Your 5% contribution is calculated purely on this middle slice."
+      )
+    ]
+  },
+
+  "canada-tfsa-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Track TFSA Contribution Room",
+        "Your Tax-Free Savings Account (TFSA) contribution room accumulates over time. If you turned 18 and were a Canadian resident in 2009 or earlier, your total cumulative room is now over $95,000. Unused room carries forward indefinitely, meaning you don't lose the space if you don't invest in a given year.",
+        "Withdrawing money from your TFSA does not permanently reduce your room. You regain the withdrawn contribution space on January 1st of the following calendar year. Our TFSA calculator factors in standard interest rates to help you visualize long-term compounding tax-free growth."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "What is the TFSA contribution limit for 2025?",
+        "The annual TFSA contribution limit usually sits around $7,000, but gets indexed to inflation. However, you are likely working with a much higher cumulative limit. Check your exact available contribution room by logging into the CRA (Canada Revenue Agency) website."
+      ),
+      createFAQ(
+        "Does the TFSA calculator show post-tax interest returns?",
+        "A TFSA is completely tax-free. Any interest, capital gains, or dividends generated within the account are yours to keep, and you do not pay income tax when you withdraw the funds, so the returns shown by our calculator are your true, final returns."
+      )
+    ]
+  }
+
+  "us-student-loan-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Understanding Federal vs Private Student Loans",
+        "When calculating your student loan payoff, it is critical to distinguish between federal and private loans. Federal loans offer flexible repayment plans, such as Income-Driven Repayment (IDR) and potential forgiveness options.",
+        "Private loans (from providers like Sallie Mae or Discover) generally have stricter repayment terms and variable interest rates. You cannot use federal repayment plans for private loans, which means your monthly payment is rigidly based on the loan term and interest rate."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "How do I use a federal student loan calculator?",
+        "Enter your total loan balance, your interest rate, and your expected loan term. The calculator will determine your fixed monthly payment to clear the debt in that timeframe. For federal loans, a standard repayment plan is 10 years."
+      ),
+      createFAQ(
+        "Can I pay off my Sallie Mae loan faster?",
+        "Yes, you can make extra payments toward the principal balance of any student loan, including private loans like Sallie Mae, without early repayment penalties. Making extra contributions drastically reduces the total interest paid over the life of the loan."
+      )
+    ]
+  },
+
+  "australia-pay-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Australia PAYE and Take Home Pay",
+        "Calculating your net pay in Australia involves deducting PAYG (Pay As You Go) withholding tax and the 2% Medicare levy from your gross salary. The ATO sets strict tax brackets, meaning the more you earn, the higher the marginal tax rate applies to your top dollars.",
+        "Our AU take home pay calculator automatically applies the latest ATO tax tables to give you an accurate breakdown of your fortnightly or monthly salary, showing exactly what will land in your bank account."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "How much tax do I pay in Australia?",
+        "Australia has a progressive tax system with a tax-free threshold of $18,200. Earnings above that are taxed at 16%, 30%, 37%, and 45% as your income moves through the brackets. You also pay a 2% Medicare levy on your taxable income."
+      ),
+      createFAQ(
+        "Does the pay calculator include the Medicare Levy Surcharge?",
+        "If you do not have appropriate private hospital cover and your income exceeds the threshold, you may be liable for the Medicare Levy Surcharge (MLS) of an additional 1% to 1.5%. You should manually account for this if applicable."
+      )
+    ]
+  },
+
+  "company-car-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Benefit-in-Kind (BiK) Car Tax Works",
+        "If your employer provides you with a company vehicle that you can use privately, this is considered a 'perk' or Benefit-in-Kind (BiK) by HMRC. You must pay income tax on the value of this benefit, which is deducted straight from your salary through your tax code.",
+        "The tax amount is calculated using the car's P11D value (list price plus options), its CO2 emissions, and your personal income tax bracket. The higher the emissions and the higher your tax bracket, the more company car tax you pay."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "Why is a hybrid company car tax calculator so important?",
+        "For hybrid vehicles, BiK tax rates depend not just on CO2 emissions, but also on the car's zero-emission electric range. A plug-in hybrid with an electric range of over 130 miles falls into an ultra-low tax bracket, whereas a mild hybrid is taxed heavily like a standard petrol car."
+      ),
+      createFAQ(
+        "Is an electric company car worth it?",
+        "Absolutely. Fully electric vehicles currently enjoy exceptionally low BiK tax rates (fixed at 2% until April 2025, rising by 1% annually thereafter). Choosing an EV over a combustion engine car can easily save a higher-rate taxpayer thousands of pounds per year in company car tax."
+      )
+    ]
+  }
+
+  "australia-long-service-leave-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Understanding Long Service Leave (LSL) Accrual",
+        "Long Service Leave (LSL) is a paid leave entitlement for Australian employees who have worked for the same employer for a continuous, extended period. The core principle is consistent, but the exact accrual rates, eligibility thresholds, and payout rules vary significantly between states (e.g. QLD vs WA vs VIC).",
+        "Typically, employees are entitled to 2 months (8.6667 weeks) of paid leave after 10 years of continuous service. Use calculating tools to track your exact accrual and pro rata entitlements."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "How does a pro rata long service leave calculator work?",
+        "If you leave your employer after a certain number of years (usually 7 years, but this depends on your state), but before the full 10-year mark, you may be entitled to a pro rata (proportional) payout of your accrued leave. The calculator factors in your specific state legislation to determine if you meet this threshold."
+      ),
+      createFAQ(
+        "Does LSL apply to casual and part-time workers?",
+        "Yes, in most Australian states and territories, casual and permanent part-time employees are eligible for Long Service Leave. The accrual is calculated proportionally based on the total hours worked over their continuous employment."
+      )
+    ]
+  },
+
+  "us-medical-bill-estimator": {
+    sections: [
+      createAnswerFirstSection(
+        "Navigating US Healthcare Costs",
+        "The US healthcare system is notoriously complex due to the interplay of deductibles, copays, coinsurance, and out-of-pocket maximums. A patient cost estimator tool helps you forecast exactly what a procedure or treatment will cost you personally, rather than relying on abstract hospital chargemaster rates.",
+        "Always remember: the 'billed amount' is rarely what you actually pay. Your insurance company negotiates a much lower 'allowed amount', and your out-of-pocket obligation is based strictly on that lower negotiated rate."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "How is patient responsibility calculated on a medical bill?",
+        "First, you must pay 100% of the negotiated rate until your annual deductible is met. Afterward, you enter the coinsurance phase (e.g. your insurance pays 80%, you pay 20%). Once your total payments hit the out-of-pocket maximum, the insurance covers 100% of allowed charges for the rest of the year."
+      ),
+      createFAQ(
+        "Can a billing estimate tool guarantee the final cost?",
+        "No. An estimator provides a highly accurate forecast based on your insurance plan's summary of benefits. However, if complications arise during a procedure requiring additional doctors, imaging, or longer hospital stays, the final billed amount will increase."
+      )
+    ]
+  }
+
+  "mortgage-affordability-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Mortgage Can You Qualify For?",
+        "Lenders determine your maximum borrowing capacity using an income multiple (typically 4.5x your annual salary, sometimes up to 5x or 5.5x for high earners) and a strict affordability stress test checking your monthly outgoings.",
+        "A mortgage affordability calculator estimates the ceiling of what a bank will lend you. Crucially, just because you qualify for a massive mortgage does not mean you should take it. You must ensure you can comfortably afford the monthly repayments without severely compromising your lifestyle."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "Is there a 5 times salary mortgage calculator?",
+        "Yes, our calculator allows you to adjust the income multiplier up to 5x or even 5.5x. However, in the UK, the Bank of England heavily restricts the number of mortgages lenders can offer at multiples of 4.5 or higher. To qualify for a 5x multiple, you usually need a pristine credit score and a high combined household income."
+      ),
+      createFAQ(
+        "Do personal loans affect my mortgage approval?",
+        "Yes, significantly. Lenders legally must factor in your exact monthly debt obligations (car finance, personal loans, credit card balances). These fixed outgoings drastically reduce your monthly disposable income, which lowers the maximum amount you can borrow."
+      )
+    ]
+  },
+
+  "australia-penalty-rate-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Understanding Australia's Penalty Rates",
+        "In Australia, 'penalty rates' are higher legal pay rates designated by the Fair Work Ombudsman for employees working outside normal hours. If you work on weekends, public holidays, late night shifts, or early mornings, you are legally entitled to compensation above your base pay rate.",
+        "These rates are determined by your specific modern award or enterprise agreement. For example, a retail worker might get 125% pay on Saturdays and 150% on Sundays, while hospitality workers might have completely different multipliers."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "What are Saturday penalty rates in Australia?",
+        "Saturday rates heavily depend on your industry's Modern Award. Common multipliers are 125% (time-and-a-quarter) or 150% (time-and-a-half). Casual employees often receive their 25% casual loading on top of these penalty rates, but exact interaction rules vary by award."
+      ),
+      createFAQ(
+        "Do part-time employees get penalty rates?",
+        "Yes. Part-time employees are absolutely entitled to penalty rates if they work weekends, public holidays, or late night shifts, exactly like full-time employees. If your employer claims otherwise, check the Fair Work Ombudsman guidelines."
+      )
+    ]
+  },
+
+  "childcare-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Navigating Childcare Costs and Government Benefits",
+        "Childcare is often one of the largest financial burdens for working families. Depending on your country (such as the UK's Tax-Free Childcare scheme or Australia's Child Care Subsidy), governments offer substantial financial assistance to help parents return to the workforce.",
+        "A subsidized daycare calculator takes your combined household income, your working hours, and the number of children in care, and factors all of them against government subsidy thresholds to determine your true out-of-pocket cost."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "How is the childcare benefit calculated?",
+        "In most systems (like Australia's CCS), the subsidy is heavily means-tested. Families earning a lower combined income receive a higher percentage of their hourly fees covered (up to 90%). As household income rises, the subsidy percentage tapers down."
+      ),
+      createFAQ(
+        "Does the subsidy cap cover the full daily fee?",
+        "Rarely. Subsidies are usually capped at an 'hourly rate cap' set by the government (e.g. $13.73 an hour). If your prestigious daycare charges $16 an hour, the government only subsidizes a percentage of the $13.73 cap, leaving you to pay the gap completely out-of-pocket."
+      )
+    ]
+  }
 };
+
+

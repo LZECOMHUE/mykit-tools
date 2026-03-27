@@ -70,4 +70,24 @@ export const gameSEO = {
       { slug: "word-counter", label: "Word & Character Counter" }
     ]
   }
+
+  "mtg-deck-cost": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Price an MTG Deck",
+        "Pricing a Magic: The Gathering deck involves pulling real-time aggregate market data for every individual card in the 60 or 100-card list. Because card prices fluctuate wildly based on tournament results, reprints, and ban lists, static tracking is impossible.",
+        "Our MTG deck cost builder pulls daily closing prices from major marketplaces (like TCGPlayer or Cardmarket) to estimate the true cash value of your decklist for selling, trading, or budget-building."
+      )
+    ],
+    faqs: [
+      createFAQ(
+        "Does the deck value calculator account for foil or full-art cards?",
+        "The standard estimate pulls the lowest available print price for an English, Near Mint version of the card. Foil, alternate-art, or hyper-specific vintage printings will carry a massive premium that basic bulk estimators might not fully capture."
+      ),
+      createFAQ(
+        "Why is my magic deck cost suddenly dropping?",
+        "It happens! If a highly played card in your deck gets reprinted in a new Masters set, or if a key combo piece gets banned in Modern or Commander, the secondary market value of the entire deck strategy can plummet overnight."
+      )
+    ]
+  }
 };

@@ -6,6 +6,13 @@ import { convertersSEO } from "./converters";
 import { mathsSEO } from "./maths";
 import { fitnessSEO } from "./fitness";
 import { gameSEO } from "./games";
+import { seasonalSEO } from "./seasonal.js";
+import { businessSEO } from "./business.js";
+import { mapsSEO } from "./maps.js";
+import { cookingSEO } from "./cooking.js";
+import { homeSEO } from "./home.js";
+import { musicSEO } from "./music.js";
+import { automotiveSEO } from "./automotive.js";
 
 // Add more category imports as SEO content is written:
 // import { educationSEO } from "./education";
@@ -16,6 +23,13 @@ const allSEOContent = {
   ...mathsSEO,
   ...fitnessSEO,
   ...gameSEO,
+  ...seasonalSEO,
+  ...businessSEO,
+  ...mapsSEO,
+  ...cookingSEO,
+  ...homeSEO,
+  ...musicSEO,
+  ...automotiveSEO,
   // ...educationSEO,
 };
 
