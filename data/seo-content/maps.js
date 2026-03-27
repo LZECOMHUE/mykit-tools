@@ -24,7 +24,7 @@ export const mapsSEO = {
         "Some public access defibrillators are kept in locked cabinets to prevent theft or vandalism. If you find a locked cabinet during an emergency, dial 999. The ambulance dispatcher will give you the keypad code to open the box immediately."
       )
     ]
-  }
+  },
 
   "nearest-public-toilet-finder": {
     sections: [

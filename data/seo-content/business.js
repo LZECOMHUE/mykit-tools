@@ -33,7 +33,7 @@ export const businessSEO = {
       { slug: "ebay-fee-calculator", label: "eBay Fee Calculator" },
       { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" }
     ]
-  }
+  },
 
   "employee-cost-calculator": {
     sections: [
@@ -53,7 +53,7 @@ export const businessSEO = {
         "In the UK, the major additional costs are Employer National Insurance Contributions (which increased to 15% with a much lower threshold starting April 2025) and mandatory auto-enrolment pension contributions."
       )
     ]
-  }
+  },
 
   "ebay-fee-calculator": {
     sections: [

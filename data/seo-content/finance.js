@@ -453,7 +453,7 @@ export const financeSEO = {
     faqs: [
       createFAQ(
         "Is the workplace pension a legal requirement?",
-        "Yes, auto enrolment is a legal duty for employers. However, employees have the right to opt out manually if they wish. Opting out is rarely recommended, as you lose your employer's matched contribution — essentially turning down tax-free free money."
+        "Yes, auto enrolment is a legal duty for employers. However, employees have the right to opt out manually if they wish. Opting out is rarely recommended, as you lose your employer's matched contribution - essentially turning down tax-free free money."
       ),
       createFAQ(
         "How are pensionable earnings calculated?",
@@ -480,7 +480,7 @@ export const financeSEO = {
         "A TFSA is completely tax-free. Any interest, capital gains, or dividends generated within the account are yours to keep, and you do not pay income tax when you withdraw the funds, so the returns shown by our calculator are your true, final returns."
       )
     ]
-  }
+  },
 
   "us-student-loan-calculator": {
     sections: [
@@ -540,7 +540,7 @@ export const financeSEO = {
         "Absolutely. Fully electric vehicles currently enjoy exceptionally low BiK tax rates (fixed at 2% until April 2025, rising by 1% annually thereafter). Choosing an EV over a combustion engine car can easily save a higher-rate taxpayer thousands of pounds per year in company car tax."
       )
     ]
-  }
+  },
 
   "australia-long-service-leave-calculator": {
     sections: [
@@ -580,7 +580,7 @@ export const financeSEO = {
         "No. An estimator provides a highly accurate forecast based on your insurance plan's summary of benefits. However, if complications arise during a procedure requiring additional doctors, imaging, or longer hospital stays, the final billed amount will increase."
       )
     ]
-  }
+  },
 
   "mortgage-affordability-calculator": {
     sections: [

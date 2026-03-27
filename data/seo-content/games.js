@@ -69,7 +69,7 @@ export const gameSEO = {
       { slug: "bingo-card-generator", label: "Custom Bingo Cards" },
       { slug: "word-counter", label: "Word & Character Counter" }
     ]
-  }
+  },
 
   "mtg-deck-cost": {
     sections: [

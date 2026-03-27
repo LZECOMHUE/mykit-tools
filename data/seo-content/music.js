@@ -20,7 +20,7 @@ export const musicSEO = {
         "No. Soprano, concert, and tenor ukuleles are all typically strung and tuned to standard G-C-E-A tuning. The only exception is the Baritone ukulele, which is larger and naturally tuned to D-G-B-E (like the top four strings of a guitar)."
       )
     ]
-  }
+  },
 
   "key-finder": {
     sections: [

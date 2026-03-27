@@ -26,7 +26,7 @@ export const seasonalSEO = {
         "The most critical tradition is lighting the hanukkiah (a nine-branched menorah) each night. Other traditions include playing with a dreidel (a spinning top), exchanging small gifts or gelt (chocolate coins), and eating foods fried in oil to commemorate the miracle of the oil."
       )
     ]
-  }
+  },
 
   "when-is-remembrance-day": {
     sections: [
