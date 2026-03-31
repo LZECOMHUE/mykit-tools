@@ -24,7 +24,7 @@ export default function Footer() {
   const catCol3 = categories.slice(colSize * 2);
 
   return (
-    <footer className="bg-surface border-t border-border mt-12">
+    <footer className="bg-surface-hover/30 rounded-t-[3rem] mt-12 pb-4 overflow-hidden">
       {/* Pro nudge strip */}
       <div className="bg-accent-muted border-b border-accent/10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2">
@@ -136,8 +136,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="text-xl font-bold font-heading text-text-primary hover:opacity-80 transition-opacity">
-            MyKit<span className="text-accent">.tools</span>
+          <Link href="/" className="text-2xl font-black font-heading tracking-tighter text-accent hover:opacity-80 transition-opacity">
+            MyKit.tools
           </Link>
           <p className="text-xs text-text-muted">
             &copy; {year} MyKit.tools. All rights reserved.

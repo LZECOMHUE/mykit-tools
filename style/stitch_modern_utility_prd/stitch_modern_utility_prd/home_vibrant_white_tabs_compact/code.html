@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e4e2dd",
+              "secondary-dim": "#00557d",
+              "on-secondary-container": "#004c71",
+              "surface-container": "#eae8e3",
+              "on-tertiary": "#fff2ce",
+              "on-surface": "#2e2f2c",
+              "surface-dim": "#d5d5ce",
+              "secondary-container": "#a7d7ff",
+              "background": "#f8f6f1",
+              "primary-dim": "#005d16",
+              "primary-fixed-dim": "#83e881",
+              "on-tertiary-fixed-variant": "#645300",
+              "inverse-primary": "#91f78e",
+              "on-error-container": "#520c00",
+              "secondary-fixed-dim": "#86cbff",
+              "outline-variant": "#aeada9",
+              "on-secondary-fixed": "#003855",
+              "tertiary-container": "#fdd400",
+              "on-primary-fixed-variant": "#00691a",
+              "tertiary-fixed-dim": "#edc600",
+              "primary": "#006b1b",
+              "on-primary": "#d1ffc8",
+              "surface-variant": "#deddd7",
+              "on-background": "#2e2f2c",
+              "on-secondary-fixed-variant": "#00567f",
+              "outline": "#777773",
+              "surface": "#f8f6f1",
+              "inverse-on-surface": "#9e9d99",
+              "on-error": "#ffefec",
+              "error-container": "#f95630",
+              "surface-container-low": "#f2f1eb",
+              "primary-fixed": "#91f78e",
+              "surface-bright": "#f8f6f1",
+              "surface-tint": "#006b1b",
+              "secondary-fixed": "#a7d7ff",
+              "inverse-surface": "#0e0e0c",
+              "tertiary-dim": "#5f4e00",
+              "error-dim": "#b92902",
+              "on-primary-container": "#005e17",
+              "error": "#b02500",
+              "tertiary": "#6d5a00",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#eaf4ff",
+              "primary-container": "#91f78e",
+              "secondary": "#00618f",
+              "on-tertiary-fixed": "#433700",
+              "surface-container-highest": "#deddd7",
+              "tertiary-fixed": "#fdd400",
+              "on-tertiary-container": "#594a00",
+              "on-primary-fixed": "#00480f",
+              "on-surface-variant": "#5c5c58"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f8f6f1;
+            color: #2e2f2c;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .header-anchor {
+            font-family: 'Epilogue', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f8f6f1] dark:bg-slate-900 backdrop-blur-md opacity-90 shadow-[0_20px_40px_rgba(46,47,44,0.06)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="text-2xl font-black text-green-800 dark:text-green-400 tracking-tighter header-anchor">
+                MyKit.tools
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Epilogue'] font-bold text-sm tracking-tight text-green-700 dark:text-green-400 border-b-2 border-green-600 pb-1 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-300 rounded-lg px-2 py-1" href="#">Directory</a>
+<a class="font-['Epilogue'] font-bold text-sm tracking-tight text-slate-600 dark:text-slate-400 font-medium hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-300 rounded-lg px-2 py-1" href="#">Collections</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all duration-300 rounded-lg text-slate-600">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+<div class="bg-[#eae8e3] dark:bg-slate-800 h-[1px] w-full self-bottom"></div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center py-16 md:py-24">
+<h1 class="font-headline font-black text-4xl md:text-6xl text-on-surface mb-6 tracking-tighter leading-tight">
+                Your curated toolkit for<br/>
+<span class="text-primary italic">focused creators.</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-2xl mb-12">
+                Discover beautifully organized collections of digital and physical tools designed to help you do your best work.
+            </p>
+<!-- Search Bar -->
+<div class="w-full max-w-xl relative group">
+<div class="absolute inset-y-0 left-5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full pl-14 pr-6 py-5 bg-surface-container-low border-none rounded-xl focus:ring-0 focus:bg-surface-container-lowest focus:border-b-2 focus:border-primary transition-all duration-300 font-body placeholder:text-outline/60 text-lg shadow-sm" placeholder="Search for kits, tools, or series..." type="text"/>
+</div>
+</section>
+<!-- Browse by Kit -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline font-bold text-2xl tracking-tight mb-2">Browse by Kit</h2>
+<p class="font-body text-sm text-on-surface-variant">Hand-picked categories for every workflow.</p>
+</div>
+<a class="text-sm font-bold text-primary flex items-center gap-1 group" href="#">
+                    View all categories
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Kit Tile 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<span class="font-headline font-bold text-sm">Writers</span>
+</div>
+<!-- Kit Tile 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center mb-4 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<span class="font-headline font-bold text-sm">Developers</span>
+</div>
+<!-- Kit Tile 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-tertiary"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center mb-4 text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<span class="font-headline font-bold text-sm">Designers</span>
+</div>
+<!-- Kit Tile 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="font-headline font-bold text-sm">Artists</span>
+</div>
+<!-- Kit Tile 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center mb-4 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+</div>
+<span class="font-headline font-bold text-sm">Thinkers</span>
+</div>
+<!-- Kit Tile 6 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-tertiary"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center mb-4 text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="podcasts">podcasts</span>
+</div>
+<span class="font-headline font-bold text-sm">Podcasters</span>
+</div>
+</div>
+</section>
+<!-- Staff Picks -->
+<section>
+<div class="mb-10">
+<h2 class="font-headline font-bold text-2xl tracking-tight mb-2">Staff Picks</h2>
+<p class="font-body text-sm text-on-surface-variant">The essentials we're currently obsessing over.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Product Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(46,47,44,0.06)] group flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 overflow-hidden h-48 md:h-auto">
+<img alt="Analog Focus Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimal wooden desk with black notebook and fountain pen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhK0l4YBLtJAo0pleQyc5p-DUcDzSQMZXCM4vMM_mFdMU9ku5osgjYgkTeBB4qvddhyhlvRn9dccfAJjo2EeXDTSdavCgF4eswR6MhGHzikzjDBCEEIc2Q3OEBPGgkSq1Vn6IlfQuOxSyZhjbaRB8VXayQ7OILLQ9hbXx1lB9XZOk5ttQFpR64lW02Wd7rukNwlLRV4K0qzWJTIDi2-9GGQYxzGTyLTfuGJXVAQ-GrmyJE1LpoBLFJVvCcbuErzEno9-ydm3SUXXGq"/>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-container text-[10px] font-bold tracking-widest uppercase mb-4 text-on-tertiary-container">
+                                Editor's Choice
+                            </div>
+<h3 class="font-headline font-extrabold text-xl mb-3 tracking-tight">Analog Focus Kit</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                A curated selection of premium stationery to help you disconnect from digital noise.
+                            </p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline font-black text-primary text-lg">$85.00</span>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold px-4 py-2 rounded-md text-sm hover:opacity-90 transition-opacity">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(46,47,44,0.06)] group flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 overflow-hidden h-48 md:h-auto">
+<img alt="Prism Ink Series" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant colorful ink droplets swirling in water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUBVUvqhziP1lCSniRRD_qhYyOddmeWDmEVlPVNHieKUTa8eHOsS0t4PasHj7_l-Eny4wOxTEWAboYEhe_1gsSCMkBe91keAsCZA_D8bYLjQrZUnAOWWBMClpdB_K8xvGOmSi94pfD8DfbQriEAmly98a00n6i5ArGQEuqKt82pYvL_IQX15YuQtztEFqnNwINUSB8TPKRNr8XeeCQW8zJoGm9OxVpC466ihYtgOAeDsYMLocPRwAI3S-ZPD8z71KLpvpYIgFrcOPH"/>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-[10px] font-bold tracking-widest uppercase mb-4 text-on-secondary-container">
+                                New Arrival
+                            </div>
+<h3 class="font-headline font-extrabold text-xl mb-3 tracking-tight">Prism Ink Series</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Professional grade liquid pigments in a unique triangular bottle system.
+                            </p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline font-black text-primary text-lg">$42.00</span>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold px-4 py-2 rounded-md text-sm hover:opacity-90 transition-opacity">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-12 bg-[#eae8e3] dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="font-['Epilogue'] font-bold text-green-800 dark:text-green-400 text-xl mb-2">MyKit.tools</div>
+<div class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-green-700 dark:text-green-400">© 2024 MyKit.tools - The Digital Curator</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-500 hover:underline decoration-blue-400 underline-offset-4 transition-colors duration-200" href="#">About</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-500 hover:underline decoration-blue-400 underline-offset-4 transition-colors duration-200" href="#">Submission</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-500 hover:underline decoration-blue-400 underline-offset-4 transition-colors duration-200" href="#">Terms</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-500 hover:underline decoration-blue-400 underline-offset-4 transition-colors duration-200" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

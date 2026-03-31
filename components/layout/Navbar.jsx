@@ -34,7 +34,7 @@ export default function Navbar() {
   const auth = useAuth();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md shadow-[0_20px_40px_rgba(46,47,44,0.06)] border-b border-border/50">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
@@ -42,8 +42,8 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 shrink-0"
           >
-            <span className="text-xl font-bold font-heading text-text-primary">
-              MyKit<span className="text-accent">.tools</span>
+            <span className="text-2xl font-black font-heading tracking-tighter text-accent">
+              MyKit.tools
             </span>
           </Link>
 

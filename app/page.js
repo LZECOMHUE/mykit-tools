@@ -38,58 +38,64 @@ export default function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="bg-white border-b border-border">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-text-primary mb-4">
-              Free tools that{" "}
-              <span className="text-accent">actually work</span>
-            </h1>
-            <p className="text-lg text-text-secondary max-w-xl mx-auto mb-6">
-              Calculators, converters, generators, and more. No sign-up needed —
-              just open and use.
-            </p>
-            <div className="flex justify-center mb-8">
-              <ToolCounter />
-            </div>
-            <div className="flex items-center justify-center gap-3 flex-wrap">
-              <Link
-                href="/uk-tax-calculator"
-                className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] transition-colors"
-              >
-                Try the UK Tax Calculator
-              </Link>
-              <Link
-                href="/categories/finance"
-                className="inline-flex items-center px-6 py-3 text-sm font-medium text-text-primary bg-white border border-border hover:bg-surface-hover rounded-[var(--radius-input)] transition-colors"
-              >
-                Browse Categories
-              </Link>
-              <SurpriseButton />
-            </div>
+        <section className="flex flex-col items-center text-center py-16 md:py-24 px-4 sm:px-6">
+          <h1 className="font-heading font-black text-4xl md:text-6xl text-text-primary mb-6 tracking-tighter leading-tight">
+            Free tools that<br />
+            <span className="text-accent italic">actually work.</span>
+          </h1>
+          <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto mb-12">
+            Calculators, converters, generators, and more. No sign-up needed —
+            just open and use.
+          </p>
+          <div className="flex justify-center mb-8">
+            <ToolCounter />
+          </div>
+          <div className="flex items-center justify-center gap-3 flex-wrap font-body">
+            <Link
+              href="/uk-tax-calculator"
+              className="inline-flex items-center px-6 py-3 text-sm font-bold text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] shadow-sm transition-all"
+            >
+              Try the UK Tax Calculator
+            </Link>
+            <Link
+              href="/categories/finance"
+              className="inline-flex items-center px-6 py-3 text-sm font-bold text-text-primary bg-white border border-border hover:bg-surface-hover rounded-[var(--radius-input)] shadow-sm transition-all"
+            >
+              Browse Categories
+            </Link>
+            <SurpriseButton />
           </div>
         </section>
 
         {/* Categories grid */}
-        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-            Browse by Category
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 mb-12">
+          <div className="mb-10 text-center sm:text-left flex flex-col sm:flex-row justify-between items-end gap-4">
+            <div>
+              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
+                Browse by Category
+              </h2>
+              <p className="font-body text-sm text-text-secondary">Hand-picked tools for every workflow.</p>
+            </div>
+            <Link className="text-sm font-bold text-accent flex items-center gap-1 group" href="/categories">
+                View all categories
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/categories/${cat.slug}`}
-                className="flex items-center gap-3 p-4 bg-white border border-border rounded-[var(--radius-card)] hover:border-border-hover hover:shadow-sm transition-all"
+                className="bg-surface border border-border/80 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden"
               >
-                <span className="text-2xl">{cat.icon}</span>
-                <div>
-                  <span className="text-sm font-medium text-text-primary block">
-                    {cat.name}
-                  </span>
-                  <span className="text-xs text-text-muted">
-                    {counts[cat.slug] || 0} tools
-                  </span>
+                <div className="absolute top-0 left-0 w-full h-1 bg-accent/80 group-hover:bg-accent transition-colors"></div>
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 text-accent group-hover:scale-110 transition-transform text-2xl">
+                  {cat.icon}
                 </div>
+                <span className="font-heading font-bold text-sm text-text-primary">{cat.name}</span>
+                <span className="text-xs text-text-muted mt-1">{counts[cat.slug] || 0} tools</span>
               </Link>
             ))}
           </div>
@@ -97,11 +103,14 @@ export default function HomePage() {
 
         {/* Popular tools */}
         {popularTools.length > 0 && (
-          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-              Popular Tools
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 mb-8">
+            <div className="mb-8">
+              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
+                Popular Tools
+              </h2>
+              <p className="font-body text-sm text-text-secondary">The essentials we're currently obsessing over.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularTools.map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}
@@ -111,11 +120,14 @@ export default function HomePage() {
 
         {/* Recently added */}
         {recentTools.length > 0 && (
-          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12">
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-8">
-              Recently Added
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 mb-8">
+            <div className="mb-8">
+              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
+                Recently Added
+              </h2>
+              <p className="font-body text-sm text-text-secondary">Fresh tools right out of the oven.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {recentTools.map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}

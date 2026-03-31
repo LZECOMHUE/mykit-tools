@@ -1,22 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @import "tailwindcss";
 
 @theme inline {
   /* Brand Colours */
-  --color-background: #ffffff;
-  --color-surface: #f8f8f8;
-  --color-surface-hover: #f0f0f0;
-  --color-border: #e5e5e5;
-  --color-border-hover: #d4d4d4;
+  --color-background: #f8f6f1;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f2f1eb;
+  --color-border: #deddd7;
+  --color-border-hover: #aeada9;
 
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #525252;
-  --color-text-muted: #a3a3a3;
+  --color-text-primary: #2e2f2c;
+  --color-text-secondary: #5c5c58;
+  --color-text-muted: #777773;
 
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-muted: rgba(37, 99, 235, 0.07);
+  --color-accent: #006b1b;
+  --color-accent-hover: #005e17;
+  --color-accent-muted: #d1ffc8;
 
   --color-accent-warm: #e8a317;
 
@@ -53,14 +53,14 @@
   --color-cat-maps: #a7f3d0;
 
   /* Typography */
-  --font-body: "DM Sans", sans-serif;
-  --font-heading: "Fraunces", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Epilogue", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   /* Spacing */
-  --radius-card: 12px;
-  --radius-input: 8px;
-  --radius-badge: 4px;
+  --radius-card: 1rem;
+  --radius-input: 1rem;
+  --radius-badge: 0.5rem;
 }
 
 body {
