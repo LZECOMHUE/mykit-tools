@@ -2,33 +2,10 @@
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
+import ToolCard from "./ToolCard";
 
 function formatTag(tag) {
   return tag.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-}
-
-function ToolCard({ tool }) {
-  return (
-    <Link
-      href={`/${tool.slug}`}
-      className="group flex items-center gap-3 bg-white border border-border rounded-lg px-4 py-3 transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-accent/30"
-    >
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2">
-          <h3 className="text-sm font-medium text-text-primary group-hover:text-accent transition-colors truncate">
-            {tool.name}
-          </h3>
-          {tool.tier === 1 && (
-            <span className="shrink-0 text-[10px] font-medium text-accent-warm bg-accent-warm/10 px-1.5 py-0.5 rounded-full">
-              Popular
-            </span>
-          )}
-        </div>
-        <p className="text-xs text-text-muted truncate mt-0.5">{tool.description}</p>
-      </div>
-      <span className="shrink-0 text-xs text-text-muted group-hover:text-accent transition-colors">&#8594;</span>
-    </Link>
-  );
 }
 
 export default function CategoryBrowser({
@@ -171,7 +148,7 @@ export default function CategoryBrowser({
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {section.tools.map((tool) => (
                   <ToolCard key={tool.slug} tool={tool} />
                 ))}
@@ -181,7 +158,7 @@ export default function CategoryBrowser({
         </div>
       ) : (
         flatList.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {flatList.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}

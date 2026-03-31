@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import ToolCard from './ToolCard';
 
 /* -- Country detection from timezone -- */
 
@@ -90,22 +91,6 @@ function getToolCountry(tool) {
 
 /* -- Tool Card Components -- */
 
-function ToolGridCard({ tool }) {
-  return (
-    <Link
-      href={`/${tool.slug}`}
-      className="group block bg-white border border-border rounded-[var(--radius-card)] p-5 max-sm:p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border-hover"
-    >
-      <h3 className="font-heading text-sm font-bold text-text-primary group-hover:text-accent transition-colors mb-1.5">
-        {tool.name}
-      </h3>
-      <p className="text-xs text-text-secondary line-clamp-2">
-        {tool.description}
-      </p>
-    </Link>
-  );
-}
-
 function ToolListItem({ tool }) {
   return (
     <Link
@@ -158,9 +143,9 @@ function CountrySection({ title, flag, tools, viewMode, defaultOpen = true }) {
 
       {isOpen && (
         viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {tools.map((tool) => (
-              <ToolGridCard key={tool.slug} tool={tool} />
+              <ToolCard key={tool.slug} tool={tool} />
             ))}
           </div>
         ) : (
