@@ -25,6 +25,11 @@ const nextConfig = {
         destination: '/:slug',
         permanent: true,
       },
+      {
+        source: '/tags/:path*',
+        destination: '/categories',
+        permanent: true,
+      },
     ];
   },
 };
