@@ -13,6 +13,7 @@ export default function CategoryBrowser({
   featuredTools,
   filterTags,
   categoryName,
+  cat,
 }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("featured");
@@ -80,9 +81,68 @@ export default function CategoryBrowser({
   };
 
   return (
-    <div>
+    <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
+      <aside className="w-full md:w-64 lg:w-72 shrink-0">
+        <div className="sticky top-24">
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-3xl drop-shadow-sm">{cat.icon}</span>
+              <h1 className="font-heading text-3xl font-extrabold tracking-tight text-text-primary">
+                {cat.name}
+              </h1>
+            </div>
+            <p className="text-text-secondary text-sm font-medium">
+              {cat.description}
+            </p>
+          </div>
+
+          {showSections && sections.length > 1 && (
+            <nav className="space-y-1 mb-12 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
+              <div className="px-3 py-2 text-[10px] uppercase tracking-widest font-bold text-text-muted hidden md:block">
+                Subcategories
+              </div>
+              
+              {sections.map((s) => (
+                <button
+                  key={s.tag}
+                  onClick={() => scrollToSection(s.tag)}
+                  className={`flex items-center justify-between group px-4 py-3 max-md:px-4 max-md:py-2 rounded-xl transition-all whitespace-nowrap shrink-0 w-full text-left ${
+                    activeSection === s.tag
+                      ? 'bg-surface shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-accent font-bold border border-border/60'
+                      : 'text-text-primary hover:bg-surface-hover font-medium border border-transparent'
+                  }`}
+                >
+                  <span className="flex items-center gap-3">{s.label}</span>
+                  <span className={`hidden md:inline-block px-2 py-0.5 rounded-full font-bold ml-2 text-[10px] ${
+                    activeSection === s.tag ? 'bg-accent/10 text-accent' : 'bg-surface text-text-muted'
+                  }`}>
+                    {s.tools.length}
+                  </span>
+                </button>
+              ))}
+            </nav>
+          )}
+
+          {/* Sidebar Promo */}
+          <div className="p-6 bg-accent-muted rounded-xl relative overflow-hidden group hidden md:block border border-accent/10">
+            <div className="relative z-10">
+              <h4 className="font-heading font-bold text-accent-hover leading-tight">
+                Create your own kit.
+              </h4>
+              <p className="text-xs mt-2 text-accent-hover/80 font-medium tracking-tight">
+                Save and organize your favorite tools.
+              </p>
+              <Link href="/pricing" className="mt-4 inline-block bg-white text-accent-hover px-4 py-2 rounded-full text-xs font-bold hover:shadow-md transition-all">
+                Join Pro
+              </Link>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div className="flex-1 min-w-0">
       {/* Search + sort */}
-      <div className="flex flex-col sm:flex-row gap-2 mb-4">
+      <div className="flex flex-col sm:flex-row gap-2 mb-6">
         <div className="relative flex-1">
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -90,37 +150,15 @@ export default function CategoryBrowser({
           <input
             type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder={`Search ${categoryName} tools...`}
-            className="w-full pl-9 pr-4 py-2 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent focus:ring-2 focus:ring-accent/10"
+            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent focus:ring-2 focus:ring-accent/10"
           />
         </div>
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-3 py-2 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent cursor-pointer">
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-3 py-2.5 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent cursor-pointer">
           <option value="featured">Featured first</option>
           <option value="a-z">A to Z</option>
           <option value="newest">Newest first</option>
         </select>
       </div>
-
-      {/* Sticky jump-nav */}
-      {showSections && sections.length > 1 && (
-        <div ref={navRef} className="sticky top-16 z-20 bg-background/95 backdrop-blur-sm border-b border-border -mx-4 px-4 sm:-mx-6 sm:px-6 mb-5">
-          <div className="flex flex-wrap gap-1 py-2">
-            {sections.map((s) => (
-              <button
-                key={s.tag}
-                onClick={() => scrollToSection(s.tag)}
-                className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  activeSection === s.tag
-                    ? 'bg-accent text-white shadow-sm'
-                    : 'bg-surface text-text-secondary hover:bg-surface-hover hover:text-text-primary'
-                }`}
-              >
-                {s.label}
-                <span className="ml-1 font-mono text-[10px] opacity-70">{s.tools.length}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Search results count */}
       {search.trim() && (
@@ -170,6 +208,7 @@ export default function CategoryBrowser({
           </div>
         )
       )}
+      </div>
     </div>
   );
 }

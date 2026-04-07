@@ -162,7 +162,7 @@ function CountrySection({ title, flag, tools, viewMode, defaultOpen = true }) {
 
 /* -- Main Component -- */
 
-export default function FinanceCategoryBrowser({ allTools }) {
+export default function FinanceCategoryBrowser({ allTools, cat }) {
   const [activeCountry, setActiveCountry] = useState('all');
   const [search, setSearch] = useState('');
   const [viewMode, setViewMode] = useState('grid');
@@ -232,37 +232,80 @@ export default function FinanceCategoryBrowser({ allTools }) {
   const showAllCountries = activeCountry === 'all';
 
   return (
-    <div>
-      {/* -- Country Tabs -- */}
-      <div className="flex flex-wrap gap-2 mb-5">
-        <button
-          onClick={() => setActiveCountry('all')}
-          className={`px-4 py-2 text-sm font-medium rounded-lg border transition-all ${
-            activeCountry === 'all'
-              ? 'bg-accent text-white border-accent'
-              : 'bg-white text-text-secondary border-border hover:border-accent/40 hover:text-accent'
-          }`}
-        >
-          All Countries
-        </button>
-        {COUNTRIES.map((c) => (
-          <button
-            key={c.code}
-            onClick={() => setActiveCountry(c.code)}
-            className={`px-4 py-2 text-sm font-medium rounded-lg border transition-all flex items-center gap-1.5 ${
-              activeCountry === c.code
-                ? 'bg-accent text-white border-accent'
-                : 'bg-white text-text-secondary border-border hover:border-accent/40 hover:text-accent'
-            }`}
-          >
-            <span>{c.flag}</span>
-            {c.label}
-            <span className={`font-mono text-xs ${activeCountry === c.code ? 'text-white/70' : 'text-text-muted'}`}>
-              {toolsByCountry[c.code]?.length || 0}
-            </span>
-          </button>
-        ))}
-      </div>
+    <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
+      <aside className="w-full md:w-64 lg:w-72 shrink-0">
+        <div className="sticky top-24">
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-3xl drop-shadow-sm">{cat.icon}</span>
+              <h1 className="font-heading text-3xl font-extrabold tracking-tight text-text-primary">
+                {cat.name}
+              </h1>
+            </div>
+            <p className="text-text-secondary text-sm font-medium">
+              {cat.description}
+            </p>
+          </div>
+
+          <nav className="space-y-1 mb-12 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
+            <div className="px-3 py-2 text-[10px] uppercase tracking-widest font-bold text-text-muted hidden md:block">
+              Regions
+            </div>
+            
+            <button
+              onClick={() => setActiveCountry('all')}
+              className={`flex items-center justify-between group px-4 py-3 max-md:px-4 max-md:py-2 rounded-xl transition-all whitespace-nowrap shrink-0 w-full text-left ${
+                activeCountry === 'all'
+                  ? 'bg-surface shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-accent font-bold border border-border/60'
+                  : 'text-text-primary hover:bg-surface-hover font-medium border border-transparent'
+              }`}
+            >
+              <span className="flex items-center gap-3">All Countries</span>
+            </button>
+
+            {COUNTRIES.map((c) => (
+              <button
+                key={c.code}
+                onClick={() => setActiveCountry(c.code)}
+                className={`flex items-center justify-between group px-4 py-3 max-md:px-4 max-md:py-2 rounded-xl transition-all whitespace-nowrap shrink-0 w-full text-left ${
+                  activeCountry === c.code
+                    ? 'bg-surface shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-accent font-bold border border-border/60'
+                    : 'text-text-primary hover:bg-surface-hover font-medium border border-transparent'
+                }`}
+              >
+                <span className="flex items-center gap-3">
+                  <span className={`text-lg hidden md:block ${activeCountry === c.code ? '' : 'opacity-70 group-hover:opacity-100 transition-opacity'}`}>
+                    {c.flag}
+                  </span>
+                  {c.label}
+                </span>
+                <span className={`hidden md:inline-block px-2 py-0.5 rounded-full font-bold ml-2 text-[10px] ${
+                  activeCountry === c.code ? 'bg-accent/10 text-accent' : 'bg-surface text-text-muted'
+                }`}>
+                  {toolsByCountry[c.code]?.length || 0}
+                </span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Sidebar Promo */}
+          <div className="p-6 bg-accent-muted rounded-xl relative overflow-hidden group hidden md:block border border-accent/10">
+            <div className="relative z-10">
+              <h4 className="font-heading font-bold text-accent-hover leading-tight">
+                Create your own kit.
+              </h4>
+              <p className="text-xs mt-2 text-accent-hover/80 font-medium tracking-tight">
+                Save and organize your favorite tools.
+              </p>
+              <Link href="/pricing" className="mt-4 inline-block bg-white text-accent-hover px-4 py-2 rounded-full text-xs font-bold hover:shadow-md transition-all">
+                Join Pro
+              </Link>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div className="flex-1 min-w-0">
 
       {/* -- Search + View Toggle -- */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -394,6 +437,7 @@ export default function FinanceCategoryBrowser({ allTools }) {
           </button>
         </div>
       )}
+      </div>
     </div>
   );
 }
