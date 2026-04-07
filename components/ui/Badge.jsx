@@ -35,7 +35,7 @@ export default function Badge({ category, label, className = "" }) {
     const colors = colorMap[cat.color] || "bg-surface text-text-secondary";
     return (
       <span
-        className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-[var(--radius-badge)] ${colors} ${className}`}
+        className={`inline-flex items-center whitespace-nowrap gap-1 px-2 py-0.5 text-xs font-medium rounded-[var(--radius-badge)] ${colors} ${className}`}
       >
         {cat.icon} {cat.name}
       </span>

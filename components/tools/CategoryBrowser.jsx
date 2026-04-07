@@ -148,7 +148,7 @@ export default function CategoryBrowser({
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {section.tools.map((tool) => (
                   <ToolCard key={tool.slug} tool={tool} />
                 ))}
@@ -158,7 +158,7 @@ export default function CategoryBrowser({
         </div>
       ) : (
         flatList.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {flatList.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
