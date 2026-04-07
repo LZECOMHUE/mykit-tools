@@ -17,7 +17,7 @@ export default function MileageReimbursementCalculator() {
     { value: 'bicycle', label: 'Bicycle' },
   ];
 
-  // HMRC 2025/26 approved mileage rates
+  // HMRC 2026/27 approved mileage rates
   const MILEAGE_RATES = {
     car: [
       { range: '0 to 10,000 miles', rate: 0.45 },
@@ -130,7 +130,7 @@ export default function MileageReimbursementCalculator() {
           {/* Rate Breakdown */}
           <Card className="p-6 bg-surface">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
-              HMRC Approved Rates (2025/26)
+              HMRC Approved Rates (2026/27)
             </h3>
 
             <div className="space-y-4">

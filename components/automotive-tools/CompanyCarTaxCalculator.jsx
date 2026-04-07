@@ -6,7 +6,7 @@ import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
-const BIK_RATES_2025 = {
+const BIK_RATES_2026 = {
   'petrol': {
     0: 0,
     1: 10,
@@ -59,7 +59,7 @@ export default function CompanyCarTaxCalculator() {
   const [co2, setCo2] = useState('120');
   const [fuelType, setFuelType] = useState('petrol');
   const [electricRange, setElectricRange] = useState('');
-  const [taxYear, setTaxYear] = useState('2025/26');
+  const [taxYear, setTaxYear] = useState('2026/27');
   const [taxBracket, setTaxBracket] = useState('20');
   const [result, setResult] = useState(null);
 
@@ -77,7 +77,7 @@ export default function CompanyCarTaxCalculator() {
   ];
 
   const TAX_YEARS = [
-    { value: '2025/26', label: '2025/26' },
+    { value: '2026/27', label: '2026/27' },
     { value: '2026/27', label: '2026/27' },
   ];
 
@@ -85,10 +85,10 @@ export default function CompanyCarTaxCalculator() {
     const co2Num = parseInt(co2) || 0;
 
     if (fuelType === 'electric') {
-      return BIK_RATES_2025.electric;
+      return BIK_RATES_2026.electric;
     }
 
-    const rates = BIK_RATES_2025[fuelType];
+    const rates = BIK_RATES_2026[fuelType];
     const co2Bands = Object.keys(rates).map(Number).sort((a, b) => a - b);
 
     for (let i = co2Bands.length - 1; i >= 0; i--) {
@@ -242,7 +242,7 @@ export default function CompanyCarTaxCalculator() {
 
           <div className="mt-6 p-4 bg-accent-muted rounded-lg">
             <p className="text-xs text-secondary">
-              This calculation uses the 2025/26 BIK rates. Electric vehicles attract a lower rate to encourage adoption.
+              This calculation uses the 2026/27 BIK rates. Electric vehicles attract a lower rate to encourage adoption.
             </p>
           </div>
         </Card>

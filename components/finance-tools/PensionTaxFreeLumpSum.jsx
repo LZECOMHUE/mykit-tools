@@ -296,7 +296,7 @@ export default function PensionTaxFreeLumpSum() {
               <li>The 25% lump sum is always tax-free</li>
               <li>Income drawn from the remaining 75% is taxable income</li>
               <li>You must declare pension income on your tax return</li>
-              <li>Personal allowance (£12,570 in 2025/26) applies first</li>
+              <li>Personal allowance (£12,570 in 2026/27) applies first</li>
               <li>Withdrawing more than your allowance brings you into higher tax bands</li>
               <li>Consider spreading withdrawals across years to minimise tax</li>
               <li>Delaying income into a different tax year may be beneficial</li>

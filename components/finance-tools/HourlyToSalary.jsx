@@ -142,7 +142,7 @@ export default function HourlyToSalary() {
             </div>
             {mode === 'hourly' && (
               <p className="text-xs text-text-muted mt-1">
-                Current UK National Minimum Wage (21+): £12.21/hr (April 2025)
+                Current UK National Minimum Wage (21+): £12.21/hr (April 2026)
               </p>
             )}
           </div>

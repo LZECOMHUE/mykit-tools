@@ -82,7 +82,7 @@ export default function SolarPanelSavingsCalculator() {
     const exportIncome = exportedKwh * exportRate;
     const totalAnnualBenefit = selfConsumptionSavings + exportIncome;
 
-    // System cost (approximately £1800-2200 per kW installed in 2025/26)
+    // System cost (approximately £1800-2200 per kW installed in 2026/27)
     const costPerKw = 2000;
     const systemCost = sizeKw * costPerKw;
 

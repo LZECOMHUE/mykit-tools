@@ -1,4 +1,4 @@
-// US Federal and State Tax Rates - 2025/26
+// US Federal and State Tax Rates - 2026/27
 // Source: IRS and state tax authorities
 // Last reviewed: March 2026
 // NOTE: This is for estimation only - consult a tax professional for accurate calculations
@@ -115,24 +115,24 @@ export const STATE_TAX_RATES = {
   WV: { name: 'West Virginia', rate: 0.065, type: 'progressive', topRate: true },
 };
 
-// Standard deduction (2025)
-export const STANDARD_DEDUCTION_2025 = {
+// Standard deduction (2026)
+export const STANDARD_DEDUCTION_2026 = {
   single: 14600,
   married_filing_jointly: 29200,
   married_filing_separately: 14600,
   head_of_household: 21900,
 };
 
-// 401k contribution limits (2025)
+// 401k contribution limits (2026)
 export const IRA_401K_LIMITS = {
-  year: 2025,
+  year: 2026,
   maxContribution: 23500,
   catchUpContribution: 7500, // Age 50+
   maxSEP_IRA: 66000,
   maxSOLO_401k: 69000,
 };
 
-// Medicare Wage Base (2025)
+// Medicare Wage Base (2026)
 export const MEDICARE_WAGE_BASE = 176100;
 
 // Federal student loan standard repayment (10 years)

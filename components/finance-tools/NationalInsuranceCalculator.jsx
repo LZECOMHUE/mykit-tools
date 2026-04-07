@@ -156,7 +156,7 @@ export default function NationalInsuranceCalculator() {
       )}
 
       <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
-        2025/26 rates. This is for reference only. Check HMRC guidance for your specific circumstances.
+        2026/27 rates. This is for reference only. Check HMRC guidance for your specific circumstances.
       </p>
     </div>
   );

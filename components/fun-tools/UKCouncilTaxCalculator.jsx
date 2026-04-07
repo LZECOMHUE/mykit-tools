@@ -89,7 +89,7 @@ export default function UKCouncilTaxCalculator() {
             ))}
           </Select>
           <p className="text-text-muted text-xs mt-2">
-            Rates vary by council. This shows approximate 2025/26 England average band D rate of £1,800. Your council may differ.
+            Rates vary by council. This shows approximate 2026/27 England average band D rate of £1,800. Your council may differ.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default function UKCouncilTaxCalculator() {
 
           <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-card)] p-4">
             <p className="text-text-secondary text-sm">
-              Note: This is an approximate calculation based on 2025/26 rates. Actual amounts vary by council. Contact your local council for an exact quote.
+              Note: This is an approximate calculation based on 2026/27 rates. Actual amounts vary by council. Contact your local council for an exact quote.
             </p>
           </div>
         </div>

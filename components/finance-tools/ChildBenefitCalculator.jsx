@@ -133,7 +133,7 @@ export default function ChildBenefitCalculator() {
       </div>
 
       <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
-        2025/26 rates. You must register to receive Child Benefit. Check entitlement conditions apply. See gov.uk for full details.
+        2026/27 rates. You must register to receive Child Benefit. Check entitlement conditions apply. See gov.uk for full details.
       </p>
     </div>
   );

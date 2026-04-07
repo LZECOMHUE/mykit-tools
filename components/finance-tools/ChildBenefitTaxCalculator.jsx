@@ -14,7 +14,7 @@ export default function ChildBenefitTaxCalculator() {
   const WITHDRAWAL_RATE = 0.01; // 1% per £100 over threshold
   const FULL_WITHDRAWAL = 80000;
 
-  // 2025/26 rates per week
+  // 2026/27 rates per week
   const FIRST_CHILD_WEEKLY = 26.05;
   const ADDITIONAL_CHILD_WEEKLY = 17.25;
 

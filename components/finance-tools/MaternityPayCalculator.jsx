@@ -11,7 +11,7 @@ export default function MaternityPayCalculator() {
   const [babyDueDate, setBabyDueDate] = useState('2026-06-15');
   const [result, setResult] = useState(null);
 
-  const STATUTORY_RATE_2025 = 184.03; // 2025/26 statutory rate
+  const STATUTORY_RATE_2026 = 184.03; // 2026/27 statutory rate
   const THRESHOLD_EARNINGS = 123;
 
   function calculate() {
@@ -39,7 +39,7 @@ export default function MaternityPayCalculator() {
     const total90 = smp90Percent * weeks90;
 
     // Next 33 weeks at statutory rate (or 90% if lower)
-    const smpRate = Math.min(smp90Percent, STATUTORY_RATE_2025);
+    const smpRate = Math.min(smp90Percent, STATUTORY_RATE_2026);
     const weeks33 = 33;
     const total33 = smpRate * weeks33;
 
@@ -75,7 +75,7 @@ export default function MaternityPayCalculator() {
         </h2>
 
         <p className="text-secondary text-sm mb-6">
-          Calculate your Statutory Maternity Pay (SMP) for 2025/26.
+          Calculate your Statutory Maternity Pay (SMP) for 2026/27.
         </p>
 
         <div className="space-y-4">
@@ -268,7 +268,7 @@ export default function MaternityPayCalculator() {
             </h3>
 
             <ul className="text-sm text-secondary space-y-2 list-disc list-inside">
-              <li>SMP 2025/26 statutory rate is £{STATUTORY_RATE_2025}/week</li>
+              <li>SMP 2026/27 statutory rate is £{STATUTORY_RATE_2026}/week</li>
               <li>First 6 weeks paid at 90% of your normal earnings (no cap)</li>
               <li>Remaining 33 weeks paid at statutory rate or 90%, whichever is lower</li>
               <li>You can start SMP up to 4 weeks before your expected due date</li>

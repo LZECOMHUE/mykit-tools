@@ -72,7 +72,7 @@ export default function HeatPumpSavingsCalculator() {
 
     const installationCost = installationCosts[propertyType];
 
-    // BUS grant (£7,500 in 2025/26)
+    // BUS grant (£7,500 in 2026/27)
     const busGrant = 7500;
 
     // Net installation cost
@@ -203,7 +203,7 @@ export default function HeatPumpSavingsCalculator() {
               </span>
             </div>
             <div className="flex justify-between items-center pb-3 border-b border-border">
-              <span className="text-text-secondary">BUS Grant (2025/26)</span>
+              <span className="text-text-secondary">BUS Grant (2026/27)</span>
               <span className="font-mono font-bold text-green-600">
                 -£{calculations.busGrant.toLocaleString()}
               </span>

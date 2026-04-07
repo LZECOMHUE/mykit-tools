@@ -35,7 +35,7 @@ export default function SalarySacrificeCarCalculator() {
     electric: 2,
   };
 
-  const NI_THRESHOLD_2025 = 12570;
+  const NI_THRESHOLD_2026 = 12570;
   const NI_RATE = 0.08;
   const EMPLOYER_NI_THRESHOLD = 9100;
   const EMPLOYER_NI_RATE = 0.15;
@@ -59,9 +59,9 @@ export default function SalarySacrificeCarCalculator() {
     // NI relief on gross salary reduction
     const contributionsOnSalary = salary - annualSacrifice;
     let niRelief = 0;
-    if (salary > NI_THRESHOLD_2025) {
-      const originalNI = (salary - NI_THRESHOLD_2025) * NI_RATE;
-      const newNI = Math.max(0, (contributionsOnSalary - NI_THRESHOLD_2025) * NI_RATE);
+    if (salary > NI_THRESHOLD_2026) {
+      const originalNI = (salary - NI_THRESHOLD_2026) * NI_RATE;
+      const newNI = Math.max(0, (contributionsOnSalary - NI_THRESHOLD_2026) * NI_RATE);
       niRelief = originalNI - newNI;
     }
 

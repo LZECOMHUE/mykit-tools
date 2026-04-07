@@ -4,8 +4,38 @@
 // UPDATE EVERY APRIL when new rates are announced
 
 export const TAX_YEARS = {
+  "2026/27": {
+    label: "2026/27 (current)",
+    personalAllowance: 12570,
+    personalAllowanceTaperThreshold: 100000,
+    incomeTaxBands: [
+      { name: "Basic rate", rate: 0.20, from: 0, to: 37700 },
+      { name: "Higher rate", rate: 0.40, from: 37700, to: 125140 },
+      { name: "Additional rate", rate: 0.45, from: 125140, to: Infinity },
+    ],
+    scottishIncomeTaxBands: [
+      { name: "Starter rate", rate: 0.19, from: 0, to: 2351 },
+      { name: "Basic rate", rate: 0.20, from: 2351, to: 13991 },
+      { name: "Intermediate rate", rate: 0.21, from: 13991, to: 31092 },
+      { name: "Higher rate", rate: 0.42, from: 31092, to: 62430 },
+      { name: "Advanced rate", rate: 0.45, from: 62430, to: 112570 },
+      { name: "Top rate", rate: 0.48, from: 112570, to: Infinity },
+    ],
+    ni: { primaryThreshold: 12570, upperEarningsLimit: 50270, mainRate: 0.08, higherRate: 0.02 },
+    employerNI: { secondaryThreshold: 5000, rate: 0.15 },
+    studentLoans: {
+      plan1: { threshold: 24990, rate: 0.09 },
+      plan2: { threshold: 27295, rate: 0.09 },
+      plan4: { threshold: 31395, rate: 0.09 },
+      plan5: { threshold: 25000, rate: 0.09 },
+      postgrad: { threshold: 21000, rate: 0.06 },
+    },
+    blindPersonsAllowance: 3070,
+    marriageAllowance: 1260,
+  },
+
   "2025/26": {
-    label: "2025/26 (current)",
+    label: "2025/26",
     personalAllowance: 12570,
     personalAllowanceTaperThreshold: 100000,
     incomeTaxBands: [
@@ -182,16 +212,20 @@ export const TAX_YEARS = {
   },
 };
 
-export const TAX_YEAR_ORDER = ["2025/26", "2024/25", "2023/24", "2022/23", "2021/22", "2020/21"];
-export const CURRENT_TAX_YEAR = "2025/26";
+export const TAX_YEAR_ORDER = ["2026/27", "2025/26", "2024/25", "2023/24", "2022/23", "2021/22", "2020/21"];
+export const CURRENT_TAX_YEAR = "2026/27";
 
 export function getTaxYear(year = CURRENT_TAX_YEAR) {
   return TAX_YEARS[year];
 }
 
-// ── Dividend Tax Rates (2025/26) ──────────────────────────
+// ── Dividend Tax Rates (2026/27) ──────────────────────────
 // Source: gov.uk — tax on dividends
 export const DIVIDEND_TAX = {
+  "2026/27": {
+    allowance: 500,
+    rates: { basic: 0.1075, higher: 0.3575, additional: 0.4135 }, // +2% from 2026/27 GOV changes
+  },
   "2025/26": {
     allowance: 500,
     rates: { basic: 0.0875, higher: 0.3375, additional: 0.3935 },
@@ -206,9 +240,20 @@ export const DIVIDEND_TAX = {
   },
 };
 
-// ── Capital Gains Tax (2025/26) ───────────────────────────
+// ── Capital Gains Tax (2026/27) ───────────────────────────
 // Source: gov.uk — capital gains tax rates
 export const CGT_RATES = {
+  "2026/27": {
+    annualExemptAmount: 3000,
+    basicRate: 0.18,
+    higherRate: 0.24,
+    residentialBasicRate: 0.18,
+    residentialHigherRate: 0.24,
+    businessAssetsReliefRate: 0.14, // formerly Entrepreneurs' Relief — rising to 14% from Apr 2025
+    businessAssetsReliefLifetimeLimit: 1000000,
+    investorsReliefRate: 0.14,
+    investorsReliefLifetimeLimit: 1000000,
+  },
   "2025/26": {
     annualExemptAmount: 3000,
     basicRate: 0.18,
@@ -244,7 +289,7 @@ export const CGT_RATES = {
   },
 };
 
-// ── Inheritance Tax (2025/26) ─────────────────────────────
+// ── Inheritance Tax (2026/27) ─────────────────────────────
 // Source: gov.uk — inheritance tax thresholds
 export const IHT_RATES = {
   standardRate: 0.40,
@@ -267,9 +312,20 @@ export const IHT_RATES = {
   weddingGifts: { parent: 5000, grandparent: 2500, other: 1000 },
 };
 
-// ── Pension Annual Allowance (2025/26) ────────────────────
+// ── Pension Annual Allowance (2026/27) ────────────────────
 // Source: gov.uk — pension tax relief
 export const PENSION_LIMITS = {
+  "2026/27": {
+    annualAllowance: 60000,
+    moneyPurchaseAnnualAllowance: 10000, // if already accessed pension
+    taperThresholdIncome: 260000,
+    taperAdjustedIncome: 260000,
+    minimumTaperedAllowance: 10000,
+    statePensionFull: 11502.40, // per year (£221.20/week)
+    autoEnrolmentMinEmployee: 0.05,
+    autoEnrolmentMinEmployer: 0.03,
+    autoEnrolmentMinTotal: 0.08,
+  },
   "2025/26": {
     annualAllowance: 60000,
     moneyPurchaseAnnualAllowance: 10000, // if already accessed pension
@@ -294,9 +350,13 @@ export const PENSION_LIMITS = {
   },
 };
 
-// ── Self-Assessment / Self-Employment NI (2025/26) ────────
+// ── Self-Assessment / Self-Employment NI (2026/27) ────────
 // Source: gov.uk — self-employed NI rates
 export const SELF_EMPLOYMENT_NI = {
+  "2026/27": {
+    class2: { weeklyRate: 3.45, smallProfitsThreshold: 6725 },
+    class4: { lowerProfitsLimit: 12570, upperProfitsLimit: 50270, mainRate: 0.06, higherRate: 0.02 },
+  },
   "2025/26": {
     class2: { weeklyRate: 3.45, smallProfitsThreshold: 6725 },
     class4: { lowerProfitsLimit: 12570, upperProfitsLimit: 50270, mainRate: 0.06, higherRate: 0.02 },
@@ -307,7 +367,7 @@ export const SELF_EMPLOYMENT_NI = {
   },
 };
 
-// ── Buy-to-Let SDLT Surcharge (2025/26) ──────────────────
+// ── Buy-to-Let SDLT Surcharge (2026/27) ──────────────────
 // Source: gov.uk — stamp duty additional properties
 export const BTL_SDLT = {
   surcharge: 0.05, // 5% surcharge on additional properties from Oct 2024

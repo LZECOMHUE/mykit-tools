@@ -19,7 +19,7 @@ export default function PensionIncomeCalculator() {
     { value: 'annuity', label: 'Annuity (fixed income for life)' },
   ];
 
-  // Typical annuity rates by age (approximate 2025/26 rates)
+  // Typical annuity rates by age (approximate 2026/27 rates)
   const ANNUITY_RATES = {
     55: 3.8,
     60: 4.5,

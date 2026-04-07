@@ -41,16 +41,34 @@ export const businessSEO = {
         "The True Cost of an Employee",
         "When hiring a new employee, their gross salary is only the starting point. As an employer, you must also pay national insurance (or payroll taxes depending on your country), mandatory pension contributions, software licences, office space, and benefits.",
         "A typical rule of thumb is that an employee actually costs an employer 1.25 to 1.4 times their base salary. Our cost of employment calculator breaks this down precisely to help you budget for new hires without unexpected surprises down the line."
+      ),
+      createAnswerFirstSection(
+        "Employer National Insurance (April 2026 Updates)",
+        "The cost of employing staff in the UK increased dramatically in April 2026. The rate of Employer National Insurance Contributions (NICs) was hiked from 13.8% to 15%. Additionally, the secondary threshold - the point at which employers start paying this tax - was slashed from £9,100 to just £5,000 per year.",
+        "This means employers must now pay a 15% tax on almost all earnings above £5,000. For an employee earning £35,000, the employer NI bill is now £4,500 per year. Factoring these new rates into your hiring budget is critical to avoid cash flow shock."
+      ),
+      createAnswerFirstSection(
+        "The Hidden Costs of Employment",
+        "Beyond base salary, NI, and pension (usually 3%), there are dozens of hidden costs that push the true employment cost to roughly 1.4x the base salary. These include:",
+        "Software licenses (Google Workspace, Microsoft 365, industry-specific tools), hardware (laptops, monitors), office space and utilities, insurance (Employer's Liability), recruitment fees, onboarding time, statutory leave (holiday pay), and non-productive time (sick days)."
       )
     ],
     faqs: [
       createFAQ(
         "How much does it cost to employ someone in Australia?",
-        "In Australia, on top of the base salary, employers must legally pay an 11.5% Superannuation Guarantee (rising to 12% by July 2025) and state-based Payroll Tax if your total wage bill exceeds the threshold. You must also factor in Worker's Compensation insurance and leave loading."
+        "In Australia, on top of the base salary, employers must legally pay an 11.5% Superannuation Guarantee (rising to 12% by July 2026) and state-based Payroll Tax if your total wage bill exceeds the threshold. You must also factor in Worker's Compensation insurance and leave loading."
       ),
       createFAQ(
         "What are the employer costs in the UK?",
-        "In the UK, the major additional costs are Employer National Insurance Contributions (which increased to 15% with a much lower threshold starting April 2025) and mandatory auto-enrolment pension contributions."
+        "In the UK, the major additional costs are Employer National Insurance Contributions (which increased to 15% with a much lower threshold starting April 2026) and mandatory auto-enrolment pension contributions."
+      ),
+      createFAQ(
+        "What is the Employment Allowance?",
+        "The Employment Allowance is a government relief scheme that reduces the amount of Employer National Insurance you have to pay. From April 2026, the allowance increased from £5,000 to £10,500. This effectively means many small businesses can employ up to four workers full-time on the National Living Wage without paying any Employer NI."
+      ),
+      createFAQ(
+        "Do employers pay for Statutory Sick Pay (SSP)?",
+        "Yes. In the vast majority of cases, employers bear the full cost of Statutory Sick Pay (£116.75 per week). The Percentage Threshold Scheme that previously allowed employers to reclaim SSP from the government was abolished in 2014, making sick days an unrecoverable business expense."
       )
     ]
   },
@@ -79,7 +97,7 @@ export const businessSEO = {
     sections: [
       createAnswerFirstSection(
         "What is the UK Tax Year?",
-        "Unlike the calendar year (which runs Jan 1 - Dec 31), the UK tax year uniquely runs from the 6th of April one year to the 5th of April the next. The 2025/26 tax year dates start on April 6, 2025, and end on April 5, 2026.",
+        "Unlike the calendar year (which runs Jan 1 - Dec 31), the UK tax year uniquely runs from the 6th of April one year to the 5th of April the next. The 2026/27 tax year dates start on April 6, 2025, and end on April 5, 2026.",
         "This odd scheduling aligns with the historic British fiscal calendar, dating back to 1752 when the country transitioned to the Gregorian calendar and moved the new year to align with the Exchequer's accounting."
       )
     ],

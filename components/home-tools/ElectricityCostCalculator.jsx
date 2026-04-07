@@ -126,7 +126,7 @@ export default function ElectricityCostCalculator() {
             />
             <span className="text-text-muted text-sm">p/kWh</span>
           </div>
-          <p className="text-text-muted text-xs mt-2">UK average 2025: ~24.5p</p>
+          <p className="text-text-muted text-xs mt-2">UK average 2026: ~24.5p</p>
         </div>
       </Card>
 

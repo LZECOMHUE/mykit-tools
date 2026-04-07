@@ -15,8 +15,8 @@ const SACRIFICE_TYPES = [
 ];
 
 const TAX_YEAR_OPTIONS = [
-  { value: "2025/26", label: "2025/26 (current)" },
-  { value: "2024/25", label: "2024/25" },
+  { value: "2026/27", label: "2026/27 (current)" },
+  { value: "2025/26", label: "2025/26" },
 ];
 
 const calculateIncomeTax = (gross, personalAllowance, taxBands) => {
@@ -51,7 +51,7 @@ export default function SalarySacrificeCalculator() {
     grossSalary: 50000,
     sacrificeAmount: 500, // monthly
     sacrificeType: "pension",
-    taxYear: "2025/26",
+    taxYear: "2026/27",
   });
 
   const handleChange = (field, value) => {

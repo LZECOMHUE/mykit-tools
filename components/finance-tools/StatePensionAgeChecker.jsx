@@ -9,13 +9,13 @@ export default function StatePensionAgeChecker() {
   const [dateOfBirth, setDateOfBirth] = useState('1970-01-15');
   const [result, setResult] = useState(null);
 
-  const CURRENT_STATE_PENSION = 221.20; // 2025/26 full rate per week
+  const CURRENT_STATE_PENSION = 221.20; // 2026/27 full rate per week
 
   function calculate() {
     const dob = new Date(dateOfBirth);
     if (!dob || isNaN(dob.getTime())) return;
 
-    // State pension age rules - UK 2025/26
+    // State pension age rules - UK 2026/27
     // Born before 6 April 1950: already receiving (age 75+)
     // Born 6 April 1950 to 5 April 1951: age 66
     // Born 6 April 1951 to 5 April 1977: age 66-67 (graduated increases)
@@ -161,7 +161,7 @@ export default function StatePensionAgeChecker() {
           {/* Weekly Payment */}
           <Card className="p-6 bg-surface">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
-              2025/26 Full State Pension Amount
+              2026/27 Full State Pension Amount
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -189,7 +189,7 @@ export default function StatePensionAgeChecker() {
 
             <div className="mt-4 p-4 bg-white rounded-lg border border-border text-xs text-secondary">
               <p className="font-bold mb-2">Important:</p>
-              <p>This is the full state pension amount for 2025/26. The amount you receive depends on your National Insurance contribution record. Most people need 35 qualifying years of contributions for the full amount.</p>
+              <p>This is the full state pension amount for 2026/27. The amount you receive depends on your National Insurance contribution record. Most people need 35 qualifying years of contributions for the full amount.</p>
             </div>
           </Card>
 
@@ -202,7 +202,7 @@ export default function StatePensionAgeChecker() {
             <div className="space-y-3 text-sm text-secondary">
               <div className="pb-3 border-b border-border">
                 <p className="font-bold text-primary mb-1">Born before 6 April 1950</p>
-                <p>Pension age: Already reached (age 75 in 2025)</p>
+                <p>Pension age: Already reached (age 75 in 2026)</p>
               </div>
 
               <div className="pb-3 border-b border-border">

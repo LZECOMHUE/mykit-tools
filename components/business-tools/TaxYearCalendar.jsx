@@ -2,20 +2,20 @@
 
 const TaxYearCalendar = () => {
   const taxYearEvents = [
-    { date: '2025-04-06', title: 'Tax Year 2025/26 Begins', type: 'start' },
-    { date: '2025-07-31', title: 'Quarter 1 Payment on Account (if applicable)', type: 'payment' },
-    { date: '2025-10-31', title: 'Quarter 2 Payment on Account', type: 'payment' },
+    { date: '2026-04-06', title: 'Tax Year 2026/27 Begins', type: 'start' },
+    { date: '2026-07-31', title: 'Quarter 1 Payment on Account (if applicable)', type: 'payment' },
+    { date: '2026-10-31', title: 'Quarter 2 Payment on Account', type: 'payment' },
     { date: '2026-01-31', title: 'Quarter 3 Payment on Account', type: 'payment' },
     { date: '2026-01-31', title: 'Self Assessment Tax Return Deadline (Online)', type: 'deadline' },
     { date: '2026-02-14', title: 'Payment of Final Tax Due', type: 'payment' },
-    { date: '2026-04-05', title: 'Tax Year 2025/26 Ends', type: 'end' },
+    { date: '2026-04-05', title: 'Tax Year 2026/27 Ends', type: 'end' },
   ];
 
   return (
     <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
       <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
-          UK Tax Year 2025/26 Key Dates
+          UK Tax Year 2026/27 Key Dates
         </h3>
 
         <div className="space-y-3">

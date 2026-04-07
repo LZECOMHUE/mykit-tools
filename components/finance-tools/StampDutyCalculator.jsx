@@ -11,7 +11,7 @@ export default function StampDutyCalculator() {
     const breakdown = [];
     let cumulativePrice = 0;
 
-    // UK SDLT bands (April 2025)
+    // UK SDLT bands (April 2026)
     const bands =
       buyerType === 'first-time-buyer'
         ? [
@@ -173,7 +173,7 @@ export default function StampDutyCalculator() {
       <div className="space-y-4">
         <div className="bg-white rounded-[var(--radius-card)] p-4 border border-border text-sm text-text-muted">
           <p className="font-semibold text-text-primary mb-2">Rates Current As Of:</p>
-          <p>April 2025 (UK Stamp Duty Land Tax)</p>
+          <p>April 2026 (UK Stamp Duty Land Tax)</p>
         </div>
 
         <div className="bg-white rounded-[var(--radius-card)] p-4 border border-border text-xs text-text-muted space-y-2">
@@ -183,7 +183,7 @@ export default function StampDutyCalculator() {
             <li>Additional property purchases incur a 3% surcharge on all bands</li>
             <li>Non-UK residents incur a 2% surcharge on all bands</li>
             <li>Stamp duty is paid by the property buyer at completion</li>
-            <li>Rates changed in April 2025 — check with HMRC for the latest rates</li>
+            <li>Rates changed in April 2026 — check with HMRC for the latest rates</li>
           </ul>
         </div>
       </div>

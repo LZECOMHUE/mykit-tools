@@ -244,14 +244,13 @@ export default function CapitalGainsTaxCalculator() {
 
         {/* Tax year selector */}
         <div>
-          <label className="block text-sm font-medium text-text-primary mb-2">
-            Tax year
-          </label>
-          <select value={taxYear} onChange={(e) => setTaxYear(e.target.value)} className={selectStyle}>
-            <option value="2025/26">2025/26 (current)</option>
-            <option value="2024/25">2024/25</option>
-            <option value="2023/24">2023/24</option>
-          </select>
+          <div className="flex justify-between items-center bg-surface border border-border p-3 rounded-[var(--radius-input)]">
+            <span className="text-text-secondary text-[13px]">Tax Year</span>
+            <select value={taxYear} onChange={(e) => setTaxYear(e.target.value)} className="bg-transparent text-text-primary text-[13px] font-medium outline-none cursor-pointer">
+              <option value="2026/27">2026/27 (current)</option>
+              <option value="2025/26">2025/26</option>
+            </select>
+          </div>
         </div>
       </div>
 

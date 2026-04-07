@@ -8,7 +8,7 @@ const GENERATIONS = [
   { name: 'Generation X', range: [1965, 1980], description: 'Independent, pragmatic, bridged analog and digital' },
   { name: 'Millennial', range: [1981, 1996], description: 'Connected, idealistic, shaped by the internet' },
   { name: 'Generation Z', range: [1997, 2012], description: 'Digital natives, socially conscious, always online' },
-  { name: 'Generation Alpha', range: [2013, 2025], description: 'Growing up in an AI-driven world' },
+  { name: 'Generation Alpha', range: [2013, 2026], description: 'Growing up in an AI-driven world' },
 ];
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

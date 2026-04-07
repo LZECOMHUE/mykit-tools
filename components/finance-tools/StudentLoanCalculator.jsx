@@ -371,14 +371,14 @@ export default function StudentLoanCalculator() {
 
           {/* Key Information */}
           <div className="bg-white rounded-[var(--radius-card)] p-4 border border-border text-xs text-text-muted space-y-2">
-            <p><strong className="text-text-primary">Write-Off Dates (2025/26):</strong></p>
+            <p><strong className="text-text-primary">Write-Off Dates (2026/27):</strong></p>
             <ul className="list-disc list-inside space-y-1 text-text-secondary">
               <li>Plan 1: 25 years after graduation</li>
               <li>Plan 2 & 4: 40 years after graduation</li>
               <li>Plan 5: 40 years after graduation</li>
               <li>Postgrad: 30 years from first repayment</li>
             </ul>
-            <p className="pt-2"><strong className="text-text-primary">Repayment Thresholds (2025/26):</strong></p>
+            <p className="pt-2"><strong className="text-text-primary">Repayment Thresholds (2026/27):</strong></p>
             <ul className="list-disc list-inside space-y-1 text-text-secondary">
               <li>Plan 1: {formatCurrency(taxYear.studentLoans.plan1.threshold)}</li>
               <li>Plan 2: {formatCurrency(taxYear.studentLoans.plan2.threshold)}</li>

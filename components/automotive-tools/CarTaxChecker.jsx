@@ -51,7 +51,7 @@ const PREMIUM_SUPPLEMENT_YEARS = 5;
 const PREMIUM_SUPPLEMENT_AMOUNT = 320;
 
 export default function CarTaxChecker() {
-  const [registrationDate, setRegistrationDate] = useState('2025-01-15');
+  const [registrationDate, setRegistrationDate] = useState('2026-01-15');
   const [co2, setCo2] = useState('120');
   const [fuelType, setFuelType] = useState('petrol');
   const [listPrice, setListPrice] = useState('0');

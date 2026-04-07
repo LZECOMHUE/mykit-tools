@@ -114,7 +114,7 @@ export default function CouncilTaxCalculator() {
       </div>
 
       <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
-        Amounts are typical for England 2025/26. Actual amounts vary by council. Check your local council for exact figures.
+        Amounts are typical for England 2026/27. Actual amounts vary by council. Check your local council for exact figures.
       </p>
     </div>
   );

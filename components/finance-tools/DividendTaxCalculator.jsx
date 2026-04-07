@@ -156,7 +156,7 @@ export default function DividendTaxCalculator() {
       </div>
 
       <p className="text-xs text-text-muted bg-surface rounded-[var(--radius-input)] p-3">
-        Rates for 2025/26 tax year. This is for reference only, not financial advice. Consult a tax specialist for your situation.
+        Rates for 2026/27 tax year. This is for reference only, not financial advice. Consult a tax specialist for your situation.
       </p>
     </div>
   );

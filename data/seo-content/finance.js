@@ -32,17 +32,17 @@ export const financeSEO = {
       createAnswerFirstSection(
         "National Insurance Contributions",
         "Employees pay National Insurance at 8% on earnings between £12,570 and £50,270, then 2% on anything above that. NI is separate from income tax but is deducted from your pay in the same way. You stop paying NI when you reach State Pension age (currently 66).",
-        "From April 2025, employer NI increased to 15% with a lower threshold of £5,000. This does not directly reduce your pay, but it does affect your employer's costs and may influence future pay decisions."
+        "From April 2026, employer NI increased to 15% with a lower threshold of £5,000. This does not directly reduce your pay, but it does affect your employer's costs and may influence future pay decisions."
       ),
     ],
     faqs: [
       createFAQ(
-        "What is the UK personal allowance for 2025/26?",
-        "The personal allowance for the 2025/26 tax year is £12,570. This is the amount you can earn before paying any income tax. It has been frozen at this level since 2021/22 and is expected to remain frozen until at least April 2028."
+        "What is the UK personal allowance for 2026/27?",
+        "The personal allowance for the 2026/27 tax year is £12,570. This is the amount you can earn before paying any income tax. It has been frozen at this level since 2021/22 and is expected to remain frozen until at least April 2028."
       ),
       createFAQ(
         "How much tax do I pay on £50,000?",
-        "On a salary of £50,000 in 2025/26, you would pay approximately £7,486 in income tax and £2,994 in National Insurance, leaving a take-home pay of around £39,520 per year or £3,293 per month. This assumes a standard tax code of 1257L with no pension contributions."
+        "On a salary of £50,000 in 2026/27, you would pay approximately £7,486 in income tax and £2,994 in National Insurance, leaving a take-home pay of around £39,520 per year or £3,293 per month. This assumes a standard tax code of 1257L with no pension contributions."
       ),
       createFAQ(
         "Do I pay Scottish income tax?",
@@ -50,7 +50,7 @@ export const financeSEO = {
       ),
       createFAQ(
         "How does student loan repayment affect my take-home pay?",
-        "Student loan repayments are deducted at 9% of income above the plan threshold (£27,295 for Plan 2 in 2025/26). On a £35,000 salary with Plan 2, you would repay around £57.79 per month. Postgraduate loans are repaid at 6% above £21,000, and you can repay both simultaneously."
+        "Student loan repayments are deducted at 9% of income above the plan threshold (£27,295 for Plan 2 in 2026/27). On a £35,000 salary with Plan 2, you would repay around £57.79 per month. Postgraduate loans are repaid at 6% above £21,000, and you can repay both simultaneously."
       ),
       createFAQ(
         "What is the marriage allowance?",
@@ -82,8 +82,8 @@ export const financeSEO = {
         "No. Dividends are not subject to National Insurance contributions. This is one reason why taking income as dividends (where possible) is often more tax-efficient than salary. However, only company shareholders can receive dividends, and you must pay corporation tax on the profits first."
       ),
       createFAQ(
-        "What is the dividend tax rate for 2025/26?",
-        "The dividend tax rates for 2025/26 are 8.75% (basic rate), 33.75% (higher rate), and 39.35% (additional rate). The first £500 of dividends is tax-free under the dividend allowance. These rates apply after your salary and other income have used up the relevant tax bands."
+        "What is the dividend tax rate for 2026/27?",
+        "The dividend tax rates for 2026/27 are 8.75% (basic rate), 33.75% (higher rate), and 39.35% (additional rate). The first £500 of dividends is tax-free under the dividend allowance. These rates apply after your salary and other income have used up the relevant tax bands."
       ),
       createFAQ(
         "Do I need to file a tax return for dividends?",
@@ -101,23 +101,23 @@ export const financeSEO = {
       createAnswerFirstSection(
         "How UK Capital Gains Tax Works",
         "Capital Gains Tax (CGT) is charged on the profit when you sell an asset that has increased in value. You only pay CGT on the gain (the difference between what you paid and what you sold for), not on the total sale price. The first £3,000 of gains each year is tax-free (the Annual Exempt Amount).",
-        "CGT rates for 2025/26 are 18% (basic rate) and 24% (higher rate) for most assets. Your salary and other income determine which band your gains fall into. If you have unused basic rate band, gains use that up first at 18% before the 24% rate kicks in."
+        "CGT rates for 2026/27 are 18% (basic rate) and 24% (higher rate) for most assets. Your salary and other income determine which band your gains fall into. If you have unused basic rate band, gains use that up first at 18% before the 24% rate kicks in."
       ),
       createAnswerFirstSection(
         "CGT on Property vs Shares",
-        "From April 2025, the same rates apply to residential property and other assets: 18% for basic rate taxpayers and 24% for higher rate taxpayers. Previously, residential property had higher rates of 18% and 28%, so the gap has narrowed.",
+        "From April 2026, the same rates apply to residential property and other assets: 18% for basic rate taxpayers and 24% for higher rate taxpayers. Previously, residential property had higher rates of 18% and 28%, so the gap has narrowed.",
         "Your main home (primary residence) is usually exempt from CGT under Private Residence Relief. CGT on property most commonly applies to second homes, buy-to-let properties, and inherited properties that you later sell. For shares, you can use your ISA allowance to shelter gains, and transfers between spouses are CGT-free."
       ),
       createAnswerFirstSection(
         "Business Assets Relief (formerly Entrepreneurs' Relief)",
-        "If you sell all or part of a qualifying business, you may be able to claim Business Assets Relief. This charges CGT at a reduced rate of 14% (for 2025/26) instead of the normal 18% or 24%. There is a lifetime limit of £1,000,000 in qualifying gains.",
-        "To qualify, you typically need to have owned the business for at least 2 years, been involved in running it, and held at least 5% of the shares and voting rights. This relief was previously charged at 10% and is increasing to 14% from April 2025, with a further increase to 18% from April 2026."
+        "If you sell all or part of a qualifying business, you may be able to claim Business Assets Relief. This charges CGT at a reduced rate of 14% (for 2026/27) instead of the normal 18% or 24%. There is a lifetime limit of £1,000,000 in qualifying gains.",
+        "To qualify, you typically need to have owned the business for at least 2 years, been involved in running it, and held at least 5% of the shares and voting rights. This relief was previously charged at 10% and is increasing to 14% from April 2026, with a further increase to 18% from April 2026."
       ),
     ],
     faqs: [
       createFAQ(
-        "What is the CGT annual exempt amount for 2025/26?",
-        "The Annual Exempt Amount for 2025/26 is £3,000 per person. This is the amount of capital gains you can make each tax year without paying any CGT. It was reduced from £6,000 in 2023/24 and cannot be carried forward to future years."
+        "What is the CGT annual exempt amount for 2026/27?",
+        "The Annual Exempt Amount for 2026/27 is £3,000 per person. This is the amount of capital gains you can make each tax year without paying any CGT. It was reduced from £6,000 in 2023/24 and cannot be carried forward to future years."
       ),
       createFAQ(
         "Do I pay CGT on my main home?",
@@ -158,7 +158,7 @@ export const financeSEO = {
     ],
     faqs: [
       createFAQ(
-        "What is the IHT threshold for 2025/26?",
+        "What is the IHT threshold for 2026/27?",
         "The basic nil-rate band is £325,000 per person. With the residence nil-rate band of £175,000 (if you leave your home to direct descendants), a single person can pass on up to £500,000 tax-free. Married couples can combine their allowances for up to £1,000,000."
       ),
       createFAQ(
@@ -185,11 +185,11 @@ export const financeSEO = {
       ),
       createAnswerFirstSection(
         "How Student Loan Repayments Are Calculated",
-        "You repay 9% of everything you earn above your plan's threshold. For Plan 2 in 2025/26, the threshold is £27,295. So if you earn £35,000, you repay 9% of £7,705 (the amount above the threshold), which works out to £693.45 per year or £57.79 per month.",
+        "You repay 9% of everything you earn above your plan's threshold. For Plan 2 in 2026/27, the threshold is £27,295. So if you earn £35,000, you repay 9% of £7,705 (the amount above the threshold), which works out to £693.45 per year or £57.79 per month.",
         "Repayments are automatic through PAYE if you are employed. If you are self-employed, repayments are collected through your self-assessment tax return. You can have multiple plans at once (for example, Plan 2 plus a Postgraduate loan), and each is repaid simultaneously."
       ),
       {
-        heading: "Repayment Thresholds by Plan (2025/26)",
+        heading: "Repayment Thresholds by Plan (2026/27)",
         table: {
           headers: ["Plan", "Threshold", "Rate", "Write-off"],
           rows: [
@@ -248,11 +248,21 @@ export const financeSEO = {
         "Workplace Pension Auto-Enrolment",
         "All UK employers must automatically enrol eligible workers into a workplace pension. The minimum total contribution is 8% of qualifying earnings: 5% from you and 3% from your employer. You can opt out, but you would lose your employer's contribution, which is essentially free money."
       ),
+      createAnswerFirstSection(
+        "The Lifetime Allowance (LTA) Abolishment",
+        "In April 2024, the Lifetime Allowance (previously £1,073,100) was officially abolished. There is no longer a cap on how much you can accumulate in your pension pot over your lifetime without facing punitive tax charges.",
+        "However, it was replaced by the Lump Sum Allowance (LSA), which caps the maximum tax-free cash you can withdraw at £268,275 (exactly 25% of the old LTA). Any lump sums taken above this limit are taxed at your marginal rate."
+      ),
+      createAnswerFirstSection(
+        "Pension Carry Forward Rules Explained",
+        "The Carry Forward rule allows you to use up unused annual pension allowances from the previous three tax years, potentially enabling you to contribute far more than the current £60,000 limit in a single year and receive massive tax relief.",
+        "To use carry forward, you must have been a member of a registered pension scheme during the years you are carrying forward from. You must also use your current year's £60,000 allowance fully before tapping into previous years. This strategy is incredibly powerful for company directors making employer contributions or high earners trying to mitigate the £100k tax trap."
+      ),
     ],
     faqs: [
       createFAQ(
-        "What is the pension annual allowance for 2025/26?",
-        "The annual allowance is £60,000 for 2025/26. This is the maximum you can contribute to pensions in a tax year while still receiving tax relief. You can carry forward up to 3 years of unused allowance if you were a member of a pension scheme in those years."
+        "What is the pension annual allowance for 2026/27?",
+        "The annual allowance is £60,000 for 2026/27. This is the maximum you can contribute to pensions in a tax year while still receiving tax relief. You can carry forward up to 3 years of unused allowance if you were a member of a pension scheme in those years."
       ),
       createFAQ(
         "When can I access my pension?",
@@ -264,7 +274,15 @@ export const financeSEO = {
       ),
       createFAQ(
         "What is the State Pension and how much is it?",
-        "The full new State Pension is £221.20 per week (£11,502.40 per year) for 2025/26. You need 35 qualifying years of National Insurance contributions to receive the full amount. You can check your State Pension forecast on the gov.uk website."
+        "The full new State Pension is £221.20 per week (£11,502.40 per year) for 2026/27. You need 35 qualifying years of National Insurance contributions to receive the full amount. You can check your State Pension forecast on the gov.uk website."
+      ),
+      createFAQ(
+        "What happens to my pension if I die before retirement?",
+        "If you die before age 75, your beneficiaries can inherit your defined contribution pension pot completely tax-free. If you die after age 75, your beneficiaries will pay income tax at their marginal rate on any withdrawals they make from the inherited pot."
+      ),
+      createFAQ(
+        "Can I take my pension and continue working?",
+        "Yes, you can draw from your pension while continuing to work. However, once you start flexibly accessing taxable income from your pension, you trigger the Money Purchase Annual Allowance (MPAA). This drastically reduces your future annual allowance from £60,000 down to just £10,000, limiting your ability to build your pot further."
       ),
     ],
   },
@@ -315,7 +333,7 @@ export const financeSEO = {
       ),
       createAnswerFirstSection(
         "Key Self-Assessment Deadlines",
-        "The tax year runs from 6 April to 5 April. For the 2025/26 tax year: you must register by 5 October 2026, file your paper return by 31 October 2026, and file your online return and pay your tax bill by 31 January 2027. Late filing incurs an automatic £100 penalty, rising to £10 per day after 3 months.",
+        "The tax year runs from 6 April to 5 April. For the 2026/27 tax year: you must register by 5 October 2026, file your paper return by 31 October 2026, and file your online return and pay your tax bill by 31 January 2027. Late filing incurs an automatic £100 penalty, rising to £10 per day after 3 months.",
         "If your tax bill for the previous year was over £1,000, HMRC will ask you to make payments on account. These are advance payments towards next year's bill, due on 31 January and 31 July, each equal to half of your previous year's bill."
       ),
       createAnswerFirstSection(
@@ -357,7 +375,7 @@ export const financeSEO = {
         "Keep in mind that the amount you actually take home will be less than the gross increase. Higher earners may find that a pay rise pushes them into a higher tax band, meaning part of the increase is taxed at 40% instead of 20%. This calculator shows both the gross and net impact so you can see exactly what lands in your bank account."
       ),
       {
-        heading: "Common Pay Rise Examples (2025/26 Tax Year)",
+        heading: "Common Pay Rise Examples (2026/27 Tax Year)",
         table: {
           headers: ["Current Salary", "3% Rise", "5% Rise", "10% Rise"],
           rows: [
@@ -457,7 +475,7 @@ export const financeSEO = {
       ),
       createFAQ(
         "How are pensionable earnings calculated?",
-        "For 2025/26, qualifying or 'pensionable' earnings are the portion of your salary between £6,240 and £50,270. If your salary is £30,000, your qualifying earnings are £23,760. Your 5% contribution is calculated purely on this middle slice."
+        "For 2026/27, qualifying or 'pensionable' earnings are the portion of your salary between £6,240 and £50,270. If your salary is £30,000, your qualifying earnings are £23,760. Your 5% contribution is calculated purely on this middle slice."
       )
     ]
   },
@@ -537,7 +555,7 @@ export const financeSEO = {
       ),
       createFAQ(
         "Is an electric company car worth it?",
-        "Absolutely. Fully electric vehicles currently enjoy exceptionally low BiK tax rates (fixed at 2% until April 2025, rising by 1% annually thereafter). Choosing an EV over a combustion engine car can easily save a higher-rate taxpayer thousands of pounds per year in company car tax."
+        "Absolutely. Fully electric vehicles currently enjoy exceptionally low BiK tax rates (fixed at 2% until April 2026, rising by 1% annually thereafter). Choosing an EV over a combustion engine car can easily save a higher-rate taxpayer thousands of pounds per year in company car tax."
       )
     ]
   },
