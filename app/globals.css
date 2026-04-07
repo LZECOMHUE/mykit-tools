@@ -25,7 +25,19 @@
   --color-error: #dc2626;
   --color-info: #2563eb;
 
-  /* Category Tints */
+  /* Typography */
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Epilogue", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --radius-card: 1rem;
+  --radius-input: 1rem;
+  --radius-badge: 0.5rem;
+}
+
+:root {
+  /* Category Tints (Guaranteed DOM presence for inline styles) */
   --color-cat-finance: #dbeafe;
   --color-cat-cooking: #ffedd5;
   --color-cat-games: #fce7f3;
@@ -51,16 +63,6 @@
   --color-cat-pdf: #fde68a;
   --color-cat-betting: #c4b5fd;
   --color-cat-maps: #a7f3d0;
-
-  /* Typography */
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Epilogue", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  /* Spacing */
-  --radius-card: 1rem;
-  --radius-input: 1rem;
-  --radius-badge: 0.5rem;
 }
 
 body {

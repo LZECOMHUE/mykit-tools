@@ -38,9 +38,18 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
+  // Static core pages
+  const staticPages = ["about", "contact", "pricing", "privacy", "terms"].map((route) => ({
+    url: `${BASE_URL}/${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   // Combine all pages
   return [
     ...homePage,
+    ...staticPages,
     ...toolPages,
     ...categoryPages,
   ];
