@@ -88,14 +88,14 @@ export default function HomePage() {
               <Link
                 key={cat.slug}
                 href={`/categories/${cat.slug}`}
-                className="bg-surface border border-border/80 rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                className="border border-black/5 rounded-2xl p-6 flex flex-col items-center text-center group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                style={{ backgroundColor: `var(--color-${cat.color})` }}
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-accent/80 group-hover:bg-accent transition-colors"></div>
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 text-accent group-hover:scale-110 transition-transform text-2xl">
+                <div className="w-14 h-14 bg-white/60 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-white/90 transition-all duration-300 text-3xl shadow-sm">
                   {cat.icon}
                 </div>
                 <span className="font-heading font-bold text-sm text-text-primary">{cat.name}</span>
-                <span className="text-xs text-text-muted mt-1">{counts[cat.slug] || 0} tools</span>
+                <span className="text-xs text-text-secondary mt-1 font-medium opacity-80">{counts[cat.slug] || 0} tools</span>
               </Link>
             ))}
           </div>
