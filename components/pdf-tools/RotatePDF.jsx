@@ -125,9 +125,9 @@ export default function RotatePDF() {
   }
 
   return (
-    <div className="space-y-6 w-full">
+    <div className="space-y-4 w-full">
       {/* Top Control Bar */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div className="flex-1">
           <h2 className="text-lg font-semibold text-text-primary mb-1">
             {pdfFile.name}

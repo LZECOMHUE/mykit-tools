@@ -33,7 +33,7 @@ export default function ProbabilityCalculator() {
   const basicProb = (favorableOutcomes / totalOutcomes).toFixed(4);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div className="flex flex-wrap gap-2">
         {[
           { id: 'basic', label: 'Basic' },

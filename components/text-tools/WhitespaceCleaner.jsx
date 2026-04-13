@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import Button from '@/components/ui/Button';
-import Toggle from '@/components/ui/Toggle';
 
 export default function WhitespaceCleaner() {
   const [text, setText] = useState('');
@@ -11,38 +10,24 @@ export default function WhitespaceCleaner() {
   const [collapseSpaces, setCollapseSpaces] = useState(true);
   const [trimLeading, setTrimLeading] = useState(true);
   const [normalizeLineEndings, setNormalizeLineEndings] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   const cleanedText = useMemo(() => {
     let result = text;
 
-    // Normalize line endings first
     if (normalizeLineEndings) {
       result = result.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
     }
 
-    // Process line by line
     let lines = result.split('\n');
 
     lines = lines.map((line) => {
-      // Trim trailing spaces
-      if (trimTrailing) {
-        line = line.replace(/\s+$/, '');
-      }
-
-      // Trim leading spaces
-      if (trimLeading) {
-        line = line.replace(/^\s+/, '');
-      }
-
-      // Collapse multiple spaces
-      if (collapseSpaces) {
-        line = line.replace(/\s{2,}/g, ' ');
-      }
-
+      if (trimTrailing) line = line.replace(/\s+$/, '');
+      if (trimLeading) line = line.replace(/^\s+/, '');
+      if (collapseSpaces) line = line.replace(/\s{2,}/g, ' ');
       return line;
     });
 
-    // Remove blank lines
     if (removeBlankLines) {
       lines = lines.filter((line) => line.trim().length > 0);
     }
@@ -50,99 +35,82 @@ export default function WhitespaceCleaner() {
     return lines.join('\n');
   }, [text, trimTrailing, removeBlankLines, collapseSpaces, trimLeading, normalizeLineEndings]);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(cleanedText);
+  const handleCopy = async () => {
+    if (!cleanedText) return;
+    try {
+      await navigator.clipboard.writeText(cleanedText).catch(() => {});
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   };
 
   const characterDifference = text.length - cleanedText.length;
 
+  const options = [
+    { state: trimLeading, setter: setTrimLeading, label: 'Trim leading' },
+    { state: trimTrailing, setter: setTrimTrailing, label: 'Trim trailing' },
+    { state: removeBlankLines, setter: setRemoveBlankLines, label: 'Remove blank lines' },
+    { state: collapseSpaces, setter: setCollapseSpaces, label: 'Collapse spaces' },
+    { state: normalizeLineEndings, setter: setNormalizeLineEndings, label: 'Normalize line endings' },
+  ];
+
   return (
-    <div className="space-y-6">
-      <div>
-        <label className="block text-sm font-medium text-text-secondary mb-2">
-          Original Text
-        </label>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Paste text here..."
-          className="w-full min-h-[150px] px-4 py-3 border border-border rounded-[var(--radius-input)] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-10 resize-vertical"
-        />
-        <p className="text-xs text-text-muted mt-2">
-          <span className="font-mono">{text.length}</span> characters
-        </p>
+    <div className="space-y-4">
+      {/* Options as compact checkboxes */}
+      <div className="flex items-center gap-4 flex-wrap">
+        {options.map(({ state, setter, label }) => (
+          <label key={label} className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={state}
+              onChange={(e) => setter(e.target.checked)}
+              className="w-4 h-4 rounded border-border accent-accent"
+            />
+            <span className="text-sm text-text-secondary">{label}</span>
+          </label>
+        ))}
       </div>
 
-      <div className="space-y-3">
-        <h3 className="text-sm font-medium text-text-secondary">Clean Options</h3>
-        <Toggle
-          label="Trim Trailing Whitespace"
-          checked={trimTrailing}
-          onChange={setTrimTrailing}
-        />
-        <Toggle
-          label="Trim Leading Whitespace"
-          checked={trimLeading}
-          onChange={setTrimLeading}
-        />
-        <Toggle
-          label="Remove Blank Lines"
-          checked={removeBlankLines}
-          onChange={setRemoveBlankLines}
-        />
-        <Toggle
-          label="Collapse Multiple Spaces"
-          checked={collapseSpaces}
-          onChange={setCollapseSpaces}
-        />
-        <Toggle
-          label="Normalize Line Endings"
-          checked={normalizeLineEndings}
-          onChange={setNormalizeLineEndings}
-        />
-      </div>
+      {/* Side-by-side grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Original Text</label>
+            {text.length > 0 && (
+              <span className="text-xs text-text-muted font-mono">{text.length} chars</span>
+            )}
+          </div>
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Paste text here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
+          />
+        </div>
 
-      {text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="text-text-muted text-sm">Character reduction</p>
-              <p className="font-mono text-lg font-semibold text-text-primary">
-                {characterDifference} characters removed
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-text-muted text-sm">Cleaned text size</p>
-              <p className="font-mono text-lg font-semibold text-text-primary">
-                {cleanedText.length} characters
-              </p>
+        {/* Output */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Cleaned Text</label>
+            <div className="flex items-center gap-2">
+              {characterDifference > 0 && (
+                <span className="text-xs text-success font-mono">-{characterDifference} chars</span>
+              )}
+              <Button variant="secondary" size="sm" onClick={handleCopy} disabled={!cleanedText}>
+                {copied ? 'Copied!' : 'Copy'}
+              </Button>
             </div>
           </div>
-        </div>
-      )}
-
-      {text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
-          <p className="text-sm font-medium text-text-secondary">Cleaned Text:</p>
           <textarea
             value={cleanedText}
             readOnly
-            className="w-full min-h-[150px] px-4 py-3 font-mono text-sm text-text-primary bg-white border border-border rounded-[var(--radius-input)] resize-vertical"
+            placeholder="Cleaned text will appear here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-surface border border-border rounded-[var(--radius-input)] resize-none focus:outline-none"
+            spellCheck={false}
           />
-          <Button onClick={handleCopy} className="w-full">
-            Copy Cleaned Text
-          </Button>
         </div>
-      )}
-
-      {!text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
-          <p className="text-text-muted">Paste text to clean whitespace</p>
-        </div>
-      )}
-
-      <div className="text-sm text-text-muted">
-        <p>Remove unnecessary whitespace and clean up text formatting.</p>
       </div>
     </div>
   );

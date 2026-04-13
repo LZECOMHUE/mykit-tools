@@ -137,7 +137,7 @@ export default function ArtPricingCalculator() {
       <div className="space-y-4">
         {/* Comparison */}
         <div className="grid grid-cols-2 gap-3">
-          <Card className="bg-accent-muted p-6 text-center">
+          <Card className="bg-accent-muted text-center">
             <p className="text-text-muted text-[12px] mb-1">Cost-Based</p>
             <p className="font-mono text-3xl font-semibold text-accent">
               £{calculation.costBased.price}
@@ -146,7 +146,7 @@ export default function ArtPricingCalculator() {
               {calculation.sqInches} sq.in
             </p>
           </Card>
-          <Card className="bg-accent-muted p-6 text-center">
+          <Card className="bg-accent-muted text-center">
             <p className="text-text-muted text-[12px] mb-1">Square Inch Method</p>
             <p className="font-mono text-3xl font-semibold text-accent">
               £{calculation.sqInch.price}

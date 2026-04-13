@@ -162,7 +162,7 @@ export default function SquareFootageCalculator() {
   return (
     <div className="space-y-3">
       {/* Unit Selector */}
-      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)]">
         <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-3">
           Measurement Unit
         </label>
@@ -194,7 +194,7 @@ export default function SquareFootageCalculator() {
           return (
             <div
               key={section.id}
-              className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6"
+              className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)]"
             >
               <div className="flex flex-col md:flex-row md:items-end md:gap-4 gap-4 mb-4">
                 <div className="flex-1">
@@ -308,8 +308,8 @@ export default function SquareFootageCalculator() {
       </div>
 
       {/* Total Area Results */}
-      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-6">Total Area</h2>
+      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)]">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Total Area</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="rounded-lg bg-white border border-[var(--color-border)] p-4">
             <span className="block text-xs text-[var(--color-text-muted)] mb-2">Square Feet</span>
@@ -354,10 +354,10 @@ export default function SquareFootageCalculator() {
       </div>
 
       {/* Cost Estimator */}
-      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-6">Cost Estimator</h2>
+      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)]">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Cost Estimator</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
               Cost Per Unit
@@ -388,7 +388,7 @@ export default function SquareFootageCalculator() {
         </div>
 
         {/* Wastage Slider */}
-        <div className="mb-6">
+        <div className="mb-4">
           <div className="flex justify-between items-center mb-3">
             <label className="text-sm font-medium text-[var(--color-text-primary)]">Wastage</label>
             <span className="text-sm font-semibold text-[var(--color-accent)]">{wastagePercent}%</span>
@@ -456,7 +456,7 @@ export default function SquareFootageCalculator() {
       </div>
 
       {/* Quick Presets */}
-      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+      <div className="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)]">
         <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Quick Presets</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {Object.entries(PRESETS).map(([key, preset]) => (

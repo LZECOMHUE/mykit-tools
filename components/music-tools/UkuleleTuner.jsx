@@ -221,9 +221,9 @@ export default function UkuleleTuner() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-8">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
       {/* Controls Section */}
-      <div className="space-y-6 mb-8">
+      <div className="space-y-4 mb-4">
         {/* Tuning Selector */}
         <div className="grid gap-4 sm:grid-cols-2">
           <Select
@@ -255,10 +255,10 @@ export default function UkuleleTuner() {
       </div>
 
       {/* Ukulele Fretboard */}
-      <div className="mb-8 bg-gradient-to-b from-amber-800 to-amber-900 rounded-2xl p-6 shadow-2xl overflow-hidden">
+      <div className="mb-4 bg-gradient-to-b from-amber-800 to-amber-900 rounded-2xl shadow-2xl overflow-hidden">
         <svg
           viewBox="0 0 1000 300"
-          className="w-full h-auto mb-6"
+          className="w-full h-auto mb-4"
           preserveAspectRatio="xMidYMid meet"
         >
           {/* Fretboard background */}
@@ -376,7 +376,7 @@ export default function UkuleleTuner() {
       </div>
 
       {/* String Controls Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         {currentTuning.strings.map((string, index) => {
           const isLoopingThis = isLooping && loopingString === index;
           const isPlayingThis = playingString === index && isPlaying;

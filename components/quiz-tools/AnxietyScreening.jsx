@@ -192,13 +192,13 @@ const AnxietyScreening = () => {
 
     return (
       <div className="w-full max-w-2xl mx-auto">
-        <Card className="p-8">
-          <div className="text-center mb-8">
+        <Card>
+          <div className="text-center mb-4">
             <h2 className="text-3xl font-bold text-text-primary mb-2">Your Results</h2>
             <p className="text-text-secondary">GAD-7 Anxiety Assessment</p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-8 mb-8 border border-purple-200">
+          <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg mb-4 border border-purple-200">
             <div className="text-center">
               <p className="text-text-muted text-sm mb-2">Your Score</p>
               <p className="font-mono text-6xl font-bold mb-2" style={{ color: category.color }}>
@@ -210,7 +210,7 @@ const AnxietyScreening = () => {
             </div>
           </div>
 
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Understanding Your Score</h3>
             <p className="text-text-secondary mb-4">
               {score <= 4 && 'Your responses suggest minimal anxiety symptoms.'}
@@ -228,7 +228,7 @@ const AnxietyScreening = () => {
 
           <button
             onClick={() => setShowBreathing(!showBreathing)}
-            className="w-full p-4 mb-6 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-200 rounded-lg hover:shadow-md transition-shadow"
+            className="w-full p-4 mb-4 bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-200 rounded-lg hover:shadow-md transition-shadow"
           >
             <div className="flex items-center justify-center gap-2 text-purple-700 font-semibold">
               <span>🌬️</span>
@@ -237,7 +237,7 @@ const AnxietyScreening = () => {
           </button>
 
           {showBreathing && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg mb-4">
               <h3 className="font-bold text-lg text-text-primary mb-4">4-7-8 Breathing Exercise</h3>
               <ol className="space-y-3 text-text-secondary list-decimal list-inside">
                 <li>Find a comfortable seated position</li>
@@ -252,7 +252,7 @@ const AnxietyScreening = () => {
             </div>
           )}
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Support Resources</h3>
             <ul className="space-y-3 text-text-secondary">
               <li className="flex items-start">
@@ -298,8 +298,8 @@ const AnxietyScreening = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="p-8">
-        <div className="mb-6">
+      <Card>
+        <div className="mb-4">
           <p className="text-sm text-text-muted mb-2">
             Question {currentQuestion + 1} of {questions.length}
           </p>
@@ -311,14 +311,14 @@ const AnxietyScreening = () => {
           </div>
         </div>
 
-        <div className="mb-8">
-          <h2 className="text-xl font-bold text-text-primary mb-6">
+        <div className="mb-4">
+          <h2 className="text-xl font-bold text-text-primary mb-4">
             Over the last 2 weeks, how often have you been bothered by:
           </h2>
           <p className="text-lg text-text-secondary">{questions[currentQuestion]}</p>
         </div>
 
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-4">
           {options.map((option, index) => (
             <button
               key={index}
@@ -336,7 +336,7 @@ const AnxietyScreening = () => {
         </div>
 
         {/* Progress indicator dots */}
-        <div className="flex justify-center gap-2 mb-6 flex-wrap">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {Array.from({ length: questions.length }).map((_, index) => (
             <button
               key={index}

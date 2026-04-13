@@ -78,11 +78,8 @@ export default function CreditCardPayoffCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Credit Card Payoff Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
         <div className="space-y-4">
           <div>
@@ -152,9 +149,9 @@ export default function CreditCardPayoffCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+        <div className="space-y-4">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Payoff Comparison
             </h3>
 
@@ -203,8 +200,8 @@ export default function CreditCardPayoffCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               By Paying Extra, You Save
             </h3>
 

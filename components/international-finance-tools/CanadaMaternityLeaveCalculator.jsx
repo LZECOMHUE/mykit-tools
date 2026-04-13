@@ -62,8 +62,8 @@ export default function CanadaMaternityLeaveCalculator() {
   }, [config]);
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-semibold text-primary mb-4">
           Your Information
         </h2>
@@ -103,7 +103,7 @@ export default function CanadaMaternityLeaveCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-accent-muted border border-accent">
+      <Card className="bg-accent-muted border border-accent">
         <h2 className="font-heading text-2xl font-bold text-accent mb-2">
           Total Leave Duration
         </h2>
@@ -116,7 +116,7 @@ export default function CanadaMaternityLeaveCalculator() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading font-semibold text-primary mb-4">Maternity Benefits</h3>
           <div className="space-y-3">
             <div className="flex justify-between pb-2 border-b border-border">
@@ -142,7 +142,7 @@ export default function CanadaMaternityLeaveCalculator() {
           </div>
         </Card>
 
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading font-semibold text-primary mb-4">Parental Benefits</h3>
           <div className="space-y-3">
             <div className="flex justify-between pb-2 border-b border-border">
@@ -169,7 +169,7 @@ export default function CanadaMaternityLeaveCalculator() {
         </Card>
       </div>
 
-      <Card className="p-6 border-2 border-accent">
+      <Card className="border-2 border-accent">
         <h3 className="font-heading font-semibold text-accent mb-3">Total Benefits</h3>
         <div className="flex justify-between items-center">
           <span className="text-lg font-medium text-primary">Combined maternity + parental:</span>
@@ -179,7 +179,7 @@ export default function CanadaMaternityLeaveCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Important Information</h3>
         <div className="space-y-3 text-sm text-secondary">
           <div>
@@ -205,7 +205,7 @@ export default function CanadaMaternityLeaveCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Plan Comparison</h3>
         <div className="space-y-2 text-sm text-secondary">
           <p className="font-medium text-primary">Standard Plan (55 weeks total)</p>

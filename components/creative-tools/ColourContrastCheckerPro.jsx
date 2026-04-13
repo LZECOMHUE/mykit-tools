@@ -100,13 +100,13 @@ export default function ColourContrastCheckerPro() {
   const suggestions = useMemo(() => generateNearbyAccessibleColours(), [foreground, background]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Colour Pickers */}
-      <div className="bg-surface rounded-[12px] border border-border p-6">
-        <h2 className="text-2xl font-bold text-text-primary mb-6">WCAG Contrast Checker</h2>
+      <div className="bg-surface rounded-[12px] border border-border">
+
 
         {/* Presets */}
-        <div className="mb-6">
+        <div className="mb-4">
           <p className="text-sm font-medium text-text-secondary mb-3">Quick Presets</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
             {presets.map((preset, idx) => (
@@ -130,7 +130,7 @@ export default function ColourContrastCheckerPro() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Foreground */}
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-3">
@@ -218,10 +218,10 @@ export default function ColourContrastCheckerPro() {
       </div>
 
       {/* Contrast Ratio */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
-        <h3 className="text-lg font-bold text-text-primary mb-6">Contrast Analysis</h3>
+      <div className="bg-white border border-border rounded-[12px]">
+        <h3 className="text-lg font-bold text-text-primary mb-4">Contrast Analysis</h3>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <p className="text-sm text-text-secondary mb-2">Contrast Ratio</p>
           <p className="text-4xl font-bold text-accent font-mono mb-1">
             {analysis.ratio}:1
@@ -273,7 +273,7 @@ export default function ColourContrastCheckerPro() {
       </div>
 
       {/* Accessibility Guide */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
         <h3 className="text-lg font-bold text-blue-900 mb-3">Accessibility Requirements</h3>
         <ul className="space-y-2 text-sm text-blue-800">
           <li className="flex gap-2">
@@ -293,7 +293,7 @@ export default function ColourContrastCheckerPro() {
 
       {/* Suggestions */}
       {!analysis.wcag.AANormalText && suggestions.length > 0 && (
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold text-text-primary mb-4">Accessible Alternatives</h3>
           <p className="text-sm text-text-secondary mb-4">
             Try these foreground colours to achieve WCAG AA compliance with your current background.

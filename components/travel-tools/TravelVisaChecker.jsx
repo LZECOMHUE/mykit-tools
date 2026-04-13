@@ -1,7 +1,6 @@
 'use client';
 import { useState, useMemo } from 'react';
 import Select from '@/components/ui/Select';
-import Card from '@/components/ui/Card';
 
 const COUNTRIES = [
   'Afghanistan',
@@ -157,8 +156,8 @@ export default function TravelVisaChecker() {
   const visuals = visaResult ? getVisualsForType(visaResult.type) : null;
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
             Your Passport Country
@@ -184,7 +183,7 @@ export default function TravelVisaChecker() {
 
       {visaResult ? (
         <div
-          className={`${visuals.color} border rounded-[var(--radius-card)] p-6 space-y-4`}
+          className={`${visuals.color} border rounded-[var(--radius-card)] space-y-4`}
         >
           <div className="flex items-start gap-4">
             <div
@@ -215,7 +214,7 @@ export default function TravelVisaChecker() {
           )}
         </div>
       ) : (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-sm text-text-secondary">
             Visa information for this country combination not available in our database. Please check
             your government's travel advisory website.
@@ -223,7 +222,7 @@ export default function TravelVisaChecker() {
         </div>
       )}
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <p className="text-xs text-text-muted">
           Disclaimer: This information is provided as a general guide only. Visa requirements can
           change without notice. Always check your country's official immigration website or

@@ -82,11 +82,11 @@ export default function CanadaRetirementCalculator() {
   ]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Current Age
@@ -112,7 +112,7 @@ export default function CanadaRetirementCalculator() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Current RRSP Balance (CAD)
@@ -138,7 +138,7 @@ export default function CanadaRetirementCalculator() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Annual Savings (CAD)
@@ -179,13 +179,13 @@ export default function CanadaRetirementCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="space-y-6">
-          <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-white rounded-lg border border-border space-y-4">
             <h2 className="text-text-primary font-semibold text-lg">
               At Retirement (Age {retirementAge})
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <p className="text-text-secondary text-sm mb-2">RRSP Balance</p>
                 <p className="text-2xl font-mono font-semibold text-accent">
@@ -209,7 +209,7 @@ export default function CanadaRetirementCalculator() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+          <div className="bg-white rounded-lg border border-border space-y-4">
             <h2 className="text-text-primary font-semibold text-lg">
               Annual Retirement Income (4% withdrawal rule)
             </h2>
@@ -236,7 +236,7 @@ export default function CanadaRetirementCalculator() {
                 </span>
               </div>
 
-              <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+              <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
                 <span className="text-text-primary font-semibold">
                   Total Annual Income:
                 </span>

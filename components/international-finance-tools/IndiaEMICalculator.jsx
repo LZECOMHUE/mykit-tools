@@ -78,7 +78,7 @@ export default function IndiaEMICalculator() {
   const interestPercent = 100 - principalPercent;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={Object.entries(EMI_PRESETS).map(([key, preset]) => ({
           id: key,
@@ -89,7 +89,7 @@ export default function IndiaEMICalculator() {
         onTabChange={handlePresetSelect}
       />
 
-      <Card className="p-6">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -157,7 +157,7 @@ export default function IndiaEMICalculator() {
 
       {!calculations.error && (
         <>
-          <Card className="p-6 bg-accent-muted">
+          <Card className="bg-accent-muted">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Monthly EMI
             </h3>
@@ -181,7 +181,7 @@ export default function IndiaEMICalculator() {
             </Card>
           </div>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Principal vs Interest Breakdown
             </h3>

@@ -67,7 +67,7 @@ export default function KnittingGaugeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
         {/* Left: Configuration */}
@@ -223,17 +223,17 @@ export default function KnittingGaugeCalculator() {
       </div>
 
       {/* Info Section */}
-      <Card className="bg-info/10 border-info">
-        <div className="space-y-3">
-          <p className="font-medium text-text-primary text-sm">How to Use This Calculator</p>
-          <ol className="text-text-secondary text-sm space-y-2 list-decimal list-inside">
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">How to use this calculator</summary>
+        <div className="mt-2 space-y-1">
+          <ol className="space-y-1 list-decimal list-inside">
             <li><strong>Check your gauge:</strong> Knit a swatch in your yarn and measure stitches and rows per 10cm</li>
             <li><strong>Enter your gauge:</strong> Input the stitch and row counts from your swatch</li>
             <li><strong>Enter pattern gauge:</strong> Check your pattern for the recommended gauge</li>
             <li><strong>Get adjusted numbers:</strong> Cast on the adjusted stitch count instead</li>
           </ol>
         </div>
-      </Card>
+      </details>
     </div>
   );
 }

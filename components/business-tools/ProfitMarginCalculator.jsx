@@ -50,7 +50,7 @@ export default function ProfitMarginCalculator() {
   }, [mode, costPrice, sellingPrice, desiredMargin]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Selection */}
       <div className="flex gap-2 bg-surface border border-border rounded-[var(--radius-card)] p-1">
         <button
@@ -76,7 +76,7 @@ export default function ProfitMarginCalculator() {
       </div>
 
       {/* Input Fields */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">Cost Price</label>
           <input
@@ -127,7 +127,7 @@ export default function ProfitMarginCalculator() {
       {results && (
         <>
           {/* Key Metrics */}
-          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] p-6 space-y-4">
+          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-text-secondary text-xs mb-1">Profit</p>
@@ -159,7 +159,7 @@ export default function ProfitMarginCalculator() {
           </div>
 
           {/* Detailed Metrics */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
             <h4 className="text-text-primary font-semibold">Detailed Breakdown</h4>
             <div className="space-y-2">
               <div className="flex justify-between py-2 px-3 border-b border-border">

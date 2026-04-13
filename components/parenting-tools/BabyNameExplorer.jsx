@@ -94,7 +94,7 @@ export default function BabyNameExplorer() {
   );
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Filters */}
       <div className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
         <p className="text-text-secondary text-sm font-medium mb-4">
@@ -240,7 +240,7 @@ export default function BabyNameExplorer() {
           ))}
         </div>
       ) : (
-        <div className="rounded-[var(--radius-card)] bg-surface border border-border p-6 text-center">
+        <div className="rounded-[var(--radius-card)] bg-surface border border-border text-center">
           <p className="text-text-secondary">No names match your filters. Try adjusting your search.</p>
         </div>
       )}

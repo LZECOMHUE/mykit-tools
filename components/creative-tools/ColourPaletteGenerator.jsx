@@ -4,560 +4,398 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
-// ============================================================================
-// COLOUR CONVERSION HELPERS
-// ============================================================================
+// ── Colour conversion helpers ───────────────────────────────────
 
 function hexToRgb(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
+    ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) }
     : null;
 }
 
 function rgbToHex(r, g, b) {
-  return (
-    '#' +
-    [r, g, b]
-      .map((x) => {
-        const hex = Math.round(Math.max(0, Math.min(255, x))).toString(16);
-        return hex.length === 1 ? '0' + hex : hex;
-      })
-      .join('')
-  );
+  return '#' + [r, g, b].map((x) => {
+    const hex = Math.round(Math.max(0, Math.min(255, x))).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  }).join('');
 }
 
 function rgbToHsl(r, g, b) {
-  r /= 255;
-  g /= 255;
-  b /= 255;
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  let h,
-    s,
-    l = (max + min) / 2;
-
-  if (max === min) {
-    h = s = 0;
-  } else {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h, s, l = (max + min) / 2;
+  if (max === min) { h = s = 0; }
+  else {
     const d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
     switch (max) {
-      case r:
-        h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
-        break;
-      case g:
-        h = ((b - r) / d + 2) / 6;
-        break;
-      case b:
-        h = ((r - g) / d + 4) / 6;
-        break;
-      default:
-        h = 0;
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+      default: h = 0;
     }
   }
-
   return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
 }
 
 function hslToRgb(h, s, l) {
-  h = h / 360;
-  s = s / 100;
-  l = l / 100;
-
+  h /= 360; s /= 100; l /= 100;
   let r, g, b;
-
-  if (s === 0) {
-    r = g = b = l;
-  } else {
+  if (s === 0) { r = g = b = l; }
+  else {
     const hue2rgb = (p, q, t) => {
-      if (t < 0) t += 1;
-      if (t > 1) t -= 1;
-      if (t < 1 / 6) return p + (q - p) * 6 * t;
-      if (t < 1 / 2) return q;
-      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      if (t < 0) t += 1; if (t > 1) t -= 1;
+      if (t < 1/6) return p + (q - p) * 6 * t;
+      if (t < 1/2) return q;
+      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
       return p;
     };
     const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
     const p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1 / 3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1 / 3);
+    r = hue2rgb(p, q, h + 1/3); g = hue2rgb(p, q, h); b = hue2rgb(p, q, h - 1/3);
   }
-
-  return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255),
-  };
+  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
 }
 
-// ============================================================================
-// PALETTE GENERATION MODES
-// ============================================================================
+function isLight(hex) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return true;
+  return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000 > 140;
+}
 
-function generateRandomHarmonious() {
-  // Generate 5 random colours with good saturation and lightness variation
+// ── Palette generators ──────────────────────────────────────────
+
+function gen(mode) {
+  const fns = { random, monochromatic, analogous, complementary, triadic, pastel, earthy, warm, cool, neon };
+  return (fns[mode] || random)();
+}
+
+function random() {
   const hue = Math.random() * 360;
-  const colours = [];
-
-  for (let i = 0; i < 5; i++) {
+  return Array.from({ length: 5 }, (_, i) => {
     const h = (hue + Math.random() * 60 - 30 + 360) % 360;
-    const s = 40 + Math.random() * 50; // 40-90%
-    const l = 45 + Math.random() * 30; // 45-75%
-    const rgb = hslToRgb(h, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+    const rgb = hslToRgb(h, 40 + Math.random() * 50, 45 + Math.random() * 30);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateMonochromatic() {
-  const hue = Math.random() * 360;
-  const saturation = 60 + Math.random() * 30; // 60-90%
-  const colours = [];
-
-  // Create 5 shades from dark to light
-  const lightnesses = [20, 35, 50, 65, 80];
-  for (const l of lightnesses) {
-    const rgb = hslToRgb(hue, saturation, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function monochromatic() {
+  const h = Math.random() * 360, s = 60 + Math.random() * 30;
+  return [20, 35, 50, 65, 80].map((l) => { const rgb = hslToRgb(h, s, l); return rgbToHex(rgb.r, rgb.g, rgb.b); });
 }
 
-function generateAnalogous() {
-  const baseHue = Math.random() * 360;
-  const saturation = 50 + Math.random() * 40; // 50-90%
-  const lightness = 50 + Math.random() * 20; // 50-70%
-  const colours = [];
-
-  // Three adjacent hues + two variations
-  const hues = [baseHue - 30, baseHue, baseHue + 30, baseHue + 60, baseHue - 60];
-  for (const h of hues) {
-    const s = saturation + (Math.random() * 20 - 10);
-    const l = lightness + (Math.random() * 20 - 10);
-    const rgb = hslToRgb((h + 360) % 360, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function analogous() {
+  const base = Math.random() * 360, s = 50 + Math.random() * 40, l = 50 + Math.random() * 20;
+  return [-30, 0, 30, 60, -60].map((offset) => {
+    const rgb = hslToRgb((base + offset + 360) % 360, s + Math.random() * 20 - 10, l + Math.random() * 20 - 10);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateComplementary() {
-  const hue1 = Math.random() * 360;
-  const hue2 = (hue1 + 180) % 360;
-  const saturation = 50 + Math.random() * 40; // 50-90%
-  const lightness = 50 + Math.random() * 20; // 50-70%
-  const colours = [];
-
-  // Use both hues and variations
-  for (let i = 0; i < 5; i++) {
-    const h = i < 3 ? hue1 + (Math.random() * 40 - 20) : hue2 + (Math.random() * 40 - 20);
-    const s = saturation + (Math.random() * 20 - 10);
-    const l = lightness + (Math.random() * 20 - 10);
-    const rgb = hslToRgb((h + 360) % 360, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function complementary() {
+  const h1 = Math.random() * 360, h2 = (h1 + 180) % 360, s = 50 + Math.random() * 40, l = 50 + Math.random() * 20;
+  return Array.from({ length: 5 }, (_, i) => {
+    const h = i < 3 ? h1 + Math.random() * 40 - 20 : h2 + Math.random() * 40 - 20;
+    const rgb = hslToRgb((h + 360) % 360, s + Math.random() * 20 - 10, l + Math.random() * 20 - 10);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateTriadic() {
-  const hue1 = Math.random() * 360;
-  const hue2 = (hue1 + 120) % 360;
-  const hue3 = (hue1 + 240) % 360;
-  const saturation = 50 + Math.random() * 40; // 50-90%
-  const lightness = 50 + Math.random() * 20; // 50-70%
-  const colours = [];
-
-  const hues = [hue1, hue2, hue3, hue1 + 60, hue2 + 60];
-  for (let i = 0; i < 5; i++) {
-    const h = hues[i];
-    const s = saturation + (Math.random() * 20 - 10);
-    const l = lightness + (Math.random() * 20 - 10);
-    const rgb = hslToRgb(h, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function triadic() {
+  const h1 = Math.random() * 360, s = 50 + Math.random() * 40, l = 50 + Math.random() * 20;
+  return [h1, h1 + 120, h1 + 240, h1 + 60, h1 + 180].map((h) => {
+    const rgb = hslToRgb(h % 360, s + Math.random() * 20 - 10, l + Math.random() * 20 - 10);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generatePastel() {
-  const baseHue = Math.random() * 360;
-  const colours = [];
-
-  for (let i = 0; i < 5; i++) {
-    const h = (baseHue + (i * 72 + Math.random() * 20 - 10)) % 360;
-    const s = 30 + Math.random() * 20; // 30-50% for muted effect
-    const l = 70 + Math.random() * 15; // 70-85% for light, soft colours
-    const rgb = hslToRgb(h, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function pastel() {
+  const base = Math.random() * 360;
+  return Array.from({ length: 5 }, (_, i) => {
+    const rgb = hslToRgb((base + i * 72 + Math.random() * 20 - 10) % 360, 30 + Math.random() * 20, 70 + Math.random() * 15);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateEarthy() {
-  const baseHue = 20 + Math.random() * 40; // Browns and oranges
-  const colours = [];
-
-  for (let i = 0; i < 5; i++) {
-    const h = (baseHue + (i * 20 + Math.random() * 15 - 7.5)) % 360;
-    const s = 30 + Math.random() * 40; // 30-70%
-    const l = 40 + Math.random() * 30; // 40-70%
-    const rgb = hslToRgb(h, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function earthy() {
+  const base = 20 + Math.random() * 40;
+  return Array.from({ length: 5 }, (_, i) => {
+    const rgb = hslToRgb((base + i * 20 + Math.random() * 15 - 7.5) % 360, 30 + Math.random() * 40, 40 + Math.random() * 30);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateWarm() {
-  const colours = [];
-  const hues = [0, 30, 60, 120, 180]; // Reds, oranges, yellows to warm greens
-
-  for (const baseHue of hues) {
-    const h = baseHue + (Math.random() * 20 - 10);
-    const s = 60 + Math.random() * 35; // 60-95%
-    const l = 50 + Math.random() * 25; // 50-75%
-    const rgb = hslToRgb((h + 360) % 360, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function warm() {
+  return [0, 30, 60, 120, 180].map((h) => {
+    const rgb = hslToRgb((h + Math.random() * 20 - 10 + 360) % 360, 60 + Math.random() * 35, 50 + Math.random() * 25);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateCool() {
-  const colours = [];
-  const hues = [180, 210, 240, 270, 300]; // Cyans, blues, purples
-
-  for (const baseHue of hues) {
-    const h = baseHue + (Math.random() * 20 - 10);
-    const s = 60 + Math.random() * 35; // 60-95%
-    const l = 50 + Math.random() * 25; // 50-75%
-    const rgb = hslToRgb(h, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function cool() {
+  return [180, 210, 240, 270, 300].map((h) => {
+    const rgb = hslToRgb(h + Math.random() * 20 - 10, 60 + Math.random() * 35, 50 + Math.random() * 25);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-function generateNeon() {
-  const colours = [];
-  const hues = [0, 60, 120, 240, 300]; // Neon red, yellow, green, blue, magenta
-
-  for (const baseHue of hues) {
-    const h = baseHue + (Math.random() * 15 - 7.5);
-    const s = 90 + Math.random() * 10; // 90-100% for vibrant neon
-    const l = 45 + Math.random() * 10; // 45-55% for brightness
-    const rgb = hslToRgb((h + 360) % 360, s, l);
-    colours.push(rgbToHex(rgb.r, rgb.g, rgb.b));
-  }
-
-  return colours;
+function neon() {
+  return [0, 60, 120, 240, 300].map((h) => {
+    const rgb = hslToRgb((h + Math.random() * 15 - 7.5 + 360) % 360, 90 + Math.random() * 10, 45 + Math.random() * 10);
+    return rgbToHex(rgb.r, rgb.g, rgb.b);
+  });
 }
 
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
+// ── Component ───────────────────────────────────────────────────
+
+const MODES = [
+  { id: 'random', label: 'Random' },
+  { id: 'monochromatic', label: 'Mono' },
+  { id: 'analogous', label: 'Analogous' },
+  { id: 'complementary', label: 'Complement' },
+  { id: 'triadic', label: 'Triadic' },
+  { id: 'pastel', label: 'Pastel' },
+  { id: 'earthy', label: 'Earthy' },
+  { id: 'warm', label: 'Warm' },
+  { id: 'cool', label: 'Cool' },
+  { id: 'neon', label: 'Neon' },
+];
 
 export default function ColourPaletteGenerator() {
-  const [palette, setPalette] = useState(generateRandomHarmonious());
-  const [lockedIndices, setLockedIndices] = useState(new Set());
+  const [palette, setPalette] = useState(() => gen('random'));
+  const [locked, setLocked] = useState(new Set());
   const [mode, setMode] = useState('random');
-  const [copiedIndex, setCopiedIndex] = useState(null);
+  const [copied, setCopied] = useState(null);
+  const [expanded, setExpanded] = useState(null);
   const [history, setHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
   const canvasRef = useRef(null);
 
-  const modeGenerators = {
-    random: generateRandomHarmonious,
-    monochromatic: generateMonochromatic,
-    analogous: generateAnalogous,
-    complementary: generateComplementary,
-    triadic: generateTriadic,
-    pastel: generatePastel,
-    earthy: generateEarthy,
-    warm: generateWarm,
-    cool: generateCool,
-    neon: generateNeon,
+  const generate = useCallback(() => {
+    const fresh = gen(mode);
+    const next = palette.map((c, i) => locked.has(i) ? c : fresh[i]);
+    setHistory((prev) => [palette, ...prev].slice(0, 10));
+    setPalette(next);
+  }, [palette, locked, mode]);
+
+  const toggleLock = (i) => {
+    setLocked((prev) => {
+      const s = new Set(prev);
+      s.has(i) ? s.delete(i) : s.add(i);
+      return s;
+    });
   };
 
-  // Generate new palette
-  const generatePalette = useCallback(() => {
-    const newColours = [];
+  const copy = (text, id) => {
+    navigator.clipboard.writeText(text).catch(() => {});
+    setCopied(id);
+    setTimeout(() => setCopied(null), 1200);
+  };
 
-    // Keep locked colours, generate new ones for unlocked
-    for (let i = 0; i < 5; i++) {
-      if (lockedIndices.has(i)) {
-        newColours[i] = palette[i];
-      }
-    }
-
-    // Generate missing colours
-    const generator = modeGenerators[mode];
-    const generatedFull = generator();
-
-    let generatedIdx = 0;
-    for (let i = 0; i < 5; i++) {
-      if (!lockedIndices.has(i)) {
-        newColours[i] = generatedFull[generatedIdx];
-        generatedIdx++;
-      }
-    }
-
-    // Add to history
+  const restore = (p) => {
     setHistory((prev) => [palette, ...prev].slice(0, 10));
-    setPalette(newColours);
-  }, [palette, lockedIndices, mode]);
+    setPalette(p);
+    setShowHistory(false);
+  };
 
-  // Toggle lock
-  const toggleLock = useCallback((index) => {
-    setLockedIndices((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(index)) {
-        newSet.delete(index);
-      } else {
-        newSet.add(index);
-      }
-      return newSet;
-    });
-  }, []);
-
-  // Copy colour to clipboard
-  const copyToClipboard = useCallback((colour, index) => {
-    navigator.clipboard.writeText(colour);
-    setCopiedIndex(index);
-    setTimeout(() => setCopiedIndex(null), 1500);
-  }, []);
-
-  // Download palette as PNG
-  const downloadPalette = useCallback(() => {
+  const download = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const width = 800;
-    const height = 300;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    // White background
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, width, height);
-
-    // Draw 5 colour swatches
-    const swatchWidth = width / 5;
-    const swatchHeight = 200;
-
-    for (let i = 0; i < 5; i++) {
-      const x = i * swatchWidth;
-      const y = 20;
-
-      // Draw colour
-      ctx.fillStyle = palette[i];
-      ctx.fillRect(x, y, swatchWidth, swatchHeight);
-
-      // Draw border
-      ctx.strokeStyle = '#e5e5e5';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(x, y, swatchWidth, swatchHeight);
-
-      // Draw hex code below
+    canvas.width = 800; canvas.height = 260;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, 800, 260);
+    const sw = 800 / 5;
+    palette.forEach((c, i) => {
+      ctx.fillStyle = c;
+      ctx.fillRect(i * sw, 0, sw, 200);
       ctx.fillStyle = '#1a1a1a';
-      ctx.font = 'bold 16px "JetBrains Mono", monospace';
+      ctx.font = 'bold 15px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(palette[i].toUpperCase(), x + swatchWidth / 2, y + swatchHeight + 40);
-    }
-
-    // Watermark
+      ctx.fillText(c.toUpperCase(), i * sw + sw / 2, 232);
+    });
     ctx.fillStyle = '#d4d4d4';
-    ctx.font = '12px system-ui, Arial, sans-serif';
+    ctx.font = '11px system-ui';
     ctx.textAlign = 'center';
-    ctx.fillText('mykit.tools', canvas.width / 2, canvas.height - 10);
-
-    // Download
+    ctx.fillText('mykit.tools', 400, 255);
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = `palette-${Date.now()}.png`;
     link.click();
-  }, [palette]);
+  };
 
-  // Restore from history
-  const restoreFromHistory = useCallback((paletteCopy) => {
-    setHistory((prev) => [palette, ...prev].slice(0, 10));
-    setPalette(paletteCopy);
-    setShowHistory(false);
-  }, [palette]);
+  const copyAllHex = () => {
+    copy(palette.map((c) => c.toUpperCase()).join(', '), 'all');
+  };
+
+  const copyCss = () => {
+    const css = palette.map((c, i) => `--color-${i + 1}: ${c};`).join('\n');
+    copy(css, 'css');
+  };
 
   // Spacebar shortcut
   useEffect(() => {
-    function handleKeyPress(e) {
+    const handler = (e) => {
       if (e.code === 'Space' && e.target === document.body) {
         e.preventDefault();
-        generatePalette();
+        generate();
       }
-    }
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [generatePalette]);
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [generate]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
-      {/* Mode Selection */}
-      <Card>
-        <h2 className="text-text-primary font-medium mb-4">Generation Mode</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {[
-            { id: 'random', label: 'Random' },
-            { id: 'monochromatic', label: 'Monochromatic' },
-            { id: 'analogous', label: 'Analogous' },
-            { id: 'complementary', label: 'Complementary' },
-            { id: 'triadic', label: 'Triadic' },
-            { id: 'pastel', label: 'Pastel' },
-            { id: 'earthy', label: 'Earthy' },
-            { id: 'warm', label: 'Warm' },
-            { id: 'cool', label: 'Cool' },
-            { id: 'neon', label: 'Neon' },
-          ].map((m) => (
-            <button
-              key={m.id}
-              onClick={() => setMode(m.id)}
-              className={`px-3 py-2 rounded-lg font-medium text-sm transition-all ${
-                mode === m.id
-                  ? 'bg-accent text-white'
-                  : 'bg-surface text-text-primary hover:bg-surface-hover border border-border'
-              }`}
-            >
-              {m.label}
-            </button>
-          ))}
-        </div>
-      </Card>
+    <div className="space-y-3">
+      {/* Mode pills - single scrollable row */}
+      <div className="flex flex-wrap gap-1.5">
+        {MODES.map((m) => (
+          <button
+            key={m.id}
+            onClick={() => setMode(m.id)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              mode === m.id
+                ? 'bg-accent text-white'
+                : 'bg-surface text-text-secondary hover:bg-surface-hover border border-border'
+            }`}
+          >
+            {m.label}
+          </button>
+        ))}
+      </div>
 
-      {/* Colour Swatches */}
-      <div className="space-y-2">
-        {palette.map((colour, index) => {
+      {/* Main palette display - horizontal colour bars */}
+      <div className="flex rounded-[var(--radius-card)] overflow-hidden border border-border" style={{ minHeight: 220 }}>
+        {palette.map((colour, i) => {
+          const light = isLight(colour);
+          const textClass = light ? 'text-black/70' : 'text-white/80';
+          const hoverClass = light ? 'hover:text-black' : 'hover:text-white';
           const rgb = hexToRgb(colour);
-          const hsl = rgb ? rgbToHsl(rgb.r, rgb.g, rgb.b) : { h: 0, s: 0, l: 0 };
-          const isLocked = lockedIndices.has(index);
-          const isCopied = copiedIndex === index;
+          const hsl = rgb ? rgbToHsl(rgb.r, rgb.g, rgb.b) : null;
+          const isExpanded = expanded === i;
 
           return (
-            <Card key={index} className="overflow-hidden">
-              <div className="flex items-stretch gap-4">
-                {/* Colour Swatch */}
-                <div
-                  className="w-24 h-24 rounded-lg flex-shrink-0 border-2 border-border cursor-pointer transition-transform hover:scale-105"
-                  style={{ backgroundColor: colour }}
-                  onClick={() => copyToClipboard(colour, index)}
-                  title="Click to copy hex code"
-                />
+            <div
+              key={i}
+              className="flex-1 flex flex-col items-center justify-end relative cursor-pointer transition-all group"
+              style={{ backgroundColor: colour }}
+              onClick={() => copy(colour.toUpperCase(), i)}
+            >
+              {/* Lock button - top */}
+              <button
+                onClick={(e) => { e.stopPropagation(); toggleLock(i); }}
+                className={`absolute top-2 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full flex items-center justify-center text-xs transition-all ${
+                  locked.has(i)
+                    ? (light ? 'bg-black/15 text-black/80' : 'bg-white/20 text-white/90')
+                    : `opacity-0 group-hover:opacity-100 ${light ? 'bg-black/10 text-black/50' : 'bg-white/10 text-white/50'}`
+                }`}
+                title={locked.has(i) ? 'Unlock' : 'Lock'}
+              >
+                {locked.has(i) ? '🔒' : '🔓'}
+              </button>
 
-                {/* Colour Values */}
-                <div className="flex-grow space-y-3">
-                  <div className="space-y-1">
-                    <p className="text-text-secondary text-sm">Hex</p>
-                    <p
-                      className="font-mono text-lg font-medium text-text-primary cursor-pointer hover:text-accent transition-colors"
-                      onClick={() => copyToClipboard(colour, index)}
-                    >
-                      {colour.toUpperCase()}
-                    </p>
-                    {isCopied && <p className="text-sm text-green-600 font-medium">✓ Copied!</p>}
+              {/* Expand toggle */}
+              <button
+                onClick={(e) => { e.stopPropagation(); setExpanded(isExpanded ? null : i); }}
+                className={`absolute top-10 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-all ${
+                  light ? 'bg-black/10 text-black/50 hover:bg-black/20' : 'bg-white/10 text-white/50 hover:bg-white/20'
+                }`}
+                title="Details"
+              >
+                {isExpanded ? '−' : '+'}
+              </button>
+
+              {/* Colour info (centre) - shown on expand */}
+              {isExpanded && rgb && hsl && (
+                <div className={`text-center space-y-1 mb-auto mt-16 ${textClass} text-xs font-mono`}>
+                  <div
+                    className={`cursor-pointer ${hoverClass}`}
+                    onClick={(e) => { e.stopPropagation(); copy(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, `rgb-${i}`); }}
+                  >
+                    {copied === `rgb-${i}` ? '✓ Copied' : `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`}
                   </div>
-
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="text-text-secondary">RGB</p>
-                      <p className="font-mono text-text-primary">
-                        {rgb.r}, {rgb.g}, {rgb.b}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-text-secondary">HSL</p>
-                      <p className="font-mono text-text-primary">
-                        {hsl.h}°, {hsl.s}%, {hsl.l}%
-                      </p>
-                    </div>
+                  <div
+                    className={`cursor-pointer ${hoverClass}`}
+                    onClick={(e) => { e.stopPropagation(); copy(`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`, `hsl-${i}`); }}
+                  >
+                    {copied === `hsl-${i}` ? '✓ Copied' : `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`}
                   </div>
                 </div>
+              )}
 
-                {/* Lock Button */}
-                <div className="flex flex-col items-center justify-center gap-2 pl-4 border-l border-border">
-                  <button
-                    onClick={() => toggleLock(index)}
-                    className={`p-2 rounded-lg transition-all ${
-                      isLocked
-                        ? 'bg-accent text-white'
-                        : 'bg-surface text-text-secondary hover:bg-surface-hover'
-                    }`}
-                    title={isLocked ? 'Unlock colour' : 'Lock colour'}
-                  >
-                    {isLocked ? '🔒' : '🔓'}
-                  </button>
+              {/* Hex label - bottom */}
+              <div className={`pb-3 pt-2 text-center ${textClass} ${hoverClass} transition-colors`}>
+                <div className="font-mono text-sm font-semibold">
+                  {copied === i ? '✓ Copied' : colour.toUpperCase()}
                 </div>
               </div>
-            </Card>
+            </div>
           );
         })}
       </div>
 
-      {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Button variant="primary" onClick={generatePalette} className="flex-1">
-          Generate Palette (Spacebar)
+      {/* Action row */}
+      <div className="flex flex-wrap items-center gap-2">
+        <Button variant="primary" onClick={generate} size="sm">
+          Generate
         </Button>
-        <Button variant="secondary" onClick={downloadPalette} className="flex-1">
-          📥 Download as PNG
-        </Button>
-        {history.length > 0 && (
-          <Button
-            variant="ghost"
-            onClick={() => setShowHistory(!showHistory)}
-            className="flex-1"
+        <span className="text-xs text-text-muted hidden sm:inline">or press Space</span>
+
+        <div className="flex gap-1.5 ml-auto">
+          <button
+            onClick={copyAllHex}
+            className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface text-text-secondary hover:bg-surface-hover border border-border transition-colors"
           >
-            📋 History ({history.length})
-          </Button>
-        )}
+            {copied === 'all' ? '✓ Copied' : 'Copy Hex'}
+          </button>
+          <button
+            onClick={copyCss}
+            className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface text-text-secondary hover:bg-surface-hover border border-border transition-colors"
+          >
+            {copied === 'css' ? '✓ Copied' : 'Copy CSS'}
+          </button>
+          <button
+            onClick={download}
+            className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface text-text-secondary hover:bg-surface-hover border border-border transition-colors"
+          >
+            Download PNG
+          </button>
+          {history.length > 0 && (
+            <button
+              onClick={() => setShowHistory(!showHistory)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                showHistory
+                  ? 'bg-accent text-white'
+                  : 'bg-surface text-text-secondary hover:bg-surface-hover border border-border'
+              }`}
+            >
+              History ({history.length})
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* History */}
+      {/* History panel */}
       {showHistory && history.length > 0 && (
-        <Card className="bg-surface">
-          <h3 className="text-text-primary font-medium mb-3">Palette History</h3>
-          <div className="space-y-2 max-h-80 overflow-y-auto">
-            {history.map((historyPalette, historyIndex) => (
-              <button
-                key={historyIndex}
-                onClick={() => restoreFromHistory(historyPalette)}
-                className="w-full p-3 bg-white border border-border rounded-lg hover:bg-surface-hover transition-colors text-left"
-              >
-                <div className="flex gap-2 items-center">
-                  {historyPalette.slice(0, 5).map((colour, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded border border-border flex-shrink-0"
-                      style={{ backgroundColor: colour }}
-                    />
-                  ))}
-                  <span className="text-text-secondary text-sm ml-auto">
-                    {historyPalette.join(', ')}
-                  </span>
-                </div>
-              </button>
-            ))}
-          </div>
+        <Card className="space-y-1.5">
+          {history.map((hp, hi) => (
+            <button
+              key={hi}
+              onClick={() => restore(hp)}
+              className="w-full flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface transition-colors"
+            >
+              <div className="flex flex-1 rounded overflow-hidden h-6">
+                {hp.map((c, ci) => (
+                  <div key={ci} className="flex-1" style={{ backgroundColor: c }} />
+                ))}
+              </div>
+              <span className="text-xs text-text-muted font-mono hidden sm:block">
+                {hp.map((c) => c.toUpperCase()).join(' ')}
+              </span>
+            </button>
+          ))}
         </Card>
       )}
 
-      {/* Hidden canvas for PNG export */}
       <canvas ref={canvasRef} className="hidden" />
     </div>
   );

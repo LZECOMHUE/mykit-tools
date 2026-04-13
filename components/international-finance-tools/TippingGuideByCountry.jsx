@@ -215,9 +215,9 @@ export default function TippingGuideByCountry() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
+        <h2 className="font-heading text-2xl font-bold text-primary mb-4">
           International Tipping Guide
         </h2>
 
@@ -270,9 +270,9 @@ export default function TippingGuideByCountry() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Quick Result */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
+          <Card className="bg-accent-muted border-2 border-accent">
             <h3 className="font-heading text-xl font-bold text-primary mb-4">
               {result.country}
             </h3>
@@ -308,7 +308,7 @@ export default function TippingGuideByCountry() {
           </Card>
 
           {/* Cultural Information */}
-          <Card className="p-6 space-y-4">
+          <Card className="space-y-4">
             <div>
               <h4 className="font-heading font-bold text-primary mb-2">
                 Tipping Culture
@@ -340,7 +340,7 @@ export default function TippingGuideByCountry() {
           </Card>
 
           {/* Common Tipping Scenarios */}
-          <Card className="p-6">
+          <Card>
             <h4 className="font-heading font-bold text-primary mb-4">
               Quick Reference: Common Scenarios
             </h4>

@@ -82,9 +82,9 @@ export default function USHSACalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Configuration */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Coverage Type
@@ -190,7 +190,7 @@ export default function USHSACalculator() {
       </div>
 
       {/* Tax Savings */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-4 text-lg">
           Annual Tax Savings
         </h3>
@@ -217,7 +217,7 @@ export default function USHSACalculator() {
       </div>
 
       {/* Long-Term Growth */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Projected Balance (After {yearsGrowing} Years)
         </h3>
@@ -244,7 +244,7 @@ export default function USHSACalculator() {
       </div>
 
       {/* HSA Features */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">🏥 HSA Benefits</h3>
         <div className="grid sm:grid-cols-2 gap-3 text-sm">
           <div className="flex gap-2">
@@ -275,7 +275,7 @@ export default function USHSACalculator() {
       </div>
 
       {/* Qualifying Expenses */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">Qualifying Medical Expenses</h3>
         <div className="text-sm text-text-secondary space-y-1">
           <p>✓ Doctor visits and prescriptions</p>

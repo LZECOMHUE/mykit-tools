@@ -86,8 +86,8 @@ export default function HowCommonIsYourName() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             First Name
@@ -111,7 +111,7 @@ export default function HowCommonIsYourName() {
         <div className="space-y-4">
           {result.found ? (
             <>
-              <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-8">
+              <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
                 <p className="text-sm opacity-90 mb-2">Popularity Ranking</p>
                 <div className="flex items-baseline gap-2">
                   <span className="font-heading text-5xl font-bold">{result.rank}</span>
@@ -120,11 +120,11 @@ export default function HowCommonIsYourName() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+                <div className="bg-surface border border-border rounded-[var(--radius-card)]">
                   <p className="text-text-muted text-xs font-medium mb-2">Peak Popularity</p>
                   <p className="font-heading text-xl font-bold text-text-primary">{result.peak}</p>
                 </div>
-                <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+                <div className="bg-surface border border-border rounded-[var(--radius-card)]">
                   <p className="text-text-muted text-xs font-medium mb-2">Current Trend</p>
                   <p className="font-heading text-lg font-bold text-text-primary">
                     {getTrendEmoji(result.trend)} {result.trend.charAt(0).toUpperCase() + result.trend.slice(1)}
@@ -139,7 +139,7 @@ export default function HowCommonIsYourName() {
               </div>
             </>
           ) : (
-            <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+            <div className="bg-surface border border-border rounded-[var(--radius-card)]">
               <p className="text-text-secondary">
                 {result.name} is not in the top 20 most popular names in our database. It might be more unique than you think!
               </p>

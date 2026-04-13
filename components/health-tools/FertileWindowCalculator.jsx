@@ -107,7 +107,7 @@ export default function FertileWindowCalculator() {
     };
 
     return (
-      <div key={month.date.toISOString()} className="mb-6">
+      <div key={month.date.toISOString()} className="mb-4">
         <p className="font-heading font-semibold text-center mb-3">{monthName}</p>
 
         <div className="grid grid-cols-7 gap-px">
@@ -155,7 +155,7 @@ export default function FertileWindowCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card>
         <div className="space-y-4">
           <div>

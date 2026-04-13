@@ -62,13 +62,13 @@ export default function CoinFlipButSmarter() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <Card className="mb-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
+      <Card className="mb-4">
         <h2 className="font-heading text-2xl font-bold text-text-primary mb-4 text-center">
           Coin Flip But Smarter
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Input
             label="Heads = "
             placeholder="First option"
@@ -95,7 +95,7 @@ export default function CoinFlipButSmarter() {
 
       {/* Coin Animation */}
       {isFlipping && (
-        <Card className="mb-6 py-12 text-center bg-accent/5">
+        <Card className="mb-4 py-12 text-center bg-accent/5">
           <div className="flex justify-center">
             <div
               className="w-24 h-24 rounded-full bg-accent text-white flex items-center justify-center font-heading text-4xl font-bold animate-spin"
@@ -109,7 +109,7 @@ export default function CoinFlipButSmarter() {
 
       {/* Result */}
       {result && !isFlipping && (
-        <Card className="mb-6 bg-accent/5 border-accent/30">
+        <Card className="mb-4 bg-accent/5 border-accent/30">
           <div className="text-center">
             <div className="mb-4">
               <div className="text-6xl mb-2">

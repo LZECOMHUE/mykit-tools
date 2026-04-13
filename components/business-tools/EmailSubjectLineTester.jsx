@@ -170,7 +170,7 @@ export default function EmailSubjectLineTester() {
   }, [analysis]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto space-y-4">
       {/* Input */}
       <div className="space-y-2">
         <label className="block text-text-secondary text-sm font-medium">Paste your subject line:</label>
@@ -186,7 +186,7 @@ export default function EmailSubjectLineTester() {
       {analysis && (
         <>
           {/* Score */}
-          <div className={`rounded-[var(--radius-card)] border-2 p-6 text-center space-y-2 ${
+          <div className={`rounded-[var(--radius-card)] border-2 text-center space-y-2 ${
             analysis.score >= 80 ? 'bg-success/10 border-success' :
             analysis.score >= 60 ? 'bg-accent-muted border-accent' :
             analysis.score >= 40 ? 'bg-warning/10 border-warning' :

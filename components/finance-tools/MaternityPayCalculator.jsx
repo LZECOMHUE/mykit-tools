@@ -68,13 +68,10 @@ export default function MaternityPayCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          UK Maternity Pay Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Calculate your Statutory Maternity Pay (SMP) for 2026/27.
         </p>
 
@@ -131,11 +128,11 @@ export default function MaternityPayCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {result.qualifies ? (
             <>
-              <Card className="p-6 bg-green-50 border-2 border-green-400">
-                <h3 className="font-heading text-xl font-bold text-green-700 mb-6">
+              <Card className="bg-green-50 border-2 border-green-400">
+                <h3 className="font-heading text-xl font-bold text-green-700 mb-4">
                   You Qualify for Statutory Maternity Pay
                 </h3>
 
@@ -161,8 +158,8 @@ export default function MaternityPayCalculator() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-surface">
-                <h3 className="font-heading text-lg font-bold text-primary mb-6">
+              <Card className="bg-surface">
+                <h3 className="font-heading text-lg font-bold text-primary mb-4">
                   Payment Breakdown
                 </h3>
 
@@ -212,7 +209,7 @@ export default function MaternityPayCalculator() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-surface">
+              <Card className="bg-surface">
                 <h3 className="font-heading text-lg font-bold text-primary mb-4">
                   Maternity Leave Timeline
                 </h3>
@@ -236,7 +233,7 @@ export default function MaternityPayCalculator() {
               </Card>
             </>
           ) : (
-            <Card className="p-6 bg-yellow-50 border-2 border-yellow-400">
+            <Card className="bg-yellow-50 border-2 border-yellow-400">
               <h3 className="font-heading text-lg font-bold text-yellow-700 mb-4">
                 You May Not Qualify for Statutory Maternity Pay
               </h3>
@@ -262,7 +259,7 @@ export default function MaternityPayCalculator() {
             </Card>
           )}
 
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Important Information
             </h3>

@@ -91,8 +91,8 @@ export default function HabitTracker() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div className="flex gap-4">
           <div className="flex-1">
             <label className="block text-text-secondary text-sm font-medium mb-2">Month & Year</label>
@@ -113,7 +113,7 @@ export default function HabitTracker() {
         </div>
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Add Habit ({habits.length}/10)
@@ -151,7 +151,7 @@ export default function HabitTracker() {
       </div>
 
       {habits.length > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4 overflow-x-auto">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4 overflow-x-auto">
           <h3 className="font-heading text-base font-bold text-text-primary">{monthName}</h3>
 
           <div className="min-w-full">

@@ -136,7 +136,7 @@ export default function BbqPlanner() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-primary mb-2">
           Number of Guests
@@ -151,7 +151,7 @@ export default function BbqPlanner() {
         />
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Menu Items
         </h3>
@@ -173,7 +173,7 @@ export default function BbqPlanner() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6 space-y-4">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4 space-y-4">
         <h3 className="font-heading text-lg font-bold text-text-primary">
           Shopping List
         </h3>

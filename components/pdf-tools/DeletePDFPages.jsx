@@ -95,14 +95,14 @@ export default function DeletePDFPages() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-[var(--radius-input)]">
           {error}
         </div>
       )}
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <h2 className="text-lg font-semibold text-text-primary mb-4">
           Select Pages to Remove
         </h2>

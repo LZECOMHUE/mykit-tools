@@ -70,7 +70,7 @@ export default function PixelsToPhysicalConverter() {
   const copyToClipboard = (value, key) => {
     navigator.clipboard.writeText(
       typeof value === 'number' ? value.toFixed(2) : value
-    );
+    ).catch(() => {});
     setCopied(key);
     setTimeout(() => setCopied(null), 2000);
   };
@@ -80,7 +80,7 @@ export default function PixelsToPhysicalConverter() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Mode Selector */}
       <div className="flex gap-1 border-b border-border mb-4">
         {[
@@ -104,9 +104,9 @@ export default function PixelsToPhysicalConverter() {
       {mode === 'pixels-to-size' ? (
         // PIXELS TO SIZE MODE
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Input Section */}
-            <Card className="p-6 border border-border">
+            <Card className="border border-border">
               <h3 className="font-heading font-semibold mb-4">Input</h3>
               <div className="space-y-4">
                 <Input
@@ -153,7 +153,7 @@ export default function PixelsToPhysicalConverter() {
             </Card>
 
             {/* Results Section */}
-            <Card className="p-6 border border-border bg-surface">
+            <Card className="border border-border bg-surface">
               <h3 className="font-heading font-semibold mb-4">Result</h3>
               <div className="space-y-3">
                 <div
@@ -203,7 +203,7 @@ export default function PixelsToPhysicalConverter() {
           </div>
 
           {/* Common Conversions Table */}
-          <Card className="p-6 border border-border">
+          <Card className="border border-border">
             <h3 className="font-heading font-semibold mb-4">
               Common Conversions Reference
             </h3>
@@ -240,9 +240,9 @@ export default function PixelsToPhysicalConverter() {
       ) : (
         // SIZE TO PIXELS MODE
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Input Section */}
-            <Card className="p-6 border border-border">
+            <Card className="border border-border">
               <h3 className="font-heading font-semibold mb-4">Input</h3>
               <div className="space-y-4">
                 <Select
@@ -295,7 +295,7 @@ export default function PixelsToPhysicalConverter() {
             </Card>
 
             {/* Results Section */}
-            <Card className="p-6 border border-border bg-surface">
+            <Card className="border border-border bg-surface">
               <h3 className="font-heading font-semibold mb-4">Result</h3>
               <div
                 className="p-4 bg-white rounded-lg border border-border cursor-pointer hover:border-accent transition-colors"
@@ -313,7 +313,7 @@ export default function PixelsToPhysicalConverter() {
           </div>
 
           {/* Quick Reference */}
-          <Card className="p-6 border border-border">
+          <Card className="border border-border">
             <h3 className="font-heading font-semibold mb-4">Quick Reference</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 bg-surface rounded-lg border border-border">

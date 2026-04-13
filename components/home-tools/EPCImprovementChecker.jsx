@@ -266,10 +266,10 @@ export default function EPCImprovementChecker() {
   }, [currentRating, propertyType, ageBand, cavityWallInsulated, loftInsulationDepth, glazingType, boilerAge, heatingControls]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">EPC Improvement Checker</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -329,8 +329,8 @@ export default function EPCImprovementChecker() {
       </div>
 
       {/* EPC Rating Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-sm text-text-muted uppercase font-semibold mb-2">Current EPC Rating</h3>
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center">
@@ -345,7 +345,7 @@ export default function EPCImprovementChecker() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-sm text-text-muted uppercase font-semibold mb-2">Potential New Rating</h3>
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
@@ -360,7 +360,7 @@ export default function EPCImprovementChecker() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
           <h3 className="text-sm text-blue-700 uppercase font-semibold mb-2">Total Investment</h3>
           <p className="text-2xl font-bold font-mono text-blue-600 mb-2">
             {formatCurrency(calculations.totalCost)}
@@ -375,7 +375,7 @@ export default function EPCImprovementChecker() {
       </div>
 
       {/* Recommended Improvements */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Recommended Improvements (by Cost-Effectiveness)</h3>
 
         <div className="space-y-3">
@@ -424,8 +424,8 @@ export default function EPCImprovementChecker() {
       </div>
 
       {/* Quick Wins vs Major Investments */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Quick Wins (under £500)</h3>
           <ul className="space-y-2 text-sm text-green-800">
             {calculations.improvements
@@ -442,7 +442,7 @@ export default function EPCImprovementChecker() {
           </ul>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">Medium (£500-5000)</h3>
           <ul className="space-y-2 text-sm text-blue-800">
             {calculations.improvements
@@ -459,7 +459,7 @@ export default function EPCImprovementChecker() {
           </ul>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-[12px] p-6">
+        <div className="bg-purple-50 border border-purple-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-purple-900 mb-4">Major (£5000+)</h3>
           <ul className="space-y-2 text-sm text-purple-800">
             {calculations.improvements
@@ -478,7 +478,7 @@ export default function EPCImprovementChecker() {
       </div>
 
       {/* Grants and Support */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💰 Grants & Support Available</h3>
         <div className="space-y-3 text-sm text-amber-800">
           <div className="border-b border-amber-200 pb-3">
@@ -501,7 +501,7 @@ export default function EPCImprovementChecker() {
       </div>
 
       {/* Tips */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">💡 Improvement Strategy</h3>
         <ol className="space-y-2 text-sm text-blue-800 list-decimal list-inside">
           <li><span className="font-semibold">Start with loft insulation:</span> Fastest payback, biggest impact</li>

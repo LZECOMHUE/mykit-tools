@@ -393,13 +393,13 @@ const EmotionalIntelligenceQuiz = () => {
 
     return (
       <div className="w-full max-w-2xl mx-auto">
-        <Card className="p-8">
-          <div className="text-center mb-8">
+        <Card>
+          <div className="text-center mb-4">
             <h2 className="text-3xl font-bold text-text-primary mb-2">Your Results</h2>
             <p className="text-text-secondary">Emotional Intelligence Assessment</p>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-900 to-orange-100 rounded-lg p-8 mb-8 border border-orange-300">
+          <div className="bg-gradient-to-br from-amber-900 to-orange-100 rounded-lg mb-4 border border-orange-300">
             <div className="text-center">
               <p className="text-white text-sm mb-2">Total Score</p>
               <p className="font-mono text-6xl font-bold mb-2" style={{ color: category.color }}>
@@ -412,7 +412,7 @@ const EmotionalIntelligenceQuiz = () => {
             </div>
           </div>
 
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Domain Breakdown</h3>
             <div className="space-y-4">
               {[
@@ -443,7 +443,7 @@ const EmotionalIntelligenceQuiz = () => {
             </div>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4 flex items-center gap-2">
               <span className="text-blue-600">📈</span>
               Developing Your EI
@@ -458,7 +458,7 @@ const EmotionalIntelligenceQuiz = () => {
             </ul>
           </div>
 
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-8">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">About This Assessment</h3>
             <p className="text-text-secondary mb-4">
               This assessment is based on Salovey & Mayer's framework of emotional intelligence, which includes perceiving, using, understanding, and managing emotions.
@@ -490,8 +490,8 @@ const EmotionalIntelligenceQuiz = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="p-8">
-        <div className="mb-6">
+      <Card>
+        <div className="mb-4">
           <p className="text-sm text-text-muted mb-2">
             Question {currentQuestion + 1} of {questions.length}
           </p>
@@ -503,7 +503,7 @@ const EmotionalIntelligenceQuiz = () => {
           </div>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-4">
           <p className="text-xs font-bold uppercase tracking-wide text-text-muted mb-3">
             {domains[currentQuestionData.domain].name}
           </p>
@@ -512,7 +512,7 @@ const EmotionalIntelligenceQuiz = () => {
           </h2>
         </div>
 
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-4">
           {currentQuestionData.options.map((option, index) => (
             <button
               key={index}
@@ -529,7 +529,7 @@ const EmotionalIntelligenceQuiz = () => {
         </div>
 
         {/* Progress indicator dots */}
-        <div className="flex justify-center gap-2 mb-6 flex-wrap">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {Array.from({ length: questions.length }).map((_, index) => (
             <button
               key={index}

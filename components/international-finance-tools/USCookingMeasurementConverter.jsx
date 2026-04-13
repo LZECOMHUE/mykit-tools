@@ -84,8 +84,8 @@ export default function USCookingMeasurementConverter() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8">
-      <div className="grid md:grid-cols-2 gap-8">
+    <div className="bg-surface rounded-lg">
+      <div className="grid md:grid-cols-2 gap-4">
         {/* From Unit */}
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">

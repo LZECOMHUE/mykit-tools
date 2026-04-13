@@ -86,11 +86,8 @@ export default function WorkplacePensionCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Workplace Pension Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
         <div className="space-y-4">
           <div>
@@ -205,10 +202,10 @@ export default function WorkplacePensionCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Projected Pot */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Projected Pension Pot
             </h3>
 
@@ -224,8 +221,8 @@ export default function WorkplacePensionCalculator() {
           </Card>
 
           {/* Annual Contributions */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Annual Contributions
             </h3>
 
@@ -260,8 +257,8 @@ export default function WorkplacePensionCalculator() {
           </Card>
 
           {/* Tax Relief & Savings */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Tax Relief and Savings
             </h3>
 
@@ -308,7 +305,7 @@ export default function WorkplacePensionCalculator() {
           </Card>
 
           {/* Comparison */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               What You're Getting
             </h3>
@@ -324,7 +321,7 @@ export default function WorkplacePensionCalculator() {
           </Card>
 
           {/* Notes */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Important Notes
             </h3>

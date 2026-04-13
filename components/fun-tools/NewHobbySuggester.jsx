@@ -155,6 +155,8 @@ const hobbies = [
   },
 ];
 
+const DIFFICULTY_COLORS = { easy: 'bg-green-100 text-green-700', medium: 'bg-yellow-100 text-yellow-700', hard: 'bg-red-100 text-red-700' };
+
 export default function NewHobbySuggester() {
   const [filters, setFilters] = useState({
     type: 'both',
@@ -183,61 +185,61 @@ export default function NewHobbySuggester() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
-      <div className="space-y-4">
+    <div className="w-full max-w-2xl mx-auto space-y-3">
+      <div className="grid grid-cols-2 gap-2">
         <div>
-          <label className="block text-text-primary font-medium mb-2">Location</label>
+          <label className="block text-text-primary text-xs font-medium mb-1">Location</label>
           <select
             value={filters.type}
             onChange={(e) => handleFilterChange('type', e.target.value)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           >
-            <option value="both">Both Indoor & Outdoor</option>
-            <option value="indoor">Indoor Only</option>
-            <option value="outdoor">Outdoor Only</option>
+            <option value="both">Both</option>
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-text-primary font-medium mb-2">Budget</label>
+          <label className="block text-text-primary text-xs font-medium mb-1">Budget</label>
           <select
             value={filters.budget}
             onChange={(e) => handleFilterChange('budget', e.target.value)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           >
-            <option value="any">Any Budget</option>
+            <option value="any">Any</option>
             <option value="free">Free</option>
-            <option value="low">Low (under £30)</option>
-            <option value="medium">Medium (£30-100)</option>
-            <option value="high">High (over £100)</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-text-primary font-medium mb-2">Time Commitment</label>
+          <label className="block text-text-primary text-xs font-medium mb-1">Time</label>
           <select
             value={filters.time}
             onChange={(e) => handleFilterChange('time', e.target.value)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           >
-            <option value="any">Any Time</option>
-            <option value="30min">30 minutes</option>
+            <option value="any">Any</option>
+            <option value="30min">30 min</option>
             <option value="1hr">1 hour</option>
             <option value="2hr+">2+ hours</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-text-primary font-medium mb-2">Social</label>
+          <label className="block text-text-primary text-xs font-medium mb-1">Social</label>
           <select
             value={filters.social}
             onChange={(e) => handleFilterChange('social', e.target.value)}
-            className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           >
-            <option value="any">Solo or Social</option>
+            <option value="any">Any</option>
             <option value="solo">Solo</option>
-            <option value="social">Social/Groups</option>
-            <option value="both">Both Options</option>
+            <option value="social">Social</option>
+            <option value="both">Both</option>
           </select>
         </div>
       </div>
@@ -251,37 +253,23 @@ export default function NewHobbySuggester() {
           displayedSuggestions.map((hobby, idx) => (
             <div
               key={idx}
-              className="bg-surface p-4 rounded-[var(--radius-card)] space-y-2 hover:bg-blue-50 transition"
+              className="bg-surface p-4 rounded-[var(--radius-card)] hover:bg-blue-50 transition"
             >
               <p className="text-text-primary font-medium text-lg">{hobby.name}</p>
-              <p className="text-text-secondary text-sm">{hobby.description}</p>
+              <p className="text-text-secondary text-sm mb-2">{hobby.description}</p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <div className="bg-white border border-border p-2 rounded-[var(--radius-input)]">
-                  <p className="text-text-muted">Cost</p>
-                  <p className="text-text-primary font-mono">{hobby.cost}</p>
-                </div>
-                <div className="bg-white border border-border p-2 rounded-[var(--radius-input)]">
-                  <p className="text-text-muted">Difficulty</p>
-                  <p className="text-text-primary font-mono capitalize">{hobby.difficulty}</p>
-                </div>
-                <div className="bg-white border border-border p-2 rounded-[var(--radius-input)]">
-                  <p className="text-text-muted">Time</p>
-                  <p className="text-text-primary font-mono">{hobby.time}</p>
-                </div>
-                <div className="bg-white border border-border p-2 rounded-[var(--radius-input)]">
-                  <p className="text-text-muted">Type</p>
-                  <p className="text-text-primary font-mono capitalize">{hobby.type}</p>
-                </div>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="px-2 py-0.5 bg-white border border-border rounded-full text-xs font-mono text-text-primary">{hobby.cost}</span>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-medium capitalize ${DIFFICULTY_COLORS[hobby.difficulty]}`}>{hobby.difficulty}</span>
+                <span className="px-2 py-0.5 bg-white border border-border rounded-full text-xs text-text-secondary">{hobby.time}</span>
+                <span className="px-2 py-0.5 bg-white border border-border rounded-full text-xs text-text-secondary capitalize">{hobby.type}</span>
               </div>
             </div>
           ))
         ) : (
-          <div className="bg-surface p-6 rounded-[var(--radius-card)] text-center">
-            <p className="text-text-muted">
-              No hobbies match your filters. Try adjusting your preferences!
-            </p>
-          </div>
+          <p className="text-text-muted text-sm text-center py-4">
+            No hobbies match your filters. Try adjusting your preferences.
+          </p>
         )}
       </div>
     </div>

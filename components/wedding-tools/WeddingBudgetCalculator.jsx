@@ -69,11 +69,9 @@ export default function WeddingBudgetCalculator() {
   const categories = Object.keys(budgetAllocation);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Budget Input */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
-        <h2 className="text-xl font-bold text-text-primary">Wedding Budget Calculator</h2>
-
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Total Wedding Budget
@@ -100,7 +98,7 @@ export default function WeddingBudgetCalculator() {
       </div>
 
       {/* Budget Allocation */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-bold text-text-primary">Allocate Budget</h3>
           <button
@@ -205,7 +203,7 @@ export default function WeddingBudgetCalculator() {
       </div>
 
       {/* Summary */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Budget Summary</h3>
         <div className="space-y-2">
           {categories.map((category) => (
@@ -231,7 +229,7 @@ export default function WeddingBudgetCalculator() {
       </div>
 
       {/* Industry Averages */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">Industry Standard Allocations</h3>
         <p className="text-text-secondary text-sm mb-4">
           These percentages are based on industry standards for wedding budgets:
@@ -247,7 +245,7 @@ export default function WeddingBudgetCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Budget Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Venue often costs the most (40%) — book early for better rates</li>

@@ -101,7 +101,7 @@ export default function StayAtHomeParentCalculator() {
 
   const handleCopy = () => {
     const text = `My stay-at-home parenting is worth ${formatCurrency(calc.totalYearly, country)}/year. That's ${calc.pctSalary.toFixed(0)}% of an average salary and ${calc.fteJobs.toFixed(1)} full-time jobs.\n\nmykit.tools/stay-at-home-mum-calculator`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -114,7 +114,7 @@ export default function StayAtHomeParentCalculator() {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* ── Controls: just country ── */}
       <div className="flex flex-wrap items-end gap-3 mb-4">
         <div className="w-44">

@@ -160,12 +160,12 @@ export default function BuyToLetCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="bg-surface rounded-[var(--radius-card)] border border-border p-6">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">Property Details</h2>
+      <div className="bg-surface rounded-[var(--radius-card)] border border-border">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">Property Details</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <Input
             label="Property Purchase Price"
             type="number"
@@ -258,11 +258,11 @@ export default function BuyToLetCalculator() {
       </div>
 
       {/* Results Section */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Investment Summary */}
-        <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+        <div className="bg-white rounded-[var(--radius-card)] border border-border">
           <h3 className="text-lg font-semibold text-text-primary mb-4">Investment Summary</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-text-secondary mb-1">Deposit Required</p>
               <p className="text-2xl font-mono-num font-bold text-text-primary">
@@ -298,8 +298,8 @@ export default function BuyToLetCalculator() {
         </div>
 
         {/* Yields */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white rounded-[var(--radius-card)] border border-border">
             <p className="text-sm text-text-secondary mb-2">Gross Yield</p>
             <p className="text-3xl font-mono-num font-bold text-text-primary">
               {formatPercentage(calculations.grossYield, 2)}
@@ -308,7 +308,7 @@ export default function BuyToLetCalculator() {
               Annual rent ÷ property price
             </p>
           </div>
-          <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+          <div className="bg-white rounded-[var(--radius-card)] border border-border">
             <p className="text-sm text-text-secondary mb-2">Net Yield</p>
             <p className="text-3xl font-mono-num font-bold text-accent">
               {formatPercentage(calculations.netYield, 2)}
@@ -317,7 +317,7 @@ export default function BuyToLetCalculator() {
               After mortgage & expenses
             </p>
           </div>
-          <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+          <div className="bg-white rounded-[var(--radius-card)] border border-border">
             <p className="text-sm text-text-secondary mb-2">ROI (Year 1)</p>
             <p className="text-3xl font-mono-num font-bold text-text-primary">
               {formatPercentage(calculations.roi, 2)}
@@ -329,7 +329,7 @@ export default function BuyToLetCalculator() {
         </div>
 
         {/* Monthly Cash Flow */}
-        <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+        <div className="bg-white rounded-[var(--radius-card)] border border-border">
           <h3 className="text-lg font-semibold text-text-primary mb-4">Monthly Cash Flow</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -360,7 +360,7 @@ export default function BuyToLetCalculator() {
         </div>
 
         {/* Annual Profit Breakdown */}
-        <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+        <div className="bg-white rounded-[var(--radius-card)] border border-border">
           <h3 className="text-lg font-semibold text-text-primary mb-4">Annual Profit Breakdown</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -421,21 +421,21 @@ export default function BuyToLetCalculator() {
 
         {/* Info Boxes */}
         <div className="space-y-4">
-          <div className="bg-blue-50 rounded-[var(--radius-card)] p-6 border border-blue-200">
+          <div className="bg-blue-50 rounded-[var(--radius-card)] border border-blue-200">
             <h4 className="font-semibold text-text-primary mb-3">Section 24 — Mortgage Interest Relief</h4>
             <p className="text-sm text-text-secondary mb-2">
               From April 2020, higher-rate taxpayers can only claim 20% basic rate tax credit on mortgage interest (not full deduction). This is why your taxable profit is calculated as: rental profit minus mortgage interest relief credit.
             </p>
           </div>
 
-          <div className="bg-amber-50 rounded-[var(--radius-card)] p-6 border border-amber-200">
+          <div className="bg-amber-50 rounded-[var(--radius-card)] border border-amber-200">
             <h4 className="font-semibold text-text-primary mb-3">SDLT Surcharge (Oct 2024)</h4>
             <p className="text-sm text-text-secondary mb-2">
               An additional 5% surcharge applies to all additional residential properties (second homes, buy-to-let). This is added to the standard SDLT rates shown above.
             </p>
           </div>
 
-          <div className="bg-green-50 rounded-[var(--radius-card)] p-6 border border-green-200">
+          <div className="bg-green-50 rounded-[var(--radius-card)] border border-green-200">
             <h4 className="font-semibold text-text-primary mb-3">Important Notes</h4>
             <ul className="text-sm text-text-secondary space-y-1">
               <li>• This calculation assumes a standard 5/5 mortgage (5% deposit down, interest-only or repayment)</li>

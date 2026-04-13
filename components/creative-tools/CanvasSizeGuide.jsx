@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 
 const inputCls = 'w-full px-3 py-2 bg-white border border-[#e5e5e5] rounded-[8px] text-[13px] text-[#1a1a1a] focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb1f] transition-colors';
 const selectCls = 'w-full px-3 py-2 bg-white border border-[#e5e5e5] rounded-[8px] text-[13px] text-[#1a1a1a] focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb1f] transition-colors cursor-pointer';
-const cardCls = 'bg-white border border-[#e5e5e5] rounded-[12px] p-6';
+const cardCls = 'bg-white border border-[#e5e5e5] rounded-[12px] p-4';
 
 const canvasSizes = [
   { label: 'A4', cmW: 21, cmH: 29.7, aspectRatio: '3:4', frameType: 'A4', roomSize: 'Small' },

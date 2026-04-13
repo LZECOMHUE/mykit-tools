@@ -55,9 +55,9 @@ export default function SATScoreCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Score Inputs */}
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-4">
         {/* Evidence-Based Reading/Writing */}
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-4">
@@ -114,7 +114,7 @@ export default function SATScoreCalculator() {
       </div>
 
       {/* Total Score Card */}
-      <div className={`bg-gradient-to-br ${scoreColor(results.total)} rounded-lg p-8 border border-border`}>
+      <div className={`bg-gradient-to-br ${scoreColor(results.total)} rounded-lg border border-border`}>
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div>
             <div className="text-sm text-text-secondary mb-1">SAT Total Score</div>
@@ -138,8 +138,8 @@ export default function SATScoreCalculator() {
       </div>
 
       {/* Score Breakdown */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-lg p-6">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-lg">
           <h3 className="font-semibold text-text-primary mb-4">Evidence-Based Reading & Writing</h3>
           <div className="text-3xl font-mono font-bold text-accent mb-2">
             {results.reading}
@@ -155,7 +155,7 @@ export default function SATScoreCalculator() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-lg p-6">
+        <div className="bg-white border border-border rounded-lg">
           <h3 className="font-semibold text-text-primary mb-4">Math Section</h3>
           <div className="text-3xl font-mono font-bold text-accent mb-2">
             {results.math}
@@ -173,7 +173,7 @@ export default function SATScoreCalculator() {
       </div>
 
       {/* College Competitiveness */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4">🎓 College Competitiveness</h3>
         <div className="space-y-2 text-sm">
           {results.total >= 1500 && (
@@ -195,7 +195,7 @@ export default function SATScoreCalculator() {
       </div>
 
       {/* Quick Reference */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">Score Benchmarks</h3>
         <div className="grid sm:grid-cols-2 gap-3 text-sm">
           {[

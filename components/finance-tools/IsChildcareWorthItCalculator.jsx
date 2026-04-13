@@ -86,8 +86,8 @@ export default function IsChildcareWorthItCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {/* Income & Tax */}
         <Card>
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
@@ -172,7 +172,7 @@ export default function IsChildcareWorthItCalculator() {
       </div>
 
       {/* Results */}
-      <Card className={`mb-6 ${results.worthIt ? 'bg-success/5 border-success/30' : 'bg-error/5 border-error/30'}`}>
+      <Card className={`mb-4 ${results.worthIt ? 'bg-success/5 border-success/30' : 'bg-error/5 border-error/30'}`}>
         <div className="text-center">
           <p className="text-text-secondary text-sm mb-2">Annual Decision</p>
           <p className={`font-heading text-4xl font-bold ${results.worthIt ? 'text-success' : 'text-error'} mb-4`}>
@@ -212,7 +212,7 @@ export default function IsChildcareWorthItCalculator() {
       </Card>
 
       {/* Breakdown */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">Monthly Breakdown</h3>
 
         <div className="space-y-2">

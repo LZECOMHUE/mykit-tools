@@ -198,8 +198,8 @@ export default function BirthdayPartyGamePlanner() {
   const totalDuration = schedule.reduce((sum, game) => sum + game.duration, 0);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <h2 className="font-heading text-xl font-bold text-text-primary">Party Configuration</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -283,8 +283,8 @@ export default function BirthdayPartyGamePlanner() {
       </div>
 
       {generated && (
-        <div className="space-y-6">
-          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="space-y-4">
+          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <div>
               <h2 className="font-heading text-xl font-bold text-text-primary">Game Schedule</h2>
               <p className="text-text-secondary text-sm mt-1">Total time: <span className="font-mono font-bold">{totalDuration} minutes</span></p>
@@ -310,7 +310,7 @@ export default function BirthdayPartyGamePlanner() {
           </div>
 
           {materials.length > 0 && (
-            <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+            <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
               <h2 className="font-heading text-xl font-bold text-text-primary">Materials Checklist</h2>
               <div className="space-y-2">
                 {materials.map((material, idx) => (

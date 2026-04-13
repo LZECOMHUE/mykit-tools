@@ -52,8 +52,8 @@ export default function USCostOfLivingComparison() {
   );
 
   return (
-    <div className="space-y-6 p-6 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="space-y-4 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Input Section */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-text-primary">Compare Cities</h3>
@@ -153,7 +153,7 @@ export default function USCostOfLivingComparison() {
       {/* Category Breakdown */}
       <div className="bg-surface p-4 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4">Category Breakdown (Index)</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-semibold text-text-primary mb-3">{results.city1.name}</h4>
             <div className="space-y-2 text-sm">

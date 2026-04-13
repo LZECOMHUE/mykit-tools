@@ -77,7 +77,7 @@ export default function WeddingDrinkCalculator() {
   const costPerGuest = (totalCost / guests).toFixed(2);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration Section */}
       <Card>
         <div className="space-y-4">
@@ -149,7 +149,7 @@ export default function WeddingDrinkCalculator() {
           Drink Quantities
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div className="bg-white rounded-[var(--radius-input)] p-3 border border-border">
             <p className="text-text-secondary text-sm mb-1">Champagne</p>
             <p className="font-mono text-2xl font-semibold text-text-primary">

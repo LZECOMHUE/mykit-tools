@@ -68,7 +68,7 @@ export default function YarnWeightConverter() {
   const yarn = YARN_WEIGHTS[selectedWeight];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Selector */}
       <Card>
         <div className="space-y-4">
@@ -186,14 +186,12 @@ export default function YarnWeightConverter() {
       </Card>
 
       {/* Info */}
-      <Card className="bg-info/10 border-info">
-        <div className="space-y-3">
-          <p className="font-medium text-text-primary text-sm">About Yarn Weights</p>
-          <p className="text-text-secondary text-sm leading-relaxed">
-            Yarn weight determines how thick the yarn is and how many stitches you'll knit per 10cm. Heavier yarns create quick projects, while lighter yarns are perfect for intricate stitch patterns and fitted garments. Always check your pattern for specific gauge and needle size recommendations.
-          </p>
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">About yarn weights</summary>
+        <div className="mt-2 space-y-1">
+          <p>Yarn weight determines how thick the yarn is and how many stitches you'll knit per 10cm. Heavier yarns create quick projects, while lighter yarns are perfect for intricate stitch patterns and fitted garments. Always check your pattern for specific gauge and needle size recommendations.</p>
         </div>
-      </Card>
+      </details>
     </div>
   );
 }

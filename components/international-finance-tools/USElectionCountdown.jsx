@@ -106,7 +106,7 @@ export default function USElectionCountdown() {
   const upcomingElections = elections.filter((e) => !timeRemaining[e.date]?.isOver);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Heading */}
       <div>
         <h2 className="text-2xl font-semibold text-text-primary mb-2">
@@ -189,7 +189,7 @@ export default function USElectionCountdown() {
       </div>
 
       {/* Election Info */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">📋 Election Information</h3>
         <div className="space-y-2 text-sm text-blue-800">
           <p>
@@ -208,7 +208,7 @@ export default function USElectionCountdown() {
       </div>
 
       {/* Voter Registration */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-3">✓ Voter Registration</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>• Register to vote at vote411.org or your state election office</li>
@@ -220,7 +220,7 @@ export default function USElectionCountdown() {
       </div>
 
       {/* Voting Methods */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">🗳️ Voting Methods</h3>
         <div className="grid md:grid-cols-3 gap-4 text-sm">
           <div className="bg-white border border-border rounded p-4">
@@ -245,7 +245,7 @@ export default function USElectionCountdown() {
       </div>
 
       {/* State Election Resources */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Find Your Polling Location
         </h3>

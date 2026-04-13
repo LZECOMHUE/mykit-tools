@@ -65,7 +65,7 @@ export default function EVChargingTimeCalculator() {
   }, [batteryCapacity, currentCharge, targetCharge, chargerType, costPerKwh]);
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Configuration */}
       <div className="space-y-4">
         {/* Battery Capacity */}

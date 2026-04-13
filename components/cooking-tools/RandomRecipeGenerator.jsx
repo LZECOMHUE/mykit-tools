@@ -73,7 +73,7 @@ export default function RandomRecipeGenerator() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-secondary mb-2">
             Meal category (optional)

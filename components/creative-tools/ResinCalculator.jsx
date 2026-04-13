@@ -270,7 +270,7 @@ export default function ResinCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 bg-accent-muted p-8 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 bg-accent-muted text-center">
           <p className="text-text-muted text-[12px] mb-2">Total Resin Volume</p>
           <p className="font-mono text-4xl font-semibold text-accent mb-1">
             {calculation.volume}ml

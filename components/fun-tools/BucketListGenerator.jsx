@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 const ideas = {
   travel: [
@@ -82,11 +82,15 @@ export default function BucketListGenerator() {
   const [myList, setMyList] = useState([]);
   const [generatedIdeas, setGeneratedIdeas] = useState([]);
 
-  const generateIdeas = () => {
-    const categoryIdeas = ideas[category];
+  const generateIdeas = (cat) => {
+    const categoryIdeas = ideas[cat || category];
     const shuffled = [...categoryIdeas].sort(() => 0.5 - Math.random()).slice(0, 5);
     setGeneratedIdeas(shuffled);
   };
+
+  useEffect(() => {
+    generateIdeas('travel');
+  }, []);
 
   const toggleItem = (idea) => {
     setMyList((prev) =>
@@ -96,11 +100,11 @@ export default function BucketListGenerator() {
 
   const handleCopyList = () => {
     const text = myList.join('\n');
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-3">
       <div className="bg-surface p-4 rounded-[var(--radius-card)]">
         <p className="text-text-secondary text-sm font-medium mb-2">Your Bucket List</p>
         <p className="text-2xl font-mono font-bold text-accent">{myList.length}</p>
@@ -111,7 +115,7 @@ export default function BucketListGenerator() {
         <label className="block text-text-primary font-medium mb-2">Category</label>
         <select
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => { setCategory(e.target.value); generateIdeas(e.target.value); }}
           className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
         >
           <option value="travel">Travel</option>
@@ -124,7 +128,7 @@ export default function BucketListGenerator() {
       </div>
 
       <button
-        onClick={generateIdeas}
+        onClick={() => generateIdeas()}
         className="w-full px-4 py-3 bg-accent text-white font-medium rounded-[var(--radius-input)] hover:bg-blue-600 transition"
       >
         Generate 5 Ideas
@@ -178,14 +182,6 @@ export default function BucketListGenerator() {
               <p className="text-text-primary flex-1">{item}</p>
             </div>
           ))}
-        </div>
-      )}
-
-      {myList.length === 0 && (
-        <div className="bg-surface p-6 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-muted text-sm">
-            Generate ideas and check them off to start building your bucket list!
-          </p>
         </div>
       )}
     </div>

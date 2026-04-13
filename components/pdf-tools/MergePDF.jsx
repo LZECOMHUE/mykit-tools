@@ -131,7 +131,7 @@ export default function MergePDF() {
 
   if (mergedPDF) {
     return (
-      <div className="flex flex-col items-center justify-center gap-8 rounded-[var(--radius-card)] bg-surface p-8 text-center">
+      <div className="flex flex-col items-center justify-center gap-4 rounded-[var(--radius-card)] bg-surface text-center">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent bg-opacity-10">
           <span className="text-2xl">✓</span>
         </div>
@@ -156,7 +156,7 @@ export default function MergePDF() {
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       {files.length === 0 ? (
         <PDFDropZone onFilesSelected={handleFilesAdded} multiple={true} />
       ) : (

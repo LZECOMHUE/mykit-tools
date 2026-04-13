@@ -290,7 +290,7 @@ export default function AstrologyBirthChart() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Input Card */}
       <Card className="bg-gradient-to-br from-orange-50 to-pink-50">
         <div className="space-y-4">
@@ -493,14 +493,13 @@ export default function AstrologyBirthChart() {
       )}
 
       {/* Info */}
-      <Card className="bg-orange-50 border-l-4 border-orange-500">
-        <p className="text-sm text-text-secondary">
-          Western astrology uses your birth date to determine your sun sign,
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Western astrology uses your birth date to determine your sun sign,
           which represents your core identity. Chinese astrology uses your birth
           year. Both provide entertaining insights into personality and
-          compatibility. For fun and reflection only.
-        </p>
-      </Card>
+          compatibility. For fun and reflection only.</p>
+      </details>
     </div>
   );
 }

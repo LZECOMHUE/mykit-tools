@@ -66,7 +66,7 @@ export default function ROICalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'finalValue', label: 'Calculate by Final Value' },
@@ -78,8 +78,8 @@ export default function ROICalculator() {
 
       {/* Final Value Tab */}
       {activeTab === 'finalValue' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Calculate ROI from Final Value
             </h2>
@@ -173,8 +173,8 @@ export default function ROICalculator() {
 
       {/* Annual Return Tab */}
       {activeTab === 'annualReturn' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Calculate Growth from Annual Return
             </h2>

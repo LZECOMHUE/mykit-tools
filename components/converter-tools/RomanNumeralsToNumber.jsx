@@ -48,7 +48,7 @@ export default function RomanNumeralsToNumber() {
   const isValid = roman && number !== null && number >= 1 && number <= 3999;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(number.toString());
+    navigator.clipboard.writeText(number.toString().catch(() => {}));
   };
 
   const referenceRomanNumerals = [
@@ -71,8 +71,8 @@ export default function RomanNumeralsToNumber() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
@@ -111,7 +111,7 @@ export default function RomanNumeralsToNumber() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Basic Roman Numerals
         </h3>
@@ -143,7 +143,7 @@ export default function RomanNumeralsToNumber() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Subtractive Combinations
         </h3>

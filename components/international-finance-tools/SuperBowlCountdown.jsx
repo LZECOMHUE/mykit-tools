@@ -84,7 +84,7 @@ export default function SuperBowlCountdown() {
   const nextBowl = upcomingBowls[0];
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Heading */}
       <div>
         <h2 className="text-2xl font-semibold text-text-primary mb-2">
@@ -99,7 +99,7 @@ export default function SuperBowlCountdown() {
       {nextBowl && timeRemaining[nextBowl.date] && (
         <div className="bg-gradient-to-br from-red-600 to-blue-600 rounded-lg overflow-hidden shadow-lg">
           <div className="p-8 text-white">
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start mb-4">
               <div>
                 <div className="text-sm uppercase tracking-widest opacity-90 mb-2">
                   Next Super Bowl
@@ -115,8 +115,8 @@ export default function SuperBowlCountdown() {
               </div>
             </div>
 
-            <div className="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
-              <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="bg-white/20 rounded-lg backdrop-blur-sm">
+              <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="bg-white/10 rounded p-3 text-center">
                   <div className="text-4xl font-mono font-bold">
                     {timeRemaining[nextBowl.date].days}
@@ -168,7 +168,7 @@ export default function SuperBowlCountdown() {
             return (
               <div
                 key={sb.date}
-                className="bg-white border border-border rounded-lg p-6 hover:shadow-lg transition"
+                className="bg-white border border-border rounded-lg hover:shadow-lg transition"
               >
                 <div className="flex justify-between items-start mb-3">
                   <div>
@@ -235,9 +235,9 @@ export default function SuperBowlCountdown() {
       </div>
 
       {/* Party Planning */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4">🎉 Super Bowl Party Planning</h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-medium text-text-primary mb-3">Food & Drinks</h4>
             <ul className="space-y-1 text-sm text-text-secondary">
@@ -264,7 +264,7 @@ export default function SuperBowlCountdown() {
       </div>
 
       {/* Fun Facts */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">📺 Super Bowl Facts</h3>
         <div className="space-y-2 text-sm text-blue-800">
           <p>
@@ -287,7 +287,7 @@ export default function SuperBowlCountdown() {
       </div>
 
       {/* TV Viewing Info */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">📡 Where to Watch</h3>
         <div className="space-y-2 text-sm">
           <p className="text-text-secondary">

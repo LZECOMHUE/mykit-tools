@@ -8,6 +8,7 @@ const SalaryVisualizer = () => {
   const [period, setPeriod] = useState('year');
   const [earnedSinceOpen, setEarnedSinceOpen] = useState('0.00');
   const [openTime, setOpenTime] = useState(null);
+  const [showTimeToEarn, setShowTimeToEarn] = useState(false);
 
   // Initialize time when component mounts
   useEffect(() => {
@@ -157,7 +158,7 @@ const SalaryVisualizer = () => {
         text:
           pmDiff < 0
             ? `You'd need ${Math.abs(Math.round((pmDiff / annualSalary) * 100))}% more to match the PM`
-            : `You earn more than the Prime Minister 💪`,
+            : `You earn more than the Prime Minister`,
         color: pmDiff > 0 ? 'text-accent' : 'text-text-secondary',
       },
     };
@@ -205,43 +206,48 @@ const SalaryVisualizer = () => {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto space-y-6 p-4">
-      {/* Input Section */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-text-primary mb-2">
-            What's your salary?
-          </label>
-          <div className="flex gap-2">
-            <div className="flex-1 relative">
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium">
-                £
-              </span>
-              <input
-                type="number"
-                value={salaryInput}
-                onChange={handleSalaryChange}
-                placeholder="0"
-                className="w-full pl-7 pr-4 py-3 border border-border rounded-[var(--radius-input)] bg-white text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 font-mono-num text-lg"
-              />
-            </div>
-            <select
-              value={period}
-              onChange={handlePeriodChange}
-              className="px-4 py-3 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 font-medium"
-            >
-              <option value="year">Per Year</option>
-              <option value="month">Per Month</option>
-              <option value="week">Per Week</option>
-              <option value="hour">Per Hour</option>
-            </select>
-          </div>
+    <div className="w-full max-w-lg mx-auto space-y-3 p-4">
+      {/* Input Section - compact flat row */}
+      <div className="flex gap-2">
+        <div className="flex-1 relative">
+          <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-secondary font-medium">
+            £
+          </span>
+          <input
+            type="number"
+            value={salaryInput}
+            onChange={handleSalaryChange}
+            placeholder="0"
+            className="w-full pl-7 pr-4 py-3 border border-border rounded-[var(--radius-input)] bg-white text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 font-mono-num text-lg"
+          />
         </div>
+        <select
+          value={period}
+          onChange={handlePeriodChange}
+          className="px-4 py-3 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 font-medium"
+        >
+          <option value="year">Per Year</option>
+          <option value="month">Per Month</option>
+          <option value="week">Per Week</option>
+          <option value="hour">Per Hour</option>
+        </select>
       </div>
+
+      {/* Live Counter Card - hero position */}
+      {annualSalary > 0 && (
+        <div className="bg-accent/10 border border-accent/30 rounded-[var(--radius-card)] p-4 space-y-1">
+          <p className="text-text-secondary text-sm">
+            You've earned since opening this page:
+          </p>
+          <p className="font-mono-num text-3xl font-bold text-accent">
+            £{earnedSinceOpen}
+          </p>
+        </div>
+      )}
 
       {/* Breakdown Card */}
       {annualSalary > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-3">
           <h2 className="text-lg font-semibold text-text-primary">Your Earnings Breakdown</h2>
           <div className="space-y-2.5">
             <div className="flex justify-between items-center py-2">
@@ -290,67 +296,62 @@ const SalaryVisualizer = () => {
         </div>
       )}
 
-      {/* Time to Earn Card */}
+      {/* Time to Earn - collapsed behind toggle */}
       {annualSalary > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-          <h2 className="text-lg font-semibold text-text-primary">How Long to Earn...</h2>
-          <div className="space-y-2.5">
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">☕ Cup of coffee</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.coffee}</span>
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
+          <button
+            onClick={() => setShowTimeToEarn(!showTimeToEarn)}
+            className="w-full flex justify-between items-center text-left"
+          >
+            <h2 className="text-lg font-semibold text-text-primary">How Long to Earn...</h2>
+            <span className="text-text-muted text-sm">{showTimeToEarn ? 'Hide' : 'Show'}</span>
+          </button>
+          {showTimeToEarn && (
+            <div className="space-y-2.5 mt-3">
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Cup of coffee</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.coffee}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Pint of beer</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.beer}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Netflix subscription</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.netflix}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Tank of petrol</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.petrol}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">iPhone 15</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.iphone}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Average UK rent</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.rent}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Holiday to Spain</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.holiday}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">New car</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.car}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-text-secondary">Average UK house</span>
+                <span className="font-mono-num font-medium text-text-primary">{timeToEarn.house}</span>
+              </div>
             </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">🍺 Pint of beer</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.beer}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">📺 Netflix subscription</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.netflix}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">⛽ Tank of petrol</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.petrol}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">📱 iPhone 15</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.iphone}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">🏠 Average UK rent</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.rent}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">✈️ Holiday to Spain</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.holiday}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">🚗 New car</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.car}</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-text-secondary">🏡 Average UK house</span>
-              <span className="font-mono-num font-medium text-text-primary">{timeToEarn.house}</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Live Counter Card */}
-      {annualSalary > 0 && (
-        <div className="bg-accent/10 border border-accent/30 rounded-[var(--radius-card)] p-6 space-y-2">
-          <h2 className="text-lg font-semibold text-text-primary">While you read this...</h2>
-          <p className="text-text-secondary text-sm">
-            You've earned since opening this tool:
-          </p>
-          <p className="font-mono-num text-3xl font-bold text-accent pt-2">
-            £{earnedSinceOpen}
-          </p>
+          )}
         </div>
       )}
 
       {/* Comparison Card */}
       {annualSalary > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
           <h2 className="text-lg font-semibold text-text-primary">How You Compare</h2>
           <div className="space-y-3">
             <div>
@@ -381,28 +382,28 @@ const SalaryVisualizer = () => {
           onClick={handleDownloadCard}
           className="w-full px-6 py-3 bg-accent text-white font-medium rounded-[var(--radius-input)] hover:bg-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50"
         >
-          📸 Download Shareable Card
+          Download Shareable Card
         </button>
       )}
 
       {/* Fun Facts Card */}
       {annualSalary > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-3">
           <h2 className="text-lg font-semibold text-text-primary">Fun Facts</h2>
           <div className="space-y-3">
             <div>
               <p className="text-text-secondary text-sm">
-                💸 You earn <span className="font-mono-num font-semibold text-text-primary">{funFacts.blink}</span> every time you blink
+                You earn <span className="font-mono-num font-semibold text-text-primary">{funFacts.blink}</span> every time you blink
               </p>
             </div>
             <div>
               <p className="text-text-secondary text-sm">
-                🍔 You could buy <span className="font-mono-num font-semibold text-text-primary">{funFacts.bigMacs}</span> Big Macs per day with your daily earnings
+                You could buy <span className="font-mono-num font-semibold text-text-primary">{funFacts.bigMacs}</span> Big Macs per day with your daily earnings
               </p>
             </div>
             <div>
               <p className="text-text-secondary text-sm">
-                💰 It would take you <span className="font-mono-num font-semibold text-text-primary">{funFacts.millionYears}</span> year{funFacts.millionYears !== 1 ? 's' : ''} to earn £1 million
+                It would take you <span className="font-mono-num font-semibold text-text-primary">{funFacts.millionYears}</span> year{funFacts.millionYears !== 1 ? 's' : ''} to earn £1 million
               </p>
             </div>
           </div>
@@ -411,9 +412,7 @@ const SalaryVisualizer = () => {
 
       {/* Empty State */}
       {annualSalary === 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-5 text-center">
-          <p className="text-text-muted">Enter your salary to see the breakdown</p>
-        </div>
+        <p className="text-text-muted text-center py-4">Enter your salary to see the breakdown</p>
       )}
     </div>
   );

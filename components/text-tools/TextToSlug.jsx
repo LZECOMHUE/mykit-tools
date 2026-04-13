@@ -41,11 +41,11 @@ export default function TextToSlug() {
   }, [text, separator, lowercase, stripSpecial]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(slug);
+    navigator.clipboard.writeText(slug).catch(() => {});
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter Text
@@ -88,7 +88,7 @@ export default function TextToSlug() {
         </div>
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <p className="text-text-secondary text-sm mb-3">URL-friendly slug:</p>
         <div className="flex items-center gap-3">
           <code className="flex-1 font-mono text-text-primary bg-white border border-border rounded-[var(--radius-input)] px-4 py-3 break-all">

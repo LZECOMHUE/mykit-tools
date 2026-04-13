@@ -72,7 +72,7 @@ export default function WeddingCostPerHeadCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Main Inputs */}
       <Card>
         <div className="space-y-4">
@@ -216,7 +216,7 @@ export default function WeddingCostPerHeadCalculator() {
           See how adding or removing guests affects your cost per head
         </p>
 
-        <div className="space-y-2 mb-6">
+        <div className="space-y-2 mb-4">
           {[50, 75, 100, 125, 150, 175, 200].map((count) => {
             const costPerPersonAtThisCount = calculateGuestCountScenarios(count);
             const isCurrentCount = count === guestCount;

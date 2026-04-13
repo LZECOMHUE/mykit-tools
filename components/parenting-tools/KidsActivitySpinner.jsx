@@ -211,8 +211,8 @@ export default function KidsActivitySpinner() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <h2 className="font-heading text-xl font-bold text-text-primary">Activity Spinner Setup</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -281,8 +281,8 @@ export default function KidsActivitySpinner() {
         </div>
       </div>
 
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
-        <div className="flex flex-col items-center gap-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
+        <div className="flex flex-col items-center gap-4">
           <div className="relative w-48 h-48 mx-auto">
             <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center shadow-lg transition-transform ${
               spinning ? 'animate-spin' : ''
@@ -305,7 +305,7 @@ export default function KidsActivitySpinner() {
 
           {currentActivity && !spinning && (
             <div className="w-full space-y-3">
-              <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 text-center">
+              <div className="bg-white border border-border rounded-[var(--radius-card)] text-center">
                 <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">{currentActivity.name}</h2>
                 <p className="text-accent font-mono font-bold text-lg mb-4">{currentActivity.duration}</p>
                 <p className="text-text-primary mb-3">{currentActivity.description}</p>
@@ -347,7 +347,7 @@ export default function KidsActivitySpinner() {
       </div>
 
       {usedActivities.length > 0 && (
-        <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
           <h2 className="font-heading text-xl font-bold text-text-primary">Done So Far</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {usedActivities.map((activity, idx) => (

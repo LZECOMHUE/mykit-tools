@@ -109,12 +109,9 @@ export default function FortuneTeller() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {step === 'start' && (
         <Card className="bg-gradient-to-br from-yellow-50 to-orange-50 text-center space-y-4">
-          <h2 className="font-heading text-3xl font-bold text-text-primary">
-            Fortune Teller
-          </h2>
           <p className="text-text-secondary">
             Unfold your fate! Pick a colour, then numbers, and receive your
             fortune.
@@ -331,13 +328,12 @@ export default function FortuneTeller() {
       )}
 
       {/* Info */}
-      <Card className="bg-orange-50 border-l-4 border-orange-500">
-        <p className="text-sm text-text-secondary">
-          This digital fortune teller is inspired by the classic paper cootie
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">This digital fortune teller is inspired by the classic paper cootie
           catcher game. Pick colours and numbers to reveal your mysterious
-          fortune. For entertainment purposes only.
-        </p>
-      </Card>
+          fortune. For entertainment purposes only.</p>
+      </details>
     </div>
   );
 }

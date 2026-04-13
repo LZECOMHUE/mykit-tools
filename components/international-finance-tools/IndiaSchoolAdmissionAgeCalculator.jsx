@@ -97,8 +97,8 @@ export default function IndiaSchoolAdmissionAgeCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -135,7 +135,7 @@ export default function IndiaSchoolAdmissionAgeCalculator() {
 
       {results && !results.error && (
         <>
-          <Card className="p-6 bg-accent-muted">
+          <Card className="bg-accent-muted">
             <h3 className="font-heading text-lg font-bold text-primary mb-3">
               Current Academic Year ({results.currentAcademicYear})
             </h3>
@@ -152,7 +152,7 @@ export default function IndiaSchoolAdmissionAgeCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-blue-50 border border-blue-200">
+          <Card className="bg-blue-50 border border-blue-200">
             <h3 className="font-heading text-lg font-bold text-primary mb-3">
               Next Academic Year ({results.nextAcademicYear})
             </h3>

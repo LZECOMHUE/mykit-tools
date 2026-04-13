@@ -103,10 +103,10 @@ export default function HomeEnergyCostCalculator() {
   }, [appliances, electricityRate]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Settings */}
-      <div className="bg-surface rounded-[12px] border border-border p-6">
-        <h2 className="text-2xl font-bold font-heading text-text-primary mb-6">Home Energy Cost Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border">
+
 
         <div className="max-w-xs">
           <Input
@@ -156,7 +156,7 @@ export default function HomeEnergyCostCalculator() {
       </div>
 
       {/* Add Appliances */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Add Common Appliances</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {commonAppliances.map((appliance, idx) => (
@@ -172,7 +172,7 @@ export default function HomeEnergyCostCalculator() {
       </div>
 
       {/* Appliances Table */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Your Appliances</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -247,8 +247,8 @@ export default function HomeEnergyCostCalculator() {
       </div>
 
       {/* Cost Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Cost Breakdown</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -282,7 +282,7 @@ export default function HomeEnergyCostCalculator() {
           </div>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">💡 Money-Saving Tips</h3>
           <ul className="space-y-2 text-sm text-green-800">
             <li>Switch to LED bulbs (save 75% on lighting)</li>
@@ -301,7 +301,7 @@ export default function HomeEnergyCostCalculator() {
 
       {/* Top Energy Users */}
       {appliances.length > 0 && (
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Top Energy Consumers</h3>
           <div className="space-y-3">
             {calculations.applianceCosts
@@ -335,7 +335,7 @@ export default function HomeEnergyCostCalculator() {
       )}
 
       {/* Appliance Wattage Guide */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">Typical Appliance Wattages</h3>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-blue-800">

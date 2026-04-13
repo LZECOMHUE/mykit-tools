@@ -247,11 +247,12 @@ export default function PaintMixingCalculator() {
         </Card>
       )}
 
-      <Card className="bg-surface/50 border border-border">
-        <p className="text-[13px] text-text-secondary leading-relaxed">
-          <strong>Note:</strong> This calculator uses colour theory to suggest approximate mixing ratios for physical paint. The screen display may not match actual paint colours. Test small amounts first and adjust by eye. Transparency and colour mixing varies by paint brand and type.
-        </p>
-      </Card>
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <div className="mt-2 space-y-1">
+          <p>This calculator uses colour theory to suggest approximate mixing ratios for physical paint. The screen display may not match actual paint colours. Test small amounts first and adjust by eye. Transparency and colour mixing varies by paint brand and type.</p>
+        </div>
+      </details>
     </div>
   );
 }

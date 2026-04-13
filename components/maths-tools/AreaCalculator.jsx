@@ -159,9 +159,9 @@ export default function AreaCalculator() {
   ];
 
   return (
-    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)]">
       {/* Unit System Selector */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Unit System
         </label>
@@ -190,7 +190,7 @@ export default function AreaCalculator() {
       </div>
 
       {/* Shape Tabs */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           Shape
         </label>
@@ -215,7 +215,7 @@ export default function AreaCalculator() {
       </div>
 
       {/* Input Fields */}
-      <div className="space-y-4 mb-6">
+      <div className="space-y-4 mb-4">
         {shapeType === 'rectangle' && (
           <>
             <div>
@@ -391,7 +391,7 @@ export default function AreaCalculator() {
 
       {/* Result */}
       {calculation && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
           <div className="mb-4">
             <p className="text-text-secondary text-sm mb-2">Formula:</p>
             <p className="text-text-primary font-medium">{calculation.formula}</p>
@@ -418,7 +418,7 @@ export default function AreaCalculator() {
       )}
 
       {!calculation && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4 text-center">
           <p className="text-text-muted">Enter values to calculate area</p>
         </div>
       )}

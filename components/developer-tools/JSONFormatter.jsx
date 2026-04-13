@@ -46,15 +46,15 @@ export default function JSONFormatter() {
   }, [input, tabSize]);
 
   const handleCopyFormatted = () => {
-    navigator.clipboard.writeText(formatted);
+    navigator.clipboard.writeText(formatted).catch(() => {});
   };
 
   const handleCopyMinified = () => {
-    navigator.clipboard.writeText(minified);
+    navigator.clipboard.writeText(minified).catch(() => {});
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input Section */}
       <div className="space-y-3">
         <label className="block text-sm font-medium text-text-primary">

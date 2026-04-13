@@ -26,8 +26,8 @@ export default function FlooringCalculator() {
   const costPerSqM = roomArea > 0 ? totalCost / roomArea : 0;
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading font-bold text-primary mb-4">
             Room Dimensions
@@ -64,7 +64,7 @@ export default function FlooringCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading font-bold text-primary mb-4">
             Flooring Details
@@ -120,7 +120,7 @@ export default function FlooringCalculator() {
 
       {isValidInput && (
         <>
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               Calculation Results
             </h3>
@@ -162,7 +162,7 @@ export default function FlooringCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               Cost Estimate
             </h3>
@@ -190,7 +190,7 @@ export default function FlooringCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               Tips for Accurate Estimates
             </h3>

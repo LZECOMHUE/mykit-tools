@@ -109,11 +109,11 @@ export default function AspectRatioCalculator() {
 
   const handleCopy = () => {
     const text = `${width}x${height}`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Section */}
       <Card>
         <div className="space-y-4">
@@ -180,7 +180,7 @@ export default function AspectRatioCalculator() {
           <div className="space-y-4">
             <h3 className="text-text-primary font-semibold">Preview</h3>
 
-            <div className="flex justify-center items-center py-8 bg-white border border-border rounded-lg">
+            <div className="flex justify-center items-center py-4 bg-white border border-border rounded-lg">
               <div
                 className="bg-accent/20 border-2 border-accent rounded-lg transition-all"
                 style={{
@@ -271,12 +271,12 @@ export default function AspectRatioCalculator() {
       </Card>
 
       {/* Info Section */}
-      <div className="bg-info/10 border border-info rounded-lg p-4 text-sm text-text-secondary space-y-2">
-        <p className="font-medium text-text-primary">About Aspect Ratios</p>
-        <p>
-          An aspect ratio is the proportional relationship between an image's width and height. Locking the aspect ratio maintains the ratio when you change either dimension. Common ratios include 16:9 (widescreen), 4:3 (standard), and 1:1 (square).
-        </p>
-      </div>
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">About aspect ratios</summary>
+        <div className="mt-2 space-y-1">
+          <p>An aspect ratio is the proportional relationship between an image's width and height. Locking the aspect ratio maintains the ratio when you change either dimension. Common ratios include 16:9 (widescreen), 4:3 (standard), and 1:1 (square).</p>
+        </div>
+      </details>
     </div>
   );
 }

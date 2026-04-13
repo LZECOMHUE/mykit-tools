@@ -44,14 +44,14 @@ export default function EnergyConverter() {
   }, [inputValue, inputUnit]);
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text.toString());
+    navigator.clipboard.writeText(text.toString().catch(() => {}));
   };
 
   const units = Object.keys(CONVERSIONS);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-lg border border-border">
-      <div className="space-y-6">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-lg border border-border">
+      <div className="space-y-4">
         {/* Input */}
         <div className="space-y-3">
           <label className="block text-sm font-medium text-text-primary">Enter Energy</label>

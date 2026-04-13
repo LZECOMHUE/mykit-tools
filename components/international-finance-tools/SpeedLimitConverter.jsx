@@ -48,12 +48,12 @@ export default function SpeedLimitConverter() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
         <h2 className="font-heading text-2xl font-bold text-primary mb-2">
           Speed Limit Converter
         </h2>
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Convert between kilometres per hour and miles per hour
         </p>
 
@@ -95,14 +95,14 @@ export default function SpeedLimitConverter() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Quick Conversion Result */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Conversion Result
             </h3>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4">
               <div className="border-r-2 border-border pr-6">
                 <div className="flex items-baseline gap-2 mb-2">
                   <p className="font-mono text-4xl font-bold text-primary">
@@ -126,12 +126,12 @@ export default function SpeedLimitConverter() {
           </Card>
 
           {/* Road Sign Visual */}
-          <Card className="p-6">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card>
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Road Sign Comparison
             </h3>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-4">
               {/* Metric Sign (Europe) */}
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 rounded-full border-4 border-red-600 bg-white flex items-center justify-center mb-4 shadow-lg">
@@ -169,8 +169,8 @@ export default function SpeedLimitConverter() {
           </Card>
 
           {/* Common Speed Limits Reference */}
-          <Card className="p-6">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card>
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Common Speed Limits Worldwide
             </h3>
 
@@ -208,7 +208,7 @@ export default function SpeedLimitConverter() {
           </Card>
 
           {/* Geographic Information */}
-          <Card className="p-6 bg-blue-50 border-2 border-blue-200">
+          <Card className="bg-blue-50 border-2 border-blue-200">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Which System Uses Which Unit?
             </h3>
@@ -240,7 +240,7 @@ export default function SpeedLimitConverter() {
           </Card>
 
           {/* Quick Tips */}
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Quick Conversion Tips
             </h3>

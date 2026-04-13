@@ -371,11 +371,11 @@ export default function CommunicationStyleQuiz() {
   const progress = ((currentQuestion + 1) / SCENARIOS.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6">
+    <div className="w-full max-w-2xl mx-auto">
       {!isComplete ? (
-        <Card className="p-8">
+        <Card>
           {/* Progress Bar */}
-          <div className="mb-8">
+          <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm text-text-secondary">
                 Scenario {currentQuestion + 1} of {SCENARIOS.length}
@@ -393,7 +393,7 @@ export default function CommunicationStyleQuiz() {
           </div>
 
           {/* Scenario */}
-          <h2 className="text-2xl font-heading font-bold text-text-primary mb-8">
+          <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">
             {SCENARIOS[currentQuestion].scenario}
           </h2>
 
@@ -411,9 +411,9 @@ export default function CommunicationStyleQuiz() {
           </div>
         </Card>
       ) : (
-        <Card className="p-8">
+        <Card>
           {/* Result Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <div className="text-7xl mb-4">{styleData.emoji}</div>
             <h2 className="text-4xl font-heading font-bold text-text-primary mb-2">
               {styleData.name}
@@ -422,14 +422,14 @@ export default function CommunicationStyleQuiz() {
           </div>
 
           {/* Description */}
-          <div className="bg-surface rounded-lg p-6 mb-8">
+          <div className="bg-surface rounded-lg mb-4">
             <p className="text-text-secondary leading-relaxed text-lg">
               {styleData.description}
             </p>
           </div>
 
           {/* Breakdown */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-2 gap-4 mb-4">
             {Object.entries(scores).map(([style, score]) => (
               <div key={style} className="bg-surface rounded-lg p-4 text-center">
                 <p className="text-text-muted text-sm capitalize mb-2">{style}</p>
@@ -439,7 +439,7 @@ export default function CommunicationStyleQuiz() {
           </div>
 
           {/* Strengths */}
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="text-xl font-heading font-bold text-text-primary mb-4">
               Your Strengths
             </h3>
@@ -454,7 +454,7 @@ export default function CommunicationStyleQuiz() {
           </div>
 
           {/* Growth Areas */}
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="text-xl font-heading font-bold text-text-primary mb-4">
               Growth Areas
             </h3>
@@ -469,7 +469,7 @@ export default function CommunicationStyleQuiz() {
           </div>
 
           {/* Tips */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg mb-4">
             <h3 className="text-lg font-bold text-blue-900 mb-3">Practical Tip</h3>
             <p className="text-blue-800">{styleData.tips}</p>
           </div>

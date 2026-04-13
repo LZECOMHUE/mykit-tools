@@ -81,29 +81,16 @@ export default function SQLFormatter() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(output);
+      await navigator.clipboard.writeText(output).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
   };
 
   return (
-    <div className="w-full space-y-6">
-      {/* Input */}
-      <div>
-        <label className="text-text-secondary text-sm font-medium">
-          Paste Your SQL
-        </label>
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Paste your SQL code here..."
-          className="w-full mt-2 min-h-[200px] rounded-[var(--radius-input)] border border-border bg-white p-3 font-mono text-[12px] text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-        />
-      </div>
-
-      {/* Options */}
-      <div className="grid gap-4 sm:grid-cols-2">
+    <div className="w-full space-y-3">
+      {/* Options Row */}
+      <div className="flex flex-wrap gap-4 items-center">
         <label className="flex items-center gap-2 cursor-pointer">
           <input
             type="checkbox"
@@ -115,15 +102,12 @@ export default function SQLFormatter() {
             Uppercase Keywords
           </span>
         </label>
-
-        <div>
-          <label className="text-text-secondary text-sm font-medium">
-            Indent Size
-          </label>
+        <div className="flex items-center gap-2">
+          <label className="text-text-secondary text-sm font-medium">Indent</label>
           <select
             value={indentSize}
             onChange={(e) => setIndentSize(parseInt(e.target.value))}
-            className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
+            className="rounded-[var(--radius-input)] border border-border bg-white px-3 py-1.5 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
           >
             <option value={2}>2 spaces</option>
             <option value={4}>4 spaces</option>
@@ -132,25 +116,39 @@ export default function SQLFormatter() {
         </div>
       </div>
 
-      {/* Output */}
-      {isProcessed && output && (
-        <div className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
-          <p className="text-text-secondary text-sm font-medium mb-3">
-            Formatted SQL
-          </p>
-          <div className="bg-white rounded-[var(--radius-input)] border border-border p-3 max-h-[300px] overflow-y-auto">
+      {/* Side-by-side layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div className="flex flex-col">
+          <label className="text-text-secondary text-xs font-medium mb-1 uppercase">Input SQL</label>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Paste your SQL code here..."
+            className="flex-1 min-h-[280px] rounded-[var(--radius-input)] border border-border bg-white p-3 font-mono text-[12px] text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+          />
+        </div>
+
+        {/* Output */}
+        <div className="flex flex-col">
+          <div className="flex items-center justify-between mb-1">
+            <label className="text-text-secondary text-xs font-medium uppercase">Formatted</label>
+            {output && (
+              <button
+                onClick={handleCopy}
+                className="text-xs text-accent hover:text-accent-hover font-medium"
+              >
+                Copy
+              </button>
+            )}
+          </div>
+          <div className="flex-1 min-h-[280px] rounded-[var(--radius-input)] border border-border bg-surface p-3 overflow-y-auto">
             <pre className="font-mono text-[11px] text-text-primary whitespace-pre-wrap break-words">
-              {output}
+              {output || '' }
             </pre>
           </div>
-          <button
-            onClick={handleCopy}
-            className="w-full mt-3 rounded-[var(--radius-card)] bg-accent text-white px-4 py-2 text-sm font-medium hover:bg-accent-hover transition-colors"
-          >
-            Copy
-          </button>
         </div>
-      )}
+      </div>
     </div>
   );
 }

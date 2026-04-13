@@ -57,7 +57,7 @@ export default function CookingTimer() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="space-y-4">
         <h3 className="font-heading text-lg font-bold text-text-primary">
           Add New Timer
@@ -114,13 +114,13 @@ export default function CookingTimer() {
         </button>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Active Timers
         </h3>
 
         {timers.length === 0 ? (
-          <p className="text-center text-text-secondary py-8">No timers yet</p>
+          <p className="text-center text-text-secondary py-4">No timers yet</p>
         ) : (
           <div className="space-y-3">
             {timers.map((timer) => (

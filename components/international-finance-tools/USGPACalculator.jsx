@@ -81,9 +81,9 @@ export default function USGPACalculator() {
   }, [classes]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Classes Input */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">Add Your Classes</h2>
 
         <div className="space-y-3 max-h-96 overflow-y-auto">
@@ -153,7 +153,7 @@ export default function USGPACalculator() {
       </div>
 
       {/* Main GPA Result */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-blue-600 text-sm font-medium mb-1">Cumulative GPA</p>
         <p className="font-mono text-5xl font-bold text-blue-700">{calculations.gpa}</p>
         <p className="text-blue-600 text-xs mt-2">{calculations.breakdown}</p>
@@ -161,14 +161,14 @@ export default function USGPACalculator() {
 
       {/* Honors */}
       {calculations.honors && (
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
+        <div className="bg-amber-50 border border-amber-200 rounded-lg">
           <p className="text-amber-600 text-sm font-medium mb-1">Latin Honors</p>
           <p className="font-semibold text-amber-700">{calculations.honors}</p>
         </div>
       )}
 
       {/* Summary Table */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Summary</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -189,7 +189,7 @@ export default function USGPACalculator() {
       </div>
 
       {/* Grade Scale Reference */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Grade Scale</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
           {grades.map((g) => (

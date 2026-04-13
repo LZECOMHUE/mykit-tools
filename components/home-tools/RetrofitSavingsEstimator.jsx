@@ -244,10 +244,10 @@ export default function RetrofitSavingsEstimator() {
   }, [propertyAge, propertyType, propertySize, currentEpc, currentHeating, insulationStatus]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Retrofit Savings Estimator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -399,8 +399,8 @@ export default function RetrofitSavingsEstimator() {
       ))}
 
       {/* Quick Summary Boxes */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-3">Do These First</h3>
           <ul className="space-y-2 text-sm text-green-800">
             {calculations.measures
@@ -421,7 +421,7 @@ export default function RetrofitSavingsEstimator() {
           </ul>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-blue-900 mb-3">Medium-Term</h3>
           <ul className="space-y-2 text-sm text-blue-800">
             {calculations.measures
@@ -442,7 +442,7 @@ export default function RetrofitSavingsEstimator() {
           </ul>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-[12px] p-6">
+        <div className="bg-purple-50 border border-purple-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-purple-900 mb-3">Long-Term Investment</h3>
           <ul className="space-y-2 text-sm text-purple-800">
             {calculations.measures
@@ -465,10 +465,10 @@ export default function RetrofitSavingsEstimator() {
       </div>
 
       {/* EPC Impact */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">EPC Rating Impact</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-semibold text-text-primary mb-3">Current Rating</h4>
             <div className="flex items-center gap-4">
@@ -502,7 +502,7 @@ export default function RetrofitSavingsEstimator() {
       </div>
 
       {/* Strategy Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💡 Retrofit Strategy</h3>
         <ol className="space-y-2 text-sm text-amber-800 list-decimal list-inside">
           <li><span className="font-semibold">Start with quick wins:</span> Loft insulation, cavity fill, controls have best payback</li>
@@ -517,7 +517,7 @@ export default function RetrofitSavingsEstimator() {
       </div>
 
       {/* ROI Ranking */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Ranked by Return on Investment (ROI)</h3>
 
         <div className="space-y-2">

@@ -103,7 +103,7 @@ export default function OvulationCalculator() {
     return (
       <Card>
         <h3 className="font-heading text-lg font-bold mb-4">Cycle Calendar</h3>
-        <div className={`grid gap-6 ${months.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+        <div className={`grid gap-4 ${months.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
           {months.map((monthDate) => {
             const year = monthDate.getFullYear();
             const month = monthDate.getMonth();
@@ -186,7 +186,7 @@ export default function OvulationCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card>
         <div className="space-y-4">
           <div>

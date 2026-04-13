@@ -90,12 +90,10 @@ export default function WordScrambleGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-6 space-y-6">
-      <Card className="p-6">
-        <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">Word Scramble Generator</h2>
-
+    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+      <Card>
         {/* Input Mode Selection */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">Word Source</label>
           <div className="flex gap-3 flex-wrap">
             <button
@@ -123,7 +121,7 @@ export default function WordScrambleGenerator() {
 
         {/* Theme Selection */}
         {inputMode === 'theme' && (
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-text-primary mb-3">Theme</label>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               {Object.keys(PRESET_THEMES).map(theme => (
@@ -145,7 +143,7 @@ export default function WordScrambleGenerator() {
 
         {/* Custom Words */}
         {inputMode === 'custom' && (
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-text-primary mb-2">
               Enter words (one per line)
             </label>
@@ -160,7 +158,7 @@ export default function WordScrambleGenerator() {
         )}
 
         {/* Difficulty */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">Difficulty</label>
           <div className="flex gap-3 flex-wrap">
             {['easy', 'medium', 'hard'].map(level => (
@@ -192,7 +190,7 @@ export default function WordScrambleGenerator() {
 
       {/* Output */}
       {scrambledWords.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-heading font-bold text-text-primary">
               Generated Scramble ({scrambledWords.length} words)
@@ -206,7 +204,7 @@ export default function WordScrambleGenerator() {
           </div>
 
           {/* Preview */}
-          <div className="bg-white p-4 rounded-lg mb-6 overflow-auto max-h-96">
+          <div className="bg-white p-4 rounded-lg mb-4 overflow-auto max-h-96">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <h4 className="font-semibold text-text-primary text-sm mb-3">Scrambled Words</h4>

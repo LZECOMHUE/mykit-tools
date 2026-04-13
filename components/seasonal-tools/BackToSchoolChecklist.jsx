@@ -156,8 +156,8 @@ export default function BackToSchoolChecklist() {
   const progress = Math.round((completedItems / totalItems) * 100);
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <label className="block text-text-secondary text-sm font-medium mb-2">
           School Year
         </label>
@@ -168,7 +168,7 @@ export default function BackToSchoolChecklist() {
         </Select>
       </div>
 
-      <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6">
+      <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-heading text-lg font-bold">Progress</h3>
           <span className="font-mono text-2xl font-bold">{progress}%</span>
@@ -184,9 +184,9 @@ export default function BackToSchoolChecklist() {
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {categories.map(([category, items]) => (
-          <div key={category} className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+          <div key={category} className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
             <h3 className="font-heading text-base font-bold text-text-primary capitalize">
               {category === 'uniform' ? 'Uniform' : category === 'stationery' ? 'Stationery' : 'Bags & Accessories'}
             </h3>

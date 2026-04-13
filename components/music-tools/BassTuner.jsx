@@ -246,9 +246,9 @@ export default function BassTuner() {
   const fretboardHeight = svgHeight - 60;
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-8">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
       {/* Controls Section */}
-      <div className="space-y-6 mb-8">
+      <div className="space-y-4 mb-4">
         {/* Tuning Selector */}
         <div className="grid gap-4 sm:grid-cols-2">
           <Select
@@ -280,10 +280,10 @@ export default function BassTuner() {
       </div>
 
       {/* Bass Fretboard */}
-      <div className="mb-8 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-2xl p-6 shadow-2xl overflow-hidden">
+      <div className="mb-4 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-2xl shadow-2xl overflow-hidden">
         <svg
           viewBox={`0 0 1000 ${svgHeight}`}
-          className="w-full h-auto mb-6"
+          className="w-full h-auto mb-4"
           preserveAspectRatio="xMidYMid meet"
         >
           {/* Fretboard background - darker rosewood for bass */}
@@ -402,7 +402,7 @@ export default function BassTuner() {
       </div>
 
       {/* String Controls Grid */}
-      <div className={`grid grid-cols-1 ${stringCount <= 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'} gap-4 mb-8`}>
+      <div className={`grid grid-cols-1 ${stringCount <= 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'} gap-4 mb-4`}>
         {currentTuning.strings.map((string, index) => {
           const isLoopingThis = isLooping && loopingString === index;
           const isPlayingThis = playingString === index && isPlaying;

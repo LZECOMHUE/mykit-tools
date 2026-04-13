@@ -225,7 +225,7 @@ export default function SavingsBurndown() {
       {/* RIGHT PANEL: Results */}
       <div className="space-y-3">
         {/* Hero Card */}
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)]">
           {simulation.incomeCoversSpending ? (
             <div>
               <p className="text-sm text-text-secondary mb-2">Savings trajectory</p>
@@ -285,7 +285,7 @@ export default function SavingsBurndown() {
 
         {/* Chart */}
         {!simulation.incomeCoversSpending && simulation.balances.length > 1 && (
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)]">
             <p className="text-sm font-medium text-text-primary mb-4">Savings balance over time</p>
             <div className="flex items-end gap-1 h-48">
               {chartData.map((data, idx) => {
@@ -331,7 +331,7 @@ export default function SavingsBurndown() {
 
         {/* Milestones */}
         {!simulation.incomeCoversSpending && simulation.milestones.length > 0 && (
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)]">
             <p className="text-sm font-medium text-text-primary mb-4">Key milestones</p>
             <div className="space-y-3">
               {simulation.milestones.map((milestone, idx) => (

@@ -80,7 +80,7 @@ export default function LuggageWeightChecker() {
   const checkedItems = items.filter(item => item.type === 'checked');
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Airline & Class */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

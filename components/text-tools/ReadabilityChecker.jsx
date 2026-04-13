@@ -161,7 +161,7 @@ export default function ReadabilityChecker() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Textarea */}
       <Card>
         <div className="space-y-3">
@@ -330,7 +330,7 @@ export default function ReadabilityChecker() {
       )}
 
       {!results && !text.trim() && (
-        <div className="bg-surface border border-border rounded-lg p-6 text-center text-text-secondary">
+        <div className="bg-surface border border-border rounded-lg text-center text-text-secondary">
           <p>Paste or type text above to analyse its readability.</p>
         </div>
       )}

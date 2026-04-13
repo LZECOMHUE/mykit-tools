@@ -114,12 +114,12 @@ export default function WatermarkPDF() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {!pdfFile ? (
         <PDFDropZone onFilesSelected={(files) => handlePdfUpload(files[0])} />
       ) : (
         <>
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <h3 className="text-text-primary font-semibold mb-4">
               PDF uploaded ({pageCount} pages)
             </h3>
@@ -133,7 +133,7 @@ export default function WatermarkPDF() {
             </Button>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
             <h3 className="text-text-primary font-semibold">Configuration</h3>
 
             <div>

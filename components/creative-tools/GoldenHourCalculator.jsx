@@ -241,7 +241,7 @@ export default function GoldenHourCalculator() {
       {/* Right Panel - Results */}
       <div className="flex flex-col gap-4">
         {/* Hero Banner */}
-        <div className="p-6 rounded-[var(--radius-card)] bg-accent-muted border border-border">
+        <div className="p-4 rounded-[var(--radius-card)] bg-accent-muted border border-border">
           <p className="text-text-muted text-[12px] uppercase tracking-wide mb-2">{calculations.locationName}</p>
           <p className="font-heading text-2xl font-bold text-accent mb-4">{new Date(date).toLocaleDateString('en-GB', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
           <div className="grid grid-cols-3 gap-3 text-[13px]">

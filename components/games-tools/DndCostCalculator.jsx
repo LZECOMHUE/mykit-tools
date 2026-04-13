@@ -184,7 +184,7 @@ export default function DndCostCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className="bg-accent-muted rounded-[12px] p-6 space-y-2">
+        <div className="bg-accent-muted rounded-[12px] space-y-2">
           <div className="text-[13px] text-text-secondary">First Year Cost</div>
           <div className="font-heading font-bold text-[32px] text-text-primary">
             £{calculations.totalAnnual}

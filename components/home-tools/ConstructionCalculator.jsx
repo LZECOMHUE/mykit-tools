@@ -376,7 +376,7 @@ const ConstructionCalculator = () => {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 p-4">
       {/* Calculator outer casing */}
       <div
-        className="w-full max-w-sm rounded-3xl p-6 shadow-2xl"
+        className="w-full max-w-sm rounded-3xl shadow-2xl"
         style={{
           backgroundColor: '#FF9500',
           boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
@@ -390,7 +390,7 @@ const ConstructionCalculator = () => {
 
         {/* LCD Screen */}
         <div
-          className="w-full mb-6 p-4 rounded-lg font-mono text-right overflow-hidden"
+          className="w-full mb-4 p-4 rounded-lg font-mono text-right overflow-hidden"
           style={{
             backgroundColor: '#c5cba3',
             boxShadow: 'inset 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(255, 255, 255, 0.2)',

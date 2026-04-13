@@ -86,11 +86,8 @@ export default function StatePensionAgeChecker() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          UK State Pension Age Checker
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
         <div className="space-y-4">
           <div>
@@ -114,16 +111,16 @@ export default function StatePensionAgeChecker() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Main Result */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your State Pension Details
             </h3>
 
             {!result.isPast ? (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div className="p-4 bg-white rounded-lg border border-border">
                     <p className="text-secondary text-sm mb-2">State Pension Age</p>
                     <p className="font-mono text-2xl font-bold text-primary">
@@ -139,7 +136,7 @@ export default function StatePensionAgeChecker() {
                   </div>
                 </div>
 
-                <div className="p-4 bg-white rounded-lg border border-accent text-center mb-6">
+                <div className="p-4 bg-white rounded-lg border border-accent text-center mb-4">
                   <p className="text-secondary text-sm mb-2">Time Until Pension</p>
                   <p className="font-mono text-xl font-bold text-accent">
                     {result.yearsUntil} years, {result.monthsUntil} months, {result.daysRemaining} days
@@ -147,7 +144,7 @@ export default function StatePensionAgeChecker() {
                 </div>
               </>
             ) : (
-              <div className="p-4 bg-green-50 rounded-lg border border-green-300 text-center mb-6">
+              <div className="p-4 bg-green-50 rounded-lg border border-green-300 text-center mb-4">
                 <p className="text-green-700 font-bold">
                   You have reached state pension age
                 </p>
@@ -159,8 +156,8 @@ export default function StatePensionAgeChecker() {
           </Card>
 
           {/* Weekly Payment */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               2026/27 Full State Pension Amount
             </h3>
 
@@ -194,7 +191,7 @@ export default function StatePensionAgeChecker() {
           </Card>
 
           {/* Pension Age Rules */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               State Pension Age Rules
             </h3>
@@ -228,7 +225,7 @@ export default function StatePensionAgeChecker() {
           </Card>
 
           {/* Key Points */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Key Points
             </h3>

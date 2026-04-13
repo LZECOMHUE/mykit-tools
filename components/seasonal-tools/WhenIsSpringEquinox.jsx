@@ -137,10 +137,10 @@ END:VCALENDAR`;
   const yearData = generateYearTable();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero Countdown Section */}
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border border-green-200">
-        <div className="text-center mb-6">
+      <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
+        <div className="text-center mb-4">
           <h2 className="font-heading text-2xl font-bold text-green-900 mb-2">
             Spring Equinox (Northern Hemisphere)
           </h2>
@@ -150,7 +150,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Countdown */}
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-4 gap-3 mb-4">
           <div className="bg-white rounded-lg p-4 text-center border border-green-100">
             <div className="font-mono text-2xl font-bold text-green-600">
               {countdown.days}
@@ -192,7 +192,7 @@ END:VCALENDAR`;
       </div>
 
       {/* What is Spring Equinox */}
-      <div className="bg-white rounded-lg border border-green-200 p-6">
+      <div className="bg-white rounded-lg border border-green-200">
         <h3 className="font-heading font-bold text-lg text-green-900 mb-3">What is the Spring Equinox?</h3>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">
           The spring equinox (also called the vernal equinox) is when day and night are approximately equal length in the Northern Hemisphere. It marks the astronomical beginning of spring. The exact date varies between March 19 and March 21 depending on the year and time zone.
@@ -209,7 +209,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Hemisphere Note */}
-      <div className="bg-amber-50 rounded-lg border border-amber-200 p-6">
+      <div className="bg-amber-50 rounded-lg border border-amber-200">
         <h3 className="font-heading font-bold text-amber-900 mb-2">Southern Hemisphere?</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           When it's spring equinox in the Northern Hemisphere (March), it's autumn equinox in the Southern Hemisphere. Australia, South Africa, and parts of South America experience their autumn equinox on this same date. They celebrate their spring equinox around September 22-23.
@@ -217,13 +217,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-purple-50 rounded-lg border border-purple-200 p-6">
+      <div className="bg-purple-50 rounded-lg border border-purple-200">
         <h3 className="font-heading font-bold text-purple-900 mb-2">Did You Know?</h3>
         <p className="text-sm text-gray-700">{FACTS[currentFact]}</p>
       </div>
 
       {/* Multi-Year Table */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-lg border border-gray-200">
         <h3 className="font-heading font-bold text-lg text-gray-900 mb-4">Spring Equinox Dates (Next 10 Years)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -252,7 +252,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Global Celebrations */}
-      <div className="bg-rose-50 rounded-lg border border-rose-200 p-6">
+      <div className="bg-rose-50 rounded-lg border border-rose-200">
         <h3 className="font-heading font-bold text-rose-900 mb-3">Global Spring Celebrations</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex gap-2">
@@ -275,7 +275,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Renewal and Rebirth */}
-      <div className="bg-teal-50 rounded-lg border border-teal-200 p-6">
+      <div className="bg-teal-50 rounded-lg border border-teal-200">
         <h3 className="font-heading font-bold text-teal-900 mb-2">Renewal and Rebirth</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           The spring equinox has long been a symbol of renewal, rebirth, and hope. As nature awakens from winter's slumber and daylight increases, it marks a powerful turning point. Many cultures and religions have centred their most important festivals and celebrations around this astronomical event.

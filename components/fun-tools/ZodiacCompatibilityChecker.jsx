@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Select from '@/components/ui/Select';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
@@ -59,6 +59,16 @@ const getCompatibility = (sign1, sign2) => {
   return COMPATIBILITY_MATRIX[key] || 50;
 };
 
+// Deterministic hash for aspect scores based on the two sign names
+const hashPair = (s1, s2, salt) => {
+  let h = salt;
+  const str = s1 + s2;
+  for (let i = 0; i < str.length; i++) {
+    h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+};
+
 const getCompatibilities = (sign) => {
   return {
     love: getCompatibility(sign, ZODIAC_SIGNS[(ZODIAC_SIGNS.indexOf(sign) + 2) % 12]),
@@ -85,6 +95,15 @@ export default function ZodiacCompatibilityChecker() {
   const bestMatches = getBestMatches(sign1);
   const worstMatches = getWorstMatches(sign1);
 
+  // Deterministic aspect scores based on sign combination
+  const aspectScores = useMemo(() => {
+    return {
+      Love: 65 + (hashPair(sign1, sign2, 1) % 25),
+      Friendship: 60 + (hashPair(sign1, sign2, 2) % 30),
+      Work: 60 + (hashPair(sign1, sign2, 3) % 25),
+    };
+  }, [sign1, sign2]);
+
   const getColorForScore = (score) => {
     if (score >= 80) return 'text-success';
     if (score >= 60) return 'text-accent';
@@ -98,14 +117,14 @@ export default function ZodiacCompatibilityChecker() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
       {/* Sign Selection */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h2 className="font-heading text-2xl font-bold text-text-primary mb-4 text-center">
           Zodiac Compatibility Checker
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
               Your sign
@@ -131,7 +150,7 @@ export default function ZodiacCompatibilityChecker() {
       </Card>
 
       {/* Compatibility Result */}
-      <Card className={`mb-6 text-center py-8 ${getBgColorForScore(compatibility)} border border-border`}>
+      <Card className={`mb-4 text-center py-4 ${getBgColorForScore(compatibility)} border border-border`}>
         <p className="text-text-secondary text-sm mb-2">{sign1} to {sign2}</p>
         <p className={`font-heading text-6xl font-bold ${getColorForScore(compatibility)}`}>
           {compatibility}%
@@ -140,7 +159,7 @@ export default function ZodiacCompatibilityChecker() {
       </Card>
 
       {/* Trait Descriptions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <Card>
           <div className="text-center mb-3">
             <p className="font-heading text-3xl">{sign1Traits.symbol}</p>
@@ -187,26 +206,22 @@ export default function ZodiacCompatibilityChecker() {
       </div>
 
       {/* Detailed Compatibilities */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Compatibility by Aspect
         </h3>
 
         <div className="space-y-3">
-          {['Love', 'Friendship', 'Work'].map((aspect, idx) => {
-            const scores = [75 + Math.random() * 15, 65 + Math.random() * 20, 70 + Math.random() * 15];
-            const score = Math.round(scores[idx]);
-            return (
-              <div key={aspect} className={`p-3 rounded-lg ${getBgColorForScore(score)}`}>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-text-primary">{aspect}</span>
-                  <span className={`font-heading text-2xl font-bold ${getColorForScore(score)}`}>
-                    {score}%
-                  </span>
-                </div>
+          {Object.entries(aspectScores).map(([aspect, score]) => (
+            <div key={aspect} className={`p-3 rounded-lg ${getBgColorForScore(score)}`}>
+              <div className="flex justify-between items-center">
+                <span className="font-medium text-text-primary">{aspect}</span>
+                <span className={`font-heading text-2xl font-bold ${getColorForScore(score)}`}>
+                  {score}%
+                </span>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </Card>
 

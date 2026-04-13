@@ -142,7 +142,7 @@ export default function TimeCalculator() {
   return (
     <div className="w-full max-w-2xl">
       {/* Mode Tabs */}
-      <div className="flex gap-2 mb-6 border-b border-border">
+      <div className="flex gap-2 mb-4 border-b border-border">
         <button
           onClick={() => setMode('add-subtract')}
           className={`px-4 py-2 font-medium transition-colors ${
@@ -167,7 +167,7 @@ export default function TimeCalculator() {
 
       {/* Result Card */}
       <div
-        className={`p-6 rounded-[var(--radius-card)] border border-border mb-6 transition-colors ${
+        className={`p-6 rounded-[var(--radius-card)] border border-border mb-4 transition-colors ${
           totalSeconds > 0
             ? 'bg-blue-100 border-accent'
             : 'bg-surface'
@@ -208,7 +208,7 @@ export default function TimeCalculator() {
       {mode === 'add-subtract' && (
         <>
           {/* Quick Add Presets */}
-          <div className="mb-6 flex flex-wrap gap-2">
+          <div className="mb-4 flex flex-wrap gap-2">
             <button
               onClick={() => handleQuickAdd(15 * 60)}
               className="px-3 py-2 bg-surface border border-border rounded-[var(--radius-input)] text-sm font-medium text-text-primary hover:bg-accent hover:text-white transition-colors"
@@ -248,7 +248,7 @@ export default function TimeCalculator() {
           </div>
 
           {/* Time Entries */}
-          <div className="space-y-4 mb-6">
+          <div className="space-y-4 mb-4">
             {entries.map((entry) => (
               <div key={entry.id} className="flex gap-3 items-end">
                 {/* Operation Toggle */}
@@ -366,7 +366,7 @@ export default function TimeCalculator() {
       {mode === 'time-between' && (
         <>
           {/* Format Selection */}
-          <div className="mb-6 flex gap-4">
+          <div className="mb-4 flex gap-4">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
@@ -392,7 +392,7 @@ export default function TimeCalculator() {
           </div>
 
           {/* Time Inputs */}
-          <div className="grid grid-cols-1 gap-4 mb-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Start Time
@@ -431,7 +431,7 @@ export default function TimeCalculator() {
           </div>
 
           {/* Crosses Midnight Toggle */}
-          <label className="flex items-center gap-3 mb-6 cursor-pointer p-3 bg-surface rounded-[var(--radius-input)] border border-border">
+          <label className="flex items-center gap-3 mb-4 cursor-pointer p-3 bg-surface rounded-[var(--radius-input)] border border-border">
             <input
               type="checkbox"
               checked={crossesMidnight}

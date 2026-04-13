@@ -108,11 +108,11 @@ export default function AustraliaSalarySacrificeCalculator() {
   }, [grossSalary, sacrificeAmount, currentSuper]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Gross Annual Salary (AUD)
@@ -218,7 +218,7 @@ export default function AustraliaSalarySacrificeCalculator() {
         </div>
 
         {/* Superannuation Impact */}
-        <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="bg-white rounded-lg border border-border space-y-4">
           <h2 className="text-text-primary font-semibold text-lg">Superannuation Impact</h2>
 
           <div className="space-y-3">
@@ -250,7 +250,7 @@ export default function AustraliaSalarySacrificeCalculator() {
               </span>
             </div>
 
-            <div className="flex justify-between items-center pt-3 bg-green-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+            <div className="flex justify-between items-center pt-3 bg-green-50 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
               <span className="text-text-primary font-semibold">New Super Balance:</span>
               <span className="font-mono text-xl font-semibold text-success">
                 ${results.newSuperBalance}
@@ -264,7 +264,7 @@ export default function AustraliaSalarySacrificeCalculator() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-green-50 rounded-lg border border-green-200 p-4">
             <p className="text-text-secondary text-sm mb-2">Total Tax Saving</p>
             <p className="text-3xl font-mono font-semibold text-success">
@@ -293,7 +293,7 @@ export default function AustraliaSalarySacrificeCalculator() {
         </div>
 
         {/* Key Insight */}
-        <div className="bg-blue-50 border border-accent rounded-lg p-6">
+        <div className="bg-blue-50 border border-accent rounded-lg">
           <h3 className="text-text-primary font-semibold text-lg mb-3">Key Insight</h3>
           <p className="text-text-secondary mb-3">
             By sacrificing <span className="font-mono font-semibold">${results.sacrificeAmount}</span> to super, you:

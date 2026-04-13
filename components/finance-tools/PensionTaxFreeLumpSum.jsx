@@ -69,11 +69,8 @@ export default function PensionTaxFreeLumpSum() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Pension Tax-Free Lump Sum Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
         <div className="space-y-4">
           <div>
@@ -141,14 +138,14 @@ export default function PensionTaxFreeLumpSum() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Lump Sum Breakdown */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your Tax-Free Lump Sum
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div className="p-4 bg-white rounded-lg border border-border">
                 <p className="text-secondary text-sm mb-2">Tax-Free Lump Sum (25%)</p>
                 <p className="font-mono text-3xl font-bold text-accent">
@@ -177,8 +174,8 @@ export default function PensionTaxFreeLumpSum() {
           </Card>
 
           {/* Monthly Income */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Monthly Income Comparison
             </h3>
 
@@ -221,8 +218,8 @@ export default function PensionTaxFreeLumpSum() {
           </Card>
 
           {/* Lifetime Benefits */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Lifetime Total (Age {result.age} to {result.age + result.yearsToLive})
             </h3>
 
@@ -269,7 +266,7 @@ export default function PensionTaxFreeLumpSum() {
           </Card>
 
           {/* Strategic Considerations */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Strategic Considerations
             </h3>
@@ -287,7 +284,7 @@ export default function PensionTaxFreeLumpSum() {
           </Card>
 
           {/* Tax Considerations */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Tax Considerations
             </h3>

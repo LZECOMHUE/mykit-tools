@@ -85,9 +85,9 @@ export default function DecisionMatrixMaker() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* Step Indicator */}
-      <div className="flex gap-2 mb-6 justify-between">
+      <div className="flex gap-2 mb-4 justify-between">
         {[1, 2, 3, 4].map((s) => (
           <button
             key={s}

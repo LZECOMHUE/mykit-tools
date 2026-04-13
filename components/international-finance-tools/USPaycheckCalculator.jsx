@@ -97,14 +97,14 @@ export default function USPaycheckCalculator() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Enter your income to calculate your paycheck</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Disclaimer */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-text-secondary">
         <p className="font-semibold text-blue-900 mb-1">Disclaimer</p>
@@ -112,7 +112,7 @@ export default function USPaycheckCalculator() {
       </div>
 
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">US Paycheck Calculator</h2>
 
         {/* Income Type Toggle */}
@@ -143,7 +143,7 @@ export default function USPaycheckCalculator() {
         </div>
 
         {/* Income Input */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {incomeType === 'annual' ? (
             <div>
               <label className="block text-text-secondary text-sm font-medium mb-1">Annual Salary ($)</label>
@@ -195,7 +195,7 @@ export default function USPaycheckCalculator() {
         </div>
 
         {/* State and Filing Status */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-2">State</label>
             <select
@@ -229,7 +229,7 @@ export default function USPaycheckCalculator() {
         </div>
 
         {/* 401k and Additional Withholding */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">401(k) Contribution (%)</label>
             <input
@@ -283,7 +283,7 @@ export default function USPaycheckCalculator() {
       </div>
 
       {/* Detailed Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Paycheck Breakdown (Per Period)</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -337,7 +337,7 @@ export default function USPaycheckCalculator() {
       </div>
 
       {/* Effective Tax Rate */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Tax Summary</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2">
@@ -372,7 +372,7 @@ export default function USPaycheckCalculator() {
       </div>
 
       {/* Notes */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Important Notes</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ This calculation uses estimated federal brackets and doesn't account for standard deduction or credits</li>

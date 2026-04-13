@@ -43,7 +43,7 @@ export default function MarkupCalculator() {
   }, [mode, costPrice, markupPercentage, sellingPrice]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Toggle */}
       <div className="flex gap-2 bg-surface border border-border rounded-[var(--radius-card)] p-2">
         <button
@@ -69,7 +69,7 @@ export default function MarkupCalculator() {
       </div>
 
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Cost Price
@@ -114,28 +114,28 @@ export default function MarkupCalculator() {
 
       {/* Results Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Selling Price</p>
           <p className="font-mono-num text-3xl font-bold text-accent">
             {fmt(results.sellingPrice)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Markup</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {results.markupPercentage.toFixed(2)}%
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Profit Amount</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {fmt(results.profitAmount)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Profit Margin</p>
           <p className="font-mono-num text-3xl font-bold text-accent">
             {results.profitMargin.toFixed(2)}%
@@ -144,7 +144,7 @@ export default function MarkupCalculator() {
       </div>
 
       {/* Detailed Summary */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <h3 className="text-text-primary font-semibold">Breakdown</h3>
 
         <div className="space-y-2 font-mono-num text-sm">

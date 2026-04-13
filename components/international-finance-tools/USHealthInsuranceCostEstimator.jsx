@@ -112,9 +112,9 @@ export default function USHealthInsuranceCostEstimator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Input Fields */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Age
@@ -182,11 +182,11 @@ export default function USHealthInsuranceCostEstimator() {
       </div>
 
       {/* Subsidy Summary */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Federal Subsidy Estimate
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <div className="text-sm text-text-secondary mb-1">
               Federal Poverty Level
@@ -211,7 +211,7 @@ export default function USHealthInsuranceCostEstimator() {
       </div>
 
       {/* Out of Pocket Summary */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-4 text-lg">
           Monthly Cost (After Subsidy)
         </h3>
@@ -264,7 +264,7 @@ export default function USHealthInsuranceCostEstimator() {
       </div>
 
       {/* Information */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">💡 Insurance Information</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• Open Enrollment is typically October - December each year</li>

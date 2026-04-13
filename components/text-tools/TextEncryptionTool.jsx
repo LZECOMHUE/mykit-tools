@@ -108,11 +108,11 @@ export default function TextEncryptionTool() {
   };
 
   const handleCopyPlaintext = () => {
-    navigator.clipboard.writeText(plaintext);
+    navigator.clipboard.writeText(plaintext).catch(() => {});
   };
 
   const handleCopyCiphertext = () => {
-    navigator.clipboard.writeText(ciphertext);
+    navigator.clipboard.writeText(ciphertext).catch(() => {});
   };
 
   const tabs = [
@@ -201,7 +201,7 @@ export default function TextEncryptionTool() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="bg-yellow-50 border border-yellow-200 rounded-[var(--radius-card)] p-4">
         <p className="text-sm text-yellow-900">
           <strong>Warning:</strong> This tool uses basic educational encryption (Vigenere and Caesar ciphers). Do not use for protecting sensitive data. For real security, use modern encryption standards.
@@ -212,7 +212,7 @@ export default function TextEncryptionTool() {
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Encryption Method
         </label>
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <Tabs
             tabs={tabs.map((tab) => ({
               id: tab.id,
@@ -223,7 +223,7 @@ export default function TextEncryptionTool() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Plaintext

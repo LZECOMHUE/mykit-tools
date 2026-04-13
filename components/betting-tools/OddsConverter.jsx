@@ -88,14 +88,14 @@ export default function OddsConverter() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       <div className="bg-surface border border-border rounded-lg p-4">
         <p className="text-secondary text-sm">
           Convert between decimal, fractional, and American (moneyline) odds formats. See implied probability and calculate returns.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Input */}
         <Card>
           <h3 className="font-heading text-lg font-bold text-primary mb-4">Enter Odds</h3>

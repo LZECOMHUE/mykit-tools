@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 
 // Fallback UUID v4 generator for browsers without crypto.randomUUID
@@ -22,9 +22,15 @@ function generateUUIDv4() {
 
 export default function UUIDGenerator() {
   const [uuids, setUuids] = useState(['']);
+  const [showInfo, setShowInfo] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [uppercase, setUppercase] = useState(false);
   const [includeHyphens, setIncludeHyphens] = useState(true);
+
+  // Auto-generate a UUID on mount
+  useEffect(() => {
+    setUuids([generateUUIDv4()]);
+  }, []);
 
   const handleGenerateSingle = () => {
     let uuid = generateUUIDv4();
@@ -53,7 +59,7 @@ export default function UUIDGenerator() {
   };
 
   const handleCopySingle = () => {
-    navigator.clipboard.writeText(uuids[0] || '');
+    navigator.clipboard.writeText(uuids[0] || '').catch(() => {});
   };
 
   const handleCopyAll = () => {
@@ -61,7 +67,7 @@ export default function UUIDGenerator() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Options Section */}
       <div className="space-y-4">
         <div className="grid sm:grid-cols-3 gap-4">
@@ -175,9 +181,18 @@ export default function UUIDGenerator() {
       )}
 
       {/* Info Box */}
-      <div className="p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm">
-        <strong className="block mb-1">UUID v4</strong>
-        <p>Randomly generated universally unique identifier. Standard format: 8-4-4-4-12 hexadecimal digits.</p>
+      <div>
+        <button
+          onClick={() => setShowInfo(!showInfo)}
+          className="text-xs text-text-muted hover:text-text-secondary flex items-center gap-1"
+        >
+          {showInfo ? '▾' : '▸'} What is UUID v4?
+        </button>
+        {showInfo && (
+          <div className="mt-2 p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm">
+            <p>Randomly generated universally unique identifier. Standard format: 8-4-4-4-12 hexadecimal digits.</p>
+          </div>
+        )}
       </div>
     </div>
   );

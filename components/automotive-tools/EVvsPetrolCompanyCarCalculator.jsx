@@ -74,13 +74,9 @@ export default function EVvsPetrolCompanyCarCalculator() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          EV vs Petrol Company Car Comparison
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-4">
+      <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* EV Section */}
           <div className="space-y-4">
             <h3 className="font-heading text-lg font-bold text-primary">
@@ -243,10 +239,10 @@ export default function EVvsPetrolCompanyCarCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Annual Comparison */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Annual Cost Comparison
             </h3>
 
@@ -285,7 +281,7 @@ export default function EVvsPetrolCompanyCarCalculator() {
           </Card>
 
           {/* 3-Year Projection */}
-          <Card className="p-6 bg-surface">
+          <Card className="bg-surface">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               3-Year Total Cost
             </h3>

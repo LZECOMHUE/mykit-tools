@@ -199,7 +199,7 @@ export default function BingoCardGenerator() {
     (theme !== "custom" && theme) || (theme === "custom" && customWords.trim());
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration Panel */}
       <Card className="bg-gradient-to-br from-yellow-50 to-orange-50">
         <div className="space-y-4">
@@ -273,7 +273,7 @@ export default function BingoCardGenerator() {
 
       {/* Preview Section */}
       {showPreview && cards.length > 0 && cards[0] && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Bingo Cards Grid */}
           <Card>
             <div className="space-y-4">
@@ -281,7 +281,7 @@ export default function BingoCardGenerator() {
                 🎉 Bingo Cards (Print Multiple Pages)
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {cards.map((card, cardIdx) => (
                   card && (
                     <div
@@ -381,20 +381,16 @@ export default function BingoCardGenerator() {
           </Card>
 
           {/* Instructions */}
-          <Card className="bg-green-50 border border-green-200">
-            <div className="space-y-3">
-              <h4 className="font-heading font-bold text-text-primary">
-                📖 How to Play Bingo
-              </h4>
-              <ol className="space-y-2 text-sm text-text-secondary list-decimal list-inside">
-                <li>Distribute one card to each player</li>
-                <li>Call out numbers/words randomly from the caller sheet</li>
-                <li>Players mark matching squares on their cards</li>
-                <li>First player to complete a line (horizontal, vertical, or diagonal) wins</li>
-                <li>Or play for a full card ("BINGO!")</li>
-              </ol>
-            </div>
-          </Card>
+          <details className="text-xs text-text-muted">
+            <summary className="cursor-pointer hover:text-text-secondary">How to play Bingo</summary>
+            <ol className="mt-2 space-y-1 list-decimal list-inside">
+              <li>Distribute one card to each player</li>
+              <li>Call out numbers/words randomly from the caller sheet</li>
+              <li>Players mark matching squares on their cards</li>
+              <li>First player to complete a line (horizontal, vertical, or diagonal) wins</li>
+              <li>Or play for a full card ("BINGO!")</li>
+            </ol>
+          </details>
         </div>
       )}
     </div>

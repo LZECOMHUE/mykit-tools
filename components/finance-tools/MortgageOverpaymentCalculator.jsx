@@ -83,12 +83,11 @@ export default function MortgageOverpaymentCalculator() {
   }, [mortgageBalance, interestRate, remainingYears, monthlyPayment, monthlyOverpayment]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="bg-surface rounded-[12px] border border-border p-6">
-        <h2 className="text-2xl font-bold text-text-primary mb-6">Mortgage Overpayment Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <Input
             label="Current Mortgage Balance (£)"
             type="number"
@@ -142,14 +141,14 @@ export default function MortgageOverpaymentCalculator() {
       </div>
 
       {/* Results Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <p className="text-sm text-text-secondary mb-2 uppercase tracking-wide">Total Interest Saved</p>
           <p className="text-3xl font-bold text-accent font-mono">{formatCurrency(results.interestSaved)}</p>
           <p className="text-xs text-text-muted mt-2">By paying an extra {formatCurrency(monthlyOverpayment)}/month</p>
         </div>
 
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <p className="text-sm text-text-secondary mb-2 uppercase tracking-wide">Time Saved</p>
           <p className="text-3xl font-bold text-accent font-mono">
             {results.yearsSaved}y {results.remainingMonths}m
@@ -161,9 +160,9 @@ export default function MortgageOverpaymentCalculator() {
       </div>
 
       {/* Payoff Dates */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold text-text-primary mb-4">Payoff Timeline</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <p className="text-sm text-text-secondary mb-1">Without Overpayment</p>
             <p className="text-lg font-bold text-text-primary">
@@ -186,9 +185,9 @@ export default function MortgageOverpaymentCalculator() {
       </div>
 
       {/* Interest Comparison */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold text-text-primary mb-4">Total Interest Paid</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 bg-surface rounded-[8px]">
             <p className="text-sm text-text-secondary mb-1">Without Overpayment</p>
             <p className="font-mono text-xl font-bold text-text-primary">
@@ -205,7 +204,7 @@ export default function MortgageOverpaymentCalculator() {
       </div>
 
       {/* Visual Term Comparison */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold text-text-primary mb-4">Mortgage Term Comparison</h3>
         <div className="space-y-4">
           <div>
@@ -233,7 +232,7 @@ export default function MortgageOverpaymentCalculator() {
       </div>
 
       {/* Monthly Breakdown Table */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold text-text-primary mb-4">Monthly Breakdown (First 12 Months + Final Months)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

@@ -30,7 +30,7 @@ export default function KitchenUnitConverter() {
   const result = convert(amount, fromUnit, toUnit);
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -79,7 +79,7 @@ export default function KitchenUnitConverter() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border">
         <div className="flex items-center justify-center gap-4">
           <div className="text-center">
             <p className="text-sm text-text-secondary mb-1">From</p>
@@ -105,7 +105,7 @@ export default function KitchenUnitConverter() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Quick Conversions
         </h3>

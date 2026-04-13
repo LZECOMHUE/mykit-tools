@@ -41,7 +41,7 @@ export default function ScientificNotationConverter() {
   }, [inputMode, standardInput, mantissa, exponent]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div className="flex gap-4">
         <button
           onClick={() => setInputMode('standard')}

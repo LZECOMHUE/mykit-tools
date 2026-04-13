@@ -92,7 +92,7 @@ export default function TimezoneMeetingPlanner() {
   }, [overlapSlots]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-5">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-5">
       {/* Timezone pills */}
       <div>
         <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-2">Select Timezones</p>
@@ -256,7 +256,7 @@ export default function TimezoneMeetingPlanner() {
       )}
 
       {selectedZones.length === 0 && (
-        <div className="bg-surface border border-border rounded-xl p-8 text-center text-text-muted">
+        <div className="bg-surface border border-border rounded-xl text-center text-text-muted">
           Select at least 2 timezones above to find meeting overlap
         </div>
       )}

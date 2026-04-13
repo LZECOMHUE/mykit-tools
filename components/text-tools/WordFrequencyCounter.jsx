@@ -53,7 +53,7 @@ export default function WordFrequencyCounter() {
   }, [text, ignoreCommon, minLength, caseSensitive]);
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input */}
       <div>
         <label className="text-text-secondary text-sm font-medium">

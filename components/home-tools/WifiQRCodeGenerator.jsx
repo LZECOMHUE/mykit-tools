@@ -464,7 +464,7 @@ export default function WifiQRCodeGenerator() {
             <h3 className="text-sm font-semibold text-text-primary mb-3">Preview</h3>
             <div className="flex justify-center">
               <div
-                className="rounded-2xl p-6 text-center w-full max-w-[320px] shadow-lg"
+                className="rounded-2xl text-center w-full max-w-[320px] shadow-lg"
                 style={{
                   background: `linear-gradient(135deg, ${style.bg1}, ${style.bg2})`,
                   color: style.text,

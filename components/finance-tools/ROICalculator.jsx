@@ -39,9 +39,9 @@ export default function ROICalculator() {
   }, [initialInvestment, finalValue, timePeriod, timePeriodUnit]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Initial Investment
@@ -95,14 +95,14 @@ export default function ROICalculator() {
 
       {/* Main Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Gain / Loss</p>
           <p className={`font-mono-num text-3xl font-bold ${results.gainLoss >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.gainLoss >= 0 ? '+' : ''}{fmt(results.gainLoss)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">ROI</p>
           <p className={`font-mono-num text-3xl font-bold ${results.roi >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.roi >= 0 ? '+' : ''}{results.roi.toFixed(2)}%
@@ -110,7 +110,7 @@ export default function ROICalculator() {
         </div>
 
         {results.hasTimePeriod && (
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:col-span-2">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] md:col-span-2">
             <p className="text-text-secondary text-sm mb-1">Annualized ROI (CAGR)</p>
             <p className={`font-mono-num text-3xl font-bold ${results.annualizedROI >= 0 ? 'text-accent' : 'text-error'}`}>
               {results.annualizedROI >= 0 ? '+' : ''}{results.annualizedROI.toFixed(2)}% per year
@@ -120,7 +120,7 @@ export default function ROICalculator() {
       </div>
 
       {/* Detailed Summary */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h3 className="text-text-primary font-semibold mb-4">Summary</h3>
 
         <div className="space-y-3 font-mono-num text-sm">
@@ -153,7 +153,7 @@ export default function ROICalculator() {
       </div>
 
       {/* Formula Explanation */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-white border border-border rounded-[var(--radius-card)] space-y-4">
         <h3 className="text-text-primary font-semibold">How It Works</h3>
 
         <div className="space-y-4 text-sm">

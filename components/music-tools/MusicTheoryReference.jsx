@@ -176,7 +176,7 @@ export default function MusicTheoryReference() {
   const minorR = 80;
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* Tab buttons */}
       <div className="flex gap-1 border-b border-border mb-4">
         {[
@@ -202,7 +202,7 @@ export default function MusicTheoryReference() {
       {activeTab === 'fifths' && (
         <div className="mt-6">
           {/* Toggle */}
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <span className={`text-sm font-medium ${!showMinor ? 'text-text-primary' : 'text-text-muted'}`}>Major</span>
             <button
               onClick={() => setShowMinor(!showMinor)}
@@ -214,7 +214,7 @@ export default function MusicTheoryReference() {
           </div>
 
           {/* Circle SVG */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4">
             <svg
               viewBox="0 0 400 400"
               className="w-full max-w-md"
@@ -485,12 +485,12 @@ export default function MusicTheoryReference() {
       {/* ───── Intervals ───── */}
       {activeTab === 'intervals' && (
         <div className="mt-6">
-          <p className="text-text-secondary mb-6">
+          <p className="text-text-secondary mb-4">
             An interval is the distance between two notes, measured in semitones. Click any row to hear it from middle C.
           </p>
 
           {/* Visual piano-style interval display */}
-          <div className="space-y-2 mb-6">
+          <div className="space-y-2 mb-4">
             {INTERVALS.map((interval, idx) => {
               const widthPct = ((interval.semitones) / 12) * 100;
               return (
@@ -538,7 +538,7 @@ export default function MusicTheoryReference() {
           </p>
 
           {/* Root note selector */}
-          <div className="mb-6">
+          <div className="mb-4">
             <p className="text-xs text-text-muted uppercase tracking-wide mb-2">Root Note</p>
             <div className="flex flex-wrap gap-1.5">
               {['C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'].map((note) => (

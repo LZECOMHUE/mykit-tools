@@ -45,13 +45,13 @@ export default function WeddingTableNameGenerator() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
           Table Name Configuration
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Select
             label="Theme"
             value={config.theme}
@@ -84,11 +84,11 @@ export default function WeddingTableNameGenerator() {
       {tables && (
         <div className="space-y-4">
           <Card>
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
               Your Table Names
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               {tables.map((table) => (
                 <div
                   key={table.number}

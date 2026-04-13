@@ -20,7 +20,7 @@ export default function PizzaDoughCalculator() {
   const hydration = ((totalWater / totalFlour) * 100).toFixed(1);
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -67,7 +67,7 @@ export default function PizzaDoughCalculator() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6 space-y-4">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4 space-y-4">
         <h3 className="font-heading text-lg font-bold text-text-primary">
           Ingredients
         </h3>

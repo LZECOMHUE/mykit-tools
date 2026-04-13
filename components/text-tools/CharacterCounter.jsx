@@ -64,7 +64,7 @@ export default function CharacterCounter() {
   const stats = useMemo(() => calculateStats(text), [text]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Input Section */}
       <div className="space-y-2">
         <label className="block text-sm font-medium text-text-primary">

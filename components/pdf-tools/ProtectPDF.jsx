@@ -112,9 +112,9 @@ export default function ProtectPDF() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Upload Section */}
-        <div className="rounded-[var(--radius-card)] border border-border bg-surface p-6">
+        <div className="rounded-[var(--radius-card)] border border-border bg-surface">
           <h2 className="text-lg font-semibold text-text-primary mb-4">
             Upload PDF
           </h2>
@@ -132,7 +132,7 @@ export default function ProtectPDF() {
 
         {/* Password Section */}
         {pdf && (
-          <div className="rounded-[var(--radius-card)] border border-border bg-surface p-6 space-y-4">
+          <div className="rounded-[var(--radius-card)] border border-border bg-surface space-y-4">
             <h2 className="text-lg font-semibold text-text-primary">
               Set Password
             </h2>

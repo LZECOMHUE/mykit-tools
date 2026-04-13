@@ -433,13 +433,9 @@ export default function PubQuizGenerator() {
   }, [quiz, config.numTeams, buildQuizHTML, buildAnswerSheetHTML]);
 
   return (
-    <div className="space-y-8">
-      <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-          Quiz Configuration
-        </h2>
-
-        <div className="space-y-4 mb-6">
+    <div className="space-y-4">
+      <div className="space-y-4">
+        <div className="space-y-4 mb-4">
           <div>
             <label className="text-text-secondary text-sm font-medium block mb-2">
               Number of Rounds: {config.rounds}
@@ -506,7 +502,7 @@ export default function PubQuizGenerator() {
           </div>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="text-text-secondary text-sm font-medium block mb-3">
             Select Categories
           </label>
@@ -528,7 +524,7 @@ export default function PubQuizGenerator() {
         <Button onClick={generateQuiz} className="w-full">
           Generate Quiz
         </Button>
-      </Card>
+      </div>
 
       {quiz && (
         <div className="space-y-4">
@@ -653,7 +649,7 @@ export default function PubQuizGenerator() {
             <div className="border border-border rounded-lg p-4 bg-white">
               <div className="text-center mb-4 border-b-2 border-accent pb-3">
                 <h4 className="font-heading text-xl font-bold">Pub Quiz - Answer Sheet</h4>
-                <div className="flex justify-center gap-6 items-center mt-2">
+                <div className="flex justify-center gap-4 items-center mt-2">
                   <span className="text-sm font-semibold text-text-secondary">Team #1</span>
                   <span className="text-sm text-text-secondary">
                     Team Name: <span className="inline-block border-b-2 border-text-primary min-w-[160px]">&nbsp;</span>

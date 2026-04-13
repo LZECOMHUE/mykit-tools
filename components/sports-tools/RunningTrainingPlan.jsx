@@ -235,7 +235,7 @@ export default function RunningTrainingPlan() {
   const currentWeek = displayPlan ? displayPlan[selectedWeek] : null;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration */}
       <Card>
         <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Plan Your Training</h3>

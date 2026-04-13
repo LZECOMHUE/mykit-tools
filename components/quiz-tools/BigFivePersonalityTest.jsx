@@ -294,7 +294,7 @@ export default function BigFivePersonalityTest() {
 
   if (showResults && scores) {
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-text-primary">Your Results</h2>
           <p className="text-text-secondary mt-2">Based on the International Personality Item Pool (IPIP) — Goldberg et al., 2006</p>
@@ -372,7 +372,7 @@ export default function BigFivePersonalityTest() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Progress bar */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
@@ -391,7 +391,7 @@ export default function BigFivePersonalityTest() {
 
       {/* Question */}
       <Card className="bg-white border-2">
-        <div className="space-y-6">
+        <div className="space-y-4">
           <p className="text-lg text-text-primary font-medium">{question.text}</p>
 
           {/* Rating scale */}

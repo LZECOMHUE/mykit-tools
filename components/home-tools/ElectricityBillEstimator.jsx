@@ -106,7 +106,7 @@ export default function ElectricityBillEstimator() {
       id: 'estimate',
       label: 'Current Bill',
       content: (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Input Mode */}
           <div className="space-y-3">
             <h3 className="text-text-primary font-semibold">Enter Usage</h3>
@@ -324,7 +324,7 @@ export default function ElectricityBillEstimator() {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 py-8 px-4">
+    <div className="w-full max-w-5xl mx-auto space-y-4 py-4 px-4">
       {/* Title */}
       <div>
         <h1 className="font-heading text-3xl font-bold text-text-primary">
@@ -344,7 +344,7 @@ export default function ElectricityBillEstimator() {
       </button>
 
       {/* Main Grid */}
-      <div className={`grid gap-6 ${compareMode ? 'lg:grid-cols-2' : ''}`}>
+      <div className={`grid gap-4 ${compareMode ? 'lg:grid-cols-2' : ''}`}>
         {/* Current Bill */}
         <div>
           <h2 className="text-text-primary font-semibold mb-4">Current Period</h2>
@@ -353,7 +353,7 @@ export default function ElectricityBillEstimator() {
 
         {/* Comparison */}
         {compareMode && (
-          <div className="space-y-6">
+          <div className="space-y-4">
             <h2 className="text-text-primary font-semibold">Previous Period</h2>
 
             <Card className="space-y-4">

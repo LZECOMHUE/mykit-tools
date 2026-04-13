@@ -111,7 +111,7 @@ export default function AgeCalculator() {
   }, [dob]);
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       <div>
         <label htmlFor="dob" className="block text-sm font-medium text-text-primary mb-2">
           Date of Birth

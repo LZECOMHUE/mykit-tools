@@ -102,7 +102,7 @@ export default function RandomNumberPicker() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Preset Buttons */}
       <div className="flex gap-2 flex-wrap justify-center">
         {PRESETS.map((preset) => (
@@ -168,7 +168,7 @@ export default function RandomNumberPicker() {
       {/* HUGE Number Display */}
       {displayNumber !== null && (
         <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-red-500 rounded-xl overflow-hidden shadow-2xl">
-          <div className="relative p-8 sm:p-12 text-center">
+          <div className="relative sm:p-12 text-center">
             {/* Animated Background Elements */}
             {selectedNumber !== null && selectedNumber === displayNumber && (
               <>
@@ -306,21 +306,17 @@ export default function RandomNumberPicker() {
       )}
 
       {/* Instructions */}
-      <Card className="bg-amber-50 border border-amber-200">
-        <div className="space-y-3">
-          <h4 className="font-heading font-bold text-text-primary">
-            📖 How to Use
-          </h4>
-          <ul className="space-y-2 text-sm text-text-secondary list-disc list-inside">
-            <li>Choose a range or set your own min and max</li>
-            <li>Toggle "No Repeats" if you don't want duplicate numbers</li>
-            <li>Click "Pick a Number" to generate a random selection</li>
-            <li>Watch the animated number spinner</li>
-            <li>Your picked number is displayed large and prominent</li>
-            <li>View all previously picked numbers in the history</li>
-          </ul>
-        </div>
-      </Card>
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">How to use</summary>
+        <ul className="mt-2 space-y-1 list-disc list-inside">
+          <li>Choose a range or set your own min and max</li>
+          <li>Toggle "No Repeats" if you don't want duplicate numbers</li>
+          <li>Click "Pick a Number" to generate a random selection</li>
+          <li>Watch the animated number spinner</li>
+          <li>Your picked number is displayed large and prominent</li>
+          <li>View all previously picked numbers in the history</li>
+        </ul>
+      </details>
     </div>
   );
 }

@@ -487,7 +487,7 @@ export default function SelfAssessmentEstimator() {
 
         {/* Empty state */}
         {!hasIncome && (
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] px-4 py-8 text-center text-text-muted text-sm">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] px-4 py-4 text-center text-text-muted text-sm">
             Enter your income to see your Self Assessment tax estimate
           </div>
         )}

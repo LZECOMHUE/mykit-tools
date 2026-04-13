@@ -143,7 +143,7 @@ export default function RobotsTxtGenerator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(generateRobotsTxt());
+    navigator.clipboard.writeText(generateRobotsTxt().catch(() => {}));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -151,7 +151,7 @@ export default function RobotsTxtGenerator() {
   return (
     <div className="space-y-3">
       {/* Presets */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <h3 className="text-sm font-semibold text-text-secondary mb-3">Quick Presets</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {Object.entries(PRESETS).map(([key, preset]) => (
@@ -172,7 +172,7 @@ export default function RobotsTxtGenerator() {
         {rules.map(rule => (
           <div
             key={rule.id}
-            className="p-6 rounded-[var(--radius-card)] bg-surface border border-border"
+            className="p-4 rounded-[var(--radius-card)] bg-surface border border-border"
           >
             <div className="flex justify-between items-start mb-4">
               <div className="flex-1">
@@ -249,7 +249,7 @@ export default function RobotsTxtGenerator() {
       </button>
 
       {/* Sitemap URL */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <label className="block text-sm font-medium text-text-primary mb-2">
           Sitemap URL (optional)
         </label>
@@ -263,9 +263,9 @@ export default function RobotsTxtGenerator() {
       </div>
 
       {/* Output */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-text-primary">robots.txt</h3>
+          <span className="text-sm font-semibold text-text-primary font-mono">robots.txt</span>
           <button
             onClick={handleCopy}
             className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"

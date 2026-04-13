@@ -50,7 +50,7 @@ export default function WouldYouRather() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-indigo-50 to-purple-50">
         <div className="space-y-4 text-center">
           <p className="text-sm text-text-secondary">

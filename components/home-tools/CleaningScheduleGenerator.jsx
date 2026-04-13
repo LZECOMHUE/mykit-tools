@@ -134,8 +134,8 @@ export default function CleaningScheduleGenerator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Number of Rooms/Areas
@@ -194,7 +194,7 @@ export default function CleaningScheduleGenerator() {
           </div>
           <div className="space-y-4">
             {schedule.map((daySchedule) => (
-              <div key={daySchedule.day} className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+              <div key={daySchedule.day} className="bg-surface border border-border rounded-[var(--radius-card)]">
                 <h4 className="font-heading text-base font-bold text-text-primary mb-3">{daySchedule.dayName}</h4>
                 <div className="space-y-2">
                   {daySchedule.tasks.map((item, idx) => (

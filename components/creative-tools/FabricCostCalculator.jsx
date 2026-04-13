@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 
 const inputCls = 'w-full px-3 py-2 text-[13px] bg-white border border-border rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent-muted';
 const selectCls = 'w-full px-3 py-2 text-[13px] bg-white border border-border rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent-muted appearance-none cursor-pointer';
-const cardCls = 'bg-white border border-border rounded-[var(--radius-card)] p-6';
+const cardCls = 'bg-white border border-border rounded-[var(--radius-card)] p-4';
 
 export default function FabricCostCalculator() {
   const [projectType, setProjectType] = useState('dress');
@@ -71,7 +71,7 @@ export default function FabricCostCalculator() {
   }, [projectType, measurement1, measurement2, fabricWidth, patternRepeat, pricePerMetre]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className={cardCls}>
         <h2 className="text-text-primary font-heading text-base font-bold mb-4">Project Details</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -144,7 +144,7 @@ export default function FabricCostCalculator() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-accent rounded-[var(--radius-card)] p-6" style={{ backgroundColor: 'var(--accent-muted)' }}>
+      <div className="bg-white border-2 border-accent rounded-[var(--radius-card)]" style={{ backgroundColor: 'var(--accent-muted)' }}>
         <h2 className="text-text-primary font-heading text-lg font-bold mb-4">Fabric Needed</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div>

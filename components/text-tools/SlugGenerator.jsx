@@ -53,14 +53,14 @@ export default function SlugGenerator() {
 
   const handleCopySlug = async () => {
     try {
-      await navigator.clipboard.writeText(slug);
+      await navigator.clipboard.writeText(slug).catch(() => {});
     } catch (err) {
       console.error('Failed to copy slug:', err);
     }
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input */}
       <div>
         <label className="text-text-secondary text-sm font-medium">

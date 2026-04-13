@@ -84,11 +84,9 @@ export default function FuelCostCalculator() {
   const fmt = (n) => '£' + parseFloat(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Main Calculator */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
-        <h2 className="text-xl font-bold text-text-primary">Trip Fuel Cost Calculator</h2>
-
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
@@ -184,7 +182,7 @@ export default function FuelCostCalculator() {
       )}
 
       {/* Vehicle Comparison */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-bold text-text-primary">Compare Vehicles</h3>
           <button
@@ -255,7 +253,7 @@ export default function FuelCostCalculator() {
       </div>
 
       {/* Quick Reference */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Average Vehicle Efficiency</h3>
         <div className="space-y-2">
           {commonVehicles.map((v) => (

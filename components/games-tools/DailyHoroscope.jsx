@@ -123,14 +123,11 @@ export default function DailyHoroscope() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header */}
       <Card className="bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="text-center space-y-2">
           <p className="text-sm font-mono text-purple-700">Today&apos;s Forecast</p>
-          <h2 className="font-heading text-2xl font-bold text-purple-900">
-            Daily Horoscope
-          </h2>
           <p className="text-sm text-purple-700">{today}</p>
         </div>
       </Card>
@@ -323,13 +320,12 @@ export default function DailyHoroscope() {
       )}
 
       {/* Info */}
-      <Card className="bg-purple-50 border-l-4 border-purple-500">
-        <p className="text-sm text-text-secondary">
-          Daily horoscopes are generated fresh each day for each sign. These
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Daily horoscopes are generated fresh each day for each sign. These
           readings blend traditional astrology with daily guidance. Use them for
-          inspiration and reflection, not as predictions of fact.
-        </p>
-      </Card>
+          inspiration and reflection, not as predictions of fact.</p>
+      </details>
     </div>
   );
 }

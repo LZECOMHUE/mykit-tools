@@ -72,8 +72,8 @@ export default function HolidayCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -81,9 +81,9 @@ export default function HolidayCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">Plan Your Holiday</h3>
 
         <Input
@@ -112,7 +112,7 @@ export default function HolidayCountdown() {
       {countdown && !countdown.isPast ? (
         <>
           {/* Main Countdown */}
-          <div className="bg-gradient-to-br from-cyan-50 to-sky-50 border-2 border-cyan-300 rounded-lg p-8 text-center space-y-6">
+          <div className="bg-gradient-to-br from-cyan-50 to-sky-50 border-2 border-cyan-300 rounded-lg text-center space-y-4">
             <div className="text-5xl">✈️</div>
             <h2 className="text-3xl font-bold text-text-primary">
               {destination ? `Holiday to ${destination}` : 'Your Holiday'}
@@ -144,7 +144,7 @@ export default function HolidayCountdown() {
           </div>
 
           {/* Packing Reminders */}
-          <div className="bg-surface border border-border rounded-lg p-6">
+          <div className="bg-surface border border-border rounded-lg">
             <h3 className="text-text-primary font-semibold mb-4">Packing Reminders</h3>
             <div className="space-y-3">
               {countdown.packingMilestones.map((milestone) => {
@@ -177,7 +177,7 @@ export default function HolidayCountdown() {
           </div>
 
           {/* Destination Info */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg">
             <h3 className="text-text-primary font-semibold mb-2">About Your Trip</h3>
             <p className="text-text-secondary text-sm mb-3">
               {destination ? (
@@ -192,7 +192,7 @@ export default function HolidayCountdown() {
           </div>
 
           {/* Holiday Stats */}
-          <div className="bg-surface border border-border rounded-lg p-6">
+          <div className="bg-surface border border-border rounded-lg">
             <h3 className="text-text-primary font-semibold mb-4">Holiday Stats</h3>
             <div className="space-y-3">
               {[
@@ -210,7 +210,7 @@ export default function HolidayCountdown() {
           </div>
 
           {/* Pre-Trip Checklist */}
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-6">
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg">
             <h3 className="text-text-primary font-semibold mb-3">Quick Pre-Trip Checklist</h3>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li className="flex items-center gap-2">
@@ -232,13 +232,13 @@ export default function HolidayCountdown() {
           </div>
         </>
       ) : countdown && countdown.isPast ? (
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-400 rounded-lg p-8 text-center space-y-4">
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 border-2 border-cyan-400 rounded-lg text-center space-y-4">
           <div className="text-5xl">🏖️</div>
           <h2 className="text-3xl font-bold text-cyan-700">Happy Holidays!</h2>
           <p className="text-lg text-text-secondary">Enjoy your well-deserved break! Take lots of photos and make amazing memories.</p>
         </div>
       ) : (
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Enter your destination and departure date to start counting down!</p>
         </div>
       )}

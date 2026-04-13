@@ -122,7 +122,7 @@ export default function CrochetBlanketCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
         {/* Left: Configuration */}
@@ -266,7 +266,7 @@ export default function CrochetBlanketCalculator() {
         {/* Right: Hero Results */}
         {results && (
           <Card className="bg-accent-muted border-accent-muted">
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
                 <h3 className="text-text-secondary text-[13px] font-medium mb-1">Total Cost</h3>
                 <p className="font-mono text-4xl font-bold text-accent">
@@ -317,17 +317,17 @@ export default function CrochetBlanketCalculator() {
       </div>
 
       {/* Info Section */}
-      <Card className="bg-info/10 border-info">
-        <div className="space-y-3">
-          <p className="font-medium text-text-primary text-sm">About This Calculator</p>
-          <ul className="text-text-secondary text-sm space-y-2 list-disc list-inside">
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">About this calculator</summary>
+        <div className="mt-2 space-y-1">
+          <ul className="space-y-1 list-disc list-inside">
             <li>Yarn estimates include an extra 10% for joining squares and edging</li>
             <li>We add 1 extra ball to account for mistakes and adjustments</li>
             <li>Time estimates assume an average crochet speed of 0.15 m² per hour</li>
             <li>Granny square projects typically use more yarn than single stitch blankets</li>
           </ul>
         </div>
-      </Card>
+      </details>
     </div>
   );
 }

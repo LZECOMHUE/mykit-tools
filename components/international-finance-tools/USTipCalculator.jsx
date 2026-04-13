@@ -49,9 +49,9 @@ export default function USTipCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Bill Amount Input */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">Tip Calculator</h2>
 
         <div>
@@ -171,14 +171,14 @@ export default function USTipCalculator() {
       {/* Main Results */}
       <div className="space-y-4">
         {/* Tip Amount */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <p className="text-blue-600 text-sm font-medium mb-1">Tip Amount</p>
           <p className="font-mono text-4xl font-bold text-blue-700">{fmt(calculations.tipAmount)}</p>
           <p className="text-blue-600 text-xs mt-2">{(parseFloat(customTipPercent || tipPercent) || 0).toFixed(1)}% of bill</p>
         </div>
 
         {/* Total */}
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-600 text-sm font-medium mb-1">Total Amount</p>
           <p className="font-mono text-4xl font-bold text-green-700">{fmt(calculations.total)}</p>
           <p className="text-green-600 text-xs mt-2">Bill + Tip</p>
@@ -186,7 +186,7 @@ export default function USTipCalculator() {
 
         {/* Per Person (if splitting) */}
         {calculations.numPeople > 1 && (
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+          <div className="bg-purple-50 border border-purple-200 rounded-lg">
             <p className="text-purple-600 text-sm font-medium mb-1">Per Person</p>
             <p className="font-mono text-4xl font-bold text-purple-700">{fmt(calculations.perPerson)}</p>
             <p className="text-purple-600 text-xs mt-2">
@@ -197,7 +197,7 @@ export default function USTipCalculator() {
       </div>
 
       {/* Breakdown Table */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Breakdown</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -234,7 +234,7 @@ export default function USTipCalculator() {
       </div>
 
       {/* Tipping Guide */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Tipping Guide</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ <strong>15%:</strong> Standard for adequate service</li>

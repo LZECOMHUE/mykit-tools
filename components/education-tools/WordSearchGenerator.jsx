@@ -407,10 +407,10 @@ export default function WordSearchGenerator({ theme: propsTheme = null }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration Panel */}
       <Card>
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Theme Selector — hidden when a preset theme is provided (e.g. Halloween, Christmas) */}
           {!isPresetTheme && (
             <>
@@ -556,7 +556,7 @@ export default function WordSearchGenerator({ theme: propsTheme = null }) {
 
       {/* Main Puzzle Area */}
       {grid.length > 0 && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Grid */}
           <div className="lg:col-span-2">
             <Card className="overflow-auto">

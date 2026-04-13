@@ -33,14 +33,14 @@ export default function AngleConverter() {
   }, [inputValue, inputUnit]);
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text.toString());
+    navigator.clipboard.writeText(text.toString().catch(() => {}));
   };
 
   const units = Object.keys(CONVERSIONS);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-lg border border-border">
-      <div className="space-y-6">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-lg border border-border">
+      <div className="space-y-4">
         {/* Input */}
         <div className="space-y-3">
           <label className="block text-sm font-medium text-text-primary">Enter Angle</label>
@@ -67,7 +67,7 @@ export default function AngleConverter() {
         </div>
 
         {/* Angle Indicator */}
-        <div className="p-6 bg-white border border-border rounded-lg flex flex-col items-center">
+        <div className="p-4 bg-white border border-border rounded-lg flex flex-col items-center">
           <p className="text-xs text-text-secondary mb-4">Visual Angle</p>
           <div className="relative w-40 h-40 rounded-full border-4 border-accent bg-blue-50 flex items-center justify-center">
             {/* Circle base */}

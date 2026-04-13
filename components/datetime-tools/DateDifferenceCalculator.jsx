@@ -371,7 +371,7 @@ export default function DateDifferenceCalculator() {
   const [activeTab, setActiveTab] = useState('difference');
 
   return (
-    <div className="w-full rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full rounded-[var(--radius-card)] bg-surface">
       {/* Tab bar */}
       <div className="flex gap-1 border-b border-border mb-5">
         {TABS.map((tab) => (

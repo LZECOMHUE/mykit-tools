@@ -142,7 +142,7 @@ export default function NumerologyCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Input Card */}
       <Card className="bg-gradient-to-br from-indigo-50 to-blue-50">
         <div className="space-y-4">
@@ -219,76 +219,36 @@ export default function NumerologyCalculator() {
           </div>
 
           {/* Interpretation */}
-          <Card className="bg-purple-50 border-l-4 border-purple-500">
-            <div className="space-y-4">
-              <h3 className="font-heading text-lg font-semibold text-text-primary">
-                Your Numerology Profile
-              </h3>
-
-              <div className="space-y-4 text-sm text-text-secondary">
-                <div>
-                  <p className="font-semibold text-text-primary mb-2">
-                    Life Path Number (From Birth Date)
-                  </p>
-                  <p>
-                    Your Life Path Number reveals your natural talents, abilities,
-                    and life journey. It represents your core personality and
-                    the lessons you are meant to learn. This is your primary life
-                    direction.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-semibold text-text-primary mb-2">
-                    Expression Number (From Full Name)
-                  </p>
-                  <p>
-                    Your Expression Number shows how you communicate and express
-                    yourself in the world. It reveals your talents, abilities, and
-                    how others perceive you. This is your natural way of being.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-semibold text-text-primary mb-2">
-                    Soul Urge Number (From Vowels in Name)
-                  </p>
-                  <p>
-                    Your Soul Urge Number represents your inner desires, motivations,
-                    and what truly drives you. It reveals what you really want from
-                    life at the deepest level of your being.
-                  </p>
-                </div>
+          <details className="text-xs text-text-muted">
+            <summary className="cursor-pointer hover:text-text-secondary">About your numerology profile</summary>
+            <div className="mt-2 space-y-3">
+              <div>
+                <p className="font-semibold">Life Path Number (From Birth Date)</p>
+                <p>Your Life Path Number reveals your natural talents, abilities,
+                  and life journey. It represents your core personality and
+                  the lessons you are meant to learn. This is your primary life
+                  direction.</p>
               </div>
-
-              {/* Compatibility */}
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold text-text-primary mb-3">
-                  Number Compatibility
-                </p>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  Your numbers suggest you harmonize well with people whose numbers
-                  complement yours. Numbers that share similar vibrations (both odd
-                  or both even, or specific number pairs) tend to work well together.
-                  Use these insights for personal and professional relationships.
-                </p>
+              <div>
+                <p className="font-semibold">Expression Number (From Full Name)</p>
+                <p>Your Expression Number shows how you communicate and express
+                  yourself in the world. It reveals your talents, abilities, and
+                  how others perceive you. This is your natural way of being.</p>
+              </div>
+              <div>
+                <p className="font-semibold">Soul Urge Number (From Vowels in Name)</p>
+                <p>Your Soul Urge Number represents your inner desires, motivations,
+                  and what truly drives you. It reveals what you really want from
+                  life at the deepest level of your being.</p>
+              </div>
+              <div>
+                <p className="font-semibold">Master Numbers</p>
+                <p>If any of your numbers are 11, 22, or 33, you carry a master number!
+                  These are considered highly spiritual and powerful numbers that bring
+                  special gifts and greater responsibilities in life.</p>
               </div>
             </div>
-          </Card>
-
-          {/* Master Numbers Note */}
-          <Card className="bg-amber-50 border-l-4 border-amber-500">
-            <div className="space-y-2">
-              <p className="font-semibold text-text-primary text-sm">
-                Master Numbers
-              </p>
-              <p className="text-sm text-text-secondary">
-                If any of your numbers are 11, 22, or 33, you carry a master number!
-                These are considered highly spiritual and powerful numbers that bring
-                special gifts and greater responsibilities in life.
-              </p>
-            </div>
-          </Card>
+          </details>
 
           <Button
             variant="secondary"
@@ -305,14 +265,13 @@ export default function NumerologyCalculator() {
       )}
 
       {/* Info */}
-      <Card className="bg-blue-50 border-l-4 border-blue-500">
-        <p className="text-sm text-text-secondary">
-          Numerology is an ancient divination system that assigns meaning to numbers.
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Numerology is an ancient divination system that assigns meaning to numbers.
           Each number carries vibrations and significance. Your birth date and name
           can reveal your Life Path, Expression, and Soul Urge numbers. This reading
-          is for entertainment and self-discovery only.
-        </p>
-      </Card>
+          is for entertainment and self-discovery only.</p>
+      </details>
     </div>
   );
 }

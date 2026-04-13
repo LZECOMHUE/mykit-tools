@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import Input from '@/components/ui/Input';
+import { useState, useEffect } from 'react';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 
 export default function ThisOrThatDecider() {
-  const [optionA, setOptionA] = useState('');
-  const [optionB, setOptionB] = useState('');
+  const [optionA, setOptionA] = useState('Pizza');
+  const [optionB, setOptionB] = useState('Tacos');
   const [isFlipping, setIsFlipping] = useState(false);
   const [result, setResult] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -19,7 +17,6 @@ export default function ThisOrThatDecider() {
     setResult(null);
     setShowFeedback(false);
 
-    // 3-second countdown animation
     setTimeout(() => {
       const winner = Math.random() > 0.5 ? 'A' : 'B';
       setResult(winner);
@@ -29,6 +26,12 @@ export default function ThisOrThatDecider() {
       }, 500);
     }, 3000);
   };
+
+  useEffect(() => {
+    const winner = Math.random() > 0.5 ? 'A' : 'B';
+    setResult(winner);
+    setShowFeedback(true);
+  }, []);
 
   const handleDisappointed = () => {
     const winner = result === 'A' ? 'B' : 'A';
@@ -48,83 +51,80 @@ export default function ThisOrThatDecider() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <Card className="mb-6">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4 text-center">
-          This or That?
-        </h2>
-
-        <div className="space-y-4 mb-6">
-          <Input
-            label="Option A"
-            placeholder="e.g., Coffee"
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-3">
+      <div className="flex gap-3 items-end">
+        <div className="flex-1">
+          <label className="block text-text-primary text-xs font-medium mb-1">Option A</label>
+          <input
+            type="text"
+            placeholder="e.g., Pizza"
             value={optionA}
             onChange={(e) => setOptionA(e.target.value)}
-          />
-          <Input
-            label="Option B"
-            placeholder="e.g., Tea"
-            value={optionB}
-            onChange={(e) => setOptionB(e.target.value)}
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
         </div>
+        <span className="text-text-muted text-sm font-medium pb-2">vs</span>
+        <div className="flex-1">
+          <label className="block text-text-primary text-xs font-medium mb-1">Option B</label>
+          <input
+            type="text"
+            placeholder="e.g., Tacos"
+            value={optionB}
+            onChange={(e) => setOptionB(e.target.value)}
+            className="w-full px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+          />
+        </div>
+      </div>
 
-        <Button
-          onClick={decide}
-          variant="primary"
-          className="w-full"
-          disabled={!optionA.trim() || !optionB.trim() || isFlipping}
-        >
-          {isFlipping ? 'Deciding...' : 'Decide!'}
-        </Button>
-      </Card>
+      <Button
+        onClick={decide}
+        variant="primary"
+        className="w-full"
+        disabled={!optionA.trim() || !optionB.trim() || isFlipping}
+      >
+        {isFlipping ? 'Deciding...' : 'Decide!'}
+      </Button>
 
       {/* Countdown Animation */}
       {isFlipping && (
-        <Card className="mb-6 text-center py-12 bg-accent/5">
-          <div className="space-y-4">
-            <p className="text-text-secondary text-sm">Deciding...</p>
-            <div className="font-heading text-6xl font-bold text-accent animate-pulse">
-              ✨
-            </div>
+        <div className="text-center py-12 bg-accent/5 rounded-[var(--radius-card)]">
+          <p className="text-text-secondary text-sm">Deciding...</p>
+          <div className="font-heading text-6xl font-bold text-accent animate-pulse mt-4">
+            ✨
           </div>
-        </Card>
+        </div>
       )}
 
       {/* Result */}
       {result && !isFlipping && (
-        <Card className="mb-6 bg-accent/5 border-accent/30">
-          <div className="text-center">
-            <p className="text-text-secondary text-sm mb-2">The Winner Is...</p>
-            <div className="font-heading text-5xl font-bold text-accent mb-4">
-              {result === 'A' ? optionA : optionB}
-            </div>
-
-            {showFeedback && (
-              <div className="mt-6 pt-6 border-t border-accent/20 space-y-3">
-                <p className="text-text-secondary text-sm">How do you feel about this?</p>
-                <div className="flex gap-2 sm:gap-3">
-                  <Button
-                    onClick={() => {
-                      reset();
-                    }}
-                    variant="primary"
-                    className="flex-1"
-                  >
-                    Great!
-                  </Button>
-                  <Button
-                    onClick={handleDisappointed}
-                    variant="secondary"
-                    className="flex-1"
-                  >
-                    Actually, {result === 'A' ? optionB : optionA}
-                  </Button>
-                </div>
-              </div>
-            )}
+        <div className="bg-accent/5 border border-accent/30 rounded-[var(--radius-card)] text-center">
+          <p className="text-text-secondary text-sm mb-2">The Winner Is...</p>
+          <div className="font-heading text-5xl font-bold text-accent mb-4">
+            {result === 'A' ? optionA : optionB}
           </div>
-        </Card>
+
+          {showFeedback && (
+            <div className="mt-4 pt-4 border-t border-accent/20 space-y-3">
+              <p className="text-text-secondary text-sm">How do you feel about this?</p>
+              <div className="flex gap-2 sm:gap-3">
+                <Button
+                  onClick={() => { reset(); }}
+                  variant="primary"
+                  className="flex-1"
+                >
+                  Great!
+                </Button>
+                <Button
+                  onClick={handleDisappointed}
+                  variant="secondary"
+                  className="flex-1"
+                >
+                  Actually, {result === 'A' ? optionB : optionA}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
       )}
 
       {/* Reset Button */}

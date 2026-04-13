@@ -202,9 +202,9 @@ export default function PianoChords() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
       {/* Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <Select
           label="Root Note"
           options={rootNoteOptions}
@@ -226,7 +226,7 @@ export default function PianoChords() {
       </div>
 
       {/* Chord Info */}
-      <div className="mb-6 p-4 bg-surface border border-border rounded-xl">
+      <div className="mb-4 p-4 bg-surface border border-border rounded-xl">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <div className="flex items-baseline gap-2 mb-1">
@@ -267,7 +267,7 @@ export default function PianoChords() {
       </div>
 
       {/* Piano Keyboard */}
-      <div className="mb-6 overflow-x-auto rounded-xl bg-gradient-to-b from-zinc-700 to-zinc-800 p-4 shadow-xl">
+      <div className="mb-4 overflow-x-auto rounded-xl bg-gradient-to-b from-zinc-700 to-zinc-800 p-4 shadow-xl">
         <svg
           viewBox={`0 0 ${totalWidth} ${svgHeight}`}
           className="w-full h-auto"
@@ -370,7 +370,7 @@ export default function PianoChords() {
       </div>
 
       {/* Legend */}
-      <div className="flex items-center justify-center gap-6 text-sm text-text-secondary mb-6">
+      <div className="flex items-center justify-center gap-4 text-sm text-text-secondary mb-4">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded bg-red-500" />
           <span>Root</span>

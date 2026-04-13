@@ -95,7 +95,7 @@ export default function CostOfRaisingChild() {
 
   if (!calculateCosts) {
     return (
-      <div className="rounded-lg border border-border bg-surface p-6">
+      <div className="rounded-lg border border-border bg-surface">
         <p className="text-text-secondary">Country data not available.</p>
       </div>
     );
@@ -152,7 +152,7 @@ export default function CostOfRaisingChild() {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* Controls: compact inline */}
       <div className="flex flex-wrap items-end gap-3 mb-4">
         <div className="w-44">

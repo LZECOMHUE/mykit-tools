@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Button from '@/components/ui/Button';
 
 function lineDiff(original, modified) {
   const originalLines = original.split('\n');
@@ -34,12 +33,11 @@ function lineDiff(original, modified) {
 export default function TextDiff() {
   const [original, setOriginal] = useState('');
   const [modified, setModified] = useState('');
-  const [showDiff, setShowDiff] = useState(false);
 
   const diffResult = useMemo(() => {
-    if (!showDiff || (!original && !modified)) return null;
+    if (!original && !modified) return null;
     return lineDiff(original, modified);
-  }, [original, modified, showDiff]);
+  }, [original, modified]);
 
   const stats = useMemo(() => {
     if (!diffResult) return { added: 0, removed: 0, unchanged: 0 };
@@ -50,111 +48,82 @@ export default function TextDiff() {
     };
   }, [diffResult]);
 
-  const handleCompare = () => {
-    setShowDiff(true);
-  };
-
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
-      {/* Input Section */}
-      <div className="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="space-y-4">
+      {/* Two input panels */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {/* Original */}
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-text-primary">
-            Original Text
-          </label>
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Original Text</label>
+            <span className="text-xs text-text-muted font-mono">{original.split('\n').length} lines</span>
+          </div>
           <textarea
             value={original}
             onChange={(e) => setOriginal(e.target.value)}
             placeholder="Paste original text here..."
-            className="w-full h-48 p-4 border border-border rounded-[var(--radius-input)] bg-surface text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+            className="w-full h-48 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
           />
-          <p className="text-xs text-text-muted">
-            Lines: <span className="font-mono-num">{original.split('\n').length}</span>
-          </p>
         </div>
 
         {/* Modified */}
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-text-primary">
-            Modified Text
-          </label>
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Modified Text</label>
+            <span className="text-xs text-text-muted font-mono">{modified.split('\n').length} lines</span>
+          </div>
           <textarea
             value={modified}
             onChange={(e) => setModified(e.target.value)}
             placeholder="Paste modified text here..."
-            className="w-full h-48 p-4 border border-border rounded-[var(--radius-input)] bg-surface text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+            className="w-full h-48 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
           />
-          <p className="text-xs text-text-muted">
-            Lines: <span className="font-mono-num">{modified.split('\n').length}</span>
-          </p>
         </div>
       </div>
 
-      {/* Compare Button */}
-      <div className="flex justify-center">
-        <Button onClick={handleCompare}>Compare Texts</Button>
-      </div>
+      {/* Stats inline row */}
+      {diffResult && (
+        <div className="flex items-center gap-4 text-sm">
+          <span className="text-text-muted">Diff:</span>
+          <span className="font-mono text-green-600">+{stats.added} added</span>
+          <span className="font-mono text-red-600">-{stats.removed} removed</span>
+          <span className="font-mono text-text-secondary">{stats.unchanged} unchanged</span>
+        </div>
+      )}
 
-      {/* Diff Result */}
-      {showDiff && diffResult && (
-        <div className="space-y-4">
-          {/* Statistics */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-2">
-            <p className="text-sm text-text-primary font-medium">Comparison Results</p>
-            <div className="grid grid-cols-3 gap-4 text-sm">
-              <div>
-                <p className="text-text-muted">Added</p>
-                <p className="text-lg font-mono-num text-green-600">
-                  {stats.added}
-                </p>
-              </div>
-              <div>
-                <p className="text-text-muted">Removed</p>
-                <p className="text-lg font-mono-num text-red-600">
-                  {stats.removed}
-                </p>
-              </div>
-              <div>
-                <p className="text-text-muted">Unchanged</p>
-                <p className="text-lg font-mono-num text-text-secondary">
-                  {stats.unchanged}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Diff View */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-hidden">
-            <div className="divide-y divide-border">
-              {diffResult.map((line, idx) => (
-                <div
-                  key={idx}
-                  className={`px-4 py-2 font-mono text-sm ${
+      {/* Diff view */}
+      {diffResult && (
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-hidden">
+          <div className="divide-y divide-border">
+            {diffResult.map((line, idx) => (
+              <div
+                key={idx}
+                className={`px-4 py-1.5 font-mono text-sm ${
+                  line.type === 'added'
+                    ? 'bg-green-50'
+                    : line.type === 'removed'
+                    ? 'bg-red-50'
+                    : ''
+                }`}
+              >
+                <span className="text-text-muted mr-2 select-none">
+                  {line.type === 'added' ? '+' : line.type === 'removed' ? '-' : ' '}
+                </span>
+                <span
+                  className={
                     line.type === 'added'
-                      ? 'bg-green-50'
+                      ? 'text-green-700'
                       : line.type === 'removed'
-                      ? 'bg-red-50'
-                      : ''
-                  }`}
+                      ? 'text-red-700'
+                      : 'text-text-primary'
+                  }
                 >
-                  <span className="text-text-muted mr-2">
-                    {line.type === 'added' ? '+' : line.type === 'removed' ? '−' : ' '}
-                  </span>
-                  <span
-                    className={
-                      line.type === 'added'
-                        ? 'text-green-700'
-                        : line.type === 'removed'
-                        ? 'text-red-700'
-                        : 'text-text-primary'
-                    }
-                  >
-                    {line.content || '\u00A0'}
-                  </span>
-                </div>
-              ))}
-            </div>
+                  {line.content || '\u00A0'}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       )}

@@ -98,7 +98,7 @@ export default function FragranceLoadCalculator() {
       </div>
 
       {/* Result */}
-      <div className={`bg-accent-muted p-8 text-center rounded-[var(--radius-card)] ${
+      <div className={`bg-accent-muted text-center rounded-[var(--radius-card)] ${
         calculation.status === 'above' ? 'ring-2 ring-error' : calculation.status === 'below' ? 'ring-2 ring-warning' : ''
       }`}>
         <p className="text-text-muted text-[12px] mb-2">Fragrance Oil Required</p>

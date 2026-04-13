@@ -229,7 +229,7 @@ export default function HobbyCostTracker() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className="bg-accent-muted rounded-[12px] p-6 space-y-2">
+        <div className="bg-accent-muted rounded-[12px] space-y-2">
           <div className="text-[13px] text-text-secondary">Total Spent on {selectedHobby}</div>
           <div className="font-heading font-bold text-[32px] text-text-primary">
             £{calculations.totalSpent}
@@ -328,7 +328,7 @@ export default function HobbyCostTracker() {
 
         {/* Empty State */}
         {purchases.length === 0 && (
-          <div className="bg-surface rounded-[12px] border border-border p-8 text-center">
+          <div className="bg-surface rounded-[12px] border border-border text-center">
             <p className="text-[13px] text-text-muted">No purchases tracked yet. Add your first purchase to get started.</p>
           </div>
         )}

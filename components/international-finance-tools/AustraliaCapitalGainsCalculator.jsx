@@ -69,8 +69,8 @@ export default function AustraliaCapitalGainsCalculator() {
   const holdingYears = (holdingPeriodMonths / 12).toFixed(1);
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Asset Details
         </h2>
@@ -103,7 +103,7 @@ export default function AustraliaCapitalGainsCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Tax Situation
         </h2>
@@ -141,7 +141,7 @@ export default function AustraliaCapitalGainsCalculator() {
 
       <div className="space-y-4">
         {results.message ? (
-          <Card className="p-6 bg-green-50 border border-green-200">
+          <Card className="bg-green-50 border border-green-200">
             <h2 className="font-heading text-lg font-bold text-success mb-2">
               {results.message}
             </h2>
@@ -151,7 +151,7 @@ export default function AustraliaCapitalGainsCalculator() {
           </Card>
         ) : (
           <>
-            <Card className="p-6 bg-blue-50 border border-blue-200">
+            <Card className="bg-blue-50 border border-blue-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 Capital Gain Calculation
               </h2>
@@ -177,7 +177,7 @@ export default function AustraliaCapitalGainsCalculator() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-green-50 border border-green-200">
+            <Card className="bg-green-50 border border-green-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 CGT Discount
               </h2>
@@ -212,7 +212,7 @@ export default function AustraliaCapitalGainsCalculator() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-orange-50 border border-orange-200">
+            <Card className="bg-orange-50 border border-orange-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 Estimated Tax
               </h2>
@@ -238,7 +238,7 @@ export default function AustraliaCapitalGainsCalculator() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-purple-50 border border-purple-200">
+            <Card className="bg-purple-50 border border-purple-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 Net Proceeds
               </h2>
@@ -267,7 +267,7 @@ export default function AustraliaCapitalGainsCalculator() {
         )}
       </div>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary mb-2">
           <strong>Disclaimer:</strong> This calculator is for estimation purposes only. Capital gains tax is complex and depends on your individual circumstances. The calculation assumes the standard 50% CGT discount for assets held over 12 months and does not account for CGT concessions, losses, or timing of gains across tax years. Consult a licensed tax accountant or the ATO for advice on your specific situation.
         </p>

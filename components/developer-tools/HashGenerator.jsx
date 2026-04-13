@@ -42,6 +42,7 @@ async function sha(text, algorithm) {
 
 export default function HashGenerator() {
   const [input, setInput] = useState('');
+  const [showHashInfo, setShowHashInfo] = useState(false);
   const [hashes, setHashes] = useState({
     md5: '',
     sha1: '',
@@ -88,7 +89,7 @@ export default function HashGenerator() {
   }, [input]);
 
   const handleCopyHash = (hash) => {
-    navigator.clipboard.writeText(hash);
+    navigator.clipboard.writeText(hash).catch(() => {});
   };
 
   const hashTypes = [
@@ -99,7 +100,7 @@ export default function HashGenerator() {
   ];
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input Section */}
       <div className="space-y-3">
         <label className="block text-sm font-medium text-text-primary">
@@ -161,15 +162,24 @@ export default function HashGenerator() {
         </div>
       )}
 
-      {/* Info Box */}
-      <div className="p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm space-y-2">
-        <strong className="block">Hash Types:</strong>
-        <ul className="list-disc list-inside space-y-1 text-xs">
-          <li><strong>MD5:</strong> 32-character hash. Legacy, not recommended for security.</li>
-          <li><strong>SHA-1:</strong> 40-character hash. Deprecated for cryptographic use.</li>
-          <li><strong>SHA-256:</strong> 64-character hash. Industry standard for most uses.</li>
-          <li><strong>SHA-512:</strong> 128-character hash. Extended SHA-2 family.</li>
-        </ul>
+      {/* Hash Types Toggle */}
+      <div>
+        <button
+          onClick={() => setShowHashInfo(!showHashInfo)}
+          className="text-xs text-text-muted hover:text-text-secondary flex items-center gap-1"
+        >
+          {showHashInfo ? '▾' : '▸'} What are hash types?
+        </button>
+        {showHashInfo && (
+          <div className="mt-2 p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm space-y-2">
+            <ul className="list-disc list-inside space-y-1 text-xs">
+              <li><strong>MD5:</strong> 32-character hash. Legacy, not recommended for security.</li>
+              <li><strong>SHA-1:</strong> 40-character hash. Deprecated for cryptographic use.</li>
+              <li><strong>SHA-256:</strong> 64-character hash. Industry standard for most uses.</li>
+              <li><strong>SHA-512:</strong> 128-character hash. Extended SHA-2 family.</li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

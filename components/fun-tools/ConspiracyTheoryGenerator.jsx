@@ -48,6 +48,7 @@ export default function ConspiracyTheoryGenerator() {
     reason: reasons[0],
   }));
   const [copied, setCopied] = useState(false);
+  const [showBreakdown, setShowBreakdown] = useState(false);
 
   const generateConspiracy = () => {
     const newConspiracy = {
@@ -56,26 +57,20 @@ export default function ConspiracyTheoryGenerator() {
       reason: reasons[Math.floor(Math.random() * reasons.length)],
     };
     setConspiracy(newConspiracy);
+    setShowBreakdown(false);
   };
 
   const conspiracyText = `${conspiracy.subject} ${conspiracy.action} ${conspiracy.reason}.`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(conspiracyText);
+    navigator.clipboard.writeText(conspiracyText).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
-      <div className="bg-red-50 border border-red-200 p-4 rounded-[var(--radius-card)]">
-        <p className="text-red-700 font-bold text-sm mb-2">🛸 SATIRE ALERT 🛸</p>
-        <p className="text-text-secondary text-sm">
-          These conspiracy theories are entirely fictional and generated for entertainment purposes only. This is satire and should never be taken seriously!
-        </p>
-      </div>
-
-      <div className="bg-surface p-6 rounded-[var(--radius-card)] min-h-40 flex items-center justify-center">
+    <div className="w-full max-w-2xl mx-auto space-y-3">
+      <div className="bg-surface rounded-[var(--radius-card)] min-h-40 flex items-center justify-center">
         <p className="text-lg text-text-primary font-medium text-center leading-relaxed italic">
           "{conspiracyText}"
         </p>
@@ -101,35 +96,23 @@ export default function ConspiracyTheoryGenerator() {
         </button>
       </div>
 
-      <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-[var(--radius-card)] space-y-2">
-        <p className="text-text-secondary text-sm font-medium">How it was created</p>
-        <div className="space-y-1 text-text-secondary text-xs font-mono">
-          <p>Subject: {conspiracy.subject}</p>
-          <p>Action: {conspiracy.action}</p>
-          <p>Reason: {conspiracy.reason}</p>
-        </div>
+      <div>
+        <button
+          onClick={() => setShowBreakdown(!showBreakdown)}
+          className="text-text-secondary text-xs hover:text-text-primary transition"
+        >
+          {showBreakdown ? 'Hide' : 'Show'} breakdown
+        </button>
+        {showBreakdown && (
+          <div className="mt-2 flex flex-wrap gap-2 text-xs font-mono text-text-secondary">
+            <span className="px-2 py-1 bg-surface rounded">Subject: {conspiracy.subject}</span>
+            <span className="px-2 py-1 bg-surface rounded">Action: {conspiracy.action}</span>
+            <span className="px-2 py-1 bg-surface rounded">Reason: {conspiracy.reason}</span>
+          </div>
+        )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">100%</p>
-          <p className="text-text-primary font-bold mt-1">Fictional</p>
-        </div>
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">100%</p>
-          <p className="text-text-primary font-bold mt-1">Absurd</p>
-        </div>
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">100%</p>
-          <p className="text-text-primary font-bold mt-1">Silly</p>
-        </div>
-      </div>
-
-      <div className="bg-blue-50 border border-blue-200 p-4 rounded-[var(--radius-card)] text-center">
-        <p className="text-text-secondary text-sm">
-          Trust real sources, think critically, and enjoy this absurdity responsibly!
-        </p>
-      </div>
+      <p className="text-xs text-text-muted text-center">100% fictional - generated for entertainment only</p>
     </div>
   );
 }

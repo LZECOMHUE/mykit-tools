@@ -61,9 +61,9 @@ export default function SavingsGoalCalculator() {
   }, [targetAmount, timeframeMonths, currentSavings, interestRate]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Savings Goal Amount
@@ -136,28 +136,28 @@ export default function SavingsGoalCalculator() {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Still Need</p>
           <p className="font-mono text-3xl font-bold text-accent">
             {fmt(results.stillNeeded)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Save Per Month</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(results.perMonth)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Save Per Week</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(results.perWeek)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Save Per Fortnight</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(results.perFortnight)}
@@ -166,7 +166,7 @@ export default function SavingsGoalCalculator() {
       </div>
 
       {/* Progress Summary */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <div className="mb-4">
           <div className="flex justify-between items-baseline mb-2">
             <span className="text-text-secondary text-sm font-medium">
@@ -221,7 +221,7 @@ export default function SavingsGoalCalculator() {
       </div>
 
       {/* Monthly Breakdown Table */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">
           Monthly Savings Plan
         </h3>

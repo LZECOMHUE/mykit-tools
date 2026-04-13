@@ -63,8 +63,8 @@ export default function IndiaPPFCalculator() {
   const interestPercentage = (calculations.totalInterest / calculations.finalValue) * 100;
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {/* Input Section */}
         <div className="space-y-4">
           <h2 className="font-heading text-xl font-bold text-gray-900">PPF Details</h2>
@@ -139,7 +139,7 @@ export default function IndiaPPFCalculator() {
       </div>
 
       {/* Contribution vs Interest Visualization */}
-      <div className="mb-8">
+      <div className="mb-4">
         <h3 className="font-heading text-lg font-bold text-gray-900 mb-4">Contribution vs Interest Earnings</h3>
         <div className="flex items-end gap-2 h-40 bg-gray-50 p-4 rounded-lg border border-gray-200">
           <div className="flex-1 flex flex-col">
@@ -158,7 +158,7 @@ export default function IndiaPPFCalculator() {
       </div>
 
       {/* Year-by-Year Breakdown */}
-      <div className="mb-8">
+      <div className="mb-4">
         <h3 className="font-heading text-lg font-bold text-gray-900 mb-4">Year-by-Year Breakdown</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

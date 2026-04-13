@@ -138,10 +138,10 @@ export default function SolarBatteryPaybackCalculator() {
   );
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Solar Battery Payback Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -228,10 +228,10 @@ export default function SolarBatteryPaybackCalculator() {
       </div>
 
       {/* Scenario Comparison */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Solar Only vs Solar + Battery</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {calculations.scenarioComparison.map((scenario, idx) => (
             <div key={idx} className="border border-border rounded-[8px] p-4">
               <h4 className="font-bold text-text-primary mb-3">{scenario.name}</h4>
@@ -280,8 +280,8 @@ export default function SolarBatteryPaybackCalculator() {
       </div>
 
       {/* 15-Year Projection */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
-        <h3 className="text-lg font-bold font-heading text-text-primary mb-6">15-Year Cumulative Return</h3>
+      <div className="bg-white border border-border rounded-[12px]">
+        <h3 className="text-lg font-bold font-heading text-text-primary mb-4">15-Year Cumulative Return</h3>
 
         <div className="space-y-3 max-h-96 overflow-y-auto">
           {calculations.projection.map((item) => {
@@ -321,7 +321,7 @@ export default function SolarBatteryPaybackCalculator() {
       </div>
 
       {/* Benefits */}
-      <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="bg-green-50 border border-green-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Battery Benefits</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>Increase solar self-consumption from 45% to 75-85%</li>
@@ -336,7 +336,7 @@ export default function SolarBatteryPaybackCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💡 Battery Optimization</h3>
         <ul className="space-y-2 text-sm text-amber-800">
           <li>For day-heavy usage: smaller battery (3-5 kWh) is more cost-effective</li>
@@ -351,7 +351,7 @@ export default function SolarBatteryPaybackCalculator() {
       </div>
 
       {/* When to Add Battery */}
-      <div className="bg-purple-50 border border-purple-200 rounded-[12px] p-6">
+      <div className="bg-purple-50 border border-purple-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-purple-900 mb-4">When to Add Battery?</h3>
         <div className="space-y-3 text-sm text-purple-800">
           <p><span className="font-semibold">Add battery now if:</span></p>

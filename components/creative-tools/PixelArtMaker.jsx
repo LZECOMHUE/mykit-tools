@@ -479,7 +479,7 @@ export default function PixelArtMaker() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Grid Size and Tool Selection */}
       <Card className="bg-gradient-to-br from-purple-50 to-pink-50 space-y-4">
         <div>

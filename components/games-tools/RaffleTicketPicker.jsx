@@ -68,7 +68,7 @@ export default function RaffleTicketPicker() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration Panel */}
       <Card className="bg-gradient-to-br from-red-50 to-pink-50">
         <div className="space-y-4">
@@ -160,7 +160,7 @@ export default function RaffleTicketPicker() {
                 </div>
 
                 {/* Main Ticket Content */}
-                <div className="ml-16 px-6 py-8 text-center relative">
+                <div className="ml-16 px-6 py-4 text-center relative">
                   {/* Decorative Stars */}
                   <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-2xl">
                     ⭐ ⭐ ⭐
@@ -239,21 +239,17 @@ export default function RaffleTicketPicker() {
       )}
 
       {/* Instructions */}
-      <Card className="bg-amber-50 border border-amber-200">
-        <div className="space-y-3">
-          <h4 className="font-heading font-bold text-text-primary">
-            📖 How to Use
-          </h4>
-          <ol className="space-y-2 text-sm text-text-secondary list-decimal list-inside">
-            <li>Enter your total number of raffle tickets</li>
-            <li>Set how many winners you need to draw</li>
-            <li>Click the draw button to pick a random winner</li>
-            <li>Each ticket can only win once (no duplicates)</li>
-            <li>Share the winning ticket number with everyone</li>
-            <li>Click "Draw Again" to do another raffle</li>
-          </ol>
-        </div>
-      </Card>
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">How to use</summary>
+        <ol className="mt-2 space-y-1 list-decimal list-inside">
+          <li>Enter your total number of raffle tickets</li>
+          <li>Set how many winners you need to draw</li>
+          <li>Click the draw button to pick a random winner</li>
+          <li>Each ticket can only win once (no duplicates)</li>
+          <li>Share the winning ticket number with everyone</li>
+          <li>Click "Draw Again" to do another raffle</li>
+        </ol>
+      </details>
     </div>
   );
 }

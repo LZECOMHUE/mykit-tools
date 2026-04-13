@@ -58,8 +58,8 @@ export default function FantasyTavernNameGenerator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Tavern Atmosphere
@@ -83,7 +83,7 @@ export default function FantasyTavernNameGenerator() {
       </div>
 
       {tavern && (
-        <div className="bg-amber-900 text-white border border-amber-800 rounded-[var(--radius-card)] p-8 space-y-4">
+        <div className="bg-amber-900 text-white border border-amber-800 rounded-[var(--radius-card)] space-y-4">
           <div>
             <p className="font-heading text-4xl font-bold">{tavern.name}</p>
           </div>

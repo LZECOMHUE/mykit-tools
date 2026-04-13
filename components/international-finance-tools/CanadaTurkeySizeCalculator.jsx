@@ -29,9 +29,9 @@ export default function CanadaTurkeySizeCalculator() {
   }, [numGuests, appetite]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Number of Guests
@@ -62,8 +62,8 @@ export default function CanadaTurkeySizeCalculator() {
       </div>
 
       {/* Turkey Size */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg">
           <div className="text-sm text-orange-700 mb-2">Turkey Size (Lbs)</div>
           <div className="text-4xl font-mono font-bold text-orange-900">
             {calculations.poundsNeeded}
@@ -73,7 +73,7 @@ export default function CanadaTurkeySizeCalculator() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Cooking Time</div>
           <div className="text-4xl font-mono font-bold text-blue-900">
             {calculations.cookingTime}
@@ -85,7 +85,7 @@ export default function CanadaTurkeySizeCalculator() {
       </div>
 
       {/* Size Guide */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Turkey Size Guide
         </h3>
@@ -119,7 +119,7 @@ export default function CanadaTurkeySizeCalculator() {
       </div>
 
       {/* Thanksgiving Info */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-2">
           🍂 Canadian Thanksgiving (October)
         </h3>
@@ -140,7 +140,7 @@ export default function CanadaTurkeySizeCalculator() {
       </div>
 
       {/* Cooking Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           🔥 Turkey Cooking Tips
         </h3>
@@ -156,7 +156,7 @@ export default function CanadaTurkeySizeCalculator() {
       </div>
 
       {/* Timeline */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">
           📅 Thanksgiving Prep Timeline
         </h3>

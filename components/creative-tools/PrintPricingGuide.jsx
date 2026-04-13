@@ -50,7 +50,7 @@ export default function PrintPricingGuide() {
   }, [materialCost, electricityCost, depreciationCost, failureRate, postProcessMins, hourlyRate, markup, platformFee, postage]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Calculator */}
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
         {/* Left */}

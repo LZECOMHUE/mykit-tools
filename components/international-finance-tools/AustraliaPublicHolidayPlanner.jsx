@@ -210,8 +210,8 @@ export default function AustraliaPublicHolidayPlanner() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-semibold text-primary mb-4">
           Select Your Location
         </h2>
@@ -247,7 +247,7 @@ export default function AustraliaPublicHolidayPlanner() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-accent-muted border border-accent">
+      <Card className="bg-accent-muted border border-accent">
         <h2 className="font-heading text-2xl font-bold text-accent mb-2">
           {stateNames[config.state]} - {config.year}
         </h2>
@@ -256,7 +256,7 @@ export default function AustraliaPublicHolidayPlanner() {
         </p>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-semibold text-primary mb-4">National Public Holidays</h3>
         <div className="space-y-2">
           {holidays.national.map((holiday, idx) => (
@@ -269,7 +269,7 @@ export default function AustraliaPublicHolidayPlanner() {
       </Card>
 
       {holidays.queensBirthday && (
-        <Card className="p-6 bg-blue-50 border border-blue-200">
+        <Card className="bg-blue-50 border border-blue-200">
           <h3 className="font-heading font-semibold text-primary mb-4">
             State-Specific: Queen's Birthday
           </h3>
@@ -283,7 +283,7 @@ export default function AustraliaPublicHolidayPlanner() {
       )}
 
       {holidays.stateSpecific.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading font-semibold text-primary mb-4">
             State/Territory-Specific Holidays
           </h3>
@@ -308,7 +308,7 @@ export default function AustraliaPublicHolidayPlanner() {
         </Card>
       )}
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Leave Maximiser Tips</h3>
         <p className="text-sm text-secondary mb-3">
           Here's how to get the most days off with minimal leave taken:
@@ -323,7 +323,7 @@ export default function AustraliaPublicHolidayPlanner() {
         </ul>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Important Notes</h3>
         <ul className="space-y-2 text-sm text-secondary">
           <li className="flex gap-2">

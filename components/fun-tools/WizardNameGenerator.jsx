@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
 
@@ -42,33 +42,33 @@ const wizardData = {
   },
 };
 
+function generateFromData(data) {
+  const title = data.titles[Math.floor(Math.random() * data.titles.length)];
+  const firstName = data.firstNames[Math.floor(Math.random() * data.firstNames.length)];
+  const surname = data.surnames[Math.floor(Math.random() * data.surnames.length)];
+  const realm = data.realms[Math.floor(Math.random() * data.realms.length)];
+  const specialty = data.specialties[Math.floor(Math.random() * data.specialties.length)];
+  return { title, firstName, surname, realm, specialty };
+}
+
 export default function WizardNameGenerator() {
   const [personality, setPersonality] = useState('wise');
   const [wizardName, setWizardName] = useState(null);
 
   const generateWizard = () => {
-    const data = wizardData[personality];
-
-    const title = data.titles[Math.floor(Math.random() * data.titles.length)];
-    const firstName = data.firstNames[Math.floor(Math.random() * data.firstNames.length)];
-    const surname = data.surnames[Math.floor(Math.random() * data.surnames.length)];
-    const realm = data.realms[Math.floor(Math.random() * data.realms.length)];
-    const specialty = data.specialties[Math.floor(Math.random() * data.specialties.length)];
-
-    setWizardName({
-      title,
-      firstName,
-      surname,
-      realm,
-      specialty,
-    });
+    setWizardName(generateFromData(wizardData[personality]));
   };
 
+  // Auto-generate on mount
+  useEffect(() => {
+    setWizardName(generateFromData(wizardData[personality]));
+  }, []);
+
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-2">
+    <div className="space-y-3">
+      <div className="flex gap-2 items-end">
+        <div className="flex-1">
+          <label className="block text-text-secondary text-sm font-medium mb-1">
             Personality Type
           </label>
           <Select value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full">
@@ -79,14 +79,13 @@ export default function WizardNameGenerator() {
             <option value="fire">Fire</option>
           </Select>
         </div>
-
-        <Button onClick={generateWizard} className="bg-accent text-white w-full">
-          Generate Wizard Name
+        <Button onClick={generateWizard} className="bg-accent text-white px-6 whitespace-nowrap">
+          Generate
         </Button>
       </div>
 
       {wizardName && (
-        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-8 space-y-4">
+        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-5 space-y-4">
           <div>
             <p className="text-sm opacity-90 mb-1">Title</p>
             <p className="font-heading text-2xl font-bold">{wizardName.title}</p>

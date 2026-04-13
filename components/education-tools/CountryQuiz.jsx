@@ -95,11 +95,8 @@ export default function CountryQuiz() {
   if (!quizStarted) {
     return (
       <Card>
-        <div className="space-y-6 text-center">
+        <div className="space-y-4 text-center">
           <div>
-            <h2 className="font-heading text-2xl font-bold text-primary mb-2">
-              Country Quiz
-            </h2>
             <p className="text-secondary">Test your geography knowledge!</p>
           </div>
 
@@ -142,7 +139,7 @@ export default function CountryQuiz() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Progress bar */}
         <div>
           <div className="flex justify-between items-center mb-2">

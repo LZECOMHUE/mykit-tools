@@ -81,7 +81,7 @@ export default function OvenTemperatureConverter() {
   return (
     <div className="space-y-3">
       {/* Input Section */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -155,7 +155,7 @@ export default function OvenTemperatureConverter() {
       </div>
 
       {/* Reference Table */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h2 className="text-text-primary font-bold text-lg mb-4">Common Cooking Temperatures</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

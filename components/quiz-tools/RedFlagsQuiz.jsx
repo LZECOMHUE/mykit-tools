@@ -283,18 +283,18 @@ export default function RedFlagsQuiz() {
   const progress = ((currentQuestion + 1) / QUESTIONS.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6">
+    <div className="w-full max-w-2xl mx-auto">
       {/* Disclaimer */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
         <p className="text-sm text-blue-900">
           <strong>Disclaimer:</strong> This quiz is educational and not a substitute for professional advice. If you're in immediate danger, call 999 (UK) or 911 (US).
         </p>
       </div>
 
       {!isComplete ? (
-        <Card className="p-8">
+        <Card>
           {/* Progress Bar */}
-          <div className="mb-8">
+          <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm text-text-secondary">
                 Question {currentQuestion + 1} of {QUESTIONS.length}
@@ -312,14 +312,14 @@ export default function RedFlagsQuiz() {
           </div>
 
           {/* Category Badge */}
-          <div className="mb-6">
+          <div className="mb-4">
             <span className="inline-block px-3 py-1 bg-accent-muted text-accent text-xs font-semibold rounded-full">
               {QUESTIONS[currentQuestion].category}
             </span>
           </div>
 
           {/* Statement */}
-          <h2 className="text-2xl font-heading font-bold text-text-primary mb-8">
+          <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">
             {QUESTIONS[currentQuestion].statement}
           </h2>
 
@@ -337,9 +337,9 @@ export default function RedFlagsQuiz() {
           </div>
         </Card>
       ) : (
-        <Card className="p-8">
+        <Card>
           {/* Result Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <div className="text-7xl mb-4">{resultCategory.emoji}</div>
             <h2 className="text-4xl font-heading font-bold text-text-primary mb-2">
               {resultCategory.title}
@@ -348,7 +348,7 @@ export default function RedFlagsQuiz() {
           </div>
 
           {/* Result Message */}
-          <div className="bg-surface rounded-lg p-6 mb-8">
+          <div className="bg-surface rounded-lg mb-4">
             <p className="text-text-secondary leading-relaxed text-lg">
               {resultCategory.message}
             </p>
@@ -356,7 +356,7 @@ export default function RedFlagsQuiz() {
 
           {/* Support Resources (if needed) */}
           {resultCategory.showResources && (
-            <div className="bg-red-50 border-l-4 border-red-600 rounded-lg p-6 mb-8">
+            <div className="bg-red-50 border-l-4 border-red-600 rounded-lg mb-4">
               <h3 className="text-lg font-bold text-red-900 mb-4">
                 Support Resources Available
               </h3>
@@ -390,7 +390,7 @@ export default function RedFlagsQuiz() {
           )}
 
           {/* Key Message */}
-          <div className="text-center mb-8 p-4 bg-slate-50 rounded-lg">
+          <div className="text-center mb-4 p-4 bg-slate-50 rounded-lg">
             <p className="text-lg font-semibold text-text-primary">
               Knowledge is the first step to a healthier future
             </p>

@@ -107,12 +107,10 @@ export default function TimesTablesPractice() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-6 space-y-6">
-      <Card className="p-6">
-        <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">Times Tables Practice</h2>
-
+    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+      <Card>
         {/* Mode Selection */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex gap-3 mb-4">
           <button
             onClick={() => setMode('practice')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
@@ -138,7 +136,7 @@ export default function TimesTablesPractice() {
         {!practiceStarted && mode === 'practice' && (
           <>
             {/* Select Tables */}
-            <div className="mb-6">
+            <div className="mb-4">
               <label className="block text-sm font-medium text-text-primary mb-3">
                 Select Times Tables to Practice
               </label>
@@ -172,7 +170,7 @@ export default function TimesTablesPractice() {
         {mode === 'worksheet' && !practiceStarted && (
           <>
             {/* Select Tables */}
-            <div className="mb-6">
+            <div className="mb-4">
               <label className="block text-sm font-medium text-text-primary mb-3">
                 Select Times Tables
               </label>
@@ -194,7 +192,7 @@ export default function TimesTablesPractice() {
             </div>
 
             {/* Worksheet Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="block text-sm font-medium text-text-primary mb-2">
                   Number of Questions
@@ -238,8 +236,8 @@ export default function TimesTablesPractice() {
 
       {/* Practice Mode Active */}
       {practiceStarted && mode === 'practice' && currentQuestion < answers.length && (
-        <Card className="p-6">
-          <div className="mb-6">
+        <Card>
+          <div className="mb-4">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-heading font-bold text-text-primary">
                 Question {currentQuestion + 1} of {answers.length}
@@ -257,14 +255,14 @@ export default function TimesTablesPractice() {
           </div>
 
           {/* Question */}
-          <div className="mb-8 text-center">
+          <div className="mb-4 text-center">
             <div className="text-6xl font-mono font-bold text-text-primary mb-4">
               {answers[currentQuestion].a} × {answers[currentQuestion].b} = ?
             </div>
           </div>
 
           {/* Input */}
-          <div className="mb-6">
+          <div className="mb-4">
             <input
               type="number"
               value={userAnswer}
@@ -302,12 +300,12 @@ export default function TimesTablesPractice() {
 
       {/* Practice Complete */}
       {practiceStarted && mode === 'practice' && currentQuestion >= answers.length && (
-        <Card className="p-6">
+        <Card>
           <h3 className="text-2xl font-heading font-bold text-text-primary mb-4 text-center">
             Practice Complete!
           </h3>
 
-          <div className="bg-surface p-6 rounded-lg mb-6 text-center">
+          <div className="bg-surface rounded-lg mb-4 text-center">
             <div className="text-5xl font-mono font-bold text-accent mb-2">
               {score}/{answers.length}
             </div>
@@ -317,7 +315,7 @@ export default function TimesTablesPractice() {
           </div>
 
           {showKey && (
-            <div className="bg-white p-4 rounded-lg mb-6 border border-border max-h-96 overflow-auto">
+            <div className="bg-white p-4 rounded-lg mb-4 border border-border max-h-96 overflow-auto">
               <h4 className="font-semibold text-text-primary mb-3">Answer Key</h4>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 font-mono text-sm">
                 {answers.map((q, i) => (

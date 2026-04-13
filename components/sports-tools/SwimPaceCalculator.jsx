@@ -46,7 +46,7 @@ export default function SwimPaceCalculator() {
   }, [poolLength, laps, timeMinutes, timeSeconds]);
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Inputs */}
       <div className="space-y-4">
         <div>

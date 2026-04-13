@@ -343,7 +343,7 @@ export default function MacroCalculator() {
   const currentDiet = DIETS[diet];
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
+    <div className="max-w-3xl mx-auto space-y-4">
       {/* Personal Details */}
       <Card>
         <h2 className="text-lg font-semibold text-text-primary mb-4">About You</h2>
@@ -608,23 +608,23 @@ export default function MacroCalculator() {
 
       {/* Results */}
       {showResults && (
-        <div ref={resultsRef} className="space-y-6">
+        <div ref={resultsRef} className="space-y-4">
           {/* Calorie Summary */}
           <Card className="border-2" style={{ borderColor: currentDiet.color + '40' }}>
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <span className="text-3xl mb-2 block">{currentDiet.icon}</span>
               <h2 className="text-xl font-semibold text-text-primary">{currentDiet.name} Diet</h2>
               <p className="text-text-muted text-sm mt-1">{currentDiet.description}</p>
             </div>
 
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <div className="text-5xl font-bold font-mono text-text-primary">
                 {results.targetCalories.toLocaleString()}
               </div>
               <div className="text-text-muted text-sm mt-1">calories per day</div>
             </div>
 
-            <div className="flex justify-center gap-6 text-sm text-text-secondary mb-6">
+            <div className="flex justify-center gap-4 text-sm text-text-secondary mb-4">
               <div className="text-center">
                 <div className="font-mono text-text-muted">{results.bmr}</div>
                 <div className="text-xs">BMR</div>
@@ -640,7 +640,7 @@ export default function MacroCalculator() {
             </div>
 
             {/* Visual macro bar */}
-            <div className="h-6 rounded-full overflow-hidden flex mb-6">
+            <div className="h-6 rounded-full overflow-hidden flex mb-4">
               <div
                 className="h-full transition-all"
                 style={{ width: `${results.protein.pct}%`, backgroundColor: '#3b82f6' }}

@@ -59,16 +59,14 @@ export default function FontPairSuggester() {
   };
 
   const handleCopyCSS = () => {
-    navigator.clipboard.writeText(getCSSImport());
+    navigator.clipboard.writeText(getCSSImport().catch(() => {}));
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Selection */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
-        <h2 className="text-xl font-bold text-text-primary">Font Pair Suggester</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Heading Font */}
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-3">
@@ -108,7 +106,7 @@ export default function FontPairSuggester() {
       </div>
 
       {/* Live Preview */}
-      <div className="bg-surface border border-border rounded-lg p-8 space-y-8">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div>
           <p className="text-text-secondary text-sm mb-2">Heading (Primary)</p>
           <p
@@ -142,7 +140,7 @@ export default function FontPairSuggester() {
 
       {/* Suggested Pairs */}
       {suggestedPairs.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg space-y-4">
           <h3 className="text-text-primary font-semibold">Recommended Pairings for {selectedHeading}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {suggestedPairs.slice(0, 3).map((pair) => (
@@ -173,8 +171,8 @@ export default function FontPairSuggester() {
       )}
 
       {/* Font Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-surface border border-border rounded-lg">
           <h3 className="text-text-primary font-semibold mb-4">Heading Font Details</h3>
           {headingFont && (
             <div className="space-y-3">
@@ -192,7 +190,7 @@ export default function FontPairSuggester() {
           )}
         </div>
 
-        <div className="bg-surface border border-border rounded-lg p-6">
+        <div className="bg-surface border border-border rounded-lg">
           <h3 className="text-text-primary font-semibold mb-4">Body Font Details</h3>
           {bodyFont && (
             <div className="space-y-3">
@@ -212,7 +210,7 @@ export default function FontPairSuggester() {
       </div>
 
       {/* CSS Import */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">CSS Import</h3>
         <div className="bg-white border border-border rounded p-4 font-mono-num text-sm overflow-x-auto">
           <code>{getCSSImport()}</code>
@@ -229,7 +227,7 @@ export default function FontPairSuggester() {
       </div>
 
       {/* CSS Usage Example */}
-      <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-4">
+      <div className="bg-purple-50 border border-purple-200 rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">CSS Usage Example</h3>
         <div className="bg-white border border-purple-200 rounded p-4 font-mono-num text-sm space-y-2">
           <div>
@@ -248,7 +246,7 @@ export default function FontPairSuggester() {
       </div>
 
       {/* Tips */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Font Pairing Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Serif fonts (Playfair) work well for headings and elegance</li>

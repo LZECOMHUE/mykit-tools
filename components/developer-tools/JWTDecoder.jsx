@@ -52,19 +52,20 @@ function decodeJWT(token) {
 
 export default function JWTDecoder() {
   const [token, setToken] = useState('');
+  const [showJWTInfo, setShowJWTInfo] = useState(false);
 
   const decoded = useMemo(() => decodeJWT(token), [token]);
 
   const handleCopyToken = async () => {
     try {
-      await navigator.clipboard.writeText(token);
+      await navigator.clipboard.writeText(token).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input */}
       <div>
         <label className="text-text-secondary text-sm font-medium">
@@ -157,17 +158,23 @@ export default function JWTDecoder() {
       {/* Info */}
       {!token.trim() && (
         <div className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
-          <p className="text-text-secondary text-sm font-medium mb-2">
-            What is JWT?
-          </p>
-          <p className="text-text-secondary text-[13px] mb-2">
-            JSON Web Token (JWT) is a compact token format with three parts separated by dots:
-          </p>
-          <ul className="text-text-secondary text-[13px] space-y-1">
-            <li>1. Header: Token type and hashing algorithm</li>
-            <li>2. Payload: Data claims (user info, permissions, etc.)</li>
-            <li>3. Signature: Cryptographic hash for verification</li>
-          </ul>
+          <p className="text-text-secondary text-[13px] mb-2">Paste a JWT token above to decode it.</p>
+          <button
+            onClick={() => setShowJWTInfo(!showJWTInfo)}
+            className="text-xs text-text-muted hover:text-text-secondary flex items-center gap-1"
+          >
+            {showJWTInfo ? '▾' : '▸'} What is JWT?
+          </button>
+          {showJWTInfo && (
+            <div className="mt-2 text-text-secondary text-[13px] space-y-1">
+              <p>JSON Web Token (JWT) is a compact token format with three parts separated by dots:</p>
+              <ol className="list-decimal list-inside space-y-1 mt-1">
+                <li>Header: Token type and hashing algorithm</li>
+                <li>Payload: Data claims (user info, permissions, etc.)</li>
+                <li>Signature: Cryptographic hash for verification</li>
+              </ol>
+            </div>
+          )}
         </div>
       )}
     </div>

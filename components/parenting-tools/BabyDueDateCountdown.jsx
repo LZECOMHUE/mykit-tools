@@ -146,8 +146,8 @@ export default function BabyDueDateCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -155,9 +155,9 @@ export default function BabyDueDateCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <h3 className="text-text-primary font-semibold">Track Your Pregnancy</h3>
 
         <div className="space-y-3">
@@ -213,7 +213,7 @@ export default function BabyDueDateCountdown() {
       {countdown && !countdown.isPast ? (
         <>
           {/* Main Display */}
-          <div className="bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-300 rounded-lg p-8 text-center space-y-6">
+          <div className="bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-300 rounded-lg text-center space-y-4">
             <div className="text-5xl">👶</div>
             <h2 className="text-3xl font-bold text-text-primary">Due Date</h2>
             <p className="text-lg text-text-secondary">{countdown.dueDateFormatted}</p>
@@ -236,7 +236,7 @@ export default function BabyDueDateCountdown() {
             </div>
 
             {/* Weeks Pregnant Display */}
-            <div className="bg-white rounded-lg p-6 border border-rose-200">
+            <div className="bg-white rounded-lg border border-rose-200">
               <p className="text-text-muted text-sm mb-2">Weeks & Days Pregnant</p>
               <p className="font-mono-num text-4xl font-bold text-rose-600">
                 {countdown.weeksPassed}w {countdown.dayOfWeekPassed}d
@@ -279,7 +279,7 @@ export default function BabyDueDateCountdown() {
           </div>
 
           {/* Milestone Tracker */}
-          <div className="bg-surface border border-border rounded-lg p-6">
+          <div className="bg-surface border border-border rounded-lg">
             <h3 className="text-text-primary font-semibold mb-4">Upcoming Milestones</h3>
             <div className="space-y-3">
               {[
@@ -299,7 +299,7 @@ export default function BabyDueDateCountdown() {
           </div>
 
           {/* Pregnancy Info */}
-          <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-lg p-6">
+          <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200 rounded-lg">
             <p className="text-text-secondary text-sm">
               You are <span className="font-semibold">{countdown.weeksPassed} weeks and {countdown.dayOfWeekPassed} days pregnant</span>.
               Your baby is approximately the size of a <span className="font-semibold">{countdown.babySize.size}</span> and your little one will be here in just <span className="font-semibold">{countdown.totalDays} days!</span>
@@ -307,13 +307,13 @@ export default function BabyDueDateCountdown() {
           </div>
         </>
       ) : countdown && countdown.isPast ? (
-        <div className="bg-gradient-to-br from-pink-50 to-rose-50 border-2 border-pink-400 rounded-lg p-8 text-center space-y-4">
+        <div className="bg-gradient-to-br from-pink-50 to-rose-50 border-2 border-pink-400 rounded-lg text-center space-y-4">
           <div className="text-5xl">👶💕</div>
           <h2 className="text-3xl font-bold text-pink-700">Baby Has Arrived!</h2>
           <p className="text-lg text-text-secondary">Congratulations on your new bundle of joy!</p>
         </div>
       ) : (
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Enter your due date or LMP to start tracking your pregnancy</p>
         </div>
       )}

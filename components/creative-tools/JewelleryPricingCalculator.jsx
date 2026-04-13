@@ -241,7 +241,7 @@ export default function JewelleryPricingCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-8 text-center bg-accent-muted">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] text-center bg-accent-muted">
           <p className="text-text-muted text-[12px] mb-2">Suggested Selling Price</p>
           <p className="font-mono text-4xl font-semibold text-accent mb-1">
             £{calculation.suggestedPrice}

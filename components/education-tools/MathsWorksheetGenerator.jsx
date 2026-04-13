@@ -113,12 +113,10 @@ export default function MathsWorksheetGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-6 space-y-6">
-      <Card className="p-6">
-        <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">Maths Worksheet Generator</h2>
-
+    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+      <Card>
         {/* Operations */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">
             Operations
           </label>
@@ -144,7 +142,7 @@ export default function MathsWorksheetGenerator() {
         </div>
 
         {/* Difficulty */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">
             Difficulty
           </label>
@@ -166,7 +164,7 @@ export default function MathsWorksheetGenerator() {
         </div>
 
         {/* Custom Range */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
               Min Value
@@ -193,7 +191,7 @@ export default function MathsWorksheetGenerator() {
 
         {/* Division Options */}
         {operations.has('division') && (
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-3">
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
@@ -207,7 +205,7 @@ export default function MathsWorksheetGenerator() {
         )}
 
         {/* Worksheet Options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
               Number of Questions
@@ -252,7 +250,7 @@ export default function MathsWorksheetGenerator() {
         </div>
 
         {/* Mix Operations */}
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <label className="flex items-center gap-3 cursor-pointer">
             <input
               type="checkbox"
@@ -266,7 +264,7 @@ export default function MathsWorksheetGenerator() {
         </div>
 
         {/* Include Answer Key */}
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           <label className="flex items-center gap-3 cursor-pointer">
             <input
               type="checkbox"
@@ -289,12 +287,12 @@ export default function MathsWorksheetGenerator() {
 
       {/* Preview */}
       {showPreview && questions.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <h3 className="text-lg font-heading font-bold text-text-primary mb-4">
             Preview ({questions.length} questions)
           </h3>
 
-          <div className="bg-white p-4 rounded-lg mb-6 overflow-auto max-h-96 border border-border">
+          <div className="bg-white p-4 rounded-lg mb-4 overflow-auto max-h-96 border border-border">
             <div
               className="grid gap-4"
               style={{

@@ -63,8 +63,8 @@ export default function UKCouncilTaxCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Council Tax Band
@@ -114,7 +114,7 @@ export default function UKCouncilTaxCalculator() {
 
       {calculated && (
         <div className="space-y-4">
-          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6 space-y-3">
+          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] space-y-3">
             <div>
               <p className="text-sm opacity-90">Council Tax Payment</p>
               <p className="font-mono text-4xl font-bold">£{calculated.monthly}</p>
@@ -133,7 +133,7 @@ export default function UKCouncilTaxCalculator() {
             )}
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
             <h3 className="font-heading text-base font-bold text-text-primary">Your Details</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white border border-border rounded-lg p-3">

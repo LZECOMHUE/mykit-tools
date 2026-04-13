@@ -142,7 +142,7 @@ export default function PracticeTracker() {
   const progressPercentage = Math.min(100, (stats.thisWeek / (weeklyGoal * 7)) * 100);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-accent/5 border border-accent/10">
         <h3 className="font-heading font-semibold text-text-primary mb-4">
           Log Practice Session

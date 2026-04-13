@@ -31,7 +31,7 @@ export default function GuitarStringCostTracker() {
   const fmt = (n) => '£' + parseFloat(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
         {/* Left Panel */}
         <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
@@ -62,7 +62,7 @@ export default function GuitarStringCostTracker() {
 
         {/* Right Panel */}
         {results && (
-          <div className="bg-accent-muted border border-border rounded-lg p-6 space-y-5">
+          <div className="bg-accent-muted border border-border rounded-lg space-y-5">
             <div>
               <h3 className="text-text-secondary text-[13px] font-medium mb-2">Annual String Cost</h3>
               <p className="font-mono text-5xl font-bold text-accent">{fmt(results.annualCost)}</p>

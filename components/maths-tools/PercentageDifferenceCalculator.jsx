@@ -73,7 +73,7 @@ export default function PercentageDifferenceCalculator() {
       {/* Result */}
       {result && (
         <div className="space-y-4">
-          <div className="p-6 rounded-[var(--radius-card)] border border-blue-200 bg-blue-50">
+          <div className="p-4 rounded-[var(--radius-card)] border border-blue-200 bg-blue-50">
             <div className="text-sm text-text-secondary mb-2">Percentage Difference</div>
             <div className="text-4xl font-bold font-mono-num text-blue-600">
               {result.percentDifference.toFixed(2)}%

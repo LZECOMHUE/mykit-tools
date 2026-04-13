@@ -67,7 +67,7 @@ export default function VatCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'add', label: 'Add VAT' },
@@ -79,8 +79,8 @@ export default function VatCalculator() {
 
       {/* Add VAT Tab */}
       {activeTab === 'add' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Add VAT to Price
             </h2>
@@ -194,8 +194,8 @@ export default function VatCalculator() {
 
       {/* Remove VAT Tab */}
       {activeTab === 'remove' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Remove VAT from Price
             </h2>

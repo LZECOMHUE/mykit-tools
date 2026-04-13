@@ -215,9 +215,9 @@ export default function JPGtoPDF() {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Upload Section */}
-        <div className="rounded-[var(--radius-card)] border border-border bg-surface p-6">
+        <div className="rounded-[var(--radius-card)] border border-border bg-surface">
           <h2 className="text-lg font-semibold text-text-primary mb-4">
             Upload Images
           </h2>
@@ -232,7 +232,7 @@ export default function JPGtoPDF() {
 
         {/* Images Preview Section */}
         {images.length > 0 && (
-          <div className="rounded-[var(--radius-card)] border border-border bg-surface p-6">
+          <div className="rounded-[var(--radius-card)] border border-border bg-surface">
             <h2 className="text-lg font-semibold text-text-primary mb-4">
               Images ({images.length})
             </h2>
@@ -276,7 +276,7 @@ export default function JPGtoPDF() {
 
         {/* Configuration Section */}
         {images.length > 0 && (
-          <div className="rounded-[var(--radius-card)] border border-border bg-surface p-6 space-y-4">
+          <div className="rounded-[var(--radius-card)] border border-border bg-surface space-y-4">
             <h2 className="text-lg font-semibold text-text-primary mb-4">
               PDF Settings
             </h2>

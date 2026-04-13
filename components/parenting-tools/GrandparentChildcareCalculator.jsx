@@ -75,7 +75,7 @@ export default function GrandparentChildcareCalculator() {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* ── Controls: compact inline ── */}
       <div className="flex flex-wrap items-end gap-3 mb-4">
         <div className="w-40">
@@ -219,7 +219,7 @@ export default function GrandparentChildcareCalculator() {
               if (navigator.share) {
                 navigator.share({ title: 'Grandparent Childcare Value', text });
               } else {
-                navigator.clipboard.writeText(text);
+                navigator.clipboard.writeText(text).catch(() => {});
               }
             }}>
               Share your worth
@@ -227,7 +227,7 @@ export default function GrandparentChildcareCalculator() {
           </div>
         </>
       ) : (
-        <div className="bg-surface border border-border rounded-xl p-6 text-center">
+        <div className="bg-surface border border-border rounded-xl text-center">
           <p className="text-text-secondary text-sm">{totalChildren === 0 ? 'Add grandchildren to calculate' : 'Select a care type to calculate'}</p>
         </div>
       )}

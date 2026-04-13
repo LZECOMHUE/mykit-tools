@@ -504,7 +504,7 @@ const CitationGenerator = () => {
   };
 
   const copyToClipboard = (text, index) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
@@ -581,7 +581,7 @@ const CitationGenerator = () => {
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Source Type Selector */}
-      <Card className="p-6 mb-6">
+      <Card className="mb-4">
         <h2 className="text-lg font-semibold text-text-primary mb-4">Source Type</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {SOURCE_TYPES.map((typeLabel) => {
@@ -605,7 +605,7 @@ const CitationGenerator = () => {
       </Card>
 
       {/* Source Input Form */}
-      <Card className="p-6 mb-6">
+      <Card className="mb-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-text-primary">Source {sources.length > 1 && `${sources.findIndex((s) => s.id === activeSourceId) + 1}`}</h2>
           {sources.length > 1 && (
@@ -929,7 +929,7 @@ const CitationGenerator = () => {
 
       {/* Add Another Source */}
       {sources.length < 5 && (
-        <div className="mb-6">
+        <div className="mb-4">
           <Button
             onClick={addSource}
             variant="secondary"
@@ -941,7 +941,7 @@ const CitationGenerator = () => {
       )}
 
       {/* Format Selector Tabs */}
-      <Card className="p-6 mb-6">
+      <Card className="mb-4">
         <h2 className="text-lg font-semibold text-text-primary mb-4">Citation Format</h2>
         <div className="flex flex-wrap gap-2">
           {CITATION_FORMATS.map((format) => (
@@ -961,13 +961,13 @@ const CitationGenerator = () => {
       </Card>
 
       {/* Citations Output */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {sources.map((source, idx) => {
           const citation = generateCitation(source, activeTab);
           const inText = generateInTextCitation(source, activeTab);
 
           return (
-            <Card key={source.id} className="p-6">
+            <Card key={source.id}>
               <div className="mb-4">
                 <h3 className="text-sm font-semibold text-text-secondary mb-2">
                   {idx + 1}. {typeToLabel[source.type]}
@@ -976,7 +976,7 @@ const CitationGenerator = () => {
 
               {/* In-text Citation */}
               {inText && (
-                <div className="mb-6">
+                <div className="mb-4">
                   <p className="text-xs font-medium text-text-muted mb-2">In-text citation:</p>
                   <div className="bg-surface p-3 rounded-lg font-mono text-sm text-text-primary break-words">
                     {inText}
@@ -1006,7 +1006,7 @@ const CitationGenerator = () => {
 
       {/* Bibliography */}
       {sources.length > 1 && (
-        <Card className="p-6 mt-6">
+        <Card className="mt-6">
           <h2 className="text-lg font-semibold text-text-primary mb-4">Bibliography (Works Cited)</h2>
           <div className="space-y-4">
             {sources

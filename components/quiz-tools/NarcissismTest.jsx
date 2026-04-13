@@ -258,13 +258,13 @@ const NarcissismTest = () => {
 
     return (
       <div className="w-full max-w-2xl mx-auto">
-        <Card className="p-8">
-          <div className="text-center mb-8">
+        <Card>
+          <div className="text-center mb-4">
             <h2 className="text-3xl font-bold text-text-primary mb-2">Your Results</h2>
             <p className="text-text-secondary">NPI-16 Narcissism Test</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-900 to-amber-100 rounded-lg p-8 mb-8 border border-amber-300">
+          <div className="bg-gradient-to-br from-blue-900 to-amber-100 rounded-lg mb-4 border border-amber-300">
             <div className="text-center">
               <p className="text-white text-sm mb-2">Your Score</p>
               <p className="font-mono text-6xl font-bold mb-2" style={{ color: category.color }}>
@@ -277,7 +277,7 @@ const NarcissismTest = () => {
             </div>
           </div>
 
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Understanding Your Score</h3>
             <p className="text-text-secondary mb-4">
               {score <= 3 && 'You score low on narcissistic traits. You likely value humility, genuine connections, and others\' wellbeing. You probably excel in collaborative environments and care deeply about how your actions affect others.'}
@@ -290,14 +290,14 @@ const NarcissismTest = () => {
 
           <button
             onClick={() => setShowInfo(!showInfo)}
-            className="w-full p-4 mb-6 bg-blue-50 border border-blue-200 rounded-lg hover:shadow-md transition-shadow flex items-center justify-center gap-2"
+            className="w-full p-4 mb-4 bg-blue-50 border border-blue-200 rounded-lg hover:shadow-md transition-shadow flex items-center justify-center gap-2"
           >
             <span className="text-blue-600">ℹ️</span>
             <span className="font-semibold text-blue-700">What is Narcissism?</span>
           </button>
 
           {showInfo && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg mb-4">
               <h3 className="font-bold text-lg text-text-primary mb-4">About Narcissistic Traits</h3>
               <p className="text-text-secondary mb-4">
                 Narcissism exists on a spectrum. Everyone has narcissistic traits to some degree. Healthy narcissism includes:
@@ -314,7 +314,7 @@ const NarcissismTest = () => {
             </div>
           )}
 
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-8">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Important Disclaimer</h3>
             <p className="text-text-secondary mb-4">
               This test measures narcissistic personality <strong>traits</strong> on a spectrum. It is <strong>NOT</strong> a diagnosis for Narcissistic Personality Disorder.
@@ -351,8 +351,8 @@ const NarcissismTest = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="p-8">
-        <div className="mb-6">
+      <Card>
+        <div className="mb-4">
           <p className="text-sm text-text-muted mb-2">
             Question {currentQuestion + 1} of {questions.length}
           </p>
@@ -364,8 +364,8 @@ const NarcissismTest = () => {
           </div>
         </div>
 
-        <div className="mb-8">
-          <h2 className="text-lg font-bold text-text-primary mb-6">
+        <div className="mb-4">
+          <h2 className="text-lg font-bold text-text-primary mb-4">
             Which statement do you agree with more?
           </h2>
 
@@ -399,7 +399,7 @@ const NarcissismTest = () => {
         </div>
 
         {/* Progress indicator dots */}
-        <div className="flex justify-center gap-2 mb-6 flex-wrap">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {Array.from({ length: questions.length }).map((_, index) => (
             <button
               key={index}

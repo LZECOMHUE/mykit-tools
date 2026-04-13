@@ -147,7 +147,7 @@ export default function SplitPDF() {
     (splitMode === 'ranges' && customRanges.trim().length > 0);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Summary */}
       <div className="p-4 bg-surface rounded-[var(--radius-card)] border border-border">
         <p className="text-text-secondary">

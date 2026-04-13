@@ -62,13 +62,13 @@ export default function USEVTaxCreditChecker() {
   ).sort();
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Vehicle Selection */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Vehicle Information
         </h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-2">
               Make
@@ -129,11 +129,11 @@ export default function USEVTaxCreditChecker() {
       </div>
 
       {/* Eligibility Information */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Eligibility Information
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-2">
               Filing Status
@@ -184,7 +184,7 @@ export default function USEVTaxCreditChecker() {
 
       {/* Tax Credit Result */}
       <div
-        className={`rounded-lg p-8 border-2 ${
+        className={`rounded-lg border-2 ${
           isEligible
             ? 'bg-gradient-to-r from-green-50 to-green-100 border-green-300'
             : 'bg-gradient-to-r from-red-50 to-red-100 border-red-300'
@@ -213,7 +213,7 @@ export default function USEVTaxCreditChecker() {
 
       {/* Details */}
       {isEligible && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="font-semibold text-blue-900 mb-3">How the Credit Works</h3>
           <ul className="space-y-2 text-sm text-blue-800">
             <li>
@@ -236,7 +236,7 @@ export default function USEVTaxCreditChecker() {
       )}
 
       {!isEligible && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="bg-red-50 border border-red-200 rounded-lg">
           <h3 className="font-semibold text-red-900 mb-3">Why Ineligible</h3>
           <div className="text-sm text-red-800">
             {parseFloat(income) >
@@ -258,7 +258,7 @@ export default function USEVTaxCreditChecker() {
       )}
 
       {/* List of Eligible Vehicles */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4">
           Common Eligible Vehicles (2024)
         </h3>

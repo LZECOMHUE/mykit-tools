@@ -101,7 +101,7 @@ export default function MatchedBettingCalculator() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       <div className="bg-surface border border-border rounded-lg p-4">
         <p className="text-secondary text-sm">
           Matched betting eliminates the sportsbook edge by backing a selection at one bookmaker and laying it at an exchange, guaranteeing profit from free bets and promotional offers.
@@ -124,7 +124,7 @@ export default function MatchedBettingCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Inputs */}
         <Card>
           <h3 className="font-heading text-lg font-bold text-primary mb-4">Configuration</h3>

@@ -66,13 +66,13 @@ export default function USGasPriceTracker() {
   }, [mpg, distance]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Main Inputs */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Trip Cost Calculator
         </h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-2">
               Vehicle MPG
@@ -164,8 +164,8 @@ export default function USGasPriceTracker() {
       </div>
 
       {/* Results */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Gallons Needed</div>
           <div className="text-4xl font-mono font-bold text-blue-900">
             {calculations.gallonsNeeded}
@@ -175,7 +175,7 @@ export default function USGasPriceTracker() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Total Trip Cost</div>
           <div className="text-4xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.tripCost)}
@@ -185,7 +185,7 @@ export default function USGasPriceTracker() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg">
           <div className="text-sm text-purple-700 mb-2">Cost Per Mile</div>
           <div className="text-4xl font-mono font-bold text-purple-900">
             {formatCurrency(calculations.costPerMile)}
@@ -197,7 +197,7 @@ export default function USGasPriceTracker() {
       </div>
 
       {/* Price Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Cost at Different Price Points
         </h3>
@@ -226,7 +226,7 @@ export default function USGasPriceTracker() {
       </div>
 
       {/* Fuel Efficiency Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">⚡ Fuel Efficiency Tips</h3>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           <ul className="space-y-2 text-text-secondary">
@@ -245,7 +245,7 @@ export default function USGasPriceTracker() {
       </div>
 
       {/* Annual Fuel Cost */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">📊 Annual Fuel Cost Estimate</h3>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           {[
@@ -291,7 +291,7 @@ export default function USGasPriceTracker() {
       </div>
 
       {/* Current Gas Prices Note */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg">
         <h3 className="font-semibold text-yellow-900 mb-2">⛽ Gas Price Information</h3>
         <p className="text-sm text-yellow-800 mb-3">
           Gas prices shown here are estimates. For current prices in your area:

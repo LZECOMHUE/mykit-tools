@@ -215,7 +215,7 @@ export default function StressLevelAssessment() {
     const levelInfo = STRESS_LEVELS[results.level];
 
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary">Your Stress Assessment</h2>
           <p className="mt-2 text-text-secondary">Based on the Perceived Stress Scale (PSS-10)</p>
@@ -317,7 +317,7 @@ export default function StressLevelAssessment() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       <div className="rounded-[var(--radius-card)] border-2 border-info bg-blue-50 p-4">
         <p className="text-sm text-text-primary">
           This assessment is based on the Perceived Stress Scale (PSS-10), a validated measure of stress. Answer honestly about the last month.
@@ -340,7 +340,7 @@ export default function StressLevelAssessment() {
       </div>
 
       <Card className="border-2 bg-white">
-        <p className="mb-6 text-lg font-medium text-text-primary">{question.text}</p>
+        <p className="mb-4 text-lg font-medium text-text-primary">{question.text}</p>
 
         <div className="space-y-3">
           {question.options.map((option, idx) => (

@@ -72,15 +72,15 @@ export default function ThanksgivingDinnerCalculator() {
   }, [numGuests, stuffedTurkey]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Header with warm autumn colors */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg">
         <h1 className="text-3xl font-heading font-bold text-amber-900 mb-2">Thanksgiving Dinner Calculator</h1>
         <p className="text-amber-800">Plan the perfect feast for your gathering</p>
       </div>
 
       {/* Guest Count */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-4">Number of Guests</label>
           <div className="flex items-center gap-4">
@@ -128,7 +128,7 @@ export default function ThanksgivingDinnerCalculator() {
       </div>
 
       {/* Turkey Info Box */}
-      <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+      <div className="bg-orange-50 border border-orange-200 rounded-lg">
         <p className="text-orange-600 text-sm font-medium mb-1">Turkey Size & Cooking Time</p>
         <p className="font-mono text-3xl font-bold text-orange-700">{calculations.turkeyLbs} lbs</p>
         <p className="text-orange-600 text-xs mt-1 mb-3">at 325°F</p>
@@ -143,7 +143,7 @@ export default function ThanksgivingDinnerCalculator() {
       </div>
 
       {/* Shopping List */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Shopping List</h3>
 
         <div className="space-y-3">
@@ -246,7 +246,7 @@ export default function ThanksgivingDinnerCalculator() {
       </div>
 
       {/* Cooking Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Cooking Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• <strong>Thaw turkey:</strong> Allow 24 hours for every 4-5 lbs (plan ahead!)</li>
@@ -259,7 +259,7 @@ export default function ThanksgivingDinnerCalculator() {
       </div>
 
       {/* Shopping Checklist */}
-      <div className="bg-white border border-border rounded-lg p-6 space-y-3">
+      <div className="bg-white border border-border rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Don't Forget!</h3>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
@@ -298,7 +298,7 @@ export default function ThanksgivingDinnerCalculator() {
       </div>
 
       {/* Serving Portions */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-3">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Serving Portions Per Person</h3>
         <div className="space-y-2 text-sm text-text-secondary">
           <div className="flex justify-between">

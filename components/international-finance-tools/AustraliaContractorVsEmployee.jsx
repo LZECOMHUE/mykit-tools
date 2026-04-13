@@ -119,11 +119,11 @@ export default function AustraliaContractorVsEmployee() {
   }, [annualSalaryOrRate, workingDaysPerYear, isContractorDayRate]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 {isContractorDayRate ? 'Day Rate (AUD)' : 'Annual Salary (AUD)'}
@@ -226,9 +226,9 @@ export default function AustraliaContractorVsEmployee() {
         </div>
 
         {/* Side by Side Comparison */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Employee */}
-          <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+          <div className="bg-white rounded-lg border border-border space-y-4">
             <h3 className="text-text-primary font-semibold text-lg">Employee</h3>
 
             <div className="space-y-3 text-sm">
@@ -286,7 +286,7 @@ export default function AustraliaContractorVsEmployee() {
           </div>
 
           {/* Contractor */}
-          <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+          <div className="bg-white rounded-lg border border-border space-y-4">
             <h3 className="text-text-primary font-semibold text-lg">Contractor</h3>
 
             <div className="space-y-3 text-sm">
@@ -351,7 +351,7 @@ export default function AustraliaContractorVsEmployee() {
         </div>
 
         {/* Summary */}
-        <div className="bg-blue-50 border border-accent rounded-lg p-6 space-y-3">
+        <div className="bg-blue-50 border border-accent rounded-lg space-y-3">
           <h3 className="text-text-primary font-semibold text-lg">Comparison Summary</h3>
           <div className="space-y-2 text-text-secondary">
             <p>

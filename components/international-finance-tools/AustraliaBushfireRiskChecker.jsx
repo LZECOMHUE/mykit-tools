@@ -23,8 +23,8 @@ export default function AustraliaBushfireRiskChecker() {
   }, [temp, humidity, wind]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
-      <div className="grid md:grid-cols-3 gap-6">
+    <div className="bg-surface rounded-lg space-y-4">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">Temperature</label>
           <div className="flex gap-2">
@@ -48,12 +48,12 @@ export default function AustraliaBushfireRiskChecker() {
         </div>
       </div>
 
-      <div className={`rounded-lg p-8 border-2 bg-${riskLevel.color}-50 border-${riskLevel.color}-200`}>
+      <div className={`rounded-lg border-2 bg-${riskLevel.color}-50 border-${riskLevel.color}-200`}>
         <div className="text-4xl mb-2">{riskLevel.text}</div>
         <div className="text-2xl font-bold">{riskLevel.level}</div>
       </div>
 
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-3">🔥 Bushfire Safety</h3>
         <ul className="space-y-2 text-sm text-red-800">
           <li>• Have an emergency plan before fire season</li>
@@ -65,7 +65,7 @@ export default function AustraliaBushfireRiskChecker() {
         </ul>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-2">📞 Emergency Contacts</h3>
         <p className="text-sm text-blue-800">Fire/Emergency: 000</p>
         <p className="text-sm text-blue-800">Bushfire Hotline: Check your state's emergency services</p>

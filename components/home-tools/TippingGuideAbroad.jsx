@@ -121,8 +121,8 @@ export default function TippingGuideAbroad() {
   const guide = tippingGuides[selectedCountry];
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <label className="block text-text-secondary text-sm font-medium mb-2">
           Select Country
         </label>
@@ -135,7 +135,7 @@ export default function TippingGuideAbroad() {
 
       {guide && (
         <div className="space-y-4">
-          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6">
+          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
             <h2 className="font-heading text-2xl font-bold mb-2">{guide.name}</h2>
             <p className="text-sm opacity-90">Currency: {guide.currency}</p>
           </div>

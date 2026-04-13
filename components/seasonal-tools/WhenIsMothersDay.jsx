@@ -167,10 +167,10 @@ END:VCALENDAR`;
   const yearData = generateYearTable();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero Countdown Section */}
-      <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 border border-pink-200">
-        <div className="text-center mb-6">
+      <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl border border-pink-200">
+        <div className="text-center mb-4">
           <h2 className="font-heading text-2xl font-bold text-pink-900 mb-2">
             Mother's Day {nextDates.uk < nextDates.us ? '(UK)' : '(US)'}
           </h2>
@@ -180,7 +180,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Countdown */}
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-4 gap-3 mb-4">
           <div className="bg-white rounded-lg p-4 text-center border border-pink-100">
             <div className="font-mono text-2xl font-bold text-pink-600">
               {countdown.days}
@@ -223,7 +223,7 @@ END:VCALENDAR`;
 
       {/* UK vs US Comparison */}
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-white rounded-lg border border-blue-200 p-6">
+        <div className="bg-white rounded-lg border border-blue-200">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-2xl">🇬🇧</span>
             <h3 className="font-heading font-bold text-lg text-blue-900">UK Mothering Sunday</h3>
@@ -242,7 +242,7 @@ END:VCALENDAR`;
           </button>
         </div>
 
-        <div className="bg-white rounded-lg border border-rose-200 p-6">
+        <div className="bg-white rounded-lg border border-rose-200">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-2xl">🇺🇸</span>
             <h3 className="font-heading font-bold text-lg text-rose-900">US Mother's Day</h3>
@@ -263,7 +263,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Why the Difference */}
-      <div className="bg-amber-50 rounded-lg border border-amber-200 p-6">
+      <div className="bg-amber-50 rounded-lg border border-amber-200">
         <h3 className="font-heading font-bold text-amber-900 mb-2">Why Two Different Dates?</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           The UK celebrates Mothering Sunday on the 4th Sunday of Lent, a Christian tradition dating back to the 16th century. This date varies each year because it's tied to Easter. The US celebrates Mother's Day on the 2nd Sunday of May, a secular tradition established in the early 1900s. Most other countries follow the US tradition on the second Sunday of May.
@@ -271,13 +271,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-purple-50 rounded-lg border border-purple-200 p-6">
+      <div className="bg-purple-50 rounded-lg border border-purple-200">
         <h3 className="font-heading font-bold text-purple-900 mb-2">Did You Know?</h3>
         <p className="text-sm text-gray-700">{FACTS[currentFact]}</p>
       </div>
 
       {/* Multi-Year Table */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-lg border border-gray-200">
         <h3 className="font-heading font-bold text-lg text-gray-900 mb-4">Mother's Day Dates (Next 10 Years)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

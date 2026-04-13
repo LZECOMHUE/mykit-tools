@@ -68,15 +68,15 @@ export default function Base64Converter() {
   };
 
   const handleCopyPlainText = () => {
-    navigator.clipboard.writeText(plainText);
+    navigator.clipboard.writeText(plainText).catch(() => {});
   };
 
   const handleCopyBase64 = () => {
-    navigator.clipboard.writeText(base64Text);
+    navigator.clipboard.writeText(base64Text).catch(() => {});
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Auto Mode Toggle */}
       <div className="flex items-center gap-3">
         <label className="flex items-center gap-2 cursor-pointer">

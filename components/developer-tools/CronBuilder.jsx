@@ -376,7 +376,7 @@ export default function CronBuilder() {
   };
 
   const handleCopyExpression = () => {
-    navigator.clipboard.writeText(cron);
+    navigator.clipboard.writeText(cron).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -389,7 +389,7 @@ export default function CronBuilder() {
   if (!parsed) {
     return (
       <div className="max-w-3xl">
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-secondary">Invalid cron expression. Please enter a valid 5-field cron.</p>
         </div>
       </div>
@@ -397,7 +397,7 @@ export default function CronBuilder() {
   }
 
   return (
-    <div className="max-w-4xl space-y-6">
+    <div className="max-w-4xl space-y-4">
       {/* Manual Input */}
       <div className="bg-white border border-border rounded-[var(--radius-card)] p-4">
         <label className="block text-xs text-text-secondary font-medium mb-2">Manual Cron Input</label>
@@ -411,7 +411,7 @@ export default function CronBuilder() {
       </div>
 
       {/* Expression Display */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-white border border-border rounded-[var(--radius-card)]">
         <div className="flex items-end gap-3 mb-4">
           <div className="flex-1">
             <label className="block text-xs text-text-secondary font-medium mb-2">Cron Expression</label>
@@ -500,7 +500,7 @@ export default function CronBuilder() {
       </div>
 
       {/* Next Runs */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-white border border-border rounded-[var(--radius-card)]">
         <h2 className="text-sm font-medium text-text-primary mb-4">Next 5 Run Times</h2>
         {nextRuns.length > 0 ? (
           <ul className="space-y-2">

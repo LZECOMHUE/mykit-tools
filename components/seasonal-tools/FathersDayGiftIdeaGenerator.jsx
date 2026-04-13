@@ -192,8 +192,8 @@ export default function FathersDayGiftIdeaGenerator() {
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">
             Select Interests (pick at least one)
@@ -238,7 +238,7 @@ export default function FathersDayGiftIdeaGenerator() {
           <h3 className="font-heading text-lg font-bold text-text-primary">Perfect Gift Ideas for Dad</h3>
           <div className="space-y-3">
             {ideas.map((gift, idx) => (
-              <div key={idx} className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+              <div key={idx} className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
                 <div className="flex items-start justify-between mb-2">
                   <h4 className="font-heading text-base font-bold text-text-primary">{gift.name}</h4>
                   <span className="font-mono font-bold text-accent bg-white border border-border px-3 py-1 rounded text-sm">

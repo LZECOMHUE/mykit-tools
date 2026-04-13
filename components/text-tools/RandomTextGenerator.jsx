@@ -87,7 +87,7 @@ export default function RandomTextGenerator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(output);
+    navigator.clipboard.writeText(output).catch(() => {});
   };
 
   const tabs = [
@@ -154,7 +154,7 @@ export default function RandomTextGenerator() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Count
@@ -169,12 +169,12 @@ export default function RandomTextGenerator() {
         />
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <Tabs tabs={tabs} />
       </div>
 
       {output && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
           <p className="text-sm font-medium text-text-secondary">Output:</p>
           <textarea
             value={output}

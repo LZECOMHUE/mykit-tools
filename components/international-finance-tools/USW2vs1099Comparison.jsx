@@ -100,9 +100,9 @@ export default function USW2vs1099Comparison() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Income Input */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Gross Annual Income
         </label>
@@ -120,9 +120,9 @@ export default function USW2vs1099Comparison() {
       </div>
 
       {/* Side-by-Side Comparison */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         {/* W-2 Employee */}
-        <div className="bg-white border border-border rounded-lg p-6 space-y-4">
+        <div className="bg-white border border-border rounded-lg space-y-4">
           <h3 className="font-semibold text-text-primary text-lg">W-2 Employee</h3>
 
           <div className="bg-blue-50 rounded p-3">
@@ -191,7 +191,7 @@ export default function USW2vs1099Comparison() {
         </div>
 
         {/* 1099 Contractor */}
-        <div className="bg-white border border-border rounded-lg p-6 space-y-4">
+        <div className="bg-white border border-border rounded-lg space-y-4">
           <h3 className="font-semibold text-text-primary text-lg">1099 Contractor</h3>
 
           <div className="bg-orange-50 rounded p-3">
@@ -258,9 +258,9 @@ export default function USW2vs1099Comparison() {
       </div>
 
       {/* Difference Summary */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div
-          className={`rounded-lg p-6 border-2 ${
+          className={`rounded-lg border-2 ${
             calculations.difference.netPayDifference > 0
               ? 'bg-green-50 border-green-200'
               : 'bg-red-50 border-red-200'
@@ -298,7 +298,7 @@ export default function USW2vs1099Comparison() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-lg p-6">
+        <div className="bg-white border border-border rounded-lg">
           <div className="text-sm text-text-secondary mb-2">Tax Difference</div>
           <div className="text-3xl font-mono font-bold text-accent">
             {calculations.difference.taxesDifference > 0 ? '+' : ''}
@@ -313,9 +313,9 @@ export default function USW2vs1099Comparison() {
       </div>
 
       {/* Key Differences */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4">Key Differences</h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-medium text-text-primary mb-2 text-sm">W-2 Advantages</h4>
             <ul className="space-y-1 text-sm text-text-secondary">

@@ -269,7 +269,7 @@ export default function HogwartsHouseQuiz() {
     const info = HOUSE_INFO[house];
 
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary">Your House</h2>
           <p className="mt-2 text-text-secondary">Which house aligns with your true character?</p>
@@ -344,7 +344,7 @@ export default function HogwartsHouseQuiz() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span className="font-medium text-text-primary">
@@ -361,7 +361,7 @@ export default function HogwartsHouseQuiz() {
       </div>
 
       <Card className="border-2 bg-white">
-        <p className="mb-6 text-lg font-medium text-text-primary">{question.text}</p>
+        <p className="mb-4 text-lg font-medium text-text-primary">{question.text}</p>
 
         <div className="space-y-3">
           {question.options.map((option, idx) => (

@@ -68,13 +68,13 @@ export default function USCarPaymentCalculator() {
   }, [vehiclePrice, downPayment]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Input Section */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Loan Details
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {[
             {
               label: 'Vehicle Price',
@@ -146,7 +146,7 @@ export default function USCarPaymentCalculator() {
       </div>
 
       {/* Monthly Payment */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-8">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
         <div className="text-sm text-blue-700 mb-2">Monthly Payment</div>
         <div className="text-5xl font-mono font-bold text-blue-900">
           {formatCurrency(calculations.monthlyPayment)}
@@ -157,8 +157,8 @@ export default function USCarPaymentCalculator() {
       </div>
 
       {/* Loan Breakdown */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Loan Breakdown
         </h3>
         <div className="space-y-3">
@@ -193,8 +193,8 @@ export default function USCarPaymentCalculator() {
       </div>
 
       {/* Cost Summary */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-white border border-border rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-white border border-border rounded-lg">
           <div className="text-sm text-text-secondary mb-2">Total Amount Paid</div>
           <div className="text-3xl font-mono font-bold text-accent">
             {formatCurrency(calculations.totalPaid)}
@@ -204,7 +204,7 @@ export default function USCarPaymentCalculator() {
           </div>
         </div>
 
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="bg-red-50 border border-red-200 rounded-lg">
           <div className="text-sm text-red-700 mb-2">Total Interest</div>
           <div className="text-3xl font-mono font-bold text-red-600">
             {formatCurrency(calculations.totalInterest)}
@@ -214,7 +214,7 @@ export default function USCarPaymentCalculator() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Total Cost</div>
           <div className="text-3xl font-mono font-bold text-blue-600">
             {formatCurrency(calculations.totalCost)}
@@ -226,7 +226,7 @@ export default function USCarPaymentCalculator() {
       </div>
 
       {/* Advice */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">💡 Car Buying Tips</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• A larger down payment reduces your loan amount and total interest paid</li>

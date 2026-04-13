@@ -95,7 +95,7 @@ export default function VolumeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div className="space-y-2">
         <label className="block text-text-primary font-medium">Shape Type</label>
         <select

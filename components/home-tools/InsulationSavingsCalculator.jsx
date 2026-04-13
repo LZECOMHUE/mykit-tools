@@ -221,10 +221,10 @@ export default function InsulationSavingsCalculator() {
   }, [propertyType, propertySize, loftInsulation, cavityWallFilled, solidWallInsulation, floorInsulation]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Insulation Savings Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -304,7 +304,7 @@ export default function InsulationSavingsCalculator() {
       </div>
 
       {/* Heat Loss Reduction */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Heat Loss Reduction</h3>
         <div className="space-y-2">
           <div className="flex justify-between items-center mb-2">
@@ -326,7 +326,7 @@ export default function InsulationSavingsCalculator() {
       </div>
 
       {/* Recommended Improvements */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Recommended Improvements (Priority Order)</h3>
 
         <div className="space-y-3">
@@ -382,8 +382,8 @@ export default function InsulationSavingsCalculator() {
       </div>
 
       {/* Quick Wins */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Quick Wins (payback under 5 years)</h3>
           <ul className="space-y-2">
             {calculations.improvements
@@ -406,7 +406,7 @@ export default function InsulationSavingsCalculator() {
           </ul>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">Long-term Investments (5-15 years)</h3>
           <ul className="space-y-2">
             {calculations.improvements
@@ -431,10 +431,10 @@ export default function InsulationSavingsCalculator() {
       </div>
 
       {/* Insulation Types Guide */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Insulation Types Explained</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
             <h4 className="font-bold text-text-primary mb-2">Loft Insulation</h4>
             <p className="text-text-secondary mb-2">
@@ -490,7 +490,7 @@ export default function InsulationSavingsCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💡 Installation Tips</h3>
         <ul className="space-y-2 text-sm text-amber-800">
           <li>Always use MCS-accredited or trusted installers</li>

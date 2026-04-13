@@ -61,8 +61,8 @@ export default function CanadaGSTHSTCalculator() {
   }
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Tax Calculator
         </h2>
@@ -127,7 +127,7 @@ export default function CanadaGSTHSTCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Tax Rate
         </h2>
@@ -153,7 +153,7 @@ export default function CanadaGSTHSTCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Calculation Results
         </h2>
@@ -181,7 +181,7 @@ export default function CanadaGSTHSTCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Canadian Sales Tax Rates
         </h2>
@@ -271,7 +271,7 @@ export default function CanadaGSTHSTCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator uses current tax rates as of March 2025. Sales tax rates are subject to change. Some items are exempt from sales tax (groceries, medicine, etc.). For business purposes, consult the Canada Revenue Agency (CRA) website or a tax accountant for detailed tax compliance requirements.
         </p>

@@ -365,7 +365,7 @@ export default function AttachmentStyleQuiz() {
     const info = STYLE_INFO[style];
 
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-text-primary">Your Attachment Style</h2>
           <p className="text-text-secondary mt-2">Based on attachment theory by Bowlby & Ainsworth (1969/1978)</p>
@@ -464,7 +464,7 @@ export default function AttachmentStyleQuiz() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Progress bar */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
@@ -483,7 +483,7 @@ export default function AttachmentStyleQuiz() {
 
       {/* Question */}
       <Card className="bg-white border-2">
-        <p className="text-lg text-text-primary font-medium mb-6">{question.text}</p>
+        <p className="text-lg text-text-primary font-medium mb-4">{question.text}</p>
 
         {/* Style options */}
         <div className="space-y-3">

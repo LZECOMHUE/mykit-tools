@@ -49,23 +49,23 @@ export default function ChristmasGiftBudgetTracker() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6">
+        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
           <p className="text-sm opacity-90 mb-1">Total Budget</p>
           <p className="font-mono text-3xl font-bold">£{totalBudget.toFixed(2)}</p>
         </div>
-        <div className={`border rounded-[var(--radius-card)] p-6 ${totalSpent <= totalBudget ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+        <div className={`border rounded-[var(--radius-card)] ${totalSpent <= totalBudget ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
           <p className={`text-sm font-medium mb-1 ${totalSpent <= totalBudget ? 'text-green-800' : 'text-red-800'}`}>Total Spent</p>
           <p className={`font-mono text-3xl font-bold ${totalSpent <= totalBudget ? 'text-green-800' : 'text-red-800'}`}>£{totalSpent.toFixed(2)}</p>
         </div>
-        <div className={`border rounded-[var(--radius-card)] p-6 ${remaining >= 0 ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+        <div className={`border rounded-[var(--radius-card)] ${remaining >= 0 ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
           <p className={`text-sm font-medium mb-1 ${remaining >= 0 ? 'text-green-800' : 'text-red-800'}`}>Remaining</p>
           <p className={`font-mono text-3xl font-bold ${remaining >= 0 ? 'text-green-800' : 'text-red-800'}`}>£{Math.abs(remaining).toFixed(2)}</p>
         </div>
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <h3 className="font-heading text-base font-bold text-text-primary">Add Recipient</h3>
         <div className="space-y-3">
           <Input
@@ -103,7 +103,7 @@ export default function ChristmasGiftBudgetTracker() {
           const status = getStatus(recipient.id);
 
           return (
-            <div key={recipient.id} className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+            <div key={recipient.id} className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="font-heading text-base font-bold text-text-primary">{recipient.name}</h4>
                 <Button

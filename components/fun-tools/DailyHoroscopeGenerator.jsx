@@ -90,9 +90,9 @@ export default function DailyHoroscopeGenerator() {
   const ratingValue = ((today.getDate() + selectedSign.length) % 5) + 1;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
       {/* Sign Selector */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h2 className="font-heading text-2xl font-bold text-text-primary mb-4 text-center">
           Daily Horoscope
         </h2>
@@ -119,7 +119,7 @@ export default function DailyHoroscopeGenerator() {
       </Card>
 
       {/* Header with Rating */}
-      <Card className="mb-6 bg-accent/5 border-accent/30 text-center py-6">
+      <Card className="mb-4 bg-accent/5 border-accent/30 text-center py-6">
         <p className="text-text-secondary text-sm mb-2">Today's Energy</p>
         <div className="flex justify-center gap-1 mb-4">
           {[1, 2, 3, 4, 5].map((star) => (
@@ -143,7 +143,7 @@ export default function DailyHoroscopeGenerator() {
       </Card>
 
       {/* Horoscope Categories */}
-      <div className="space-y-4 mb-6">
+      <div className="space-y-4 mb-4">
         {/* Love */}
         <Card className="border-pink-200 bg-pink-50">
           <h3 className="text-sm font-medium text-pink-900 mb-2">❤️ Love</h3>

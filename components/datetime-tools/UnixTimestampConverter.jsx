@@ -76,7 +76,7 @@ export default function UnixTimestampConverter() {
   }, [dateTimeInput, dateInput]);
 
   const handleCopy = (text, type) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopied(type);
     setTimeout(() => setCopied(null), 2000);
   };
@@ -93,11 +93,11 @@ export default function UnixTimestampConverter() {
   });
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Two-way converter tabs */}
       <div className="space-y-3">
         {/* Timestamp to Date */}
-        <div className="rounded-[var(--radius-card)] bg-white border border-border p-6">
+        <div className="rounded-[var(--radius-card)] bg-white border border-border">
           <h3 className="text-sm font-medium text-text-primary mb-4">Unix Timestamp → Date</h3>
 
           <div className="mb-4">
@@ -165,7 +165,7 @@ export default function UnixTimestampConverter() {
         </div>
 
         {/* Date to Timestamp */}
-        <div className="rounded-[var(--radius-card)] bg-white border border-border p-6">
+        <div className="rounded-[var(--radius-card)] bg-white border border-border">
           <h3 className="text-sm font-medium text-text-primary mb-4">Date → Unix Timestamp</h3>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
@@ -222,7 +222,7 @@ export default function UnixTimestampConverter() {
       </div>
 
       {/* Current Timestamp */}
-      <div className="rounded-[var(--radius-card)] bg-accent/10 border border-accent/20 p-6">
+      <div className="rounded-[var(--radius-card)] bg-accent/10 border border-accent/20">
         <h3 className="text-sm font-medium text-text-primary mb-4">Current Timestamp (Live)</h3>
         <div className="space-y-3">
           <div className="flex items-center justify-between">

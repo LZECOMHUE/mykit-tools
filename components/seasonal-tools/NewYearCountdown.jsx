@@ -58,8 +58,8 @@ export default function NewYearCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -67,11 +67,10 @@ export default function NewYearCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Main Countdown */}
-      <div className="bg-gradient-to-br from-amber-50 to-neutral-50 border-2 border-amber-300 rounded-lg p-8 text-center space-y-6">
+      <div className="bg-gradient-to-br from-amber-50 to-neutral-50 border-2 border-amber-300 rounded-lg text-center space-y-4">
         <div className="text-5xl">✨</div>
-        <h2 className="text-4xl font-bold text-amber-900">New Year Countdown</h2>
         <p className="text-lg text-text-secondary">Only {countdown.days} days until {now.getFullYear() + 1}!</p>
 
         {/* Big Numbers */}
@@ -107,13 +106,13 @@ export default function NewYearCountdown() {
       </div>
 
       {/* Fun Fact Rotation */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="text-text-primary font-semibold mb-2">Did you know?</h3>
         <p className="text-text-secondary transition-opacity duration-500 min-h-[24px]">{currentFact}</p>
       </div>
 
       {/* New Year Facts */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">New Year Stats</h3>
         <div className="space-y-3">
           {[
@@ -131,7 +130,7 @@ export default function NewYearCountdown() {
       </div>
 
       {/* Inspiration */}
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6 text-center">
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg text-center">
         <p className="text-text-secondary italic">
           "The New Year stands before us like a chapter in a book, waiting to be written. We hold the pen."
         </p>

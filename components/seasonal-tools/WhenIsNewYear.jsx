@@ -111,8 +111,8 @@ END:VCALENDAR`;
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -120,9 +120,9 @@ END:VCALENDAR`;
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Main Countdown Card */}
-      <div className="bg-gradient-to-br from-amber-50 to-neutral-50 border-2 border-amber-300 rounded-lg p-6 sm:p-8 text-center space-y-6">
+      <div className="bg-gradient-to-br from-amber-50 to-neutral-50 border-2 border-amber-300 rounded-lg sm:p-4 text-center space-y-4">
         <div className="text-4xl sm:text-5xl">✨</div>
         <div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-amber-900 mb-1">New Year {newyearData.year}</h2>
@@ -147,7 +147,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Countdown to Midnight */}
-        <div className="bg-white rounded-lg p-4 sm:p-6 border border-amber-200">
+        <div className="bg-white rounded-lg p-4 sm:p-4 border border-amber-200">
           <p className="text-text-muted text-xs sm:text-sm mb-2">Time until fresh start...</p>
           <p className="font-mono text-4xl sm:text-5xl font-bold text-amber-600">{diff.days}</p>
           <p className="text-text-secondary mt-2 text-sm sm:text-base">
@@ -171,13 +171,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg">
         <h3 className="text-text-primary font-semibold mb-2">Did you know?</h3>
         <p className="text-text-secondary transition-opacity duration-500 text-sm sm:text-base">{currentFact}</p>
       </div>
 
       {/* Year Table */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">New Year Dates (Next 10 Years)</h3>
         <div className="space-y-2 overflow-x-auto">
           <table className="w-full text-sm">
@@ -208,7 +208,7 @@ END:VCALENDAR`;
       </button>
 
       {/* Quick Facts */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Quick Facts</h3>
         <div className="space-y-3 text-sm">
           {[
@@ -226,7 +226,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Inspiration Quote */}
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6 text-center">
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg text-center">
         <p className="text-text-secondary italic text-sm sm:text-base">
           "The New Year stands before us like a chapter in a book, waiting to be written. We hold the pen."
         </p>

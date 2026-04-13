@@ -49,12 +49,12 @@ export default function PaperSizeConverter() {
   }, [currentSize]);
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text.toString());
+    navigator.clipboard.writeText(text.toString().catch(() => {}));
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 bg-surface rounded-lg border border-border">
-      <div className="space-y-6">
+    <div className="w-full max-w-3xl mx-auto bg-surface rounded-lg border border-border">
+      <div className="space-y-4">
         {/* Paper Size Selection */}
         <div>
           <p className="text-xs font-medium text-text-secondary uppercase mb-3">Paper Size</p>

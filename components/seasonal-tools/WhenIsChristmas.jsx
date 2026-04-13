@@ -116,8 +116,8 @@ END:VCALENDAR`;
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -125,9 +125,9 @@ END:VCALENDAR`;
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Main Countdown Card */}
-      <div className="bg-gradient-to-br from-red-50 to-green-50 border-2 border-red-200 rounded-lg p-6 sm:p-8 text-center space-y-6">
+      <div className="bg-gradient-to-br from-red-50 to-green-50 border-2 border-red-200 rounded-lg sm:p-4 text-center space-y-4">
         <div className="text-4xl sm:text-5xl">🎄</div>
         <div>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-red-600 mb-1">Christmas {christmasData.year}</h2>
@@ -152,7 +152,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Sleeps Display */}
-        <div className="bg-white rounded-lg p-4 sm:p-6 border border-red-200">
+        <div className="bg-white rounded-lg p-4 sm:p-4 border border-red-200">
           <p className="text-text-muted text-xs sm:text-sm mb-2">Only...</p>
           <p className="font-mono text-4xl sm:text-5xl font-bold text-green-600">{sleeps}</p>
           <p className="text-text-secondary mt-2 text-sm sm:text-base">
@@ -176,13 +176,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="text-text-primary font-semibold mb-2">Did you know?</h3>
         <p className="text-text-secondary transition-opacity duration-500 text-sm sm:text-base">{currentFact}</p>
       </div>
 
       {/* Year Table */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Christmas Dates (Next 10 Years)</h3>
         <div className="space-y-2 overflow-x-auto">
           <table className="w-full text-sm">
@@ -213,7 +213,7 @@ END:VCALENDAR`;
       </button>
 
       {/* Quick Facts */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Quick Facts</h3>
         <div className="space-y-3 text-sm">
           {[

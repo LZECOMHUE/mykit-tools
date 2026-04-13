@@ -228,7 +228,7 @@ export default function MealPlanner() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-5xl mx-auto p-4 sm:p-4">
       {/* Controls */}
       <div className="flex flex-wrap items-end gap-3 mb-5">
         <div className="w-40">
@@ -250,7 +250,7 @@ export default function MealPlanner() {
       </div>
 
       {/* Main layout: 2fr 1fr grid like reference */}
-      <div className="grid gap-6" style={{ gridTemplateColumns: '2fr 1fr' }}>
+      <div className="grid gap-4" style={{ gridTemplateColumns: '2fr 1fr' }}>
         {/* Left: Meal grid */}
         <div>
           {/* Column headers */}

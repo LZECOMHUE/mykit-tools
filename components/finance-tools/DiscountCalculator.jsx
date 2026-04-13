@@ -39,7 +39,7 @@ export default function DiscountCalculator() {
   }, [mode, originalPrice, discountPercentage, paidAmount]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Toggle */}
       <div className="flex gap-2 bg-surface border border-border rounded-[var(--radius-card)] p-2">
         <button
@@ -65,7 +65,7 @@ export default function DiscountCalculator() {
       </div>
 
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         {mode === 'forward' ? (
           <>
             <div>
@@ -127,28 +127,28 @@ export default function DiscountCalculator() {
 
       {/* Results Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Original Price</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {fmt(results.originalPrice)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Discount Amount</p>
           <p className="font-mono-num text-3xl font-bold text-accent">
             {fmt(results.discountAmount)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Final Price</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {fmt(results.finalPrice)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">You Save</p>
           <p className="font-mono-num text-2xl font-bold text-accent">
             {results.discountPercentage.toFixed(1)}%
@@ -157,7 +157,7 @@ export default function DiscountCalculator() {
       </div>
 
       {/* Summary */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <p className="text-text-secondary text-sm mb-2">Summary</p>
         <div className="space-y-2 font-mono-num">
           <div className="flex justify-between">

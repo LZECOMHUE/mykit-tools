@@ -89,9 +89,9 @@ export default function CanadaChildCareCostByProvince() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Province
@@ -153,8 +153,8 @@ export default function CanadaChildCareCostByProvince() {
       </div>
 
       {/* Monthly Cost */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-8">
-        <div className="grid md:grid-cols-2 gap-6">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <div className="text-sm text-blue-700 mb-2">Monthly Cost</div>
             <div className="text-4xl font-mono font-bold text-blue-900">
@@ -180,7 +180,7 @@ export default function CanadaChildCareCostByProvince() {
 
       {/* Subsidy Information */}
       {costs.hasSubsidy && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <h3 className="font-semibold text-green-900 mb-2">
             ✓ Subsidy Available
           </h3>
@@ -192,7 +192,7 @@ export default function CanadaChildCareCostByProvince() {
       )}
 
       {!costs.hasSubsidy && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg">
           <h3 className="font-semibold text-yellow-900 mb-2">
             ⚠️ Limited Government Support
           </h3>
@@ -201,7 +201,7 @@ export default function CanadaChildCareCostByProvince() {
       )}
 
       {/* Cost Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Cost by Age Group ({costs.province})
         </h3>
@@ -241,7 +241,7 @@ export default function CanadaChildCareCostByProvince() {
       </div>
 
       {/* Provincial Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Toddler Childcare Cost Comparison (Monthly)
         </h3>
@@ -267,7 +267,7 @@ export default function CanadaChildCareCostByProvince() {
       </div>
 
       {/* Childcare Types */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Types of Childcare
         </h3>
@@ -303,7 +303,7 @@ export default function CanadaChildCareCostByProvince() {
       </div>
 
       {/* Tips */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">💡 Childcare Tips</h3>
         <ul className="space-y-2 text-sm text-blue-800">
           <li>• Ask about before/after school programs to reduce costs</li>

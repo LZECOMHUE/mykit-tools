@@ -71,11 +71,10 @@ export default function InflationCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">Inflation Calculator</h2>
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
 
       {/* Mode Toggle */}
-      <div className="mb-8">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-primary mb-3">Calculator Mode</label>
         <div className="flex gap-4">
           <label className="flex items-center gap-2 cursor-pointer">
@@ -102,7 +101,7 @@ export default function InflationCalculator() {
       </div>
 
       {/* Inputs */}
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-4">
         {/* Amount */}
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -179,7 +178,7 @@ export default function InflationCalculator() {
       </div>
 
       {/* Results Summary */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border space-y-4">
+      <div className="bg-white rounded-[var(--radius-card)] mb-4 border border-border space-y-4">
         <div>
           <p className="text-text-secondary text-sm mb-1">
             {mode === 'historical' ? 'Equivalent Value Today' : 'Equivalent Value in Future'}
@@ -207,7 +206,7 @@ export default function InflationCalculator() {
       </div>
 
       {/* Year-by-Year Breakdown */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 border border-border">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border">
         <h3 className="text-lg font-bold text-text-primary mb-4">Year-by-Year Breakdown</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">

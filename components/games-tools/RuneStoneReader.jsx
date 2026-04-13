@@ -208,7 +208,7 @@ export default function RuneStoneReader() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Spread Selection */}
       <Card className="bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="space-y-4">
@@ -340,41 +340,23 @@ export default function RuneStoneReader() {
         </div>
       )}
 
-      {/* History */}
-      <Card className="bg-amber-50">
-        <div className="space-y-3">
-          <h3 className="font-heading text-lg font-semibold text-text-primary">
-            About Runes
-          </h3>
-          <p className="text-sm text-text-secondary leading-relaxed">
-            The Elder Futhark is an ancient Germanic alphabet used for divination
+      {/* Info */}
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About runes</summary>
+        <div className="mt-2 space-y-2">
+          <p>The Elder Futhark is an ancient Germanic alphabet used for divination
             and spiritual insight. Each rune carries Norse wisdom and symbolism.
             Rune readings offer guidance by revealing patterns and messages from
-            the subconscious. This tool is for entertainment and reflection.
-          </p>
-
-          <div className="space-y-2 mt-3">
-            <p className="text-sm font-semibold text-text-primary">
-              How to Interpret:
-            </p>
-            <ul className="text-sm text-text-secondary space-y-1 list-disc list-inside">
-              <li>Upright: Active, positive expression of the rune</li>
-              <li>Reversed: Blocked or shadow aspect of the rune</li>
-              <li>Position matters: Context shapes meaning</li>
-              <li>Trust your intuition when interpreting</li>
-            </ul>
-          </div>
+            the subconscious. This tool is for entertainment and reflection.</p>
+          <p className="font-semibold">How to interpret:</p>
+          <ul className="space-y-1 list-disc list-inside">
+            <li>Upright: Active, positive expression of the rune</li>
+            <li>Reversed: Blocked or shadow aspect of the rune</li>
+            <li>Position matters: Context shapes meaning</li>
+            <li>Trust your intuition when interpreting</li>
+          </ul>
         </div>
-      </Card>
-
-      {/* Info */}
-      <Card className="bg-orange-50 border-l-4 border-orange-500">
-        <p className="text-sm text-text-secondary">
-          Rune divination combines ancient symbolism with modern interpretation.
-          These readings are tools for self-reflection and spiritual exploration,
-          not predictions of the future.
-        </p>
-      </Card>
+      </details>
     </div>
   );
 }

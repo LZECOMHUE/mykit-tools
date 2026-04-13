@@ -262,7 +262,7 @@ export default function GravelCalculator() {
       <Card className="border-2 border-accent bg-blue-50">
         <h2 className="text-text-primary font-heading text-xl font-bold mb-3">Results</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <p className="text-text-secondary text-sm mb-1">Area to Cover</p>
             <p className="font-mono-num text-2xl font-bold text-text-primary">
@@ -289,7 +289,7 @@ export default function GravelCalculator() {
           </div>
         </div>
 
-        <div className="border-t border-border pt-6 mb-6">
+        <div className="border-t border-border pt-6 mb-4">
           <h3 className="text-text-primary font-heading text-lg font-bold mb-4">Quantities</h3>
           <div className="space-y-3">
             <div className="flex justify-between bg-surface rounded p-3">
@@ -313,7 +313,7 @@ export default function GravelCalculator() {
         </div>
 
         {/* Visual Depth Representation */}
-        <div className="border-t border-border pt-6 mb-6">
+        <div className="border-t border-border pt-6 mb-4">
           <h3 className="text-text-primary font-heading text-sm font-bold mb-3">Depth Visualization</h3>
           <div className="space-y-2">
             <div className="flex items-end gap-2">

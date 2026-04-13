@@ -123,8 +123,8 @@ export default function IndiaElectricityBillCalculator() {
   const stateData = SLAB_DATA[state];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -162,7 +162,7 @@ export default function IndiaElectricityBillCalculator() {
 
       {!calculations.error && (
         <>
-          <Card className="p-6 bg-accent-muted">
+          <Card className="bg-accent-muted">
             <h3 className="font-heading text-lg font-bold text-primary mb-2">
               Estimated Monthly Bill
             </h3>
@@ -171,7 +171,7 @@ export default function IndiaElectricityBillCalculator() {
             </p>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Bill Breakdown
             </h3>
@@ -222,7 +222,7 @@ export default function IndiaElectricityBillCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-3">
               Slab Structure - {stateData.name}
             </h3>

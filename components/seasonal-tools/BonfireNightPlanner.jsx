@@ -53,8 +53,8 @@ export default function BonfireNightPlanner() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <div className="flex items-center gap-2">
           <Checkbox
             id="hosting"
@@ -88,7 +88,7 @@ export default function BonfireNightPlanner() {
         )}
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <h3 className="font-heading text-base font-bold text-text-primary">Safety Checklist</h3>
         <div className="space-y-3">
           {safetyChecklist.map((item, idx) => (
@@ -107,7 +107,7 @@ export default function BonfireNightPlanner() {
       </div>
 
       {shoppingList.length > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
           <h3 className="font-heading text-base font-bold text-text-primary">Food & Drink List (for {guests} guests)</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -133,7 +133,7 @@ export default function BonfireNightPlanner() {
       )}
 
       <div className="space-y-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-3">
           <h3 className="font-heading text-base font-bold text-text-primary">Sparkler Safety Guide</h3>
           <div className="space-y-2 text-sm text-text-secondary">
             <p>Safe for ages 8+ only. Never given to children under 5.</p>
@@ -144,7 +144,7 @@ export default function BonfireNightPlanner() {
           </div>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-3">
           <h3 className="font-heading text-base font-bold text-text-primary">Bonfire Building Tips</h3>
           <div className="space-y-2 text-sm text-text-secondary">
             <p>Use dry wood and kindling. Create a teepee shape with sticks.</p>

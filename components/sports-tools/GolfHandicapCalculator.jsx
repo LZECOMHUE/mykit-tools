@@ -107,7 +107,7 @@ export default function GolfHandicapCalculator() {
   const courseHandicap = handleCalculateCourseHandicap();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Input Rounds */}
       <Card>
         <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Rounds Played</h3>

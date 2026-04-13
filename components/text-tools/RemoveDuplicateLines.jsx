@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import Button from '@/components/ui/Button';
-import Toggle from '@/components/ui/Toggle';
 
 export default function RemoveDuplicateLines() {
   const [input, setInput] = useState('');
@@ -10,6 +9,7 @@ export default function RemoveDuplicateLines() {
   const [trimWhitespace, setTrimWhitespace] = useState(true);
   const [sortOutput, setSortOutput] = useState(false);
   const [keepFirst, setKeepFirst] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   const result = useMemo(() => {
     if (!input) return { output: '', stats: { original: 0, duplicates: 0, unique: 0 } };
@@ -17,12 +17,10 @@ export default function RemoveDuplicateLines() {
     let lines = input.split('\n');
     const originalCount = lines.length;
 
-    // Trim whitespace if enabled
     if (trimWhitespace) {
       lines = lines.map((line) => line.trim());
     }
 
-    // Track duplicates
     const seen = new Set();
     const seenCaseInsensitive = new Set();
     let duplicateCount = 0;
@@ -40,36 +38,22 @@ export default function RemoveDuplicateLines() {
           duplicateCount++;
         }
       } else {
-        // Remove all duplicates
-        if (caseSensitive) {
-          if (seenCaseInsensitive.has(caseInsensitiveKey)) {
-            duplicateCount++;
-          } else {
-            seenCaseInsensitive.add(caseInsensitiveKey);
-            deduplicated.push(line);
-          }
+        if (seenCaseInsensitive.has(caseInsensitiveKey)) {
+          duplicateCount++;
         } else {
-          if (seenCaseInsensitive.has(caseInsensitiveKey)) {
-            duplicateCount++;
-          } else {
-            seenCaseInsensitive.add(caseInsensitiveKey);
-            deduplicated.push(line);
-          }
+          seenCaseInsensitive.add(caseInsensitiveKey);
+          deduplicated.push(line);
         }
       }
     }
 
-    // Sort if enabled
     let finalLines = deduplicated;
     if (sortOutput) {
-      finalLines = [...deduplicated].sort((a, b) => {
-        const aLower = a.toLowerCase();
-        const bLower = b.toLowerCase();
-        return aLower.localeCompare(bLower);
-      });
+      finalLines = [...deduplicated].sort((a, b) =>
+        a.toLowerCase().localeCompare(b.toLowerCase())
+      );
     }
 
-    // Remove empty lines at end
     while (finalLines.length > 0 && finalLines[finalLines.length - 1] === '') {
       finalLines.pop();
     }
@@ -84,144 +68,118 @@ export default function RemoveDuplicateLines() {
     };
   }, [input, caseSensitive, trimWhitespace, sortOutput, keepFirst]);
 
-  const handleCopy = () => {
-    if (result.output) {
-      navigator.clipboard.writeText(result.output);
-    }
+  const handleCopy = async () => {
+    if (!result.output) return;
+    try {
+      await navigator.clipboard.writeText(result.output).catch(() => {});
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   };
 
+  const inputLineCount = input ? input.split('\n').length : 0;
+
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
-      {/* Input Section */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-text-primary">
-          Input Text (one item per line)
-        </label>
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Paste text here, one line per item..."
-          className="w-full h-48 p-4 border border-border rounded-[var(--radius-input)] bg-surface text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
-        />
-      </div>
-
-      {/* Options Section */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
-        <p className="text-sm font-medium text-text-primary">Options</p>
-
-        {/* Case Sensitivity */}
-        <div className="flex items-center justify-between">
-          <label className="text-sm text-text-primary">
-            Case Sensitive Comparison
-          </label>
-          <Toggle
+    <div className="space-y-4">
+      {/* Option toggles as compact row */}
+      <div className="flex items-center gap-4 flex-wrap">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
             checked={caseSensitive}
-            onChange={setCaseSensitive}
+            onChange={(e) => setCaseSensitive(e.target.checked)}
+            className="w-4 h-4 rounded border-border accent-accent"
           />
-        </div>
-
-        {/* Trim Whitespace */}
-        <div className="flex items-center justify-between">
-          <label className="text-sm text-text-primary">
-            Trim Whitespace
-          </label>
-          <Toggle
+          <span className="text-sm text-text-secondary">Case sensitive</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
             checked={trimWhitespace}
-            onChange={setTrimWhitespace}
+            onChange={(e) => setTrimWhitespace(e.target.checked)}
+            className="w-4 h-4 rounded border-border accent-accent"
           />
-        </div>
-
-        {/* Sort Output */}
-        <div className="flex items-center justify-between">
-          <label className="text-sm text-text-primary">
-            Sort Output Alphabetically
-          </label>
-          <Toggle
+          <span className="text-sm text-text-secondary">Trim whitespace</span>
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
             checked={sortOutput}
-            onChange={setSortOutput}
+            onChange={(e) => setSortOutput(e.target.checked)}
+            className="w-4 h-4 rounded border-border accent-accent"
           />
-        </div>
-
-        {/* Keep First or Remove All */}
-        <div className="space-y-2">
-          <label className="text-sm text-text-primary">
-            Duplicate Handling
-          </label>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <input
-                type="radio"
-                id="keep-first"
-                name="duplicates"
-                checked={keepFirst}
-                onChange={() => setKeepFirst(true)}
-                className="w-4 h-4 accent-accent"
-              />
-              <label htmlFor="keep-first" className="text-sm text-text-primary">
-                Keep first occurrence
-              </label>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="radio"
-                id="remove-all"
-                name="duplicates"
-                checked={!keepFirst}
-                onChange={() => setKeepFirst(false)}
-                className="w-4 h-4 accent-accent"
-              />
-              <label htmlFor="remove-all" className="text-sm text-text-primary">
-                Remove all duplicates
-              </label>
-            </div>
-          </div>
-        </div>
+          <span className="text-sm text-text-secondary">Sort output</span>
+        </label>
+        <span className="text-sm text-text-muted">Keep:</span>
+        {[
+          { value: true, label: 'First occurrence' },
+          { value: false, label: 'Remove all dupes' },
+        ].map((opt) => (
+          <button
+            key={String(opt.value)}
+            onClick={() => setKeepFirst(opt.value)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              keepFirst === opt.value
+                ? 'bg-accent text-white'
+                : 'bg-surface text-text-secondary hover:bg-surface-hover'
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
       </div>
 
-      {/* Statistics */}
-      {result.output && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-2">
-          <p className="text-sm font-medium text-text-primary mb-3">Statistics</p>
-          <div className="grid grid-cols-3 gap-3 text-sm">
-            <div>
-              <p className="text-text-muted">Original Lines</p>
-              <p className="text-lg font-mono-num text-text-primary">
-                {result.stats.original}
-              </p>
-            </div>
-            <div>
-              <p className="text-text-muted">Duplicates Found</p>
-              <p className="text-lg font-mono-num text-text-primary">
-                {result.stats.duplicates}
-              </p>
-            </div>
-            <div>
-              <p className="text-text-muted">Unique Lines</p>
-              <p className="text-lg font-mono-num text-text-primary">
-                {result.stats.unique}
-              </p>
+      {/* Side-by-side grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Input</label>
+            {inputLineCount > 0 && (
+              <span className="text-xs text-text-muted font-mono">{inputLineCount} lines</span>
+            )}
+          </div>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={'Paste text here, one line per item...\napple\nbanana\napple\ncherry'}
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
+          />
+        </div>
+
+        {/* Output */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Deduplicated Output</label>
+            <div className="flex items-center gap-2">
+              {result.stats.unique > 0 && (
+                <span className="text-xs text-text-muted font-mono">{result.stats.unique} lines</span>
+              )}
+              <Button variant="secondary" size="sm" onClick={handleCopy} disabled={!result.output}>
+                {copied ? 'Copied!' : 'Copy'}
+              </Button>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Output Section */}
-      {result.output && (
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-text-primary">
-            Output
-          </label>
           <textarea
             value={result.output}
             readOnly
-            className="w-full h-48 p-4 border border-border rounded-[var(--radius-input)] bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+            placeholder="Deduplicated lines will appear here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-surface border border-border rounded-[var(--radius-input)] resize-none focus:outline-none"
+            spellCheck={false}
           />
-          <div className="flex justify-end">
-            <Button onClick={handleCopy} className="text-sm">
-              Copy
-            </Button>
-          </div>
         </div>
+      </div>
+
+      {/* Inline stats */}
+      {result.stats.original > 0 && result.stats.duplicates > 0 && (
+        <p className="text-sm text-text-secondary text-center">
+          <span className="font-mono">{result.stats.original}</span> lines &rarr;{' '}
+          <span className="font-mono">{result.stats.unique}</span> unique
+          <span className="text-text-muted ml-1">
+            ({result.stats.duplicates} duplicate{result.stats.duplicates !== 1 ? 's' : ''} removed)
+          </span>
+        </p>
       )}
     </div>
   );

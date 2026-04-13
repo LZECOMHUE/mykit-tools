@@ -75,17 +75,17 @@ export default function CubicFeetCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6 p-4">
+    <div className="w-full max-w-2xl mx-auto space-y-4 p-4">
       {/* Input Section */}
       <div
-        className="rounded-xl border bg-white p-6"
+        className="rounded-xl border bg-white"
         style={{
           borderColor: 'var(--border)',
           borderRadius: '12px',
         }}
       >
         {/* Unit Selector */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             className="block text-sm font-medium mb-1"
             style={{ color: 'var(--text-primary)' }}
@@ -112,7 +112,7 @@ export default function CubicFeetCalculator() {
         </div>
 
         {/* Input Fields Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
           {/* Length */}
           <div>
             <label
@@ -206,7 +206,7 @@ export default function CubicFeetCalculator() {
 
         {/* Formula Display */}
         <div
-          className="p-4 rounded-lg mb-6 border"
+          className="p-4 rounded-lg mb-4 border"
           style={{
             backgroundColor: 'var(--surface)',
             borderColor: 'var(--border)',
@@ -246,7 +246,7 @@ export default function CubicFeetCalculator() {
       {/* Results Section */}
       {cubicFeet !== null && (
         <div
-          className="rounded-xl border bg-white p-6"
+          className="rounded-xl border bg-white"
           style={{
             borderColor: 'var(--border)',
             borderRadius: '12px',
@@ -258,7 +258,7 @@ export default function CubicFeetCalculator() {
 
           {/* Primary Result */}
           <div
-            className="p-4 rounded-lg mb-6 border-2"
+            className="p-4 rounded-lg mb-4 border-2"
             style={{
               backgroundColor: 'var(--accent)',
               borderColor: 'var(--accent)',
@@ -310,7 +310,7 @@ export default function CubicFeetCalculator() {
 
       {/* Presets Section */}
       <div
-        className="rounded-xl border bg-white p-6"
+        className="rounded-xl border bg-white"
         style={{
           borderColor: 'var(--border)',
           borderRadius: '12px',
@@ -350,7 +350,7 @@ export default function CubicFeetCalculator() {
 
       {/* Info Section */}
       <div
-        className="rounded-xl border p-6"
+        className="rounded-xl border"
         style={{
           borderColor: 'var(--border)',
           backgroundColor: 'var(--surface)',

@@ -88,7 +88,7 @@ export default function CookingTimeCalculator() {
   const donessTemp = showDoneness ? DONENESS_LEVELS[doneness]?.temp : null;
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Section */}
       <Card>
         <h3 className="text-lg font-heading font-bold text-text-primary mb-4">
@@ -179,7 +179,7 @@ export default function CookingTimeCalculator() {
           Cooking Times
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
           {/* Preheat Temp */}
           <div className="bg-surface rounded-[var(--radius-input)] p-4">
             <p className="text-text-muted text-sm font-medium mb-1">Preheat Oven To</p>

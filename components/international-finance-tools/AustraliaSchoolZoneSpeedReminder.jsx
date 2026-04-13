@@ -99,9 +99,9 @@ export default function AustraliaSchoolZoneSpeedReminder() {
   }, [day, time, state]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Location and Time */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             State / Territory
@@ -182,7 +182,7 @@ export default function AustraliaSchoolZoneSpeedReminder() {
 
       {/* Zone Status */}
       <div
-        className={`rounded-lg p-8 border-2 bg-${speedStatus.color}-50 border-${speedStatus.color}-200`}
+        className={`rounded-lg border-2 bg-${speedStatus.color}-50 border-${speedStatus.color}-200`}
       >
         <div className="flex items-start gap-4">
           <div className="text-4xl">{speedStatus.icon}</div>
@@ -201,7 +201,7 @@ export default function AustraliaSchoolZoneSpeedReminder() {
       </div>
 
       {/* Zone Times */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3 text-lg">
           School Zone Times - {rules.name}
         </h3>
@@ -218,7 +218,7 @@ export default function AustraliaSchoolZoneSpeedReminder() {
       </div>
 
       {/* Speed Limit Guide */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           School Zone Speed Limits by State
         </h3>
@@ -244,7 +244,7 @@ export default function AustraliaSchoolZoneSpeedReminder() {
       </div>
 
       {/* Safety Tips */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-3">🚗 School Zone Safety</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>• Slow down and be alert for children near schools</li>
@@ -257,7 +257,7 @@ export default function AustraliaSchoolZoneSpeedReminder() {
       </div>
 
       {/* Penalty Information */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-3">⚠️ Speeding Penalties</h3>
         <p className="text-sm text-red-800 mb-3">
           Penalties for speeding in school zones are typically severe:

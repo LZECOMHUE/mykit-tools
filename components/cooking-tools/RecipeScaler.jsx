@@ -145,16 +145,16 @@ export default function RecipeScaler() {
       }
     });
 
-    navigator.clipboard.writeText(recipeText);
+    navigator.clipboard.writeText(recipeText).catch(() => {});
   };
 
   return (
     <div className="space-y-3">
       {/* Servings Control */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h2 className="text-text-primary font-bold text-lg mb-4">Recipe Servings</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
               Original Servings
@@ -215,7 +215,7 @@ export default function RecipeScaler() {
       </div>
 
       {/* Ingredients Input */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h2 className="text-text-primary font-bold text-lg mb-4">Ingredients</h2>
 
         <div className="space-y-3">
@@ -268,7 +268,7 @@ export default function RecipeScaler() {
       </div>
 
       {/* Scaled Ingredients Output */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-text-primary font-bold text-lg">
             Scaled Ingredients ({desiredServings} servings)

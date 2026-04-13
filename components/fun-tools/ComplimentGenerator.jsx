@@ -65,20 +65,13 @@ export default function ComplimentGenerator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(currentCompliment);
+    navigator.clipboard.writeText(currentCompliment).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
-      <div className="bg-green-50 border border-green-200 p-4 rounded-[var(--radius-card)]">
-        <p className="text-green-700 font-bold text-sm mb-2">💚 Spread Kindness</p>
-        <p className="text-text-secondary text-sm">
-          Use these genuine compliments to brighten someone\'s day. A sincere compliment can mean more than you know.
-        </p>
-      </div>
-
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div>
         <label className="block text-text-primary font-medium mb-2">For</label>
         <select
@@ -96,7 +89,7 @@ export default function ComplimentGenerator() {
         </select>
       </div>
 
-      <div className="bg-surface p-6 rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
+      <div className="bg-surface rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
         <p className="text-xl text-text-primary font-medium text-center leading-relaxed">
           {currentCompliment}
         </p>
@@ -120,21 +113,6 @@ export default function ComplimentGenerator() {
         >
           {copied ? '✓ Copied' : 'Copy'}
         </button>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">Genuine</p>
-          <p className="text-lg mt-1">✓</p>
-        </div>
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">Warm</p>
-          <p className="text-lg mt-1">✓</p>
-        </div>
-        <div className="bg-surface p-3 rounded-[var(--radius-card)] text-center">
-          <p className="text-text-secondary text-xs">Kind</p>
-          <p className="text-lg mt-1">✓</p>
-        </div>
       </div>
     </div>
   );

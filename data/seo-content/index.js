@@ -13,6 +13,11 @@ import { cookingSEO } from "./cooking.js";
 import { homeSEO } from "./home.js";
 import { musicSEO } from "./music.js";
 import { automotiveSEO } from "./automotive.js";
+import { creativeSEO } from "./creative.js";
+import { textSEO } from "./text.js";
+import { developerSEO } from "./developer.js";
+import { datetimeSEO } from "./datetime.js";
+import { funSEO } from "./fun.js";
 
 // Add more category imports as SEO content is written:
 // import { educationSEO } from "./education";
@@ -30,6 +35,11 @@ const allSEOContent = {
   ...homeSEO,
   ...musicSEO,
   ...automotiveSEO,
+  ...creativeSEO,
+  ...textSEO,
+  ...developerSEO,
+  ...datetimeSEO,
+  ...funSEO,
   // ...educationSEO,
 };
 

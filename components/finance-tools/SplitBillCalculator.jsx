@@ -115,9 +115,9 @@ export default function SplitBillCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Mode Toggle */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <label className="block text-text-secondary text-sm font-medium mb-3">
           Split Mode
         </label>
@@ -146,7 +146,7 @@ export default function SplitBillCalculator() {
       </div>
 
       {/* Basic Inputs */}
-      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Total Bill Amount
@@ -208,7 +208,7 @@ export default function SplitBillCalculator() {
 
       {/* Itemised Mode Inputs */}
       {mode === 'itemized' && (
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <h3 className="text-text-primary font-semibold mb-4">Add Items</h3>
           <div className="space-y-3 mb-4">
             <div>
@@ -311,28 +311,28 @@ export default function SplitBillCalculator() {
 
       {/* Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Subtotal</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(results.bill)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Tip Amount</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(results.tipAmount)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Total (inc. tip)</p>
           <p className="font-mono text-3xl font-bold text-accent">
             {fmt(results.total)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Per Person</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {mode === 'equal'
@@ -344,7 +344,7 @@ export default function SplitBillCalculator() {
 
       {/* Individual Breakdown */}
       {results.split && results.split.length > 0 && (
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <h3 className="text-text-primary font-semibold mb-4">
             Who Pays What
           </h3>

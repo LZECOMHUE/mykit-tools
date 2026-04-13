@@ -30,7 +30,7 @@ export default function CoinFlip() {
   const tails = results.filter((r) => r === "tails").length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-yellow-50 to-orange-50">
         <div className="space-y-4">
           <Input

@@ -124,7 +124,7 @@ export default function KeyFinder() {
   }, [selectedChords]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h2 className="font-heading text-xl font-bold text-text-primary mb-3">
           Select Chords Used

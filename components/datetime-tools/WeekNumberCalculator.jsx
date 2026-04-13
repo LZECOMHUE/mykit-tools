@@ -90,7 +90,7 @@ export default function WeekNumberCalculator() {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter Date
@@ -140,7 +140,7 @@ export default function WeekNumberCalculator() {
             </div>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <p className="text-sm font-medium text-text-secondary mb-2">Full Date</p>
             <p className="font-mono text-text-primary">{stats.formatted}</p>
           </div>
@@ -153,7 +153,7 @@ export default function WeekNumberCalculator() {
           </button>
 
           {showCalendar && calendar && (
-            <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+            <div className="bg-surface border border-border rounded-[var(--radius-card)]">
               <h3 className="text-sm font-medium text-text-secondary mb-4">Week Numbers for {stats.year}</h3>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-2 max-h-[400px] overflow-y-auto">
                 {calendar.map((week, idx) => (
@@ -176,7 +176,7 @@ export default function WeekNumberCalculator() {
       )}
 
       {!date && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Select a date to see its week number and other details</p>
         </div>
       )}

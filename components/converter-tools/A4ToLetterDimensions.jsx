@@ -22,10 +22,10 @@ export default function A4ToLetterDimensions() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {formats.map((format, idx) => (
-          <Card key={idx} className="p-6">
+          <Card key={idx}>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               {format.name}
             </h3>
@@ -54,7 +54,7 @@ export default function A4ToLetterDimensions() {
         ))}
       </div>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Comparison
         </h3>
@@ -81,7 +81,7 @@ export default function A4ToLetterDimensions() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Detailed Dimensions
         </h3>

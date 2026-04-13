@@ -55,9 +55,9 @@ export default function AustraliaLongServiceLeaveCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             State / Territory
@@ -111,7 +111,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
 
       {/* Eligibility Status */}
       {calculations.isEligible ? (
-        <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-8">
+        <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-2xl font-bold text-green-900 mb-2">
             ✓ You Are Eligible
           </div>
@@ -120,7 +120,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
           </div>
         </div>
       ) : (
-        <div className="bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-8">
+        <div className="bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded-lg">
           <div className="text-2xl font-bold text-orange-900 mb-2">
             ⏳ Not Yet Eligible
           </div>
@@ -131,8 +131,8 @@ export default function AustraliaLongServiceLeaveCalculator() {
       )}
 
       {/* Leave Entitlement */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Leave Weeks</div>
           <div className="text-4xl font-mono font-bold text-blue-900">
             {calculations.leaveWeeks}
@@ -142,7 +142,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+        <div className="bg-purple-50 border border-purple-200 rounded-lg">
           <div className="text-sm text-purple-700 mb-2">Leave Duration</div>
           <div className="text-4xl font-mono font-bold text-purple-900">
             {calculations.leaveMonths}
@@ -150,7 +150,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
           <div className="text-sm text-purple-700 mt-2">months continuous</div>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Paid Leave Value</div>
           <div className="text-4xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.totalPay)}
@@ -160,7 +160,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
       </div>
 
       {/* State Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Long Service Leave by State
         </h3>
@@ -191,7 +191,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
       </div>
 
       {/* Information */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">
           ℹ️ Long Service Leave (LSL) in Australia
         </h3>
@@ -220,7 +220,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           💡 Long Service Leave Tips
         </h3>
@@ -235,7 +235,7 @@ export default function AustraliaLongServiceLeaveCalculator() {
       </div>
 
       {/* Fair Work Information */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-2">
           📞 More Information
         </h3>

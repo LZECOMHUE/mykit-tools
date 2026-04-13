@@ -83,11 +83,11 @@ export default function AustraliaRentalYieldCalculator() {
   ]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Property Value (AUD)
@@ -118,7 +118,7 @@ export default function AustraliaRentalYieldCalculator() {
           <div className="space-y-2 border-t border-border pt-6">
             <p className="text-text-primary font-medium mb-4">Annual Expenses</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-text-secondary text-sm mb-2">
                   Council Rates/Year (AUD)
@@ -146,7 +146,7 @@ export default function AustraliaRentalYieldCalculator() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-text-secondary text-sm mb-2">
                   Management Fee (% of rent)
@@ -192,7 +192,7 @@ export default function AustraliaRentalYieldCalculator() {
         </div>
 
         {/* Income Summary */}
-        <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="bg-white rounded-lg border border-border space-y-4">
           <h2 className="text-text-primary font-semibold text-lg">Income Summary</h2>
 
           <div className="space-y-3">
@@ -210,7 +210,7 @@ export default function AustraliaRentalYieldCalculator() {
               </span>
             </div>
 
-            <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+            <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
               <span className="text-text-primary font-semibold">Effective Rent:</span>
               <span className="font-mono text-xl font-semibold text-accent">
                 ${results.effectiveRent}
@@ -220,7 +220,7 @@ export default function AustraliaRentalYieldCalculator() {
         </div>
 
         {/* Expenses Summary */}
-        <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="bg-white rounded-lg border border-border space-y-4">
           <h2 className="text-text-primary font-semibold text-lg">Annual Expenses</h2>
 
           <div className="space-y-2 text-sm">
@@ -243,7 +243,7 @@ export default function AustraliaRentalYieldCalculator() {
               <span className="font-mono font-semibold">${results.maintenance}</span>
             </div>
 
-            <div className="flex justify-between pt-3 bg-red-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+            <div className="flex justify-between pt-3 bg-red-50 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
               <span className="text-text-primary font-semibold">Total Expenses:</span>
               <span className="font-mono text-lg font-semibold text-error">
                 ${results.totalExpenses}
@@ -253,7 +253,7 @@ export default function AustraliaRentalYieldCalculator() {
         </div>
 
         {/* Yields and Returns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg border border-border p-4">
             <p className="text-text-secondary text-sm mb-2">Gross Yield (Annual)</p>
             <p className="text-3xl font-mono font-semibold text-accent">
@@ -304,7 +304,7 @@ export default function AustraliaRentalYieldCalculator() {
         </div>
 
         {/* Net Income Summary */}
-        <div className={`rounded-lg border p-6 ${
+        <div className={`rounded-lg border ${
           parseFloat(results.netIncome) >= 0
             ? 'bg-green-50 border-green-200'
             : 'bg-orange-50 border-orange-200'

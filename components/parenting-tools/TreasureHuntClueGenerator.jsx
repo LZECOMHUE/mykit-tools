@@ -356,8 +356,8 @@ export default function TreasureHuntClueGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <h2 className="font-heading text-xl font-bold text-text-primary">Hunt Configuration</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -437,8 +437,8 @@ export default function TreasureHuntClueGenerator() {
       </div>
 
       {generated && (
-        <div className="space-y-6">
-          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="space-y-4">
+          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <h2 className="font-heading text-xl font-bold text-text-primary">Treasure Clues</h2>
             <div className="space-y-3">
               {clues.map((clue, idx) => (

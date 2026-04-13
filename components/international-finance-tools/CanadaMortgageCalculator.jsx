@@ -88,8 +88,8 @@ export default function CanadaMortgageCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Mortgage Details
         </h2>
@@ -159,7 +159,7 @@ export default function CanadaMortgageCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Payment Details
         </h2>
@@ -199,7 +199,7 @@ export default function CanadaMortgageCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Mortgage Summary
         </h2>
@@ -231,7 +231,7 @@ export default function CanadaMortgageCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-orange-50 border border-orange-200">
+      <Card className="bg-orange-50 border border-orange-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Mortgage Stress Test
         </h2>
@@ -269,7 +269,7 @@ export default function CanadaMortgageCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator is for estimation only. Actual mortgage payments depend on your credit score, lender fees, property taxes, insurance, HOA fees, and current lending rates. Canadian mortgages typically have 5-year terms with automatic renewal or refinancing every 5 years within the amortization period. Consult a mortgage broker or your bank for personalized pre-qualification and exact terms.
         </p>

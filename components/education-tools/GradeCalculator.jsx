@@ -84,10 +84,10 @@ export default function GradeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Current Grade */}
       {results.completedAssignments > 0 && (
-        <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] p-6 text-center space-y-2">
+        <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] text-center space-y-2">
           <p className="text-text-secondary text-sm">Current Grade</p>
           <div className="flex items-center justify-center gap-4">
             <p className="font-mono-num text-4xl font-bold text-accent">{results.currentGrade}%</p>

@@ -178,17 +178,16 @@ export default function StudentLoanCalculator() {
   ];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">UK Student Loan Repayment Calculator</h2>
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
 
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-input)] p-4 mb-6 text-sm text-text-primary">
+      <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-input)] p-4 mb-4 text-sm text-text-primary">
         <p className="font-medium text-blue-900 mb-2">Student Loan Repayment</p>
         <p className="text-blue-800">Repayment is 9% of earnings above the plan threshold (6% for postgraduate loans). Repayments stop if earnings fall below the threshold. Balances are written off after a set number of years.</p>
       </div>
 
       {/* Inputs */}
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-4">
         {/* Salary */}
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -293,7 +292,7 @@ export default function StudentLoanCalculator() {
       {/* Results Summary */}
       {results.planRepayments.length > 0 && (
         <>
-          <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border space-y-4">
+          <div className="bg-white rounded-[var(--radius-card)] mb-4 border border-border space-y-4">
             <div>
               <p className="text-text-secondary text-sm mb-1">Monthly Repayment</p>
               <p className="text-3xl font-bold text-accent font-mono-num">
@@ -337,7 +336,7 @@ export default function StudentLoanCalculator() {
           </div>
 
           {/* Plan Comparison Table */}
-          <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border">
+          <div className="bg-white rounded-[var(--radius-card)] mb-4 border border-border">
             <h3 className="text-lg font-bold text-text-primary mb-4">Repayment Details by Plan</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -390,7 +389,7 @@ export default function StudentLoanCalculator() {
       )}
 
       {results.planRepayments.length === 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-input)] p-6 text-center text-text-primary">
+        <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-input)] text-center text-text-primary">
           <p className="font-medium">Select at least one loan plan to calculate repayment</p>
         </div>
       )}

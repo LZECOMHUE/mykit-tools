@@ -88,7 +88,7 @@ export default function PubQuizAnswerSheetPrinter() {
   const questions = parseInt(questionsPerRound) || 0;
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Configuration */}
       <div className="space-y-4">
         <div>
@@ -149,9 +149,9 @@ export default function PubQuizAnswerSheetPrinter() {
       </div>
 
       {/* Printable Content */}
-      <div className="bg-white p-8 print:p-0 print:bg-transparent">
+      <div className="bg-white print:p-0 print:bg-transparent">
         {/* Header */}
-        <div className="text-center mb-8 print:mb-6">
+        <div className="text-center mb-4 print:mb-4">
           <h1 className="text-3xl font-bold font-heading text-text-primary">
             Pub Quiz Answer Sheet
           </h1>
@@ -163,7 +163,7 @@ export default function PubQuizAnswerSheetPrinter() {
         </div>
 
         {/* Quiz Grid */}
-        <div className="space-y-6 print:space-y-4">
+        <div className="space-y-4 print:space-y-4">
           {Array.from({ length: rounds }).map((_, roundIdx) => (
             <div key={roundIdx} className="break-inside-avoid print:page-break-inside-avoid">
               {/* Round Header */}

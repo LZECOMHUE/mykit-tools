@@ -246,7 +246,7 @@ export default function MixedNumbersCalculator() {
   }, [simpNum, simpDen]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Tabs */}
       <div className="flex gap-2 border-b border-border">
         {[
@@ -271,7 +271,7 @@ export default function MixedNumbersCalculator() {
       {/* Calculate Mode */}
       {mode === 'calculate' && (
         <div className="space-y-3">
-          <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-lg space-y-4">
             <MixedNumberInput
               label="First Number"
               whole={whole1}
@@ -310,7 +310,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Result Card */}
-          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Result
             </h3>
@@ -363,7 +363,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Step-by-step Working */}
-          <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-lg space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Step-by-Step Working
             </h3>
@@ -386,7 +386,7 @@ export default function MixedNumbersCalculator() {
       {/* Convert Mode */}
       {mode === 'convert' && (
         <div className="space-y-3">
-          <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-lg space-y-4">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-text-secondary">
                 Convert From
@@ -468,7 +468,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Conversion Results */}
-          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Conversions
             </h3>
@@ -533,7 +533,7 @@ export default function MixedNumbersCalculator() {
       {/* Simplify Mode */}
       {mode === 'simplify' && (
         <div className="space-y-3">
-          <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-lg space-y-4">
             <label className="block text-sm font-medium text-text-secondary">
               Enter Fraction to Simplify
             </label>
@@ -558,7 +558,7 @@ export default function MixedNumbersCalculator() {
           </div>
 
           {/* Simplification Result */}
-          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg p-6 space-y-4">
+          <div className="bg-blue-50 border border-accent border-opacity-20 rounded-lg space-y-4">
             <h3 className="font-heading text-lg font-semibold text-text-primary">
               Simplification
             </h3>

@@ -24,8 +24,8 @@ export default function AustraliaElectricityPlanComparison() {
   }, [kwhQuarter]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="bg-surface rounded-lg space-y-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">Quarterly Usage (kWh)</label>
           <input type="number" value={kwhQuarter} onChange={(e) => setKwhQuarter(e.target.value)} className="w-full px-4 py-2 border border-border rounded-lg" />
@@ -57,7 +57,7 @@ export default function AustraliaElectricityPlanComparison() {
         </div>
       </div>
 
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">💡 Electricity Saving Tips</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• Use LED bulbs (75% less energy than incandescent)</li>

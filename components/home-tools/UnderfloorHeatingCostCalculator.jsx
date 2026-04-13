@@ -153,10 +153,10 @@ export default function UnderfloorHeatingCostCalculator() {
   }, [roomArea, systemType, insulationQuality, heatingHoursPerDay, electricityTariff, gasTariff, roomTemperature]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Underfloor Heating Cost Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input
@@ -253,8 +253,8 @@ export default function UnderfloorHeatingCostCalculator() {
       </div>
 
       {/* UFH vs Radiators Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Underfloor Heating (This Room)</h3>
 
           <div className="space-y-3">
@@ -295,7 +295,7 @@ export default function UnderfloorHeatingCostCalculator() {
           </div>
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+        <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">Traditional Radiators (This Room)</h3>
 
           <div className="space-y-3">
@@ -338,8 +338,8 @@ export default function UnderfloorHeatingCostCalculator() {
       </div>
 
       {/* Savings Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">UFH Savings vs Radiators</h3>
 
           <div className="space-y-3">
@@ -359,7 +359,7 @@ export default function UnderfloorHeatingCostCalculator() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Comfort Comparison</h3>
 
           <div className="space-y-3 text-sm">
@@ -389,10 +389,10 @@ export default function UnderfloorHeatingCostCalculator() {
       </div>
 
       {/* System Type Comparison */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">System Types Explained</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
             <h4 className="font-bold text-text-primary mb-2">Electric Mat System</h4>
             <p className="text-text-secondary mb-2">Self-adhesive mats laid on floor, connected to thermostat.</p>
@@ -440,8 +440,8 @@ export default function UnderfloorHeatingCostCalculator() {
       </div>
 
       {/* Pros and Cons */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">UFH Advantages</h3>
           <ul className="space-y-2 text-sm text-green-800">
             <li className="flex items-start gap-2">
@@ -475,7 +475,7 @@ export default function UnderfloorHeatingCostCalculator() {
           </ul>
         </div>
 
-        <div className="bg-red-50 border border-red-200 rounded-[12px] p-6">
+        <div className="bg-red-50 border border-red-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-red-900 mb-4">UFH Disadvantages</h3>
           <ul className="space-y-2 text-sm text-red-800">
             <li className="flex items-start gap-2">
@@ -511,7 +511,7 @@ export default function UnderfloorHeatingCostCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">💡 Tips for Best Results</h3>
         <ol className="space-y-2 text-sm text-blue-800 list-decimal list-inside">
           <li><span className="font-semibold">Insulate first:</span> Better insulation (floor, walls, ceiling) dramatically reduces heating costs</li>

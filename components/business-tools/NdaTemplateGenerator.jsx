@@ -82,7 +82,7 @@ Date
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(generateNda());
+    navigator.clipboard.writeText(generateNda().catch(() => {}));
   };
 
   const handleDownloadJPG = () => {
@@ -143,7 +143,7 @@ Date
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -197,7 +197,7 @@ Date
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           NDA Template Preview
         </h3>

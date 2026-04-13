@@ -128,8 +128,8 @@ export default function AustraliaHECSCalculator() {
   const results = calculateHECS();
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           HECS-HELP Details
         </h2>
@@ -161,7 +161,7 @@ export default function AustraliaHECSCalculator() {
 
       <div className="space-y-4">
         {results.belowThreshold ? (
-          <Card className="p-6 bg-green-50 border border-green-200">
+          <Card className="bg-green-50 border border-green-200">
             <h2 className="font-heading text-lg font-bold text-success mb-4">
               No Repayment Required
             </h2>
@@ -174,7 +174,7 @@ export default function AustraliaHECSCalculator() {
           </Card>
         ) : (
           <>
-            <Card className="p-6 bg-blue-50 border border-blue-200">
+            <Card className="bg-blue-50 border border-blue-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 Annual Repayment
               </h2>
@@ -200,7 +200,7 @@ export default function AustraliaHECSCalculator() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-green-50 border border-green-200">
+            <Card className="bg-green-50 border border-green-200">
               <h2 className="font-heading text-lg font-bold text-primary mb-4">
                 Payoff Projection
               </h2>
@@ -235,7 +235,7 @@ export default function AustraliaHECSCalculator() {
         )}
       </div>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary mb-2">
           <strong>Disclaimer:</strong> This calculator is for estimation purposes only. It assumes a static income and does not account for variable future earnings. HECS-HELP repayments are indexed annually to the Consumer Price Index (CPI). For authoritative information, check the ATO website.
         </p>

@@ -122,10 +122,10 @@ export default function SolarPanelSavingsCalculator() {
   );
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Solar Panel Savings Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -215,8 +215,8 @@ export default function SolarPanelSavingsCalculator() {
       </div>
 
       {/* Generation Breakdown */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Annual Generation</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -244,7 +244,7 @@ export default function SolarPanelSavingsCalculator() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Annual Income</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -270,7 +270,7 @@ export default function SolarPanelSavingsCalculator() {
       </div>
 
       {/* Investment & Payback */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Investment & Payback</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
@@ -296,8 +296,8 @@ export default function SolarPanelSavingsCalculator() {
       </div>
 
       {/* 25-Year Projection */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
-        <h3 className="text-lg font-bold font-heading text-text-primary mb-6">25-Year Cumulative Return</h3>
+      <div className="bg-white border border-border rounded-[12px]">
+        <h3 className="text-lg font-bold font-heading text-text-primary mb-4">25-Year Cumulative Return</h3>
 
         <div className="space-y-3 max-h-96 overflow-y-auto">
           {calculations.systemProjection.map((item) => {
@@ -334,7 +334,7 @@ export default function SolarPanelSavingsCalculator() {
       </div>
 
       {/* Benefits */}
-      <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="bg-green-50 border border-green-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Solar Panel Benefits</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>Annual savings of {formatCurrency(calculations.totalAnnualBenefit)} from day one</li>
@@ -349,7 +349,7 @@ export default function SolarPanelSavingsCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💡 Optimization Tips</h3>
         <ul className="space-y-2 text-sm text-amber-800">
           <li>Combine with battery storage to increase self-consumption rate</li>

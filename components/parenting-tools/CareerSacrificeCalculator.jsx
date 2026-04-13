@@ -44,7 +44,7 @@ export default function CareerSacrificeCalculator() {
   const selectedCountry = COUNTRIES.find(c => c.id === country);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* ── Controls: compact grid ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         <div>

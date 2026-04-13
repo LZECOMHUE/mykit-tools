@@ -75,9 +75,9 @@ export default function MeetingCostCalculator() {
   const minutes = meetingMinutes % 60;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto space-y-4">
       {/* Live Cost Display */}
-      <div className="bg-error/10 border-2 border-error rounded-[var(--radius-card)] p-6 text-center space-y-3">
+      <div className="bg-error/10 border-2 border-error rounded-[var(--radius-card)] text-center space-y-3">
         <p className="text-text-secondary text-sm">This meeting has cost</p>
         <p className="font-mono-num text-5xl font-bold text-error">{fmt(costs.totalCost)}</p>
         <p className="text-text-secondary text-sm">
@@ -102,7 +102,7 @@ export default function MeetingCostCalculator() {
       </div>
 
       {/* Duration Control */}
-      <div className="space-y-3 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-3 bg-surface border border-border rounded-[var(--radius-card)]">
         <label className="block text-text-secondary text-sm font-medium">Meeting Duration</label>
         <div className="flex gap-3">
           <input
@@ -178,7 +178,7 @@ export default function MeetingCostCalculator() {
       </div>
 
       {/* Cost Breakdown */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
         <h4 className="text-text-primary font-semibold">Cost Breakdown</h4>
         <div className="space-y-2">
           {costs.attendeeCosts.map((a) => (

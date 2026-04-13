@@ -74,7 +74,7 @@ export default function WeddingCateringCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration */}
       <Card>
         <div className="space-y-4">
@@ -170,7 +170,7 @@ export default function WeddingCateringCalculator() {
             Food Quantities (kg)
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {quantities.meat > 0 && (
               <div className="bg-white rounded-[var(--radius-input)] p-3 border border-border">
                 <p className="text-text-secondary text-sm mb-1">Meat</p>

@@ -193,9 +193,9 @@ export default function PythagoreanCalculator() {
   }
 
   return (
-    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)]">
       {/* Mode Selector */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           Mode
         </label>
@@ -230,7 +230,7 @@ export default function PythagoreanCalculator() {
       </div>
 
       {/* Inputs */}
-      <div className="space-y-4 mb-6">
+      <div className="space-y-4 mb-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Side a
@@ -282,7 +282,7 @@ export default function PythagoreanCalculator() {
 
       {/* Result */}
       {result && !result.error && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
           {/* SVG Triangle */}
           {svg}
 
@@ -365,13 +365,13 @@ export default function PythagoreanCalculator() {
       )}
 
       {result && result.error && (
-        <div className="bg-red-50 border border-red-200 rounded-[var(--radius-card)] p-4 mb-6 text-center">
+        <div className="bg-red-50 border border-red-200 rounded-[var(--radius-card)] p-4 mb-4 text-center">
           <p className="text-red-700 font-medium">{result.error}</p>
         </div>
       )}
 
       {!result && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4 text-center">
           <p className="text-text-muted">
             {mode === 'calculate'
               ? 'Enter 2 sides to find the missing one'

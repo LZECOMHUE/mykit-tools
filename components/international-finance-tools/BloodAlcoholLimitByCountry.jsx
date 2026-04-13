@@ -61,9 +61,9 @@ export default function BloodAlcoholLimitByCountry() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Country
@@ -137,7 +137,7 @@ export default function BloodAlcoholLimitByCountry() {
       </div>
 
       {/* Results */}
-      <div className={`rounded-lg p-8 border-2 ${
+      <div className={`rounded-lg border-2 ${
         calculations.isLegal
           ? 'bg-green-50 border-green-200'
           : 'bg-red-50 border-red-200'
@@ -162,11 +162,11 @@ export default function BloodAlcoholLimitByCountry() {
       </div>
 
       {/* BAC Breakdown */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           BAC Information
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <div className="text-sm text-text-secondary mb-2">Initial BAC</div>
             <div className="text-3xl font-mono font-bold text-accent">
@@ -183,7 +183,7 @@ export default function BloodAlcoholLimitByCountry() {
       </div>
 
       {/* Global Limits */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Drink-Driving Limits by Country
         </h3>
@@ -209,7 +209,7 @@ export default function BloodAlcoholLimitByCountry() {
       </div>
 
       {/* Impairment Effects */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">🚗 BAC and Impairment</h3>
         <div className="space-y-2 text-sm text-blue-800">
           {[
@@ -228,7 +228,7 @@ export default function BloodAlcoholLimitByCountry() {
       </div>
 
       {/* Important Warning */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-2">⚠️ Important Reminder</h3>
         <p className="text-sm text-red-800">
           This calculator provides estimates only. Individual responses to alcohol vary

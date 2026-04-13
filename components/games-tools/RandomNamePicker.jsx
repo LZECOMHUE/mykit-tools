@@ -76,7 +76,7 @@ export default function RandomNamePicker() {
   const hasAvailable = availableNames.length > 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Input Panel */}
       <Card className="bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="space-y-4">
@@ -145,7 +145,7 @@ export default function RandomNamePicker() {
             selectedName === displayName
               ? "bg-gradient-to-br from-green-400 to-emerald-500"
               : "bg-gradient-to-br from-blue-300 to-blue-400"
-          } p-8 sm:p-12 text-center shadow-lg`}
+          } sm:p-12 text-center shadow-lg`}
         >
           {/* Celebration elements */}
           {selectedName === displayName && (
@@ -256,21 +256,17 @@ export default function RandomNamePicker() {
       )}
 
       {/* Instructions */}
-      <Card className="bg-amber-50 border border-amber-200">
-        <div className="space-y-3">
-          <h4 className="font-heading font-bold text-text-primary">
-            📖 How to Use
-          </h4>
-          <ul className="space-y-2 text-sm text-text-secondary list-disc list-inside">
-            <li>Paste or type a list of names (one per line)</li>
-            <li>Click "Pick a Random Name" to select</li>
-            <li>Watch the slot machine animation</li>
-            <li>Click "Remove" to exclude from future picks</li>
-            <li>View your pick history below</li>
-            <li>Click "Reset All" to start over</li>
-          </ul>
-        </div>
-      </Card>
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">How to use</summary>
+        <ul className="mt-2 space-y-1 list-disc list-inside">
+          <li>Paste or type a list of names (one per line)</li>
+          <li>Click "Pick a Random Name" to select</li>
+          <li>Watch the slot machine animation</li>
+          <li>Click "Remove" to exclude from future picks</li>
+          <li>View your pick history below</li>
+          <li>Click "Reset All" to start over</li>
+        </ul>
+      </details>
     </div>
   );
 }

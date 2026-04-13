@@ -90,13 +90,13 @@ export default function BreastfeedingCalculator() {
 
   const handleCopy = () => {
     const text = `I've spent ${results.totalHours.toFixed(0)} hours breastfeeding for ${results.ageMonths} months - my work is worth ${formatCurrency(results.totalValue, countryId)}. Fed is best. Calculate yours: mykit.tools/breastfeeding-value-calculator`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* ── Controls: compact inline row ── */}
       <div className="flex flex-wrap items-end gap-3 mb-4">
         <div className="w-44">

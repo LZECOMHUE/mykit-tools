@@ -54,8 +54,8 @@ export default function IndiaGoldRateCalculator() {
   const purityInfo = PURITY_DATA[carat];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6 bg-accent-muted">
+    <div className="space-y-4">
+      <Card className="bg-accent-muted">
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -131,7 +131,7 @@ export default function IndiaGoldRateCalculator() {
 
       {!calculations.error && (
         <>
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Price Breakdown
             </h3>

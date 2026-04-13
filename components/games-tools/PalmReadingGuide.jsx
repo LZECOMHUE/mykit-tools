@@ -158,11 +158,11 @@ export default function PalmReadingGuide() {
   };
 
   if (selectedLine) {
-    return <div className="space-y-6">{renderLineDetails(selectedLine)}</div>;
+    return <div className="space-y-4">{renderLineDetails(selectedLine)}</div>;
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hand Diagram */}
       <Card className="bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="space-y-4">
@@ -171,7 +171,7 @@ export default function PalmReadingGuide() {
           </h3>
 
           {/* Simple Hand Representation */}
-          <div className="bg-white rounded-lg p-8">
+          <div className="bg-white rounded-lg">
             <svg viewBox="0 0 200 350" className="w-full max-w-xs mx-auto">
               {/* Hand outline */}
               <path
@@ -337,14 +337,13 @@ export default function PalmReadingGuide() {
       </Card>
 
       {/* Info */}
-      <Card className="bg-purple-50 border-l-4 border-purple-500">
-        <p className="text-sm text-text-secondary">
-          Palm reading is an ancient divination practice. The lines, mounts, and
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Palm reading is an ancient divination practice. The lines, mounts, and
           finger lengths are interpreted to gain insight into personality and
           life path. This guide is for entertainment and spiritual curiosity
-          only.
-        </p>
-      </Card>
+          only.</p>
+      </details>
     </div>
   );
 }

@@ -94,9 +94,9 @@ export default function HalloweenCostumeGenerator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">
             Costume Style
@@ -170,7 +170,7 @@ export default function HalloweenCostumeGenerator() {
 
       {/* Results */}
       {generated && (
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8 space-y-4">
+        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg space-y-4">
           <h3 className="text-text-primary font-semibold">Your Costume Idea:</h3>
           <h2 className="text-4xl font-bold text-orange-600">{generated.name}</h2>
           <div className="bg-white rounded-lg p-4 border border-orange-200">
@@ -187,7 +187,7 @@ export default function HalloweenCostumeGenerator() {
       )}
 
       {/* Tips */}
-      <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-3">
+      <div className="bg-purple-50 border border-purple-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Costume Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Check materials at home first to save money</li>
@@ -200,7 +200,7 @@ export default function HalloweenCostumeGenerator() {
       </div>
 
       {/* Budget Tips */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-3">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
         <h3 className="text-text-primary font-semibold">Budget Breakdown</h3>
         <div className="space-y-2">
           {[

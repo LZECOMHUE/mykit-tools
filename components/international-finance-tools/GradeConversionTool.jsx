@@ -174,12 +174,12 @@ export default function GradeConversionTool() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-4">
+      <Card>
         <h2 className="font-heading text-2xl font-bold text-primary mb-2">
           International Grade Converter
         </h2>
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Convert your grades from one country's system to another
         </p>
 
@@ -234,9 +234,9 @@ export default function GradeConversionTool() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Percentage Overview */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
+          <Card className="bg-accent-muted border-2 border-accent">
             <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your Grade Overview
             </h3>
@@ -271,8 +271,8 @@ export default function GradeConversionTool() {
           </Card>
 
           {/* Conversion Table */}
-          <Card className="p-6">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card>
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Equivalent Grades in Other Systems
             </h3>
 
@@ -382,7 +382,7 @@ export default function GradeConversionTool() {
           </Card>
 
           {/* Interpretation Guide */}
-          <Card className="p-6 bg-blue-50 border-2 border-blue-200">
+          <Card className="bg-blue-50 border-2 border-blue-200">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Interpretation Guide
             </h3>

@@ -146,7 +146,7 @@ export default function ChordLibrary() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
       {/* Root Note */}
       <div className="mb-4">
         <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-2">Root Note</p>
@@ -189,7 +189,7 @@ export default function ChordLibrary() {
 
       {/* Chord info bar */}
       {chordDef && (
-        <div className="mb-5 p-4 bg-surface border border-border rounded-xl flex flex-wrap items-center gap-4 sm:gap-6">
+        <div className="mb-5 p-4 bg-surface border border-border rounded-xl flex flex-wrap items-center gap-4 sm:gap-4">
           <div>
             <p className="text-[10px] text-text-muted uppercase tracking-wide">Notes</p>
             <p className="font-mono font-bold text-text-primary">{chordDef.notes.join('  ')}</p>
@@ -207,7 +207,7 @@ export default function ChordLibrary() {
 
       {/* Chord Diagrams */}
       {voicings.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
           {voicings.map((voicing, idx) => (
             <ChordDiagram
               key={`${selectedRoot}-${selectedType}-${idx}`}

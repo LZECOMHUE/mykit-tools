@@ -94,6 +94,19 @@ export default function QRCodeGenerator() {
     setQrData(qr);
   };
 
+  // Auto-generate QR code as user types (debounced)
+  useEffect(() => {
+    if (!ready || !isValid) {
+      if (!isValid) setQrData(null);
+      return;
+    }
+    const timer = setTimeout(() => {
+      const qr = generate(payload);
+      setQrData(qr);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [payload, ready, generate, isValid]);
+
   const handleDownload = (format) => {
     if (!qrData) return;
     const count = qrData.getModuleCount();
@@ -145,7 +158,7 @@ export default function QRCodeGenerator() {
     const svgEl = svgRef.current?.querySelector("svg");
     if (svgEl) {
       const svgData = new XMLSerializer().serializeToString(svgEl);
-      navigator.clipboard.writeText(svgData);
+      navigator.clipboard.writeText(svgData).catch(() => {});
     }
   };
 
@@ -207,16 +220,9 @@ export default function QRCodeGenerator() {
           </div>
         )}
 
-        <div className="mt-4">
-          <Button
-            onClick={handleGenerate}
-            disabled={!isValid || !ready}
-            size="lg"
-            className="w-full"
-          >
-            {!ready ? "Loading QR engine…" : "Generate QR Code"}
-          </Button>
-        </div>
+        {!ready && (
+          <p className="mt-3 text-xs text-text-muted text-center">Loading QR engine...</p>
+        )}
       </Card>
 
       {/* QR Code display */}
@@ -227,7 +233,7 @@ export default function QRCodeGenerator() {
           </div>
 
           {/* Colour customisation */}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-4">
             <label className="flex items-center gap-2 text-sm text-text-secondary">
               <span>Foreground</span>
               <input

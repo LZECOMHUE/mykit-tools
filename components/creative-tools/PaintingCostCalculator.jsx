@@ -206,7 +206,7 @@ export default function PaintingCostCalculator() {
       {/* Right Panel - Results */}
       <div className="space-y-4">
         {/* Hero Card */}
-        <div className="bg-accent-muted p-8 text-center rounded-[var(--radius-card)]">
+        <div className="bg-accent-muted text-center rounded-[var(--radius-card)]">
           <p className="text-text-muted text-[13px] mb-2">Suggested Selling Price</p>
           <p className="font-mono text-4xl font-semibold text-accent mb-1">
             {'\u00a3'}{calculation.sellingPrice}

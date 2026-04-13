@@ -211,7 +211,7 @@ export default function Whiteboard() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Toolbar */}
       <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 space-y-4">
         {/* Tools */}

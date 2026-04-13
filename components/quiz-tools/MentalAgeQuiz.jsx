@@ -218,7 +218,7 @@ export default function MentalAgeQuiz() {
     };
 
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary">Your Mental Age</h2>
           <p className="mt-2 text-text-secondary">Just for fun - not scientifically validated!</p>
@@ -344,7 +344,7 @@ export default function MentalAgeQuiz() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       <div className="rounded-[var(--radius-card)] border-2 border-info bg-blue-50 p-4">
         <p className="text-sm text-text-secondary">
           This is a fun, lighthearted quiz about your approach to life. It\'s not scientific and is just for entertainment!
@@ -367,7 +367,7 @@ export default function MentalAgeQuiz() {
       </div>
 
       <Card className="border-2 bg-white">
-        <p className="mb-6 text-lg font-medium text-text-primary">{question.text}</p>
+        <p className="mb-4 text-lg font-medium text-text-primary">{question.text}</p>
 
         <div className="space-y-3">
           {question.options.map((option, idx) => (

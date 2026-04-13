@@ -80,7 +80,7 @@ export default function TextToMorseCode() {
   const morse = textToMorse(input);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(morse);
+    navigator.clipboard.writeText(morse).catch(() => {});
   };
 
   const morseReferenceChars = [
@@ -113,8 +113,8 @@ export default function TextToMorseCode() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
@@ -143,7 +143,7 @@ export default function TextToMorseCode() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Morse Code Alphabet Reference
         </h3>
@@ -164,7 +164,7 @@ export default function TextToMorseCode() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           How Morse Code Works
         </h3>

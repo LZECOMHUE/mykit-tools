@@ -133,13 +133,9 @@ export default function HolidayLeaveMaximiser() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* Settings */}
-      <Card className="mb-6">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
-          Holiday Leave Maximiser
-        </h2>
-
+      <Card className="mb-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Input
             label="Annual leave days"
@@ -171,7 +167,7 @@ export default function HolidayLeaveMaximiser() {
       </Card>
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <Card className="bg-success/5 border-success/30">
           <p className="text-xs text-text-secondary mb-1">Bank Holidays</p>
           <p className="font-heading text-3xl font-bold text-success">{bankHolidayCount}</p>
@@ -192,7 +188,7 @@ export default function HolidayLeaveMaximiser() {
       </div>
 
       {/* Best Value Leave Blocks */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
           Best Value Leave Blocks
         </h3>

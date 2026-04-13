@@ -67,7 +67,7 @@ export default function ImageDpiChanger() {
   const copyToClipboard = (value, key) => {
     navigator.clipboard.writeText(
       typeof value === 'number' ? value.toFixed(0) : value
-    );
+    ).catch(() => {});
     setCopied(key);
     setTimeout(() => setCopied(null), 2000);
   };
@@ -78,7 +78,7 @@ export default function ImageDpiChanger() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Quick Presets */}
       <Card className="p-4 border-accent-muted bg-accent-muted">
         <h3 className="font-heading font-semibold mb-3 text-sm">Quick Presets</h3>
@@ -97,9 +97,9 @@ export default function ImageDpiChanger() {
       </Card>
 
       {/* Main Calculator */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Current Image Section */}
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-4">Current Image</h3>
           <div className="space-y-4">
             <div>
@@ -160,7 +160,7 @@ export default function ImageDpiChanger() {
         </Card>
 
         {/* Desired DPI Section */}
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-4">Target DPI</h3>
           <div className="space-y-4">
             <div>
@@ -207,7 +207,7 @@ export default function ImageDpiChanger() {
         </Card>
 
         {/* Results Section */}
-        <Card className="p-6 border border-border bg-surface">
+        <Card className="border border-border bg-surface">
           <h3 className="font-heading font-semibold mb-4">Result</h3>
           {!resampleImage ? (
             // Metadata only change
@@ -306,8 +306,8 @@ export default function ImageDpiChanger() {
       </div>
 
       {/* Explanation Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="p-6 border border-border">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-3 text-sm">DPI Metadata Only</h3>
           <div className="space-y-2 text-sm text-text-secondary">
             <p>
@@ -327,7 +327,7 @@ export default function ImageDpiChanger() {
           </div>
         </Card>
 
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-3 text-sm">Resample (Interpolation)</h3>
           <div className="space-y-2 text-sm text-text-secondary">
             <p>
@@ -349,7 +349,7 @@ export default function ImageDpiChanger() {
       </div>
 
       {/* Common Scenarios */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="font-heading font-semibold mb-4">Common Scenarios</h3>
         <div className="space-y-4">
           <div className="border-b border-border pb-4 last:border-0">

@@ -156,8 +156,8 @@ export default function WalkingTimeCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading text-lg font-semibold text-primary">Route Details</h3>
 
@@ -212,8 +212,8 @@ export default function WalkingTimeCalculator() {
             />
           </Card>
 
-          <Card className="p-6">
-            <div className="space-y-6">
+          <Card>
+            <div className="space-y-4">
               <div>
                 <h3 className="font-heading text-lg font-semibold text-primary mb-4">Distance</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

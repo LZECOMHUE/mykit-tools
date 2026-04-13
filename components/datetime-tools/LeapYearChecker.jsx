@@ -55,7 +55,7 @@ export default function LeapYearChecker() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter Year
@@ -72,7 +72,7 @@ export default function LeapYearChecker() {
 
       {result && (
         <div className="space-y-4">
-          <div className={`border rounded-[var(--radius-card)] p-6 ${
+          <div className={`border rounded-[var(--radius-card)] ${
             result.isLeap
               ? 'bg-green-50 border-green-200'
               : 'bg-blue-50 border-blue-200'
@@ -94,7 +94,7 @@ export default function LeapYearChecker() {
             </p>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <h3 className="text-sm font-medium text-text-secondary mb-4">Leap Year Rule</h3>
             <div className="space-y-2 text-sm text-text-primary">
               <p>A year is a leap year if:</p>
@@ -111,7 +111,7 @@ export default function LeapYearChecker() {
 
           {result.year && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+              <div className="bg-surface border border-border rounded-[var(--radius-card)]">
                 <h3 className="text-sm font-medium text-text-secondary mb-4">Previous Leap Years</h3>
                 <div className="flex flex-wrap gap-2">
                   {result.prevLeaps.map((y) => (
@@ -125,7 +125,7 @@ export default function LeapYearChecker() {
                 </div>
               </div>
 
-              <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+              <div className="bg-surface border border-border rounded-[var(--radius-card)]">
                 <h3 className="text-sm font-medium text-text-secondary mb-4">Next Leap Years</h3>
                 <div className="flex flex-wrap gap-2">
                   {result.nextLeaps.map((y) => (
@@ -150,7 +150,7 @@ export default function LeapYearChecker() {
       )}
 
       {!result && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Enter a year to check if it's a leap year</p>
         </div>
       )}

@@ -55,7 +55,7 @@ export default function DiscountCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'calculate', label: 'Calculate Discount' },
@@ -67,8 +67,8 @@ export default function DiscountCalculator() {
 
       {/* Calculate Discount Tab */}
       {activeTab === 'calculate' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Calculate Discount
             </h2>
@@ -173,8 +173,8 @@ export default function DiscountCalculator() {
 
       {/* Reverse Calculation Tab */}
       {activeTab === 'reverse' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Find Discount Rate
             </h2>

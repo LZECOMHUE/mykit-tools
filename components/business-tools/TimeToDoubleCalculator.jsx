@@ -51,7 +51,7 @@ export default function TimeToDoubleCalculator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'byRate', label: 'Find Time to Double by Rate' },
@@ -63,8 +63,8 @@ export default function TimeToDoubleCalculator() {
 
       {/* By Rate Tab */}
       {activeTab === 'byRate' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               How Long to Double Your Money?
             </h2>
@@ -128,8 +128,8 @@ export default function TimeToDoubleCalculator() {
 
       {/* By Years Tab */}
       {activeTab === 'byYears' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               What Rate to Double in X Years?
             </h2>

@@ -97,7 +97,7 @@ export default function JetLagCalculator() {
   const tzOptions = Object.keys(TIMEZONE_OFFSETS).sort();
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Mode Toggle */}
       <label className="flex items-center gap-2 cursor-pointer">
         <input

@@ -51,7 +51,7 @@ export default function RandomNumberGenerator() {
   const isValid = minNum <= maxNum;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -152,7 +152,7 @@ export default function RandomNumberGenerator() {
             <Button
               variant="secondary"
               onClick={() => {
-                navigator.clipboard.writeText(results.join(", "));
+                navigator.clipboard.writeText(results.join(", ").catch(() => {}));
               }}
               className="w-full"
             >

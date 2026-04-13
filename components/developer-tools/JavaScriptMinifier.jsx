@@ -56,7 +56,7 @@ export default function JavaScriptMinifier() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(output);
+      await navigator.clipboard.writeText(output).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
@@ -73,7 +73,7 @@ export default function JavaScriptMinifier() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input */}
       <div>
         <label className="text-text-secondary text-sm font-medium">

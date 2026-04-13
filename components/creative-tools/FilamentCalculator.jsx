@@ -155,7 +155,7 @@ export default function FilamentCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero Banner */}
-        <div className="bg-accent-muted border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-accent-muted border border-border rounded-[var(--radius-card)]">
           <p className="text-text-muted text-[13px] mb-2">Filament Remaining</p>
           <div className="space-y-3">
             <div>

@@ -38,13 +38,10 @@ export default function BuyVsSubscribeCalculator() {
   const hasInputs = productName && purchasePrice > 0 && monthlySubscription > 0;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
-      <Card className="mb-6">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
-          Buy vs Subscribe Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
+      <Card className="mb-4">
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Input
             label="What are you buying?"
             placeholder="e.g., Software, Camera, Coffee Maker"
@@ -91,7 +88,7 @@ export default function BuyVsSubscribeCalculator() {
       {hasInputs && (
         <>
           {/* Comparison Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <Card className="border-accent/30 bg-accent/5">
               <h3 className="text-sm text-text-secondary font-medium mb-2">Buy Now</h3>
               <p className="font-heading text-3xl font-bold text-text-primary mb-2">
@@ -114,7 +111,7 @@ export default function BuyVsSubscribeCalculator() {
           </div>
 
           {/* Recommendation */}
-          <Card className="mb-6 bg-success/5 border-success/30">
+          <Card className="mb-4 bg-success/5 border-success/30">
             <div className="text-center">
               <p className="text-text-secondary text-sm mb-2">Better choice</p>
               <p className="font-heading text-4xl font-bold text-success mb-3">

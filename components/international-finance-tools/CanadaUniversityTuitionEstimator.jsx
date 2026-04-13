@@ -70,9 +70,9 @@ export default function CanadaUniversityTuitionEstimator() {
   const programs = Object.keys(tuitionRates[province].domestic);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Province
@@ -137,8 +137,8 @@ export default function CanadaUniversityTuitionEstimator() {
       </div>
 
       {/* Cost Breakdown */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Annual Tuition</div>
           <div className="text-3xl font-mono font-bold text-blue-900">
             {formatCurrency(calculations.annualTuition)}
@@ -148,7 +148,7 @@ export default function CanadaUniversityTuitionEstimator() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Living Expenses/Year</div>
           <div className="text-3xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.livingPerYear)}
@@ -158,7 +158,7 @@ export default function CanadaUniversityTuitionEstimator() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg">
           <div className="text-sm text-orange-700 mb-2">Books/Supplies/Year</div>
           <div className="text-3xl font-mono font-bold text-orange-900">
             {formatCurrency(calculations.booksPerYear)}
@@ -170,7 +170,7 @@ export default function CanadaUniversityTuitionEstimator() {
       </div>
 
       {/* Total */}
-      <div className="bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-8">
+      <div className="bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded-lg">
         <div className="text-sm text-purple-700 mb-2">
           Total Cost ({years} Years)
         </div>
@@ -183,7 +183,7 @@ export default function CanadaUniversityTuitionEstimator() {
       </div>
 
       {/* Tuition Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Annual Tuition by Program ({tuitionRates[province].name})
         </h3>
@@ -224,7 +224,7 @@ export default function CanadaUniversityTuitionEstimator() {
       </div>
 
       {/* Funding Options */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-3">💰 Funding Options</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>• OSAP (Ontario) / Student Aid (other provinces)</li>
@@ -238,7 +238,7 @@ export default function CanadaUniversityTuitionEstimator() {
       </div>
 
       {/* Province Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Annual Arts Tuition Comparison
         </h3>

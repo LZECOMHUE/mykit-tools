@@ -105,7 +105,7 @@ export default function FilamentComparison() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Material Selector */}
       <div>
         <p className="text-[13px] font-medium text-text-primary mb-3">Select Materials to Compare</p>
@@ -223,7 +223,7 @@ export default function FilamentComparison() {
       </div>
 
       {selectedMaterials.length === 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-secondary text-[13px]">Select at least one material to compare</p>
         </div>
       )}

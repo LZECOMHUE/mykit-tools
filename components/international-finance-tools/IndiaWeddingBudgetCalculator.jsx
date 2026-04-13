@@ -82,8 +82,8 @@ export default function IndiaWeddingBudgetCalculator() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -142,7 +142,7 @@ export default function IndiaWeddingBudgetCalculator() {
 
       {!calculations.error && (
         <>
-          <Card className="p-6 bg-accent-muted">
+          <Card className="bg-accent-muted">
             <h3 className="font-heading text-lg font-bold text-primary mb-2">
               Estimated Total Budget
             </h3>
@@ -154,7 +154,7 @@ export default function IndiaWeddingBudgetCalculator() {
             </p>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Budget Breakdown
             </h3>

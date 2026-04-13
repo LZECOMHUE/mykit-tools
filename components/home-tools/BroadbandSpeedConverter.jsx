@@ -41,8 +41,8 @@ export default function BroadbandSpeedConverter() {
   const formatted = formatSpeed(speedInMbps);
 
   return (
-    <div className="space-y-8">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Speed
@@ -64,7 +64,7 @@ export default function BroadbandSpeedConverter() {
         </div>
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <h3 className="font-heading text-base font-bold text-text-primary">Speed Conversions</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-white border border-border rounded-lg p-4">
@@ -86,7 +86,7 @@ export default function BroadbandSpeedConverter() {
       </div>
 
       {speedInMbps > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
           <h3 className="font-heading text-base font-bold text-text-primary">Download Times</h3>
           <div className="space-y-3">
             {downloadEstimates.map((item) => {

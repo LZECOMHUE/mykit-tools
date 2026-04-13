@@ -147,7 +147,7 @@ export default function PercentageIncreaseCalculator() {
       {/* Results */}
       {mode === 'forward' && forwardResult && (
         <div className="space-y-4">
-          <div className="p-6 rounded-[var(--radius-card)] border border-green-200 bg-green-50">
+          <div className="p-4 rounded-[var(--radius-card)] border border-green-200 bg-green-50">
             <div className="text-sm text-text-secondary mb-2">New Value</div>
             <div className="text-4xl font-bold font-mono-num text-green-600">
               {forwardResult.newValue.toFixed(4)}
@@ -165,7 +165,7 @@ export default function PercentageIncreaseCalculator() {
 
       {mode === 'reverse' && reverseResult && (
         <div className="space-y-4">
-          <div className="p-6 rounded-[var(--radius-card)] border border-green-200 bg-green-50">
+          <div className="p-4 rounded-[var(--radius-card)] border border-green-200 bg-green-50">
             <div className="text-sm text-text-secondary mb-2">Percentage Increase</div>
             <div className="text-4xl font-bold font-mono-num text-green-600">
               +{reverseResult.percentageIncrease.toFixed(2)}%

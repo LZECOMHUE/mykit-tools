@@ -129,7 +129,7 @@ export default function USMedicalBillEstimator() {
   }, [estimates, hasInsurance]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Procedure Selection */}
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -154,7 +154,7 @@ export default function USMedicalBillEstimator() {
       </div>
 
       {/* Insurance Configuration */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <div className="flex items-center gap-4 mb-4">
           <input
             type="checkbox"
@@ -209,7 +209,7 @@ export default function USMedicalBillEstimator() {
       </div>
 
       {/* Cost Ranges */}
-      <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-4 text-lg">
           Typical Cost Range
         </h3>
@@ -237,11 +237,11 @@ export default function USMedicalBillEstimator() {
 
       {/* Your Cost */}
       {hasInsurance && (
-        <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg">
           <h3 className="font-semibold text-green-900 mb-4 text-lg">
             Your Cost After Insurance
           </h3>
-          <div className="space-y-4 mb-6">
+          <div className="space-y-4 mb-4">
             <div>
               <div className="text-sm text-green-700 mb-1">Low</div>
               <div className="text-2xl font-mono font-bold text-green-900">
@@ -272,7 +272,7 @@ export default function USMedicalBillEstimator() {
       )}
 
       {/* Important Notes */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">⚠️ Important Notes</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• These are estimated costs - actual bills vary widely by location and hospital</li>
@@ -285,7 +285,7 @@ export default function USMedicalBillEstimator() {
       </div>
 
       {/* Billing Tips */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">💡 Healthcare Cost Tips</h3>
         <ul className="space-y-2 text-sm text-blue-800">
           <li>✓ Get a quote in writing before the procedure</li>

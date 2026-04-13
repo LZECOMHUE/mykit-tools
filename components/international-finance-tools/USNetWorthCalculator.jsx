@@ -70,8 +70,8 @@ export default function USNetWorthCalculator() {
   ]);
 
   return (
-    <div className="space-y-6 p-6 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="space-y-4 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Assets Section */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-text-primary">Assets</h3>
@@ -298,7 +298,7 @@ export default function USNetWorthCalculator() {
       </div>
 
       {/* Asset Breakdown */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-surface p-4 rounded-lg">
           <h4 className="font-semibold text-text-primary mb-3">Asset Breakdown</h4>
           <div className="space-y-2 text-sm">

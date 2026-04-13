@@ -69,17 +69,16 @@ export default function StitchCounter() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col p-4">
+    <div className="w-full bg-white flex flex-col p-4">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="font-heading text-4xl font-bold text-text-primary mb-1">Stitch Counter</h1>
+      <div className="text-center mb-4">
         <p className="text-text-secondary text-sm">Tap to count rows and stitches while you knit</p>
       </div>
 
       {/* Two Column Layout for Desktop, Stacked for Mobile */}
-      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto w-full">
         {/* Row Counter */}
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col items-center justify-center space-y-4">
           <div className="text-center mb-4">
             <p className="text-text-secondary text-sm font-medium mb-2">Row</p>
           </div>
@@ -113,7 +112,7 @@ export default function StitchCounter() {
         </div>
 
         {/* Stitch Counter */}
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col items-center justify-center space-y-4">
           <div className="text-center mb-4">
             <p className="text-text-secondary text-sm font-medium mb-2">Stitch</p>
           </div>

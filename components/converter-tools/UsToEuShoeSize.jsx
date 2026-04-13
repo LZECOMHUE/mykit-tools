@@ -36,8 +36,8 @@ export default function UsToEuShoeSize() {
   }));
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
@@ -59,7 +59,7 @@ export default function UsToEuShoeSize() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           US to EU Shoe Size Conversion Chart
         </h3>

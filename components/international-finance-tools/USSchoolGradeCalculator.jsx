@@ -83,15 +83,15 @@ export default function USSchoolGradeCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Single Grade Converter */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Single Grade Converter
         </h3>
 
         {/* Input Mode Toggle */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 mb-4">
           <button
             onClick={() => setInputMode('percentage')}
             className={`px-4 py-2 rounded-lg font-medium transition ${
@@ -115,7 +115,7 @@ export default function USSchoolGradeCalculator() {
         </div>
 
         {/* Input Fields */}
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
           {inputMode === 'percentage' ? (
             <div>
               <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -159,7 +159,7 @@ export default function USSchoolGradeCalculator() {
         </div>
 
         {/* Grade Display */}
-        <div className={`bg-gradient-to-r ${singleGrade.color} rounded-lg p-8 text-white`}>
+        <div className={`bg-gradient-to-r ${singleGrade.color} rounded-lg text-white`}>
           <div className="text-sm opacity-90 mb-1">Letter Grade</div>
           <div className="text-5xl font-bold">{singleGrade.letter}</div>
           <div className="text-sm opacity-90 mt-3">
@@ -186,8 +186,8 @@ export default function USSchoolGradeCalculator() {
       </div>
 
       {/* GPA Calculator */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-white border border-border rounded-lg">
+        <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-text-primary text-lg">
             GPA Calculator
           </h3>
@@ -203,7 +203,7 @@ export default function USSchoolGradeCalculator() {
         </div>
 
         {/* Courses List */}
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-4">
           {courses.map((course) => {
             const grade = getGradeFromPercentage(course.percentage);
             return (
@@ -260,13 +260,13 @@ export default function USSchoolGradeCalculator() {
 
         <button
           onClick={handleAddCourse}
-          className="w-full px-4 py-2 border-2 border-dashed border-accent text-accent rounded-lg hover:bg-accent/5 font-medium mb-6"
+          className="w-full px-4 py-2 border-2 border-dashed border-accent text-accent rounded-lg hover:bg-accent/5 font-medium mb-4"
         >
           + Add Course
         </button>
 
         {/* GPA Display */}
-        <div className="bg-gradient-to-r from-purple-100 to-purple-50 border border-purple-200 rounded-lg p-6">
+        <div className="bg-gradient-to-r from-purple-100 to-purple-50 border border-purple-200 rounded-lg">
           <div className="text-sm text-purple-700 mb-1">Cumulative GPA</div>
           <div className="text-5xl font-mono font-bold text-purple-900">
             {gpaResult.gpa}
@@ -278,7 +278,7 @@ export default function USSchoolGradeCalculator() {
       </div>
 
       {/* GPA Interpretation */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">📊 GPA Benchmarks</h3>
         <div className="grid sm:grid-cols-2 gap-3 text-sm">
           {[

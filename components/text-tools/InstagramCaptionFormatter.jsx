@@ -34,14 +34,14 @@ export default function InstagramCaptionFormatter() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(formatted);
+      await navigator.clipboard.writeText(formatted).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Input */}
       <div>
         <label className="text-text-secondary text-sm font-medium">

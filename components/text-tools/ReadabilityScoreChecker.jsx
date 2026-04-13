@@ -117,7 +117,7 @@ export default function ReadabilityScoreChecker() {
   const stats = useMemo(() => calculateReadability(text), [text]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Paste Your Text
@@ -131,9 +131,9 @@ export default function ReadabilityScoreChecker() {
       </div>
 
       {stats && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Basic Stats */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <h3 className="text-lg font-medium text-text-primary mb-4">Text Statistics</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div>
@@ -176,7 +176,7 @@ export default function ReadabilityScoreChecker() {
           </div>
 
           {/* Readability Scores */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <h3 className="text-lg font-medium text-text-primary mb-4">Readability Scores</h3>
             <div className="space-y-4">
               <div>
@@ -244,7 +244,7 @@ export default function ReadabilityScoreChecker() {
       )}
 
       {!text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Paste text to see readability analysis</p>
         </div>
       )}

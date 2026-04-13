@@ -44,7 +44,7 @@ export default function DiceRoller() {
   const quantityNum = Math.min(Math.max(parseInt(quantity) || 1, 1), 10);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

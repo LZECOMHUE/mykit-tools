@@ -98,9 +98,9 @@ export default function ChoreChartGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">Number of Kids</label>
           <div className="flex gap-2 flex-wrap">
@@ -177,7 +177,7 @@ export default function ChoreChartGenerator() {
       {/* Chart Display */}
       {chart && (
         <div className="space-y-4">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 overflow-x-auto">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-x-auto">
             <h3 className="text-text-primary font-semibold mb-4">Weekly Chore Chart</h3>
             <table className="w-full text-sm">
               <thead>

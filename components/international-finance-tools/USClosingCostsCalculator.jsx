@@ -102,13 +102,13 @@ export default function USClosingCostsCalculator() {
   ];
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Property Details
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-2">
               Home Purchase Price
@@ -182,7 +182,7 @@ export default function USClosingCostsCalculator() {
       </div>
 
       {/* Total Closing Costs */}
-      <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg p-8">
+      <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div>
             <div className="text-sm text-red-700 mb-1">Total Closing Costs</div>
@@ -208,7 +208,7 @@ export default function USClosingCostsCalculator() {
       </div>
 
       {/* Detailed Breakdown */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Closing Cost Breakdown
         </h3>
@@ -290,7 +290,7 @@ export default function USClosingCostsCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">💡 Closing Cost Tips</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• Get a Loan Estimate within 3 days of applying - it shows estimated closing costs</li>

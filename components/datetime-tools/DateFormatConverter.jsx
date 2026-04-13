@@ -98,13 +98,13 @@ export default function DateFormatConverter() {
   }, [input]);
 
   const handleCopy = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter a Date
@@ -164,13 +164,13 @@ export default function DateFormatConverter() {
       )}
 
       {input && !result && (
-        <div className="bg-red-50 border border-red-200 rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-red-50 border border-red-200 rounded-[var(--radius-card)] text-center">
           <p className="text-red-900 text-sm">Could not parse date. Check the format and try again.</p>
         </div>
       )}
 
       {!input && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Enter a date to convert to different formats</p>
         </div>
       )}

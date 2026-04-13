@@ -36,8 +36,8 @@ export default function AustraliaWaterUsageCalculator() {
   const avgUsage = (Math.round(parseFloat(usage.daily) / 1000) * 1000).toFixed(0);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
-      <div className="grid md:grid-cols-3 gap-6">
+    <div className="bg-surface rounded-lg space-y-4">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">Household Size</label>
           <input type="number" value={householdSize} onChange={(e) => setHouseholdSize(e.target.value)} min="1" className="w-full px-4 py-2 border border-border rounded-lg" />
@@ -52,7 +52,7 @@ export default function AustraliaWaterUsageCalculator() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="flex items-center gap-2">
             <input type="checkbox" checked={hasGarden} onChange={(e) => setHasGarden(e.target.checked)} />
@@ -67,23 +67,23 @@ export default function AustraliaWaterUsageCalculator() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Daily Usage</div>
           <div className="text-3xl font-mono font-bold text-blue-900">{usage.daily}L</div>
           <div className="text-xs text-blue-700 mt-2">Per capita: {usage.perCapita}L</div>
         </div>
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+        <div className="bg-purple-50 border border-purple-200 rounded-lg">
           <div className="text-sm text-purple-700 mb-2">Quarterly</div>
           <div className="text-3xl font-mono font-bold text-purple-900">{usage.quarterly}L</div>
         </div>
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Annual</div>
           <div className="text-3xl font-mono font-bold text-green-900">{usage.annual}L</div>
         </div>
       </div>
 
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">💧 Water Saving Tips</h3>
         <ul className="space-y-2 text-sm text-text-secondary">
           <li>• Shorter showers save 50L+ per day</li>

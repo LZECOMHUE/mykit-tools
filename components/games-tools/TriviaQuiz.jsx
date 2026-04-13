@@ -116,7 +116,7 @@ export default function TriviaQuiz() {
 
   if (!quizStarted) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Card className="bg-gradient-to-br from-blue-50 to-cyan-50">
           <div className="space-y-4">
             <Select
@@ -144,7 +144,7 @@ export default function TriviaQuiz() {
   if (quizFinished) {
     const percentage = Math.round((score / questions.length) * 100);
     return (
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Card hover className="bg-gradient-to-br from-green-50 to-emerald-50 text-center space-y-4">
           <p className="text-sm text-text-secondary font-semibold">Quiz Complete!</p>
           <p className="font-heading text-4xl font-bold text-text-primary">
@@ -212,7 +212,7 @@ export default function TriviaQuiz() {
   const question = questions[currentQuestion];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-blue-50 to-cyan-50">
         <div className="space-y-3">
           <div className="flex justify-between items-center">

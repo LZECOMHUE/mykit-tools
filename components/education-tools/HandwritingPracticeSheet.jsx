@@ -67,12 +67,10 @@ export default function HandwritingPracticeSheet() {
   const spacing = spacingMap[lineSpacing];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-6 space-y-6">
-      <Card className="p-6">
-        <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">Handwriting Practice Sheet</h2>
-
+    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+      <Card>
         {/* Practice Text */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-2">
             Text to Practice
           </label>
@@ -86,7 +84,7 @@ export default function HandwritingPracticeSheet() {
         </div>
 
         {/* Student Name */}
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-2">
             Student Name (optional)
           </label>
@@ -100,7 +98,7 @@ export default function HandwritingPracticeSheet() {
         </div>
 
         {/* Style Options */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">Font Style</label>
             <div className="space-y-2">
@@ -179,7 +177,7 @@ export default function HandwritingPracticeSheet() {
         </div>
 
         {/* More Options */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">Letter Case</label>
             <div className="space-y-2">
@@ -222,18 +220,18 @@ export default function HandwritingPracticeSheet() {
 
       {/* Preview */}
       {showPreview && text && (
-        <Card className="p-6">
+        <Card>
           <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Preview</h3>
           <div
             ref={previewRef}
-            className="bg-white p-6 rounded-lg overflow-auto max-h-96 border border-border"
+            className="bg-white rounded-lg overflow-auto max-h-96 border border-border"
           >
             <div className="max-w-2xl">
               {studentName && (
                 <p className="text-sm text-text-secondary mb-4">Name: {studentName}</p>
               )}
               {[...Array(repetitions)].map((_, repIdx) => (
-                <div key={repIdx} className="mb-8">
+                <div key={repIdx} className="mb-4">
                   <p
                     style={{
                       fontFamily: styleOption === 'cursive' ? 'cursive' : 'monospace',

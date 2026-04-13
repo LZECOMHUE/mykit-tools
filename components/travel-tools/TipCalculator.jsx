@@ -54,7 +54,7 @@ export default function TipCalculator() {
   ].filter((v, i, arr) => arr.indexOf(v) === i);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card>
         <div className="space-y-4">
           <div>

@@ -92,7 +92,7 @@ export default function WeddingHashtagGenerator() {
 
   const copyToClipboard = () => {
     const text = generated.join(' ');
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const getCharCount = (tag) => {
@@ -104,7 +104,7 @@ export default function WeddingHashtagGenerator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Input Section */}
       <Card>
         <div className="space-y-4">
@@ -191,7 +191,7 @@ export default function WeddingHashtagGenerator() {
             Suggested Wedding Hashtags
           </h3>
 
-          <div className="space-y-2 mb-6">
+          <div className="space-y-2 mb-4">
             {generated.map((tag, idx) => {
               const charCount = getCharCount(tag);
               const isFriendly = isInstagramFriendly(tag);
@@ -226,7 +226,7 @@ export default function WeddingHashtagGenerator() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigator.clipboard.writeText(tag);
+                        navigator.clipboard.writeText(tag).catch(() => {});
                       }}
                       className="ml-2 text-text-muted hover:text-accent text-xs font-medium whitespace-nowrap"
                     >

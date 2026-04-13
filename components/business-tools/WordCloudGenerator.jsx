@@ -42,7 +42,7 @@ export default function WordCloudGenerator() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -73,12 +73,12 @@ export default function WordCloudGenerator() {
       </div>
 
       {wordFreq.length > 0 && (
-        <div className="bg-white rounded-[var(--radius-card)] border border-border p-6">
-          <h3 className="font-heading text-lg font-bold text-text-primary mb-6">
+        <div className="bg-white rounded-[var(--radius-card)] border border-border">
+          <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
             Word Cloud
           </h3>
 
-          <div className="flex flex-wrap gap-4 justify-center items-center bg-surface rounded-[var(--radius-input)] p-8 min-h-64">
+          <div className="flex flex-wrap gap-4 justify-center items-center bg-surface rounded-[var(--radius-input)] min-h-64">
             {wordFreq.slice(0, 50).map(([word, freq], idx) => (
               <span
                 key={word}
@@ -97,7 +97,7 @@ export default function WordCloudGenerator() {
       )}
 
       {wordFreq.length > 0 && (
-        <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+        <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
           <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
             Top Words
           </h3>

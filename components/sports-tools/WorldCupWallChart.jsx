@@ -218,7 +218,7 @@ export default function WorldCupWallChart() {
   return (
     <div className="space-y-0 -mx-4 sm:-mx-6 lg:-mx-0">
       {/* ── POSTER HEADER ───────────────────────────────── */}
-      <div className="bg-gradient-to-br from-[#0a1628] via-[#0f1f3a] to-[#0a1628] text-white px-4 sm:px-8 py-8 text-center relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#0a1628] via-[#0f1f3a] to-[#0a1628] text-white px-4 sm:px-8 py-4 text-center relative overflow-hidden">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.1) 30px, rgba(255,255,255,0.1) 31px)"
@@ -357,7 +357,7 @@ export default function WorldCupWallChart() {
             <div className="flex items-center"><div className="w-px h-full bg-[#1e3a5f]/40 mx-auto" /></div>
 
             {/* Final + 3rd place */}
-            <div className="flex flex-col justify-center gap-6">
+            <div className="flex flex-col justify-center gap-4">
               <BracketMatch
                 match={knockout.final[0]} index={0} roundKey="final"
                 onKnockoutChange={handleKnockoutChange} highlight

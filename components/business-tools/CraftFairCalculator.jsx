@@ -166,7 +166,7 @@ export default function CraftFairCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className={`rounded-[12px] p-6 space-y-2 ${isProfitable ? 'bg-success/10' : 'bg-error/10'}`}>
+        <div className={`rounded-[12px] space-y-2 ${isProfitable ? 'bg-success/10' : 'bg-error/10'}`}>
           <div className="text-[13px] text-text-secondary">Profit</div>
           <div className={`font-heading font-bold text-[32px] ${isProfitable ? 'text-success' : 'text-error'}`}>
             £{calculations.profit}

@@ -46,7 +46,7 @@ export default function HouseholdTaskSplit() {
 
   const handleCopy = () => {
     const text = `Our household task split:\n${partnerAName}: ${stats.percentA}% (${stats.totalA.toFixed(1)} hours/week)\n${partnerBName}: ${stats.percentB}% (${stats.totalB.toFixed(1)} hours/week)\n\nmykit.tools/household-task-split`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -58,7 +58,7 @@ export default function HouseholdTaskSplit() {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* Framing message */}
       <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 mb-4">
         <p className="text-xs text-text-secondary leading-relaxed">

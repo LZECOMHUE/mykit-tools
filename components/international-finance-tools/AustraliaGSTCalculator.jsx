@@ -47,12 +47,12 @@ export default function AustraliaGSTCalculator() {
   const results = calculateGST();
 
   const copyToClipboard = (value) => {
-    navigator.clipboard.writeText(value.toFixed(2));
+    navigator.clipboard.writeText(value.toFixed(2).catch(() => {}));
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           GST Calculator
         </h2>
@@ -86,7 +86,7 @@ export default function AustraliaGSTCalculator() {
 
       <div className="space-y-4">
         {direction === 'addGST' && (
-          <Card className="p-6 bg-blue-50 border border-blue-200">
+          <Card className="bg-blue-50 border border-blue-200">
             <h2 className="font-heading text-lg font-bold text-primary mb-4">
               Add 10% GST
             </h2>
@@ -114,7 +114,7 @@ export default function AustraliaGSTCalculator() {
         )}
 
         {direction === 'removeGST' && (
-          <Card className="p-6 bg-blue-50 border border-blue-200">
+          <Card className="bg-blue-50 border border-blue-200">
             <h2 className="font-heading text-lg font-bold text-primary mb-4">
               Remove 10% GST
             </h2>
@@ -142,7 +142,7 @@ export default function AustraliaGSTCalculator() {
         )}
 
         {direction === 'findGST' && (
-          <Card className="p-6 bg-blue-50 border border-blue-200">
+          <Card className="bg-blue-50 border border-blue-200">
             <h2 className="font-heading text-lg font-bold text-primary mb-4">
               Find GST Amount
             </h2>
@@ -169,7 +169,7 @@ export default function AustraliaGSTCalculator() {
           </Card>
         )}
 
-        <Card className="p-6 bg-green-50 border border-green-200">
+        <Card className="bg-green-50 border border-green-200">
           <h2 className="font-heading text-lg font-bold text-primary mb-4">
             Quick Reference
           </h2>
@@ -187,7 +187,7 @@ export default function AustraliaGSTCalculator() {
         </Card>
       </div>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator is for estimation purposes only. GST is 10% in Australia and applies to most goods and services. Some items are GST-free (basic food, medical supplies, etc.). For accurate calculations and GST compliance, consult the Australian Taxation Office (ATO) website.
         </p>

@@ -43,7 +43,7 @@ export default function NumberToRomanNumerals() {
   const isValid = number && !isNaN(number) && parseInt(number) >= 1 && parseInt(number) <= 3999;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(roman);
+    navigator.clipboard.writeText(roman).catch(() => {});
   };
 
   const referenceRomanNumerals = [
@@ -69,8 +69,8 @@ export default function NumberToRomanNumerals() {
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
@@ -110,7 +110,7 @@ export default function NumberToRomanNumerals() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Roman Numeral Reference
         </h3>
@@ -142,7 +142,7 @@ export default function NumberToRomanNumerals() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading font-bold text-lg text-primary mb-4">
           Common Examples
         </h3>

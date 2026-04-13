@@ -87,8 +87,8 @@ export default function RetirementCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -96,9 +96,9 @@ export default function RetirementCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">Calculate Your Retirement</h3>
 
         <Input
@@ -163,7 +163,7 @@ export default function RetirementCountdown() {
       {countdown && !countdown.isPast ? (
         <>
           {/* Main Display */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-lg p-8 text-center space-y-6">
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-lg text-center space-y-4">
             <div className="text-5xl">🎊</div>
             <h2 className="text-3xl font-bold text-text-primary">Retirement Day</h2>
             <p className="text-lg text-text-secondary">{countdown.retireDate}</p>
@@ -201,7 +201,7 @@ export default function RetirementCountdown() {
           </div>
 
           {/* Freedom Stats */}
-          <div className="bg-surface border border-border rounded-lg p-6">
+          <div className="bg-surface border border-border rounded-lg">
             <h3 className="text-text-primary font-semibold mb-4">Freedom Stats</h3>
             <div className="space-y-3">
               {[
@@ -219,7 +219,7 @@ export default function RetirementCountdown() {
           </div>
 
           {/* Retirement Age Info */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg">
             <h3 className="text-text-primary font-semibold mb-2">Age Information</h3>
             <p className="text-text-secondary text-sm">
               You are currently <span className="font-semibold">{countdown.age} years old</span> and will retire at age{' '}
@@ -228,13 +228,13 @@ export default function RetirementCountdown() {
           </div>
         </>
       ) : countdown && countdown.isPast ? (
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-400 rounded-lg p-8 text-center space-y-4">
+        <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-400 rounded-lg text-center space-y-4">
           <div className="text-5xl">🌴</div>
           <h2 className="text-3xl font-bold text-amber-900">Happy Retirement!</h2>
           <p className="text-lg text-text-secondary">Enjoy your well-deserved rest and relaxation!</p>
         </div>
       ) : (
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Enter your details to calculate your retirement countdown</p>
         </div>
       )}

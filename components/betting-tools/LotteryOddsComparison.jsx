@@ -426,9 +426,9 @@ export default function LotteryOddsComparison() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-6 space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Educational intro */}
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading font-bold text-xl mb-2 text-blue-900">How to Read These Odds</h2>
         <p className="text-blue-800 text-sm mb-3">
           Lottery odds show how many tickets you would need to buy (on average) to win the jackpot. These are astronomical numbers. To put it in perspective:
@@ -493,7 +493,7 @@ export default function LotteryOddsComparison() {
       {sortedLotteries.length > 0 ? (
         <div className="space-y-4">
           {sortedLotteries.map((lottery) => (
-            <Card key={lottery.id} className="p-6 space-y-4 hover:shadow-md transition">
+            <Card key={lottery.id} className="space-y-4 hover:shadow-md transition">
               {/* Header */}
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
@@ -581,7 +581,7 @@ export default function LotteryOddsComparison() {
       )}
 
       {/* SEO content section */}
-      <Card className="p-6 bg-surface space-y-4">
+      <Card className="bg-surface space-y-4">
         <h2 className="font-heading font-bold text-2xl">Understanding Lottery Odds</h2>
 
         <div className="space-y-4 text-secondary">
@@ -626,7 +626,7 @@ export default function LotteryOddsComparison() {
       </Card>
 
       {/* Quick facts box */}
-      <Card className="p-6 border-2 border-accent-warm bg-yellow-50">
+      <Card className="border-2 border-accent-warm bg-yellow-50">
         <h3 className="font-heading font-bold text-lg text-accent-warm mb-4">Quick Facts About Lotteries</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>

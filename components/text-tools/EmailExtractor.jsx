@@ -25,7 +25,7 @@ export default function EmailExtractor() {
   };
 
   const handleCopyEmail = (email) => {
-    navigator.clipboard.writeText(email);
+    navigator.clipboard.writeText(email).catch(() => {});
   };
 
   const handleDownloadCSV = () => {
@@ -40,7 +40,7 @@ export default function EmailExtractor() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Paste Text
@@ -70,7 +70,7 @@ export default function EmailExtractor() {
             </Button>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <div className="space-y-2 max-h-[400px] overflow-y-auto">
               {uniqueEmails.map((email, idx) => (
                 <div
@@ -95,13 +95,13 @@ export default function EmailExtractor() {
       )}
 
       {text && uniqueEmails.length === 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">No email addresses found in the text</p>
         </div>
       )}
 
       {!text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Paste text to extract email addresses</p>
         </div>
       )}

@@ -45,7 +45,7 @@ export default function LineCounter() {
   }, [text]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter Text

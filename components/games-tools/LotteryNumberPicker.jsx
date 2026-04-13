@@ -271,7 +271,7 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <style jsx>{`
         @keyframes pop {
           0% {
@@ -294,9 +294,6 @@ export default function LotteryNumberPicker({ lottery = "uk-lotto" }) {
           <div className="flex items-start gap-3">
             <span className="text-3xl sm:text-4xl">{config.emoji}</span>
             <div className="flex-1">
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-text-primary">
-                {config.name}
-              </h2>
               <p className="text-sm sm:text-base text-text-secondary">
                 Draws: {config.draws}
               </p>

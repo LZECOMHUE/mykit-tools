@@ -357,7 +357,7 @@ function CopyBtn({ value }) {
   return (
     <button
       onClick={() => {
-        navigator.clipboard.writeText(value);
+        navigator.clipboard.writeText(value).catch(() => {});
         setCopied(true);
         setTimeout(() => setCopied(false), 1000);
       }}

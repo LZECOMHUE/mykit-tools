@@ -104,13 +104,9 @@ export default function PetrolVsElectricTotalCostCalculator() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Petrol vs Electric Total Cost of Ownership
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-4">
+      <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {/* Petrol Section */}
           <div className="space-y-4">
             <h3 className="font-heading text-lg font-bold text-primary">
@@ -325,10 +321,10 @@ export default function PetrolVsElectricTotalCostCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Detailed Cost Breakdown */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               {result.years}-Year Cost Breakdown
             </h3>
 
@@ -401,7 +397,7 @@ export default function PetrolVsElectricTotalCostCalculator() {
           </Card>
 
           {/* Total Summary */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
+          <Card className="bg-accent-muted border-2 border-accent">
             <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Total {result.years}-Year Cost Comparison
             </h3>

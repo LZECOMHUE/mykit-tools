@@ -133,12 +133,12 @@ export default function DateFormatConverter() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
         <h2 className="font-heading text-2xl font-bold text-primary mb-2">
           Date Format Converter
         </h2>
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Convert a date to every major format used around the world
         </p>
 
@@ -166,9 +166,9 @@ export default function DateFormatConverter() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Overview Card */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
+          <Card className="bg-accent-muted border-2 border-accent">
             <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Date Overview
             </h3>
@@ -198,8 +198,8 @@ export default function DateFormatConverter() {
           </Card>
 
           {/* Format Comparison Table */}
-          <Card className="p-6">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card>
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               All Date Formats
             </h3>
 
@@ -312,7 +312,7 @@ export default function DateFormatConverter() {
           </Card>
 
           {/* Key Insight */}
-          <Card className="p-6 bg-yellow-50 border-2 border-yellow-200">
+          <Card className="bg-yellow-50 border-2 border-yellow-200">
             <h3 className="font-heading text-lg font-bold text-yellow-900 mb-3">
               Why This Matters
             </h3>

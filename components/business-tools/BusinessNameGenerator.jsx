@@ -87,9 +87,9 @@ export default function BusinessNameGenerator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <h2 className="font-heading text-lg font-semibold text-text-primary">
           Configure Your Name Generator
         </h2>

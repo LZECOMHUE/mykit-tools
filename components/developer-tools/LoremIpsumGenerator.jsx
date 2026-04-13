@@ -77,7 +77,7 @@ export default function LoremIpsumGenerator() {
   const charCountValue = generatedText.length;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(generatedText);
+    navigator.clipboard.writeText(generatedText).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -85,28 +85,22 @@ export default function LoremIpsumGenerator() {
   return (
     <div className="space-y-3">
       {/* Configuration Panel */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <h3 className="text-lg font-semibold text-text-primary mb-4">Generation Type</h3>
-
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="space-y-4">
           {/* Generation Type Selection */}
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             {[
               { value: 'paragraphs', label: 'Paragraphs' },
               { value: 'sentences', label: 'Sentences' },
               { value: 'words', label: 'Words' },
             ].map(option => (
-              <label key={option.value} className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="generationType"
-                  value={option.value}
-                  checked={generationType === option.value}
-                  onChange={e => setGenerationType(e.target.value)}
-                  className="w-4 h-4"
-                />
-                <span className="text-text-primary">{option.label}</span>
-              </label>
+              <button
+                key={option.value}
+                onClick={() => setGenerationType(option.value)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${generationType === option.value ? 'bg-accent text-white' : 'bg-white border border-border text-text-primary hover:bg-surface-hover'}`}
+              >
+                {option.label}
+              </button>
             ))}
           </div>
 
@@ -177,9 +171,8 @@ export default function LoremIpsumGenerator() {
       </div>
 
       {/* Output */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-text-primary">Generated Text</h3>
           <button
             onClick={handleCopy}
             className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"

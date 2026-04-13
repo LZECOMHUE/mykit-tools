@@ -52,7 +52,7 @@ export default function PayRiseCalculator() {
   }, [mode, currentSalary, newSalary, increasePercentage, inflationRate]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Toggle */}
       <div className="flex gap-2 bg-surface border border-border rounded-[var(--radius-card)] p-2">
         <button
@@ -78,7 +78,7 @@ export default function PayRiseCalculator() {
       </div>
 
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Current Salary (Annual)
@@ -137,28 +137,28 @@ export default function PayRiseCalculator() {
 
       {/* Main Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Annual Increase</p>
           <p className={`font-mono-num text-3xl font-bold ${results.increaseAmount >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.increaseAmount >= 0 ? '+' : ''}{fmt(results.increaseAmount)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Percentage Increase</p>
           <p className={`font-mono-num text-3xl font-bold ${results.increasePercentage >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.increasePercentage >= 0 ? '+' : ''}{results.increasePercentage.toFixed(2)}%
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Monthly Extra</p>
           <p className={`font-mono-num text-3xl font-bold ${results.monthlyDifference >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.monthlyDifference >= 0 ? '+' : ''}{fmt(results.monthlyDifference)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Weekly Extra</p>
           <p className={`font-mono-num text-3xl font-bold ${results.weeklyDifference >= 0 ? 'text-accent' : 'text-error'}`}>
             {results.weeklyDifference >= 0 ? '+' : ''}{fmt(results.weeklyDifference)}
@@ -167,7 +167,7 @@ export default function PayRiseCalculator() {
       </div>
 
       {/* Detailed Summary */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h3 className="text-text-primary font-semibold mb-4">Salary Breakdown</h3>
 
         <div className="space-y-3 font-mono-num text-sm">
@@ -215,7 +215,7 @@ export default function PayRiseCalculator() {
 
       {/* Real Terms Comparison */}
       {results.realTermsComparison && (
-        <div className={`rounded-[var(--radius-card)] p-6 border ${
+        <div className={`rounded-[var(--radius-card)] border ${
           results.realTermsComparison.isGain
             ? 'bg-blue-50 border-accent'
             : 'bg-red-50 border-error'

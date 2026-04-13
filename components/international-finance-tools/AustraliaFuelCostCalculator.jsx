@@ -50,11 +50,11 @@ export default function AustraliaFuelCostCalculator() {
   }, [tripDistance, fuelConsumption, state, customFuelPrice]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 Trip Distance (km)
@@ -85,7 +85,7 @@ export default function AustraliaFuelCostCalculator() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-text-primary font-medium mb-2">
                 State / Territory
@@ -120,7 +120,7 @@ export default function AustraliaFuelCostCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="bg-white rounded-lg border border-border space-y-4">
           <h2 className="text-text-primary font-semibold text-lg">Fuel Cost Calculation</h2>
 
           <div className="space-y-3">
@@ -152,7 +152,7 @@ export default function AustraliaFuelCostCalculator() {
               </span>
             </div>
 
-            <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+            <div className="flex justify-between items-center pt-3 bg-blue-50 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
               <span className="text-text-primary font-semibold">Total Fuel Cost:</span>
               <span className="font-mono text-3xl font-semibold text-accent">
                 ${results.totalCost}
@@ -162,7 +162,7 @@ export default function AustraliaFuelCostCalculator() {
         </div>
 
         {/* Cost Breakdown */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg border border-border p-4">
             <p className="text-text-secondary text-sm mb-2">Cost per Kilometre</p>
             <p className="text-3xl font-mono font-semibold text-accent">
@@ -185,7 +185,7 @@ export default function AustraliaFuelCostCalculator() {
         </div>
 
         {/* Quick Reference */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="text-text-primary font-semibold text-lg mb-4">
             Fuel Consumption Guide
           </h3>
@@ -210,7 +210,7 @@ export default function AustraliaFuelCostCalculator() {
         </div>
 
         {/* Fuel Price Info */}
-        <div className="bg-white rounded-lg border border-border p-6">
+        <div className="bg-white rounded-lg border border-border">
           <h3 className="text-text-primary font-semibold text-lg mb-4">
             Current State Fuel Prices (2025 estimate)
           </h3>

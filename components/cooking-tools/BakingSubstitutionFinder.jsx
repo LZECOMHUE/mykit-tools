@@ -121,7 +121,7 @@ export default function BakingSubstitutionFinder() {
   }, [subs]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Ingredient Selection */}
       <Card>
         <h3 className="text-lg font-heading font-bold text-text-primary mb-4">
@@ -208,7 +208,7 @@ export default function BakingSubstitutionFinder() {
             </Card>
           ))
         ) : (
-          <Card className="text-center p-6">
+          <Card className="text-center">
             <p className="text-text-muted">
               No substitutions match your filters. Try adjusting them.
             </p>

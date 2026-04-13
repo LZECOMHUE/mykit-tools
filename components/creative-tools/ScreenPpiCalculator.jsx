@@ -96,7 +96,7 @@ export default function ScreenPpiCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Mode Selector */}
       <div className="flex gap-1 border-b border-border mb-4">
         {[
@@ -120,9 +120,9 @@ export default function ScreenPpiCalculator() {
       {mode === 'manual' ? (
         // MANUAL MODE
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Input Section */}
-            <Card className="p-6 border border-border">
+            <Card className="border border-border">
               <h3 className="font-heading font-semibold mb-4">Screen Specifications</h3>
               <div className="space-y-4">
                 <Input
@@ -170,7 +170,7 @@ export default function ScreenPpiCalculator() {
             </Card>
 
             {/* Results Section */}
-            <Card className="p-6 border border-border bg-surface">
+            <Card className="border border-border bg-surface">
               <h3 className="font-heading font-semibold mb-4">Display Metrics</h3>
               <div className="space-y-3">
                 <div className="p-4 bg-white rounded-lg border border-border">
@@ -206,7 +206,7 @@ export default function ScreenPpiCalculator() {
           </div>
 
           {/* PPI Guide */}
-          <Card className="p-6 border border-border">
+          <Card className="border border-border">
             <h3 className="font-heading font-semibold mb-4">PPI Rating Guide</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-4 rounded-lg bg-error bg-opacity-10 border border-error border-opacity-20">
@@ -238,7 +238,7 @@ export default function ScreenPpiCalculator() {
       ) : (
         // PRESETS MODE
         <>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Device Categories */}
             <div className="space-y-4">
               <div>
@@ -320,7 +320,7 @@ export default function ScreenPpiCalculator() {
 
             {/* Results */}
             {selectedDevice && (
-              <Card className="p-6 border border-border bg-surface">
+              <Card className="border border-border bg-surface">
                 <h3 className="font-heading font-semibold mb-4">{selectedDevice}</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div className="p-4 bg-white rounded-lg border border-border">

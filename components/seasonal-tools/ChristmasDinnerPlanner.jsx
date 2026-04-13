@@ -129,8 +129,8 @@ export default function ChristmasDinnerPlanner() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-2">Number of Guests</label>
@@ -196,14 +196,14 @@ export default function ChristmasDinnerPlanner() {
       </div>
 
       {plan && (
-        <div className="space-y-6">
-          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6">
+        <div className="space-y-4">
+          <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
             <p className="text-sm opacity-90">Dinner Service</p>
             <p className="font-mono text-3xl font-bold">{plan.servingTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</p>
             <p className="text-sm opacity-75 mt-2">{plan.numGuests} guests ({plan.numMeat} meat, {plan.numVeg} veg, {plan.numVegan} vegan)</p>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
             <h3 className="font-heading text-base font-bold text-text-primary">Cooking Timeline</h3>
             <div className="space-y-2">
               {plan.timeline.map((item, idx) => (
@@ -215,7 +215,7 @@ export default function ChristmasDinnerPlanner() {
             </div>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
             <h3 className="font-heading text-base font-bold text-text-primary">Shopping List</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

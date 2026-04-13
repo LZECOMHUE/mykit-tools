@@ -86,9 +86,9 @@ export default function USMinimumWageMap() {
   const aboveMinimum = stateData.filter((s) => s.stateWage > 7.25).length;
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg">
         <h1 className="text-3xl font-heading font-bold text-blue-900 mb-2">US Minimum Wage Map</h1>
         <p className="text-blue-800">State vs Federal minimum wage comparison</p>
       </div>
@@ -117,7 +117,7 @@ export default function USMinimumWageMap() {
       </div>
 
       {/* Controls */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">Sort By</label>
           <div className="flex flex-wrap gap-2">
@@ -238,7 +238,7 @@ export default function USMinimumWageMap() {
       </div>
 
       {/* Key Facts */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-3">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Key Facts</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• <strong>Federal minimum:</strong> $7.25/hour (since 2009)</li>
@@ -251,7 +251,7 @@ export default function USMinimumWageMap() {
       </div>
 
       {/* Notes */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Important Notes</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• Data current as of March 2026. Check state labor departments for latest updates</li>
@@ -264,7 +264,7 @@ export default function USMinimumWageMap() {
       </div>
 
       {/* States at Federal Minimum */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg">
         <h3 className="text-text-primary font-semibold mb-3">States at Federal Minimum ($7.25)</h3>
         <p className="text-sm text-text-secondary">
           {stateData

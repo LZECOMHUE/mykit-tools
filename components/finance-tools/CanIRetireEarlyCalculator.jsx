@@ -106,11 +106,8 @@ export default function CanIRetireEarlyCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Can I Retire Early? Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
         <div className="space-y-4">
           <div>
@@ -201,14 +198,14 @@ export default function CanIRetireEarlyCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Main Result */}
-          <Card className={`p-6 border-2 ${result.canRetire ? 'bg-green-50 border-green-400' : 'bg-yellow-50 border-yellow-400'}`}>
-            <h3 className={`font-heading text-xl font-bold mb-6 ${result.canRetire ? 'text-green-700' : 'text-yellow-700'}`}>
+          <Card className={`border-2 ${result.canRetire ? 'bg-green-50 border-green-400' : 'bg-yellow-50 border-yellow-400'}`}>
+            <h3 className={`font-heading text-xl font-bold mb-4 ${result.canRetire ? 'text-green-700' : 'text-yellow-700'}`}>
               {result.canRetire ? 'Yes, You Can Retire!' : 'Not Quite Yet'}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div className="p-4 bg-white rounded-lg border border-border">
                 <p className="text-secondary text-sm mb-2">Projected Pot at Age {result.targetAge}</p>
                 <p className="font-mono text-2xl font-bold text-primary">
@@ -250,8 +247,8 @@ export default function CanIRetireEarlyCalculator() {
           </Card>
 
           {/* Projected Pot at Different Ages */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               What If You Retire at Different Ages?
             </h3>
 
@@ -292,7 +289,7 @@ export default function CanIRetireEarlyCalculator() {
           </Card>
 
           {/* Longevity Check */}
-          <Card className="p-6 bg-surface">
+          <Card className="bg-surface">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Will Your Money Last?
             </h3>
@@ -309,7 +306,7 @@ export default function CanIRetireEarlyCalculator() {
           </Card>
 
           {/* Considerations */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Important Considerations
             </h3>
@@ -328,7 +325,7 @@ export default function CanIRetireEarlyCalculator() {
           </Card>
 
           {/* Action Plan */}
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Paths Forward
             </h3>

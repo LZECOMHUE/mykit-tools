@@ -143,7 +143,7 @@ export default function SignaturePad() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 space-y-4">
         <div className="space-y-3">
           <div>

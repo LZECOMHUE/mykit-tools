@@ -181,7 +181,7 @@ function Modal({ open, onClose, title, children, width = 440 }) {
         className="relative bg-white rounded-2xl p-0 w-[90%] max-h-[85vh] overflow-auto shadow-2xl"
         style={{ maxWidth: width }}
       >
-        <div className="flex items-center justify-between p-6 border-b border-border">
+        <div className="flex items-center justify-between border-b border-border">
           <h3 className="font-heading text-base font-semibold text-text-primary">
             {title}
           </h3>

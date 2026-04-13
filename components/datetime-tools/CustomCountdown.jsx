@@ -78,8 +78,8 @@ export default function CustomCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -87,9 +87,9 @@ export default function CustomCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Configuration Section */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-text-primary font-semibold">Set Your Countdown</h3>
         <Input
           label="Event Name"
@@ -123,7 +123,7 @@ export default function CustomCountdown() {
       {countdown && !countdown.isPast ? (
         <>
           {/* Main Countdown Display */}
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg p-8 text-center space-y-6">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-lg text-center space-y-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-text-primary">{eventName}</h2>
 
             {/* Big Countdown Numbers */}
@@ -171,19 +171,19 @@ export default function CustomCountdown() {
           </div>
 
           {/* Fun Fact */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg">
             <h3 className="text-text-primary font-semibold mb-2">Did you know?</h3>
             <p className="text-text-secondary transition-opacity duration-500">{currentFact}</p>
           </div>
         </>
       ) : countdown && countdown.isPast ? (
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-lg p-8 text-center space-y-4">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-lg text-center space-y-4">
           <div className="text-5xl">🎉</div>
           <h2 className="text-3xl font-bold text-green-700">It's Here!</h2>
           <p className="text-lg text-text-secondary">Your event "{eventName}" is here. Enjoy every moment!</p>
         </div>
       ) : (
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Set a date and time to start your countdown</p>
         </div>
       )}

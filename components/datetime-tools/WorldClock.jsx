@@ -82,7 +82,7 @@ export default function WorldClock() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <Select
@@ -106,7 +106,7 @@ export default function WorldClock() {
             return (
               <div
                 key={city.id}
-                className="bg-surface border border-border rounded-[var(--radius-card)] p-6"
+                className="bg-surface border border-border rounded-[var(--radius-card)]"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -138,7 +138,7 @@ export default function WorldClock() {
       )}
 
       {cities.length === 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Add cities to see their current time</p>
         </div>
       )}

@@ -150,10 +150,10 @@ export default function CanadaSalaryComparisonByProvince() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <label className="block text-text-primary font-medium mb-2">
               Annual Salary (CAD)
@@ -264,7 +264,7 @@ export default function CanadaSalaryComparisonByProvince() {
 
         {/* Summary Cards */}
         {selectedProvinces.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {selectedProvinces.map((prov) => {
               const data = results.comparison[prov];
               const isBest = prov === results.bestProvince;

@@ -157,8 +157,8 @@ export default function AustraliaIncomeTaxCalculator() {
   const results = calculateTax();
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Annual Income
         </h2>
@@ -171,7 +171,7 @@ export default function AustraliaIncomeTaxCalculator() {
         />
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Residency & Insurance
         </h2>
@@ -194,7 +194,7 @@ export default function AustraliaIncomeTaxCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           HECS-HELP Debt
         </h2>
@@ -217,7 +217,7 @@ export default function AustraliaIncomeTaxCalculator() {
       </Card>
 
       <div className="space-y-4">
-        <Card className="p-6 bg-blue-50 border border-blue-200">
+        <Card className="bg-blue-50 border border-blue-200">
           <h2 className="font-heading text-lg font-bold text-primary mb-4">
             Tax Breakdown
           </h2>
@@ -253,7 +253,7 @@ export default function AustraliaIncomeTaxCalculator() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-green-50 border border-green-200">
+        <Card className="bg-green-50 border border-green-200">
           <h2 className="font-heading text-lg font-bold text-primary mb-4">
             Summary
           </h2>
@@ -280,7 +280,7 @@ export default function AustraliaIncomeTaxCalculator() {
         </Card>
       </div>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator is for estimation purposes only and is based on the 2024-25 tax year (1 July 2024 - 30 June 2025). Tax laws change annually. For accurate tax advice, consult the ATO website or a licensed tax professional.
         </p>

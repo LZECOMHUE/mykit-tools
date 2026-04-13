@@ -17,8 +17,8 @@ export default function AustraliaSkinCancerCheckReminder() {
   const rec = recommendations[skinType];
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="bg-surface rounded-lg space-y-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">Location</label>
           <select value={city} onChange={(e) => setCity(e.target.value)} className="w-full px-4 py-2 border border-border rounded-lg bg-white">
@@ -41,7 +41,7 @@ export default function AustraliaSkinCancerCheckReminder() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-8">
+      <div className="bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded-lg">
         <div className="text-2xl font-bold text-orange-900 mb-2">☀️ Australia's UV Risk</div>
         <p className="text-orange-800 mb-4">Australia has one of the highest rates of skin cancer in the world due to intense sun exposure</p>
         <div className="grid md:grid-cols-2 gap-4">
@@ -56,7 +56,7 @@ export default function AustraliaSkinCancerCheckReminder() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">🧴 Sun Protection</h3>
         <ul className="space-y-2 text-sm text-blue-800">
           <li>• Apply SPF 30+ sunscreen daily (year-round)</li>
@@ -67,7 +67,7 @@ export default function AustraliaSkinCancerCheckReminder() {
         </ul>
       </div>
 
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="bg-red-50 border border-red-200 rounded-lg">
         <h3 className="font-semibold text-red-900 mb-3">🔍 When to See a Doctor</h3>
         <p className="text-sm text-red-800 mb-3">Get checked if you notice:</p>
         <ul className="space-y-2 text-sm text-red-800">

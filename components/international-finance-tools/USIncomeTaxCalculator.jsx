@@ -133,11 +133,11 @@ export default function USIncomeTaxCalculator() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-12 lg:px-8">
+        <div className="grid gap-4 lg:grid-cols-3">
           {/* INPUT SECTION */}
           <div className="lg:col-span-1">
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Filing Status */}
               <div>
                 <label className="block text-sm font-medium text-primary mb-3">
@@ -274,9 +274,9 @@ export default function USIncomeTaxCalculator() {
           {/* RESULTS SECTION */}
           <div className="lg:col-span-2">
             {/* Summary Card */}
-            <div className="bg-surface rounded-lg border border-border p-6 mb-6">
+            <div className="bg-surface rounded-lg border border-border mb-4">
               <p className="text-sm text-secondary mb-2">Annual Take-Home Pay</p>
-              <p className="font-mono text-4xl font-bold text-primary mb-6">
+              <p className="font-mono text-4xl font-bold text-primary mb-4">
                 {formatCurrency(calculations.takeHomePay)}
               </p>
               <div className="grid grid-cols-3 gap-4">
@@ -302,7 +302,7 @@ export default function USIncomeTaxCalculator() {
             </div>
 
             {/* Tax Breakdown */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4 mb-4">
               {/* Federal Income Tax */}
               <div className="bg-surface rounded-lg border border-border p-4">
                 <div className="flex justify-between items-start mb-2">
@@ -392,7 +392,7 @@ export default function USIncomeTaxCalculator() {
             </div>
 
             {/* Detailed Breakdown */}
-            <div className="bg-surface rounded-lg border border-border p-6">
+            <div className="bg-surface rounded-lg border border-border">
               <h3 className="font-heading text-lg font-bold text-primary mb-4">
                 Detailed Breakdown
               </h3>

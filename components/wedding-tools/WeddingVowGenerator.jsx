@@ -186,12 +186,12 @@ export default function WeddingVowGenerator() {
   const copyToClipboard = () => {
     if (selectedVow) {
       const text = processVow(selectedVow);
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text).catch(() => {});
     }
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Configuration */}
       <Card>
         <div className="space-y-4">

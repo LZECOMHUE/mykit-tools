@@ -77,20 +77,13 @@ export default function RoastGenerator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(currentRoast);
+    navigator.clipboard.writeText(currentRoast).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
-      <div className="bg-red-50 border border-red-200 p-4 rounded-[var(--radius-card)]">
-        <p className="text-red-700 font-bold text-sm mb-2">⚡ SATIRE DISCLAIMER ⚡</p>
-        <p className="text-text-secondary text-sm">
-          All roasts are in good fun and meant for entertainment only. These are lighthearted jokes and should never be used to hurt anyone\'s feelings. Keep it playful!
-        </p>
-      </div>
-
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div>
         <label className="block text-text-primary font-medium mb-2">Category</label>
         <select
@@ -109,7 +102,7 @@ export default function RoastGenerator() {
         </select>
       </div>
 
-      <div className="bg-surface p-6 rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
+      <div className="bg-surface rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
         <p className="text-lg text-text-primary font-medium text-center leading-relaxed">
           {currentRoast}
         </p>
@@ -135,11 +128,7 @@ export default function RoastGenerator() {
         </button>
       </div>
 
-      <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-[var(--radius-card)] text-center">
-        <p className="text-text-secondary text-sm">
-          Remember: the goal is laughter, not hurt feelings. Use responsibly!
-        </p>
-      </div>
+      <p className="text-xs text-text-muted text-center">For entertainment only - all roasts are light-hearted and meant to be funny</p>
     </div>
   );
 }

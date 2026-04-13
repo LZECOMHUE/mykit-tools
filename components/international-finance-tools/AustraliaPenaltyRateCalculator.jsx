@@ -99,8 +99,8 @@ export default function AustraliaPenaltyRateCalculator() {
   }, [config]);
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-semibold text-primary mb-4">
           Your Information
         </h2>
@@ -182,7 +182,7 @@ export default function AustraliaPenaltyRateCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-accent-muted border border-accent">
+      <Card className="bg-accent-muted border border-accent">
         <h2 className="font-heading text-2xl font-bold text-accent mb-2">
           Total Gross Pay
         </h2>
@@ -195,7 +195,7 @@ export default function AustraliaPenaltyRateCalculator() {
       </Card>
 
       {results.breakdown.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading font-semibold text-primary mb-4">Pay Breakdown</h3>
           <div className="space-y-3">
             {results.breakdown.map((item, idx) => (
@@ -223,7 +223,7 @@ export default function AustraliaPenaltyRateCalculator() {
         </Card>
       )}
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Penalty Rates Explained</h3>
         <div className="space-y-3 text-sm text-secondary">
           <div>
@@ -256,7 +256,7 @@ export default function AustraliaPenaltyRateCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Casual vs Permanent</h3>
         <div className="space-y-3 text-sm text-secondary">
           <div>
@@ -278,7 +278,7 @@ export default function AustraliaPenaltyRateCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h3 className="font-heading font-semibold text-primary mb-3">Important Notes</h3>
         <ul className="space-y-2 text-sm text-secondary">
           <li className="flex gap-2">

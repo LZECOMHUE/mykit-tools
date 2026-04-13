@@ -67,8 +67,8 @@ export default function ChristmasCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
-        <div className="bg-surface border border-border rounded-lg p-6 text-center">
+      <div className="w-full max-w-2xl mx-auto space-y-4">
+        <div className="bg-surface border border-border rounded-lg text-center">
           <p className="text-text-secondary">Loading...</p>
         </div>
       </div>
@@ -76,10 +76,9 @@ export default function ChristmasCountdown() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Main Countdown */}
-      <div className="bg-gradient-to-br from-red-50 to-green-50 border-2 border-red-200 rounded-lg p-8 text-center space-y-6">
-        <h2 className="text-4xl font-bold text-red-600">Christmas Countdown</h2>
+      <div className="bg-gradient-to-br from-red-50 to-green-50 border-2 border-red-200 rounded-lg text-center space-y-4">
         <p className="text-lg text-text-secondary">{sleeps} sleeps until Christmas {countdown.year}!</p>
 
         {/* Countdown Display */}
@@ -100,7 +99,7 @@ export default function ChristmasCountdown() {
         </div>
 
         {/* Sleeps Display */}
-        <div className="bg-white rounded-lg p-6 border border-red-200">
+        <div className="bg-white rounded-lg border border-red-200">
           <p className="text-text-muted text-sm mb-2">Only...</p>
           <p className="font-mono-num text-5xl font-bold text-green-600">{sleeps}</p>
           <p className="text-text-secondary mt-2">
@@ -124,13 +123,13 @@ export default function ChristmasCountdown() {
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="text-text-primary font-semibold mb-2">Did you know?</h3>
         <p className="text-text-secondary transition-opacity duration-500">{currentFact}</p>
       </div>
 
       {/* Quick Facts */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Christmas Facts</h3>
         <div className="space-y-3">
           {[

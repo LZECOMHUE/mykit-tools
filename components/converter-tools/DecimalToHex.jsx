@@ -53,7 +53,7 @@ export default function DecimalToHex() {
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
           {result !== null && (
             <button
-              onClick={() => navigator.clipboard.writeText(result)}
+              onClick={() => navigator.clipboard.writeText(result).catch(() => {})}
               className="text-[12px] text-accent hover:text-accent-hover transition-colors cursor-pointer"
             >
               Copy result

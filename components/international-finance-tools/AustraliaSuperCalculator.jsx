@@ -62,8 +62,8 @@ export default function AustraliaSuperCalculator() {
   const preservationAge = currentAge >= 1964 ? 60 : 60; // Simplified
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Personal Details
         </h2>
@@ -93,7 +93,7 @@ export default function AustraliaSuperCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Super Balance & Income
         </h2>
@@ -115,7 +115,7 @@ export default function AustraliaSuperCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Contributions
         </h2>
@@ -148,7 +148,7 @@ export default function AustraliaSuperCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Investment Return
         </h2>
@@ -170,7 +170,7 @@ export default function AustraliaSuperCalculator() {
       </Card>
 
       <div className="space-y-4">
-        <Card className="p-6 bg-blue-50 border border-blue-200">
+        <Card className="bg-blue-50 border border-blue-200">
           <h2 className="font-heading text-lg font-bold text-primary mb-4">
             Projected Super Balance at Age {retirementAge}
           </h2>
@@ -209,7 +209,7 @@ export default function AustraliaSuperCalculator() {
         </Card>
 
         {voluntaryContribution > 0 && (
-          <Card className="p-6 bg-green-50 border border-green-200">
+          <Card className="bg-green-50 border border-green-200">
             <h2 className="font-heading text-lg font-bold text-primary mb-4">
               Impact of Extra Contributions
             </h2>
@@ -237,7 +237,7 @@ export default function AustraliaSuperCalculator() {
         )}
       </div>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary mb-2">
           <strong>Disclaimer:</strong> This is a projection based on assumptions and for estimation purposes only. Actual superannuation balances depend on investment performance, market conditions, and contribution rates. For detailed advice, consult a licensed financial adviser.
         </p>

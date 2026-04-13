@@ -37,9 +37,9 @@ export default function CanadaTippingCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Bill Amount (Before Tax)
@@ -111,8 +111,8 @@ export default function CanadaTippingCalculator() {
       </div>
 
       {/* Main Results */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Tip Amount</div>
           <div className="text-4xl font-mono font-bold text-blue-900">
             {formatCurrency(calculations.tipAmount)}
@@ -124,7 +124,7 @@ export default function CanadaTippingCalculator() {
           )}
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Total (Bill + Tip)</div>
           <div className="text-4xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.total)}
@@ -138,7 +138,7 @@ export default function CanadaTippingCalculator() {
       </div>
 
       {/* Quick Reference */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Tip Suggestions
         </h3>
@@ -179,7 +179,7 @@ export default function CanadaTippingCalculator() {
       </div>
 
       {/* Canadian Tipping Guide */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">🍁 Canadian Tipping Guide</h3>
         <div className="space-y-3 text-sm text-blue-800">
           <div>
@@ -207,7 +207,7 @@ export default function CanadaTippingCalculator() {
       </div>
 
       {/* About Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Important Notes
         </h3>

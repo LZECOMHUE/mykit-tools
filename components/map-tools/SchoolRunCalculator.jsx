@@ -164,8 +164,8 @@ export default function SchoolRunCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading text-lg font-semibold text-primary">School Run Calculator</h3>
 
@@ -230,8 +230,8 @@ export default function SchoolRunCalculator() {
             />
           </Card>
 
-          <Card className="p-6">
-            <div className="space-y-6">
+          <Card>
+            <div className="space-y-4">
               <div>
                 <h3 className="font-heading text-lg font-semibold text-primary mb-4">Walking Option</h3>
                 <div className="p-4 bg-surface rounded-lg border border-border space-y-3">

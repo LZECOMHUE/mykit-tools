@@ -128,8 +128,8 @@ export default function PhonicsTreasureHunt() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">Age Group</label>
           <div className="grid grid-cols-2 gap-2">
@@ -201,15 +201,15 @@ export default function PhonicsTreasureHunt() {
 
       {hunt && (
         <div className="space-y-4">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">
               Phonics Treasure Hunt Setup
             </h2>
-            <p className="text-text-secondary mb-6">
+            <p className="text-text-secondary mb-4">
               Hide letter cards at {hunt.length} different stations. Kids visit each station to find and collect the letters, then build words.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {hunt.map(station => (
                 <div key={station.number} className="bg-white border border-border rounded-[var(--radius-input)] p-4">
                   <div className="mb-4">

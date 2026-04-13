@@ -386,8 +386,8 @@ export default function ElfOnTheShelfIdeaGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">Setup Difficulty</label>
           <div className="grid grid-cols-3 gap-2">
@@ -436,7 +436,7 @@ export default function ElfOnTheShelfIdeaGenerator() {
 
       {idea && (
         <div className="space-y-4">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <div className="mb-4">
               <div className="flex items-baseline gap-2 mb-2">
                 {idea.day && <span className="font-mono text-accent font-bold text-xl">Day {idea.day}</span>}

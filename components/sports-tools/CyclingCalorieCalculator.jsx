@@ -67,7 +67,7 @@ export default function CyclingCalorieCalculator() {
   }, [distance, distanceUnit, speed, speedUnit, weight, weightUnit, terrain]);
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Inputs */}
       <div className="space-y-4">
         {/* Distance */}

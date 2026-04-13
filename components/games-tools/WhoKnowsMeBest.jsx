@@ -48,18 +48,14 @@ export default function WhoKnowsMeBest() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {!quiz ? (
-        <Card>
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-            Create Your Quiz
-          </h2>
-
-          <p className="text-text-secondary text-sm mb-6">
+        <div className="space-y-4">
+          <p className="text-text-secondary text-sm mb-4">
             Add 5-20 questions about yourself. Your friends will try to answer them.
           </p>
 
-          <div className="space-y-3 mb-6">
+          <div className="space-y-3 mb-4">
             {questions.map((item, index) => (
               <div key={index} className="space-y-2 pb-4 border-b border-border last:border-0">
                 <div className="flex gap-2 items-start">
@@ -109,11 +105,11 @@ export default function WhoKnowsMeBest() {
               Create Quiz ({questions.filter((q) => q.question && q.answer).length} questions)
             </Button>
           </div>
-        </Card>
+        </div>
       ) : (
         <div className="space-y-4">
           <Card>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
               <h2 className="font-heading text-2xl font-bold text-text-primary">
                 How Well Do You Know Me?
               </h2>
@@ -125,7 +121,7 @@ export default function WhoKnowsMeBest() {
               </Button>
             </div>
 
-            <p className="text-text-secondary text-sm mb-6">
+            <p className="text-text-secondary text-sm mb-4">
               Answer these questions about me. See how many you get right!
             </p>
 

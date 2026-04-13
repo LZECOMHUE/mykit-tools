@@ -64,13 +64,13 @@ export default function USInflationCalculator() {
   }, [startYear, endYear]);
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="bg-white border border-border rounded-lg p-6">
-        <h3 className="font-semibold text-text-primary mb-6 text-lg">
+      <div className="bg-white border border-border rounded-lg">
+        <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Inflation Calculator
         </h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-2">
               Dollar Amount
@@ -126,8 +126,8 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Main Result */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-8">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div>
             <div className="text-sm text-blue-700 mb-2">Original Value</div>
             <div className="text-4xl font-mono font-bold text-blue-900">
@@ -149,8 +149,8 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Inflation Stats */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-red-50 border border-red-200 rounded-lg">
           <div className="text-sm text-red-700 mb-2">Inflation Amount</div>
           <div className="text-3xl font-mono font-bold text-red-900">
             +{formatCurrency(calculations.inflationAmount)}
@@ -160,7 +160,7 @@ export default function USInflationCalculator() {
           </div>
         </div>
 
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 border border-orange-200 rounded-lg">
           <div className="text-sm text-orange-700 mb-2">Total Inflation</div>
           <div className="text-3xl font-mono font-bold text-orange-900">
             {calculations.inflationPercent}%
@@ -170,7 +170,7 @@ export default function USInflationCalculator() {
           </div>
         </div>
 
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg">
           <div className="text-sm text-yellow-700 mb-2">Average Annual Rate</div>
           <div className="text-3xl font-mono font-bold text-yellow-900">
             {calculations.annualRate}%
@@ -182,11 +182,11 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Purchasing Power */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-4">
           Purchasing Power Change
         </h3>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <div className="text-sm text-green-700 mb-2">What {calculations.startYear} dollars could buy:</div>
             <div className="text-2xl font-mono font-bold text-green-900">
@@ -213,7 +213,7 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Historical Inflation */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           CPI Index History
         </h3>
@@ -237,7 +237,7 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Inflation Breakdown by Category */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Typical Inflation by Category (2024 data)
         </h3>
@@ -264,7 +264,7 @@ export default function USInflationCalculator() {
       </div>
 
       {/* Information */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">📊 About Inflation</h3>
         <div className="space-y-2 text-sm text-text-secondary">
           <p>

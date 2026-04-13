@@ -35,9 +35,9 @@ export default function USOvertimeCalculator() {
   }, [hourlyRate, hoursWorked, overtimeThreshold, overtimeMultiplier]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">Overtime Calculator</h2>
 
         {/* Hourly Rate */}
@@ -119,7 +119,7 @@ export default function USOvertimeCalculator() {
       </div>
 
       {/* Summary Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-blue-600 text-sm font-medium mb-1">Weekly Gross Pay</p>
         <p className="font-mono text-4xl font-bold text-blue-700">{fmt(calculations.totalPay)}</p>
         <p className="text-blue-600 text-xs mt-2">
@@ -128,7 +128,7 @@ export default function USOvertimeCalculator() {
       </div>
 
       {/* Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Pay Breakdown</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -155,7 +155,7 @@ export default function USOvertimeCalculator() {
       </div>
 
       {/* Information */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">How Overtime Works</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• <strong>Standard:</strong> Hours up to the threshold are paid at regular rate</li>

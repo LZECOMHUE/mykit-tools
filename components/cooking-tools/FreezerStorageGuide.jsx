@@ -28,7 +28,7 @@ export default function FreezerStorageGuide() {
   );
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-primary mb-2">
           Search Foods
@@ -42,13 +42,13 @@ export default function FreezerStorageGuide() {
         />
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Freezer Storage Times
         </h3>
 
         {filtered.length === 0 ? (
-          <p className="text-center text-text-secondary py-8">No results found</p>
+          <p className="text-center text-text-secondary py-4">No results found</p>
         ) : (
           <div className="space-y-3">
             {filtered.map((item) => (
@@ -66,7 +66,7 @@ export default function FreezerStorageGuide() {
         )}
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           General Tips
         </h3>

@@ -122,7 +122,7 @@ export default function RouletteWheel() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Variant selector */}
       <div className="flex justify-center gap-4">
         <Button
@@ -152,7 +152,7 @@ export default function RouletteWheel() {
       </div>
 
       {/* Wheel */}
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-4">
         <div className="relative w-full max-w-md aspect-square">
           {/* Pointer */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex justify-center">
@@ -280,8 +280,8 @@ export default function RouletteWheel() {
       </div>
 
       {/* Betting table */}
-      <Card className="p-6 bg-surface">
-        <div className="space-y-6">
+      <Card className="bg-surface">
+        <div className="space-y-4">
           {/* Balance and chip selector */}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
             <div>

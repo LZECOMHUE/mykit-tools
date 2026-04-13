@@ -69,11 +69,10 @@ export default function CompoundInterestCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">Compound Interest Calculator</h2>
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
 
       {/* Inputs */}
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-4">
         {/* Principal Amount */}
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -158,7 +157,7 @@ export default function CompoundInterestCalculator() {
       </div>
 
       {/* Results Summary */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border space-y-4">
+      <div className="bg-white rounded-[var(--radius-card)] mb-4 border border-border space-y-4">
         <div>
           <p className="text-text-secondary text-sm mb-1">Final Amount</p>
           <p className="text-3xl font-bold text-accent font-mono-num">
@@ -183,7 +182,7 @@ export default function CompoundInterestCalculator() {
       </div>
 
       {/* Formula */}
-      <div className="bg-white rounded-[var(--radius-card)] p-4 mb-8 border border-border">
+      <div className="bg-white rounded-[var(--radius-card)] p-4 mb-4 border border-border">
         <p className="text-sm text-text-secondary mb-2">Formula Used:</p>
         <p className="font-mono-num text-text-primary">A = P(1 + r/n)^(nt)</p>
         <p className="text-xs text-text-muted mt-2">Where: A = Final amount, P = Principal, r = Rate, n = Compounds per year, t = Time in years</p>

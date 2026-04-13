@@ -96,14 +96,10 @@ export default function CouplesQuizGenerator() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {!quiz ? (
-        <Card>
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-            Couples Quiz Configuration
-          </h2>
-
-          <div className="space-y-4 mb-6">
+        <div className="space-y-4">
+          <div className="space-y-4 mb-4">
             <Input
               label="Partner 1 Name"
               type="text"
@@ -170,11 +166,11 @@ export default function CouplesQuizGenerator() {
           <Button onClick={generateQuiz} className="w-full">
             Generate Couples Quiz
           </Button>
-        </Card>
+        </div>
       ) : (
         <div className="space-y-4">
           <Card>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
               <div>
                 <h2 className="font-heading text-2xl font-bold text-text-primary">
                   How Well Do You Know Me?
@@ -191,7 +187,7 @@ export default function CouplesQuizGenerator() {
               </Button>
             </div>
 
-            <div className="flex gap-2 mb-6">
+            <div className="flex gap-2 mb-4">
               <Button
                 onClick={() => setCurrentPerson(1)}
                 className={`flex-1 ${
@@ -212,7 +208,7 @@ export default function CouplesQuizGenerator() {
               </Button>
             </div>
 
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4 mb-4">
               {quiz.questions.map((q) => (
                 <div
                   key={q.number}

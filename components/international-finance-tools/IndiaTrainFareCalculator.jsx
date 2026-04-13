@@ -123,8 +123,8 @@ export default function IndiaTrainFareCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -163,7 +163,7 @@ export default function IndiaTrainFareCalculator() {
 
       {fareDetails && (
         <>
-          <Card className="p-6 bg-accent-muted">
+          <Card className="bg-accent-muted">
             <h3 className="font-heading text-lg font-bold text-primary mb-2">
               Approximate Fare
             </h3>
@@ -172,7 +172,7 @@ export default function IndiaTrainFareCalculator() {
             </p>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Fare Breakdown
             </h3>
@@ -227,7 +227,7 @@ export default function IndiaTrainFareCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Common Routes
             </h3>

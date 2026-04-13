@@ -79,8 +79,8 @@ export default function HalloweenCostumeIdeaGenerator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">Age Group</label>
           <Select value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)} className="w-full">
@@ -130,7 +130,7 @@ export default function HalloweenCostumeIdeaGenerator() {
           <h3 className="font-heading text-lg font-bold text-text-primary">Costume Ideas</h3>
           <div className="space-y-3">
             {ideas.map((costume, idx) => (
-              <div key={idx} className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+              <div key={idx} className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="font-heading text-base font-bold text-text-primary">{costume.name}</h4>
                   <span className={`px-3 py-1 rounded text-xs font-medium ${

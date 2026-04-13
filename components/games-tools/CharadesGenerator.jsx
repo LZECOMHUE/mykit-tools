@@ -150,7 +150,7 @@ export default function CharadesGenerator() {
 
   if (!gameStarted) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Card className="bg-gradient-to-br from-red-50 to-orange-50">
           <div className="space-y-4">
             <Select
@@ -202,7 +202,7 @@ export default function CharadesGenerator() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-red-50 to-orange-50">
         <div className="space-y-3 text-center">
           <p className="text-sm text-text-secondary">Round {roundCount}</p>

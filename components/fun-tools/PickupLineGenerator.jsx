@@ -85,7 +85,7 @@ export default function PickupLineGenerator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(currentLine);
+    navigator.clipboard.writeText(currentLine).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -93,7 +93,7 @@ export default function PickupLineGenerator() {
   const rating = ratings[currentLine];
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-[var(--radius-card)]">
         <p className="text-text-secondary text-sm">
           Remember: these are for fun and entertainment! Always be respectful and genuine in real interactions.
@@ -118,7 +118,7 @@ export default function PickupLineGenerator() {
         </select>
       </div>
 
-      <div className="bg-surface p-6 rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
+      <div className="bg-surface rounded-[var(--radius-card)] min-h-32 flex items-center justify-center">
         <p className="text-xl text-text-primary font-medium text-center leading-relaxed italic">
           "{currentLine}"
         </p>

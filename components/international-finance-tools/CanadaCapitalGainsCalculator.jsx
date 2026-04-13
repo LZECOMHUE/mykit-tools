@@ -45,8 +45,8 @@ export default function CanadaCapitalGainsCalculator() {
   const effectiveTaxRate = capitalGain > 0 ? (estimatedTax / capitalGain) * 100 : 0;
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Property or Investment Sale
         </h2>
@@ -91,7 +91,7 @@ export default function CanadaCapitalGainsCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Capital Gain Calculation
         </h2>
@@ -118,7 +118,7 @@ export default function CanadaCapitalGainsCalculator() {
       </Card>
 
       {!isPrincipalResidence && (
-        <Card className="p-6 bg-green-50 border border-green-200">
+        <Card className="bg-green-50 border border-green-200">
           <h2 className="font-heading text-lg font-bold text-primary mb-4">
             Tax on Capital Gain
           </h2>
@@ -163,7 +163,7 @@ export default function CanadaCapitalGainsCalculator() {
         </Card>
       )}
 
-      <Card className="p-6 bg-orange-50 border border-orange-200">
+      <Card className="bg-orange-50 border border-orange-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Net Proceeds
         </h2>
@@ -196,7 +196,7 @@ export default function CanadaCapitalGainsCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Capital Gains Information
         </h2>
@@ -228,7 +228,7 @@ export default function CanadaCapitalGainsCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator is for estimation only and does not include acquisition costs, sale fees, or eligible deductions that could reduce your gain. The 50% inclusion rate applies as of March 2025. For investment properties, rental income considerations, and complex situations, consult the Canada Revenue Agency (CRA) website or a tax professional. Your actual tax liability may differ.
         </p>

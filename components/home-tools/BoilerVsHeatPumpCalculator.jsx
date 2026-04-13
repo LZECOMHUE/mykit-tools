@@ -136,10 +136,10 @@ export default function BoilerVsHeatPumpCalculator() {
   );
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
-        <h2 className="text-2xl font-bold font-heading text-text-primary">Boiler vs Heat Pump Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
+
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Select
@@ -207,9 +207,9 @@ export default function BoilerVsHeatPumpCalculator() {
       </div>
 
       {/* Side-by-Side Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Boiler Column */}
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-xl font-bold font-heading text-text-primary mb-4">Gas Boiler</h3>
 
           <div className="space-y-4">
@@ -257,7 +257,7 @@ export default function BoilerVsHeatPumpCalculator() {
         </div>
 
         {/* Heat Pump Column */}
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-xl font-bold font-heading text-green-900 mb-4">Air Source Heat Pump</h3>
 
           <div className="space-y-4">
@@ -313,8 +313,8 @@ export default function BoilerVsHeatPumpCalculator() {
       </div>
 
       {/* 10-Year Cost Comparison */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
-        <h3 className="text-lg font-bold font-heading text-text-primary mb-6">10-Year Total Cost Comparison</h3>
+      <div className="bg-white border border-border rounded-[12px]">
+        <h3 className="text-lg font-bold font-heading text-text-primary mb-4">10-Year Total Cost Comparison</h3>
 
         <div className="space-y-4">
           {calculations.gasCosts.map((year, idx) => {
@@ -368,8 +368,8 @@ export default function BoilerVsHeatPumpCalculator() {
       </div>
 
       {/* Pros and Cons */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Gas Boiler Pros & Cons</h3>
 
           <div className="space-y-4">
@@ -397,7 +397,7 @@ export default function BoilerVsHeatPumpCalculator() {
           </div>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Heat Pump Pros & Cons</h3>
 
           <div className="space-y-4">
@@ -429,7 +429,7 @@ export default function BoilerVsHeatPumpCalculator() {
       </div>
 
       {/* When to Choose Which */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">Which Should You Choose?</h3>
 
         <div className="space-y-3 text-sm text-amber-800">
@@ -458,7 +458,7 @@ export default function BoilerVsHeatPumpCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-blue-50 border border-blue-200 rounded-[12px] p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-blue-900 mb-4">💡 Best Approach</h3>
         <ol className="space-y-2 text-sm text-blue-800 list-decimal list-inside">
           <li><span className="font-semibold">Improve insulation first:</span> Better insulation increases heat pump efficiency and reduces costs</li>

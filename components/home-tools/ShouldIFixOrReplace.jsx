@@ -64,8 +64,8 @@ export default function ShouldIFixOrReplace() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {/* Item & Costs */}
         <Card>
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
@@ -171,7 +171,7 @@ export default function ShouldIFixOrReplace() {
       </div>
 
       {/* Recommendation */}
-      <Card className={`mb-6 text-center py-8 ${
+      <Card className={`mb-4 text-center py-4 ${
         results.recommendation === 'Replace'
           ? 'bg-success/5 border-success/30'
           : 'bg-accent/5 border-accent/30'
@@ -193,7 +193,7 @@ export default function ShouldIFixOrReplace() {
       </Card>
 
       {/* Detailed Analysis */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <Card>
           <h3 className="text-sm text-text-secondary font-medium mb-3">If you repair it</h3>
           <div className="space-y-2">
@@ -248,7 +248,7 @@ export default function ShouldIFixOrReplace() {
       </div>
 
       {/* Other Factors */}
-      <Card className="mb-6 bg-info/5 border-info/20">
+      <Card className="mb-4 bg-info/5 border-info/20">
         <h3 className="text-sm font-medium text-text-primary mb-2">Other factors to consider</h3>
         <ul className="text-xs text-text-secondary space-y-1">
           <li>✓ Energy efficiency of new models</li>

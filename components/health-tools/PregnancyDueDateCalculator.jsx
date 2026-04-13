@@ -75,10 +75,8 @@ export default function PregnancyDueDateCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-primary mb-6">Pregnancy Due Date Calculator</h2>
-
-      <div className="space-y-4 mb-8">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
+      <div className="space-y-4 mb-4">
         {/* Date Mode Toggle */}
         <div>
           <label className="block text-sm font-medium text-secondary mb-2">Calculate from</label>

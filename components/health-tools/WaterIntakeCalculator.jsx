@@ -62,10 +62,8 @@ export default function WaterIntakeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">Daily Water Intake Calculator</h2>
-
-      <div className="space-y-4 mb-8">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
+      <div className="space-y-4 mb-4">
         {/* Weight Unit Toggle */}
         <div className="flex gap-2">
           {['kg', 'lbs'].map((unit) => (

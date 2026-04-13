@@ -89,7 +89,7 @@ export default function PasswordGenerator() {
   const handleCopy = async () => {
     if (!password) return;
     try {
-      await navigator.clipboard.writeText(password);
+      await navigator.clipboard.writeText(password).catch(() => {});
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -108,7 +108,7 @@ export default function PasswordGenerator() {
   const hasAnyOption = Object.values(options).slice(0, 4).some(v => v);
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Password Display Card */}
       <div className="bg-white border border-border rounded-[var(--radius-card)] p-4">
         <div className="flex items-center justify-between gap-4">

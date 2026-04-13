@@ -255,7 +255,7 @@ export default function PackingListGenerator() {
   return (
     <div className="w-full max-w-3xl mx-auto space-y-5">
       {/* Configuration */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-5">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1.5">Destination Type</label>

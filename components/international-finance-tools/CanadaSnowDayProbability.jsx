@@ -103,7 +103,7 @@ export default function CanadaSnowDayProbability() {
   ];
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* City Selection */}
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -123,7 +123,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* Weather Inputs */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         {factors.map((factor) => (
           <div key={factor.label}>
             <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -148,7 +148,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* School Board Setting */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           School Board Type
         </label>
@@ -175,7 +175,7 @@ export default function CanadaSnowDayProbability() {
 
       {/* Probability Display */}
       <div
-        className={`rounded-lg p-8 border-2 text-center ${
+        className={`rounded-lg border-2 text-center ${
           calculateProbability.probability >= 70
             ? 'bg-gradient-to-r from-green-100 to-green-50 border-green-300'
             : calculateProbability.probability >= 50
@@ -195,7 +195,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* Factors Breakdown */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Probability Factors
         </h3>
@@ -232,7 +232,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* Snow Day Info */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">❄️ Snow Day Information</h3>
         <ul className="space-y-2 text-sm text-blue-800">
           <li>
@@ -254,7 +254,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* Historical Snow Days */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Average Snow Days by Region
         </h3>
@@ -280,7 +280,7 @@ export default function CanadaSnowDayProbability() {
       </div>
 
       {/* Fun Note */}
-      <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+      <div className="bg-purple-50 border border-purple-200 rounded-lg">
         <p className="text-sm text-purple-800">
           ❓ Did you know? Some kids check the weather obsessively on winter
           mornings hoping for a snow day announcement. This calculator is just

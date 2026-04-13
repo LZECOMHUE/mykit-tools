@@ -73,7 +73,7 @@ export default function IrregularCycleOvulationEstimator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card>
         <div className="space-y-4">
           <p className="text-secondary text-sm">

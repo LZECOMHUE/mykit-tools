@@ -66,7 +66,7 @@ export default function RockPaperScissors() {
   const gameLost = stats.losses === roundsNeeded;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-violet-50 to-indigo-50">
         <div className="space-y-4">
           <Select

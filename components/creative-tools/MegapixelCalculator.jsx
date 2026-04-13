@@ -146,7 +146,7 @@ export default function MegapixelCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Mode Selector */}
       <div className="flex gap-1 border-b border-border mb-4">
         {[
@@ -170,9 +170,9 @@ export default function MegapixelCalculator() {
       {mode === 'resolution-to-mp' ? (
         // RESOLUTION TO MP MODE
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Input */}
-            <Card className="p-6 border border-border">
+            <Card className="border border-border">
               <h3 className="font-heading font-semibold mb-4">Image Resolution</h3>
               <div className="space-y-4">
                 <Input
@@ -193,7 +193,7 @@ export default function MegapixelCalculator() {
             </Card>
 
             {/* Results */}
-            <Card className="p-6 border border-border bg-surface">
+            <Card className="border border-border bg-surface">
               <h3 className="font-heading font-semibold mb-4">Results</h3>
               <div className="space-y-3">
                 <div className="p-4 bg-white rounded-lg border border-border">
@@ -261,9 +261,9 @@ export default function MegapixelCalculator() {
             </div>
           </Card>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Input */}
-            <Card className="p-6 border border-border">
+            <Card className="border border-border">
               <h3 className="font-heading font-semibold mb-4">Specifications</h3>
               <div className="space-y-4">
                 <Input
@@ -284,7 +284,7 @@ export default function MegapixelCalculator() {
             </Card>
 
             {/* Results */}
-            <Card className="p-6 border border-border bg-surface">
+            <Card className="border border-border bg-surface">
               <h3 className="font-heading font-semibold mb-4">Possible Resolution</h3>
               <div className="space-y-3">
                 <div className="p-4 bg-white rounded-lg border border-border">
@@ -320,7 +320,7 @@ export default function MegapixelCalculator() {
       )}
 
       {/* Print Quality Guide */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="font-heading font-semibold mb-4">Print Quality at Various Sizes</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -351,7 +351,7 @@ export default function MegapixelCalculator() {
       </Card>
 
       {/* Quality Legend */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="font-heading font-semibold mb-4">Print Quality Ratings</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <div className="p-3 rounded-lg bg-error bg-opacity-10 border border-error border-opacity-20">

@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 
 export default function PriorityRanker() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(['Learn guitar', 'Start a business', 'Travel more']);
   const [newItem, setNewItem] = useState('');
   const [comparisons, setComparisons] = useState(null);
   const [wins, setWins] = useState({});
@@ -41,7 +39,6 @@ export default function PriorityRanker() {
     }
   };
 
-  // Get pairwise comparisons
   const comparisonPairs = useMemo(() => {
     const pairs = [];
     for (let i = 0; i < items.length; i++) {
@@ -76,59 +73,53 @@ export default function PriorityRanker() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <Card className="mb-6">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
-          Priority Ranker
-        </h2>
-        <p className="text-text-secondary text-sm mb-4">
-          Add 3-10 items and we'll rank them based on pairwise comparisons
-        </p>
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-3">
+      <p className="text-text-secondary text-sm">
+        Add 3-10 items and rank them by pairwise comparison
+      </p>
 
-        <div className="space-y-3 mb-4">
-          <Input
-            label="Add item"
-            placeholder="e.g., Learn Spanish"
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') addItem();
-            }}
-          />
-          <Button onClick={addItem} variant="primary" className="w-full">
-            Add Item
-          </Button>
-        </div>
+      <div className="flex gap-2">
+        <input
+          type="text"
+          placeholder="e.g., Learn Spanish"
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Enter') addItem(); }}
+          className="flex-1 px-3 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+        />
+        <Button onClick={addItem} variant="primary">
+          Add
+        </Button>
+      </div>
 
-        {items.length > 0 && (
-          <div className="space-y-2 mb-4">
-            {items.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-center justify-between p-3 bg-surface rounded-lg"
+      {items.length > 0 && (
+        <div className="space-y-2">
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center justify-between p-3 bg-surface rounded-lg"
+            >
+              <span className="text-text-primary font-medium">{item}</span>
+              <button
+                onClick={() => removeItem(idx)}
+                className="text-error hover:text-error/70 text-sm"
               >
-                <span className="text-text-primary font-medium">{item}</span>
-                <button
-                  onClick={() => removeItem(idx)}
-                  className="text-error hover:text-error/70 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
 
-        {items.length >= 3 && comparisons === null && (
-          <Button onClick={startRanking} variant="primary" className="w-full">
-            Start Ranking ({totalComparisons} comparisons)
-          </Button>
-        )}
-      </Card>
+      {items.length >= 3 && comparisons === null && Object.keys(wins).length === 0 && (
+        <Button onClick={startRanking} variant="primary" className="w-full">
+          Start Ranking ({totalComparisons} comparisons)
+        </Button>
+      )}
 
       {/* Comparison UI */}
       {comparisons !== null && comparisonPairs[comparisons] && (
-        <Card className="mb-6 bg-accent/5">
+        <div className="bg-accent/5 rounded-[var(--radius-card)] p-4">
           <div className="mb-4">
             <p className="text-text-secondary text-sm mb-2">
               Question {comparisons + 1} of {totalComparisons}
@@ -141,7 +132,7 @@ export default function PriorityRanker() {
             </div>
           </div>
 
-          <p className="text-text-primary text-center font-medium mb-6">
+          <p className="text-text-primary text-center font-medium mb-4">
             Which is more important?
           </p>
 
@@ -161,15 +152,15 @@ export default function PriorityRanker() {
               <span className="block">{comparisonPairs[comparisons][1]}</span>
             </Button>
           </div>
-        </Card>
+        </div>
       )}
 
       {/* Results */}
       {comparisons === null && Object.keys(wins).length > 0 && (
-        <Card className="mb-6">
-          <h3 className="font-heading text-xl font-bold text-text-primary mb-4">Rankings</h3>
+        <div>
+          <h3 className="font-heading text-xl font-bold text-text-primary mb-3">Rankings</h3>
 
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2 mb-4">
             {rankedItems.map((item, idx) => (
               <div
                 key={item.item}
@@ -191,7 +182,7 @@ export default function PriorityRanker() {
           <Button onClick={reset} variant="secondary" className="w-full">
             Reset
           </Button>
-        </Card>
+        </div>
       )}
     </div>
   );

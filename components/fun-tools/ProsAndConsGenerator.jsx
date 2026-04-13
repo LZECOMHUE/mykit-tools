@@ -59,8 +59,8 @@ export default function ProsAndConsGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Pros Column */}
         <Card className="border-success/30 bg-success/5">
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">Pros</h2>

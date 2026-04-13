@@ -65,14 +65,14 @@ export default function HexToRgb() {
   };
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-lg border border-border">
-      <div className="space-y-6">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-lg border border-border">
+      <div className="space-y-4">
         {/* Colour Preview */}
-        <div className="p-6 rounded-lg border border-border bg-white flex items-center justify-center min-h-40">
+        <div className="p-4 rounded-lg border border-border bg-white flex items-center justify-center min-h-40">
           <div
             className="w-32 h-32 rounded-lg shadow-lg border-4 border-border transition-colors"
             style={{ backgroundColor: colors.preview || '#ffffff' }}

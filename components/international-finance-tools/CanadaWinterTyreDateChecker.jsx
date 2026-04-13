@@ -85,7 +85,7 @@ export default function CanadaWinterTyreDateChecker() {
   ];
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Province Selection */}
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -106,7 +106,7 @@ export default function CanadaWinterTyreDateChecker() {
 
       {/* Rule Summary */}
       <div
-        className={`rounded-lg p-8 border-2 ${
+        className={`rounded-lg border-2 ${
           rule.required
             ? 'bg-red-50 border-red-200'
             : 'bg-yellow-50 border-yellow-200'
@@ -131,7 +131,7 @@ export default function CanadaWinterTyreDateChecker() {
       </div>
 
       {/* Calendar View */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Winter Tire Calendar
         </h3>
@@ -172,7 +172,7 @@ export default function CanadaWinterTyreDateChecker() {
       </div>
 
       {/* Winter Tire Facts */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">❄️ Winter Tire Facts</h3>
         <div className="space-y-2 text-sm text-blue-800">
           <p>
@@ -194,7 +194,7 @@ export default function CanadaWinterTyreDateChecker() {
       </div>
 
       {/* Changeover Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
+      <div className="bg-accent/5 border border-accent/20 rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           🔧 Tire Changeover Tips
         </h3>
@@ -215,7 +215,7 @@ export default function CanadaWinterTyreDateChecker() {
       </div>
 
       {/* Provincial Comparison */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-3">
           Winter Tire Requirements by Province
         </h3>

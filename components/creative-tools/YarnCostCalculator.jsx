@@ -125,7 +125,7 @@ export default function YarnCostCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 items-start">
         {/* Left: Configuration */}
@@ -245,7 +245,7 @@ export default function YarnCostCalculator() {
         {/* Right: Hero Results */}
         {results && (
           <Card className="bg-accent-muted border-accent-muted">
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
                 <h3 className="text-text-secondary text-[13px] font-medium mb-1">Estimated Cost</h3>
                 <p className="font-mono text-4xl font-bold text-accent">
@@ -290,17 +290,17 @@ export default function YarnCostCalculator() {
       </div>
 
       {/* Info Section */}
-      <Card className="bg-info/10 border-info">
-        <div className="space-y-3">
-          <p className="font-medium text-text-primary text-sm">About This Calculator</p>
-          <ul className="text-text-secondary text-sm space-y-2 list-disc list-inside">
+      <details className="text-xs text-text-muted mt-2">
+        <summary className="cursor-pointer hover:text-text-secondary">About this calculator</summary>
+        <div className="mt-2 space-y-1">
+          <ul className="space-y-1 list-disc list-inside">
             <li>Yardage estimates are pre-built for common projects and sizes</li>
             <li>We add 1 extra ball to account for gauge swatches and mistakes</li>
             <li>Time estimates assume an average knitting speed of 20 metres per hour</li>
             <li>Override yardage with your pattern's requirements for accuracy</li>
           </ul>
         </div>
-      </Card>
+      </details>
     </div>
   );
 }

@@ -127,8 +127,8 @@ export default function MovingHouseChecklist() {
   const progressPercent = totalTasks > 0 ? Math.round((completedCount / totalTasks) * 100) : 0;
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <label className="block text-text-secondary text-sm font-medium mb-2">
           When are you moving?
         </label>
@@ -141,7 +141,7 @@ export default function MovingHouseChecklist() {
       </div>
 
       {movingDate && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           <Button
             onClick={handleDownloadJPG}
             variant="primary"
@@ -150,7 +150,7 @@ export default function MovingHouseChecklist() {
             Download Checklist JPG
           </Button>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-heading text-lg font-bold text-text-primary">Progress</h3>
               <span className="font-mono text-2xl font-bold text-accent">{progressPercent}%</span>
@@ -166,7 +166,7 @@ export default function MovingHouseChecklist() {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {Object.entries(groupedTasks).map(([category, categoryTasks]) => (
               <div key={category} className="space-y-3">
                 <h3 className="font-heading text-base font-bold text-text-primary">{category}</h3>

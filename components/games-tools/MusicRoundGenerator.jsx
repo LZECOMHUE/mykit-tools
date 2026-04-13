@@ -62,13 +62,9 @@ export default function MusicRoundGenerator() {
   };
 
   return (
-    <div className="space-y-8">
-      <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-          Music Round Configuration
-        </h2>
-
-        <div className="space-y-4 mb-6">
+    <div className="space-y-4">
+      <div className="space-y-4">
+        <div className="space-y-4 mb-4">
           <div>
             <label className="text-text-secondary text-sm font-medium block mb-2">
               Number of Questions: {config.numberOfQuestions}
@@ -120,12 +116,12 @@ export default function MusicRoundGenerator() {
         <Button onClick={generateRound} className="w-full">
           Generate Music Round
         </Button>
-      </Card>
+      </div>
 
       {round && (
         <div className="space-y-4">
           <Card>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
               <h2 className="font-heading text-2xl font-bold text-text-primary">
                 Music Round
               </h2>

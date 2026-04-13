@@ -130,7 +130,7 @@ export default function USStudentLoanCalculator() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Enter your loan details to calculate repayment</p>
       </div>
     );
@@ -139,12 +139,12 @@ export default function USStudentLoanCalculator() {
   const selected = calculations.selectedRepayment;
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">Student Loan Calculator</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">Total Loan Balance ($)</label>
             <input
@@ -253,7 +253,7 @@ export default function USStudentLoanCalculator() {
 
       {/* Extra Payment Benefit */}
       {parseFloat(extraPayment) > 0 && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <h3 className="text-text-primary font-bold mb-2">By Paying Extra...</h3>
           <p className="text-text-secondary mb-3">
             You'll save <span className="font-mono font-bold text-green-600">{fmt(calculations.monthSavingsWithExtra)}</span> in interest and pay off your loan{' '}
@@ -263,7 +263,7 @@ export default function USStudentLoanCalculator() {
       )}
 
       {/* Repayment Schedule */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Repayment Schedule</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -310,7 +310,7 @@ export default function USStudentLoanCalculator() {
       </div>
 
       {/* Detailed amortization */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Payment Details (Selected Months)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -342,7 +342,7 @@ export default function USStudentLoanCalculator() {
       </div>
 
       {/* Repayment plan comparison */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Compare Repayment Plans</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -374,7 +374,7 @@ export default function USStudentLoanCalculator() {
       </div>
 
       {/* Notes */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Loan Repayment Notes</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Federal student loans have various repayment options (Standard, Graduated, Extended, Income-Based)</li>

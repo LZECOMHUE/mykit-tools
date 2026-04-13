@@ -66,9 +66,9 @@ export default function ScreenSizeCalculator() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Screen Diagonal (inches)
@@ -161,7 +161,7 @@ export default function ScreenSizeCalculator() {
 
       {/* Results Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-xs font-medium uppercase mb-1">
             Width
           </p>
@@ -173,7 +173,7 @@ export default function ScreenSizeCalculator() {
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-xs font-medium uppercase mb-1">
             Height
           </p>
@@ -185,7 +185,7 @@ export default function ScreenSizeCalculator() {
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-xs font-medium uppercase mb-1">
             Aspect Ratio
           </p>
@@ -197,7 +197,7 @@ export default function ScreenSizeCalculator() {
 
       {/* Screen Area */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-xs font-medium uppercase mb-2">
             Screen Area (Inches)
           </p>
@@ -206,7 +206,7 @@ export default function ScreenSizeCalculator() {
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-xs font-medium uppercase mb-2">
             Screen Area (CM)
           </p>
@@ -217,11 +217,11 @@ export default function ScreenSizeCalculator() {
       </div>
 
       {/* Visual Representation */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">
           Visual Scale (not actual size)
         </h3>
-        <div className="flex items-center justify-center py-8 px-4">
+        <div className="flex items-center justify-center py-4 px-4">
           <div
             className="bg-blue-200 border-2 border-accent rounded-[4px]"
             style={{
@@ -244,7 +244,7 @@ export default function ScreenSizeCalculator() {
       </div>
 
       {/* Common Screens Reference Table */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">Common Screens</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -313,7 +313,7 @@ export default function ScreenSizeCalculator() {
       </div>
 
       {/* Conversion Reference */}
-      <div className="bg-blue-100 border border-info rounded-[12px] p-4 sm:p-6">
+      <div className="bg-blue-100 border border-info rounded-[12px] p-4 sm:p-4">
         <p className="text-text-secondary text-sm mb-2">
           <span className="font-medium text-info">Conversion:</span> 1 inch = 2.54 cm
         </p>

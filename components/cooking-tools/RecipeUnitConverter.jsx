@@ -205,7 +205,7 @@ export default function RecipeUnitConverter() {
     const textToCopy = useIngredientMode && ingredientResult
       ? `${ingredientResult} ${toUnit}`
       : `${result} ${toUnit}`;
-    navigator.clipboard.writeText(textToCopy);
+    navigator.clipboard.writeText(textToCopy).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -218,7 +218,7 @@ export default function RecipeUnitConverter() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Category Tabs */}
       <div className="flex gap-2 border-b border-border">
         {['volume', 'weight', 'temperature'].map((cat) => (
@@ -302,7 +302,7 @@ export default function RecipeUnitConverter() {
 
         {/* Result Display */}
         {value && (
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <div className="space-y-2">
               <p className="text-text-secondary text-sm">Result:</p>
               <div className="flex items-baseline gap-2">
@@ -377,7 +377,7 @@ export default function RecipeUnitConverter() {
       )}
 
       {/* Quick Reference Table */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h3 className="text-lg font-bold text-text-primary mb-4">
           Quick Reference
         </h3>

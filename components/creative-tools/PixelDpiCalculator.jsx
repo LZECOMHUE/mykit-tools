@@ -101,7 +101,7 @@ export default function PixelDpiCalculator() {
   }, [widthPx, heightPx, physicalWidth, physicalHeight, unit, dpi]);
 
   const copyToClipboard = (value, key) => {
-    navigator.clipboard.writeText(value.toString());
+    navigator.clipboard.writeText(value.toString().catch(() => {}));
     setCopied(key);
     setTimeout(() => setCopied(null), 2000);
   };
@@ -115,7 +115,7 @@ export default function PixelDpiCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Presets */}
       <Card className="p-4 border-accent-muted bg-accent-muted">
         <h3 className="font-heading font-semibold mb-3 text-sm">Quick Presets</h3>
@@ -133,9 +133,9 @@ export default function PixelDpiCalculator() {
         </div>
       </Card>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {/* Pixels Section */}
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-4">Dimensions (Pixels)</h3>
           <div className="space-y-4">
             <div>
@@ -186,7 +186,7 @@ export default function PixelDpiCalculator() {
         </Card>
 
         {/* Physical Size Section */}
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-4">Physical Size</h3>
           <div className="space-y-4">
             <div>
@@ -246,7 +246,7 @@ export default function PixelDpiCalculator() {
         </Card>
 
         {/* Resolution Section */}
-        <Card className="p-6 border border-border">
+        <Card className="border border-border">
           <h3 className="font-heading font-semibold mb-4">Resolution</h3>
           <div className="space-y-4">
             <div>

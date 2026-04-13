@@ -42,7 +42,7 @@ export default function ReceiptGenerator() {
       text += `VAT (20%): £${vat.toFixed(2)}\n`;
     }
     text += `Total: £${total.toFixed(2)}\n`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const handleDownloadJPG = () => {
@@ -138,7 +138,7 @@ export default function ReceiptGenerator() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-primary mb-2">
           Business Name
@@ -151,7 +151,7 @@ export default function ReceiptGenerator() {
         />
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Items
         </h3>
@@ -212,7 +212,7 @@ export default function ReceiptGenerator() {
         <label className="text-sm font-medium text-text-primary">Include VAT (20%)</label>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-6 font-mono text-sm">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border font-mono text-sm">
         <p className="text-center font-bold text-text-primary text-lg mb-4">{businessName}</p>
         <p className="text-center text-text-secondary mb-4">Receipt</p>
         <div className="border-t border-b border-border py-3 space-y-1">

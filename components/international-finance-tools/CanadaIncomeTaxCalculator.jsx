@@ -277,8 +277,8 @@ export default function CanadaIncomeTaxCalculator() {
                         (calculateProvincialTax(taxableIncome + 1000) - provincialTax) / 1000) * 100;
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           Income & Contributions
         </h2>
@@ -315,7 +315,7 @@ export default function CanadaIncomeTaxCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Tax Breakdown
         </h2>
@@ -347,7 +347,7 @@ export default function CanadaIncomeTaxCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Summary
         </h2>
@@ -383,7 +383,7 @@ export default function CanadaIncomeTaxCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator is for estimation purposes only and is based on 2025 Canadian tax rates and limits. Tax laws change regularly. For accurate tax advice, consult the Canada Revenue Agency (CRA) website or a certified tax professional. CPP contributions shown are employee contributions only; employers contribute equally.
         </p>

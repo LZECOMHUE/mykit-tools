@@ -178,7 +178,7 @@ export default function CakePricingCalculator() {
       {/* Right Panel - Results */}
       <div className="flex flex-col gap-4">
         {/* Hero Banner */}
-        <div className="p-6 rounded-[var(--radius-card)] bg-accent-muted border border-border">
+        <div className="p-4 rounded-[var(--radius-card)] bg-accent-muted border border-border">
           <p className="text-text-muted text-[12px] uppercase tracking-wide mb-2">Suggested Selling Price</p>
           <p className="font-heading text-4xl font-bold text-accent mb-2">
             £{calculations.sellingPrice.toFixed(2)}

@@ -83,13 +83,13 @@ export default function EmotionalLabourCalculator() {
 
   const handleCopy = () => {
     const text = `My invisible mental load is worth ${formatCurrency(totalEmotionalLabour, country)}/year. That's the value of the emotional labour I do - remembering, planning, worrying, managing relationships. This doesn't include physical unpaid work. Calculate yours: mykit.tools/emotional-labour-calculator`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
       {/* ── Controls: compact inline row ── */}
       <div className="flex flex-wrap items-end gap-3 mb-4">
         <div className="w-44">

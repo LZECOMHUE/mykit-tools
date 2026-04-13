@@ -116,7 +116,7 @@ export default function CountryComparisonTool() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-secondary mb-2">
             Select countries to compare

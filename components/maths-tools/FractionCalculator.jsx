@@ -162,9 +162,9 @@ export default function FractionCalculator() {
   };
 
   return (
-    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)]">
       {/* Mode Selector */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           Mode
         </label>
@@ -201,7 +201,7 @@ export default function FractionCalculator() {
       {mode === 'operation' && (
         <>
           {/* Operation Selector */}
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-text-secondary mb-3">
               Operation
             </label>
@@ -228,7 +228,7 @@ export default function FractionCalculator() {
           </div>
 
           {/* First Fraction */}
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-text-secondary mb-3">
               First Fraction
             </label>
@@ -252,7 +252,7 @@ export default function FractionCalculator() {
           </div>
 
           {/* Second Fraction */}
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-text-secondary mb-3">
               Second Fraction
             </label>
@@ -278,7 +278,7 @@ export default function FractionCalculator() {
       )}
 
       {mode === 'simplify' && (
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-secondary mb-3">
             Fraction to Simplify
           </label>
@@ -304,7 +304,7 @@ export default function FractionCalculator() {
 
       {/* Result */}
       {result && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
           <div className="mb-4">
             <p className="text-text-secondary text-sm mb-3">Step-by-step:</p>
             <div className="space-y-1">
@@ -340,7 +340,7 @@ export default function FractionCalculator() {
       )}
 
       {!result && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4 text-center">
           <p className="text-text-muted">
             {mode === 'operation'
               ? 'Enter both fractions to calculate'

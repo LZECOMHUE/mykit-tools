@@ -37,7 +37,7 @@ export default function TapTempo() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 sm:p-6 flex flex-col items-center justify-center min-h-screen space-y-8">
+    <div className="w-full max-w-md mx-auto p-4 sm:p-4 flex flex-col items-center justify-center space-y-4">
       {/* BPM Display */}
       <div className="text-center space-y-2 w-full">
         <p className="text-text-secondary text-sm font-medium">BPM</p>

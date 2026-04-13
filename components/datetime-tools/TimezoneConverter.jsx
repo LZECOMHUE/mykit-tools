@@ -126,7 +126,7 @@ export default function TimezoneConverter() {
   const targetTzName = TIMEZONES.find((tz) => tz.value === targetTimezone)?.name || targetTimezone;
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Inputs */}
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">

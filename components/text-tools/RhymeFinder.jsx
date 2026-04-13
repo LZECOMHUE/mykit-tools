@@ -36,7 +36,7 @@ export default function RhymeFinder() {
   };
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const handleKeyPress = (e) => {
@@ -52,7 +52,7 @@ export default function RhymeFinder() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-secondary mb-2">
             Enter a word

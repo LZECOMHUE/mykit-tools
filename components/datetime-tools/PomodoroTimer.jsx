@@ -214,9 +214,9 @@ export default function PomodoroTimer() {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 py-8">
+    <div className="w-full max-w-md mx-auto px-4 py-4">
       {/* Settings Panel */}
-      <Card className="mb-8 p-6 border border-border">
+      <Card className="mb-4 border border-border">
         <h2 className="text-lg font-semibold text-text-primary mb-4">Settings</h2>
 
         <div className="space-y-4">
@@ -281,9 +281,9 @@ export default function PomodoroTimer() {
       </Card>
 
       {/* Timer Display */}
-      <div className={`${colors.bg} rounded-xl border-2 ${colors.border} p-8 mb-8`}>
+      <div className={`${colors.bg} rounded-xl border-2 ${colors.border} mb-4`}>
         {/* Phase Indicator */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <p className={`text-sm font-semibold ${colors.text} uppercase tracking-wide`}>
             {colors.label}
           </p>
@@ -293,7 +293,7 @@ export default function PomodoroTimer() {
         </div>
 
         {/* Circular Timer */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-4">
           <div className="relative w-48 h-48">
             {/* Background circle */}
             <svg
@@ -334,7 +334,7 @@ export default function PomodoroTimer() {
         </div>
 
         {/* Controls */}
-        <div className="flex gap-3 justify-center mb-6">
+        <div className="flex gap-3 justify-center mb-4">
           {!isRunning ? (
             <Button onClick={handleStart} className="bg-accent hover:bg-accent-hover text-white">
               Start
@@ -354,7 +354,7 @@ export default function PomodoroTimer() {
       </div>
 
       {/* Stats */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="text-sm font-semibold text-text-primary mb-4">Today's Stats</h3>
         <div className="space-y-3">
           <div className="flex justify-between">

@@ -121,14 +121,14 @@ export default function USMortgageCalculator() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Enter a home price to calculate</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Disclaimer */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-text-secondary">
         <p className="font-semibold text-blue-900 mb-1">Disclaimer</p>
@@ -136,7 +136,7 @@ export default function USMortgageCalculator() {
       </div>
 
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">US Mortgage Calculator</h2>
 
         {/* Home Price */}
@@ -212,7 +212,7 @@ export default function USMortgageCalculator() {
         </div>
 
         {/* Interest Rate and Loan Term */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">Interest Rate (% annual)</label>
             <input
@@ -252,7 +252,7 @@ export default function USMortgageCalculator() {
         </div>
 
         {/* Property Tax and Insurance */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">Annual Property Tax Rate (%)</label>
             <input
@@ -315,7 +315,7 @@ export default function USMortgageCalculator() {
       </div>
 
       {/* Monthly Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Monthly Payment Breakdown</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -348,7 +348,7 @@ export default function USMortgageCalculator() {
       </div>
 
       {/* Loan Summary */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Loan Summary</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -406,7 +406,7 @@ export default function USMortgageCalculator() {
       </div>
 
       {/* Amortization Milestones */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Amortization Milestones</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -433,7 +433,7 @@ export default function USMortgageCalculator() {
       </div>
 
       {/* Quick Home Prices */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Quick Home Prices</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {[150000, 250000, 300000, 400000, 500000, 600000, 750000, 1000000].map((price) => (

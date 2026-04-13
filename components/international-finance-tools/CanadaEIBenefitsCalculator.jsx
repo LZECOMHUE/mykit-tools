@@ -63,10 +63,10 @@ export default function CanadaEIBenefitsCalculator() {
   }, [weeklyEarnings, weeksWorked, region]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <label className="block text-text-primary font-medium mb-2">
               Average Weekly Earnings (CAD)
@@ -114,10 +114,10 @@ export default function CanadaEIBenefitsCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <div className="bg-white rounded-lg border border-border space-y-4">
           <h2 className="text-text-primary font-semibold text-lg">Estimated EI Benefits</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <p className="text-text-secondary text-sm mb-1">Weekly Benefit Amount</p>
               <p className="text-2xl sm:text-3xl font-mono font-semibold text-accent">

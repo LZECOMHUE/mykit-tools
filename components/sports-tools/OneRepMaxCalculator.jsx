@@ -46,8 +46,8 @@ export default function OneRepMaxCalculator() {
   const isValidInput = w > 0 && r > 0;
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
@@ -96,7 +96,7 @@ export default function OneRepMaxCalculator() {
 
       {isValidInput && (
         <>
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               Estimated 1 Rep Max
             </h3>
@@ -130,7 +130,7 @@ export default function OneRepMaxCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               Training Percentages (based on Epley 1RM)
             </h3>
@@ -171,7 +171,7 @@ export default function OneRepMaxCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card>
             <h3 className="font-heading font-bold text-lg text-primary mb-4">
               About the Formulas
             </h3>

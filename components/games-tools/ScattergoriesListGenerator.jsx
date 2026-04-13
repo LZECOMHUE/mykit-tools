@@ -86,13 +86,9 @@ export default function ScattergoriesListGenerator() {
   };
 
   return (
-    <div className="space-y-8">
-      <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-          Game Configuration
-        </h2>
-
-        <div className="space-y-4 mb-6">
+    <div className="space-y-4">
+      <div className="space-y-4">
+        <div className="space-y-4 mb-4">
           <div>
             <label className="text-text-secondary text-sm font-medium block mb-2">
               Number of Rounds: {config.rounds}
@@ -154,12 +150,12 @@ export default function ScattergoriesListGenerator() {
         <Button onClick={generateGame} className="w-full">
           Generate Game
         </Button>
-      </Card>
+      </div>
 
       {game && (
         <div className="space-y-4">
           <Card>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
               <h2 className="font-heading text-2xl font-bold text-text-primary">
                 Round {currentRound + 1} of {game.length}
               </h2>
@@ -171,14 +167,14 @@ export default function ScattergoriesListGenerator() {
               </div>
             </div>
 
-            <div className="bg-accent/10 border-2 border-accent rounded-lg p-6 mb-6 text-center">
+            <div className="bg-accent/10 border-2 border-accent rounded-lg mb-4 text-center">
               <p className="text-text-secondary text-sm mb-2">Starting Letter</p>
               <p className="font-mono text-6xl font-bold text-accent">
                 {game[currentRound].letter}
               </p>
             </div>
 
-            <div className="mb-6">
+            <div className="mb-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {game[currentRound].categories.map((category, idx) => (
                   <div
@@ -193,7 +189,7 @@ export default function ScattergoriesListGenerator() {
               </div>
             </div>
 
-            <div className="bg-surface rounded-lg p-6 mb-6 text-center">
+            <div className="bg-surface rounded-lg mb-4 text-center">
               <p className="text-text-secondary text-sm mb-2">Time Remaining</p>
               <p className="font-mono text-4xl font-bold text-text-primary">
                 {formatTime(timeLeft || config.roundDuration)}

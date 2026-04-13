@@ -50,7 +50,7 @@ export default function DaysUntilCalculator() {
   };
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       <div className="space-y-4">
         <div>
           <label htmlFor="targetDate" className="block text-sm font-medium text-text-primary mb-2">

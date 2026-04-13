@@ -308,17 +308,7 @@ export default function ContrastChecker() {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-3 py-8 px-4">
-      {/* Title & Description */}
-      <div>
-        <h1 className="font-heading text-3xl font-bold text-text-primary">
-          WCAG Contrast Checker
-        </h1>
-        <p className="text-text-secondary mt-2">
-          Check if your color combinations meet WCAG accessibility standards and get auto-fix suggestions.
-        </p>
-      </div>
-
+    <div className="w-full max-w-4xl mx-auto space-y-3 py-4 px-4">
       {/* Color Inputs */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Foreground Color */}
@@ -426,7 +416,7 @@ export default function ContrastChecker() {
       <div className="space-y-3">
         <h2 className="text-text-primary font-semibold">Live Preview</h2>
         <div
-          className="p-6 rounded-lg border border-border space-y-4"
+          className="p-4 rounded-lg border border-border space-y-4"
           style={{ backgroundColor: background, color: foreground }}
         >
           {/* Large Heading */}

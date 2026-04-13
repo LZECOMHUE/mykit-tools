@@ -115,13 +115,13 @@ export default function ShouldIRentOrBuy() {
   const recommendation = results.totalBuyingCost < results.totalRentingCost ? 'Buying' : 'Renting';
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {/* Inputs */}
         <Card>
-          <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
+          <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
             Your Details
-          </h2>
+          </h3>
 
           <div className="space-y-4">
             <div>
@@ -185,9 +185,9 @@ export default function ShouldIRentOrBuy() {
 
         {/* Assumptions */}
         <Card>
-          <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
+          <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
             Assumptions
-          </h2>
+          </h3>
 
           <div className="space-y-4">
             <div>
@@ -233,10 +233,10 @@ export default function ShouldIRentOrBuy() {
       </div>
 
       {/* Results */}
-      <Card className="mb-6 bg-accent/5 border-accent/30">
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">Results</h2>
+      <Card className="mb-4 bg-accent/5 border-accent/30">
+        <h3 className="font-heading text-2xl font-bold text-text-primary mb-4">Results</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {/* Renting Summary */}
           <div>
             <h3 className="text-sm text-text-secondary font-medium mb-2">Renting</h3>

@@ -215,17 +215,7 @@ export default function WeddingGuestListManager() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8 py-8 px-4">
-      {/* Title */}
-      <div>
-        <h1 className="font-heading text-3xl font-bold text-text-primary">
-          Wedding Guest List Manager
-        </h1>
-        <p className="text-text-secondary mt-2">
-          Track RSVPs, dietary requirements, and table assignments
-        </p>
-      </div>
-
+    <div className="w-full max-w-6xl mx-auto space-y-4 py-4 px-4">
       {/* Summary Dashboard */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3">
         <Card className="text-center">
@@ -612,7 +602,7 @@ export default function WeddingGuestListManager() {
         </div>
 
         {filteredGuests.length === 0 && (
-          <Card className="text-center py-8">
+          <Card className="text-center py-4">
             <p className="text-text-secondary">No guests match your filters</p>
           </Card>
         )}

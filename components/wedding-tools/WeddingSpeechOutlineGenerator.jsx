@@ -107,13 +107,13 @@ export default function WeddingSpeechOutlineGenerator() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
           Speech Outline Configuration
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Select
             label="Your Role"
             value={config.role}
@@ -210,11 +210,11 @@ export default function WeddingSpeechOutlineGenerator() {
       {outline && (
         <div className="space-y-4">
           <Card>
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
               Your Speech Outline
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
                 <h3 className="font-heading font-bold text-text-primary mb-3">
                   1. Opening

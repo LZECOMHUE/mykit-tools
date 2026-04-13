@@ -108,7 +108,7 @@ export default function BMICalculator() {
   return (
     <div className="max-w-lg mx-auto">
       {/* Unit Toggle */}
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-4">
         <button
           onClick={() => setIsMetric(true)}
           className={`flex-1 px-4 py-2 rounded-full font-medium transition ${
@@ -132,7 +132,7 @@ export default function BMICalculator() {
       </div>
 
       {/* Input Section */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 mb-6">
+      <div className="bg-white border border-border rounded-[var(--radius-card)] mb-4">
         {isMetric ? (
           <>
             {/* Metric Inputs */}
@@ -235,7 +235,7 @@ export default function BMICalculator() {
 
       {/* Prompt when no input yet */}
       {!calculations.isValid && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 mb-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] mb-4 text-center">
           <p className="text-text-secondary">
             Enter your height and weight above to calculate your BMI.
           </p>
@@ -244,7 +244,7 @@ export default function BMICalculator() {
 
       {/* Results Card */}
       {calculations.isValid && (
-        <div className={`rounded-[var(--radius-card)] p-6 mb-6 border ${calculations.category.borderColor} ${calculations.category.bgColor}`}>
+        <div className={`rounded-[var(--radius-card)] mb-4 border ${calculations.category.borderColor} ${calculations.category.bgColor}`}>
           {/* BMI Number */}
           <div className="mb-4">
             <p className="text-text-muted text-sm mb-1">Your BMI</p>
@@ -257,7 +257,7 @@ export default function BMICalculator() {
           </div>
 
           {/* Visual Scale */}
-          <div className="mb-6 mt-6">
+          <div className="mb-4 mt-6">
             <div className="flex h-6 rounded-full overflow-hidden border border-border">
               {SCALE_SEGMENTS.map((segment, idx) => (
                 <div
@@ -313,7 +313,7 @@ export default function BMICalculator() {
       )}
 
       {/* Category Reference Table */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] overflow-hidden mb-6">
+      <div className="bg-white border border-border rounded-[var(--radius-card)] overflow-hidden mb-4">
         <div className="divide-y divide-border">
           {BMI_CATEGORIES.map((cat, idx) => {
             const rangeLabel = cat.min === 0

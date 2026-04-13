@@ -91,10 +91,8 @@ export default function BodyFatCalculator() {
   ]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">Body Fat Calculator (US Navy Method)</h2>
-
-      <div className="space-y-4 mb-8">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
+      <div className="space-y-4 mb-4">
         {/* Gender */}
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">Gender</label>

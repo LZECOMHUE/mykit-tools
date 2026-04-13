@@ -107,7 +107,7 @@ export default function SleepCalculator() {
   };
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Mode Toggle */}
       <div className="flex gap-2">
         <button

@@ -242,8 +242,8 @@ export default function PartyBagChecklistGenerator() {
   const themes = availableThemes[config.ageGroup] || [];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">Age Group</label>
           <div className="grid grid-cols-2 gap-2">
@@ -332,8 +332,8 @@ export default function PartyBagChecklistGenerator() {
 
       {checklist && (
         <div className="space-y-4">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
-            <div className="mb-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
+            <div className="mb-4">
               <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">Party Bag Shopping List</h2>
               <div className="grid grid-cols-3 gap-4 text-sm">
                 <div>
@@ -351,7 +351,7 @@ export default function PartyBagChecklistGenerator() {
               </div>
             </div>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3 mb-4">
               {checklist.items.map((item, i) => (
                 <div key={i} className="flex items-center justify-between bg-white border border-border rounded-[var(--radius-input)] p-3">
                   <div className="flex items-center gap-3 flex-1">
@@ -366,7 +366,7 @@ export default function PartyBagChecklistGenerator() {
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="bg-accent-muted border border-accent rounded-[var(--radius-input)] p-4">
                 <p className="text-text-secondary text-sm mb-1">Cost Per Bag</p>
                 <p className="font-mono font-bold text-accent text-xl">£{checklist.itemTotal.toFixed(2)}</p>

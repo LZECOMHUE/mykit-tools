@@ -120,9 +120,9 @@ export default function HeatPumpSavingsCalculator() {
   );
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface rounded-[12px] border border-border p-6 space-y-4">
+      <div className="bg-surface rounded-[12px] border border-border space-y-4">
         <h2 className="text-2xl font-bold font-heading text-text-primary">Heat Pump Savings Calculator</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -192,8 +192,8 @@ export default function HeatPumpSavingsCalculator() {
       </div>
 
       {/* Installation & Costs */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Installation Costs</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -217,7 +217,7 @@ export default function HeatPumpSavingsCalculator() {
           </div>
         </div>
 
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold font-heading text-text-primary mb-4">Carbon Emissions</h3>
           <div className="space-y-3">
             <div className="flex justify-between items-center pb-3 border-b border-border">
@@ -243,8 +243,8 @@ export default function HeatPumpSavingsCalculator() {
       </div>
 
       {/* 10-Year Cost Comparison Chart */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
-        <h3 className="text-lg font-bold font-heading text-text-primary mb-6">10-Year Cost Comparison</h3>
+      <div className="bg-white border border-border rounded-[12px]">
+        <h3 className="text-lg font-bold font-heading text-text-primary mb-4">10-Year Cost Comparison</h3>
 
         <div className="space-y-4">
           {calculations.costComparison.map((item) => {
@@ -291,7 +291,7 @@ export default function HeatPumpSavingsCalculator() {
       </div>
 
       {/* Key Benefits */}
-      <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+      <div className="bg-green-50 border border-green-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-green-900 mb-4">Heat Pump Benefits</h3>
         <ul className="space-y-2 text-sm text-green-800">
           <li>Lower running costs (saves {formatCurrency(calculations.annualSavings)}/year)</li>
@@ -305,7 +305,7 @@ export default function HeatPumpSavingsCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-[12px] p-6">
+      <div className="bg-amber-50 border border-amber-200 rounded-[12px]">
         <h3 className="text-lg font-bold font-heading text-amber-900 mb-4">💡 Tips to Maximize Savings</h3>
         <ul className="space-y-2 text-sm text-amber-800">
           <li>Improve insulation first (loft, cavity walls, windows) to lower heat demand</li>

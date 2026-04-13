@@ -137,10 +137,10 @@ END:VCALENDAR`;
   const yearData = generateYearTable();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero Countdown Section */}
-      <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 border border-amber-200">
-        <div className="text-center mb-6">
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-200">
+        <div className="text-center mb-4">
           <h2 className="font-heading text-2xl font-bold text-amber-900 mb-2">
             Autumn Equinox (Northern Hemisphere)
           </h2>
@@ -150,7 +150,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Countdown */}
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-4 gap-3 mb-4">
           <div className="bg-white rounded-lg p-4 text-center border border-amber-100">
             <div className="font-mono text-2xl font-bold text-amber-600">
               {countdown.days}
@@ -192,7 +192,7 @@ END:VCALENDAR`;
       </div>
 
       {/* What is Autumn Equinox */}
-      <div className="bg-white rounded-lg border border-amber-200 p-6">
+      <div className="bg-white rounded-lg border border-amber-200">
         <h3 className="font-heading font-bold text-lg text-amber-900 mb-3">What is the Autumn Equinox?</h3>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">
           The autumn equinox (also called the autumnal equinox) is when day and night are approximately equal length in the Northern Hemisphere. It marks the astronomical beginning of autumn. The exact date varies between September 22 and September 23 depending on the year and time zone.
@@ -209,7 +209,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Hemisphere Note */}
-      <div className="bg-teal-50 rounded-lg border border-teal-200 p-6">
+      <div className="bg-teal-50 rounded-lg border border-teal-200">
         <h3 className="font-heading font-bold text-teal-900 mb-2">Southern Hemisphere?</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           When it's autumn equinox in the Northern Hemisphere (September), it's spring equinox in the Southern Hemisphere. Australia, South Africa, and parts of South America experience their spring equinox on this same date. They celebrate their autumn equinox around March 20-21.
@@ -217,13 +217,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-purple-50 rounded-lg border border-purple-200 p-6">
+      <div className="bg-purple-50 rounded-lg border border-purple-200">
         <h3 className="font-heading font-bold text-purple-900 mb-2">Did You Know?</h3>
         <p className="text-sm text-gray-700">{FACTS[currentFact]}</p>
       </div>
 
       {/* Multi-Year Table */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-lg border border-gray-200">
         <h3 className="font-heading font-bold text-lg text-gray-900 mb-4">Autumn Equinox Dates (Next 10 Years)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -252,7 +252,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Harvest Traditions */}
-      <div className="bg-orange-50 rounded-lg border border-orange-200 p-6">
+      <div className="bg-orange-50 rounded-lg border border-orange-200">
         <h3 className="font-heading font-bold text-orange-900 mb-3">Harvest and Thanksgiving</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex gap-2">
@@ -275,7 +275,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Transition and Reflection */}
-      <div className="bg-indigo-50 rounded-lg border border-indigo-200 p-6">
+      <div className="bg-indigo-50 rounded-lg border border-indigo-200">
         <h3 className="font-heading font-bold text-indigo-900 mb-2">A Time of Transition</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           The autumn equinox is a powerful moment of balance between light and darkness. It marks the transition from the abundant growth of summer to the dormancy of winter. Many cultures view this time as one of reflection, gratitude for the harvest, and preparation for the darker months ahead.

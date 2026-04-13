@@ -5,6 +5,8 @@ import Input from '@/components/ui/Input';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 
+const ANIMAL_EMOJIS = { Rat: "🐀", Ox: "🐂", Tiger: "🐅", Rabbit: "🐇", Dragon: "🐉", Snake: "🐍", Horse: "🐴", Goat: "🐐", Monkey: "🐒", Rooster: "🐓", Dog: "🐕", Pig: "🐖" };
+
 const CHINESE_ZODIAC_DATA = {
   0: { animal: 'Monkey', element: 'Metal', personality: 'Clever, playful, mischievous', famous: ['Leonardo DiCaprio', 'Jackie Chan'] },
   1: { animal: 'Rooster', element: 'Water', personality: 'Confident, honest, straightforward', famous: ['Mariah Carey', 'Steve Buscemi'] },
@@ -45,10 +47,12 @@ export default function ChineseZodiacCalculator() {
   const currentYear = new Date().getFullYear();
   const age = currentYear - birthYear;
 
+  const animalEmoji = ANIMAL_EMOJIS[zodiacData.animal] || '🐉';
+
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4">
       {/* Year Input */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h2 className="font-heading text-2xl font-bold text-text-primary mb-4 text-center">
           Chinese Zodiac Calculator
         </h2>
@@ -70,8 +74,8 @@ export default function ChineseZodiacCalculator() {
       </Card>
 
       {/* Main Zodiac Card */}
-      <Card className="mb-6 text-center py-8 bg-accent/5 border-accent/30">
-        <p className="font-heading text-6xl mb-4">🐉</p>
+      <Card className="mb-4 text-center py-4 bg-accent/5 border-accent/30">
+        <p className="font-heading text-6xl mb-4">{animalEmoji}</p>
         <p className="font-heading text-4xl font-bold text-accent mb-2">
           {zodiacData.animal}
         </p>
@@ -82,7 +86,7 @@ export default function ChineseZodiacCalculator() {
       </Card>
 
       {/* Personality & Traits */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">Personality Traits</h3>
 
         <div className="bg-surface p-4 rounded-lg mb-4">
@@ -103,7 +107,7 @@ export default function ChineseZodiacCalculator() {
       </Card>
 
       {/* Compatibility */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Compatibility
         </h3>
@@ -114,7 +118,7 @@ export default function ChineseZodiacCalculator() {
             <div className="flex flex-wrap gap-2">
               {compatibility.bestWith.map((animal) => (
                 <Badge key={animal} className="bg-success/10 text-success border-success/30">
-                  {animal}
+                  {ANIMAL_EMOJIS[animal]} {animal}
                 </Badge>
               ))}
             </div>
@@ -125,7 +129,7 @@ export default function ChineseZodiacCalculator() {
             <div className="flex flex-wrap gap-2">
               {compatibility.avoidWith.map((animal) => (
                 <Badge key={animal} className="bg-error/10 text-error border-error/30">
-                  {animal}
+                  {ANIMAL_EMOJIS[animal]} {animal}
                 </Badge>
               ))}
             </div>

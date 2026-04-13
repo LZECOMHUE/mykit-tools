@@ -38,13 +38,10 @@ export default function EmergencyFundCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Emergency Fund Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Calculate how much you need in your emergency fund based on your essential monthly expenses.
         </p>
 
@@ -147,13 +144,13 @@ export default function EmergencyFundCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+        <div className="space-y-4">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your Emergency Fund Targets
             </h3>
 
-            <div className="mb-6 p-4 bg-white rounded-lg border border-border">
+            <div className="mb-4 p-4 bg-white rounded-lg border border-border">
               <p className="text-secondary text-sm mb-2">Monthly Essential Expenses</p>
               <p className="font-mono text-3xl font-bold text-primary">
                 £{result.monthlyEssential}
@@ -193,7 +190,7 @@ export default function EmergencyFundCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Emergency Fund Tips
             </h3>

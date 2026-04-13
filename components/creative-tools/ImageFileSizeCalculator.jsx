@@ -93,7 +93,7 @@ export default function ImageFileSizeCalculator() {
   }, [width, height, colorDepth, depthInfo, jpegQuality, webpQuality]);
 
   const copyToClipboard = (value, key) => {
-    navigator.clipboard.writeText(formatFileSize(value));
+    navigator.clipboard.writeText(formatFileSize(value).catch(() => {}));
     setCopied(key);
     setTimeout(() => setCopied(null), 2000);
   };
@@ -113,7 +113,7 @@ export default function ImageFileSizeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Quick Presets */}
       <Card className="p-4 border-accent-muted bg-accent-muted">
         <h3 className="font-heading font-semibold mb-3 text-sm">Quick Presets</h3>
@@ -132,9 +132,9 @@ export default function ImageFileSizeCalculator() {
       </Card>
 
       {/* Input Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 space-y-4">
-          <Card className="p-6 border border-border">
+          <Card className="border border-border">
             <h3 className="font-heading font-semibold mb-4">Image Dimensions</h3>
             <div className="grid grid-cols-2 gap-4">
               <Input
@@ -162,7 +162,7 @@ export default function ImageFileSizeCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 border border-border">
+          <Card className="border border-border">
             <h3 className="font-heading font-semibold mb-4">Color Depth</h3>
             <Select
               options={COLOR_DEPTH_OPTIONS.map((opt) => ({
@@ -182,7 +182,7 @@ export default function ImageFileSizeCalculator() {
         </div>
 
         {/* Format Preview */}
-        <Card className="p-6 border border-border bg-surface">
+        <Card className="border border-border bg-surface">
           <h3 className="font-heading font-semibold mb-4">Selected Format</h3>
           <div className="space-y-3 text-sm">
             <div>
@@ -202,11 +202,11 @@ export default function ImageFileSizeCalculator() {
       </div>
 
       {/* Format Comparison */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="font-heading font-semibold mb-4">Compressed Formats</h3>
 
         {/* JPEG */}
-        <div className="mb-6 pb-6 border-b border-border last:border-0">
+        <div className="mb-4 pb-6 border-b border-border last:border-0">
           <div className="flex items-center justify-between mb-3">
             <div>
               <h4 className="font-medium font-heading">JPEG</h4>
@@ -235,7 +235,7 @@ export default function ImageFileSizeCalculator() {
         </div>
 
         {/* PNG */}
-        <div className="mb-6 pb-6 border-b border-border last:border-0">
+        <div className="mb-4 pb-6 border-b border-border last:border-0">
           <div className="flex items-center justify-between mb-3">
             <div>
               <h4 className="font-medium font-heading">PNG</h4>
@@ -253,7 +253,7 @@ export default function ImageFileSizeCalculator() {
         </div>
 
         {/* WebP */}
-        <div className="mb-6 pb-6 border-b border-border last:border-0">
+        <div className="mb-4 pb-6 border-b border-border last:border-0">
           <div className="flex items-center justify-between mb-3">
             <div>
               <h4 className="font-medium font-heading">WebP</h4>
@@ -282,7 +282,7 @@ export default function ImageFileSizeCalculator() {
         </div>
 
         {/* TIFF */}
-        <div className="mb-6 pb-6 border-b border-border last:border-0">
+        <div className="mb-4 pb-6 border-b border-border last:border-0">
           <div className="flex items-center justify-between">
             <div>
               <h4 className="font-medium font-heading">TIFF</h4>
@@ -300,7 +300,7 @@ export default function ImageFileSizeCalculator() {
         </div>
 
         {/* BMP */}
-        <div className="mb-6 pb-6 border-b border-border last:border-0">
+        <div className="mb-4 pb-6 border-b border-border last:border-0">
           <div className="flex items-center justify-between">
             <div>
               <h4 className="font-medium font-heading">BMP</h4>
@@ -337,7 +337,7 @@ export default function ImageFileSizeCalculator() {
       </Card>
 
       {/* Summary Table */}
-      <Card className="p-6 border border-border">
+      <Card className="border border-border">
         <h3 className="font-heading font-semibold mb-4">Quick Comparison</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

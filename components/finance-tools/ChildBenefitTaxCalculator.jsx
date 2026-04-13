@@ -57,13 +57,10 @@ export default function ChildBenefitTaxCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Child Benefit Tax Calculator
-        </h2>
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
 
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Check if the High Income Child Benefit Charge means you should claim child benefit.
         </p>
 
@@ -104,9 +101,9 @@ export default function ChildBenefitTaxCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
-          <Card className={`p-6 border-2 ${result.worthClaiming ? 'bg-green-50 border-green-400' : 'bg-yellow-50 border-yellow-400'}`}>
-            <h3 className={`font-heading text-xl font-bold mb-6 ${result.worthClaiming ? 'text-green-700' : 'text-yellow-700'}`}>
+        <div className="space-y-4">
+          <Card className={`border-2 ${result.worthClaiming ? 'bg-green-50 border-green-400' : 'bg-yellow-50 border-yellow-400'}`}>
+            <h3 className={`font-heading text-xl font-bold mb-4 ${result.worthClaiming ? 'text-green-700' : 'text-yellow-700'}`}>
               {result.worthClaiming ? 'Yes, Still Worth Claiming' : 'May Not Be Worth Claiming'}
             </h3>
 
@@ -142,8 +139,8 @@ export default function ChildBenefitTaxCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-lg font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Weekly Breakdown
             </h3>
 
@@ -165,7 +162,7 @@ export default function ChildBenefitTaxCalculator() {
             </div>
           </Card>
 
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Key Information
             </h3>
@@ -181,7 +178,7 @@ export default function ChildBenefitTaxCalculator() {
             </ul>
           </Card>
 
-          <Card className="p-6 bg-white border border-border">
+          <Card className="bg-white border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Should You Claim?
             </h3>

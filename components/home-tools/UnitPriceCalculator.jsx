@@ -102,7 +102,7 @@ export default function UnitPriceCalculator() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-5xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Instructions */}
       <div className="bg-info/10 border border-info rounded-lg p-4 text-sm text-text-secondary">
         <p className="font-medium text-text-primary mb-1">Compare unit prices across products</p>

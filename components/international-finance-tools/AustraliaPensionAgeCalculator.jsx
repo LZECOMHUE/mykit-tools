@@ -86,10 +86,10 @@ export default function AustraliaPensionAgeCalculator() {
   }, [dateOfBirth]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <label className="block text-text-primary font-medium mb-2">
               Date of Birth
@@ -116,7 +116,7 @@ export default function AustraliaPensionAgeCalculator() {
         </div>
 
         {/* Current Age */}
-        <div className="bg-white rounded-lg border border-border p-6">
+        <div className="bg-white rounded-lg border border-border">
           <h2 className="text-text-primary font-semibold text-lg mb-4">
             Current Age
           </h2>
@@ -145,7 +145,7 @@ export default function AustraliaPensionAgeCalculator() {
         </div>
 
         {/* Pension Eligibility */}
-        <div className={`rounded-lg border p-6 ${
+        <div className={`rounded-lg border ${
           results.isEligible
             ? 'bg-green-50 border-green-200'
             : 'bg-blue-50 border-blue-200'
@@ -174,7 +174,7 @@ export default function AustraliaPensionAgeCalculator() {
             </div>
 
             {results.isEligible ? (
-              <div className="pt-4 border-t border-green-200 bg-green-100 -mx-6 -mb-6 px-6 py-4 rounded-b-lg">
+              <div className="pt-4 border-t border-green-200 bg-green-100 -mx-6 -mb-4 px-6 py-4 rounded-b-lg">
                 <p className="text-success font-semibold text-lg">
                   You are eligible for Age Pension
                 </p>
@@ -199,7 +199,7 @@ export default function AustraliaPensionAgeCalculator() {
         </div>
 
         {/* Historical Context */}
-        <div className="bg-white rounded-lg border border-border p-6">
+        <div className="bg-white rounded-lg border border-border">
           <h3 className="text-text-primary font-semibold text-lg mb-4">
             Pension Age History
           </h3>
@@ -224,7 +224,7 @@ export default function AustraliaPensionAgeCalculator() {
         </div>
 
         {/* Key Information */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="text-text-primary font-semibold text-lg mb-4">
             Age Pension Information
           </h3>

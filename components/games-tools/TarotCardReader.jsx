@@ -194,7 +194,7 @@ export default function TarotCardReader() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Spread Selection */}
       <Card className="bg-gradient-to-br from-purple-50 to-indigo-50">
         <div className="space-y-4">
@@ -317,13 +317,12 @@ export default function TarotCardReader() {
       )}
 
       {/* Info */}
-      <Card className="bg-purple-50 border-l-4 border-purple-500">
-        <p className="text-sm text-text-secondary">
-          Tarot is an ancient divination system using 22 Major Arcana cards.
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Tarot is an ancient divination system using 22 Major Arcana cards.
           Each card carries deep symbolic meaning. This reading is for
-          entertainment and spiritual reflection only.
-        </p>
-      </Card>
+          entertainment and spiritual reflection only.</p>
+      </details>
     </div>
   );
 }

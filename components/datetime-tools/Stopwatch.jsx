@@ -73,9 +73,9 @@ export default function Stopwatch() {
   const slowestLap = laps.length > 0 ? Math.max(...laps.map((l) => l.lapTime)) : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Main Timer Display */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
         <p className="font-mono text-6xl font-bold text-text-primary mb-4">
           {formatTime(time)}
         </p>
@@ -103,7 +103,7 @@ export default function Stopwatch() {
 
       {/* Lap Times */}
       {laps.length > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
           <div className="flex justify-between items-center">
             <h3 className="text-sm font-medium text-text-secondary">Lap Times</h3>
             <p className="text-xs text-text-muted">
@@ -156,7 +156,7 @@ export default function Stopwatch() {
       )}
 
       {laps.length === 0 && time > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted text-sm">Tap "Lap" to start recording lap times</p>
         </div>
       )}

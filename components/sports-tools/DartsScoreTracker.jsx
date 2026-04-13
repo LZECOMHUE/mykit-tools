@@ -162,7 +162,7 @@ export default function DartsScoreTracker() {
   }, [players]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {!gameStarted ? (
         <Card>
           <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Game Setup</h3>
@@ -235,7 +235,7 @@ export default function DartsScoreTracker() {
           </div>
         </Card>
       ) : winner !== null ? (
-        <Card className="bg-green-100 border border-success p-8 text-center">
+        <Card className="bg-green-100 border border-success text-center">
           <h2 className="text-2xl font-heading font-bold text-success mb-2">🎉 Game Over!</h2>
           <p className="text-xl text-text-primary mb-4 font-bold">{players[winner].name} wins!</p>
           <Button onClick={handleNewGame}>New Game</Button>

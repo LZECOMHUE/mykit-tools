@@ -93,7 +93,7 @@ export default function HomeInventoryTracker() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Summary */}
       <div className="grid gap-3 sm:grid-cols-3">
         <div className="rounded-[var(--radius-card)] bg-surface border border-border p-3 text-center">
@@ -135,7 +135,7 @@ export default function HomeInventoryTracker() {
       </div>
 
       {/* Rooms and Items */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {rooms.map(room => (
           <RoomSection
             key={room.id}

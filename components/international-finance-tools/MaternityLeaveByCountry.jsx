@@ -184,17 +184,17 @@ export default function MaternityLeaveByCountry() {
     .sort((a, b) => b.paidWeeks - a.paidWeeks);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
+    <div className="w-full max-w-6xl mx-auto p-4 space-y-4">
+      <Card>
         <h2 className="font-heading text-2xl font-bold text-primary mb-2">
           International Maternity & Parental Leave
         </h2>
-        <p className="text-secondary text-sm mb-6">
+        <p className="text-secondary text-sm mb-4">
           Compare statutory maternity, paternity, and parental leave by country
         </p>
 
         {/* Country Selection */}
-        <div className="mb-6">
+        <div className="mb-4">
           <div className="flex gap-2 mb-4">
             <Button
               onClick={selectAll}
@@ -237,10 +237,10 @@ export default function MaternityLeaveByCountry() {
       </Card>
 
       {selected.length > 0 && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Main Comparison Table */}
-          <Card className="p-6 overflow-x-auto">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="overflow-x-auto">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Comparison Table
             </h3>
 
@@ -283,9 +283,9 @@ export default function MaternityLeaveByCountry() {
           </Card>
 
           {/* Detailed Cards */}
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2">
             {selected.map((country) => (
-              <Card key={country.name} className={`p-6 border-2 ${country.color}`}>
+              <Card key={country.name} className={`border-2 ${country.color}`}>
                 <div className="flex items-start justify-between mb-4">
                   <h4 className="font-heading text-lg font-bold text-primary">
                     {country.name}
@@ -344,7 +344,7 @@ export default function MaternityLeaveByCountry() {
           </div>
 
           {/* Key Insights */}
-          <Card className="p-6 bg-blue-50 border-2 border-blue-200">
+          <Card className="bg-blue-50 border-2 border-blue-200">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">Key Insights</h3>
 
             <div className="space-y-3 text-sm">
@@ -383,7 +383,7 @@ export default function MaternityLeaveByCountry() {
           </Card>
 
           {/* Notes */}
-          <Card className="p-6 bg-yellow-50 border-2 border-yellow-200">
+          <Card className="bg-yellow-50 border-2 border-yellow-200">
             <p className="font-bold text-yellow-900 mb-2">Important Notes:</p>
             <ul className="text-sm text-yellow-900 space-y-2 list-disc list-inside">
               <li>Data represents statutory minimums. Many employers offer more generous benefits.</li>

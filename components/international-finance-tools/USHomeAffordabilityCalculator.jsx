@@ -104,9 +104,9 @@ export default function USHomeAffordabilityCalculator() {
   }, [annualIncome, monthlyDebts, downPayment, interestRate, propertyTaxRate, homeInsuranceAnnual]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">Home Affordability Calculator</h2>
 
         {/* Annual Income */}
@@ -225,21 +225,21 @@ export default function USHomeAffordabilityCalculator() {
       </div>
 
       {/* Max Home Price Result */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-blue-600 text-sm font-medium mb-1">Maximum Home Price</p>
         <p className="font-mono text-4xl font-bold text-blue-700">{fmt(calculations.maxHomePrice)}</p>
         <p className="text-blue-600 text-xs mt-2">Based on 28/36 debt-to-income rules</p>
       </div>
 
       {/* Monthly Payment */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <p className="text-green-600 text-sm font-medium mb-1">Estimated Monthly Payment</p>
         <p className="font-mono text-3xl font-bold text-green-700">{fmt(calculations.maxMonthlyPayment)}</p>
         <p className="text-green-600 text-xs mt-2">Principal, interest, taxes, and insurance</p>
       </div>
 
       {/* Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Payment Breakdown (Monthly)</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -265,7 +265,7 @@ export default function USHomeAffordabilityCalculator() {
       </div>
 
       {/* Debt Ratios */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Debt-to-Income Ratios</h3>
         <div className="space-y-3">
           <div className="flex justify-between items-center py-2 border-b border-border">
@@ -291,7 +291,7 @@ export default function USHomeAffordabilityCalculator() {
       </div>
 
       {/* Rules Explanation */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">28/36 Rule Explained</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• <strong>28% Rule:</strong> Housing costs should not exceed 28% of gross monthly income</li>

@@ -292,7 +292,7 @@ export default function TileCalculator() {
       <Card className="border-2 border-accent bg-blue-50">
         <h2 className="text-text-primary font-heading text-xl font-bold mb-3">Results</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <p className="text-text-secondary text-sm mb-1">Floor Area</p>
             <p className="font-mono-num text-2xl font-bold text-text-primary">

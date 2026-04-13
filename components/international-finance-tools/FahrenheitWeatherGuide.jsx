@@ -135,9 +135,9 @@ export default function FahrenheitWeatherGuide() {
   }, [tempF]);
 
   return (
-    <div className="bg-surface rounded-lg p-8">
+    <div className="bg-surface rounded-lg">
       {/* Input */}
-      <div className="mb-8">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Temperature
         </label>
@@ -171,7 +171,7 @@ export default function FahrenheitWeatherGuide() {
       {guide && tempC !== null && (
         <>
           {/* Temperature Display */}
-          <div className={`bg-gradient-to-r ${guide.color} rounded-lg p-8 mb-8 text-white`}>
+          <div className={`bg-gradient-to-r ${guide.color} rounded-lg mb-4 text-white`}>
             <div className="flex justify-between items-start mb-4">
               <div>
                 <div className="text-sm font-medium opacity-90">Current Weather</div>
@@ -192,7 +192,7 @@ export default function FahrenheitWeatherGuide() {
           </div>
 
           {/* What to Wear */}
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-semibold text-text-primary mb-4 text-lg">
               What to Wear
             </h3>
@@ -209,7 +209,7 @@ export default function FahrenheitWeatherGuide() {
           </div>
 
           {/* Activity Suggestions */}
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-semibold text-text-primary mb-4 text-lg">
               Recommended Activities
             </h3>
@@ -226,7 +226,7 @@ export default function FahrenheitWeatherGuide() {
           </div>
 
           {/* Conversion Reference */}
-          <div className="bg-white border border-border rounded-lg p-6">
+          <div className="bg-white border border-border rounded-lg">
             <h3 className="font-semibold text-text-primary mb-3">
               Temperature Conversion
             </h3>
@@ -245,7 +245,7 @@ export default function FahrenheitWeatherGuide() {
       )}
 
       {!guide && (
-        <div className="text-center py-8 text-text-secondary">
+        <div className="text-center py-4 text-text-secondary">
           Enter a temperature to see clothing and activity recommendations
         </div>
       )}

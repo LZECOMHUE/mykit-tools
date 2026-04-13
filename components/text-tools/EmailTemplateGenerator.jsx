@@ -235,7 +235,7 @@ export default function EmailTemplateGenerator() {
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(email);
+      await navigator.clipboard.writeText(email).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
@@ -288,7 +288,7 @@ export default function EmailTemplateGenerator() {
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Configuration */}
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Type */}

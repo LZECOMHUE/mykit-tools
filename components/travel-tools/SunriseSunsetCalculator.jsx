@@ -165,8 +165,8 @@ export default function SunriseSunsetCalculator() {
   const dayLengthMinutes = Math.round((data.dayLength % 1) * 60);
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
             Month

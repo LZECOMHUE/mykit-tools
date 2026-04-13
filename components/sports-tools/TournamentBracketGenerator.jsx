@@ -216,7 +216,7 @@ export default function TournamentBracketGenerator() {
   }, []);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Setup Panel */}
       <Card>
         <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Tournament Setup</h3>
@@ -358,7 +358,7 @@ export default function TournamentBracketGenerator() {
             <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Fixtures & Results</h3>
 
             {[...new Set(roundRobin.map((f) => f.round))].map((roundNum) => (
-              <div key={roundNum} className="mb-6 pb-4 border-b border-border last:border-b-0">
+              <div key={roundNum} className="mb-4 pb-4 border-b border-border last:border-b-0">
                 <h4 className="font-medium text-text-primary mb-3">Round {roundNum}</h4>
                 <div className="space-y-2">
                   {roundRobin

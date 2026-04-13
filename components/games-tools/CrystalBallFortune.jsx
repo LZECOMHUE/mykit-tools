@@ -94,7 +94,7 @@ export default function CrystalBallFortune() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Category Selection */}
       <Card className="bg-gradient-to-br from-indigo-50 to-blue-50">
         <div className="space-y-4">
@@ -122,7 +122,7 @@ export default function CrystalBallFortune() {
       </Card>
 
       {/* Crystal Ball */}
-      <div className="flex justify-center py-8">
+      <div className="flex justify-center py-4">
         <style>{`
           @keyframes glow {
             0%, 100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(99, 102, 241, 0.3); }
@@ -229,13 +229,12 @@ export default function CrystalBallFortune() {
       )}
 
       {/* Info */}
-      <Card className="bg-blue-50 border-l-4 border-blue-500">
-        <p className="text-sm text-text-secondary">
-          The crystal ball is a mystical tool used for divination and receiving
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">The crystal ball is a mystical tool used for divination and receiving
           guidance about the future. Gaze into its depths to receive wisdom and
-          insight. For entertainment and reflection purposes only.
-        </p>
-      </Card>
+          insight. For entertainment and reflection purposes only.</p>
+      </details>
     </div>
   );
 }

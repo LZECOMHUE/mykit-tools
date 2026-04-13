@@ -23,7 +23,7 @@ export default function SubstituteIngredientFinder() {
   );
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-primary mb-2">
           Search Ingredient
@@ -37,13 +37,13 @@ export default function SubstituteIngredientFinder() {
         />
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Substitutions
         </h3>
 
         {filtered.length === 0 ? (
-          <p className="text-center text-text-secondary py-8">No substitutes found. Try another ingredient.</p>
+          <p className="text-center text-text-secondary py-4">No substitutes found. Try another ingredient.</p>
         ) : (
           <div className="space-y-4">
             {filtered.map((item) => (

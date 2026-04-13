@@ -232,9 +232,9 @@ export default function SalaryBreakdownVisualiser() {
     calculations.monthlyTakeHome;
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Annual Salary
@@ -296,28 +296,28 @@ export default function SalaryBreakdownVisualiser() {
 
       {/* Monthly Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Monthly Gross</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(calculations.monthly)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Monthly Take Home</p>
           <p className="font-mono text-3xl font-bold text-accent">
             {fmt(calculations.monthlyTakeHome)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Total Deductions</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(calculations.totalDeductions)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-1">Annual Take Home</p>
           <p className="font-mono text-3xl font-bold text-text-primary">
             {fmt(calculations.annualTakeHome)}
@@ -326,7 +326,7 @@ export default function SalaryBreakdownVisualiser() {
       </div>
 
       {/* Salary Breakdown Visualisation */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">
           Monthly Salary Breakdown
         </h3>
@@ -383,7 +383,7 @@ export default function SalaryBreakdownVisualiser() {
       </div>
 
       {/* Detailed Deductions */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">Tax & Contributions</h3>
         <div className="space-y-3">
           <div className="flex justify-between py-2 px-3 bg-white border border-border rounded-[8px]">
@@ -416,7 +416,7 @@ export default function SalaryBreakdownVisualiser() {
       </div>
 
       {/* Expense Input Section */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">Monthly Expenses</h3>
         <div className="space-y-3">
           {expenseCategories.map((cat) => (
@@ -437,10 +437,10 @@ export default function SalaryBreakdownVisualiser() {
       </div>
 
       {/* Expense Breakdown */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">Expense Summary</h3>
 
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-4">
           {expenseCategories.map((cat) => {
             const amount = parseFloat(expenses[cat.key]) || 0;
             if (amount <= 0) return null;
@@ -503,7 +503,7 @@ export default function SalaryBreakdownVisualiser() {
 
       {/* Status Message */}
       {remaining > 0 && (
-        <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-6">
+        <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-4">
           <p className="text-accent font-medium text-sm">
             Great! You have {fmt(remaining)} left over each month after expenses. Consider
             increasing savings or investments.
@@ -512,7 +512,7 @@ export default function SalaryBreakdownVisualiser() {
       )}
 
       {remaining < 0 && (
-        <div className="bg-red-100 border border-error rounded-[12px] p-4 sm:p-6">
+        <div className="bg-red-100 border border-error rounded-[12px] p-4 sm:p-4">
           <p className="text-error font-medium text-sm">
             Warning: Your expenses exceed your take-home pay by {fmt(Math.abs(remaining))} per
             month. Consider reviewing your budget.
@@ -521,7 +521,7 @@ export default function SalaryBreakdownVisualiser() {
       )}
 
       {remaining === 0 && (
-        <div className="bg-orange-100 border border-warning rounded-[12px] p-4 sm:p-6">
+        <div className="bg-orange-100 border border-warning rounded-[12px] p-4 sm:p-4">
           <p className="text-warning font-medium text-sm">
             Your expenses match your take-home pay exactly. Any unexpected costs could be
             problematic.

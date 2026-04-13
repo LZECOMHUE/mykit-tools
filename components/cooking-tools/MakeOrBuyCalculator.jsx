@@ -70,8 +70,8 @@ export default function MakeOrBuyCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {/* Item & Costs */}
         <Card>
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">
@@ -160,7 +160,7 @@ export default function MakeOrBuyCalculator() {
       </div>
 
       {/* Main Recommendation */}
-      <Card className={`mb-6 text-center py-8 ${
+      <Card className={`mb-4 text-center py-4 ${
         results.worthIt ? 'bg-success/5 border-success/30' : 'bg-warning/5 border-warning/30'
       }`}>
         <p className="text-text-secondary text-sm mb-2">Annual Decision</p>
@@ -202,7 +202,7 @@ export default function MakeOrBuyCalculator() {
       </Card>
 
       {/* Cost Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <Card className="border-error/30 bg-error/5">
           <h3 className="text-sm text-text-secondary font-medium mb-3">Making it</h3>
           <div className="space-y-2">
@@ -261,7 +261,7 @@ export default function MakeOrBuyCalculator() {
       </div>
 
       {/* Insights */}
-      <Card className="mb-6">
+      <Card className="mb-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">Key Insights</h3>
 
         <div className="space-y-3">

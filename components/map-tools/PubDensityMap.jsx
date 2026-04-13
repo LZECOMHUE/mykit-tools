@@ -117,8 +117,8 @@ export default function PubDensityMap() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading text-lg font-semibold text-primary">Pub Density Finder</h3>
 
@@ -162,8 +162,8 @@ export default function PubDensityMap() {
             />
           </Card>
 
-          <Card className="p-6">
-            <div className="space-y-6">
+          <Card>
+            <div className="space-y-4">
               <div>
                 <p className="text-sm text-secondary mb-2">Location</p>
                 <p className="font-heading text-lg text-primary">{result.location}</p>

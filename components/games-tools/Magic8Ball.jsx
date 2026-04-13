@@ -78,7 +78,7 @@ export default function Magic8Ball() {
         : 'from-rose-400 to-red-500';
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-indigo-50 to-purple-50">
         <div className="space-y-4">
           <Input
@@ -102,7 +102,7 @@ export default function Magic8Ball() {
       </Card>
 
       {/* Magic 8-Ball Visual */}
-      <div className="flex justify-center py-8">
+      <div className="flex justify-center py-4">
         <div className="relative">
           <style>{`
             @keyframes shake {
@@ -186,13 +186,12 @@ export default function Magic8Ball() {
       )}
 
       {/* Info */}
-      <Card className="bg-blue-50 border-l-4 border-blue-500">
-        <p className="text-sm text-text-secondary">
-          The Magic 8-Ball is a mystical toy that answers yes/no questions. Ask
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">The Magic 8-Ball is a mystical toy that answers yes/no questions. Ask
           a clear question and let fate decide your answer. For entertainment
-          only.
-        </p>
-      </Card>
+          only.</p>
+      </details>
     </div>
   );
 }

@@ -44,12 +44,12 @@ export default function NumberBaseConverter() {
   };
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-lg border border-border">
-      <div className="space-y-6">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-lg border border-border">
+      <div className="space-y-4">
         {/* Preset Buttons */}
         <div>
           <p className="text-xs font-medium text-text-secondary uppercase mb-3">Quick Presets</p>

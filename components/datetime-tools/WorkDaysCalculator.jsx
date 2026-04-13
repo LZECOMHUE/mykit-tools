@@ -77,7 +77,7 @@ export default function WorkDaysCalculator() {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -139,7 +139,7 @@ export default function WorkDaysCalculator() {
             </div>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <h3 className="text-sm font-medium text-text-secondary mb-4">Summary</h3>
             <div className="space-y-2 text-sm">
               <p>
@@ -158,7 +158,7 @@ export default function WorkDaysCalculator() {
       )}
 
       {!startDate && !endDate && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Select start and end dates to calculate working days</p>
         </div>
       )}

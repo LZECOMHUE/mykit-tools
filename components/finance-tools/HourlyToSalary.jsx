@@ -95,7 +95,7 @@ export default function HourlyToSalary() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Mode Toggle */}
       <div className="flex gap-3 justify-center">
         <button
@@ -121,7 +121,7 @@ export default function HourlyToSalary() {
       </div>
 
       {/* Input Card */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <h2 className="text-text-primary font-medium">Your Rates</h2>
 
         <div className="space-y-4">
@@ -180,7 +180,7 @@ export default function HourlyToSalary() {
       </div>
 
       {/* Results Card */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h2 className="text-text-primary font-medium mb-4">Your Breakdown</h2>
 
         <div className="grid grid-cols-2 gap-4">
@@ -235,7 +235,7 @@ export default function HourlyToSalary() {
       </div>
 
       {/* Quick Reference Table */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h2 className="text-text-primary font-medium mb-4">Quick Reference</h2>
 
         <div className="mb-4 text-xs text-text-secondary">

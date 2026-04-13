@@ -143,7 +143,7 @@ export default function ElectricityCostCalculator() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
               <label className="block text-text-secondary text-sm font-medium mb-1">Name</label>
               <Input

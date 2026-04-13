@@ -258,7 +258,7 @@ export default function OracleCardReader() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Category Filter */}
       <Card className="bg-gradient-to-br from-pink-50 to-purple-50">
         <div className="space-y-4">
@@ -355,13 +355,12 @@ export default function OracleCardReader() {
       )}
 
       {/* Info */}
-      <Card className="bg-pink-50 border-l-4 border-pink-500">
-        <p className="text-sm text-text-secondary">
-          Oracle cards offer gentle guidance and daily inspiration. Each card
+      <details className="text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">About this tool</summary>
+        <p className="mt-2">Oracle cards offer gentle guidance and daily inspiration. Each card
           carries a message of encouragement and wisdom. Use this tool for
-          reflection and spiritual insight.
-        </p>
-      </Card>
+          reflection and spiritual insight.</p>
+      </details>
     </div>
   );
 }

@@ -160,9 +160,9 @@ export default function NewYearResolutionGenerator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">
             Choose Categories (select at least one)
@@ -218,7 +218,7 @@ export default function NewYearResolutionGenerator() {
       {/* Results */}
       {generated.length > 0 && (
         <div className="space-y-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg">
             <h2 className="text-2xl font-bold text-blue-900 mb-4">Your 2026 Resolutions</h2>
             <div className="space-y-3">
               {generated.map((res, idx) => (
@@ -250,7 +250,7 @@ export default function NewYearResolutionGenerator() {
       )}
 
       {/* Tips */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Resolution Success Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Make resolutions specific and measurable</li>
@@ -263,7 +263,7 @@ export default function NewYearResolutionGenerator() {
       </div>
 
       {/* SMART Goals Template */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Make Your Goals SMART</h3>
         <div className="space-y-3">
           {[

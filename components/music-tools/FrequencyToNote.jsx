@@ -92,7 +92,7 @@ export default function FrequencyToNote() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-primary mb-2">
           Convert Between:

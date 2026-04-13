@@ -107,10 +107,10 @@ export default function AustraliaCostOfLivingByCity() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
-      <div className="bg-surface rounded-lg border border-border p-6 sm:p-8 space-y-8">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-4">
+      <div className="bg-surface rounded-lg border border-border sm:p-4 space-y-4">
         {/* Input Section */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <label className="block text-text-primary font-medium mb-2">
               Monthly Budget (AUD)
@@ -287,7 +287,7 @@ export default function AustraliaCostOfLivingByCity() {
 
         {/* Insights */}
         {selectedCities.length > 0 && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg">
             <h3 className="text-text-primary font-semibold text-lg mb-4">
               Key Insights
             </h3>
@@ -329,7 +329,7 @@ export default function AustraliaCostOfLivingByCity() {
         )}
 
         {/* Category Explanations */}
-        <div className="bg-white rounded-lg border border-border p-6">
+        <div className="bg-white rounded-lg border border-border">
           <h3 className="text-text-primary font-semibold text-lg mb-4">
             What's Included in Each Category
           </h3>

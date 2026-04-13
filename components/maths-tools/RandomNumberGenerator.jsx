@@ -138,13 +138,13 @@ export default function RandomNumberGenerator() {
   };
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   return (
-    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)]">
       {/* Mode Selector */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           Generator Type
         </label>
@@ -175,7 +175,7 @@ export default function RandomNumberGenerator() {
 
       {/* Numbers Mode */}
       {mode === 'numbers' && (
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-text-secondary mb-2">
@@ -257,7 +257,7 @@ export default function RandomNumberGenerator() {
 
       {/* Dice Mode */}
       {mode === 'dice' && (
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-text-secondary mb-3">
               Dice Type
@@ -293,7 +293,7 @@ export default function RandomNumberGenerator() {
 
       {/* Coin Flip Mode */}
       {mode === 'coin' && (
-        <div className="mb-6">
+        <div className="mb-4">
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Number of Flips (1-100)
           </label>
@@ -311,14 +311,14 @@ export default function RandomNumberGenerator() {
       {/* Generate Button */}
       <button
         onClick={handleGenerate}
-        className="w-full py-2 px-4 bg-accent text-white rounded-[var(--radius-input)] font-medium hover:bg-blue-700 transition-colors mb-6"
+        className="w-full py-2 px-4 bg-accent text-white rounded-[var(--radius-input)] font-medium hover:bg-blue-700 transition-colors mb-4"
       >
         Generate
       </button>
 
       {/* Results */}
       {results && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
           {results.type === 'numbers' && (
             <div>
               <p className="text-text-secondary text-sm mb-3">Generated Numbers:</p>
@@ -406,7 +406,7 @@ export default function RandomNumberGenerator() {
 
       {/* Color Results */}
       {colorResults.length > 0 && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
           <p className="text-text-secondary text-sm mb-3">Generated Colors:</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             {colorResults.map((color, idx) => (

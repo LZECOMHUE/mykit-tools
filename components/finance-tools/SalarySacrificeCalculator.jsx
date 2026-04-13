@@ -153,17 +153,17 @@ export default function SalarySacrificeCalculator() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border">
+      <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border">
         <p className="text-error">Please enter a valid salary.</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-surface rounded-[var(--radius-card)] border border-border space-y-6">
+    <div className="w-full max-w-2xl mx-auto bg-surface rounded-[var(--radius-card)] border border-border space-y-4">
       {/* Configuration Section */}
       <div className="space-y-4">
-        <h2 className="text-lg font-semibold text-text-primary">Your Details</h2>
+        <h3 className="text-lg font-semibold text-text-primary">Your Details</h3>
 
         <Input
           label="Gross Annual Salary"
@@ -203,8 +203,8 @@ export default function SalarySacrificeCalculator() {
       </div>
 
       {/* Results Section */}
-      <div className="bg-white rounded-[var(--radius-card)] p-6 mb-8 border border-border space-y-6">
-        <h2 className="text-lg font-semibold text-text-primary">Comparison</h2>
+      <div className="bg-white rounded-[var(--radius-card)] mb-4 border border-border space-y-4">
+        <h3 className="text-lg font-semibold text-text-primary">Comparison</h3>
 
         {/* Side-by-Side Comparison */}
         <div className="grid grid-cols-2 gap-4">
@@ -342,7 +342,7 @@ export default function SalarySacrificeCalculator() {
       </div>
 
       {/* Important Information */}
-      <div className="space-y-4 bg-white rounded-[var(--radius-card)] p-6 border border-border">
+      <div className="space-y-4 bg-white rounded-[var(--radius-card)] border border-border">
         <h3 className="font-medium text-text-primary mb-3 text-sm">Important Considerations</h3>
 
         <div className="space-y-3 text-sm text-text-secondary">

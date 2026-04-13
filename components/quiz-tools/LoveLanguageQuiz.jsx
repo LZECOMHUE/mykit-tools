@@ -354,7 +354,7 @@ export default function LoveLanguageQuiz() {
 
   if (showResults && results) {
     return (
-      <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-text-primary">Your Love Languages</h2>
           <p className="text-text-secondary mt-2">Inspired by the concept of love languages for relationship communication</p>
@@ -460,7 +460,7 @@ export default function LoveLanguageQuiz() {
   }
 
   return (
-    <div className="w-full space-y-6 rounded-[var(--radius-card)] bg-surface p-6">
+    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
       {/* Progress bar */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm">

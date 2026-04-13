@@ -269,9 +269,9 @@ export default function SudokuGenerator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-6">
+    <div className="w-full max-w-3xl mx-auto px-4 py-4">
       {/* Controls Card */}
-      <Card className="mb-6 p-6">
+      <Card className="mb-4">
         <div className="space-y-4">
           {/* Difficulty and Timer Row */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -348,7 +348,7 @@ export default function SudokuGenerator() {
       </Card>
 
       {/* Sudoku Grid */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-4">
         <div className="bg-white border-2 border-text-primary p-4 rounded-lg shadow-sm">
           <div className="inline-block border-2 border-text-primary">
             {Array.from({ length: 9 }, (_, row) => (
@@ -446,13 +446,12 @@ export default function SudokuGenerator() {
       </Card>
 
       {/* Instructions */}
-      <Card className="mt-6 p-4 bg-surface">
-        <p className="text-xs text-text-secondary mb-2">
-          <strong>How to play:</strong> Fill each row, column, and 3×3 box with digits 1-9.
+      <details className="mt-4 text-xs text-text-muted">
+        <summary className="cursor-pointer hover:text-text-secondary">How to play</summary>
+        <p className="mt-2">Fill each row, column, and 3x3 box with digits 1-9.
           Use arrow keys to navigate, numbers 1-9 to enter, Delete to clear. Toggle pencil mode
-          for candidates. Click the same number highlights all occurrences.
-        </p>
-      </Card>
+          for candidates. Click the same number highlights all occurrences.</p>
+      </details>
 
       {/* Hidden canvas for image generation */}
       <canvas ref={canvasRef} style={{ display: 'none' }} />

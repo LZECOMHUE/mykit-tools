@@ -1,138 +1,169 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo } from "react";
 
-// Unicode character mappings for fancy text styles
-const FANCY_STYLES = {
-  bold: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗'
+// Unicode offset-based conversion (more reliable than hardcoded char strings)
+function makeOffsetMap(upperStart, lowerStart, digitStart) {
+  return (char) => {
+    const code = char.charCodeAt(0);
+    if (code >= 65 && code <= 90 && upperStart) return String.fromCodePoint(upperStart + (code - 65));
+    if (code >= 97 && code <= 122 && lowerStart) return String.fromCodePoint(lowerStart + (code - 97));
+    if (code >= 48 && code <= 57 && digitStart) return String.fromCodePoint(digitStart + (code - 48));
+    return char;
+  };
+}
+
+const STYLES = [
+  { key: "bold", label: "Bold", fn: makeOffsetMap(0x1D400, 0x1D41A, 0x1D7CE) },
+  { key: "italic", label: "Italic", fn: makeOffsetMap(0x1D434, 0x1D44E, null) },
+  { key: "boldItalic", label: "Bold Italic", fn: makeOffsetMap(0x1D468, 0x1D482, null) },
+  { key: "script", label: "Script", fn: makeOffsetMap(0x1D49C, 0x1D4B6, null) },
+  { key: "boldScript", label: "Bold Script", fn: makeOffsetMap(0x1D4D0, 0x1D4EA, null) },
+  { key: "fraktur", label: "Gothic / Fraktur", fn: makeOffsetMap(0x1D504, 0x1D51E, null) },
+  { key: "doubleStruck", label: "Double Struck", fn: makeOffsetMap(0x1D538, 0x1D552, 0x1D7D8) },
+  { key: "sansSerif", label: "Sans Serif", fn: makeOffsetMap(0x1D5A0, 0x1D5BA, 0x1D7E2) },
+  { key: "sansBold", label: "Sans Bold", fn: makeOffsetMap(0x1D5D4, 0x1D5EE, 0x1D7EC) },
+  { key: "sansItalic", label: "Sans Italic", fn: makeOffsetMap(0x1D608, 0x1D622, null) },
+  { key: "sansBoldItalic", label: "Sans Bold Italic", fn: makeOffsetMap(0x1D63C, 0x1D656, null) },
+  { key: "monospace", label: "Monospace", fn: makeOffsetMap(0x1D670, 0x1D68A, 0x1D7F6) },
+  {
+    key: "circled",
+    label: "Circled",
+    fn: (char) => {
+      const code = char.charCodeAt(0);
+      if (code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + (code - 65));
+      if (code >= 97 && code <= 122) return String.fromCodePoint(0x24D0 + (code - 97));
+      if (code === 48) return "\u24EA"; // 0
+      if (code >= 49 && code <= 57) return String.fromCodePoint(0x2460 + (code - 49));
+      return char;
+    },
   },
-  italic: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻0123456789'
+  {
+    key: "squared",
+    label: "Squared",
+    fn: (char) => {
+      const code = char.charCodeAt(0);
+      if (code >= 65 && code <= 90) return String.fromCodePoint(0x1F130 + (code - 65));
+      if (code >= 97 && code <= 122) return String.fromCodePoint(0x1F130 + (code - 97));
+      return char;
+    },
   },
-  boldItalic: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '𝙰𝙱𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍𝑎𝑏𝑐𝑑𝑒𝑓𝑔𝑕𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧0123456789'
+  {
+    key: "negSquared",
+    label: "Negative Squared",
+    fn: (char) => {
+      const code = char.charCodeAt(0);
+      if (code >= 65 && code <= 90) return String.fromCodePoint(0x1F170 + (code - 65));
+      if (code >= 97 && code <= 122) return String.fromCodePoint(0x1F170 + (code - 97));
+      return char;
+    },
   },
-  script: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-    chars: '𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃'
+  {
+    key: "smallCaps",
+    label: "Small Caps",
+    fn: (char) => {
+      const map = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ";
+      const code = char.charCodeAt(0);
+      if (code >= 97 && code <= 122) return map[code - 97] || char;
+      if (code >= 65 && code <= 90) return map[code - 65] || char;
+      return char;
+    },
   },
-  doubleStruck: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡'
+  {
+    key: "fullwidth",
+    label: "Fullwidth",
+    fn: (char) => {
+      const code = char.charCodeAt(0);
+      if (code >= 33 && code <= 126) return String.fromCodePoint(code + 0xFEE0);
+      if (char === " ") return "\u3000";
+      return char;
+    },
   },
-  monospace: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿'
+  {
+    key: "upsideDown",
+    label: "Upside Down",
+    fn: null,
+    convert: (text) => {
+      const map = "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz";
+      const MAP = "ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz";
+      return text.split("").reverse().map((c) => {
+        const code = c.charCodeAt(0);
+        if (code >= 97 && code <= 122) return map[code - 97] || c;
+        if (code >= 65 && code <= 90) return MAP[code - 65]?.toUpperCase?.() || map[code - 65] || c;
+        return c;
+      }).join("");
+    },
   },
-  smallCaps: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-    chars: 'ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQ ʀꜱᴛᴜᴠᴡxʏᴢ ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘQ ʀꜱᴛᴜᴠᴡxʏᴢ'
+  {
+    key: "strikethrough",
+    label: "Strikethrough",
+    fn: (char) => char + "\u0336",
   },
-  circled: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: 'Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨'
+  {
+    key: "underline",
+    label: "Underline",
+    fn: (char) => char + "\u0332",
   },
-  squared: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: '🅐 🅑 🅒 🅓 🅔 🅕 🅖 🅗 🅘 🅙 🅚 🅛 🅜 🅝 🅞 🅟 🅠 🅡 🅢 🅣 🅤 🅥 🅦 🅧 🅨 🅩 🅪 🅫 🅬 🅭 🅮 🅯 🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 0 1 2 3 4 5 6 7 8 9'
-  },
-  bubble: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: 'ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨'
-  },
-  upsideDown: {
-    map: 'abcdefghijklmnopqrstuvwxyz',
-    chars: 'ɐ qɔ p ǝ ɟƃ ɥ ᴉ ɾ ʞ l ɯ u o d q ɹ s ʇ n ʌ ʍ x ʎ z'
-  },
-  strikethrough: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: 'A̶B̶C̶D̶E̶F̶G̶H̶I̶J̶K̶L̶M̶N̶O̶P̶Q̶R̶S̶T̶U̶V̶W̶X̶Y̶Z̶a̶b̶c̶d̶e̶f̶g̶h̶i̶j̶k̶l̶m̶n̶o̶p̶q̶r̶s̶t̶u̶v̶w̶x̶y̶z̶0̶1̶2̶3̶4̶5̶6̶7̶8̶9̶'
-  },
-  underline: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: 'A̲B̲C̲D̲E̲F̲G̲H̲I̲J̲K̲L̲M̲N̲O̲P̲Q̲R̲S̲T̲U̲V̲W̲X̲Y̲Z̲a̲b̲c̲d̲e̲f̲g̲h̲i̲j̲k̲l̲m̲n̲o̲p̲q̲r̲s̲t̲u̲v̲w̲x̲y̲z̲0̲1̲2̲3̲4̲5̲6̲7̲8̲9̲'
-  },
-  fullwidth: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-    chars: 'ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ０１２３４５６７８９'
-  },
-  gothic: {
-    map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-    chars: '𝔉𝔞𝔫𝔞𝔞𝔴𝔞𝔴𝔞𝔰𝔴𝔞𝔱𝔞𝔴𝔭𝔴𝔯𝔞𝔴𝔠𝔦𝔞𝔫𝔰𝔴𝔯𝔩𝔦𝔣𝔞𝔠𝔬𝔠𝔞𝔬𝔬𝔠𝔩𝔫𝔞𝔞𝔠𝔞𝔤𝔟𝔞𝔩𝔟𝔪𝔫𝔞𝔤𝔞𝔠𝔦𝔰𝔠𝔠𝔞𝔯𝔠𝔬𝔞𝔦'
-  },
-};
+];
 
 function convertText(text, style) {
-  const config = FANCY_STYLES[style];
-  if (!config) return text;
-
-  return text.split('').map(char => {
-    const idx = config.map.indexOf(char);
-    return idx !== -1 ? config.chars[idx] : char;
-  }).join('');
+  if (style.convert) return style.convert(text);
+  if (style.fn) return text.split("").map(style.fn).join("");
+  return text;
 }
 
 export default function FancyTextGenerator() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("Hello World");
+  const [copied, setCopied] = useState(null);
 
-  const styles = useMemo(() => {
-    return Object.keys(FANCY_STYLES).map(style => ({
-      name: style.charAt(0).toUpperCase() + style.slice(1).replace(/([A-Z])/g, ' $1'),
-      key: style,
-      output: convertText(input, style)
+  const results = useMemo(() => {
+    if (!input.trim()) return [];
+    return STYLES.map((style) => ({
+      key: style.key,
+      label: style.label,
+      output: convertText(input, style),
     }));
   }, [input]);
 
-  const handleCopyStyle = async (text) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
+  const copy = (text, key) => {
+    navigator.clipboard.writeText(text).catch(() => {});
+    setCopied(key);
+    setTimeout(() => setCopied(null), 1200);
   };
 
   return (
-    <div className="w-full space-y-6">
-      {/* Input */}
-      <div>
-        <label className="text-text-secondary text-sm font-medium">
-          Your Text
-        </label>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type text to convert..."
-          className="w-full mt-2 rounded-[var(--radius-input)] border border-border bg-white px-3 py-2 text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
-        />
-      </div>
+    <div className="space-y-3">
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Type your text..."
+        className="w-full px-4 py-3 text-lg rounded-[var(--radius-input)] border border-border bg-white text-text-primary placeholder:text-text-muted outline-none focus:border-accent focus:ring-2 focus:ring-accent/10"
+      />
 
-      {/* Styles Grid */}
-      <div className="space-y-2">
-        {styles.map((style) => (
-          <div key={style.key} className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex-1">
-                <p className="text-text-secondary text-sm font-medium mb-2">
-                  {style.name}
-                </p>
-                <p className="font-mono text-text-primary break-all text-sm">
-                  {style.output || '(empty)'}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        {results.map(({ key, label, output }) => (
+          <button
+            key={key}
+            onClick={() => copy(output, key)}
+            className="text-left px-4 py-3 rounded-[var(--radius-card)] border border-border bg-white hover:border-accent hover:bg-accent/5 transition-all group"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-medium text-text-muted mb-1">{label}</p>
+                <p className="text-sm text-text-primary break-all leading-relaxed">
+                  {output}
                 </p>
               </div>
-              <button
-                onClick={() => handleCopyStyle(style.output)}
-                disabled={!input.trim()}
-                className="shrink-0 rounded-[var(--radius-card)] bg-accent text-white px-3 py-2 text-sm font-medium hover:bg-accent-hover disabled:bg-text-muted disabled:cursor-not-allowed transition-colors"
-              >
-                Copy
-              </button>
+              <span className={`text-xs flex-shrink-0 px-2 py-0.5 rounded-full transition-all ${
+                copied === key
+                  ? "bg-green-100 text-green-700"
+                  : "bg-surface text-text-muted group-hover:bg-accent/10 group-hover:text-accent"
+              }`}>
+                {copied === key ? "Copied!" : "Copy"}
+              </span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </div>

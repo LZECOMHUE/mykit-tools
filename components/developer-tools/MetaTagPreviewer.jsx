@@ -43,7 +43,7 @@ ${ogImageUrl ? `<meta name="twitter:image" content="${ogImageUrl}">` : ''}`;
   };
 
   const handleCopyMeta = () => {
-    navigator.clipboard.writeText(generateMetaTags());
+    navigator.clipboard.writeText(generateMetaTags().catch(() => {}));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -51,9 +51,7 @@ ${ogImageUrl ? `<meta name="twitter:image" content="${ogImageUrl}">` : ''}`;
   return (
     <div className="space-y-3">
       {/* Input Panel */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <h3 className="text-lg font-semibold text-text-primary mb-4">Meta Tag Settings</h3>
-
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="space-y-4">
           {/* Page Title */}
           <div>
@@ -153,7 +151,7 @@ ${ogImageUrl ? `<meta name="twitter:image" content="${ogImageUrl}">` : ''}`;
       </div>
 
       {/* Preview Panels */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         {activeTab === 'google' && (
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-text-secondary mb-4">Google Search Result Preview</h3>
@@ -221,7 +219,7 @@ ${ogImageUrl ? `<meta name="twitter:image" content="${ogImageUrl}">` : ''}`;
       </div>
 
       {/* Generated Meta Tags */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-text-primary">Generated Meta Tags</h3>
           <button

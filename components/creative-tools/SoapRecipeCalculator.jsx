@@ -203,7 +203,7 @@ export default function SoapRecipeCalculator() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className="bg-accent-muted p-8 text-center rounded-[var(--radius-card)] border border-border">
+        <div className="bg-accent-muted text-center rounded-[var(--radius-card)] border border-border">
           <p className="text-text-muted text-[12px] mb-4">Lye Required</p>
           <div className="grid grid-cols-2 gap-4">
             <div>

@@ -296,11 +296,11 @@ export default function CrushQuiz() {
   const progress = ((currentQuestion + 1) / QUESTIONS.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6">
+    <div className="w-full max-w-2xl mx-auto">
       {!isComplete ? (
-        <Card className="p-8">
+        <Card>
           {/* Progress Bar */}
-          <div className="mb-8">
+          <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm text-text-secondary">
                 Question {currentQuestion + 1} of {QUESTIONS.length}
@@ -318,7 +318,7 @@ export default function CrushQuiz() {
           </div>
 
           {/* Question */}
-          <h2 className="text-2xl font-heading font-bold text-text-primary mb-8">
+          <h2 className="text-2xl font-heading font-bold text-text-primary mb-4">
             {QUESTIONS[currentQuestion].question}
           </h2>
 
@@ -336,9 +336,9 @@ export default function CrushQuiz() {
           </div>
         </Card>
       ) : (
-        <Card className="p-8">
+        <Card>
           {/* Result Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <div className="text-7xl mb-4">{resultCategory.emoji}</div>
             <h2 className="text-4xl font-heading font-bold text-text-primary mb-2">
               {resultCategory.title}
@@ -347,7 +347,7 @@ export default function CrushQuiz() {
           </div>
 
           {/* Result Message */}
-          <div className="bg-surface rounded-lg p-6 mb-8">
+          <div className="bg-surface rounded-lg mb-4">
             <p className="text-text-secondary leading-relaxed text-lg">
               {resultCategory.message}
             </p>

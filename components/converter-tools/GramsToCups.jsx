@@ -74,7 +74,7 @@ export default function GramsToCups() {
   return (
     <div className="w-full max-w-2xl mx-auto space-y-3">
       {/* Converter Card */}
-      <div className="rounded-lg border border-border bg-surface p-6 md:p-8">
+      <div className="rounded-lg border border-border bg-surface md:p-4">
         <div className="space-y-3">
           {/* Ingredient Selector */}
           <div>
@@ -112,7 +112,7 @@ export default function GramsToCups() {
 
           {/* Output */}
           {cupsDecimal !== null && (
-            <div className="bg-blue-50 rounded-lg p-4 md:p-6 border border-accent border-opacity-20">
+            <div className="bg-blue-50 rounded-lg p-4 md:p-4 border border-accent border-opacity-20">
               <p className="text-text-muted text-sm font-medium mb-1">Result</p>
               <div className="flex items-baseline gap-3">
                 <div className="font-mono-num text-4xl font-semibold text-text-primary">

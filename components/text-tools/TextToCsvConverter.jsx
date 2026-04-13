@@ -81,7 +81,7 @@ export default function TextToCsvConverter() {
   }, [text, delimiter]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(csvOutput);
+    navigator.clipboard.writeText(csvOutput).catch(() => {});
   };
 
   const handleDownload = () => {
@@ -95,7 +95,7 @@ export default function TextToCsvConverter() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Paste Delimited Text
@@ -132,7 +132,7 @@ export default function TextToCsvConverter() {
 
       {rows.length > 0 && (
         <div className="space-y-4">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
             <h3 className="text-sm font-medium text-text-secondary mb-4">
               Preview ({rows.length} row{rows.length !== 1 ? 's' : ''})
             </h3>
@@ -161,7 +161,7 @@ export default function TextToCsvConverter() {
             </div>
           </div>
 
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
             <p className="text-sm font-medium text-text-secondary">CSV Output:</p>
             <textarea
               value={csvOutput}
@@ -181,7 +181,7 @@ export default function TextToCsvConverter() {
       )}
 
       {!text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 text-center">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center">
           <p className="text-text-muted">Paste delimited text to convert to CSV format</p>
         </div>
       )}

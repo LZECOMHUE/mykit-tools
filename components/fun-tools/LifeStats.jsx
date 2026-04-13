@@ -133,9 +133,9 @@ export default function LifeStats() {
   }, [birthDate]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 py-8">
+    <div className="w-full max-w-2xl mx-auto px-4 py-4">
       {/* Input Section */}
-      <div className="mb-8">
+      <div className="mb-4">
         <label htmlFor="birthdate" className="block text-sm font-medium text-text-secondary mb-3">
           Enter your date of birth
         </label>
@@ -154,7 +154,7 @@ export default function LifeStats() {
       {stats ? (
         <div className="space-y-3">
           {/* Age Display */}
-          <div className="bg-white border border-border rounded-[var(--radius-card,12px)] p-6 text-center" style={{ '--radius-card': '12px' }}>
+          <div className="bg-white border border-border rounded-[var(--radius-card,12px)] text-center" style={{ '--radius-card': '12px' }}>
             <p className="text-text-muted text-sm mb-2">You are</p>
             <h2 className="text-3xl font-bold text-text-primary">
               {stats.years} years, {stats.monthsRemainder} months, {stats.daysRemainder} days old
@@ -204,7 +204,7 @@ export default function LifeStats() {
           </div>
 
           {/* Milestones Card */}
-          <div className="bg-white border border-border rounded-[var(--radius-card,12px)] p-6" style={{ '--radius-card': '12px' }}>
+          <div className="bg-white border border-border rounded-[var(--radius-card,12px)]" style={{ '--radius-card': '12px' }}>
             <h3 className="text-sm font-semibold text-text-primary mb-4 uppercase tracking-wide">Life Milestones</h3>
             <div className="space-y-3">
               {stats.milestones.map((milestone, idx) => (
@@ -223,7 +223,7 @@ export default function LifeStats() {
 
           {/* Generation Card */}
           {stats.generation && (
-            <div className="bg-white border border-border rounded-[var(--radius-card,12px)] p-6" style={{ '--radius-card': '12px' }}>
+            <div className="bg-white border border-border rounded-[var(--radius-card,12px)]" style={{ '--radius-card': '12px' }}>
               <h3 className="text-sm font-semibold text-text-primary mb-2 uppercase tracking-wide">Your Generation</h3>
               <p className="text-lg font-semibold text-accent mb-2">{stats.generation.name}</p>
               <p className="text-text-secondary text-sm">{stats.generation.description}</p>

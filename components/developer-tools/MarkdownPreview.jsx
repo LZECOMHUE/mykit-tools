@@ -94,6 +94,7 @@ You can use inline \`code\` too.
 
 Happy writing!`);
   const [copied, setCopied] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
 
   const htmlOutput = useMemo(() => parseMarkdown(markdown), [markdown]);
 
@@ -114,7 +115,7 @@ Happy writing!`);
   }, [htmlOutput]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(htmlOutput);
+    navigator.clipboard.writeText(htmlOutput).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -124,8 +125,7 @@ Happy writing!`);
       {/* Split View Container */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Editor */}
-        <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border flex flex-col">
-          <h3 className="text-lg font-semibold text-text-primary mb-4">Markdown Editor</h3>
+        <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border flex flex-col">
           <textarea
             value={markdown}
             onChange={e => setMarkdown(e.target.value)}
@@ -135,8 +135,7 @@ Happy writing!`);
         </div>
 
         {/* Preview */}
-        <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border flex flex-col">
-          <h3 className="text-lg font-semibold text-text-primary mb-4">Live Preview</h3>
+        <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border flex flex-col">
           <div
             className="flex-1 p-4 bg-white border border-border rounded-[var(--radius-input)] prose prose-sm max-w-none overflow-auto"
             dangerouslySetInnerHTML={{ __html: styledHtml }}
@@ -145,9 +144,8 @@ Happy writing!`);
       </div>
 
       {/* HTML Output */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-text-primary">Generated HTML</h3>
           <button
             onClick={handleCopy}
             className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"
@@ -162,26 +160,33 @@ Happy writing!`);
       </div>
 
       {/* Syntax Guide */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <h3 className="text-lg font-semibold text-text-primary mb-4">Markdown Syntax Guide</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <div className="font-semibold text-text-primary mb-2">Headers</div>
-            <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary"># H1 / ## H2 / ### H3</code>
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
+        <button
+          onClick={() => setShowGuide(!showGuide)}
+          className="text-text-secondary text-sm font-medium flex items-center gap-1 hover:text-text-primary"
+        >
+          {showGuide ? '▾' : '▸'} Markdown Syntax Guide
+        </button>
+        {showGuide && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-3">
+            <div>
+              <div className="font-semibold text-text-primary mb-2">Headers</div>
+              <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary"># H1 / ## H2 / ### H3</code>
+            </div>
+            <div>
+              <div className="font-semibold text-text-primary mb-2">Text Formatting</div>
+              <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">**bold** / *italic* / `code`</code>
+            </div>
+            <div>
+              <div className="font-semibold text-text-primary mb-2">Links & Images</div>
+              <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">[text](url) / ![alt](url)</code>
+            </div>
+            <div>
+              <div className="font-semibold text-text-primary mb-2">Lists & Quotes</div>
+              <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">{'- list / 1. ordered / > quote'}</code>
+            </div>
           </div>
-          <div>
-            <div className="font-semibold text-text-primary mb-2">Text Formatting</div>
-            <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">**bold** / *italic* / `code`</code>
-          </div>
-          <div>
-            <div className="font-semibold text-text-primary mb-2">Links & Images</div>
-            <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">[text](url) / ![alt](url)</code>
-          </div>
-          <div>
-            <div className="font-semibold text-text-primary mb-2">Lists & Quotes</div>
-            <code className="block bg-white border border-border rounded px-2 py-1 font-mono text-xs text-text-secondary">{'- list / 1. ordered / > quote'}</code>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

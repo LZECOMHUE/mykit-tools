@@ -57,7 +57,7 @@ export default function SalaryToHourlyConverter() {
   }, [hourlyRate, hoursPerWeek, weeksPerYear]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'salary', label: 'Salary to Hourly' },
@@ -69,8 +69,8 @@ export default function SalaryToHourlyConverter() {
 
       {/* Salary to Hourly Tab */}
       {activeTab === 'salary' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Convert Annual Salary
             </h2>
@@ -174,8 +174,8 @@ export default function SalaryToHourlyConverter() {
 
       {/* Hourly to Salary Tab */}
       {activeTab === 'hourly' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Convert Hourly Rate
             </h2>

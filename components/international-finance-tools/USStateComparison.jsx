@@ -74,14 +74,14 @@ export default function USStateComparison() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Enter your income to compare states</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-6xl mx-auto space-y-4">
       {/* Disclaimer */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-text-secondary">
         <p className="font-semibold text-blue-900 mb-1">Disclaimer</p>
@@ -89,10 +89,10 @@ export default function USStateComparison() {
       </div>
 
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h2 className="text-xl font-bold text-text-primary">US State Tax Comparison</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">Annual Income ($)</label>
             <input
@@ -144,7 +144,7 @@ export default function USStateComparison() {
 
       {/* Best/Worst Highlight */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-600 text-sm font-medium mb-1">Best State (Lowest Tax)</p>
           <p className="text-2xl font-bold text-green-700 mb-2">{calculations.bestState.name}</p>
           <p className="text-green-600 text-sm">
@@ -156,7 +156,7 @@ export default function USStateComparison() {
           </p>
         </div>
 
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+        <div className="bg-red-50 border border-red-200 rounded-lg">
           <p className="text-red-600 text-sm font-medium mb-1">Highest Tax State</p>
           <p className="text-2xl font-bold text-red-700 mb-2">{calculations.worstState.name}</p>
           <p className="text-red-600 text-sm">
@@ -170,7 +170,7 @@ export default function USStateComparison() {
       </div>
 
       {/* Tax Difference */}
-      <div className="bg-accent-muted border border-accent rounded-lg p-6">
+      <div className="bg-accent-muted border border-accent rounded-lg">
         <p className="text-accent text-sm font-medium mb-1">Tax Difference Between Best & Worst</p>
         <p className="text-3xl font-bold text-accent mb-2">{fmt(calculations.taxDifference)}</p>
         <p className="text-accent text-sm">
@@ -181,7 +181,7 @@ export default function USStateComparison() {
       </div>
 
       {/* Comparison Table */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Detailed Comparison</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -226,7 +226,7 @@ export default function USStateComparison() {
       </div>
 
       {/* State Tax Type Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">State Tax Information</h3>
         <div className="space-y-3">
           {calculations.stateComparisons.map((state) => {
@@ -252,7 +252,7 @@ export default function USStateComparison() {
       </div>
 
       {/* No Income Tax States */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">States with No Income Tax</h3>
         <p className="text-text-secondary text-sm mb-3">
           These 9 states don't tax regular wages or salaries:
@@ -270,7 +270,7 @@ export default function USStateComparison() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-3">
+      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Tax Planning Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ State tax is only one factor in relocation - consider cost of living, job market, weather</li>
@@ -284,7 +284,7 @@ export default function USStateComparison() {
       </div>
 
       {/* Quick Income Buttons */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Quick Income Amounts</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {[50000, 75000, 100000, 150000, 200000, 250000, 300000, 500000].map((income) => (

@@ -186,7 +186,7 @@ export default function CropPDF() {
 
   if (cropped) {
     return (
-      <div className="rounded-[var(--radius-card)] bg-surface border border-border p-6 space-y-4">
+      <div className="rounded-[var(--radius-card)] bg-surface border border-border space-y-4">
         <div className="bg-green-50 border border-green-200 rounded-[var(--radius-input)] p-4">
           <p className="text-text-primary font-medium">PDF cropped successfully</p>
           <p className="text-text-secondary text-sm mt-1">
@@ -220,9 +220,9 @@ export default function CropPDF() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* File Info */}
-      <div className="rounded-[var(--radius-card)] bg-surface border border-border p-6">
+      <div className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
         <h3 className="text-text-primary font-semibold mb-4">File Information</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
@@ -242,7 +242,7 @@ export default function CropPDF() {
 
       {/* Preview */}
       {thumbnail && (
-        <div className="rounded-[var(--radius-card)] bg-surface border border-border p-6">
+        <div className="rounded-[var(--radius-card)] bg-surface border border-border p-4">
           <h3 className="text-text-primary font-semibold mb-4">Preview (Page 1)</h3>
           <div className="max-w-xs mx-auto">
             <PDFThumbnail
@@ -254,7 +254,7 @@ export default function CropPDF() {
       )}
 
       {/* Crop Settings */}
-      <div className="rounded-[var(--radius-card)] bg-surface border border-border p-6 space-y-4">
+      <div className="rounded-[var(--radius-card)] bg-surface border border-border space-y-4">
         <h3 className="text-text-primary font-semibold">Crop Margins</h3>
 
         {/* Preset Selector */}

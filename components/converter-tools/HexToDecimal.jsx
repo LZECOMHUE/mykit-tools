@@ -52,7 +52,7 @@ export default function HexToDecimal() {
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
           {result !== null && (
             <button
-              onClick={() => navigator.clipboard.writeText(result.toString())}
+              onClick={() => navigator.clipboard.writeText(result.toString().catch(() => {}))}
               className="text-[12px] text-accent hover:text-accent-hover transition-colors cursor-pointer"
             >
               Copy result

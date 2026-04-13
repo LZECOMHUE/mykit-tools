@@ -7,6 +7,7 @@ export default function PixelToRemConverter() {
   const [remValue, setRemValue] = useState('1');
   const [baseFontSize, setBaseFontSize] = useState('16');
   const [mode, setMode] = useState('px-to-rem');
+  const [copied, setCopied] = useState(false);
 
   const results = useMemo(() => {
     const base = parseFloat(baseFontSize) || 16;
@@ -30,20 +31,19 @@ export default function PixelToRemConverter() {
     { label: 'XL', px: 32 },
   ];
 
-  const copyToClipboard = (value) => {
+  const copyToClipboard = () => {
     const px = results.px.toFixed(2);
     const rem = results.rem.toFixed(3);
     const text = `font-size: ${rem}rem; /* ${px}px */`;
-    navigator.clipboard.writeText(text);
-    setTimeout(() => {
-      alert('CSS copied to clipboard!');
-    }, 100);
+    navigator.clipboard.writeText(text).catch(() => {});
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Mode Toggle */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <label className="block text-text-secondary text-sm font-medium mb-3">
           Conversion Mode
         </label>
@@ -78,7 +78,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* Base Font Size */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <label className="block text-text-secondary text-sm font-medium mb-1">
           Base Font Size (for REM calculation)
         </label>
@@ -110,7 +110,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* Conversion Input */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         {mode === 'px-to-rem' ? (
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
@@ -143,14 +143,14 @@ export default function PixelToRemConverter() {
 
       {/* Results */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-2">Pixels</p>
           <p className="font-mono text-2xl font-bold text-text-primary">
             {results.px.toFixed(2)}px
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+        <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
           <p className="text-text-secondary text-sm mb-2">REM</p>
           <p className="font-mono text-2xl font-bold text-accent">
             {results.rem.toFixed(3)}rem
@@ -159,7 +159,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* CSS Copy */}
-      <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-6">
+      <div className="bg-blue-100 border border-accent rounded-[12px] p-4 sm:p-4">
         <p className="text-text-muted text-xs mb-3 uppercase font-semibold">
           CSS Output
         </p>
@@ -171,12 +171,12 @@ export default function PixelToRemConverter() {
           onClick={() => copyToClipboard()}
           className="w-full px-4 py-2 bg-accent text-white rounded-[8px] font-medium hover:bg-accent hover:brightness-110 transition-all"
         >
-          📋 Copy CSS
+          {copied ? '✓ Copied!' : '📋 Copy CSS'}
         </button>
       </div>
 
       {/* Common Values Reference Table */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">
           Common Values Reference
         </h3>
@@ -230,7 +230,7 @@ export default function PixelToRemConverter() {
       </div>
 
       {/* Text Preview */}
-      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-6">
+      <div className="bg-surface border border-border rounded-[12px] p-4 sm:p-4">
         <h3 className="text-text-primary font-semibold mb-4">Text Preview</h3>
         <div className="space-y-4">
           {previewSizes.map((size) => (
@@ -249,15 +249,6 @@ export default function PixelToRemConverter() {
         </div>
       </div>
 
-      {/* Info Box */}
-      <div className="bg-blue-100 border border-info rounded-[12px] p-4 sm:p-6">
-        <p className="text-info text-sm font-medium mb-2">Why use REM?</p>
-        <p className="text-text-secondary text-sm">
-          REM units are relative to the root element's font size, making them perfect for scalable,
-          accessible designs. They respond to user font-size preferences and are easier to maintain
-          than pixels. Use REM for fonts and spacing, PX for borders and precise measurements.
-        </p>
-      </div>
     </div>
   );
 }

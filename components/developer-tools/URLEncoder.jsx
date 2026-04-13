@@ -7,6 +7,7 @@ export default function URLEncoder() {
   const [plainText, setPlainText] = useState('');
   const [encodedText, setEncodedText] = useState('');
   const [encodingMode, setEncodingMode] = useState('component'); // 'component' or 'uri'
+  const [showEncodingInfo, setShowEncodingInfo] = useState(false);
   const [autoMode, setAutoMode] = useState(true);
   const [error, setError] = useState(null);
 
@@ -69,15 +70,15 @@ export default function URLEncoder() {
   };
 
   const handleCopyPlainText = () => {
-    navigator.clipboard.writeText(plainText);
+    navigator.clipboard.writeText(plainText).catch(() => {});
   };
 
   const handleCopyEncoded = () => {
-    navigator.clipboard.writeText(encodedText);
+    navigator.clipboard.writeText(encodedText).catch(() => {});
   };
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-4">
       {/* Controls */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <div className="flex items-center gap-3">
@@ -179,12 +180,21 @@ export default function URLEncoder() {
       </div>
 
       {/* Info Box */}
-      <div className="p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm">
-        <strong className="block mb-1">Encoding Modes:</strong>
-        <ul className="list-disc list-inside space-y-1">
-          <li><strong>Query Parameter:</strong> Use for URL query strings and form data. Encodes spaces as %20.</li>
-          <li><strong>Full URL:</strong> Use for complete URLs. Preserves URL structure (/,:, etc).</li>
-        </ul>
+      <div>
+        <button
+          onClick={() => setShowEncodingInfo(!showEncodingInfo)}
+          className="text-xs text-text-muted hover:text-text-secondary flex items-center gap-1"
+        >
+          {showEncodingInfo ? '▾' : '▸'} About encoding modes
+        </button>
+        {showEncodingInfo && (
+          <div className="mt-2 p-3 rounded-[--radius-card] bg-blue-50 border border-blue-200 text-blue-700 text-sm">
+            <ul className="list-disc list-inside space-y-1">
+              <li><strong>Query Parameter:</strong> Use for URL query strings and form data. Encodes spaces as %20.</li>
+              <li><strong>Full URL:</strong> Use for complete URLs. Preserves URL structure (/,:, etc).</li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

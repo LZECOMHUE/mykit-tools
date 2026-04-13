@@ -114,7 +114,7 @@ export default function RegexTester() {
       .filter(([_, enabled]) => enabled)
       .map(([flag]) => flag)
       .join('')}\n\nMatches: ${matches.length}`;
-    navigator.clipboard.writeText(content);
+    navigator.clipboard.writeText(content).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -122,8 +122,8 @@ export default function RegexTester() {
   return (
     <div className="space-y-3">
       {/* Quick Patterns */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <h3 className="text-sm font-semibold text-text-secondary mb-3">Quick Patterns</h3>
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
+        <p className="text-xs text-text-muted mb-2 font-medium uppercase">Quick Patterns</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {Object.entries(QUICK_PATTERNS).map(([key, { label }]) => (
             <button
@@ -138,51 +138,44 @@ export default function RegexTester() {
         </div>
       </div>
 
-      {/* Pattern Input */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <label className="block text-sm font-medium text-text-primary mb-2">
-          Regular Expression Pattern
-        </label>
-        <input
-          type="text"
-          value={pattern}
-          onChange={e => setPattern(e.target.value)}
-          placeholder="Enter regex pattern..."
-          className="w-full px-3 py-2 bg-white border border-border rounded-[var(--radius-input)] font-mono text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
-        />
-
+      {/* Pattern Input + Flags */}
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border space-y-3">
+        <div className="flex gap-2 flex-wrap">
+          <input
+            type="text"
+            value={pattern}
+            onChange={e => setPattern(e.target.value)}
+            placeholder="Enter regex pattern..."
+            className="flex-1 min-w-0 px-3 py-2 bg-white border border-border rounded-[var(--radius-input)] font-mono text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-accent"
+          />
+          <div className="flex gap-3 items-center">
+            {[
+              { flag: 'g', title: 'Global - Find all matches' },
+              { flag: 'i', title: 'Case-insensitive' },
+              { flag: 'm', title: 'Multiline' },
+              { flag: 's', title: 'Dot matches all' },
+            ].map(({ flag, title }) => (
+              <label key={flag} className="flex items-center gap-1 cursor-pointer" title={title}>
+                <input
+                  type="checkbox"
+                  checked={flags[flag]}
+                  onChange={() => handleToggleFlag(flag)}
+                  className="w-4 h-4"
+                />
+                <span className="text-sm font-mono text-text-primary">{flag}</span>
+              </label>
+            ))}
+          </div>
+        </div>
         {error && (
-          <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-[var(--radius-input)] text-red-700 text-sm">
+          <div className="p-3 bg-red-50 border border-red-200 rounded-[var(--radius-input)] text-red-700 text-sm">
             {error}
           </div>
         )}
       </div>
 
-      {/* Flags */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
-        <h3 className="text-sm font-semibold text-text-primary mb-3">Flags</h3>
-        <div className="flex gap-4">
-          {[
-            { flag: 'g', label: 'Global (g) - Find all matches' },
-            { flag: 'i', label: 'Case-insensitive (i)' },
-            { flag: 'm', label: 'Multiline (m)' },
-            { flag: 's', label: 'Dot matches all (s)' },
-          ].map(({ flag, label }) => (
-            <label key={flag} className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={flags[flag]}
-                onChange={() => handleToggleFlag(flag)}
-                className="w-4 h-4"
-              />
-              <span className="text-sm text-text-primary">{label}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
       {/* Test String */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <label className="block text-sm font-medium text-text-primary mb-2">
           Test String
         </label>
@@ -196,11 +189,11 @@ export default function RegexTester() {
       </div>
 
       {/* Results */}
-      <div className="p-6 rounded-[var(--radius-card)] bg-surface border border-border">
+      <div className="p-4 rounded-[var(--radius-card)] bg-surface border border-border">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-text-primary">
+          <span className="text-sm font-semibold text-text-primary">
             Matches: <span className="text-accent font-mono-num">{matches.length}</span>
-          </h3>
+          </span>
           <button
             onClick={handleCopy}
             className="px-4 py-2 bg-accent text-white rounded-[var(--radius-input)] text-sm font-medium hover:bg-blue-700"
@@ -210,7 +203,7 @@ export default function RegexTester() {
         </div>
 
         {/* Highlighted Text */}
-        <div className="mb-6 p-4 bg-white border border-border rounded-[var(--radius-input)]">
+        <div className="mb-4 p-4 bg-white border border-border rounded-[var(--radius-input)]">
           <div className="text-sm text-text-secondary mb-2">Highlighted Matches:</div>
           <div
             className="font-mono text-sm text-text-primary whitespace-pre-wrap break-words"

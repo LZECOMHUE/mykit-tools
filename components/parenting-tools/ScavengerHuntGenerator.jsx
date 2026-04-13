@@ -154,8 +154,8 @@ export default function ScavengerHuntGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <h2 className="font-heading text-xl font-bold text-text-primary">Hunt Configuration</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -224,8 +224,8 @@ export default function ScavengerHuntGenerator() {
       </div>
 
       {generated && (
-        <div className="space-y-6">
-          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="space-y-4">
+          <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <div className="flex justify-between items-center">
               <div>
                 <h2 className="font-heading text-xl font-bold text-text-primary">Hunt Checklist</h2>
@@ -278,7 +278,7 @@ export default function ScavengerHuntGenerator() {
           </div>
 
           {completedCount === items.length && items.length > 0 && (
-            <div className="bg-green-50 border border-green-200 rounded-[var(--radius-card)] p-6 text-center">
+            <div className="bg-green-50 border border-green-200 rounded-[var(--radius-card)] text-center">
               <h3 className="font-heading text-2xl font-bold text-green-900 mb-2">You found everything!</h3>
               <p className="text-green-800">Great job completing the scavenger hunt!</p>
             </div>

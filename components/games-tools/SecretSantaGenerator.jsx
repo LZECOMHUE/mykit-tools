@@ -178,13 +178,9 @@ export default function SecretSantaGenerator() {
   };
 
   return (
-    <div className="space-y-8">
-      <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-          Secret Santa Setup
-        </h2>
-
-        <div className="space-y-4 mb-6">
+    <div className="space-y-4">
+      <div className="space-y-4">
+        <div className="space-y-4 mb-4">
           <div>
             <label className="text-text-secondary text-sm font-medium block mb-3">
               Participants
@@ -255,7 +251,7 @@ export default function SecretSantaGenerator() {
         >
           Generate Secret Santa Assignments
         </Button>
-      </Card>
+      </div>
 
       {assignments && (
         <div className="space-y-4">
@@ -263,7 +259,7 @@ export default function SecretSantaGenerator() {
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">
               Secret Santa Assignments
             </h2>
-            <p className="text-text-secondary text-sm mb-6">
+            <p className="text-text-secondary text-sm mb-4">
               Budget: £{budget} | Participants: {assignments.length}
             </p>
 

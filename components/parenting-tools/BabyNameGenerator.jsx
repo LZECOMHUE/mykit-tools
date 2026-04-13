@@ -84,9 +84,9 @@ export default function BabyNameGenerator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Controls */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-2">Gender</label>
@@ -140,7 +140,7 @@ export default function BabyNameGenerator() {
       {filteredNames.length > 0 ? (
         <>
           {/* Name Display */}
-          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] p-8 text-center space-y-4">
+          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] text-center space-y-4">
             <div>
               <p className="text-sm text-text-secondary mb-2">Current name</p>
               <p className="font-heading text-4xl font-bold text-text-primary">{currentName}</p>
@@ -171,7 +171,7 @@ export default function BabyNameGenerator() {
 
           {/* Shortlist */}
           {liked.length > 0 && (
-            <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+            <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4 space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="text-text-primary font-semibold">Your Shortlist</h3>
                 <button
@@ -203,7 +203,7 @@ export default function BabyNameGenerator() {
           )}
         </>
       ) : (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center text-text-muted">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] text-center text-text-muted">
           <p>No names found with that filter. Try a different letter or style.</p>
         </div>
       )}

@@ -164,7 +164,7 @@ export default function PhotoFilterTool() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Upload Image */}
       <Card className="bg-gradient-to-br from-cyan-50 to-blue-50 space-y-4">
         <div>
@@ -409,17 +409,7 @@ export default function PhotoFilterTool() {
       )}
 
       {!uploadedImage && (
-        <Card className="border-l-4 border-l-accent bg-blue-50 text-center py-8">
-          <p className="text-text-secondary">Upload a photo to start applying filters</p>
-        </Card>
-      )}
-
-      {uploadedImage && (
-        <Card className="border-l-4 border-l-accent-warm bg-yellow-50">
-          <p className="text-sm text-text-secondary">
-            Adjust sliders to apply filters in real-time. Use quick filter presets for instant effects or fine-tune each filter individually. Compare before and after side-by-side.
-          </p>
-        </Card>
+        <p className="text-sm text-text-muted text-center py-4">Upload a photo to get started</p>
       )}
     </div>
   );

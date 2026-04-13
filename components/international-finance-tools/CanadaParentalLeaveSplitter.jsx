@@ -50,9 +50,9 @@ export default function CanadaParentalLeaveSplitter() {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-8 space-y-8">
+    <div className="bg-surface rounded-lg space-y-4">
       {/* Inputs */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-secondary mb-2">
             Combined Annual Income
@@ -120,8 +120,8 @@ export default function CanadaParentalLeaveSplitter() {
       </div>
 
       {/* Split Summary */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg">
           <div className="text-sm text-blue-700 mb-2">Parent 1</div>
           <div className="text-3xl font-mono font-bold text-blue-900">
             {splitPercent}%
@@ -134,7 +134,7 @@ export default function CanadaParentalLeaveSplitter() {
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+        <div className="bg-purple-50 border border-purple-200 rounded-lg">
           <div className="text-sm text-purple-700 mb-2">Parent 2</div>
           <div className="text-3xl font-mono font-bold text-purple-900">
             {100 - parseInt(splitPercent)}%
@@ -149,8 +149,8 @@ export default function CanadaParentalLeaveSplitter() {
       </div>
 
       {/* Total Benefits */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Parent 1 Total Benefits</div>
           <div className="text-4xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.parent1Total)}
@@ -160,7 +160,7 @@ export default function CanadaParentalLeaveSplitter() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
           <div className="text-sm text-green-700 mb-2">Parent 2 Total Benefits</div>
           <div className="text-4xl font-mono font-bold text-green-900">
             {formatCurrency(calculations.parent2Total)}
@@ -172,7 +172,7 @@ export default function CanadaParentalLeaveSplitter() {
       </div>
 
       {/* Info */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg">
         <h3 className="font-semibold text-blue-900 mb-3">👶 Parental Leave in Canada</h3>
         <div className="space-y-2 text-sm text-blue-800">
           <p>
@@ -197,7 +197,7 @@ export default function CanadaParentalLeaveSplitter() {
       </div>
 
       {/* Scenarios */}
-      <div className="bg-white border border-border rounded-lg p-6">
+      <div className="bg-white border border-border rounded-lg">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Common Scenarios
         </h3>
@@ -249,7 +249,7 @@ export default function CanadaParentalLeaveSplitter() {
       </div>
 
       {/* Additional Benefits */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg">
         <h3 className="font-semibold text-green-900 mb-3">
           Additional Support Programs
         </h3>

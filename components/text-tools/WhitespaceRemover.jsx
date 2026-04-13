@@ -1,19 +1,16 @@
 "use client";
-import { useState } from "react";
-import Textarea from "@/components/ui/Textarea";
-import Card from "@/components/ui/Card";
+import { useState, useMemo } from "react";
 import Button from "@/components/ui/Button";
 
 export default function WhitespaceRemover() {
-  const [input, setInput] = useState(
-    "  Hello    World  \n\nThis  has   extra   spaces"
-  );
+  const [input, setInput] = useState("  Hello    World  \n\nThis  has   extra   spaces");
   const [trimLines, setTrimLines] = useState(true);
   const [removeBlank, setRemoveBlank] = useState(true);
   const [collapseSpaces, setCollapseSpaces] = useState(true);
   const [removeAll, setRemoveAll] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const getOutput = () => {
+  const output = useMemo(() => {
     let result = input;
 
     if (removeAll) {
@@ -21,125 +18,94 @@ export default function WhitespaceRemover() {
     }
 
     if (trimLines) {
-      result = result
-        .split("\n")
-        .map((line) => line.trim())
-        .join("\n");
+      result = result.split("\n").map((line) => line.trim()).join("\n");
     }
 
     if (removeBlank) {
-      result = result
-        .split("\n")
-        .filter((line) => line.trim() !== "")
-        .join("\n");
+      result = result.split("\n").filter((line) => line.trim() !== "").join("\n");
     }
 
     if (collapseSpaces) {
-      result = result
-        .split("\n")
-        .map((line) => line.replace(/\s+/g, " "))
-        .join("\n");
+      result = result.split("\n").map((line) => line.replace(/\s+/g, " ")).join("\n");
     }
 
     return result;
-  };
+  }, [input, trimLines, removeBlank, collapseSpaces, removeAll]);
 
-  const output = getOutput();
   const charDifference = input.length - output.length;
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(output);
+  const handleCopy = async () => {
+    if (!output) return;
+    try {
+      await navigator.clipboard.writeText(output).catch(() => {});
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">
-              Input Text
-            </label>
-            <Textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Enter text with extra whitespace"
-              rows={8}
+    <div className="space-y-4">
+      {/* Options as compact checkboxes */}
+      <div className="flex items-center gap-4 flex-wrap">
+        {[
+          { state: trimLines, setter: setTrimLines, label: "Trim lines" },
+          { state: removeBlank, setter: setRemoveBlank, label: "Remove blank lines" },
+          { state: collapseSpaces, setter: setCollapseSpaces, label: "Collapse spaces" },
+          { state: removeAll, setter: setRemoveAll, label: "Remove all whitespace" },
+        ].map(({ state, setter, label }) => (
+          <label key={label} className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={state}
+              onChange={(e) => setter(e.target.checked)}
+              className="w-4 h-4 rounded border-border accent-accent"
             />
-            <p className="text-xs text-text-muted mt-1">
-              {input.length} characters
-            </p>
-          </div>
+            <span className="text-sm text-text-secondary">{label}</span>
+          </label>
+        ))}
+      </div>
 
-          <div className="space-y-3">
-            <p className="text-sm font-medium text-text-primary">
-              Whitespace Options
-            </p>
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={trimLines}
-                  onChange={(e) => setTrimLines(e.target.checked)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">Trim Lines</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={removeBlank}
-                  onChange={(e) => setRemoveBlank(e.target.checked)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Remove Blank Lines
-                </span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={collapseSpaces}
-                  onChange={(e) => setCollapseSpaces(e.target.checked)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Collapse Multiple Spaces
-                </span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={removeAll}
-                  onChange={(e) => setRemoveAll(e.target.checked)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Remove All Whitespace
-                </span>
-              </label>
+      {/* Side-by-side grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Input</label>
+            {input.length > 0 && (
+              <span className="text-xs text-text-muted font-mono">{input.length} chars</span>
+            )}
+          </div>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Enter text with extra whitespace"
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
+          />
+        </div>
+
+        {/* Output */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Cleaned Output</label>
+            <div className="flex items-center gap-2">
+              {charDifference > 0 && (
+                <span className="text-xs text-success font-mono">-{charDifference} chars</span>
+              )}
+              <Button variant="secondary" size="sm" onClick={handleCopy} disabled={!output.trim()}>
+                {copied ? "Copied!" : "Copy"}
+              </Button>
             </div>
           </div>
+          <textarea
+            value={output}
+            readOnly
+            placeholder="Cleaned text will appear here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-surface border border-border rounded-[var(--radius-input)] resize-none focus:outline-none"
+            spellCheck={false}
+          />
         </div>
-      </Card>
-
-      <Card className="p-6">
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-text-secondary">Output</p>
-            <p className="text-xs text-success font-medium">
-              {output.length} characters (-{charDifference})
-            </p>
-          </div>
-          <div className="bg-surface p-4 rounded-lg border border-border max-h-96 overflow-y-auto">
-            <p className="font-mono text-text-primary whitespace-pre-wrap text-sm">
-              {output}
-            </p>
-          </div>
-          <Button onClick={handleCopy} className="w-full">
-            Copy Output
-          </Button>
-        </div>
-      </Card>
+      </div>
     </div>
   );
 }

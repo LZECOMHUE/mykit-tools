@@ -1,126 +1,453 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Button from '@/components/ui/Button';
+import { useState, useMemo } from "react";
 
-const celebrities = {
-  '01-01': ['J.K. Rowling (1966, Author)', 'Denzel Washington (1954, Actor)', 'Pai (1996, Athlete)'],
-  '01-02': ['Christy Turlington (1969, Model)', 'Cuba Gooding Jr. (1968, Actor)', 'Kate Bosworth (1983, Actress)'],
-  '01-03': ['Mel Gibson (1956, Actor)', 'Michael Stipe (1960, Musician)', 'Anna Pavlova (1881, Ballerina)'],
-  '01-04': ['Darius Rucker (1966, Musician)', 'Isaac Newton (1643, Scientist)', 'Tina Turner (1939, Singer)'],
-  '01-05': ['Aquaman (Jason Momoa, 1979, Actor)', 'Marilyn Monroe (1926, Actress)', 'Ringo Starr (1940, Musician)'],
-  '01-06': ['Sherlock Holmes (1854)', 'Henry VIII (1491)', 'Rowan Atkinson (1955, Actor)'],
-  '01-07': ['Nicholas Cage (1964, Actor)', 'Katie Holmes (1978, Actress)', 'William Van Halen (1955, Musician)'],
-  '01-08': ['David Bowie (1947, Musician)', 'Stephen Hawking (1942, Scientist)', 'Elvis (1935, Singer)'],
-  '01-09': ['Michelle Obama (1964)', 'Susana Gimenez (1957, Actress)', 'Uta Hagen (1919, Actress)'],
-  '01-10': ['Donald Trump (1946)', 'Pat Benatar (1953, Singer)', 'Ray Bolger (1904, Actor)'],
-  '01-15': ['Martin Luther King Jr. (1929)', 'Chris Pratt (1979, Actor)', 'Michelle Obama (1964)'],
-  '01-20': ['David Lynch (1946, Director)', 'Buzz Aldrin (1930, Astronaut)', 'Paul Stanley (1952, Musician)'],
-  '02-14': ['Michael Bay (1965, Director)', 'Valentine Holmes (1996, Athlete)', 'Simon Pegg (1973, Actor)'],
-  '03-17': ['Rob Lowe (1964, Actor)', 'Kurt Russell (1951, Actor)', 'Patrick Duffy (1949, Actor)'],
-  '04-18': ['Amy Smart (1976, Actress)', 'David Tennant (1971, Actor)', 'Hayden Christensen (1981, Actor)'],
-  '05-05': ['Chris Evans (1981, Actor)', 'David Blaine (1973, Magician)', 'Adele (1988, Singer)'],
-  '06-20': ['Lionel Messi (1987, Athlete)', 'Nicole Kidman (1967, Actress)', 'Errol Flynn (1909, Actor)'],
-  '07-04': ['Megan Fox (1986, Actress)', 'Bill Independence (1737)', 'Geraldo Rivera (1943, Broadcaster)'],
-  '08-15': ['Jennifer Aniston (1969, Actress)', 'Ben Affleck (1972, Actor)', 'Napoleon (1769)'],
-  '09-09': ['Beyonce (1981, Singer)', 'Michelle Williams (1980, Actress)', 'Otis Redding (1941, Singer)'],
-  '10-09': ['John Lennon (1940, Musician)', 'Bella Thorne (1997, Actress)', 'Josh Duhamel (1977, Actor)'],
-  '10-31': ['Scarlett Johansson (1984, Actress)', 'Vanilla Ice (1956, Rapper)', 'Halloween!'],
-  '11-11': ['Leonardo DiCaprio (1974, Actor)', 'Conan O\'Brien (1963, TV Host)', 'Armistice Day'],
-  '12-05': ['Brittany Snow (1986, Actress)', 'Walt Disney (1901, Animator)', 'Christina Aguilera (1980, Singer)'],
-  '12-25': ['Humphrey Bogart (1899, Actor)', 'Isaac Newton (1643, Scientist)', 'Christmas!'],
+// ── Celebrity data for every day of the year ─────────────────
+// Format: "MM-DD": ["Name (Year, Role)", ...]
+const CELEBS = {
+  "01-01": ["Morris Chestnut (1969, Actor)", "Grandmaster Flash (1958, DJ)", "J.D. Salinger (1919, Author)"],
+  "01-02": ["Cuba Gooding Jr. (1968, Actor)", "Kate Bosworth (1983, Actress)", "Isaac Asimov (1920, Author)"],
+  "01-03": ["Mel Gibson (1956, Actor)", "Michael Schumacher (1969, F1 Driver)", "J.R.R. Tolkien (1892, Author)"],
+  "01-04": ["Isaac Newton (1643, Scientist)", "Tina Knowles (1954, Designer)", "Michael Stipe (1960, Musician)"],
+  "01-05": ["Bradley Cooper (1975, Actor)", "Diane Keaton (1946, Actress)", "Marilyn Manson (1969, Musician)"],
+  "01-06": ["Rowan Atkinson (1955, Actor)", "Eddie Redmayne (1982, Actor)", "Nigella Lawson (1960, TV Chef)"],
+  "01-07": ["Nicolas Cage (1964, Actor)", "Katie Couric (1957, Journalist)", "Lewis Hamilton (1985, F1 Driver)"],
+  "01-08": ["David Bowie (1947, Musician)", "Stephen Hawking (1942, Scientist)", "Elvis Presley (1935, Singer)"],
+  "01-09": ["Kate Middleton (1982, Royalty)", "Nina Dobrev (1989, Actress)", "Jimmy Page (1944, Guitarist)"],
+  "01-10": ["George Foreman (1949, Boxer)", "Pat Benatar (1953, Singer)", "Rod Stewart (1945, Singer)"],
+  "01-11": ["Mary J. Blige (1971, Singer)", "Amanda Peet (1972, Actress)", "Alexander Hamilton (1755, Statesman)"],
+  "01-12": ["Zayn Malik (1993, Singer)", "Jeff Bezos (1964, Entrepreneur)", "Howard Stern (1954, Broadcaster)"],
+  "01-13": ["Orlando Bloom (1977, Actor)", "Liam Hemsworth (1990, Actor)", "Julia Louis-Dreyfus (1961, Actress)"],
+  "01-14": ["Dave Grohl (1969, Musician)", "LL Cool J (1968, Rapper)", "Jason Bateman (1969, Actor)"],
+  "01-15": ["Martin Luther King Jr. (1929, Activist)", "Pitbull (1981, Rapper)", "Regina King (1971, Actress)"],
+  "01-16": ["Kate Moss (1974, Model)", "Lin-Manuel Miranda (1980, Creator)", "John Carpenter (1948, Director)"],
+  "01-17": ["Muhammad Ali (1942, Boxer)", "Jim Carrey (1962, Actor)", "Michelle Obama (1964, First Lady)"],
+  "01-18": ["Kevin Costner (1955, Actor)", "Cary Grant (1904, Actor)", "Jason Segel (1980, Actor)"],
+  "01-19": ["Dolly Parton (1946, Singer)", "Edgar Allan Poe (1809, Author)", "Janis Joplin (1943, Singer)"],
+  "01-20": ["Buzz Aldrin (1930, Astronaut)", "David Lynch (1946, Director)", "Rainn Wilson (1966, Actor)"],
+  "01-21": ["Emma Bunton (1976, Singer)", "Geena Davis (1956, Actress)", "Jack Nicklaus (1940, Golfer)"],
+  "01-22": ["Sam Cooke (1931, Singer)", "Guy Fieri (1968, TV Chef)", "Diane Lane (1965, Actress)"],
+  "01-23": ["Mariska Hargitay (1964, Actress)", "Tiffani Thiessen (1974, Actress)", "Django Reinhardt (1910, Guitarist)"],
+  "01-24": ["Neil Diamond (1941, Singer)", "Sharon Tate (1943, Actress)", "Mischa Barton (1986, Actress)"],
+  "01-25": ["Alicia Keys (1981, Singer)", "Robert Burns (1759, Poet)", "Virginia Woolf (1882, Author)"],
+  "01-26": ["Ellen DeGeneres (1958, TV Host)", "Wayne Gretzky (1961, Hockey)", "Paul Newman (1925, Actor)"],
+  "01-27": ["Mozart (1756, Composer)", "Rosamund Pike (1979, Actress)", "Lewis Carroll (1832, Author)"],
+  "01-28": ["Elijah Wood (1981, Actor)", "Alan Alda (1936, Actor)", "Jackson Pollock (1912, Artist)"],
+  "01-29": ["Oprah Winfrey (1954, TV Host)", "Tom Selleck (1945, Actor)", "Adam Lambert (1982, Singer)"],
+  "01-30": ["Christian Bale (1974, Actor)", "Phil Collins (1951, Musician)", "Franklin D. Roosevelt (1882, President)"],
+  "01-31": ["Justin Timberlake (1981, Singer)", "Kerry Washington (1977, Actress)", "Jackie Robinson (1919, Athlete)"],
+  "02-01": ["Harry Styles (1994, Singer)", "Ronda Rousey (1987, Fighter)", "Clark Gable (1901, Actor)"],
+  "02-02": ["Shakira (1977, Singer)", "Christie Brinkley (1954, Model)", "James Joyce (1882, Author)"],
+  "02-03": ["Warwick Davis (1970, Actor)", "Isla Fisher (1976, Actress)", "Morgan Fairchild (1950, Actress)"],
+  "02-04": ["Alice Cooper (1948, Musician)", "Rosa Parks (1913, Activist)", "Clint Black (1962, Singer)"],
+  "02-05": ["Cristiano Ronaldo (1985, Footballer)", "Neymar (1992, Footballer)", "Michael Sheen (1969, Actor)"],
+  "02-06": ["Bob Marley (1945, Musician)", "Axl Rose (1962, Singer)", "Rick Astley (1966, Singer)"],
+  "02-07": ["Ashton Kutcher (1978, Actor)", "Chris Rock (1965, Comedian)", "Charles Dickens (1812, Author)"],
+  "02-08": ["James Dean (1931, Actor)", "Seth Green (1974, Actor)", "John Williams (1932, Composer)"],
+  "02-09": ["Tom Hiddleston (1981, Actor)", "Mia Farrow (1945, Actress)", "Joe Pesci (1943, Actor)"],
+  "02-10": ["Emma Roberts (1991, Actress)", "Laura Dern (1967, Actress)", "Boris Pasternak (1890, Author)"],
+  "02-11": ["Jennifer Aniston (1969, Actress)", "Thomas Edison (1847, Inventor)", "Sheryl Crow (1962, Singer)"],
+  "02-12": ["Abraham Lincoln (1809, President)", "Christina Ricci (1980, Actress)", "Judy Blume (1938, Author)"],
+  "02-13": ["Robbie Williams (1974, Singer)", "Mena Suvari (1979, Actress)", "Chuck Yeager (1923, Pilot)"],
+  "02-14": ["Simon Pegg (1970, Actor)", "Michael Bloomberg (1942, Businessman)", "Florence Henderson (1934, Actress)"],
+  "02-15": ["Galileo (1564, Scientist)", "Matt Groening (1954, Animator)", "Jane Seymour (1951, Actress)"],
+  "02-16": ["The Weeknd (1990, Singer)", "Elizabeth Olsen (1989, Actress)", "Ice-T (1958, Rapper)"],
+  "02-17": ["Ed Sheeran (1991, Singer)", "Michael Jordan (1963, Athlete)", "Paris Hilton (1981, Socialite)"],
+  "02-18": ["John Travolta (1954, Actor)", "Dr. Dre (1965, Producer)", "Yoko Ono (1933, Artist)"],
+  "02-19": ["Rihanna (1988, Singer)", "Jeff Daniels (1955, Actor)", "Millie Bobby Brown (2004, Actress)"],
+  "02-20": ["Kurt Cobain (1967, Musician)", "Rihanna (1988, Singer)", "Trevor Noah (1984, Comedian)"],
+  "02-21": ["Alan Rickman (1946, Actor)", "Sophie Turner (1996, Actress)", "Nina Simone (1933, Singer)"],
+  "02-22": ["Drew Barrymore (1975, Actress)", "Steve Irwin (1962, TV Host)", "George Washington (1732, President)"],
+  "02-23": ["Dakota Fanning (1994, Actress)", "Emily Blunt (1983, Actress)", "W.E.B. Du Bois (1868, Activist)"],
+  "02-24": ["Steve Jobs (1955, Entrepreneur)", "Floyd Mayweather (1977, Boxer)", "Billy Zane (1966, Actor)"],
+  "02-25": ["Sean Astin (1971, Actor)", "Rashida Jones (1976, Actress)", "George Harrison (1943, Musician)"],
+  "02-26": ["Johnny Cash (1932, Singer)", "Erykah Badu (1971, Singer)", "Michael Bolton (1953, Singer)"],
+  "02-27": ["Elizabeth Taylor (1932, Actress)", "Chelsea Clinton (1980, Author)", "Josh Groban (1981, Singer)"],
+  "02-28": ["Daniel Handler (1970, Author)", "Ali Larter (1976, Actress)", "Brian Jones (1942, Musician)"],
+  "02-29": ["Ja Rule (1976, Rapper)", "Tony Robbins (1960, Speaker)", "Superman (1938, Fictional)"],
+  "03-01": ["Justin Bieber (1994, Singer)", "Kesha (1987, Singer)", "Ron Howard (1954, Director)"],
+  "03-02": ["Dr. Seuss (1904, Author)", "Daniel Craig (1968, Actor)", "Jon Bon Jovi (1962, Musician)"],
+  "03-03": ["Jessica Biel (1982, Actress)", "Alexander Graham Bell (1847, Inventor)", "Camila Cabello (1997, Singer)"],
+  "03-04": ["Brooklyn Beckham (1999, Model)", "Catherine O'Hara (1954, Actress)", "Chaz Bono (1969, Activist)"],
+  "03-05": ["Eva Mendes (1974, Actress)", "Dean Stockwell (1936, Actor)", "Andy Gibb (1958, Singer)"],
+  "03-06": ["Shaquille O'Neal (1972, Athlete)", "Michelangelo (1475, Artist)", "Tyler the Creator (1991, Rapper)"],
+  "03-07": ["Bryan Cranston (1956, Actor)", "Rachel Weisz (1970, Actress)", "Wanda Sykes (1964, Comedian)"],
+  "03-08": ["James Van Der Beek (1977, Actor)", "Freddie Prinze Jr. (1976, Actor)", "Kat Von D (1982, Artist)"],
+  "03-09": ["Oscar Isaac (1979, Actor)", "Lil Bow Wow (1987, Rapper)", "Juliette Binoche (1964, Actress)"],
+  "03-10": ["Carrie Underwood (1983, Singer)", "Olivia Wilde (1984, Actress)", "Chuck Norris (1940, Actor)"],
+  "03-11": ["Thora Birch (1982, Actress)", "Johnny Knoxville (1971, TV Host)", "Douglas Adams (1952, Author)"],
+  "03-12": ["Liza Minnelli (1946, Actress)", "James Taylor (1948, Musician)", "Mitt Romney (1947, Politician)"],
+  "03-13": ["Emile Hirsch (1985, Actor)", "William H. Macy (1950, Actor)", "Neil Sedaka (1939, Singer)"],
+  "03-14": ["Albert Einstein (1879, Scientist)", "Stephen Curry (1988, Athlete)", "Simone Biles (1997, Gymnast)"],
+  "03-15": ["will.i.am (1975, Musician)", "Eva Longoria (1975, Actress)", "Ruth Bader Ginsburg (1933, Judge)"],
+  "03-16": ["Alexandra Daddario (1986, Actress)", "Lauren Graham (1967, Actress)", "Flavor Flav (1959, Rapper)"],
+  "03-17": ["Rob Lowe (1964, Actor)", "Kurt Russell (1951, Actor)", "Nat King Cole (1919, Singer)"],
+  "03-18": ["Queen Latifah (1970, Rapper)", "Adam Levine (1979, Singer)", "Lily Collins (1989, Actress)"],
+  "03-19": ["Bruce Willis (1955, Actor)", "Glenn Close (1947, Actress)", "Wyatt Earp (1848, Lawman)"],
+  "03-20": ["Spike Lee (1957, Director)", "Holly Hunter (1958, Actress)", "Fred Rogers (1928, TV Host)"],
+  "03-21": ["Gary Oldman (1958, Actor)", "Matthew Broderick (1962, Actor)", "Rosie O'Donnell (1962, TV Host)"],
+  "03-22": ["Reese Witherspoon (1976, Actress)", "William Shatner (1931, Actor)", "Andrew Lloyd Webber (1948, Composer)"],
+  "03-23": ["Chaka Khan (1953, Singer)", "Keri Russell (1976, Actress)", "Joan Crawford (1904, Actress)"],
+  "03-24": ["Jessica Chastain (1977, Actress)", "Peyton Manning (1976, Athlete)", "Steve McQueen (1930, Actor)"],
+  "03-25": ["Elton John (1947, Musician)", "Sarah Jessica Parker (1965, Actress)", "Aretha Franklin (1942, Singer)"],
+  "03-26": ["Keira Knightley (1985, Actress)", "Steven Tyler (1948, Singer)", "Leonard Nimoy (1931, Actor)"],
+  "03-27": ["Mariah Carey (1969, Singer)", "Quentin Tarantino (1963, Director)", "Fergie (1975, Singer)"],
+  "03-28": ["Lady Gaga (1986, Singer)", "Vince Vaughn (1970, Actor)", "Reba McEntire (1955, Singer)"],
+  "03-29": ["Lucy Lawless (1968, Actress)", "Elle Macpherson (1964, Model)", "John Major (1943, PM)"],
+  "03-30": ["Celine Dion (1968, Singer)", "Vincent van Gogh (1853, Artist)", "Norah Jones (1979, Singer)"],
+  "03-31": ["Ewan McGregor (1971, Actor)", "Christopher Walken (1943, Actor)", "Al Gore (1948, Politician)"],
+  "04-01": ["Susan Boyle (1961, Singer)", "Rachel Maddow (1973, Journalist)", "Debbie Reynolds (1932, Actress)"],
+  "04-02": ["Michael Fassbender (1977, Actor)", "Hans Christian Andersen (1805, Author)", "Marvin Gaye (1939, Singer)"],
+  "04-03": ["Eddie Murphy (1961, Actor)", "Amanda Bynes (1986, Actress)", "Alec Baldwin (1958, Actor)"],
+  "04-04": ["Robert Downey Jr. (1965, Actor)", "Heath Ledger (1979, Actor)", "Maya Angelou (1928, Author)"],
+  "04-05": ["Pharrell Williams (1973, Producer)", "Lily James (1989, Actress)", "Colin Powell (1937, General)"],
+  "04-06": ["Paul Rudd (1969, Actor)", "Zach Braff (1975, Actor)", "Candace Cameron Bure (1976, Actress)"],
+  "04-07": ["Russell Crowe (1964, Actor)", "Jackie Chan (1954, Actor)", "Francis Ford Coppola (1939, Director)"],
+  "04-08": ["Patricia Arquette (1968, Actress)", "John Schneider (1960, Actor)", "Kofi Annan (1938, Diplomat)"],
+  "04-09": ["Kristen Stewart (1990, Actress)", "Lil Nas X (2001, Rapper)", "Dennis Quaid (1954, Actor)"],
+  "04-10": ["Mandy Moore (1984, Singer)", "Steven Seagal (1952, Actor)", "Daisy Ridley (1992, Actress)"],
+  "04-11": ["Joss Stone (1987, Singer)", "Jeremy Clarkson (1960, TV Host)", "Ethel Kennedy (1928, Activist)"],
+  "04-12": ["David Letterman (1947, TV Host)", "Claire Danes (1979, Actress)", "Saoirse Ronan (1994, Actress)"],
+  "04-13": ["Al Green (1946, Singer)", "Ron Perlman (1950, Actor)", "Thomas Jefferson (1743, President)"],
+  "04-14": ["Robert Carlyle (1961, Actor)", "Sarah Michelle Gellar (1977, Actress)", "Peter Capaldi (1958, Actor)"],
+  "04-15": ["Emma Watson (1990, Actress)", "Leonardo da Vinci (1452, Genius)", "Emma Thompson (1959, Actress)"],
+  "04-16": ["Chance the Rapper (1993, Rapper)", "Charlie Chaplin (1889, Actor)", "Martin Lawrence (1965, Actor)"],
+  "04-17": ["Victoria Beckham (1974, Singer)", "Jennifer Garner (1972, Actress)", "Rooney Mara (1985, Actress)"],
+  "04-18": ["David Tennant (1971, Actor)", "Kourtney Kardashian (1979, TV)", "Hayden Christensen (1981, Actor)"],
+  "04-19": ["Kate Hudson (1979, Actress)", "James Franco (1978, Actor)", "Maria Sharapova (1987, Tennis)"],
+  "04-20": ["Jessica Lange (1949, Actress)", "Andy Serkis (1964, Actor)", "Miranda Kerr (1983, Model)"],
+  "04-21": ["Queen Elizabeth II (1926, Royalty)", "James McAvoy (1979, Actor)", "Iggy Pop (1947, Musician)"],
+  "04-22": ["Jack Nicholson (1937, Actor)", "Amber Heard (1986, Actress)", "Earth Day (1970, Event)"],
+  "04-23": ["William Shakespeare (1564, Playwright)", "John Cena (1977, Wrestler)", "Dev Patel (1990, Actor)"],
+  "04-24": ["Barbra Streisand (1942, Singer)", "Kelly Clarkson (1982, Singer)", "Djimon Hounsou (1964, Actor)"],
+  "04-25": ["Al Pacino (1940, Actor)", "Renee Zellweger (1969, Actress)", "Ella Fitzgerald (1917, Singer)"],
+  "04-26": ["Channing Tatum (1980, Actor)", "Melania Trump (1970, First Lady)", "Jet Li (1963, Actor)"],
+  "04-27": ["Lizzo (1988, Singer)", "Ulysses S. Grant (1822, President)", "Jenna Coleman (1986, Actress)"],
+  "04-28": ["Penelope Cruz (1974, Actress)", "Jay Leno (1950, TV Host)", "Jessica Alba (1981, Actress)"],
+  "04-29": ["Daniel Day-Lewis (1957, Actor)", "Jerry Seinfeld (1954, Comedian)", "Uma Thurman (1970, Actress)"],
+  "04-30": ["Gal Gadot (1985, Actress)", "Travis Scott (1991, Rapper)", "Kirsten Dunst (1982, Actress)"],
+  "05-01": ["Dwayne Johnson (1972, Actor)", "Wes Anderson (1969, Director)", "Tim McGraw (1967, Singer)"],
+  "05-02": ["David Beckham (1975, Footballer)", "Dwayne Johnson (1972, Actor)", "Lily Allen (1985, Singer)"],
+  "05-03": ["James Brown (1933, Singer)", "Christina Hendricks (1975, Actress)", "Bing Crosby (1903, Singer)"],
+  "05-04": ["Audrey Hepburn (1929, Actress)", "Will Arnett (1970, Actor)", "Star Wars Day"],
+  "05-05": ["Adele (1988, Singer)", "Chris Brown (1989, Singer)", "Karl Marx (1818, Philosopher)"],
+  "05-06": ["George Clooney (1961, Actor)", "Meek Mill (1987, Rapper)", "Sigmund Freud (1856, Psychologist)"],
+  "05-07": ["Breckin Meyer (1974, Actor)", "Eva Peron (1919, First Lady)", "Gary Cooper (1901, Actor)"],
+  "05-08": ["Enrique Iglesias (1975, Singer)", "David Attenborough (1926, Naturalist)", "Melissa Gilbert (1964, Actress)"],
+  "05-09": ["Billy Joel (1949, Musician)", "Rosario Dawson (1979, Actress)", "Albert Finney (1936, Actor)"],
+  "05-10": ["Bono (1960, Musician)", "Kenan Thompson (1978, Actor)", "Fred Astaire (1899, Dancer)"],
+  "05-11": ["Salvador Dali (1904, Artist)", "Cory Monteith (1982, Actor)", "Martha Graham (1894, Dancer)"],
+  "05-12": ["Florence Nightingale (1820, Nurse)", "Rami Malek (1981, Actor)", "Emily VanCamp (1986, Actress)"],
+  "05-13": ["Robert Pattinson (1986, Actor)", "Stevie Wonder (1950, Musician)", "Stephen Colbert (1964, TV Host)"],
+  "05-14": ["Mark Zuckerberg (1984, Entrepreneur)", "Cate Blanchett (1969, Actress)", "George Lucas (1944, Director)"],
+  "05-15": ["Andy Murray (1987, Tennis)", "Madeleine Albright (1937, Politician)", "Emmitt Smith (1969, Athlete)"],
+  "05-16": ["Megan Fox (1986, Actress)", "Pierce Brosnan (1953, Actor)", "Janet Jackson (1966, Singer)"],
+  "05-17": ["Trent Reznor (1965, Musician)", "Nikki Reed (1988, Actress)", "Bill Paxton (1955, Actor)"],
+  "05-18": ["Tina Fey (1970, Comedian)", "Chow Yun-fat (1955, Actor)", "Pope John Paul II (1920, Pope)"],
+  "05-19": ["Sam Smith (1992, Singer)", "Pete Townshend (1945, Guitarist)", "Malcolm X (1925, Activist)"],
+  "05-20": ["Cher (1946, Singer)", "Jimmy Stewart (1908, Actor)", "Joe Cocker (1944, Singer)"],
+  "05-21": ["Mr. T (1952, Actor)", "Notorious B.I.G. (1972, Rapper)", "Fairuza Balk (1974, Actress)"],
+  "05-22": ["Naomi Campbell (1970, Model)", "Arthur Conan Doyle (1859, Author)", "Morrissey (1959, Singer)"],
+  "05-23": ["Joan Collins (1933, Actress)", "Drew Carey (1958, TV Host)", "Jewel (1974, Singer)"],
+  "05-24": ["Queen Victoria (1819, Royalty)", "Bob Dylan (1941, Musician)", "Priscilla Presley (1945, Actress)"],
+  "05-25": ["Ian McKellen (1939, Actor)", "Mike Myers (1963, Actor)", "Ralph Waldo Emerson (1803, Author)"],
+  "05-26": ["Helena Bonham Carter (1966, Actress)", "Lenny Kravitz (1964, Musician)", "John Wayne (1907, Actor)"],
+  "05-27": ["Jamie Oliver (1975, Chef)", "Henry Kissinger (1923, Politician)", "Heston Blumenthal (1966, Chef)"],
+  "05-28": ["Kylie Minogue (1968, Singer)", "Ian Fleming (1908, Author)", "Gladys Knight (1944, Singer)"],
+  "05-29": ["Noel Gallagher (1967, Musician)", "Bob Hope (1903, Comedian)", "John F. Kennedy (1917, President)"],
+  "05-30": ["Idris Elba (1972, Actor)", "Mick Foley (1965, Wrestler)", "CeeLo Green (1975, Singer)"],
+  "05-31": ["Clint Eastwood (1930, Actor)", "Colin Farrell (1976, Actor)", "Brooke Shields (1965, Actress)"],
+  "06-01": ["Tom Holland (2001, Actor)", "Morgan Freeman (1937, Actor)", "Marilyn Monroe (1926, Actress)"],
+  "06-02": ["Wentworth Miller (1972, Actor)", "Zachary Quinto (1977, Actor)", "Charlie Watts (1941, Drummer)"],
+  "06-03": ["Rafael Nadal (1986, Tennis)", "Anderson Cooper (1967, Journalist)", "Josephine Baker (1906, Singer)"],
+  "06-04": ["Angelina Jolie (1975, Actress)", "Russell Brand (1975, Comedian)", "Bar Refaeli (1985, Model)"],
+  "06-05": ["Mark Wahlberg (1971, Actor)", "Pete Wentz (1979, Musician)", "Kenny G (1956, Musician)"],
+  "06-06": ["Jason Isaacs (1963, Actor)", "Paul Giamatti (1967, Actor)", "Robert Englund (1947, Actor)"],
+  "06-07": ["Liam Neeson (1952, Actor)", "Prince (1958, Musician)", "Bear Grylls (1974, Adventurer)"],
+  "06-08": ["Kanye West (1977, Rapper)", "Joan Rivers (1933, Comedian)", "Tim Berners-Lee (1955, Inventor)"],
+  "06-09": ["Johnny Depp (1963, Actor)", "Natalie Portman (1981, Actress)", "Michael J. Fox (1961, Actor)"],
+  "06-10": ["Kate Upton (1992, Model)", "Judy Garland (1922, Actress)", "Tara Lipinski (1982, Skater)"],
+  "06-11": ["Shia LaBeouf (1986, Actor)", "Peter Dinklage (1969, Actor)", "Gene Wilder (1933, Actor)"],
+  "06-12": ["Anne Frank (1929, Author)", "Chris Evans (1981, Actor)", "George H.W. Bush (1924, President)"],
+  "06-13": ["Chris Evans (1981, Actor)", "Mary-Kate and Ashley Olsen (1986, Actresses)", "Tim Allen (1953, Actor)"],
+  "06-14": ["Donald Trump (1946, President)", "Boy George (1961, Singer)", "Che Guevara (1928, Revolutionary)"],
+  "06-15": ["Neil Patrick Harris (1973, Actor)", "Ice Cube (1969, Rapper)", "Courteney Cox (1964, Actress)"],
+  "06-16": ["Tupac Shakur (1971, Rapper)", "Phil Mickelson (1970, Golfer)", "Laurie Metcalf (1955, Actress)"],
+  "06-17": ["Kendrick Lamar (1987, Rapper)", "Venus Williams (1980, Tennis)", "Barry Manilow (1943, Singer)"],
+  "06-18": ["Paul McCartney (1942, Musician)", "Blake Shelton (1976, Singer)", "Isabella Rossellini (1952, Actress)"],
+  "06-19": ["Zoe Saldana (1978, Actress)", "Aung San Suu Kyi (1945, Politician)", "Salman Rushdie (1947, Author)"],
+  "06-20": ["Nicole Kidman (1967, Actress)", "Lionel Richie (1949, Singer)", "John Goodman (1952, Actor)"],
+  "06-21": ["Prince William (1982, Royalty)", "Chris Pratt (1979, Actor)", "Lana Del Rey (1985, Singer)"],
+  "06-22": ["Meryl Streep (1949, Actress)", "Kris Kristofferson (1936, Singer)", "Cyndi Lauper (1953, Singer)"],
+  "06-23": ["Selma Blair (1972, Actress)", "Frances McDormand (1957, Actress)", "Alan Turing (1912, Scientist)"],
+  "06-24": ["Lionel Messi (1987, Footballer)", "Mindy Kaling (1979, Actress)", "Jeff Beck (1944, Guitarist)"],
+  "06-25": ["Ricky Gervais (1961, Comedian)", "George Michael (1963, Singer)", "Anthony Bourdain (1956, Chef)"],
+  "06-26": ["Ariana Grande (1993, Singer)", "Chris O'Donnell (1970, Actor)", "Derek Jeter (1974, Athlete)"],
+  "06-27": ["Tobey Maguire (1975, Actor)", "J.J. Abrams (1966, Director)", "Helen Keller (1880, Activist)"],
+  "06-28": ["Elon Musk (1971, Entrepreneur)", "John Cusack (1966, Actor)", "Mel Brooks (1926, Comedian)"],
+  "06-29": ["Nicole Scherzinger (1978, Singer)", "Gary Busey (1944, Actor)", "Antoine de Saint-Exupery (1900, Author)"],
+  "06-30": ["Mike Tyson (1966, Boxer)", "Michael Phelps (1985, Swimmer)", "Fantasia (1984, Singer)"],
+  "07-01": ["Princess Diana (1961, Royalty)", "Missy Elliott (1971, Rapper)", "Pamela Anderson (1967, Actress)"],
+  "07-02": ["Margot Robbie (1990, Actress)", "Lindsay Lohan (1986, Actress)", "Larry David (1947, Comedian)"],
+  "07-03": ["Tom Cruise (1962, Actor)", "Patrick Wilson (1973, Actor)", "Franz Kafka (1883, Author)"],
+  "07-04": ["Post Malone (1995, Rapper)", "Gina Lollobrigida (1927, Actress)", "Calvin Coolidge (1872, President)"],
+  "07-05": ["P.T. Barnum (1810, Showman)", "Huey Lewis (1950, Singer)", "Bill Watterson (1958, Cartoonist)"],
+  "07-06": ["50 Cent (1975, Rapper)", "Kevin Hart (1979, Comedian)", "Sylvester Stallone (1946, Actor)"],
+  "07-07": ["Ringo Starr (1940, Musician)", "Michelle Kwan (1980, Skater)", "Marc Chagall (1887, Artist)"],
+  "07-08": ["Jaden Smith (1998, Actor)", "Kevin Bacon (1958, Actor)", "Sophia Bush (1982, Actress)"],
+  "07-09": ["Tom Hanks (1956, Actor)", "Courtney Love (1964, Singer)", "Fred Savage (1976, Actor)"],
+  "07-10": ["Jessica Simpson (1980, Singer)", "Sofia Vergara (1972, Actress)", "Nikola Tesla (1856, Inventor)"],
+  "07-11": ["Alessia Cara (1996, Singer)", "Suzanne Vega (1959, Singer)", "Yul Brynner (1920, Actor)"],
+  "07-12": ["Malala Yousafzai (1997, Activist)", "Michelle Rodriguez (1978, Actress)", "Bill Cosby (1937, Comedian)"],
+  "07-13": ["Harrison Ford (1942, Actor)", "Patrick Stewart (1940, Actor)", "Julius Caesar (100 BC, Emperor)"],
+  "07-14": ["Ingmar Bergman (1918, Director)", "Matthew Fox (1966, Actor)", "Gerald Ford (1913, President)"],
+  "07-15": ["Brian Austin Green (1973, Actor)", "Forest Whitaker (1961, Actor)", "Rembrandt (1606, Artist)"],
+  "07-16": ["Will Ferrell (1967, Actor)", "Phoebe Cates (1963, Actress)", "Ginger Rogers (1911, Dancer)"],
+  "07-17": ["Angela Merkel (1954, Politician)", "David Hasselhoff (1952, Actor)", "Camilla Parker Bowles (1947, Royalty)"],
+  "07-18": ["Vin Diesel (1967, Actor)", "Kristen Bell (1980, Actress)", "Nelson Mandela (1918, Leader)"],
+  "07-19": ["Benedict Cumberbatch (1976, Actor)", "Brian May (1947, Guitarist)", "Anthony Edwards (1962, Actor)"],
+  "07-20": ["Gisele Bundchen (1980, Model)", "Sandra Oh (1971, Actress)", "Carlos Santana (1947, Guitarist)"],
+  "07-21": ["Robin Williams (1951, Actor)", "Josh Hartnett (1978, Actor)", "Ernest Hemingway (1899, Author)"],
+  "07-22": ["Selena Gomez (1992, Singer)", "Alex Trebek (1940, TV Host)", "Danny Glover (1946, Actor)"],
+  "07-23": ["Daniel Radcliffe (1989, Actor)", "Monica Lewinsky (1973, Activist)", "Woody Harrelson (1961, Actor)"],
+  "07-24": ["Jennifer Lopez (1969, Singer)", "Amelia Earhart (1897, Aviator)", "Anna Paquin (1982, Actress)"],
+  "07-25": ["Matt LeBlanc (1967, Actor)", "Estelle Getty (1923, Actress)", "Rosalind Franklin (1920, Scientist)"],
+  "07-26": ["Mick Jagger (1943, Singer)", "Sandra Bullock (1964, Actress)", "Kate Beckinsale (1973, Actress)"],
+  "07-27": ["Nikolaj Coster-Waldau (1970, Actor)", "Alex Rodriguez (1975, Athlete)", "Maya Rudolph (1972, Comedian)"],
+  "07-28": ["Soulja Boy (1990, Rapper)", "Jacqueline Kennedy (1929, First Lady)", "Beatrix Potter (1866, Author)"],
+  "07-29": ["Wil Wheaton (1972, Actor)", "Tim Gunn (1953, Designer)", "Benito Mussolini (1883, Politician)"],
+  "07-30": ["Arnold Schwarzenegger (1947, Actor)", "Lisa Kudrow (1963, Actress)", "Henry Ford (1863, Industrialist)"],
+  "07-31": ["J.K. Rowling (1965, Author)", "Mark Cuban (1958, Entrepreneur)", "Wesley Snipes (1962, Actor)"],
+  "08-01": ["Jason Momoa (1979, Actor)", "Coolio (1963, Rapper)", "Jerry Garcia (1942, Musician)"],
+  "08-02": ["Sam Worthington (1976, Actor)", "Mary-Louise Parker (1964, Actress)", "Peter O'Toole (1932, Actor)"],
+  "08-03": ["Tom Brady (1977, Athlete)", "Martin Sheen (1940, Actor)", "Martha Stewart (1941, TV Host)"],
+  "08-04": ["Barack Obama (1961, President)", "Meghan Markle (1981, Royalty)", "Billy Bob Thornton (1955, Actor)"],
+  "08-05": ["Neil Armstrong (1930, Astronaut)", "Lunchbox (1990, DJ)", "Jesse Williams (1981, Actor)"],
+  "08-06": ["Andy Warhol (1928, Artist)", "Vera Farmiga (1973, Actress)", "Michelle Yeoh (1962, Actress)"],
+  "08-07": ["Charlize Theron (1975, Actress)", "David Duchovny (1960, Actor)", "Billie Burke (1884, Actress)"],
+  "08-08": ["Roger Federer (1981, Tennis)", "Dustin Hoffman (1937, Actor)", "Meagan Good (1981, Actress)"],
+  "08-09": ["Whitney Houston (1963, Singer)", "Anna Kendrick (1985, Actress)", "Gillian Anderson (1968, Actress)"],
+  "08-10": ["Antonio Banderas (1960, Actor)", "Kylie Jenner (1997, Entrepreneur)", "Brenton Thwaites (1989, Actor)"],
+  "08-11": ["Chris Hemsworth (1983, Actor)", "Viola Davis (1965, Actress)", "Hulk Hogan (1953, Wrestler)"],
+  "08-12": ["Cara Delevingne (1992, Model)", "Mark Knopfler (1949, Guitarist)", "George Soros (1930, Investor)"],
+  "08-13": ["Alfred Hitchcock (1899, Director)", "Sebastian Stan (1982, Actor)", "Annie Oakley (1860, Sharpshooter)"],
+  "08-14": ["Halle Berry (1966, Actress)", "Steve Martin (1945, Actor)", "Mila Kunis (1983, Actress)"],
+  "08-15": ["Ben Affleck (1972, Actor)", "Jennifer Lawrence (1990, Actress)", "Napoleon (1769, Emperor)"],
+  "08-16": ["Madonna (1958, Singer)", "Steve Carell (1962, Actor)", "James Cameron (1954, Director)"],
+  "08-17": ["Robert De Niro (1943, Actor)", "Sean Penn (1960, Actor)", "Mae West (1893, Actress)"],
+  "08-18": ["Patrick Swayze (1952, Actor)", "Christian Slater (1969, Actor)", "Edward Norton (1969, Actor)"],
+  "08-19": ["Bill Clinton (1946, President)", "John Stamos (1963, Actor)", "Coco Chanel (1883, Designer)"],
+  "08-20": ["Amy Adams (1974, Actress)", "Andrew Garfield (1983, Actor)", "Robert Plant (1948, Singer)"],
+  "08-21": ["Usain Bolt (1986, Sprinter)", "Kim Cattrall (1956, Actress)", "Kenny Rogers (1938, Singer)"],
+  "08-22": ["Kristen Wiig (1973, Comedian)", "James Corden (1978, TV Host)", "Tori Amos (1963, Singer)"],
+  "08-23": ["Kobe Bryant (1978, Athlete)", "River Phoenix (1970, Actor)", "Gene Kelly (1912, Dancer)"],
+  "08-24": ["Dave Chappelle (1973, Comedian)", "Rupert Grint (1988, Actor)", "Paulo Coelho (1947, Author)"],
+  "08-25": ["Sean Connery (1930, Actor)", "Tim Burton (1958, Director)", "Blake Lively (1987, Actress)"],
+  "08-26": ["Macaulay Culkin (1980, Actor)", "Chris Pine (1980, Actor)", "Mother Teresa (1910, Saint)"],
+  "08-27": ["Aaron Paul (1979, Actor)", "Tom Ford (1961, Designer)", "Lyndon B. Johnson (1908, President)"],
+  "08-28": ["Jack Black (1969, Actor)", "Shania Twain (1965, Singer)", "Jason Priestley (1969, Actor)"],
+  "08-29": ["Liam Payne (1993, Singer)", "Michael Jackson (1958, Singer)", "Lea Michele (1986, Actress)"],
+  "08-30": ["Cameron Diaz (1972, Actress)", "Warren Buffett (1930, Investor)", "Mary Shelley (1797, Author)"],
+  "08-31": ["Richard Gere (1949, Actor)", "Chris Tucker (1971, Actor)", "Van Morrison (1945, Singer)"],
+  "09-01": ["Zendaya (2001, Actress)", "Dr. Phil (1950, TV Host)", "Gloria Estefan (1957, Singer)"],
+  "09-02": ["Keanu Reeves (1964, Actor)", "Salma Hayek (1966, Actress)", "Mark Harmon (1951, Actor)"],
+  "09-03": ["Charlie Sheen (1965, Actor)", "Shaun White (1986, Athlete)", "Ferdinand Porsche (1875, Engineer)"],
+  "09-04": ["Beyonce (1981, Singer)", "Wiz Khalifa (1987, Rapper)", "Damon Wayans (1960, Actor)"],
+  "09-05": ["Freddie Mercury (1946, Singer)", "Raquel Welch (1940, Actress)", "Michael Keaton (1951, Actor)"],
+  "09-06": ["Idris Elba (1972, Actor)", "Naomi Watts (1968, Actress)", "Jeff Foxworthy (1958, Comedian)"],
+  "09-07": ["Queen Elizabeth I (1533, Royalty)", "Buddy Holly (1936, Musician)", "Evan Rachel Wood (1987, Actress)"],
+  "09-08": ["Pink (1979, Singer)", "David Arquette (1971, Actor)", "Patsy Cline (1932, Singer)"],
+  "09-09": ["Adam Sandler (1966, Actor)", "Hugh Grant (1960, Actor)", "Michelle Williams (1980, Actress)"],
+  "09-10": ["Colin Firth (1960, Actor)", "Guy Ritchie (1968, Director)", "Ryan Phillippe (1974, Actor)"],
+  "09-11": ["Ludacris (1977, Rapper)", "Taraji P. Henson (1970, Actress)", "O. Henry (1862, Author)"],
+  "09-12": ["Emmy Rossum (1986, Actress)", "Jennifer Hudson (1981, Singer)", "Hans Zimmer (1957, Composer)"],
+  "09-13": ["Tyler Perry (1969, Director)", "Niall Horan (1993, Singer)", "Roald Dahl (1916, Author)"],
+  "09-14": ["Amy Winehouse (1983, Singer)", "Andrew Lincoln (1973, Actor)", "Sam Neill (1947, Actor)"],
+  "09-15": ["Prince Harry (1984, Royalty)", "Tom Hardy (1977, Actor)", "Agatha Christie (1890, Author)"],
+  "09-16": ["Amy Poehler (1971, Comedian)", "Nick Jonas (1992, Singer)", "B.B. King (1925, Musician)"],
+  "09-17": ["Baz Luhrmann (1962, Director)", "Jimmie Johnson (1975, Racing)", "Anastacia (1968, Singer)"],
+  "09-18": ["Jada Pinkett Smith (1971, Actress)", "James Marsden (1973, Actor)", "Greta Garbo (1905, Actress)"],
+  "09-19": ["Jimmy Fallon (1974, TV Host)", "Trisha Yearwood (1964, Singer)", "Twiggy (1949, Model)"],
+  "09-20": ["Sophia Loren (1934, Actress)", "George R.R. Martin (1948, Author)", "Jon Bernthal (1976, Actor)"],
+  "09-21": ["Stephen King (1947, Author)", "Bill Murray (1950, Actor)", "Nicole Richie (1981, TV Star)"],
+  "09-22": ["Tom Felton (1987, Actor)", "Billie Piper (1982, Singer)", "Andrea Bocelli (1958, Singer)"],
+  "09-23": ["Bruce Springsteen (1949, Musician)", "Jason Alexander (1959, Actor)", "Ray Charles (1930, Singer)"],
+  "09-24": ["Jim Henson (1936, Puppeteer)", "Kevin Sorbo (1958, Actor)", "F. Scott Fitzgerald (1896, Author)"],
+  "09-25": ["Will Smith (1968, Actor)", "Catherine Zeta-Jones (1969, Actress)", "Michael Douglas (1944, Actor)"],
+  "09-26": ["Serena Williams (1981, Tennis)", "Olivia Newton-John (1948, Singer)", "T.S. Eliot (1888, Poet)"],
+  "09-27": ["Avril Lavigne (1984, Singer)", "Meat Loaf (1947, Singer)", "Lil Wayne (1982, Rapper)"],
+  "09-28": ["Hilary Duff (1987, Actress)", "Brigitte Bardot (1934, Actress)", "Confucius (551 BC, Philosopher)"],
+  "09-29": ["Kevin Durant (1988, Athlete)", "Zachary Levi (1980, Actor)", "Jerry Lee Lewis (1935, Singer)"],
+  "09-30": ["Marion Cotillard (1975, Actress)", "Monica Bellucci (1964, Actress)", "Truman Capote (1924, Author)"],
+  "10-01": ["Julie Andrews (1935, Actress)", "Brie Larson (1989, Actress)", "Jimmy Carter (1924, President)"],
+  "10-02": ["Mahatma Gandhi (1869, Leader)", "Sting (1951, Musician)", "Groucho Marx (1890, Comedian)"],
+  "10-03": ["Gwen Stefani (1969, Singer)", "Clive Owen (1964, Actor)", "Gore Vidal (1925, Author)"],
+  "10-04": ["Susan Sarandon (1946, Actress)", "Alicia Silverstone (1976, Actress)", "Buster Keaton (1895, Actor)"],
+  "10-05": ["Kate Winslet (1975, Actress)", "Jesse Eisenberg (1983, Actor)", "Bob Geldof (1951, Musician)"],
+  "10-06": ["Elisabeth Shue (1963, Actress)", "Ioan Gruffudd (1973, Actor)", "Le Corbusier (1887, Architect)"],
+  "10-07": ["Simon Cowell (1959, TV Producer)", "Thom Yorke (1968, Musician)", "Vladimir Putin (1952, Politician)"],
+  "10-08": ["Matt Damon (1970, Actor)", "Sigourney Weaver (1949, Actress)", "Bruno Mars (1985, Singer)"],
+  "10-09": ["John Lennon (1940, Musician)", "Bella Hadid (1996, Model)", "Guillermo del Toro (1964, Director)"],
+  "10-10": ["Dan Stevens (1982, Actor)", "Brett Favre (1969, Athlete)", "Dale Earnhardt (1951, Racing)"],
+  "10-11": ["Cardi B (1992, Rapper)", "Michelle Trachtenberg (1985, Actress)", "Eleanor Roosevelt (1884, First Lady)"],
+  "10-12": ["Hugh Jackman (1968, Actor)", "Josh Hutcherson (1992, Actor)", "Luciano Pavarotti (1935, Tenor)"],
+  "10-13": ["Alexandria Ocasio-Cortez (1989, Politician)", "Sacha Baron Cohen (1971, Actor)", "Margaret Thatcher (1925, PM)"],
+  "10-14": ["Usher (1978, Singer)", "Ralph Lauren (1939, Designer)", "Roger Moore (1927, Actor)"],
+  "10-15": ["Keyshia Cole (1981, Singer)", "Emeril Lagasse (1959, Chef)", "Friedrich Nietzsche (1844, Philosopher)"],
+  "10-16": ["John Mayer (1977, Musician)", "Oscar Wilde (1854, Author)", "Angela Lansbury (1925, Actress)"],
+  "10-17": ["Eminem (1972, Rapper)", "Rita Hayworth (1918, Actress)", "Wyclef Jean (1969, Musician)"],
+  "10-18": ["Zac Efron (1987, Actor)", "Jean-Claude Van Damme (1960, Actor)", "Martina Navratilova (1956, Tennis)"],
+  "10-19": ["John Lithgow (1945, Actor)", "Ty Pennington (1964, TV Host)", "Robert Reed (1932, Actor)"],
+  "10-20": ["Snoop Dogg (1971, Rapper)", "John Krasinski (1979, Actor)", "Viggo Mortensen (1958, Actor)"],
+  "10-21": ["Kim Kardashian (1980, TV Star)", "Carrie Fisher (1956, Actress)", "Alfred Nobel (1833, Inventor)"],
+  "10-22": ["Jeff Goldblum (1952, Actor)", "Deepak Chopra (1946, Author)", "Spike Jonze (1969, Director)"],
+  "10-23": ["Ryan Reynolds (1976, Actor)", "Emilia Clarke (1986, Actress)", "Weird Al Yankovic (1959, Comedian)"],
+  "10-24": ["Drake (1986, Rapper)", "Kevin Kline (1947, Actor)", "Wayne Rooney (1985, Footballer)"],
+  "10-25": ["Katy Perry (1984, Singer)", "Pablo Picasso (1881, Artist)", "Craig Robinson (1971, Actor)"],
+  "10-26": ["Seth MacFarlane (1973, Creator)", "Hillary Clinton (1947, Politician)", "Jaclyn Smith (1947, Actress)"],
+  "10-27": ["John Cleese (1939, Comedian)", "Kelly Osbourne (1984, TV Star)", "Theodore Roosevelt (1858, President)"],
+  "10-28": ["Julia Roberts (1967, Actress)", "Bill Gates (1955, Entrepreneur)", "Joaquin Phoenix (1974, Actor)"],
+  "10-29": ["Winona Ryder (1971, Actress)", "Bob Ross (1942, Artist)", "Richard Dreyfuss (1947, Actor)"],
+  "10-30": ["Diego Maradona (1960, Footballer)", "Henry Winkler (1945, Actor)", "Ivanka Trump (1981, Businesswoman)"],
+  "10-31": ["Vanilla Ice (1967, Rapper)", "Willow Smith (2000, Singer)", "Rob Schneider (1963, Actor)"],
+  "11-01": ["Tim Cook (1960, CEO)", "Jenny McCarthy (1972, TV Host)", "Penn Badgley (1986, Actor)"],
+  "11-02": ["David Schwimmer (1966, Actor)", "Shah Rukh Khan (1965, Actor)", "k.d. lang (1961, Singer)"],
+  "11-03": ["Kendall Jenner (1995, Model)", "Gabe Newell (1962, Game Developer)", "Roseanne Barr (1952, Comedian)"],
+  "11-04": ["Matthew McConaughey (1969, Actor)", "Sean Combs (1969, Rapper)", "Ralph Macchio (1961, Actor)"],
+  "11-05": ["Kris Jenner (1955, TV Star)", "Bryan Adams (1959, Singer)", "Tilda Swinton (1960, Actress)"],
+  "11-06": ["Emma Stone (1988, Actress)", "Ethan Hawke (1970, Actor)", "Thandiwe Newton (1972, Actress)"],
+  "11-07": ["David Guetta (1967, DJ)", "Joni Mitchell (1943, Singer)", "Marie Curie (1867, Scientist)"],
+  "11-08": ["Gordon Ramsay (1966, Chef)", "Tara Reid (1975, Actress)", "Bonnie Raitt (1949, Singer)"],
+  "11-09": ["Eric Dane (1972, Actor)", "Carl Sagan (1934, Scientist)", "Hedy Lamarr (1914, Actress)"],
+  "11-10": ["Miranda Lambert (1983, Singer)", "Neil Gaiman (1960, Author)", "Richard Burton (1925, Actor)"],
+  "11-11": ["Leonardo DiCaprio (1974, Actor)", "Demi Moore (1962, Actress)", "Kurt Vonnegut (1922, Author)"],
+  "11-12": ["Ryan Gosling (1980, Actor)", "Anne Hathaway (1982, Actress)", "Grace Kelly (1929, Actress)"],
+  "11-13": ["Gerard Butler (1969, Actor)", "Whoopi Goldberg (1955, Comedian)", "Robert Louis Stevenson (1850, Author)"],
+  "11-14": ["Prince Charles (1948, Royalty)", "Chloe Grace Moretz (1997, Actress)", "Claude Monet (1840, Artist)"],
+  "11-15": ["Shailene Woodley (1991, Actress)", "Lily Aldridge (1985, Model)", "Georgia O'Keeffe (1887, Artist)"],
+  "11-16": ["Pete Davidson (1993, Comedian)", "Lisa Bonet (1967, Actress)", "Maggie Gyllenhaal (1977, Actress)"],
+  "11-17": ["Rachel McAdams (1978, Actress)", "Danny DeVito (1944, Actor)", "Martin Scorsese (1942, Director)"],
+  "11-18": ["Owen Wilson (1968, Actor)", "David Ortiz (1975, Athlete)", "Mickey Mouse (1928, Fictional)"],
+  "11-19": ["Tyga (1989, Rapper)", "Jodie Foster (1962, Actress)", "Meg Ryan (1961, Actress)"],
+  "11-20": ["Joe Biden (1942, President)", "Bo Derek (1956, Actress)", "Ming-Na Wen (1963, Actress)"],
+  "11-21": ["Carly Rae Jepsen (1985, Singer)", "Goldie Hawn (1945, Actress)", "Voltaire (1694, Writer)"],
+  "11-22": ["Scarlett Johansson (1984, Actress)", "Mark Ruffalo (1967, Actor)", "Jamie Lee Curtis (1958, Actress)"],
+  "11-23": ["Miley Cyrus (1992, Singer)", "Robin Roberts (1960, Journalist)", "Billy the Kid (1859, Outlaw)"],
+  "11-24": ["Sarah Hyland (1990, Actress)", "Katherine Heigl (1978, Actress)", "Dale Carnegie (1888, Author)"],
+  "11-25": ["Christina Applegate (1971, Actress)", "John F. Kennedy Jr. (1960, Public Figure)", "Joe DiMaggio (1914, Athlete)"],
+  "11-26": ["Tina Turner (1939, Singer)", "DJ Khaled (1975, DJ)", "Charles Schulz (1922, Cartoonist)"],
+  "11-27": ["Bruce Lee (1940, Martial Artist)", "Jimi Hendrix (1942, Guitarist)", "Bill Nye (1955, Scientist)"],
+  "11-28": ["Anna Nicole Smith (1967, Model)", "Jon Stewart (1962, TV Host)", "Friedrich Engels (1820, Philosopher)"],
+  "11-29": ["Anna Faris (1976, Actress)", "Chadwick Boseman (1976, Actor)", "C.S. Lewis (1898, Author)"],
+  "11-30": ["Ben Stiller (1965, Actor)", "Kaley Cuoco (1985, Actress)", "Mark Twain (1835, Author)"],
+  "12-01": ["Sarah Silverman (1970, Comedian)", "Woody Allen (1935, Director)", "Bette Midler (1945, Singer)"],
+  "12-02": ["Britney Spears (1981, Singer)", "Lucy Liu (1968, Actress)", "Nelly Furtado (1978, Singer)"],
+  "12-03": ["Julianne Moore (1960, Actress)", "Brendan Fraser (1968, Actor)", "Ozzy Osbourne (1948, Singer)"],
+  "12-04": ["Jay-Z (1969, Rapper)", "Tyra Banks (1973, Model)", "Jeff Bridges (1949, Actor)"],
+  "12-05": ["Walt Disney (1901, Animator)", "Frankie Muniz (1985, Actor)", "Little Richard (1932, Singer)"],
+  "12-06": ["Judd Apatow (1967, Director)", "Nick Park (1958, Animator)", "Dave Brubeck (1920, Musician)"],
+  "12-07": ["Emily Browning (1988, Actress)", "Tom Waits (1949, Musician)", "Noam Chomsky (1928, Linguist)"],
+  "12-08": ["Nicki Minaj (1982, Rapper)", "Ian Somerhalder (1978, Actor)", "Jim Morrison (1943, Singer)"],
+  "12-09": ["Judi Dench (1934, Actress)", "John Malkovich (1953, Actor)", "Kirk Douglas (1916, Actor)"],
+  "12-10": ["Raven-Symone (1985, Actress)", "Emily Dickinson (1830, Poet)", "Kenneth Branagh (1960, Actor)"],
+  "12-11": ["Mo'Nique (1967, Comedian)", "Teri Garr (1947, Actress)", "Brenda Lee (1944, Singer)"],
+  "12-12": ["Frank Sinatra (1915, Singer)", "Dionne Warwick (1940, Singer)", "Mayim Bialik (1975, Actress)"],
+  "12-13": ["Taylor Swift (1989, Singer)", "Jamie Foxx (1967, Actor)", "Amy Lee (1981, Singer)"],
+  "12-14": ["Vanessa Hudgens (1988, Actress)", "Nostradamus (1503, Seer)", "Raj Kapoor (1924, Actor)"],
+  "12-15": ["Don Johnson (1949, Actor)", "Charlie Cox (1982, Actor)", "Nero (37, Emperor)"],
+  "12-16": ["Zara Larsson (1997, Singer)", "Benjamin Bratt (1963, Actor)", "Ludwig van Beethoven (1770, Composer)"],
+  "12-17": ["Pope Francis (1936, Pope)", "Milla Jovovich (1975, Actress)", "Erskine Caldwell (1903, Author)"],
+  "12-18": ["Brad Pitt (1963, Actor)", "Steven Spielberg (1946, Director)", "Christina Aguilera (1980, Singer)"],
+  "12-19": ["Jake Gyllenhaal (1980, Actor)", "Alyssa Milano (1972, Actress)", "Edith Piaf (1915, Singer)"],
+  "12-20": ["Jonah Hill (1983, Actor)", "Uri Geller (1946, Mentalist)", "Harvey Firestone (1868, Industrialist)"],
+  "12-21": ["Samuel L. Jackson (1948, Actor)", "Kiefer Sutherland (1966, Actor)", "Jane Fonda (1937, Actress)"],
+  "12-22": ["Meghan Trainor (1993, Singer)", "Ralph Fiennes (1962, Actor)", "Jordin Sparks (1989, Singer)"],
+  "12-23": ["Carla Bruni (1967, Model)", "Holly Madison (1979, TV Star)", "Emperor Akihito (1933, Royalty)"],
+  "12-24": ["Ryan Seacrest (1974, TV Host)", "Louis Tomlinson (1991, Singer)", "Ava Gardner (1922, Actress)"],
+  "12-25": ["Humphrey Bogart (1899, Actor)", "Annie Lennox (1954, Singer)", "Isaac Newton (1642, Scientist)"],
+  "12-26": ["Jared Leto (1971, Actor)", "Kit Harington (1986, Actor)", "Charles Babbage (1791, Inventor)"],
+  "12-27": ["Timothee Chalamet (1995, Actor)", "Marlene Dietrich (1901, Actress)", "Louis Pasteur (1822, Scientist)"],
+  "12-28": ["Denzel Washington (1954, Actor)", "John Legend (1978, Singer)", "Stan Lee (1922, Creator)"],
+  "12-29": ["Jude Law (1972, Actor)", "Diego Luna (1979, Actor)", "Mary Tyler Moore (1936, Actress)"],
+  "12-30": ["LeBron James (1984, Athlete)", "Tiger Woods (1975, Golfer)", "Eliza Dushku (1980, Actress)"],
+  "12-31": ["Val Kilmer (1959, Actor)", "Gabby Douglas (1995, Gymnast)", "Anthony Hopkins (1937, Actor)"],
 };
 
-const months = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DAYS_IN_MONTH = [31,29,31,30,31,30,31,31,30,31,30,31];
 
 export default function CelebrityBirthdayTwin() {
-  const [month, setMonth] = useState('01');
-  const [day, setDay] = useState('01');
-  const [matches, setMatches] = useState(null);
+  const [month, setMonth] = useState("01");
+  const [day, setDay] = useState("01");
 
-  const getDaysInMonth = (m) => {
-    const days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    return days[parseInt(m) - 1];
-  };
+  const key = `${month}-${day}`;
+  const matches = CELEBS[key] || [];
+  const monthIdx = parseInt(month) - 1;
+  const maxDays = DAYS_IN_MONTH[monthIdx];
 
-  const findMatches = () => {
-    const key = `${month}-${day.padStart(2, '0')}`;
-    const result = celebrities[key] || [
-      'No celebrity matches found for this date.',
-      'Try a different date to find your celebrity twin!'
-    ];
-    setMatches(result);
-  };
-
-  const monthNum = parseInt(month);
-  const dayNum = parseInt(day);
-  const maxDays = getDaysInMonth(month);
+  const dateLabel = `${MONTHS[monthIdx]} ${parseInt(day)}`;
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-text-secondary text-sm font-medium mb-2">Month</label>
-            <select
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-              className="w-full border border-border rounded-lg p-2 text-text-primary"
-            >
-              {months.map((m, idx) => (
-                <option key={m} value={String(idx + 1).padStart(2, '0')}>
-                  {m}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-text-secondary text-sm font-medium mb-2">Day</label>
-            <select
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-              className="w-full border border-border rounded-lg p-2 text-text-primary"
-            >
-              {Array.from({ length: maxDays }, (_, i) => i + 1).map((d) => (
-                <option key={d} value={String(d).padStart(2, '0')}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
+    <div className="space-y-4">
+      {/* Date picker row */}
+      <div className="flex items-center gap-3">
+        <div className="flex-1">
+          <label className="text-xs text-text-muted mb-1 block">Month</label>
+          <select
+            value={month}
+            onChange={(e) => { setMonth(e.target.value); if (parseInt(day) > DAYS_IN_MONTH[parseInt(e.target.value) - 1]) setDay("01"); }}
+            className="w-full px-3 py-2 text-sm rounded-[var(--radius-input)] border border-border bg-white text-text-primary outline-none focus:border-accent cursor-pointer"
+          >
+            {MONTHS.map((m, i) => (
+              <option key={m} value={String(i + 1).padStart(2, "0")}>{m}</option>
+            ))}
+          </select>
         </div>
-
-        <Button onClick={findMatches} className="bg-accent text-white w-full">
-          Find My Celebrity Birthday Twin
-        </Button>
+        <div className="w-24">
+          <label className="text-xs text-text-muted mb-1 block">Day</label>
+          <select
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
+            className="w-full px-3 py-2 text-sm rounded-[var(--radius-input)] border border-border bg-white text-text-primary outline-none focus:border-accent cursor-pointer"
+          >
+            {Array.from({ length: maxDays }, (_, i) => (
+              <option key={i} value={String(i + 1).padStart(2, "0")}>{i + 1}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      {matches && (
-        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-8 space-y-4">
-          <div>
-            <p className="text-sm opacity-90 mb-2">Your Birthday Twin:</p>
-            <p className="font-heading text-3xl font-bold">
-              {months[monthNum - 1]} {dayNum}
-            </p>
-          </div>
-
-          <div className="border-t border-white border-opacity-20 pt-4 space-y-2">
-            {matches.map((match, idx) => (
-              <div key={idx} className="bg-white opacity-10 rounded-lg p-3">
-                <p className="text-lg">{match}</p>
-              </div>
-            ))}
-          </div>
-
-          <Button onClick={() => setMatches(null)} variant="secondary" className="bg-white text-accent w-full mt-4">
-            Find Another Date
-          </Button>
+      {/* Results - always visible, updates instantly */}
+      <div className="bg-surface rounded-[var(--radius-card)] border border-border overflow-hidden">
+        <div className="px-4 py-3 border-b border-border">
+          <p className="text-xs text-text-muted">Your birthday twins for</p>
+          <p className="font-heading text-xl font-bold text-text-primary">{dateLabel}</p>
         </div>
-      )}
+
+        <div className="divide-y divide-border">
+          {matches.length > 0 ? matches.map((celeb, i) => {
+            const nameMatch = celeb.match(/^([^(]+)\(([^)]+)\)/);
+            const name = nameMatch ? nameMatch[1].trim() : celeb;
+            const details = nameMatch ? nameMatch[2] : "";
+
+            return (
+              <div key={i} className="flex items-center gap-3 px-4 py-3">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-lg flex-shrink-0">
+                  {["🌟", "✨", "⭐"][i % 3]}
+                </div>
+                <div>
+                  <p className="font-medium text-text-primary">{name}</p>
+                  {details && <p className="text-xs text-text-muted">{details}</p>}
+                </div>
+              </div>
+            );
+          }) : (
+            <div className="px-4 py-6 text-center text-text-muted text-sm">
+              No celebrity data for this date yet
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

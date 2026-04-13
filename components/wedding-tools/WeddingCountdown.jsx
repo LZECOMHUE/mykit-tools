@@ -79,18 +79,16 @@ export default function WeddingCountdown() {
 
   if (!mounted) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Setup */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
-        <h2 className="text-xl font-bold text-text-primary">Wedding Countdown</h2>
-
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
@@ -121,7 +119,7 @@ export default function WeddingCountdown() {
 
       {/* Countdown */}
       {countdown && !countdown.isPast && (
-        <div className="bg-gradient-to-br from-pink-50 to-rose-50 border-2 border-pink-200 rounded-lg p-8 space-y-6">
+        <div className="bg-gradient-to-br from-pink-50 to-rose-50 border-2 border-pink-200 rounded-lg space-y-4">
           {couple && (
             <h2 className="text-3xl font-bold text-pink-600 text-center">
               {couple}'s Wedding
@@ -157,7 +155,7 @@ export default function WeddingCountdown() {
       )}
 
       {countdown && countdown.isPast && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center space-y-2">
+        <div className="bg-green-50 border border-green-200 rounded-lg text-center space-y-2">
           <p className="text-3xl font-bold text-green-600">Congratulations!</p>
           <p className="text-text-secondary">The wedding date has arrived!</p>
         </div>
@@ -165,7 +163,7 @@ export default function WeddingCountdown() {
 
       {/* Milestone Checklist */}
       {upcomingMilestones.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg space-y-4">
           <h3 className="text-text-primary font-semibold">Upcoming Planning Milestones</h3>
           <div className="space-y-4">
             {upcomingMilestones.map((milestone) => (
@@ -187,7 +185,7 @@ export default function WeddingCountdown() {
 
       {/* Completed Milestones */}
       {completedMilestones.length > 0 && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-4">
+        <div className="bg-green-50 border border-green-200 rounded-lg space-y-4">
           <h3 className="text-text-primary font-semibold">Completed Milestones</h3>
           <div className="space-y-2">
             {completedMilestones.map((milestone) => (
@@ -202,7 +200,7 @@ export default function WeddingCountdown() {
 
       {/* Key Dates */}
       {weddingDate && countdown && !countdown.isPast && (
-        <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+        <div className="bg-surface border border-border rounded-lg space-y-4">
           <h3 className="text-text-primary font-semibold">Key Dates</h3>
           <div className="space-y-3">
             {[
@@ -242,7 +240,7 @@ export default function WeddingCountdown() {
       )}
 
       {/* Quick Tips */}
-      <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-3">
+      <div className="bg-purple-50 border border-purple-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Planning Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ Book your venue 9-12 months in advance</li>

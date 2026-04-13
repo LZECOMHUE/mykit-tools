@@ -98,7 +98,7 @@ export default function CatAgeCalculator() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="block text-sm font-medium text-secondary mb-2">

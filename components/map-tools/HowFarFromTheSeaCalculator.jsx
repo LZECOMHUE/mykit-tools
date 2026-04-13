@@ -147,8 +147,8 @@ export default function HowFarFromTheSeaCalculator() {
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <div className="space-y-4">
           <h3 className="font-heading text-lg font-semibold text-primary">Find Your Distance to the Sea</h3>
 
@@ -192,8 +192,8 @@ export default function HowFarFromTheSeaCalculator() {
             />
           </Card>
 
-          <Card className="p-6">
-            <div className="space-y-6">
+          <Card>
+            <div className="space-y-4">
               <div>
                 <h3 className="font-heading text-lg font-semibold text-primary mb-4">Distance to Nearest Coast</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

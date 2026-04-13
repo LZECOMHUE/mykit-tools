@@ -174,13 +174,13 @@ export default function HenDoPlanner() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
           Hen Do Planning
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Select
             label="Budget Tier"
             value={config.budgetTier}
@@ -245,7 +245,7 @@ export default function HenDoPlanner() {
       {plan && (
         <div className="space-y-4">
           <Card>
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start mb-4">
               <div>
                 <h2 className="font-heading text-2xl font-bold text-text-primary mb-2">
                   Your Hen Do Itinerary
@@ -262,7 +262,7 @@ export default function HenDoPlanner() {
               </Button>
             </div>
 
-            <div className="space-y-2 mb-6">
+            <div className="space-y-2 mb-4">
               {plan.activities.map((activity, idx) => (
                 <div
                   key={idx}

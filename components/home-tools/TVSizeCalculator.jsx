@@ -39,8 +39,8 @@ export default function TVSizeCalculator() {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Viewing Distance
@@ -75,7 +75,7 @@ export default function TVSizeCalculator() {
         </div>
       </div>
 
-      <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-6">
+      <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)]">
         <p className="text-sm opacity-90 mb-2">Recommended TV Size</p>
         <div className="flex items-baseline gap-2">
           <span className="font-mono text-5xl font-bold">{closestSize.inches}"</span>
@@ -89,7 +89,7 @@ export default function TVSizeCalculator() {
         </p>
       </div>
 
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <h3 className="font-heading text-base font-bold text-text-primary">Common TV Sizes & Viewing Distance</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">

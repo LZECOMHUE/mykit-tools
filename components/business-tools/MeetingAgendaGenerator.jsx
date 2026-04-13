@@ -45,7 +45,7 @@ export default function MeetingAgendaGenerator() {
     const text = agenda
       .map((a) => `${String(a.time).padStart(2, '0')}:00 - ${a.item} (${a.duration} mins)`)
       .join('\n');
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const handleDownloadJPG = () => {
@@ -113,7 +113,7 @@ export default function MeetingAgendaGenerator() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -143,7 +143,7 @@ export default function MeetingAgendaGenerator() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Topics
         </h3>
@@ -173,7 +173,7 @@ export default function MeetingAgendaGenerator() {
         </button>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Agenda
         </h3>

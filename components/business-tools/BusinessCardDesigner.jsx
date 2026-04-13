@@ -14,7 +14,7 @@ export default function BusinessCardDesigner() {
 
   const handleCopy = () => {
     const text = `${name}\n${title}\n${company}\n${phone}\n${email}\n${website}`;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {});
   };
 
   const handleDownloadJPG = () => {
@@ -59,7 +59,7 @@ export default function BusinessCardDesigner() {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 md:p-8 space-y-6">
+    <div className="bg-surface border border-border rounded-[var(--radius-card)] md:p-4 space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -134,13 +134,13 @@ export default function BusinessCardDesigner() {
         </div>
       </div>
 
-      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-6">
+      <div className="bg-white rounded-[var(--radius-card)] border border-border p-4 md:p-4">
         <h3 className="font-heading text-lg font-bold text-text-primary mb-4">
           Business Card Preview
         </h3>
 
         <div className="flex justify-center">
-          <div className="w-full md:w-96 h-56 bg-accent rounded-[var(--radius-card)] p-6 text-white flex flex-col justify-between shadow-lg" style={{ aspectRatio: '85.6 / 53.98' }}>
+          <div className="w-full md:w-96 h-56 bg-accent rounded-[var(--radius-card)] text-white flex flex-col justify-between shadow-lg" style={{ aspectRatio: '85.6 / 53.98' }}>
             <div>
               <p className="text-2xl font-bold">{name}</p>
               <p className="text-sm opacity-90 mt-1">{title}</p>

@@ -85,7 +85,7 @@ export default function NeverHaveIEver() {
 
   if (!started) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Card className="bg-gradient-to-br from-cyan-50 to-blue-50">
           <div className="space-y-4">
             <Input
@@ -118,7 +118,7 @@ export default function NeverHaveIEver() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-cyan-50 to-blue-50">
         <div className="space-y-3 text-center">
           <p className="text-sm text-text-secondary">Current Statement</p>

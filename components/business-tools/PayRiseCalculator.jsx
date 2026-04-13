@@ -82,7 +82,7 @@ export default function PayRiseCalculator() {
   const results = activeTab === 'amount' ? amountResults : percentResults;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Tabs
         tabs={[
           { id: 'amount', label: 'Calculate by Amount' },
@@ -94,8 +94,8 @@ export default function PayRiseCalculator() {
 
       {/* Amount Tab */}
       {activeTab === 'amount' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Calculate Pay Rise Value
             </h2>
@@ -202,8 +202,8 @@ export default function PayRiseCalculator() {
 
       {/* Percent Tab */}
       {activeTab === 'percent' && (
-        <div className="space-y-6">
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+        <div className="space-y-4">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
             <h2 className="font-heading text-lg font-semibold text-text-primary">
               Calculate by Percentage
             </h2>

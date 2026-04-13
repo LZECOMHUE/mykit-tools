@@ -89,7 +89,7 @@ export default function CookingMeasurementConverter() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-4 space-y-4">
       {/* View Switcher */}
       <div className="flex gap-2">
         <Button

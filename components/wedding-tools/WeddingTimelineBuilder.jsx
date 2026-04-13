@@ -195,13 +195,13 @@ export default function WeddingTimelineBuilder() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
           Wedding Timeline Configuration
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Input
             label="Ceremony Start Time"
             type="time"
@@ -283,7 +283,7 @@ export default function WeddingTimelineBuilder() {
       {timeline && (
         <div className="space-y-4">
           <Card>
-            <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
               Your Wedding Day Timeline
             </h2>
 

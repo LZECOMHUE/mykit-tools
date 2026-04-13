@@ -175,7 +175,7 @@ export default function SetlistTimer() {
   const setEnded = mode === 'live' && currentSongIndex === songs.length - 1 && currentSongRemaining <= 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Summary Panel */}
       <Card>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -310,7 +310,7 @@ export default function SetlistTimer() {
       <div className="space-y-3">
         {songs.length === 0 ? (
           <Card>
-            <p className="text-center text-text-muted py-8">No songs added yet. Start building your setlist above.</p>
+            <p className="text-center text-text-muted py-4">No songs added yet. Start building your setlist above.</p>
           </Card>
         ) : (
           songs.map((song, idx) => {

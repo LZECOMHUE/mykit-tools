@@ -59,9 +59,9 @@ export default function TravelBudgetCalculator() {
   const fmtDec = (n) => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-3xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-2">Destination</label>
@@ -143,7 +143,7 @@ export default function TravelBudgetCalculator() {
       </div>
 
       {/* Total Budget */}
-      <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] p-6 text-center space-y-2">
+      <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] text-center space-y-2">
         <p className="text-text-secondary text-sm">Total Budget</p>
         <p className="font-mono-num text-4xl font-bold text-accent">{fmt(budget.total)}</p>
         <p className="text-text-secondary text-sm">
@@ -190,7 +190,7 @@ export default function TravelBudgetCalculator() {
       </div>
 
       {/* Trip Totals */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-3">
         <h4 className="text-text-primary font-semibold">Full Trip Breakdown ({duration} days)</h4>
         <div className="space-y-2">
           {[

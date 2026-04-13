@@ -65,8 +65,8 @@ export default function ZombieApocalypseNameGenerator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Survivor Role
@@ -90,7 +90,7 @@ export default function ZombieApocalypseNameGenerator() {
       </div>
 
       {survivor && (
-        <div className="bg-orange-950 text-white border border-orange-900 rounded-[var(--radius-card)] p-8 space-y-4">
+        <div className="bg-orange-950 text-white border border-orange-900 rounded-[var(--radius-card)] space-y-4">
           <div>
             <p className="text-sm opacity-90 mb-1">Name</p>
             <p className="font-heading text-3xl font-bold">{survivor.name}</p>

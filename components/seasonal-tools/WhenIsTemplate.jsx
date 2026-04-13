@@ -102,9 +102,9 @@ export default function WhenIsTemplate({
   });
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Primary Date Display */}
-      <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 p-8">
+      <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">
         <h2 className="font-heading text-lg font-semibold text-text-secondary mb-2">
           Next occurrence of {name}
         </h2>
@@ -149,7 +149,7 @@ export default function WhenIsTemplate({
       </Card>
 
       {/* Year Selector */}
-      <Card className="p-6">
+      <Card>
         <label className="block text-sm font-semibold text-text-primary mb-3">
           Select a different year
         </label>
@@ -167,7 +167,7 @@ export default function WhenIsTemplate({
       </Card>
 
       {/* What is this holiday? */}
-      <Card className="p-6">
+      <Card>
         <h3 className="font-heading text-xl font-bold text-text-primary mb-3">
           What is {name}?
         </h3>
@@ -176,7 +176,7 @@ export default function WhenIsTemplate({
 
       {/* Traditions */}
       {traditions && traditions.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
             Traditions
           </h3>
@@ -193,7 +193,7 @@ export default function WhenIsTemplate({
 
       {/* Fun Facts */}
       {funFacts && funFacts.length > 0 && (
-        <Card className="p-6 bg-amber-50 border-amber-200">
+        <Card className="bg-amber-50 border-amber-200">
           <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
             Fun Facts
           </h3>
@@ -209,7 +209,7 @@ export default function WhenIsTemplate({
       )}
 
       {/* Dates Table */}
-      <Card className="p-6 overflow-x-auto">
+      <Card className="overflow-x-auto">
         <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
           When is {name} each year?
         </h3>
@@ -243,7 +243,7 @@ export default function WhenIsTemplate({
 
       {/* Related Tools */}
       {relatedSlugs && relatedSlugs.length > 0 && (
-        <Card className="p-6">
+        <Card>
           <h3 className="font-heading text-xl font-bold text-text-primary mb-4">
             Related Tools
           </h3>

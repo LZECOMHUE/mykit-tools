@@ -50,7 +50,7 @@ export default function WordAssociationTool() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-secondary mb-2">
             Enter a word to find associations
@@ -80,10 +80,10 @@ export default function WordAssociationTool() {
 
         {associations.length > 0 && (
           <div>
-            <h3 className="font-heading text-lg font-semibold text-primary mb-6">
+            <h3 className="font-heading text-lg font-semibold text-primary mb-4">
               Word Cloud - Words Associated with "{word}"
             </h3>
-            <div className="flex flex-wrap gap-4 items-center justify-center p-6 bg-surface rounded-lg">
+            <div className="flex flex-wrap gap-4 items-center justify-center bg-surface rounded-lg">
               {associations.map((assoc) => (
                 <div
                   key={assoc.word}

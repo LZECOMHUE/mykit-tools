@@ -61,8 +61,8 @@ export default function IndiaGSTCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-lg">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Input Section */}
         <div className="space-y-4">
           <h2 className="font-heading text-xl font-bold text-gray-900">GST Calculator</h2>

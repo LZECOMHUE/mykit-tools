@@ -91,28 +91,18 @@ export default function BoxShadowGenerator() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(`box-shadow: ${cssOutput};`);
+      await navigator.clipboard.writeText(`box-shadow: ${cssOutput};`).catch(() => {});
     } catch (err) {
       console.error('Failed to copy:', err);
     }
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 py-8 px-4">
-      {/* Title */}
-      <div>
-        <h1 className="font-heading text-3xl font-bold text-text-primary">
-          CSS Box Shadow Generator
-        </h1>
-        <p className="text-text-secondary mt-2">
-          Create and customize multiple shadow layers with live preview
-        </p>
-      </div>
-
+    <div className="w-full max-w-5xl mx-auto space-y-4 py-4 px-4">
       {/* Main Grid: Preview + Controls */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Left: Preview */}
-        <div className="flex flex-col items-center justify-center min-h-96 bg-surface rounded-[12px] p-8">
+        <div className="flex flex-col items-center justify-center min-h-96 bg-surface rounded-[12px]">
           <div
             className="w-48 h-48 bg-white rounded-[12px] transition-shadow duration-200"
             style={{ boxShadow: cssOutput || 'none' }}
@@ -120,7 +110,7 @@ export default function BoxShadowGenerator() {
         </div>
 
         {/* Right: Controls */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Presets */}
           <div className="space-y-3">
             <h3 className="text-text-primary font-semibold">Quick Presets</h3>

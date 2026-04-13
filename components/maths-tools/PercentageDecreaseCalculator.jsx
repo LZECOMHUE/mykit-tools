@@ -147,7 +147,7 @@ export default function PercentageDecreaseCalculator() {
       {/* Results */}
       {mode === 'forward' && forwardResult && (
         <div className="space-y-4">
-          <div className="p-6 rounded-[var(--radius-card)] border border-red-200 bg-red-50">
+          <div className="p-4 rounded-[var(--radius-card)] border border-red-200 bg-red-50">
             <div className="text-sm text-text-secondary mb-2">New Value</div>
             <div className="text-4xl font-bold font-mono-num text-red-600">
               {forwardResult.newValue.toFixed(4)}
@@ -165,7 +165,7 @@ export default function PercentageDecreaseCalculator() {
 
       {mode === 'reverse' && reverseResult && (
         <div className="space-y-4">
-          <div className="p-6 rounded-[var(--radius-card)] border border-red-200 bg-red-50">
+          <div className="p-4 rounded-[var(--radius-card)] border border-red-200 bg-red-50">
             <div className="text-sm text-text-secondary mb-2">Percentage Decrease</div>
             <div className="text-4xl font-bold font-mono-num text-red-600">
               −{reverseResult.percentageDecrease.toFixed(2)}%

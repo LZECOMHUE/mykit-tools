@@ -117,12 +117,8 @@ export default function CompanyCarTaxCalculator() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Company Car Tax Calculator
-        </h2>
-
+    <div className="w-full max-w-2xl mx-auto p-4 space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -205,7 +201,7 @@ export default function CompanyCarTaxCalculator() {
       </Card>
 
       {result && (
-        <Card className="p-6 bg-surface">
+        <Card className="bg-surface">
           <h3 className="font-heading text-xl font-bold text-primary mb-4">
             Your Tax Results
           </h3>

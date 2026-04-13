@@ -137,10 +137,10 @@ END:VCALENDAR`;
   const yearData = generateYearTable();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero Countdown Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border border-blue-200">
-        <div className="text-center mb-6">
+      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
+        <div className="text-center mb-4">
           <h2 className="font-heading text-2xl font-bold text-blue-900 mb-2">
             Winter Solstice (Northern Hemisphere)
           </h2>
@@ -150,7 +150,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Countdown */}
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-4 gap-3 mb-4">
           <div className="bg-white rounded-lg p-4 text-center border border-blue-100">
             <div className="font-mono text-2xl font-bold text-blue-600">
               {countdown.days}
@@ -192,7 +192,7 @@ END:VCALENDAR`;
       </div>
 
       {/* What is Winter Solstice */}
-      <div className="bg-white rounded-lg border border-blue-200 p-6">
+      <div className="bg-white rounded-lg border border-blue-200">
         <h3 className="font-heading font-bold text-lg text-blue-900 mb-3">What is the Winter Solstice?</h3>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">
           The winter solstice is the shortest day and longest night of the year in the Northern Hemisphere. It occurs when Earth's axial tilt is most inclined away from the Sun, minimizing daylight hours. The exact date varies between December 21 and December 22 depending on the year and time zone.
@@ -209,7 +209,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Hemisphere Note */}
-      <div className="bg-purple-50 rounded-lg border border-purple-200 p-6">
+      <div className="bg-purple-50 rounded-lg border border-purple-200">
         <h3 className="font-heading font-bold text-purple-900 mb-2">Southern Hemisphere?</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           When it's winter solstice in the Northern Hemisphere (December), it's summer solstice in the Southern Hemisphere. Australia, South Africa, and parts of South America experience their longest day on this same date. They celebrate their winter solstice around June 20-21.
@@ -217,13 +217,13 @@ END:VCALENDAR`;
       </div>
 
       {/* Fun Fact */}
-      <div className="bg-purple-50 rounded-lg border border-purple-200 p-6">
+      <div className="bg-purple-50 rounded-lg border border-purple-200">
         <h3 className="font-heading font-bold text-purple-900 mb-2">Did You Know?</h3>
         <p className="text-sm text-gray-700">{FACTS[currentFact]}</p>
       </div>
 
       {/* Multi-Year Table */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-lg border border-gray-200">
         <h3 className="font-heading font-bold text-lg text-gray-900 mb-4">Winter Solstice Dates (Next 10 Years)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -252,7 +252,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Traditions */}
-      <div className="bg-indigo-50 rounded-lg border border-indigo-200 p-6">
+      <div className="bg-indigo-50 rounded-lg border border-indigo-200">
         <h3 className="font-heading font-bold text-indigo-900 mb-3">Solstice Traditions</h3>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex gap-2">
@@ -275,7 +275,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Hope and Renewal */}
-      <div className="bg-amber-50 rounded-lg border border-amber-200 p-6">
+      <div className="bg-amber-50 rounded-lg border border-amber-200">
         <h3 className="font-heading font-bold text-amber-900 mb-2">The Return of the Sun</h3>
         <p className="text-sm text-gray-700 leading-relaxed">
           The winter solstice has been celebrated for thousands of years as a turning point. After the shortest day, daylight gradually increases, making it a symbol of hope, renewal, and the return of warmth. Many winter holidays and festivals are centred around this astronomical event.

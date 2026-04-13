@@ -65,8 +65,8 @@ export default function WitchNameGenerator() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+    <div className="space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">
             Witch Type
@@ -90,7 +90,7 @@ export default function WitchNameGenerator() {
       </div>
 
       {witchName && (
-        <div className="bg-purple-900 text-white border border-purple-800 rounded-[var(--radius-card)] p-8 space-y-4">
+        <div className="bg-purple-900 text-white border border-purple-800 rounded-[var(--radius-card)] space-y-4">
           <div>
             <p className="text-sm opacity-90 mb-1">Title</p>
             <p className="font-heading text-2xl font-bold">{witchName.title}</p>

@@ -106,12 +106,8 @@ export default function SalarySacrificeCarCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Salary Sacrifice Car Calculator
-        </h2>
-
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -194,10 +190,10 @@ export default function SalarySacrificeCarCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Monthly Cost Breakdown */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Monthly Cost Breakdown
             </h3>
 
@@ -243,8 +239,8 @@ export default function SalarySacrificeCarCalculator() {
           </Card>
 
           {/* Annual Summary */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Annual Summary
             </h3>
 

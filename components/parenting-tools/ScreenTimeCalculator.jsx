@@ -47,9 +47,9 @@ export default function ScreenTimeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Configuration */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-2">Child's Age Group</label>
           <select

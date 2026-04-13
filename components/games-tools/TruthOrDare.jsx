@@ -107,7 +107,7 @@ export default function TruthOrDare() {
       ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <Card className="bg-gradient-to-br from-pink-50 to-rose-50">
         <div className="space-y-4">
           <Toggle

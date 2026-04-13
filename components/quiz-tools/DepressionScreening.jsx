@@ -193,13 +193,13 @@ const DepressionScreening = () => {
 
     return (
       <div className="w-full max-w-2xl mx-auto">
-        <Card className="p-8">
-          <div className="text-center mb-8">
+        <Card>
+          <div className="text-center mb-4">
             <h2 className="text-3xl font-bold text-text-primary mb-2">Your Results</h2>
             <p className="text-text-secondary">PHQ-9 Depression Screening</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg p-8 mb-8 border border-blue-200">
+          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg mb-4 border border-blue-200">
             <div className="text-center">
               <p className="text-text-muted text-sm mb-2">Your Score</p>
               <p className="font-mono text-6xl font-bold mb-2" style={{ color: category.color }}>
@@ -211,7 +211,7 @@ const DepressionScreening = () => {
             </div>
           </div>
 
-          <div className="mb-8">
+          <div className="mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">Understanding Your Score</h3>
             <p className="text-text-secondary mb-4">
               {score <= 4 && 'Your responses suggest minimal depressive symptoms.'}
@@ -228,7 +228,7 @@ const DepressionScreening = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+          <div className="bg-red-50 border border-red-200 rounded-lg mb-4">
             <h3 className="font-bold text-lg text-text-primary mb-4">If You're in Crisis</h3>
             <ul className="space-y-3 text-text-secondary">
               <li className="flex items-start">
@@ -274,8 +274,8 @@ const DepressionScreening = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="p-8">
-        <div className="mb-6">
+      <Card>
+        <div className="mb-4">
           <p className="text-sm text-text-muted mb-2">
             Question {currentQuestion + 1} of {questions.length}
           </p>
@@ -287,14 +287,14 @@ const DepressionScreening = () => {
           </div>
         </div>
 
-        <div className="mb-8">
-          <h2 className="text-xl font-bold text-text-primary mb-6">
+        <div className="mb-4">
+          <h2 className="text-xl font-bold text-text-primary mb-4">
             Over the last 2 weeks, how often have you been bothered by:
           </h2>
           <p className="text-lg text-text-secondary">{questions[currentQuestion]}</p>
         </div>
 
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-4">
           {options.map((option, index) => (
             <button
               key={index}
@@ -312,7 +312,7 @@ const DepressionScreening = () => {
         </div>
 
         {/* Progress indicator dots */}
-        <div className="flex justify-center gap-2 mb-6 flex-wrap">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {Array.from({ length: questions.length }).map((_, index) => (
             <button
               key={index}

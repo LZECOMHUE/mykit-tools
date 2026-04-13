@@ -57,7 +57,7 @@ export default function TyreSizeCalculator() {
     if (!dims) return null;
 
     return (
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="font-semibold text-text-primary">{label}</h3>
         <div className="text-center mb-4">
           <p className="font-mono-num text-3xl font-bold text-accent">{width}/{aspect}R{diameter}</p>
@@ -81,12 +81,10 @@ export default function TyreSizeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
-        <h2 className="text-xl font-bold text-text-primary">Compare Tyre Sizes</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Tyre 1 */}
           <div className="space-y-4">
             <h3 className="font-semibold text-text-primary">Tyre Size 1</h3>
@@ -166,14 +164,14 @@ export default function TyreSizeCalculator() {
       </div>
 
       {/* Results */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <TyreInfo width={width1} aspect={aspect1} diameter={diameter1} dims={dims1} label="Tyre Size 1 Details" />
         <TyreInfo width={width2} aspect={aspect2} diameter={diameter2} dims={dims2} label="Tyre Size 2 Details" />
       </div>
 
       {/* Comparison */}
       {dims1 && dims2 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg space-y-4">
           <h3 className="font-semibold text-text-primary">Size Comparison</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -204,7 +202,7 @@ export default function TyreSizeCalculator() {
       )}
 
       {/* Common Sizes */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Common Tyre Sizes</h3>
         <div className="space-y-2">
           {commonSizes.map((size) => (
@@ -227,7 +225,7 @@ export default function TyreSizeCalculator() {
       </div>
 
       {/* Info */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Understanding Tyre Sizes</h3>
         <div className="space-y-2 text-text-secondary text-sm">
           <p>

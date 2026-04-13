@@ -203,7 +203,7 @@ export default function RingSizeConverter() {
 
       {/* Conversion Result */}
       {selectedSize && (
-        <div className={`${cardCls} bg-accent-muted p-6`}>
+        <div className={`${cardCls} bg-accent-muted`}>
           <h3 className="font-heading text-sm font-semibold text-text-primary mb-4">Equivalent Sizes</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[13px]">
             <div>

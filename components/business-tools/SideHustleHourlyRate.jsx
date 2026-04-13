@@ -121,7 +121,7 @@ export default function SideHustleHourlyRate() {
       {/* Right Panel */}
       <div className="space-y-4">
         {/* Hero */}
-        <div className={`rounded-[12px] p-6 space-y-2 ${calculations.isAboveMinWage ? 'bg-success/10' : 'bg-error/10'}`}>
+        <div className={`rounded-[12px] space-y-2 ${calculations.isAboveMinWage ? 'bg-success/10' : 'bg-error/10'}`}>
           <div className="text-[13px] text-text-secondary">Your Real Hourly Rate</div>
           <div className={`font-heading font-bold text-[48px] leading-tight ${calculations.isAboveMinWage ? 'text-success' : 'text-error'}`}>
             £{calculations.hourlyRate.toFixed(2)}/hr

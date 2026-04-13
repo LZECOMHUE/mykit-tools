@@ -1,121 +1,92 @@
 "use client";
-import { useState } from "react";
-import Textarea from "@/components/ui/Textarea";
-import Card from "@/components/ui/Card";
+import { useState, useMemo } from "react";
 import Button from "@/components/ui/Button";
-import Toggle from "@/components/ui/Toggle";
+
+const MODES = [
+  { value: "characters", label: "Characters" },
+  { value: "words", label: "Words" },
+  { value: "lines", label: "Lines" },
+];
 
 export default function TextReverser() {
   const [input, setInput] = useState("Hello World");
   const [reverseMode, setReverseMode] = useState("characters");
+  const [copied, setCopied] = useState(false);
 
-  const reverseCharacters = (text) => {
-    return text.split("").reverse().join("");
-  };
-
-  const reverseWords = (text) => {
-    return text.split(/\s+/).reverse().join(" ");
-  };
-
-  const reverseLines = (text) => {
-    return text.split("\n").reverse().join("\n");
-  };
-
-  const getOutput = () => {
+  const output = useMemo(() => {
+    if (!input) return "";
     switch (reverseMode) {
       case "characters":
-        return reverseCharacters(input);
+        return input.split("").reverse().join("");
       case "words":
-        return reverseWords(input);
+        return input.split(/\s+/).reverse().join(" ");
       case "lines":
-        return reverseLines(input);
+        return input.split("\n").reverse().join("\n");
       default:
         return input;
     }
-  };
+  }, [input, reverseMode]);
 
-  const output = getOutput();
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(output);
+  const handleCopy = async () => {
+    if (!output) return;
+    try {
+      await navigator.clipboard.writeText(output).catch(() => {});
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   };
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">
-              Input Text
-            </label>
-            <Textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Enter text to reverse"
-              rows={6}
-            />
-          </div>
+    <div className="space-y-4">
+      {/* Mode pills */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="text-sm font-medium text-text-primary">Reverse by:</span>
+        {MODES.map((mode) => (
+          <button
+            key={mode.value}
+            onClick={() => setReverseMode(mode.value)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              reverseMode === mode.value
+                ? "bg-accent text-white"
+                : "bg-surface text-text-secondary hover:bg-surface-hover"
+            }`}
+          >
+            {mode.label}
+          </button>
+        ))}
+      </div>
 
-          <div className="space-y-3">
-            <p className="text-sm font-medium text-text-primary">Reverse Mode</p>
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="reverseMode"
-                  value="characters"
-                  checked={reverseMode === "characters"}
-                  onChange={(e) => setReverseMode(e.target.value)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Reverse Characters
-                </span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="reverseMode"
-                  value="words"
-                  checked={reverseMode === "words"}
-                  onChange={(e) => setReverseMode(e.target.value)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Reverse Words
-                </span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="reverseMode"
-                  value="lines"
-                  checked={reverseMode === "lines"}
-                  onChange={(e) => setReverseMode(e.target.value)}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-text-secondary">
-                  Reverse Lines
-                </span>
-              </label>
-            </div>
-          </div>
+      {/* Side-by-side grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div>
+          <label className="block text-sm font-medium text-text-primary mb-1.5">Input</label>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Enter text to reverse"
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
+          />
         </div>
-      </Card>
 
-      <Card className="p-6">
-        <div className="space-y-4">
-          <p className="text-sm text-text-secondary">Reversed Output</p>
-          <div className="bg-surface p-4 rounded-lg border border-border break-all">
-            <p className="font-mono text-text-primary whitespace-pre-wrap text-sm">
-              {output}
-            </p>
+        {/* Output */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">Reversed Output</label>
+            <Button variant="secondary" size="sm" onClick={handleCopy} disabled={!output}>
+              {copied ? "Copied!" : "Copy"}
+            </Button>
           </div>
-          <Button onClick={handleCopy} className="w-full">
-            Copy Output
-          </Button>
+          <textarea
+            value={output}
+            readOnly
+            placeholder="Reversed text will appear here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-surface border border-border rounded-[var(--radius-input)] resize-none focus:outline-none"
+            spellCheck={false}
+          />
         </div>
-      </Card>
+      </div>
     </div>
   );
 }

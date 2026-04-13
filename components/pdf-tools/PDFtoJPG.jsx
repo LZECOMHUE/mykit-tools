@@ -136,12 +136,12 @@ export default function PDFtoJPG() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {!pdfFile ? (
         <PDFDropZone onFilesSelected={handleFileSelect} />
       ) : (
         <>
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-text-primary font-semibold">{pdfFile.name}</p>
@@ -162,7 +162,7 @@ export default function PDFtoJPG() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="block text-text-primary font-medium mb-2">
                   Output Format

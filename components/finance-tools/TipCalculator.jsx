@@ -34,9 +34,9 @@ export default function TipCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="space-y-6 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Bill Amount
@@ -95,28 +95,28 @@ export default function TipCalculator() {
 
       {/* Results Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Tip Amount</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {fmt(results.tipAmount)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Total</p>
           <p className="font-mono-num text-3xl font-bold text-accent">
             {fmt(results.total)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Per Person</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {fmt(results.perPerson)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Tip Percentage</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {currentTipPercentage.toFixed(1)}%
@@ -125,7 +125,7 @@ export default function TipCalculator() {
       </div>
 
       {/* Quick Reference */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h3 className="text-text-primary font-semibold mb-4">Quick Reference</h3>
         <div className="space-y-2">
           {commonBills.map((bill) => {

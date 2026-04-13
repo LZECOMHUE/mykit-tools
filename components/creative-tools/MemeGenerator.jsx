@@ -163,7 +163,7 @@ export default function MemeGenerator() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Upload Image */}
       <Card className="bg-gradient-to-br from-pink-50 to-rose-50 space-y-4">
         <div>

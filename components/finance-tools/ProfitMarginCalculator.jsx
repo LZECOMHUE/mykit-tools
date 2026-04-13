@@ -25,9 +25,9 @@ export default function ProfitMarginCalculator() {
   }, [revenue, cost]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)]">
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-1">
             Revenue / Selling Price
@@ -57,28 +57,28 @@ export default function ProfitMarginCalculator() {
 
       {/* Main Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Gross Profit</p>
           <p className="font-mono-num text-3xl font-bold text-accent">
             {fmt(results.grossProfit)}
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Profit Margin</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {results.profitMargin.toFixed(2)}%
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Markup</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {results.markup.toFixed(2)}%
           </p>
         </div>
 
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)]">
           <p className="text-text-secondary text-sm mb-1">Cost as % of Revenue</p>
           <p className="font-mono-num text-3xl font-bold text-text-primary">
             {((results.cost / results.revenue) * 100).toFixed(2)}%
@@ -87,7 +87,7 @@ export default function ProfitMarginCalculator() {
       </div>
 
       {/* Detailed Breakdown */}
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)]">
         <h3 className="text-text-primary font-semibold mb-4">Detailed Breakdown</h3>
 
         <div className="space-y-3 font-mono-num text-sm">
@@ -109,7 +109,7 @@ export default function ProfitMarginCalculator() {
       </div>
 
       {/* Explanation Section */}
-      <div className="bg-white border border-border rounded-[var(--radius-card)] p-6 space-y-4">
+      <div className="bg-white border border-border rounded-[var(--radius-card)] space-y-4">
         <h3 className="text-text-primary font-semibold">Understanding Margin vs Markup</h3>
 
         <div className="space-y-4 text-sm">

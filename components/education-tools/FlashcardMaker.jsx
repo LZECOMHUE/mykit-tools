@@ -93,7 +93,7 @@ export default function FlashcardMaker() {
 
   if (isStudyMode && validCards.length > 0) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+      <div className="w-full max-w-2xl mx-auto space-y-4">
         {/* Progress */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
@@ -119,7 +119,7 @@ export default function FlashcardMaker() {
             isFlipped ? 'bg-accent text-white' : 'bg-accent-muted'
           }`}
         >
-          <div className="text-center p-6">
+          <div className="text-center">
             <p className="text-xs text-opacity-60 mb-2">
               {isFlipped ? 'Answer' : 'Question'}
             </p>
@@ -176,7 +176,7 @@ export default function FlashcardMaker() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Mode Selection */}
       {!isStudyMode && (
         <>

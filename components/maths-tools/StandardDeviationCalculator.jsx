@@ -88,9 +88,9 @@ export default function StandardDeviationCalculator() {
   }, [stats, usePopulation]);
 
   return (
-    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)] p-6">
+    <div className="w-full bg-surface border border-border rounded-[var(--radius-card)]">
       {/* Standard Type Selector */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-3">
           Type
         </label>
@@ -117,7 +117,7 @@ export default function StandardDeviationCalculator() {
       </div>
 
       {/* Input */}
-      <div className="mb-6">
+      <div className="mb-4">
         <label className="block text-sm font-medium text-text-secondary mb-2">
           Enter Numbers
           <span className="text-text-muted text-xs ml-1">(comma or newline separated)</span>
@@ -134,7 +134,7 @@ export default function StandardDeviationCalculator() {
       {stats && (
         <>
           {/* Summary Stats */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
             <p className="text-text-secondary text-sm font-medium mb-4">Summary Statistics</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <div>
@@ -159,7 +159,7 @@ export default function StandardDeviationCalculator() {
           </div>
 
           {/* Central Tendency */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
             <p className="text-text-secondary text-sm font-medium mb-4">Central Tendency</p>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
@@ -186,7 +186,7 @@ export default function StandardDeviationCalculator() {
           </div>
 
           {/* Dispersion */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
             <p className="text-text-secondary text-sm font-medium mb-4">Dispersion</p>
             <div className="space-y-3">
               <div>
@@ -221,7 +221,7 @@ export default function StandardDeviationCalculator() {
           </div>
 
           {/* Distribution Visualization */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
             <p className="text-text-secondary text-sm font-medium mb-4">Distribution (Standard Deviations)</p>
             <div className="space-y-3">
               <div>
@@ -252,7 +252,7 @@ export default function StandardDeviationCalculator() {
           </div>
 
           {/* Data Points */}
-          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6">
+          <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4">
             <p className="text-text-secondary text-sm font-medium mb-3">Data Points</p>
             <div className="max-h-48 overflow-y-auto">
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -273,7 +273,7 @@ export default function StandardDeviationCalculator() {
       )}
 
       {!stats && (
-        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-6 text-center">
+        <div className="bg-white border border-border rounded-[var(--radius-card)] p-4 mb-4 text-center">
           <p className="text-text-muted">Enter numbers to calculate statistics</p>
         </div>
       )}

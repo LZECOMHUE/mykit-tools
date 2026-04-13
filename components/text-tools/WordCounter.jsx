@@ -79,7 +79,7 @@ export default function WordCounter() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text).catch(() => {});
       // Optional: Show brief feedback (could add toast here)
     } catch (err) {
       console.error('Failed to copy text:', err);

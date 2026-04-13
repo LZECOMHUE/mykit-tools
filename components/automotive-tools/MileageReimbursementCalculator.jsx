@@ -59,12 +59,8 @@ export default function MileageReimbursementCalculator() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 space-y-6">
-      <Card className="p-6">
-        <h2 className="font-heading text-2xl font-bold text-primary mb-6">
-          Mileage Reimbursement Calculator
-        </h2>
-
+    <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
+      <Card>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
@@ -103,10 +99,10 @@ export default function MileageReimbursementCalculator() {
       </Card>
 
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Main Result */}
-          <Card className="p-6 bg-accent-muted border-2 border-accent">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-accent-muted border-2 border-accent">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your Mileage Claim
             </h3>
 
@@ -128,8 +124,8 @@ export default function MileageReimbursementCalculator() {
           </Card>
 
           {/* Rate Breakdown */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               HMRC Approved Rates (2026/27)
             </h3>
 
@@ -179,8 +175,8 @@ export default function MileageReimbursementCalculator() {
           </Card>
 
           {/* Tax Relief */}
-          <Card className="p-6 bg-surface">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+          <Card className="bg-surface">
+            <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Tax Relief Value
             </h3>
 

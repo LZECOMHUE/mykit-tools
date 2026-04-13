@@ -121,12 +121,11 @@ export default function DebtSnowballCalculator() {
   const totalMinPayment = debts.reduce((sum, d) => sum + d.minPayment, 0);
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
       {/* Input Section */}
-      <div className="bg-surface rounded-[12px] border border-border p-6">
-        <h2 className="text-2xl font-bold text-text-primary mb-6">Debt Snowball Calculator</h2>
+      <div className="bg-surface rounded-[12px] border border-border">
 
-        <div className="mb-6">
+        <div className="mb-4">
           <Input
             label="Extra Monthly Payment (£)"
             type="number"
@@ -138,7 +137,7 @@ export default function DebtSnowballCalculator() {
           />
         </div>
 
-        <div className="bg-white border border-border rounded-[8px] p-4 mb-6">
+        <div className="bg-white border border-border rounded-[8px] p-4 mb-4">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="text-xs text-text-muted uppercase">Total Debt</p>
@@ -163,7 +162,7 @@ export default function DebtSnowballCalculator() {
       </div>
 
       {/* Debts Table */}
-      <div className="bg-white border border-border rounded-[12px] p-6">
+      <div className="bg-white border border-border rounded-[12px]">
         <h3 className="text-lg font-bold text-text-primary mb-4">Your Debts</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -241,9 +240,9 @@ export default function DebtSnowballCalculator() {
       </div>
 
       {/* Strategy Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Snowball */}
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold text-text-primary mb-4">Snowball Method</h3>
           <p className="text-xs text-text-muted mb-4">Pay smallest debt first for psychological wins</p>
 
@@ -278,7 +277,7 @@ export default function DebtSnowballCalculator() {
         </div>
 
         {/* Avalanche */}
-        <div className="bg-white border border-border rounded-[12px] p-6">
+        <div className="bg-white border border-border rounded-[12px]">
           <h3 className="text-lg font-bold text-text-primary mb-4">Avalanche Method</h3>
           <p className="text-xs text-text-muted mb-4">Pay highest interest rate first to save money</p>
 
@@ -320,7 +319,7 @@ export default function DebtSnowballCalculator() {
 
       {/* Savings Comparison */}
       {Math.abs(snowballResult.totalInterestPaid - avalancheResult.totalInterestPaid) > 1 && (
-        <div className="bg-green-50 border border-green-200 rounded-[12px] p-6">
+        <div className="bg-green-50 border border-green-200 rounded-[12px]">
           <h3 className="text-lg font-bold text-green-900 mb-2">Interest Savings Insight</h3>
           <p className="text-green-700">
             The Avalanche method saves you <span className="font-bold">

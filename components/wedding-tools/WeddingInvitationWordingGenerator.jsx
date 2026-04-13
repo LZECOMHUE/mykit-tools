@@ -159,13 +159,13 @@ Reception at ${config.receptionLocation}`,
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
+        <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">
           Wedding Invitation Configuration
         </h2>
 
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-4">
           <Select
             label="Formality Level"
             value={config.formality}
@@ -274,13 +274,13 @@ Reception at ${config.receptionLocation}`,
                 Option {idx + 1}
               </h3>
 
-              <div className="bg-surface rounded-lg p-6 mb-6 text-center font-heading">
+              <div className="bg-surface rounded-lg mb-4 text-center font-heading">
                 <p className="text-text-primary whitespace-pre-line text-sm leading-relaxed">
                   {wording.mainText}
                 </p>
               </div>
 
-              <div className="bg-accent/10 border border-accent rounded-lg p-6 mb-6">
+              <div className="bg-accent/10 border border-accent rounded-lg mb-4">
                 <h4 className="font-heading font-bold text-accent mb-3">
                   RSVP Wording
                 </h4>

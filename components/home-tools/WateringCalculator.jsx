@@ -150,7 +150,7 @@ export default function WateringCalculator() {
   }, [plantType, potSize, season, location, seasonData]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto p-4 sm:p-4 space-y-4">
       {/* Configuration */}
       <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
         <div>
@@ -196,7 +196,7 @@ export default function WateringCalculator() {
       {results && (
         <div className="space-y-4">
           {/* Hero Card */}
-          <div className="bg-accent-muted border border-border rounded-lg p-6 space-y-3">
+          <div className="bg-accent-muted border border-border rounded-lg space-y-3">
             <h3 className="text-text-secondary text-[13px] font-medium">Water Every</h3>
             <p className="font-mono text-5xl font-bold text-accent">{results.days} days</p>
             <p className="text-text-secondary text-sm">Approximately {results.perWeek} times per week</p>

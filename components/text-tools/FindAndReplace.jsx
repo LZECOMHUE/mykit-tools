@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import Toggle from '@/components/ui/Toggle';
 
 export default function FindAndReplace() {
   const [text, setText] = useState('');
@@ -12,41 +11,29 @@ export default function FindAndReplace() {
   const [caseSensitive, setCaseSensitive] = useState(false);
   const [wholeWord, setWholeWord] = useState(false);
   const [regexMode, setRegexMode] = useState(false);
-  const [preview, setPreview] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const { matchCount, highlightedText, replacedText } = useMemo(() => {
-    if (!findTerm) {
-      return { matchCount: 0, highlightedText: text, replacedText: text };
-    }
+  const { matchCount, replacedText } = useMemo(() => {
+    if (!findTerm) return { matchCount: 0, replacedText: text };
 
     try {
-      let pattern;
       let flags = caseSensitive ? 'g' : 'gi';
+      let pattern;
 
       if (regexMode) {
         pattern = new RegExp(findTerm, flags);
       } else {
         let escaped = findTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        if (wholeWord) {
-          escaped = `\\b${escaped}\\b`;
-        }
+        if (wholeWord) escaped = `\\b${escaped}\\b`;
         pattern = new RegExp(escaped, flags);
       }
 
       const matches = text.match(pattern) || [];
-      const highlighted = text.replace(pattern, (match) => {
-        return `<mark>${match}</mark>`;
-      });
-
       const replaced = text.replace(pattern, replaceTerm);
 
-      return {
-        matchCount: matches.length,
-        highlightedText: highlighted,
-        replacedText: replaced,
-      };
-    } catch (error) {
-      return { matchCount: 0, highlightedText: text, replacedText: text };
+      return { matchCount: matches.length, replacedText: replaced };
+    } catch {
+      return { matchCount: 0, replacedText: text };
     }
   }, [text, findTerm, replaceTerm, caseSensitive, wholeWord, regexMode]);
 
@@ -54,32 +41,24 @@ export default function FindAndReplace() {
     setText(replacedText);
     setFindTerm('');
     setReplaceTerm('');
-    setPreview(false);
   };
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(preview ? replacedText : text);
+  const handleCopy = async () => {
+    const value = findTerm && matchCount > 0 ? replacedText : text;
+    if (!value) return;
+    try {
+      await navigator.clipboard.writeText(value).catch(() => {});
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <label className="block text-sm font-medium text-text-secondary mb-2">
-          Original Text
-        </label>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Paste text here..."
-          className="w-full min-h-[150px] px-4 py-3 border border-border rounded-[var(--radius-input)] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-10 resize-vertical"
-        />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="space-y-4">
+      {/* Find / Replace inputs */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div>
-          <label className="block text-sm font-medium text-text-secondary mb-2">
-            Find
-          </label>
+          <label className="block text-sm font-medium text-text-primary mb-1.5">Find</label>
           <Input
             value={findTerm}
             onChange={(e) => setFindTerm(e.target.value)}
@@ -87,9 +66,7 @@ export default function FindAndReplace() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-text-secondary mb-2">
-            Replace With
-          </label>
+          <label className="block text-sm font-medium text-text-primary mb-1.5">Replace with</label>
           <Input
             value={replaceTerm}
             onChange={(e) => setReplaceTerm(e.target.value)}
@@ -98,84 +75,70 @@ export default function FindAndReplace() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-3">
-        <Toggle
-          label="Case Sensitive"
-          checked={caseSensitive}
-          onChange={setCaseSensitive}
-          disabled={regexMode}
-        />
-        <Toggle
-          label="Whole Word Only"
-          checked={wholeWord}
-          onChange={setWholeWord}
-          disabled={regexMode}
-        />
-        <Toggle
-          label="Regex Mode (Advanced)"
-          checked={regexMode}
-          onChange={setRegexMode}
-        />
+      {/* Option toggles */}
+      <div className="flex items-center gap-4 flex-wrap">
+        {[
+          { state: caseSensitive, setter: setCaseSensitive, label: 'Case sensitive', disabled: regexMode },
+          { state: wholeWord, setter: setWholeWord, label: 'Whole word', disabled: regexMode },
+          { state: regexMode, setter: setRegexMode, label: 'Regex mode', disabled: false },
+        ].map(({ state, setter, label, disabled }) => (
+          <label key={label} className={`flex items-center gap-2 cursor-pointer ${disabled ? 'opacity-40' : ''}`}>
+            <input
+              type="checkbox"
+              checked={state}
+              onChange={(e) => setter(e.target.checked)}
+              disabled={disabled}
+              className="w-4 h-4 rounded border-border accent-accent"
+            />
+            <span className="text-sm text-text-secondary">{label}</span>
+          </label>
+        ))}
+        {findTerm && (
+          <span className="text-sm text-text-muted font-mono ml-auto">
+            {matchCount} match{matchCount !== 1 ? 'es' : ''}
+          </span>
+        )}
       </div>
 
-      {findTerm && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
-          <p className="text-text-secondary text-sm">
-            Found <span className="font-mono font-semibold text-text-primary">{matchCount}</span> match{matchCount !== 1 ? 'es' : ''}
-          </p>
-        </div>
-      )}
-
-      {findTerm && (
-        <div className="flex gap-2">
-          <Button
-            onClick={() => setPreview(!preview)}
-            variant="secondary"
-            className="flex-1"
-          >
-            {preview ? 'Hide Preview' : 'Show Preview'}
-          </Button>
-          <Button
-            onClick={handleReplaceAll}
-            disabled={matchCount === 0}
-            className="flex-1"
-          >
-            Replace All
-          </Button>
-        </div>
-      )}
-
-      {preview && findTerm && matchCount > 0 && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
-          <p className="text-sm font-medium text-text-secondary">Preview of replacements:</p>
-          <div
-            className="bg-white border border-border rounded-[var(--radius-input)] px-4 py-3 text-sm whitespace-pre-wrap break-words font-mono max-h-[300px] overflow-y-auto"
-            dangerouslySetInnerHTML={{
-              __html: replacedText.replace(/</g, '&lt;').replace(/>/g, '&gt;'),
-            }}
-          />
-          <Button onClick={handleCopy} className="w-full">
-            Copy Result
-          </Button>
-        </div>
-      )}
-
-      {!preview && text && (
-        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-6 space-y-3">
-          <p className="text-sm font-medium text-text-secondary">Current text:</p>
+      {/* Side-by-side text panels */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Input */}
+        <div>
+          <label className="block text-sm font-medium text-text-primary mb-1.5">Original Text</label>
           <textarea
             value={text}
-            readOnly
-            className="w-full min-h-[200px] px-4 py-3 font-mono text-sm text-text-primary bg-white border border-border rounded-[var(--radius-input)] resize-vertical"
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Paste text here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-white border border-border rounded-[var(--radius-input)] resize-none focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            spellCheck={false}
           />
-          <Button onClick={handleCopy} className="w-full">
-            Copy Text
-          </Button>
         </div>
-      )}
 
-      <div className="text-sm text-text-muted">
-        <p>Find and replace text with support for regex patterns.</p>
+        {/* Preview output */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="text-sm font-medium text-text-primary">
+              Preview{findTerm && matchCount > 0 ? ` (${matchCount} replaced)` : ''}
+            </label>
+            <div className="flex items-center gap-2">
+              {findTerm && matchCount > 0 && (
+                <Button variant="secondary" size="sm" onClick={handleReplaceAll}>
+                  Apply
+                </Button>
+              )}
+              <Button variant="secondary" size="sm" onClick={handleCopy} disabled={!text}>
+                {copied ? 'Copied!' : 'Copy'}
+              </Button>
+            </div>
+          </div>
+          <textarea
+            value={findTerm && matchCount > 0 ? replacedText : text}
+            readOnly
+            placeholder="Preview will appear here..."
+            className="w-full h-64 md:h-80 p-3 font-mono text-sm bg-surface border border-border rounded-[var(--radius-input)] resize-none focus:outline-none"
+            spellCheck={false}
+          />
+        </div>
       </div>
     </div>
   );

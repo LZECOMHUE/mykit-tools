@@ -37,7 +37,7 @@ export default function TrigonometryCalculator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-4">
       <div className="space-y-4">
         <div>
           <label className="block text-text-primary font-medium mb-2">Angle</label>
@@ -62,7 +62,7 @@ export default function TrigonometryCalculator() {
         </div>
       </div>
 
-      <div className="bg-surface p-6 rounded-[var(--radius-card)] space-y-4">
+      <div className="bg-surface rounded-[var(--radius-card)] space-y-4">
         <p className="text-text-secondary text-sm font-medium">
           Angle: {displayAngle().toFixed(2)}° {unit === 'degrees' ? '' : `(${angleInRadians.toFixed(6)} rad)`}
           {isSpecialAngle() && <span className="ml-2 text-yellow-600">★ Special angle</span>}

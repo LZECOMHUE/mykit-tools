@@ -85,19 +85,17 @@ export default function CarLoanCalculator() {
 
   if (!calculations) {
     return (
-      <div className="w-full max-w-2xl mx-auto p-6">
+      <div className="w-full max-w-2xl mx-auto">
         <p className="text-text-secondary">Enter a vehicle price to calculate</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4">
       {/* Inputs */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-6">
-        <h2 className="text-xl font-bold text-text-primary">Car Loan Calculator</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
               Vehicle Price
@@ -201,7 +199,7 @@ export default function CarLoanCalculator() {
       </div>
 
       {/* Breakdown */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Loan Breakdown</h3>
         <div className="space-y-3">
           {[
@@ -222,7 +220,7 @@ export default function CarLoanCalculator() {
       </div>
 
       {/* Amortization Schedule (First 12 months) */}
-      <div className="bg-surface border border-border rounded-lg p-6 space-y-4">
+      <div className="bg-surface border border-border rounded-lg space-y-4">
         <h3 className="text-lg font-bold text-text-primary">Payment Schedule (First 12 Months)</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -251,7 +249,7 @@ export default function CarLoanCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
+      <div className="bg-green-50 border border-green-200 rounded-lg space-y-3">
         <h3 className="text-text-primary font-semibold">Loan Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>✓ A larger deposit reduces monthly payments and total interest</li>
@@ -262,7 +260,7 @@ export default function CarLoanCalculator() {
       </div>
 
       {/* Quick Prices */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="bg-surface border border-border rounded-lg">
         <h3 className="text-text-primary font-semibold mb-4">Quick Vehicle Prices</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {[10000, 15000, 20000, 25000, 30000, 40000, 50000, 75000].map((price) => (

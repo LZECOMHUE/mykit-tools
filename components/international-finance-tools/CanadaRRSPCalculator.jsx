@@ -87,8 +87,8 @@ export default function CanadaRRSPCalculator() {
   }, [currentBalance, annualContribution, marginalTaxRate, yearsToRetirement, expectedReturnRate]);
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6">
+    <div className="space-y-4">
+      <Card>
         <h2 className="font-heading text-xl font-bold text-primary mb-4">
           RRSP Projection
         </h2>
@@ -138,7 +138,7 @@ export default function CanadaRRSPCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-blue-50 border border-blue-200">
+      <Card className="bg-blue-50 border border-blue-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           RRSP Projection Results
         </h2>
@@ -172,7 +172,7 @@ export default function CanadaRRSPCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-green-50 border border-green-200">
+      <Card className="bg-green-50 border border-green-200">
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           RRSP vs Taxable Account
         </h2>
@@ -201,7 +201,7 @@ export default function CanadaRRSPCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6">
+      <Card>
         <h2 className="font-heading text-lg font-bold text-primary mb-4">
           Projection Chart
         </h2>
@@ -249,7 +249,7 @@ export default function CanadaRRSPCalculator() {
         </div>
       </Card>
 
-      <Card className="p-6 bg-amber-50 border border-amber-200">
+      <Card className="bg-amber-50 border border-amber-200">
         <p className="text-sm text-secondary">
           <strong>Disclaimer:</strong> This calculator provides estimates based on your inputs and does not account for inflation, market volatility, withdrawal rates in retirement, or changes to tax rates. Tax refunds shown assume your marginal rate remains constant. For personalized retirement planning, consult a certified financial advisor or tax professional.
         </p>

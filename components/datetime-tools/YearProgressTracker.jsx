@@ -95,7 +95,7 @@ export default function YearProgressTracker() {
 
   return (
     <Card>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div className="text-center pb-4 border-b border-border">
           <p className="text-sm text-secondary mb-1">Today</p>
           <p className="font-heading text-xl font-bold text-primary">{progress.today}</p>
