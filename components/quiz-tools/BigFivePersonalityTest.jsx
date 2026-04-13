@@ -292,81 +292,131 @@ export default function BigFivePersonalityTest() {
   const question = QUESTIONS[currentQuestion];
   const allAnswered = Object.keys(answers).length === QUESTIONS.length;
 
+  // Draw radar chart on canvas when results show
+  const radarCanvasRef = useRef(null);
+  useMemo(() => {
+    if (!showResults || !scores) return;
+    // Draw on next tick after canvas mounts
+    setTimeout(() => {
+      const canvas = radarCanvasRef.current;
+      if (!canvas) return;
+      const size = 280;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      canvas.style.width = size + 'px';
+      canvas.style.height = size + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+
+      const cx = size / 2, cy = size / 2, maxR = 100;
+      const traits = ['O', 'C', 'E', 'A', 'N'];
+      const traitColors = { O: '#8b5cf6', C: '#3b82f6', E: '#f59e0b', A: '#10b981', N: '#ef4444' };
+      const angleSlice = (Math.PI * 2) / 5;
+
+      // Grid circles
+      for (let i = 1; i <= 5; i++) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, (maxR * i) / 5, 0, Math.PI * 2);
+        ctx.strokeStyle = i === 5 ? '#d4d4d4' : '#e5e5e5';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Axes
+      for (let i = 0; i < 5; i++) {
+        const angle = angleSlice * i - Math.PI / 2;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + maxR * Math.cos(angle), cy + maxR * Math.sin(angle));
+        ctx.strokeStyle = '#e5e5e5';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Data polygon
+      ctx.beginPath();
+      for (let i = 0; i < 5; i++) {
+        const angle = angleSlice * i - Math.PI / 2;
+        const r = (scores.scores[traits[i]] / 100) * maxR;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0, 107, 27, 0.12)';
+      ctx.fill();
+      ctx.strokeStyle = '#006b1b';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Data points + labels
+      ctx.font = 'bold 11px system-ui';
+      ctx.textAlign = 'center';
+      for (let i = 0; i < 5; i++) {
+        const angle = angleSlice * i - Math.PI / 2;
+        const r = (scores.scores[traits[i]] / 100) * maxR;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = traitColors[traits[i]];
+        ctx.fill();
+
+        // Label
+        const lx = cx + (maxR + 22) * Math.cos(angle);
+        const ly = cy + (maxR + 22) * Math.sin(angle);
+        ctx.fillStyle = '#525252';
+        ctx.textBaseline = angle < 0 ? 'bottom' : 'top';
+        if (Math.abs(angle + Math.PI/2) < 0.1) ctx.textBaseline = 'bottom';
+        ctx.fillText(TRAIT_INFO[traits[i]].name.slice(0, 4) + '.', lx, ly);
+      }
+    }, 50);
+  }, [showResults, scores]);
+
   if (showResults && scores) {
+    const traitColors = { O: 'bg-purple-500', C: 'bg-blue-500', E: 'bg-amber-500', A: 'bg-emerald-500', N: 'bg-red-500' };
+    const traitBgs = { O: 'bg-purple-50', C: 'bg-blue-50', E: 'bg-amber-50', A: 'bg-emerald-50', N: 'bg-red-50' };
+
     return (
-      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-text-primary">Your Results</h2>
-          <p className="text-text-secondary mt-2">Based on the International Personality Item Pool (IPIP) — Goldberg et al., 2006</p>
-        </div>
-
-        {/* Radar chart placeholder - visual representation */}
-        <Card className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-accent">
-          <div className="aspect-square rounded-lg bg-white flex items-center justify-center">
-            <p className="text-text-secondary text-center px-4">
-              Radar chart will display here. Traits: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism
-            </p>
+      <div className="space-y-3">
+        {/* Radar chart + summary side by side */}
+        <div className="grid grid-cols-1 sm:grid-cols-[280px_1fr] gap-4 items-start">
+          <div className="flex justify-center">
+            <canvas ref={radarCanvasRef} />
           </div>
-        </Card>
-
-        {/* Trait results */}
-        <div className="space-y-4">
-          {['O', 'C', 'E', 'A', 'N'].map((trait) => (
-            <Card key={trait} className="bg-white">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-xl font-bold text-text-primary">{TRAIT_INFO[trait].name}</h3>
-                  <div className="font-mono text-2xl font-bold text-accent">{scores.scores[trait]}%</div>
+          <div className="space-y-1.5">
+            {['O', 'C', 'E', 'A', 'N'].map((trait) => (
+              <div key={trait} className={`px-3 py-2.5 rounded-lg ${traitBgs[trait]}`}>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-semibold text-text-primary">{TRAIT_INFO[trait].name}</span>
+                  <span className="font-mono text-sm font-bold text-text-primary">{scores.scores[trait]}%</span>
                 </div>
-                <div className="bg-surface rounded-full h-3 overflow-hidden">
-                  <div
-                    className="bg-accent h-full transition-all duration-500"
-                    style={{ width: `${scores.scores[trait]}%` }}
-                  />
+                <div className="bg-white/60 rounded-full h-2 overflow-hidden mb-1">
+                  <div className={`${traitColors[trait]} h-full rounded-full transition-all duration-700`} style={{ width: `${scores.scores[trait]}%` }} />
                 </div>
-                <p className="text-text-secondary text-sm font-medium">{scores.levels[trait]}</p>
-                <p className="text-text-secondary text-sm">
-                  {TRAIT_INFO[trait].descriptions[scores.levels[trait].toLowerCase().replace(' ', '')]}
+                <p className="text-xs text-text-secondary leading-snug">
+                  <span className="font-medium">{scores.levels[trait]}</span> - {TRAIT_INFO[trait].descriptions[scores.levels[trait].toLowerCase().replace(' ', '')]}
                 </p>
               </div>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="bg-blue-50 border border-accent rounded-[var(--radius-card)] p-4">
-          <p className="text-sm text-text-secondary">
-            These results reflect your personality based on your responses. Remember that personality is complex and multi-faceted. Your traits exist on a spectrum and may vary across different situations and contexts.
-          </p>
-        </div>
-
-        <div className="flex gap-3">
-          <Button
-            variant="primary"
-            size="lg"
-            className="flex-1"
-            onClick={() => {
-              const results = { scores: scores.scores };
-              downloadResultCard(results);
-            }}
-          >
-            Download Results Card
+        {/* Actions */}
+        <div className="flex gap-2">
+          <Button variant="primary" size="sm" onClick={() => downloadResultCard({ scores: scores.scores })}>
+            Download Results
           </Button>
-          <Button
-            variant="secondary"
-            size="lg"
-            onClick={() => {
-              setShowResults(false);
-              setCurrentQuestion(0);
-              setAnswers({});
-            }}
-          >
-            Retake Quiz
+          <Button variant="secondary" size="sm" onClick={() => { setShowResults(false); setCurrentQuestion(0); setAnswers({}); }}>
+            Retake
           </Button>
         </div>
 
-        <p className="text-xs text-text-muted text-center">
-          Citation: Goldberg, L. R., Johnson, J. A., Eber, H. W., Hogan, R., Ashton, M. C., Cloninger, C. R., & Gough, H. G. (2006). The International Personality Item Pool and the future of public-domain personality measures. Journal of Research in Personality, 40(1), 84-96.
-        </p>
+        <details className="text-xs text-text-muted">
+          <summary className="cursor-pointer hover:text-text-secondary">About this assessment</summary>
+          <p className="mt-1">Based on the International Personality Item Pool (IPIP). Goldberg et al., 2006. Personality is complex and multi-faceted - your traits exist on a spectrum and may vary across situations.</p>
+        </details>
       </div>
     );
   }

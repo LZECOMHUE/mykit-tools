@@ -25,10 +25,18 @@ const nextConfig = {
         destination: '/:slug',
         permanent: true,
       },
+    ];
+  },
+  async headers() {
+    return [
       {
-        source: '/tags/:path*',
-        destination: '/categories',
-        permanent: true,
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow",
+          },
+        ],
       },
     ];
   },

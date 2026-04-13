@@ -42,7 +42,7 @@ export default async function CategoryPage({ params }) {
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-8">
         {allTools.length > 0 ? (
           category === "finance" ? (
             <FinanceCategoryBrowser allTools={allTools} cat={cat} />

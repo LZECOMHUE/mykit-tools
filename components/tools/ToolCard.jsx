@@ -5,17 +5,15 @@ export default function ToolCard({ tool }) {
   return (
     <Link
       href={`/${tool.slug}`}
-      className="group block bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-[0_20px_40px_rgba(46,47,44,0.06)] border border-border/50 p-6 max-sm:p-4 transition-all duration-300 hover:-translate-y-1"
+      className="group flex flex-col bg-white rounded-xl border border-border/60 hover:border-accent/30 hover:shadow-md px-4 py-3.5 transition-all duration-200 hover:-translate-y-0.5"
     >
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <h3 className="font-heading font-extrabold text-lg tracking-tight text-text-primary group-hover:text-accent transition-colors">
-          {tool.name}
-        </h3>
-        <Badge category={tool.category} className="shrink-0" />
-      </div>
-      <p className="text-sm text-text-secondary line-clamp-2">
+      <h3 className="font-heading font-bold text-[15px] leading-snug text-text-primary group-hover:text-accent transition-colors mb-1">
+        {tool.name}
+      </h3>
+      <p className="text-xs text-text-secondary line-clamp-2 leading-relaxed mb-2.5 flex-1">
         {tool.description}
       </p>
+      <Badge category={tool.category} className="shrink-0 self-start" />
     </Link>
   );
 }

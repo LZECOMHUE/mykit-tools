@@ -39,12 +39,28 @@ push.bat
 push.py
 install-and-run.bat
 
+# SEO data exports (Google Search Console CSVs)
+/seo-data/
+*.zip
+
+# competitor analysis / inventory
+competitor-gap*.csv
+tool-inventory.csv
+
 # internal strategy / planning docs
 QUICK-SEO-REFERENCE.md
 README-SEO-UPDATES.md
 SEO-CHANGES-SUMMARY.md
 SEO-CHECKLIST.md
 SEO-IMPLEMENTATION-GUIDE.md
+IMPLEMENTATION_CHECKLIST.md
+MAP-TOOLS-DOCUMENTATION.md
+MAP-TOOLS-EXAMPLES.md
+MAP-TOOLS-QUICK-START.md
+MAP-TOOLS-SUMMARY.md
+TOOLS_CREATED.md
+TOOLS_SUMMARY.txt
+EXAMPLE-SEO-TOOL-PAGE.jsx
 CLAUDE.md
 roadmap*
 

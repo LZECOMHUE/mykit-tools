@@ -1,4 +1,4 @@
-import { tools } from "@/lib/tool-registry";
+import { tools, getValidTags } from "@/lib/tool-registry";
 import { categories } from "@/lib/categories";
 
 const BASE_URL = "https://mykit.tools";
@@ -46,11 +46,20 @@ export default function sitemap() {
     priority: 0.5,
   }));
 
+  // Tag pages — cross-category groupings (only tags with 3+ tools)
+  const tagPages = getValidTags().map(({ tag }) => ({
+    url: `${BASE_URL}/tags/${tag}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "monthly",
+    priority: 0.4,
+  }));
+
   // Combine all pages
   return [
     ...homePage,
     ...staticPages,
     ...toolPages,
     ...categoryPages,
+    ...tagPages,
   ];
 }

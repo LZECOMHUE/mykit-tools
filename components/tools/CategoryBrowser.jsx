@@ -81,10 +81,10 @@ export default function CategoryBrowser({
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
-      <aside className="w-full md:w-64 lg:w-72 shrink-0">
-        <div className="sticky top-24">
-          <div className="mb-8">
+    <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
+      <aside className="w-full md:w-56 lg:w-64 shrink-0">
+        <div className="sticky top-20">
+          <div className="mb-4">
             <div className="flex items-center gap-3 mb-2">
               <span className="text-3xl drop-shadow-sm">{cat.icon}</span>
               <h1 className="font-heading text-3xl font-extrabold tracking-tight text-text-primary">
@@ -97,7 +97,7 @@ export default function CategoryBrowser({
           </div>
 
           {showSections && sections.length > 1 && (
-            <nav className="space-y-1 mb-12 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
+            <nav className="space-y-0.5 mb-6 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
               <div className="px-3 py-2 text-[10px] uppercase tracking-widest font-bold text-text-muted hidden md:block">
                 Subcategories
               </div>
@@ -142,7 +142,7 @@ export default function CategoryBrowser({
 
       <div className="flex-1 min-w-0">
       {/* Search + sort */}
-      <div className="flex flex-col sm:flex-row gap-2 mb-6">
+      <div className="flex flex-col sm:flex-row gap-2 mb-4">
         <div className="relative flex-1">
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -170,7 +170,7 @@ export default function CategoryBrowser({
 
       {/* Grouped sections */}
       {showSections ? (
-        <div className="space-y-8">
+        <div className="space-y-4">
           {sections.map((section) => (
             <div
               key={section.tag}
@@ -186,7 +186,7 @@ export default function CategoryBrowser({
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {section.tools.map((tool) => (
                   <ToolCard key={tool.slug} tool={tool} />
                 ))}
@@ -196,7 +196,7 @@ export default function CategoryBrowser({
         </div>
       ) : (
         flatList.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {flatList.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
