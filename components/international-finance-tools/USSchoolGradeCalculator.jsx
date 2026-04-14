@@ -83,9 +83,9 @@ export default function USSchoolGradeCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg space-y-4">
+    <div className="bg-surface rounded-lg p-4 space-y-4">
       {/* Single Grade Converter */}
-      <div className="bg-white border border-border rounded-lg">
+      <div className="bg-white border border-border rounded-lg p-4">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Single Grade Converter
         </h3>
@@ -159,7 +159,7 @@ export default function USSchoolGradeCalculator() {
         </div>
 
         {/* Grade Display */}
-        <div className={`bg-gradient-to-r ${singleGrade.color} rounded-lg text-white`}>
+        <div className={`bg-gradient-to-r ${singleGrade.color} rounded-lg text-white p-4`}>
           <div className="text-sm opacity-90 mb-1">Letter Grade</div>
           <div className="text-5xl font-bold">{singleGrade.letter}</div>
           <div className="text-sm opacity-90 mt-3">
@@ -186,7 +186,7 @@ export default function USSchoolGradeCalculator() {
       </div>
 
       {/* GPA Calculator */}
-      <div className="bg-white border border-border rounded-lg">
+      <div className="bg-white border border-border rounded-lg p-4">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-text-primary text-lg">
             GPA Calculator
@@ -266,20 +266,20 @@ export default function USSchoolGradeCalculator() {
         </button>
 
         {/* GPA Display */}
-        <div className="bg-gradient-to-r from-purple-100 to-purple-50 border border-purple-200 rounded-lg">
-          <div className="text-sm text-purple-700 mb-1">Cumulative GPA</div>
-          <div className="text-5xl font-mono font-bold text-purple-900">
+        <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+          <div className="text-sm text-accent mb-1">Cumulative GPA</div>
+          <div className="text-5xl font-mono font-bold text-accent">
             {gpaResult.gpa}
           </div>
-          <div className="text-sm text-purple-700 mt-2">
+          <div className="text-sm text-text-secondary mt-2">
             / {gpaResult.scale.toFixed(1)}
           </div>
         </div>
       </div>
 
       {/* GPA Interpretation */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg">
-        <h3 className="font-semibold text-text-primary mb-3">📊 GPA Benchmarks</h3>
+      <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+        <h3 className="font-semibold text-text-primary mb-3">GPA Benchmarks</h3>
         <div className="grid sm:grid-cols-2 gap-3 text-sm">
           {[
             { gpa: '3.9 - 4.0', label: 'Excellent - Top universities' },

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { generateMathsWorksheetPDF } from '@/lib/worksheet-pdf';
@@ -20,6 +20,13 @@ export default function TimesTablesPractice() {
   const [answers, setAnswers] = useState([]);
   const [showKey, setShowKey] = useState(false);
 
+  const handleModeChange = (m) => {
+    setMode(m);
+    setPracticeStarted(false);
+    setCurrentQuestion(0);
+    setUserAnswer('');
+    setFeedback('');
+  };
 
   const generateQuestions = (tables, count) => {
     const questions = [];
@@ -107,30 +114,26 @@ export default function TimesTablesPractice() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+    <div className="w-full space-y-4">
       <Card>
         {/* Mode Selection */}
-        <div className="flex gap-3 mb-4">
-          <button
-            onClick={() => setMode('practice')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              mode === 'practice'
-                ? 'bg-accent text-white'
-                : 'bg-surface text-text-primary border border-border'
-            }`}
-          >
-            Practice Mode
-          </button>
-          <button
-            onClick={() => setMode('worksheet')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-              mode === 'worksheet'
-                ? 'bg-accent text-white'
-                : 'bg-surface text-text-primary border border-border'
-            }`}
-          >
-            Worksheet Mode
-          </button>
+        <div className="flex gap-1.5 mb-4 flex-wrap">
+          {[
+            { value: 'practice', label: 'Practice Mode' },
+            { value: 'worksheet', label: 'Worksheet Mode' },
+          ].map((m) => (
+            <button
+              key={m.value}
+              onClick={() => handleModeChange(m.value)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                mode === m.value
+                  ? 'bg-accent text-white'
+                  : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+              }`}
+            >
+              {m.label}
+            </button>
+          ))}
         </div>
 
         {!practiceStarted && mode === 'practice' && (
@@ -167,7 +170,7 @@ export default function TimesTablesPractice() {
           </>
         )}
 
-        {mode === 'worksheet' && !practiceStarted && (
+        {mode === 'worksheet' && (
           <>
             {/* Select Tables */}
             <div className="mb-4">
@@ -197,29 +200,45 @@ export default function TimesTablesPractice() {
                 <label className="block text-sm font-medium text-text-primary mb-2">
                   Number of Questions
                 </label>
-                <select
-                  value={worksheetQuestions}
-                  onChange={(e) => setWorksheetQuestions(parseInt(e.target.value))}
-                  className="w-full p-3 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-                >
+                <div className="flex gap-1.5 flex-wrap">
                   {[20, 40, 60].map(n => (
-                    <option key={n} value={n}>{n}</option>
+                    <button
+                      key={n}
+                      onClick={() => setWorksheetQuestions(n)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        worksheetQuestions === n
+                          ? 'bg-accent text-white'
+                          : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                      }`}
+                    >
+                      {n}
+                    </button>
                   ))}
-                </select>
+                </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-text-primary mb-2">
                   Columns
                 </label>
-                <select
-                  value={worksheetColumns}
-                  onChange={(e) => setWorksheetColumns(parseInt(e.target.value))}
-                  className="w-full p-3 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-                >
-                  <option value={1}>1 Column</option>
-                  <option value={2}>2 Columns</option>
-                </select>
+                <div className="flex gap-1.5 flex-wrap">
+                  {[
+                    { value: 1, label: '1 Column' },
+                    { value: 2, label: '2 Columns' },
+                  ].map(opt => (
+                    <button
+                      key={opt.value}
+                      onClick={() => setWorksheetColumns(opt.value)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        worksheetColumns === opt.value
+                          ? 'bg-accent text-white'
+                          : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -279,8 +298,8 @@ export default function TimesTablesPractice() {
             <div
               className={`p-4 rounded-lg text-center font-bold text-lg mb-4 ${
                 feedback.includes('✓')
-                  ? 'bg-green-100 text-green-800'
-                  : 'bg-red-100 text-red-800'
+                  ? 'bg-success/10 text-success'
+                  : 'bg-error/10 text-error'
               }`}
             >
               {feedback}
@@ -305,7 +324,7 @@ export default function TimesTablesPractice() {
             Practice Complete!
           </h3>
 
-          <div className="bg-surface rounded-lg mb-4 text-center">
+          <div className="bg-surface rounded-lg p-4 mb-4 text-center">
             <div className="text-5xl font-mono font-bold text-accent mb-2">
               {score}/{answers.length}
             </div>
@@ -344,7 +363,6 @@ export default function TimesTablesPractice() {
           </div>
         </Card>
       )}
-
     </div>
   );
 }

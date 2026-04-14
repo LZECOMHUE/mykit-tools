@@ -64,7 +64,7 @@ export default function USCollegeCostCalculator() {
   };
 
   return (
-    <div className="bg-surface rounded-lg space-y-4">
+    <div className="bg-surface rounded-lg p-4 space-y-4">
       {/* School Type Selection */}
       <div>
         <label className="block text-sm font-medium text-text-secondary mb-3">
@@ -116,7 +116,7 @@ export default function USCollegeCostCalculator() {
       </div>
 
       {/* Cost Breakdown */}
-      <div className="bg-white border border-border rounded-lg">
+      <div className="bg-white border border-border rounded-lg p-4">
         <h3 className="font-semibold text-text-primary mb-4 text-lg">
           Annual Cost Breakdown
         </h3>
@@ -145,19 +145,19 @@ export default function USCollegeCostCalculator() {
 
       {/* 4-Year Summary */}
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg">
-          <div className="text-sm text-blue-700 mb-2">4-Year Total (Before Aid)</div>
-          <div className="text-4xl font-mono font-bold text-blue-900">
+        <div className="bg-surface border border-border rounded-lg p-4">
+          <div className="text-sm text-text-secondary mb-2">4-Year Total (Before Aid)</div>
+          <div className="text-4xl font-mono font-bold text-text-primary">
             {formatCurrency(costs.fourYear)}
           </div>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg">
-          <div className="text-sm text-green-700 mb-2">4-Year After Aid</div>
-          <div className="text-4xl font-mono font-bold text-green-900">
+        <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+          <div className="text-sm text-accent mb-2">4-Year After Aid</div>
+          <div className="text-4xl font-mono font-bold text-accent">
             {formatCurrency(costs.fourYearAfterAid)}
           </div>
           {parseFloat(financialAid) > 0 && (
-            <div className="text-sm text-green-700 mt-2">
+            <div className="text-sm text-accent mt-2">
               Savings: {formatCurrency(costs.fourYear - costs.fourYearAfterAid)}
             </div>
           )}
@@ -165,8 +165,8 @@ export default function USCollegeCostCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-accent/5 border border-accent/20 rounded-lg">
-        <h3 className="font-semibold text-text-primary mb-3">💡 College Funding Tips</h3>
+      <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+        <h3 className="font-semibold text-text-primary mb-3">College Funding Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• Apply for FAFSA as early as possible for maximum aid eligibility</li>
           <li>• Compare net cost across schools, not just sticker price</li>

@@ -205,10 +205,10 @@ export default function SpinTheWheel() {
 
       {/* Winner display */}
       {winner && (
-        <Card className="bg-gradient-to-br from-green-50 to-emerald-50 text-center space-y-2">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 text-center space-y-2">
           <p className="text-xs text-text-muted font-semibold uppercase tracking-wider">Winner</p>
           <p className="font-heading text-3xl font-bold text-text-primary">{winner}</p>
-        </Card>
+        </div>
       )}
 
       {/* Item management */}

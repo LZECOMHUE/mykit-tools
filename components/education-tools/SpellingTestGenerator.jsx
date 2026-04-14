@@ -48,7 +48,7 @@ export default function SpellingTestGenerator() {
     .filter(w => w.length > 0);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+    <div className="space-y-4">
       <Card>
         {/* Words Input */}
         <div className="mb-4">
@@ -59,7 +59,7 @@ export default function SpellingTestGenerator() {
             value={words}
             onChange={(e) => setWords(e.target.value)}
             placeholder="word1&#10;word2&#10;word3..."
-            className="w-full p-3 border border-border rounded-lg font-sans text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full p-3 rounded-lg border border-border bg-white text-sm focus:border-accent outline-none resize-none"
             rows={8}
           />
           <p className="text-xs text-text-muted mt-1">
@@ -78,7 +78,7 @@ export default function SpellingTestGenerator() {
               value={studentName}
               onChange={(e) => setStudentName(e.target.value)}
               placeholder="Enter student name..."
-              className="w-full p-3 border border-border rounded-lg font-sans text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 rounded-lg border border-border bg-white text-sm focus:border-accent outline-none"
             />
           </div>
 
@@ -90,7 +90,7 @@ export default function SpellingTestGenerator() {
               type="date"
               value={testDate}
               onChange={(e) => setTestDate(e.target.value)}
-              className="w-full p-3 border border-border rounded-lg font-sans text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 rounded-lg border border-border bg-white text-sm focus:border-accent outline-none"
             />
           </div>
         </div>
@@ -101,15 +101,19 @@ export default function SpellingTestGenerator() {
             <label className="block text-sm font-medium text-text-primary mb-2">
               Number of Versions
             </label>
-            <select
-              value={numVersions}
-              onChange={(e) => setNumVersions(parseInt(e.target.value))}
-              className="w-full p-3 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-            >
+            <div className="flex flex-wrap gap-1.5">
               {[1, 2, 3, 4].map(n => (
-                <option key={n} value={n}>{n}</option>
+                <button
+                  key={n}
+                  onClick={() => setNumVersions(n)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    numVersions === n ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {n}
+                </button>
               ))}
-            </select>
+            </div>
           </div>
 
           <div className="flex items-end">

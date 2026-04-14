@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Select from '@/components/ui/Select';
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 
 export default function CountryComparisonTool() {
   const [countries, setCountries] = useState([]);
@@ -60,7 +58,7 @@ export default function CountryComparisonTool() {
 
   const countryOptions = countries.map(c => ({
     value: c.cca2,
-    label: `${c.flags[0]} ${c.name.common}`
+    label: c.name.common
   }));
 
   const formatNumber = (num) => {
@@ -111,108 +109,73 @@ export default function CountryComparisonTool() {
     );
   };
 
-  if (loading) return <Card><p className="text-secondary">Loading countries...</p></Card>;
-  if (error) return <Card><p className="text-red-600">{error}</p></Card>;
+  if (loading) return <div className="p-4 text-secondary">Loading countries...</div>;
+  if (error) return <div className="p-4 text-red-600">{error}</div>;
 
   return (
-    <Card>
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-secondary mb-2">
-            Select countries to compare
-          </label>
-          <div className="flex gap-2 items-start flex-col sm:flex-row sm:items-center">
-            <Select
-              value={country1}
-              onChange={handleCountry1Change}
-              options={countryOptions}
-              className="flex-1"
-            />
-            <Button onClick={swap} variant="secondary" className="w-full sm:w-auto">
-              Swap
-            </Button>
-            <Select
-              value={country2}
-              onChange={handleCountry2Change}
-              options={countryOptions}
-              className="flex-1"
-            />
-          </div>
+    <div className="space-y-4">
+      {/* Country pickers */}
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-3">
+        <div className="flex gap-2 items-center">
+          <Select
+            value={country1}
+            onChange={handleCountry1Change}
+            options={countryOptions}
+            className="flex-1"
+          />
+          <button
+            onClick={swap}
+            className="px-3 py-2 rounded border border-border bg-white text-text-secondary hover:border-accent hover:text-accent text-sm font-medium transition-colors shrink-0"
+          >
+            Swap
+          </button>
+          <Select
+            value={country2}
+            onChange={handleCountry2Change}
+            options={countryOptions}
+            className="flex-1"
+          />
         </div>
+      </div>
 
-        {data1 && data2 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Left column header */}
-            <div className="flex items-center gap-3 pb-3 border-b-2 border-accent md:border-b-0 md:border-r-2">
-              <span className="text-2xl">{data1.flags[0]}</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-primary">
-                  {data1.name.common}
-                </h3>
-                <p className="text-xs text-secondary">{data1.region}</p>
+      {data1 && data2 && (
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-hidden">
+          {/* Side-by-side country headers */}
+          <div className="grid grid-cols-3 border-b border-border">
+            <div className="col-start-2 py-3 px-3 text-center border-r border-border">
+              <div className="flex items-center gap-2 justify-center">
+                {data1.flags?.svg && <img src={data1.flags.svg} alt="" className="w-6 h-4 object-cover rounded-sm" />}
+                <span className="font-heading text-sm font-semibold text-primary">{data1.name.common}</span>
               </div>
+              <p className="text-xs text-secondary mt-0.5">{data1.region}</p>
             </div>
-
-            {/* Right column header */}
-            <div className="flex items-center gap-3 pb-3 border-b-2 border-accent">
-              <span className="text-2xl">{data2.flags[0]}</span>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-primary">
-                  {data2.name.common}
-                </h3>
-                <p className="text-xs text-secondary">{data2.region}</p>
+            <div className="py-3 px-3 text-center">
+              <div className="flex items-center gap-2 justify-center">
+                {data2.flags?.svg && <img src={data2.flags.svg} alt="" className="w-6 h-4 object-cover rounded-sm" />}
+                <span className="font-heading text-sm font-semibold text-primary">{data2.name.common}</span>
               </div>
-            </div>
-
-            {/* Comparison rows */}
-            <div className="md:col-span-2">
-              <div className="grid grid-cols-3 gap-2 mb-4 pb-3 border-b-2 border-accent font-semibold text-sm">
-                <div>Metric</div>
-                <div className="text-center">{data1.name.common}</div>
-                <div className="text-center">{data2.name.common}</div>
-              </div>
-
-              <ComparisonRow
-                label="Population"
-                value1={data1.population}
-                value2={data2.population}
-                isNumeric={true}
-              />
-              <ComparisonRow
-                label="Area (km²)"
-                value1={data1.area}
-                value2={data2.area}
-                isNumeric={true}
-              />
-              <ComparisonRow
-                label="Capital"
-                value1={data1.capital?.[0] || 'N/A'}
-                value2={data2.capital?.[0] || 'N/A'}
-              />
-              <ComparisonRow
-                label="Subregion"
-                value1={data1.subregion || 'N/A'}
-                value2={data2.subregion || 'N/A'}
-              />
-              <ComparisonRow
-                label="Languages"
-                value1={data1.languages ? Object.values(data1.languages).join(', ') : 'N/A'}
-                value2={data2.languages ? Object.values(data2.languages).join(', ') : 'N/A'}
-              />
-              <ComparisonRow
-                label="Currencies"
-                value1={data1.currencies ? Object.keys(data1.currencies).join(', ') : 'N/A'}
-                value2={data2.currencies ? Object.keys(data2.currencies).join(', ') : 'N/A'}
-              />
-              <ComparisonRow
-                label="Timezones"
-                value1={data1.timezones?.length || 0}
-                value2={data2.timezones?.length || 0}
-              />
+              <p className="text-xs text-secondary mt-0.5">{data2.region}</p>
             </div>
           </div>
-        )}
-      </div>
-    </Card>
+
+          {/* Comparison rows */}
+          <ComparisonRow label="Population" value1={data1.population} value2={data2.population} isNumeric={true} />
+          <ComparisonRow label="Area (km²)" value1={data1.area} value2={data2.area} isNumeric={true} />
+          <ComparisonRow label="Capital" value1={data1.capital?.[0] || 'N/A'} value2={data2.capital?.[0] || 'N/A'} />
+          <ComparisonRow label="Subregion" value1={data1.subregion || 'N/A'} value2={data2.subregion || 'N/A'} />
+          <ComparisonRow
+            label="Languages"
+            value1={data1.languages ? Object.values(data1.languages).join(', ') : 'N/A'}
+            value2={data2.languages ? Object.values(data2.languages).join(', ') : 'N/A'}
+          />
+          <ComparisonRow
+            label="Currencies"
+            value1={data1.currencies ? Object.keys(data1.currencies).join(', ') : 'N/A'}
+            value2={data2.currencies ? Object.keys(data2.currencies).join(', ') : 'N/A'}
+          />
+          <ComparisonRow label="Timezones" value1={data1.timezones?.length || 0} value2={data2.timezones?.length || 0} />
+        </div>
+      )}
+    </div>
   );
 }

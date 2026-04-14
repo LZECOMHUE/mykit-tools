@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 
 // Fallback facts if API is unavailable
 const FALLBACK_FACTS = {
@@ -85,10 +84,10 @@ export default function NumberFacts() {
   };
 
   return (
-    <Card>
+    <div className="bg-surface border border-border rounded-xl p-4">
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-secondary mb-2">
+          <label className="block text-sm font-medium text-text-secondary mb-2">
             Enter a number
           </label>
           <div className="flex gap-2">
@@ -124,19 +123,19 @@ export default function NumberFacts() {
         {mathFact && (
           <div className="space-y-3">
             <div>
-              <h3 className="font-heading text-lg font-semibold text-primary mb-2">
-                📐 Mathematical Fact
+              <h3 className="font-heading text-lg font-semibold text-text-primary mb-2">
+                Mathematical Fact
               </h3>
-              <p className="bg-surface border border-border p-4 rounded-lg text-primary leading-relaxed">
+              <p className="bg-white border border-border p-4 rounded-lg text-text-primary leading-relaxed">
                 {mathFact}
               </p>
             </div>
 
             <div>
-              <h3 className="font-heading text-lg font-semibold text-primary mb-2">
-                🎯 Trivia Fact
+              <h3 className="font-heading text-lg font-semibold text-text-primary mb-2">
+                Trivia Fact
               </h3>
-              <p className="bg-surface border border-border p-4 rounded-lg text-primary leading-relaxed">
+              <p className="bg-white border border-border p-4 rounded-lg text-text-primary leading-relaxed">
                 {triviaFact}
               </p>
             </div>
@@ -153,9 +152,9 @@ export default function NumberFacts() {
         )}
 
         {!loading && !mathFact && !error && number && (
-          <p className="text-secondary text-sm">Click "Get Facts" to discover interesting facts about this number.</p>
+          <p className="text-text-secondary text-sm">Click "Get Facts" to discover interesting facts about this number.</p>
         )}
       </div>
-    </Card>
+    </div>
   );
 }

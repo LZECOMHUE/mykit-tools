@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 import { generateHandwritingPDF } from '@/lib/worksheet-pdf';
 
 export default function HandwritingPracticeSheet() {
@@ -14,7 +13,6 @@ export default function HandwritingPracticeSheet() {
   const [repetitions, setRepetitions] = useState(1);
   const [letterCase, setLetterCase] = useState('lowercase');
   const [studentName, setStudentName] = useState('');
-  const [showPreview, setShowPreview] = useState(false);
   const previewRef = useRef(null);
 
   const fontSizeMap = { small: '32px', medium: '48px', large: '64px' };
@@ -26,11 +24,6 @@ export default function HandwritingPracticeSheet() {
     if (letterCase === 'uppercase') text = text.toUpperCase();
     if (letterCase === 'lowercase') text = text.toLowerCase();
     return text;
-  };
-
-  const generatePreview = () => {
-    if (!practiceText.trim()) return;
-    setShowPreview(true);
   };
 
   const downloadWorksheet = () => {
@@ -67,8 +60,8 @@ export default function HandwritingPracticeSheet() {
   const spacing = spacingMap[lineSpacing];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
-      <Card>
+    <div className="w-full space-y-4">
+      <div className="bg-surface border border-border rounded-xl p-4">
         {/* Practice Text */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-2">
@@ -201,30 +194,29 @@ export default function HandwritingPracticeSheet() {
             <label className="block text-sm font-medium text-text-primary mb-2">
               Repetitions
             </label>
-            <select
-              value={repetitions}
-              onChange={(e) => setRepetitions(parseInt(e.target.value))}
-              className="w-full p-2 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-            >
+            <div className="flex flex-wrap gap-1.5">
               {[1, 2, 3, 4, 5].map(rep => (
-                <option key={rep} value={rep}>{rep}x</option>
+                <button
+                  key={rep}
+                  onClick={() => setRepetitions(rep)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    repetitions === rep ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >{rep}x</button>
               ))}
-            </select>
+            </div>
           </div>
         </div>
 
-        <Button onClick={generatePreview} className="w-full bg-accent text-white font-medium">
-          Generate Preview
-        </Button>
-      </Card>
+      </div>
 
-      {/* Preview */}
-      {showPreview && text && (
-        <Card>
+      {/* Preview - live, shows whenever text is entered */}
+      {text && (
+        <div className="bg-surface border border-border rounded-xl p-4">
           <h3 className="text-lg font-heading font-bold text-text-primary mb-4">Preview</h3>
           <div
             ref={previewRef}
-            className="bg-white rounded-lg overflow-auto max-h-96 border border-border"
+            className="bg-white rounded-lg overflow-auto max-h-96 border border-border p-4"
           >
             <div className="max-w-2xl">
               {studentName && (
@@ -262,7 +254,7 @@ export default function HandwritingPracticeSheet() {
           <Button onClick={downloadWorksheet} className="w-full bg-accent text-white font-medium mt-4">
             Download PDF
           </Button>
-        </Card>
+        </div>
       )}
     </div>
   );

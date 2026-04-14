@@ -238,7 +238,7 @@ export default function AnnualLeaveByCountry() {
     .sort((a, b) => b.totalMinimum - a.totalMinimum);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-4">
+    <div className="w-full space-y-4">
       <Card>
         <h2 className="font-heading text-2xl font-bold text-primary mb-2">
           International Annual Leave Comparison
@@ -334,7 +334,7 @@ export default function AnnualLeaveByCountry() {
           </Card>
 
           {/* Ranking */}
-          <Card className="bg-blue-50 border-2 border-blue-200">
+          <Card className="bg-surface border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Ranking by Total Days Off (among selected)
             </h3>
@@ -405,7 +405,7 @@ export default function AnnualLeaveByCountry() {
           </div>
 
           {/* Key Insights */}
-          <Card className="bg-green-50 border-2 border-green-200">
+          <Card className="bg-surface border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">Key Insights</h3>
 
             <div className="space-y-3 text-sm">
@@ -443,9 +443,9 @@ export default function AnnualLeaveByCountry() {
           </Card>
 
           {/* Important Notes */}
-          <Card className="bg-yellow-50 border-2 border-yellow-200">
-            <p className="font-bold text-yellow-900 mb-3">Important Notes:</p>
-            <ul className="text-sm text-yellow-900 space-y-2 list-disc list-inside">
+          <Card className="bg-surface border border-border">
+            <p className="font-bold text-text-primary mb-3">Important Notes:</p>
+            <ul className="text-sm text-text-secondary space-y-2 list-disc list-inside">
               <li>Statutory minimums vary by employment type (full-time, part-time, contract work)</li>
               <li>Tenure may affect entitlements (e.g., Japan: more leave with length of service)</li>
               <li>Regional variations apply in many countries (e.g., UK bank holidays vary by country)</li>

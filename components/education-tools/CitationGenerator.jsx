@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 import { downloadAsJPG, drawBulletList } from '@/lib/download-utils';
 
 const CitationGenerator = () => {
@@ -579,41 +578,62 @@ const CitationGenerator = () => {
   const fields = currentSource ? getFields(currentSource.type) : [];
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      {/* Source Type Selector */}
-      <Card className="mb-4">
-        <h2 className="text-lg font-semibold text-text-primary mb-4">Source Type</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {SOURCE_TYPES.map((typeLabel) => {
-            const typeKey = sourceTypeMap[typeLabel];
-            const isActive = currentSource?.type === typeKey;
-            return (
+    <div className="w-full space-y-4">
+      {/* Source Type + Format in one compact row */}
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-3 space-y-3">
+        <div>
+          <p className="text-xs font-medium text-text-secondary mb-2">Source type</p>
+          <div className="flex flex-wrap gap-1.5">
+            {SOURCE_TYPES.map((typeLabel) => {
+              const typeKey = sourceTypeMap[typeLabel];
+              const isActive = currentSource?.type === typeKey;
+              return (
+                <button
+                  key={typeKey}
+                  onClick={() => changeSourceType(activeSourceId, typeKey)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    isActive
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {typeLabel}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-medium text-text-secondary mb-2">Citation format</p>
+          <div className="flex flex-wrap gap-1.5">
+            {CITATION_FORMATS.map((format) => (
               <button
-                key={typeKey}
-                onClick={() => changeSourceType(activeSourceId, typeKey)}
-                className={`p-3 text-sm font-medium rounded-lg border-2 transition-all text-center ${
-                  isActive
-                    ? 'border-accent bg-blue-100 text-accent'
-                    : 'border-border bg-white text-text-primary hover:border-text-muted'
+                key={format.id}
+                onClick={() => setActiveTab(format.id)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  activeTab === format.id
+                    ? 'bg-accent text-white'
+                    : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
                 }`}
               >
-                {typeLabel}
+                {format.label}
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </Card>
+      </div>
 
       {/* Source Input Form */}
-      <Card className="mb-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-text-primary">Source {sources.length > 1 && `${sources.findIndex((s) => s.id === activeSourceId) + 1}`}</h2>
+          <h2 className="text-sm font-semibold text-text-primary">Source {sources.length > 1 && `${sources.findIndex((s) => s.id === activeSourceId) + 1}`}</h2>
           {sources.length > 1 && (
             <button
               onClick={() => removeSource(activeSourceId)}
               className="text-sm text-error hover:text-red-700 font-medium"
             >
-              ✕ Remove
+              x Remove
             </button>
           )}
         </div>
@@ -925,118 +945,101 @@ const CitationGenerator = () => {
             </div>
           )}
         </div>
-      </Card>
+      </div>
 
-      {/* Add Another Source */}
-      {sources.length < 5 && (
-        <div className="mb-4">
-          <Button
-            onClick={addSource}
-            variant="secondary"
-            className="w-full"
-          >
-            + Add Another Source
-          </Button>
-        </div>
-      )}
-
-      {/* Format Selector Tabs */}
-      <Card className="mb-4">
-        <h2 className="text-lg font-semibold text-text-primary mb-4">Citation Format</h2>
-        <div className="flex flex-wrap gap-2">
-          {CITATION_FORMATS.map((format) => (
-            <button
-              key={format.id}
-              onClick={() => setActiveTab(format.id)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all ${
-                activeTab === format.id
-                  ? 'border-accent bg-blue-100 text-accent'
-                  : 'border-border bg-white text-text-primary hover:border-text-muted'
-              }`}
-            >
-              {format.label}
-            </button>
-          ))}
-        </div>
-      </Card>
-
-      {/* Citations Output */}
-      <div className="space-y-4">
+      {/* Citations Output - live, shown as user types */}
+      <div className="space-y-3">
         {sources.map((source, idx) => {
           const citation = generateCitation(source, activeTab);
           const inText = generateInTextCitation(source, activeTab);
 
           return (
-            <Card key={source.id}>
-              <div className="mb-4">
-                <h3 className="text-sm font-semibold text-text-secondary mb-2">
+            <div key={source.id} className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-semibold text-text-secondary uppercase tracking-wide">
                   {idx + 1}. {typeToLabel[source.type]}
                 </h3>
+                {sources.length > 1 && (
+                  <button
+                    onClick={() => removeSource(source.id)}
+                    className="text-xs text-error hover:text-red-700 font-medium"
+                  >
+                    x Remove
+                  </button>
+                )}
               </div>
 
-              {/* In-text Citation */}
               {inText && (
-                <div className="mb-4">
-                  <p className="text-xs font-medium text-text-muted mb-2">In-text citation:</p>
-                  <div className="bg-surface p-3 rounded-lg font-mono text-sm text-text-primary break-words">
+                <div className="mb-3">
+                  <p className="text-xs font-medium text-text-muted mb-1">In-text:</p>
+                  <div className="bg-white border border-border p-2 rounded font-mono text-sm text-text-primary break-words">
                     {inText}
                   </div>
                 </div>
               )}
 
-              {/* Full Citation */}
-              <div className="mb-4">
-                <p className="text-xs font-medium text-text-muted mb-2">Full citation:</p>
-                <div className="bg-surface p-4 rounded-lg font-mono text-sm text-text-primary break-words whitespace-pre-wrap">
-                  {citation}
+              <div className="mb-3">
+                <p className="text-xs font-medium text-text-muted mb-1">Full citation:</p>
+                <div className="bg-white border border-border p-3 rounded font-mono text-sm text-text-primary break-words whitespace-pre-wrap min-h-[40px]">
+                  {citation || <span className="text-text-muted italic">Fill in details above...</span>}
                 </div>
               </div>
 
-              <Button
+              <button
                 onClick={() => copyToClipboard(citation, idx)}
-                variant={copiedIndex === idx ? 'primary' : 'secondary'}
-                className="w-full"
+                disabled={!citation}
+                className={`w-full py-2 rounded text-sm font-medium transition-colors ${
+                  copiedIndex === idx
+                    ? 'bg-success text-white'
+                    : 'bg-white border border-border text-text-secondary hover:border-accent hover:text-accent disabled:opacity-40'
+                }`}
               >
-                {copiedIndex === idx ? '✓ Copied!' : '📋 Copy Citation'}
-              </Button>
-            </Card>
+                {copiedIndex === idx ? 'Copied!' : 'Copy citation'}
+              </button>
+            </div>
           );
         })}
       </div>
 
+      {/* Add Another Source */}
+      {sources.length < 5 && (
+        <Button onClick={addSource} variant="secondary" className="w-full">
+          + Add another source
+        </Button>
+      )}
+
       {/* Bibliography */}
       {sources.length > 1 && (
-        <Card className="mt-6">
-          <h2 className="text-lg font-semibold text-text-primary mb-4">Bibliography (Works Cited)</h2>
-          <div className="space-y-4">
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
+          <h2 className="text-sm font-semibold text-text-primary mb-3">Bibliography (Works Cited)</h2>
+          <div className="space-y-2">
             {sources
               .map((source) => generateCitation(source, activeTab))
               .filter((c) => c)
               .sort()
               .map((citation, idx) => (
-                <div key={idx} className="bg-surface p-4 rounded-lg font-mono text-sm text-text-primary break-words whitespace-pre-wrap">
+                <div key={idx} className="bg-white border border-border p-3 rounded font-mono text-sm text-text-primary break-words whitespace-pre-wrap">
                   {citation}
                 </div>
               ))}
           </div>
 
-          <div className="flex gap-2 mt-4">
-            <Button
+          <div className="flex gap-2 mt-3">
+            <button
               onClick={copyBibliography}
-              variant={copiedIndex === 'bib' ? 'primary' : 'secondary'}
-              className="flex-1"
+              className={`flex-1 py-2 rounded text-sm font-medium border transition-colors ${
+                copiedIndex === 'bib'
+                  ? 'bg-success text-white border-success'
+                  : 'bg-white border-border text-text-secondary hover:border-accent hover:text-accent'
+              }`}
             >
-              {copiedIndex === 'bib' ? '✓ Copied!' : '📋 Copy All Citations'}
-            </Button>
-            <Button
-              onClick={handleDownloadJPG}
-              variant="secondary"
-              className="flex-1"
-            >
+              {copiedIndex === 'bib' ? 'Copied!' : 'Copy all citations'}
+            </button>
+            <Button onClick={handleDownloadJPG} variant="secondary" className="flex-1">
               Download JPG
             </Button>
           </div>
-        </Card>
+        </div>
       )}
     </div>
   );

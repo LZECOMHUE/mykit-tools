@@ -353,7 +353,7 @@ export default function WhatCareerSuitsYouQuiz() {
     const info = CAREER_INFO[careerType];
 
     return (
-      <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
+      <div className="w-full space-y-4">
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary">Your Ideal Career Path</h2>
           <p className="mt-2 text-text-secondary">Work that aligns with your strengths and values</p>
@@ -420,7 +420,7 @@ export default function WhatCareerSuitsYouQuiz() {
   }
 
   return (
-    <div className="w-full space-y-4 rounded-[var(--radius-card)] bg-surface">
+    <div className="w-full space-y-4">
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span className="font-medium text-text-primary">

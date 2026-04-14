@@ -124,15 +124,15 @@ export default function USBackToSchoolCalculator() {
   const fmt = (n) => '$' + parseFloat(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-4">
+    <div className="w-full space-y-4">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg">
-        <h1 className="text-3xl font-heading font-bold text-blue-900 mb-2">Back-to-School Calculator</h1>
-        <p className="text-blue-800">Get everything your child needs</p>
+      <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+        <h1 className="text-3xl font-heading font-bold text-text-primary mb-2">Back-to-School Calculator</h1>
+        <p className="text-text-secondary">Get everything your child needs</p>
       </div>
 
       {/* Controls */}
-      <div className="bg-surface border border-border rounded-lg space-y-4">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         {/* Grade Level */}
         <div>
           <label className="block text-text-secondary text-sm font-medium mb-3">Grade Level</label>
@@ -172,19 +172,19 @@ export default function USBackToSchoolCalculator() {
 
       {/* Cost Summary */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-blue-600 text-xs font-medium mb-1">Cost Per Child</p>
-          <p className="font-mono text-2xl font-bold text-blue-700">{fmt(calculations.estCostPerChild)}</p>
+        <div className="bg-surface border border-border rounded-lg p-4">
+          <p className="text-text-secondary text-xs font-medium mb-1">Cost Per Child</p>
+          <p className="font-mono text-2xl font-bold text-text-primary">{fmt(calculations.estCostPerChild)}</p>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-lg">
-          <p className="text-green-600 text-xs font-medium mb-1">Total Cost</p>
-          <p className="font-mono text-2xl font-bold text-green-700">{fmt(calculations.totalCost)}</p>
+        <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+          <p className="text-accent text-xs font-medium mb-1">Total Cost</p>
+          <p className="font-mono text-2xl font-bold text-accent">{fmt(calculations.totalCost)}</p>
         </div>
       </div>
 
       {/* Checklist Progress */}
-      <div className="bg-surface border border-border rounded-lg space-y-4">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-lg font-bold text-text-primary">Supply Checklist</h3>
           <span className="text-sm text-text-secondary">
@@ -223,7 +223,7 @@ export default function USBackToSchoolCalculator() {
       </div>
 
       {/* Grade Level Info */}
-      <div className="bg-indigo-50 border border-indigo-200 rounded-lg space-y-3">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
         <h3 className="text-text-primary font-semibold">Estimated Cost by Grade</h3>
         <div className="space-y-2 text-sm">
           {Object.entries(supplyData).map(([key, data]) => (
@@ -236,7 +236,7 @@ export default function USBackToSchoolCalculator() {
       </div>
 
       {/* Tips */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg space-y-3">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
         <h3 className="text-text-primary font-semibold">Money-Saving Tips</h3>
         <ul className="space-y-2 text-text-secondary text-sm">
           <li>• <strong>Check teacher lists:</strong> Some supplies may already be in the classroom</li>
@@ -250,7 +250,7 @@ export default function USBackToSchoolCalculator() {
       </div>
 
       {/* What's Included */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg space-y-3">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-3">
         <h3 className="text-text-primary font-semibold">Cost Includes</h3>
         <ul className="space-y-1 text-text-secondary text-sm">
           <li>✓ Writing supplies (pencils, pens, markers)</li>

@@ -111,7 +111,7 @@ export default function ReadingLevelChecker() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
+    <div className="w-full space-y-4">
       {/* Text Input */}
       <div className="space-y-2">
         <label className="block text-text-secondary text-sm font-medium">Paste text to analyze:</label>
@@ -127,7 +127,7 @@ export default function ReadingLevelChecker() {
       {analysis && (
         <>
           {/* Main Results */}
-          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] space-y-4">
+          <div className="bg-accent-muted border-2 border-accent rounded-[var(--radius-card)] p-4 space-y-4">
             <div>
               <p className="text-text-secondary text-sm mb-1">Reading Level</p>
               <p className="font-heading text-3xl font-bold text-accent mb-2">Grade {analysis.avgGrade}</p>
@@ -163,7 +163,7 @@ export default function ReadingLevelChecker() {
           </div>
 
           {/* Text Statistics */}
-          <div className="bg-surface border border-border rounded-[var(--radius-card)]">
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-4">
             <h4 className="text-text-primary font-semibold mb-4">Text Statistics</h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <div>

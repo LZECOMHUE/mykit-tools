@@ -455,7 +455,7 @@ export default function WordSearchGenerator({ theme: propsTheme = null }) {
                     value={customWords}
                     onChange={handleCustomWordsChange}
                     placeholder="Enter words (minimum 3, maximum 30)"
-                    className="w-full px-3 py-2 border border-border rounded-lg focus:border-accent focus:ring-2 focus:ring-accent-muted font-mono text-sm"
+                    className="w-full p-3 rounded-lg border border-border bg-white text-sm font-mono focus:border-accent outline-none resize-none"
                     rows="4"
                   />
                   <div className="text-sm text-text-secondary mt-2">

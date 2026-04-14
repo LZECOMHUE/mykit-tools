@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import Select from "@/components/ui/Select";
 
 const TRIVIA = {
   general: [
@@ -114,23 +113,37 @@ export default function TriviaQuiz() {
     setAnswers([]);
   };
 
+  const categoryOptions = [
+    { value: "general", label: "General Knowledge" },
+    { value: "science", label: "Science" },
+    { value: "history", label: "History" },
+    { value: "geography", label: "Geography" },
+    { value: "popculture", label: "Pop Culture" },
+  ];
+
   if (!quizStarted) {
     return (
       <div className="space-y-4">
         <Card className="bg-gradient-to-br from-blue-50 to-cyan-50">
           <div className="space-y-4">
-            <Select
-              label="Choose Category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              options={[
-                { value: "general", label: "General Knowledge" },
-                { value: "science", label: "Science" },
-                { value: "history", label: "History" },
-                { value: "geography", label: "Geography" },
-                { value: "popculture", label: "Pop Culture" },
-              ]}
-            />
+            <div>
+              <p className="text-xs font-medium text-text-secondary mb-2">Choose Category</p>
+              <div className="flex flex-wrap gap-1.5">
+                {categoryOptions.map((o) => (
+                  <button
+                    key={o.value}
+                    onClick={() => setCategory(o.value)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      category === o.value
+                        ? 'bg-accent text-white'
+                        : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                    }`}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <Button onClick={startQuiz} size="lg" className="w-full">
               Start Quiz

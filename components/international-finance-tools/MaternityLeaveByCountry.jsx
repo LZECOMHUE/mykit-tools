@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
 
 const MATERNITY_DATA = {
   us: {
@@ -184,224 +182,114 @@ export default function MaternityLeaveByCountry() {
     .sort((a, b) => b.paidWeeks - a.paidWeeks);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 space-y-4">
-      <Card>
-        <h2 className="font-heading text-2xl font-bold text-primary mb-2">
-          International Maternity & Parental Leave
-        </h2>
-        <p className="text-secondary text-sm mb-4">
-          Compare statutory maternity, paternity, and parental leave by country
-        </p>
-
-        {/* Country Selection */}
-        <div className="mb-4">
-          <div className="flex gap-2 mb-4">
-            <Button
-              onClick={selectAll}
-              className="bg-surface hover:bg-surface-hover border border-border text-primary"
-            >
-              Select All
-            </Button>
-            <Button
-              onClick={clearAll}
-              className="bg-surface hover:bg-surface-hover border border-border text-primary"
-            >
-              Clear All
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-            {allCountries.map((country) => (
-              <label
-                key={country}
-                className="flex items-center gap-2 p-2 rounded border border-border hover:bg-surface cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={selectedCountries.includes(country)}
-                  onChange={() => toggleCountry(country)}
-                  className="w-4 h-4 accent-accent"
-                />
-                <span className="text-sm font-medium text-primary truncate">
-                  {MATERNITY_DATA[country].name}
-                </span>
-              </label>
-            ))}
+    <div className="w-full space-y-4">
+      {/* Country filter pills */}
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-3">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-xs font-medium text-text-secondary">Countries ({selectedCountries.length} selected)</p>
+          <div className="flex gap-2">
+            <button onClick={selectAll} className="text-xs text-accent hover:underline">All</button>
+            <button onClick={clearAll} className="text-xs text-text-muted hover:text-text-secondary">Clear</button>
           </div>
         </div>
-
-        <p className="text-xs text-secondary mt-4 p-3 bg-surface rounded border border-border">
-          Data is current as of 2026. Regulations may vary based on employment type, tenure, and
-          eligibility. Government funding and employer obligations vary significantly by country.
-        </p>
-      </Card>
+        <div className="flex flex-wrap gap-1.5">
+          {allCountries.map((country) => (
+            <button
+              key={country}
+              onClick={() => toggleCountry(country)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                selectedCountries.includes(country)
+                  ? 'bg-accent text-white'
+                  : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+              }`}
+            >
+              {MATERNITY_DATA[country].name}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {selected.length > 0 && (
         <div className="space-y-4">
-          {/* Main Comparison Table */}
-          <Card className="overflow-x-auto">
-            <h3 className="font-heading text-xl font-bold text-primary mb-4">
-              Comparison Table
-            </h3>
-
+          {/* Main comparison table */}
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-3 font-bold text-primary">Country</th>
-                  <th className="text-center py-3 px-3 font-bold text-primary">
-                    Total Leave (weeks)
-                  </th>
-                  <th className="text-center py-3 px-3 font-bold text-primary">
-                    Paid Leave (weeks)
-                  </th>
-                  <th className="text-center py-3 px-3 font-bold text-primary">Pay Rate</th>
-                  <th className="text-center py-3 px-3 font-bold text-primary">
-                    Paternity Leave (weeks)
-                  </th>
+                <tr className="border-b border-border bg-white">
+                  <th className="text-left py-2 px-3 font-semibold text-text-primary text-xs">Country</th>
+                  <th className="text-center py-2 px-3 font-semibold text-text-primary text-xs">Status</th>
+                  <th className="text-center py-2 px-3 font-semibold text-text-primary text-xs">Total wks</th>
+                  <th className="text-center py-2 px-3 font-semibold text-text-primary text-xs">Paid wks</th>
+                  <th className="text-center py-2 px-3 font-semibold text-text-primary text-xs">Pay rate</th>
+                  <th className="text-center py-2 px-3 font-semibold text-text-primary text-xs">Paternity wks</th>
                 </tr>
               </thead>
               <tbody>
                 {selected.map((country) => (
-                  <tr key={country.name} className={`border-b border-border ${country.color}`}>
-                    <td className="py-4 px-3 font-medium text-primary">{country.name}</td>
-                    <td className="text-center py-4 px-3 font-mono font-bold">
-                      {country.totalWeeks === 0 ? 'None' : country.totalWeeks}
+                  <tr key={country.name} className="border-b border-border last:border-b-0 hover:bg-surface-hover">
+                    <td className="py-2 px-3 font-medium text-primary text-xs">{country.name}</td>
+                    <td className="text-center py-2 px-3">
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${country.colorBg} text-primary`}>
+                        {country.status}
+                      </span>
                     </td>
-                    <td className="text-center py-4 px-3 font-mono font-bold text-accent">
-                      {country.paidWeeks === 0 ? 'None' : country.paidWeeks}
+                    <td className="text-center py-2 px-3 font-mono text-xs font-bold">
+                      {country.totalWeeks === 0 ? '-' : country.totalWeeks}
                     </td>
-                    <td className="text-center py-4 px-3 text-secondary text-xs">
-                      {country.payRate === 'N/A' ? 'N/A' : country.payRate}
+                    <td className="text-center py-2 px-3 font-mono text-xs font-bold text-accent">
+                      {country.paidWeeks === 0 ? '-' : country.paidWeeks}
                     </td>
-                    <td className="text-center py-4 px-3 font-mono font-bold">
-                      {country.paternityWeeks === 0 ? 'None' : country.paternityWeeks}
+                    <td className="text-center py-2 px-3 text-secondary text-xs max-w-[120px]">
+                      {country.payRate === 'N/A' ? '-' : country.payRate}
+                    </td>
+                    <td className="text-center py-2 px-3 font-mono text-xs font-bold">
+                      {country.paternityWeeks === 0 ? '-' : country.paternityWeeks}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </Card>
+          </div>
 
-          {/* Detailed Cards */}
-          <div className="grid gap-4 md:grid-cols-2">
+          {/* Notes per country (compact) */}
+          <div className="bg-surface border border-border rounded-[var(--radius-card)] overflow-hidden">
+            <div className="px-4 py-2 border-b border-border">
+              <p className="text-xs font-semibold text-text-secondary uppercase tracking-wide">Details & notes</p>
+            </div>
             {selected.map((country) => (
-              <Card key={country.name} className={`border-2 ${country.color}`}>
-                <div className="flex items-start justify-between mb-4">
-                  <h4 className="font-heading text-lg font-bold text-primary">
-                    {country.name}
-                  </h4>
-                  <span
-                    className={`text-xs font-bold px-3 py-1 rounded-full ${country.colorBg} text-primary`}
-                  >
-                    {country.status}
-                  </span>
+              <div key={country.name} className="px-4 py-3 border-b border-border last:border-b-0">
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-sm font-semibold text-primary">{country.name}</p>
+                  <p className="text-xs text-text-secondary shrink-0">{country.payer}</p>
                 </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-xs text-secondary uppercase font-bold">Maternity Leave</p>
-                    <p className="font-mono text-lg font-bold text-primary">
-                      {country.totalWeeks === 0
-                        ? 'No statutory leave'
-                        : `${country.totalWeeks} weeks total`}
-                    </p>
-                  </div>
-
-                  {country.paidWeeks > 0 && (
-                    <div>
-                      <p className="text-xs text-secondary uppercase font-bold">Paid Weeks</p>
-                      <p className="font-mono text-lg font-bold text-accent">
-                        {country.paidWeeks} weeks
-                      </p>
-                    </div>
-                  )}
-
-                  <div>
-                    <p className="text-xs text-secondary uppercase font-bold">Pay Rate</p>
-                    <p className="text-sm text-primary">{country.payRate}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-xs text-secondary uppercase font-bold">Funded By</p>
-                    <p className="text-sm text-primary">{country.payer}</p>
-                  </div>
-
-                  {country.paternityWeeks > 0 && (
-                    <div>
-                      <p className="text-xs text-secondary uppercase font-bold">
-                        Paternity / Partner Leave
-                      </p>
-                      <p className="text-sm text-primary">{country.paternityWeeks} weeks</p>
-                    </div>
-                  )}
-
-                  <p className="text-xs text-secondary pt-2 border-t border-border mt-3">
-                    {country.notes}
-                  </p>
-                </div>
-              </Card>
+                <p className="text-xs text-secondary mt-1">{country.notes}</p>
+              </div>
             ))}
           </div>
 
-          {/* Key Insights */}
-          <Card className="bg-blue-50 border-2 border-blue-200">
-            <h3 className="font-heading text-lg font-bold text-primary mb-4">Key Insights</h3>
-
-            <div className="space-y-3 text-sm">
-              <div>
-                <p className="font-bold text-primary mb-1">Most Generous Leave:</p>
-                <p className="text-secondary">
-                  {selected.reduce((a, b) => (b.paidWeeks > a.paidWeeks ? b : a)).name} offers the
-                  most paid leave
-                </p>
-              </div>
-
-              <div>
-                <p className="font-bold text-primary mb-1">Paid vs. Unpaid:</p>
-                <p className="text-secondary">
-                  {selected.filter((c) => c.paidWeeks === 0).length} countries have no statutory
-                  paid leave
-                </p>
-              </div>
-
-              <div>
-                <p className="font-bold text-primary mb-1">Parental Leave Flexibility:</p>
-                <p className="text-secondary">
-                  Nordic countries (Sweden, Norway, Finland, Denmark) and Canada offer flexible
-                  parental leave that can be shared between parents
-                </p>
-              </div>
-
-              <div>
-                <p className="font-bold text-primary mb-1">Work-Life Balance:</p>
-                <p className="text-secondary">
-                  Total statutory leave (maternity + paternity) varies from 0 weeks in the US to
-                  over 1 year in Nordic countries
-                </p>
-              </div>
+          {/* Key insight strip */}
+          {selected.length >= 2 && (
+            <div className="bg-blue-50 border border-blue-200 rounded-[var(--radius-card)] p-3 text-sm text-blue-900">
+              <span className="font-semibold">Most paid leave: </span>
+              {selected.reduce((a, b) => (b.paidWeeks > a.paidWeeks ? b : a)).name}
+              {selected.filter((c) => c.paidWeeks === 0).length > 0 && (
+                <span className="ml-3 text-blue-700">
+                  {selected.filter((c) => c.paidWeeks === 0).length} {selected.filter((c) => c.paidWeeks === 0).length === 1 ? 'country' : 'countries'} with no statutory paid leave
+                </span>
+              )}
             </div>
-          </Card>
+          )}
 
-          {/* Notes */}
-          <Card className="bg-yellow-50 border-2 border-yellow-200">
-            <p className="font-bold text-yellow-900 mb-2">Important Notes:</p>
-            <ul className="text-sm text-yellow-900 space-y-2 list-disc list-inside">
-              <li>Data represents statutory minimums. Many employers offer more generous benefits.</li>
-              <li>
-                Eligibility requirements vary (length of service, employment type, salary thresholds)
-              </li>
-              <li>Some countries allow unpaid leave beyond paid entitlements</li>
-              <li>Exchange rates and regional variations apply in some countries</li>
-              <li>Regulations change periodically - always verify with official government sources</li>
-            </ul>
-          </Card>
+          <p className="text-xs text-secondary px-1">
+            Data is current as of 2026 and represents statutory minimums. Regulations vary by employment type and tenure. Always verify with official government sources.
+          </p>
         </div>
       )}
 
       {selected.length === 0 && (
-        <Card className="p-12 text-center">
-          <p className="text-secondary text-lg">Select countries above to view comparison</p>
-        </Card>
+        <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center">
+          <p className="text-secondary">Select countries above to view comparison</p>
+        </div>
       )}
     </div>
   );

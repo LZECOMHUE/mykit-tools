@@ -421,87 +421,89 @@ export default function ScienceExperimentGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Age Group</label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {['3-5', '5-7', '7-9', '9-12'].map(age => (
-              <button
-                key={age}
-                onClick={() => setConfig(c => ({ ...c, ageGroup: age }))}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition ${
-                  config.ageGroup === age
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {age}
-              </button>
-            ))}
+    <div className="w-full space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-3 space-y-3">
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Age</p>
+            <div className="flex flex-wrap gap-1.5">
+              {['3-5', '5-7', '7-9', '9-12'].map(age => (
+                <button
+                  key={age}
+                  onClick={() => setConfig(c => ({ ...c, ageGroup: age }))}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    config.ageGroup === age
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {age}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Mess level</p>
+            <div className="flex flex-wrap gap-1.5">
+              {['none', 'low', 'medium', 'high'].map(level => (
+                <button
+                  key={level}
+                  onClick={() => setConfig(c => ({ ...c, messLevel: level }))}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize transition-colors ${
+                    config.messLevel === level
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Mess Level</label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {['none', 'low', 'medium', 'high'].map(level => (
-              <button
-                key={level}
-                onClick={() => setConfig(c => ({ ...c, messLevel: level }))}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition capitalize ${
-                  config.messLevel === level
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {level}
-              </button>
-            ))}
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Supervision</p>
+            <div className="flex flex-wrap gap-1.5">
+              {['adult-led', 'guided', 'independent'].map(level => (
+                <button
+                  key={level}
+                  onClick={() => setConfig(c => ({ ...c, supervisionLevel: level }))}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize transition-colors ${
+                    config.supervisionLevel === level
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {level.replace('-', ' ')}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Supervision</label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {['adult-led', 'guided', 'independent'].map(level => (
-              <button
-                key={level}
-                onClick={() => setConfig(c => ({ ...c, supervisionLevel: level }))}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition capitalize ${
-                  config.supervisionLevel === level
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {level.replace('-', ' ')}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Materials</label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {['kitchen-basics', 'craft-supplies', 'science-kit'].map(mat => (
-              <button
-                key={mat}
-                onClick={() => setConfig(c => ({ ...c, materials: mat }))}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition capitalize ${
-                  config.materials === mat
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {mat.replace('-', ' ')}
-              </button>
-            ))}
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Materials</p>
+            <div className="flex flex-wrap gap-1.5">
+              {['kitchen-basics', 'craft-supplies', 'science-kit'].map(mat => (
+                <button
+                  key={mat}
+                  onClick={() => setConfig(c => ({ ...c, materials: mat }))}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize transition-colors ${
+                    config.materials === mat
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {mat.replace(/-/g, ' ')}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         <button
           onClick={handleGenerate}
-          className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+          className="w-full bg-accent text-white py-2.5 rounded-[var(--radius-input)] text-sm font-medium hover:bg-accent-hover transition"
         >
           Generate Experiment
         </button>

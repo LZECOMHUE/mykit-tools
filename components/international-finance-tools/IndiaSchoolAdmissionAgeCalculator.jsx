@@ -152,14 +152,14 @@ export default function IndiaSchoolAdmissionAgeCalculator() {
             </div>
           </Card>
 
-          <Card className="bg-blue-50 border border-blue-200">
+          <Card className="bg-surface border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-3">
               Next Academic Year ({results.nextAcademicYear})
             </h3>
             <div className="space-y-2">
               <div>
                 <p className="text-sm text-secondary">Eligible Class</p>
-                <p className="font-heading text-2xl font-bold text-blue-600">
+                <p className="font-heading text-2xl font-bold text-text-primary">
                   {results.nextClass}
                 </p>
               </div>

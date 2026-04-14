@@ -90,32 +90,18 @@ export default function WordScrambleGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
+    <div className="space-y-4">
       <Card>
         {/* Input Mode Selection */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">Word Source</label>
-          <div className="flex gap-3 flex-wrap">
-            <button
-              onClick={() => setInputMode('theme')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                inputMode === 'theme'
-                  ? 'bg-accent text-white'
-                  : 'bg-surface text-text-primary border border-border'
-              }`}
-            >
-              Preset Themes
-            </button>
-            <button
-              onClick={() => setInputMode('custom')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                inputMode === 'custom'
-                  ? 'bg-accent text-white'
-                  : 'bg-surface text-text-primary border border-border'
-              }`}
-            >
-              Custom Words
-            </button>
+          <div className="flex flex-wrap gap-1.5">
+            {[{value: 'theme', label: 'Preset Themes'}, {value: 'custom', label: 'Custom Words'}].map((o) => (
+              <button key={o.value} onClick={() => setInputMode(o.value)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  inputMode === o.value ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                }`}>{o.label}</button>
+            ))}
           </div>
         </div>
 
@@ -123,15 +109,15 @@ export default function WordScrambleGenerator() {
         {inputMode === 'theme' && (
           <div className="mb-4">
             <label className="block text-sm font-medium text-text-primary mb-3">Theme</label>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {Object.keys(PRESET_THEMES).map(theme => (
                 <button
                   key={theme}
                   onClick={() => setSelectedTheme(theme)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors capitalize ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors capitalize ${
                     selectedTheme === theme
                       ? 'bg-accent text-white'
-                      : 'bg-surface text-text-primary border border-border'
+                      : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
                   }`}
                 >
                   {theme}
@@ -151,7 +137,7 @@ export default function WordScrambleGenerator() {
               value={customWords}
               onChange={(e) => setCustomWords(e.target.value)}
               placeholder="word1&#10;word2&#10;word3..."
-              className="w-full p-3 border border-border rounded-lg font-sans text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full p-3 rounded-lg border border-border bg-white text-sm focus:border-accent outline-none resize-none"
               rows={6}
             />
           </div>
@@ -160,15 +146,15 @@ export default function WordScrambleGenerator() {
         {/* Difficulty */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">Difficulty</label>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex flex-wrap gap-1.5">
             {['easy', 'medium', 'hard'].map(level => (
               <button
                 key={level}
                 onClick={() => setDifficulty(level)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors capitalize ${
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors capitalize ${
                   difficulty === level
                     ? 'bg-accent text-white'
-                    : 'bg-surface text-text-primary border border-border'
+                    : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
                 }`}
               >
                 {level}

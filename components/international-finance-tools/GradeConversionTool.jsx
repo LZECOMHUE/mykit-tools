@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Select from '@/components/ui/Select';
 import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
 const GRADE_SYSTEMS = {
@@ -107,7 +106,6 @@ const GRADE_SYSTEMS = {
 export default function GradeConversionTool() {
   const [inputSystem, setInputSystem] = useState('us');
   const [inputValue, setInputValue] = useState('3.5');
-  const [result, setResult] = useState(null);
 
   const systemOptions = Object.entries(GRADE_SYSTEMS).map(([key, value]) => ({
     value: key,
@@ -145,7 +143,7 @@ export default function GradeConversionTool() {
     return conversions;
   }
 
-  function calculate() {
+  const result = useMemo(() => {
     const system = GRADE_SYSTEMS[inputSystem];
     const parsedValue = system.parse(inputValue);
 
@@ -157,7 +155,7 @@ export default function GradeConversionTool() {
     const indianGrade = system === GRADE_SYSTEMS.india ? system.convert(parsedValue) : GRADE_SYSTEMS.india.convert(conversions.india);
     const frenchGrade = system === GRADE_SYSTEMS.france ? system.convert(parsedValue) : GRADE_SYSTEMS.france.convert(conversions.france);
 
-    setResult({
+    return {
       inputSystem: GRADE_SYSTEMS[inputSystem].name,
       inputValue: parsedValue,
       equivalences: {
@@ -165,25 +163,18 @@ export default function GradeConversionTool() {
         canada: conversions.canada.toFixed(2),
         uk: ukGrade,
         australia: ausGrade,
-        germany: germanGrade.toFixed(2),
-        france: conversions.france.toFixed(2),
+        germany: typeof germanGrade === 'object' ? germanGrade : { grade: conversions.germany.toFixed(2) },
+        france: typeof frenchGrade === 'object' ? frenchGrade : { grade: conversions.france.toFixed(2) },
         india: indianGrade,
       },
       percentage: conversions.us ? ((conversions.us / 4.0) * 100).toFixed(1) : 0,
-    });
-  }
+    };
+  }, [inputSystem, inputValue]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-4">
+    <div className="w-full space-y-4">
       <Card>
-        <h2 className="font-heading text-2xl font-bold text-primary mb-2">
-          International Grade Converter
-        </h2>
-        <p className="text-secondary text-sm mb-4">
-          Convert your grades from one country's system to another
-        </p>
-
-        <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
               Your Grade System
@@ -209,34 +200,24 @@ export default function GradeConversionTool() {
 
           <div>
             <label className="block text-sm font-medium text-primary mb-2">
-              Your Grade
+              Your Grade <span className="text-muted font-normal">({GRADE_SYSTEMS[inputSystem].min} - {GRADE_SYSTEMS[inputSystem].max})</span>
             </label>
-            <div className="relative">
-              <Input
-                type="number"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter grade"
-                min={GRADE_SYSTEMS[inputSystem].min}
-                max={GRADE_SYSTEMS[inputSystem].max}
-                step={GRADE_SYSTEMS[inputSystem].step}
-              />
-              <p className="text-xs text-secondary mt-1">
-                Range: {GRADE_SYSTEMS[inputSystem].min} to {GRADE_SYSTEMS[inputSystem].max}
-              </p>
-            </div>
+            <Input
+              type="number"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Enter grade"
+              min={GRADE_SYSTEMS[inputSystem].min}
+              max={GRADE_SYSTEMS[inputSystem].max}
+              step={GRADE_SYSTEMS[inputSystem].step}
+            />
           </div>
-
-          <Button onClick={calculate} className="w-full mt-6">
-            Convert Grade
-          </Button>
         </div>
       </Card>
 
-      {result && (
-        <div className="space-y-4">
+      <div className="space-y-4">
           {/* Percentage Overview */}
-          <Card className="bg-accent-muted border-2 border-accent">
+          <Card className="bg-accent/5 border border-accent/20">
             <h3 className="font-heading text-xl font-bold text-primary mb-4">
               Your Grade Overview
             </h3>
@@ -382,7 +363,7 @@ export default function GradeConversionTool() {
           </Card>
 
           {/* Interpretation Guide */}
-          <Card className="bg-blue-50 border-2 border-blue-200">
+          <Card className="bg-surface border border-border">
             <h3 className="font-heading text-lg font-bold text-primary mb-4">
               Interpretation Guide
             </h3>
@@ -416,7 +397,6 @@ export default function GradeConversionTool() {
             </div>
           </Card>
         </div>
-      )}
     </div>
   );
 }

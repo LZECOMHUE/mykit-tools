@@ -128,61 +128,61 @@ export default function PhonicsTreasureHunt() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
-      <div className="space-y-4 bg-surface border border-border rounded-[var(--radius-card)] p-4">
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Age Group</label>
-          <div className="grid grid-cols-2 gap-2">
-            {['3-5', '5-7'].map(age => (
-              <button
-                key={age}
-                onClick={() => {
-                  setConfig(c => ({ ...c, ageGroup: age }));
-                  setSelectedSounds([]);
-                }}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition ${
-                  config.ageGroup === age
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {age} years old
-              </button>
-            ))}
+    <div className="w-full space-y-4">
+      <div className="bg-surface border border-border rounded-[var(--radius-card)] p-3 space-y-3">
+        <div className="flex flex-wrap gap-4">
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Age group</p>
+            <div className="flex gap-1.5">
+              {['3-5', '5-7'].map(age => (
+                <button
+                  key={age}
+                  onClick={() => {
+                    setConfig(c => ({ ...c, ageGroup: age }));
+                    setSelectedSounds([]);
+                  }}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    config.ageGroup === age
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {age} years
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-medium text-text-secondary mb-1.5">Stations</p>
+            <div className="flex gap-1.5">
+              {['5', '8', '10'].map(num => (
+                <button
+                  key={num}
+                  onClick={() => setConfig(c => ({ ...c, stations: num }))}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    config.stations === num
+                      ? 'bg-accent text-white'
+                      : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >
+                  {num}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Number of Stations</label>
-          <div className="grid grid-cols-3 gap-2">
-            {['5', '8', '10'].map(num => (
-              <button
-                key={num}
-                onClick={() => setConfig(c => ({ ...c, stations: num }))}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-medium transition ${
-                  config.stations === num
-                    ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
-                }`}
-              >
-                {num} stations
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-3">Sounds to Practice</label>
-          <p className="text-text-muted text-sm mb-3">Select specific sounds or leave blank to auto-select</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <p className="text-xs font-medium text-text-secondary mb-1.5">Sounds to practice <span className="text-text-muted">(optional - blank = auto-select)</span></p>
+          <div className="flex flex-wrap gap-1.5">
             {availableSounds.map(({ sound }) => (
               <button
                 key={sound}
                 onClick={() => handleSelectSound(sound)}
-                className={`py-2 px-3 rounded-[var(--radius-input)] font-mono font-bold transition ${
+                className={`px-3 py-1.5 rounded-full text-xs font-mono font-bold transition-colors ${
                   selectedSounds.includes(sound)
                     ? 'bg-accent text-white'
-                    : 'bg-white border border-border text-text-primary hover:bg-surface'
+                    : 'bg-white border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
                 }`}
               >
                 {sound}
@@ -193,7 +193,7 @@ export default function PhonicsTreasureHunt() {
 
         <button
           onClick={handleGenerate}
-          className="w-full bg-accent text-white py-3 rounded-[var(--radius-input)] font-medium hover:bg-accent-hover transition"
+          className="w-full bg-accent text-white py-2.5 rounded-[var(--radius-input)] text-sm font-medium hover:bg-accent-hover transition"
         >
           Create Phonics Treasure Hunt
         </button>

@@ -2,7 +2,6 @@
 
 import { useState, useRef } from 'react';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 import { generateMathsWorksheetPDF } from '@/lib/worksheet-pdf';
 
 export default function MathsWorksheetGenerator() {
@@ -113,8 +112,8 @@ export default function MathsWorksheetGenerator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 md:p-4 space-y-4">
-      <Card>
+    <div className="w-full space-y-4">
+      <div className="bg-surface border border-border rounded-xl p-4">
         {/* Operations */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-text-primary mb-3">
@@ -210,29 +209,34 @@ export default function MathsWorksheetGenerator() {
             <label className="block text-sm font-medium text-text-primary mb-2">
               Number of Questions
             </label>
-            <select
-              value={numQuestions}
-              onChange={(e) => setNumQuestions(parseInt(e.target.value))}
-              className="w-full p-3 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-            >
+            <div className="flex flex-wrap gap-1.5">
               {[10, 20, 30, 40].map(n => (
-                <option key={n} value={n}>{n}</option>
+                <button
+                  key={n}
+                  onClick={() => setNumQuestions(n)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    numQuestions === n ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >{n}</button>
               ))}
-            </select>
+            </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-text-primary mb-2">
               Columns
             </label>
-            <select
-              value={columns}
-              onChange={(e) => setColumns(parseInt(e.target.value))}
-              className="w-full p-3 border border-border rounded-lg bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              <option value={1}>1 Column</option>
-              <option value={2}>2 Columns</option>
-            </select>
+            <div className="flex flex-wrap gap-1.5">
+              {[{ value: 1, label: '1 Column' }, { value: 2, label: '2 Columns' }].map(c => (
+                <button
+                  key={c.value}
+                  onClick={() => setColumns(c.value)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    columns === c.value ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+                  }`}
+                >{c.label}</button>
+              ))}
+            </div>
           </div>
 
           <div>
@@ -283,11 +287,11 @@ export default function MathsWorksheetGenerator() {
         >
           Generate Worksheet
         </Button>
-      </Card>
+      </div>
 
       {/* Preview */}
       {showPreview && questions.length > 0 && (
-        <Card>
+        <div className="bg-surface border border-border rounded-xl p-4">
           <h3 className="text-lg font-heading font-bold text-text-primary mb-4">
             Preview ({questions.length} questions)
           </h3>
@@ -310,7 +314,7 @@ export default function MathsWorksheetGenerator() {
           <Button onClick={downloadWorksheet} className="w-full bg-accent text-white font-medium">
             Download PDF
           </Button>
-        </Card>
+        </div>
       )}
     </div>
   );

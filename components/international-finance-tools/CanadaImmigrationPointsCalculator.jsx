@@ -343,7 +343,7 @@ export default function CanadaImmigrationPointsCalculator() {
         </div>
       </Card>
 
-      <Card className="bg-blue-50 border border-blue-200">
+      <Card className="bg-surface border border-border">
         <h3 className="font-heading font-semibold text-primary mb-2">Tips to Improve Your Score</h3>
         <ul className="space-y-2 text-sm text-secondary">
           <li>- Gain more Canadian work experience (even 1 year helps significantly)</li>
