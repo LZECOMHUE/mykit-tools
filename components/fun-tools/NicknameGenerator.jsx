@@ -2,11 +2,20 @@
 
 import { useState, useMemo } from 'react';
 
+const categories = [
+  { value: 'cute', label: 'Cute', icon: '🥰' },
+  { value: 'cool', label: 'Cool', icon: '😎' },
+  { value: 'funny', label: 'Funny', icon: '😂' },
+  { value: 'sporty', label: 'Sporty', icon: '🏆' },
+  { value: 'royal', label: 'Royal', icon: '👑' },
+  { value: 'gamer', label: 'Gamer', icon: '🎮' },
+];
+
 export default function NicknameGenerator() {
   const [name, setName] = useState('Alexander');
   const [style, setStyle] = useState('cute');
 
-  const generateNicknames = useMemo(() => {
+  const nicknames = useMemo(() => {
     if (!name || name.length === 0) return [];
 
     const n = name.toLowerCase();
@@ -65,6 +74,16 @@ export default function NicknameGenerator() {
         `sir ${firstSyllable}`,
         `emperor ${firstSyllable}`,
       ],
+      gamer: [
+        `x${firstSyllable}x`,
+        `${firstSyllable}_pro`,
+        `dark${firstSyllable}`,
+        `${firstLetter}${lastLetter}_gaming`,
+        `${firstSyllable}slayer`,
+        `legend_${firstSyllable}`,
+        `${firstSyllable}nova`,
+        `epic_${firstLetter}`,
+      ],
     };
 
     const selectedStyle = styles[style] || styles.cute;
@@ -76,56 +95,41 @@ export default function NicknameGenerator() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-4">
+    <div className="space-y-4">
       <div>
-        <label className="block text-text-primary font-medium mb-2">Enter a Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Your name here"
-          className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+          placeholder="Enter a name"
+          className="w-full px-4 py-2.5 border border-border rounded-lg bg-white text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
         />
       </div>
 
-      <div>
-        <label className="block text-text-primary font-medium mb-2">Style</label>
-        <select
-          value={style}
-          onChange={(e) => setStyle(e.target.value)}
-          className="w-full px-4 py-2 border border-border rounded-[var(--radius-input)] bg-white text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-        >
-          <option value="cute">Cute</option>
-          <option value="cool">Cool</option>
-          <option value="funny">Funny</option>
-          <option value="sporty">Sporty</option>
-          <option value="royal">Royal</option>
-        </select>
+      <div className="flex flex-wrap gap-1.5">
+        {categories.map((c) => (
+          <button key={c.value} onClick={() => setStyle(c.value)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              style === c.value ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+            }`}>{c.icon} {c.label}</button>
+        ))}
       </div>
 
-      {generateNicknames.length > 0 && (
-        <div className="space-y-3">
-          <p className="text-text-primary font-medium">
-            Nicknames for {name}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {generateNicknames.map((nickname, idx) => (
-              <div
+      {nicknames.length > 0 && (
+        <div className="bg-surface border border-border rounded-xl overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-5 py-3">
+            <p className="text-sm text-gray-300">Nicknames for <span className="font-bold text-white">{name}</span></p>
+          </div>
+          <div className="grid grid-cols-2 gap-px bg-border">
+            {nicknames.map((nickname, idx) => (
+              <button
                 key={idx}
-                className="flex items-center justify-between p-4 bg-surface rounded-[var(--radius-card)] hover:bg-blue-50 transition group cursor-pointer"
                 onClick={() => handleCopy(nickname)}
+                className="bg-white px-4 py-3 text-left group hover:bg-blue-50 transition-colors"
               >
-                <p className="text-text-primary font-medium">{nickname}</p>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCopy(nickname);
-                  }}
-                  className="opacity-0 group-hover:opacity-100 px-3 py-1 bg-accent text-white text-xs font-medium rounded-[var(--radius-input)] transition"
-                >
-                  Copy
-                </button>
-              </div>
+                <p className="font-medium text-sm text-text-primary">{nickname}</p>
+                <p className="text-[10px] text-text-muted opacity-0 group-hover:opacity-100 transition-opacity">Click to copy</p>
+              </button>
             ))}
           </div>
         </div>

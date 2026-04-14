@@ -1,116 +1,111 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Select from '@/components/ui/Select';
-import Button from '@/components/ui/Button';
+import { useState, useCallback } from 'react';
+
+const categories = [
+  { value: 'wise', label: 'Wise', icon: '📖' },
+  { value: 'mischievous', label: 'Mischievous', icon: '🃏' },
+  { value: 'dark', label: 'Dark', icon: '🖤' },
+  { value: 'nature', label: 'Nature', icon: '🌿' },
+  { value: 'fire', label: 'Fire', icon: '🔥' },
+  { value: 'ice', label: 'Ice', icon: '❄️' },
+];
 
 const wizardData = {
   wise: {
-    titles: ['Archmage', 'Sage', 'Keeper of Secrets', 'Master of Spells', 'Oracle'],
-    firstNames: ['Aldus', 'Erimus', 'Thorin', 'Gandor', 'Silvanus', 'Ealdred'],
-    surnames: ['Starwhisper', 'Moonbringer', 'Spellweaver', 'Ashborn', 'Dragonkeeper'],
-    realms: ['Crystalline Peaks', 'Whispering Woods', 'Arcane Tower', 'Starfall Vale'],
-    specialties: ['Time Magic', 'Elemental Control', 'Enchantment', 'Divination', 'Transmutation'],
+    titles: ['Archmage', 'Sage', 'Keeper of Secrets', 'Master of Spells', 'Oracle', 'Grand Magus'],
+    firstNames: ['Aldus', 'Erimus', 'Thorin', 'Gandor', 'Silvanus', 'Ealdred', 'Mercius'],
+    surnames: ['Starwhisper', 'Moonbringer', 'Spellweaver', 'Ashborn', 'Dragonkeeper', 'Lorewalker'],
+    realms: ['Crystalline Peaks', 'Whispering Woods', 'Arcane Tower', 'Starfall Vale', 'The Ivory Sanctum'],
+    specialties: ['Time Magic', 'Elemental Control', 'Enchantment', 'Divination', 'Transmutation', 'Cosmic Awareness'],
   },
   mischievous: {
-    titles: ['Trickster', 'Chaos Weaver', 'Prankmaster', 'Spell Bender', 'Illusion Master'],
-    firstNames: ['Zephyr', 'Puck', 'Rascal', 'Nimbus', 'Jester'],
-    surnames: ['Shadowquick', 'Whiskerwick', 'Trickybrew', 'Mischief', 'Glimmergold'],
-    realms: ['Laughing Vale', 'Tangled Forest', 'Jester\'s Court', 'Prankster\'s Peak'],
-    specialties: ['Illusion', 'Transmutation', 'Trickery', 'Chaos Magic', 'Sleight of Hand'],
+    titles: ['Trickster', 'Chaos Weaver', 'Prankmaster', 'Spell Bender', 'Illusion Master', 'The Jester Mage'],
+    firstNames: ['Zephyr', 'Puck', 'Rascal', 'Nimbus', 'Jester', 'Fizwick', 'Twick'],
+    surnames: ['Shadowquick', 'Whiskerwick', 'Trickybrew', 'Mischief', 'Glimmergold', 'Sparkfizzle'],
+    realms: ['Laughing Vale', 'Tangled Forest', "Jester's Court", "Prankster's Peak", 'The Funhouse Dimension'],
+    specialties: ['Illusion', 'Transmutation', 'Trickery', 'Chaos Magic', 'Sleight of Hand', 'Charm Spells'],
   },
   dark: {
-    titles: ['Warlock', 'Dark Lord', 'Shadow Master', 'Necromancer', 'Void Walker'],
-    firstNames: ['Malachai', 'Noctus', 'Shadowborn', 'Grimhold', 'Umbra'],
-    surnames: ['Blackthorn', 'Nightshade', 'Deathbringer', 'Voidcaller', 'Stormborn'],
-    realms: ['Shadow Realm', 'Obsidian Wastes', 'Twilight Citadel', 'Abyss\'s Edge'],
-    specialties: ['Dark Arts', 'Necromancy', 'Curses', 'Shadow Magic', 'Soul Binding'],
+    titles: ['Warlock', 'Dark Lord', 'Shadow Master', 'Necromancer', 'Void Walker', 'The Accursed'],
+    firstNames: ['Malachai', 'Noctus', 'Shadowborn', 'Grimhold', 'Umbra', 'Morvain', 'Dreadmore'],
+    surnames: ['Blackthorn', 'Nightshade', 'Deathbringer', 'Voidcaller', 'Stormborn', 'Gravewhisper'],
+    realms: ['Shadow Realm', 'Obsidian Wastes', 'Twilight Citadel', "Abyss's Edge", 'The Necropoleum'],
+    specialties: ['Dark Arts', 'Necromancy', 'Curses', 'Shadow Magic', 'Soul Binding', 'Blood Rites'],
   },
   nature: {
-    titles: ['Druid', 'Nature\'s Guardian', 'Beastmaster', 'Grove Keeper', 'Wild Mage'],
-    firstNames: ['Oakwin', 'Sylvan', 'Rootward', 'Breezewhisper', 'Fernson'],
-    surnames: ['Greenthorne', 'Leafborne', 'Beastcaller', 'Naturebinder', 'Wildwood'],
-    realms: ['Enchanted Forest', 'Green Vale', 'Sacred Grove', 'Wilderness Beyond'],
-    specialties: ['Plant Control', 'Animal Speak', 'Nature Healing', 'Weather Magic', 'Beast Summoning'],
+    titles: ['Druid', "Nature's Guardian", 'Beastmaster', 'Grove Keeper', 'Wild Mage', 'Verdant Sage'],
+    firstNames: ['Oakwin', 'Sylvan', 'Rootward', 'Breezewhisper', 'Fernson', 'Ashlea', 'Willowmere'],
+    surnames: ['Greenthorne', 'Leafborne', 'Beastcaller', 'Naturebinder', 'Wildwood', 'Mossbeard'],
+    realms: ['Enchanted Forest', 'Green Vale', 'Sacred Grove', 'Wilderness Beyond', 'The Living Canopy'],
+    specialties: ['Plant Control', 'Animal Speak', 'Nature Healing', 'Weather Magic', 'Beast Summoning', 'Earthsong'],
   },
   fire: {
-    titles: ['Infernomancer', 'Flame Lord', 'Pyromancer', 'Blaze Master', 'Ember King'],
-    firstNames: ['Ignis', 'Blaze', 'Solaris', 'Emberus', 'Flammeus'],
-    surnames: ['Firefury', 'Flameheart', 'Infernus', 'Emberborne', 'Dragonfire'],
-    realms: ['Volcanic Peaks', 'Blaze Kingdom', 'Ember Lands', 'Infernal Citadel'],
-    specialties: ['Fire Magic', 'Heat Control', 'Flame Summoning', 'Combustion', 'Phoenix Binding'],
+    titles: ['Infernomancer', 'Flame Lord', 'Pyromancer', 'Blaze Master', 'Ember King', 'Ash Warden'],
+    firstNames: ['Ignis', 'Blaze', 'Solaris', 'Emberus', 'Flammeus', 'Cindra', 'Vulkane'],
+    surnames: ['Firefury', 'Flameheart', 'Infernus', 'Emberborne', 'Dragonfire', 'Ashstorm'],
+    realms: ['Volcanic Peaks', 'Blaze Kingdom', 'Ember Lands', 'Infernal Citadel', 'The Molten Core'],
+    specialties: ['Fire Magic', 'Heat Control', 'Flame Summoning', 'Combustion', 'Phoenix Binding', 'Lava Shaping'],
+  },
+  ice: {
+    titles: ['Frostweaver', 'Glacial Sage', 'Blizzard Lord', 'Winter Mage', 'The Frozen One', 'Permafrost Keeper'],
+    firstNames: ['Glacius', 'Frostwyn', 'Boreal', 'Cryon', 'Nivea', 'Tundric', 'Rime'],
+    surnames: ['Frostbane', 'Iceveil', 'Winterborn', 'Snowdrift', 'Coldforge', 'Hailstorm'],
+    realms: ['The Frozen Spire', 'Glacier Sanctum', 'Blizzard Peaks', 'The Ice Throne', 'Permafrost Wastes'],
+    specialties: ['Cryomancy', 'Blizzard Summoning', 'Frost Shield', 'Ice Constructs', 'Absolute Zero', 'Snow Sight'],
   },
 };
 
-function generateFromData(data) {
-  const title = data.titles[Math.floor(Math.random() * data.titles.length)];
-  const firstName = data.firstNames[Math.floor(Math.random() * data.firstNames.length)];
-  const surname = data.surnames[Math.floor(Math.random() * data.surnames.length)];
-  const realm = data.realms[Math.floor(Math.random() * data.realms.length)];
-  const specialty = data.specialties[Math.floor(Math.random() * data.specialties.length)];
-  return { title, firstName, surname, realm, specialty };
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 export default function WizardNameGenerator() {
-  const [personality, setPersonality] = useState('wise');
-  const [wizardName, setWizardName] = useState(null);
+  const [type, setType] = useState('wise');
+  const [result, setResult] = useState(null);
 
-  const generateWizard = () => {
-    setWizardName(generateFromData(wizardData[personality]));
-  };
-
-  // Auto-generate on mount
-  useEffect(() => {
-    setWizardName(generateFromData(wizardData[personality]));
-  }, []);
+  const generate = useCallback(() => {
+    const data = wizardData[type];
+    setResult({
+      title: pick(data.titles),
+      firstName: pick(data.firstNames),
+      surname: pick(data.surnames),
+      realm: pick(data.realms),
+      specialty: pick(data.specialties),
+    });
+  }, [type]);
 
   return (
-    <div className="space-y-3">
-      <div className="flex gap-2 items-end">
-        <div className="flex-1">
-          <label className="block text-text-secondary text-sm font-medium mb-1">
-            Personality Type
-          </label>
-          <Select value={personality} onChange={(e) => setPersonality(e.target.value)} className="w-full">
-            <option value="wise">Wise</option>
-            <option value="mischievous">Mischievous</option>
-            <option value="dark">Dark</option>
-            <option value="nature">Nature</option>
-            <option value="fire">Fire</option>
-          </Select>
-        </div>
-        <Button onClick={generateWizard} className="bg-accent text-white px-6 whitespace-nowrap">
-          Generate
-        </Button>
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-1.5">
+        {categories.map((c) => (
+          <button key={c.value} onClick={() => { setType(c.value); setResult(null); }}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              type === c.value ? 'bg-accent text-white' : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+            }`}>{c.icon} {c.label}</button>
+        ))}
       </div>
 
-      {wizardName && (
-        <div className="bg-accent text-white border border-accent rounded-[var(--radius-card)] p-5 space-y-4">
-          <div>
-            <p className="text-sm opacity-90 mb-1">Title</p>
-            <p className="font-heading text-2xl font-bold">{wizardName.title}</p>
-          </div>
+      <button onClick={generate} className="w-full py-3 rounded-lg bg-accent hover:bg-accent-hover text-white font-medium text-sm transition-colors">
+        {result ? 'Generate Another' : 'Generate Wizard Name'}
+      </button>
 
-          <div className="border-t border-white border-opacity-20 pt-4">
-            <p className="font-heading text-4xl font-bold">
-              {wizardName.firstName} {wizardName.surname}
-            </p>
+      {result && (
+        <div className="bg-surface border border-border rounded-xl overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-5 py-4">
+            <p className="text-gray-400 text-sm">{result.title}</p>
+            <p className="font-heading text-2xl md:text-3xl font-bold text-white">{result.firstName} {result.surname}</p>
           </div>
-
-          <div className="border-t border-white border-opacity-20 pt-4 space-y-3">
-            <div>
-              <p className="text-xs opacity-75 uppercase tracking-wider">Realm</p>
-              <p className="text-lg font-medium">{wizardName.realm}</p>
+          <div className="grid grid-cols-2 gap-px bg-border">
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Realm</p>
+              <p className="font-medium text-sm text-text-primary">{result.realm}</p>
             </div>
-            <div>
-              <p className="text-xs opacity-75 uppercase tracking-wider">Magical Specialty</p>
-              <p className="text-lg font-medium">{wizardName.specialty}</p>
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Magical Specialty</p>
+              <p className="font-medium text-sm text-text-primary">{result.specialty}</p>
             </div>
           </div>
-
-          <Button onClick={generateWizard} variant="secondary" className="bg-white text-accent w-full mt-4">
-            Generate Another
-          </Button>
         </div>
       )}
     </div>

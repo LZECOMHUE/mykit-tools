@@ -1,121 +1,119 @@
 'use client';
 
-import { useState } from 'react';
-import Select from '@/components/ui/Select';
-import Button from '@/components/ui/Button';
+import { useState, useCallback } from 'react';
 
 const witchData = {
   'hedge-witch': {
     titles: ['Herbalist', 'Wise Woman', 'Garden Keeper', 'Hearth Witch', 'Green Sage'],
-    firstNames: ['Hazel', 'Rosemary', 'Sage', 'Willow', 'Iris'],
-    surnames: ['Threadbare', 'Dustwillow', 'Greenfinger', 'Moonwhisper', 'Bonebrush'],
+    firstNames: ['Hazel', 'Rosemary', 'Sage', 'Willow', 'Iris', 'Fern', 'Juniper', 'Briar'],
+    surnames: ['Threadbare', 'Dustwillow', 'Greenfinger', 'Moonwhisper', 'Bonebrush', 'Thornwick', 'Ashvale'],
     covens: ['The Cottage Circle', 'Wildroot Coven', 'Hedgerow Haven', 'Kitchen Hearth', 'Forest Keepers'],
     specialties: ['Herbology', 'Kitchen Magic', 'Garden Spellwork', 'Healing Brews', 'Plant Lore'],
   },
   'dark-witch': {
     titles: ['Shadowcaster', 'Curse Weaver', 'Dark Priestess', 'Spell Binder', 'Void Keeper'],
-    firstNames: ['Morgana', 'Isabelle', 'Ravenna', 'Sable', 'Hecate'],
-    surnames: ['Blackthorn', 'Nightbane', 'Sorrowborn', 'Veilwalker', 'Doomweaver'],
+    firstNames: ['Morgana', 'Isabelle', 'Ravenna', 'Sable', 'Hecate', 'Vesper', 'Nyx', 'Belladonna'],
+    surnames: ['Blackthorn', 'Nightbane', 'Sorrowborn', 'Veilwalker', 'Doomweaver', 'Gravemist', 'Ashblood'],
     covens: ['The Shadow Circle', 'Obsidian Coven', 'Dark Moon Sisterhood', 'Curse Keepers', 'Void Walkers'],
     specialties: ['Curses', 'Dark Binding', 'Soul Magic', 'Shadow Work', 'Hex Craft'],
   },
   'sea-witch': {
     titles: ['Tide Caller', 'Wave Keeper', 'Ocean Priestess', 'Salt Sage', 'Siren'],
-    firstNames: ['Marina', 'Coral', 'Pearl', 'Nixie', 'Undine'],
-    surnames: ['Wavecrest', 'Saltborne', 'Deepwhisper', 'Tidalveil', 'Seaborn'],
-    covens: ['The Tidal Circle', 'Coral Coven', 'Ocean\'s Breath', 'Wave Dancers', 'Salt Sisters'],
+    firstNames: ['Marina', 'Coral', 'Pearl', 'Nixie', 'Undine', 'Nerida', 'Selkie', 'Tempest'],
+    surnames: ['Wavecrest', 'Saltborne', 'Deepwhisper', 'Tidalveil', 'Seaborn', 'Stormtide', 'Reefsong'],
+    covens: ['The Tidal Circle', 'Coral Coven', "Ocean's Breath", 'Wave Dancers', 'Salt Sisters'],
     specialties: ['Water Magic', 'Tide Control', 'Ocean Healing', 'Siren Lore', 'Storm Weaving'],
   },
   'kitchen-witch': {
     titles: ['Hearth Keeper', 'Cook Sage', 'Feast Weaver', 'Comfort Caster', 'Home Guardian'],
-    firstNames: ['Lily', 'Clover', 'Honey', 'Ginger', 'Thyme'],
-    surnames: ['Bakestone', 'Honeyhearth', 'Spicebind', 'Warmth', 'Comfrey'],
+    firstNames: ['Lily', 'Clover', 'Honey', 'Ginger', 'Thyme', 'Cinnamon', 'Maple', 'Saffron'],
+    surnames: ['Bakestone', 'Honeyhearth', 'Spicebind', 'Warmth', 'Comfrey', 'Kettlebrew', 'Sugarlock'],
     covens: ['The Kitchen Circle', 'Hearth Coven', 'Comfort Keepers', 'Feast Dancers', 'Honey Sisters'],
     specialties: ['Cooking Magic', 'Food Spellwork', 'Comfort Crafting', 'Nourishment', 'Home Blessing'],
   },
   'celestial-witch': {
     titles: ['Star Sage', 'Moon Priestess', 'Cosmic Weaver', 'Zodiac Keeper', 'Starlight Caster'],
-    firstNames: ['Luna', 'Aurora', 'Stella', 'Celeste', 'Nova'],
-    surnames: ['Starweaver', 'Moonwhisper', 'Cosmicborn', 'Eclipseveil', 'Astrallight'],
+    firstNames: ['Luna', 'Aurora', 'Stella', 'Celeste', 'Nova', 'Lyra', 'Soleil', 'Astrid'],
+    surnames: ['Starweaver', 'Moonwhisper', 'Cosmicborn', 'Eclipseveil', 'Astrallight', 'Dawnfire', 'Nebulae'],
     covens: ['The Starlight Circle', 'Lunar Coven', 'Cosmic Sisters', 'Zodiac Dancers', 'Celestial Keepers'],
     specialties: ['Astrology', 'Moon Magic', 'Planetary Work', 'Star Divination', 'Cosmic Healing'],
   },
 };
 
+const types = [
+  { value: 'hedge-witch', label: 'Hedge', icon: '🌿' },
+  { value: 'dark-witch', label: 'Dark', icon: '🖤' },
+  { value: 'sea-witch', label: 'Sea', icon: '🌊' },
+  { value: 'kitchen-witch', label: 'Kitchen', icon: '🍯' },
+  { value: 'celestial-witch', label: 'Celestial', icon: '✨' },
+];
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 export default function WitchNameGenerator() {
-  const [category, setCategory] = useState('hedge-witch');
-  const [witchName, setWitchName] = useState(null);
+  const [type, setType] = useState('hedge-witch');
+  const [witch, setWitch] = useState(null);
 
-  const generateWitch = () => {
-    const data = witchData[category];
-
-    const title = data.titles[Math.floor(Math.random() * data.titles.length)];
-    const firstName = data.firstNames[Math.floor(Math.random() * data.firstNames.length)];
-    const surname = data.surnames[Math.floor(Math.random() * data.surnames.length)];
-    const coven = data.covens[Math.floor(Math.random() * data.covens.length)];
-    const specialty = data.specialties[Math.floor(Math.random() * data.specialties.length)];
-
-    setWitchName({
-      title,
-      firstName,
-      surname,
-      coven,
-      specialty,
+  const generate = useCallback(() => {
+    const data = witchData[type];
+    setWitch({
+      title: pick(data.titles),
+      firstName: pick(data.firstNames),
+      surname: pick(data.surnames),
+      coven: pick(data.covens),
+      specialty: pick(data.specialties),
     });
-  };
+  }, [type]);
 
   return (
     <div className="space-y-4">
-      <div className="bg-surface border border-border rounded-[var(--radius-card)] space-y-4">
-        <div>
-          <label className="block text-text-secondary text-sm font-medium mb-2">
-            Witch Type
-          </label>
-          <Select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            options={[
-              { value: 'hedge-witch', label: 'Hedge Witch' },
-              { value: 'dark-witch', label: 'Dark Witch' },
-              { value: 'sea-witch', label: 'Sea Witch' },
-              { value: 'kitchen-witch', label: 'Kitchen Witch' },
-              { value: 'celestial-witch', label: 'Celestial Witch' },
-            ]}
-          />
-        </div>
-
-        <Button onClick={generateWitch} className="bg-accent text-white w-full">
-          Generate Witch Name
-        </Button>
+      {/* Type pills */}
+      <div className="flex flex-wrap gap-1.5">
+        {types.map((t) => (
+          <button
+            key={t.value}
+            onClick={() => { setType(t.value); setWitch(null); }}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              type === t.value
+                ? 'bg-accent text-white'
+                : 'bg-surface border border-border text-text-secondary hover:border-accent/30 hover:text-accent'
+            }`}
+          >
+            {t.icon} {t.label}
+          </button>
+        ))}
       </div>
 
-      {witchName && (
-        <div className="bg-purple-900 text-white border border-purple-800 rounded-[var(--radius-card)] space-y-4">
-          <div>
-            <p className="text-sm opacity-90 mb-1">Title</p>
-            <p className="font-heading text-2xl font-bold">{witchName.title}</p>
-          </div>
+      <button
+        onClick={generate}
+        className="w-full py-3 rounded-lg bg-accent hover:bg-accent-hover text-white font-medium text-sm transition-colors"
+      >
+        {witch ? 'Generate Another' : 'Generate Witch Name'}
+      </button>
 
-          <div className="border-t border-white border-opacity-20 pt-4">
-            <p className="font-heading text-4xl font-bold">
-              {witchName.firstName} {witchName.surname}
+      {witch && (
+        <div className="bg-surface border border-border rounded-xl overflow-hidden">
+          {/* Name - big and bold */}
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-5 py-4">
+            <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{witch.title}</p>
+            <p className="font-heading text-2xl md:text-3xl font-bold text-white">
+              {witch.firstName} {witch.surname}
             </p>
           </div>
 
-          <div className="border-t border-white border-opacity-20 pt-4 space-y-3">
-            <div>
-              <p className="text-xs opacity-75 uppercase tracking-wider">Coven</p>
-              <p className="text-lg font-medium">{witchName.coven}</p>
+          {/* Details grid */}
+          <div className="grid grid-cols-2 gap-px bg-border">
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Coven</p>
+              <p className="font-medium text-sm text-text-primary">{witch.coven}</p>
             </div>
-            <div>
-              <p className="text-xs opacity-75 uppercase tracking-wider">Specialty</p>
-              <p className="text-lg font-medium">{witchName.specialty}</p>
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Specialty</p>
+              <p className="font-medium text-sm text-accent">{witch.specialty}</p>
             </div>
           </div>
-
-          <Button onClick={generateWitch} variant="secondary" className="bg-white text-purple-900 w-full mt-4">
-            Generate Another
-          </Button>
         </div>
       )}
     </div>
