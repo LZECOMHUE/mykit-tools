@@ -84,9 +84,9 @@ export default function FuelCostCalculator() {
   const fmt = (n) => '£' + parseFloat(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
+    <div className="w-full space-y-4">
       {/* Main Calculator */}
-      <div className="bg-surface border border-border rounded-lg space-y-4">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-text-secondary text-sm font-medium mb-1">
@@ -153,36 +153,36 @@ export default function FuelCostCalculator() {
 
       {/* Results */}
       {calculations && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <p className="text-text-muted text-sm mb-1">Fuel Needed</p>
-            <p className="font-mono-num text-2xl font-bold text-blue-600">
-              {calculations.fuelNeeded}L
-            </p>
-          </div>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-            <p className="text-text-muted text-sm mb-1">Total Cost</p>
-            <p className="font-mono-num text-2xl font-bold text-green-600">
+        <div className="bg-surface border border-border rounded-xl overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-5 py-4">
+            <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">Total Cost</p>
+            <p className="font-mono text-3xl md:text-4xl font-bold text-white">
               {fmt(calculations.totalCost)}
             </p>
           </div>
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-            <p className="text-text-muted text-sm mb-1">Cost per Km</p>
-            <p className="font-mono-num text-2xl font-bold text-purple-600">
-              £{calculations.costPerKm}
-            </p>
-          </div>
-          <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-            <p className="text-text-muted text-sm mb-1">Cost per Mile</p>
-            <p className="font-mono-num text-2xl font-bold text-orange-600">
-              £{calculations.costPerMile}
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Fuel Needed</p>
+              <p className="font-mono text-sm font-medium text-text-primary">{calculations.fuelNeeded}L</p>
+            </div>
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Total Cost</p>
+              <p className="font-mono text-sm font-medium text-text-primary">{fmt(calculations.totalCost)}</p>
+            </div>
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Cost per Km</p>
+              <p className="font-mono text-sm font-medium text-text-primary">£{calculations.costPerKm}</p>
+            </div>
+            <div className="bg-white px-4 py-3">
+              <p className="text-[10px] uppercase tracking-wider text-text-muted mb-0.5">Cost per Mile</p>
+              <p className="font-mono text-sm font-medium text-text-primary">£{calculations.costPerMile}</p>
+            </div>
           </div>
         </div>
       )}
 
       {/* Vehicle Comparison */}
-      <div className="bg-surface border border-border rounded-lg space-y-4">
+      <div className="bg-surface border border-border rounded-lg p-4 space-y-4">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-bold text-text-primary">Compare Vehicles</h3>
           <button

@@ -18,9 +18,9 @@ import { textSEO } from "./text.js";
 import { developerSEO } from "./developer.js";
 import { datetimeSEO } from "./datetime.js";
 import { funSEO } from "./fun.js";
+import { travelSEO } from "./travel.js";
 
-// Add more category imports as SEO content is written:
-// import { educationSEO } from "./education";
+import { educationSEO } from "./education";
 
 const allSEOContent = {
   ...financeSEO,
@@ -40,7 +40,8 @@ const allSEOContent = {
   ...developerSEO,
   ...datetimeSEO,
   ...funSEO,
-  // ...educationSEO,
+  ...travelSEO,
+  ...educationSEO,
 };
 
 /**

@@ -640,6 +640,66 @@ export const financeSEO = {
     ]
   },
 
+  "should-i-pay-off-debt-or-save": {
+    sections: [
+      createAnswerFirstSection(
+        "Should I Pay Off Debt or Save?",
+        "If your debt's interest rate is higher than the return you'd earn saving that money, paying off debt first wins mathematically. A credit card at 20% APR costs more than almost any savings account or ISA pays. Clearing that debt is a guaranteed, tax-free 20% return.",
+        "The break-even point is roughly when your debt interest rate equals your expected savings or investment return. At that point the two strategies are equivalent, and personal factors like peace of mind or the need for an accessible emergency fund should guide your decision."
+      ),
+      createAnswerFirstSection(
+        "The Maths Behind the Recommendation",
+        "This calculator runs both strategies forward over 10 years using compound monthly interest. Strategy A pays off your debt first, then redirects every pound into savings. Strategy B ignores the debt and saves everything, leaving the debt to grow. The 'net benefit' figure is the difference in your overall wealth after 10 years.",
+        "Because debt interest compounds against you at the same rate savings compound for you, even a small gap between the two rates creates a surprisingly large difference over time. A debt at 18.9% vs savings at 4.5% means the pay-debt strategy wins by thousands over a decade."
+      ),
+      {
+        heading: "Common Debt vs Savings Rate Comparisons",
+        table: {
+          headers: ["Debt Type", "Typical Rate", "Best Savings Rate (2026)", "Verdict"],
+          rows: [
+            ["Credit card", "18-30%", "4-5% (cash ISA)", "Always pay debt first"],
+            ["Personal loan", "6-15%", "4-5% (cash ISA)", "Usually pay debt first"],
+            ["Car finance", "5-12%", "4-5% (cash ISA)", "Pay debt, unless rate is low"],
+            ["Student loan (Plan 2)", "7.1%", "7%+ (S&S ISA long-term)", "Very close call - consider both"],
+            ["Help to Buy mortgage", "1.75%", "4-5% (cash ISA)", "Save/invest first"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "When Saving First Makes Sense",
+        "There are cases where saving before paying debt is the smarter move. If you have no emergency fund, building 3 months of expenses in accessible savings first protects you from going further into debt when unexpected costs hit. Your employer may also match pension contributions - that is effectively a 50-100% instant return, almost always worth prioritising over paying down cheap debt.",
+        "Some debt, like student loans in the UK, uses an income-contingent repayment model rather than compounding interest in the traditional sense. In those cases the standard maths does not apply and saving or investing alongside repayments can be the better strategy."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I pay off all debt before starting to save?",
+        "Not necessarily. High-interest debt (credit cards, payday loans) should almost always be cleared first. But if you have no emergency fund, building 1-3 months of savings in parallel is sensible. And if your employer matches pension contributions, capture that match before paying down anything."
+      ),
+      createFAQ(
+        "Does debt interest rate or savings rate matter more?",
+        "The gap between the two rates matters most. If your debt costs 20% and your savings earn 4%, the 16-point gap means every pound on debt gives a 16p per year better return than saving. If the gap is only 1-2%, other factors like liquidity and peace of mind often matter more than the maths."
+      ),
+      createFAQ(
+        "What counts as a good savings rate to compare?",
+        "Use the actual annual rate you'd earn. For cash ISAs or savings accounts in 2026, that is around 4-5%. For stocks and shares ISAs or index funds, historical long-run returns average 6-10% per year but with significant short-term volatility. Using 7% is a reasonable planning assumption for a diversified investment portfolio held 10+ years."
+      ),
+      createFAQ(
+        "Should UK student loans be treated as debt?",
+        "Plan 2 and Plan 5 student loans in the UK are income-contingent - you only repay 9% of income above a threshold, and unrepaid balances are written off after 30-40 years. For most graduates, the standard debt-vs-save maths does not apply. Treat them more like a graduate tax than a conventional debt."
+      ),
+      createFAQ(
+        "What is the 'net benefit' figure in this calculator?",
+        "Net benefit is the difference in your overall financial position after 10 years between the two strategies. A positive figure means the 'pay debt first' approach leaves you better off. It accounts for the interest you avoid on the debt plus the compound growth of your savings after the debt is cleared."
+      ),
+    ],
+    relatedTools: [
+      { slug: "debt-payoff-calculator", label: "Debt Payoff Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "emergency-fund-calculator", label: "Emergency Fund Calculator" },
+    ],
+  },
+
   "childcare-cost-calculator": {
     sections: [
       createAnswerFirstSection(

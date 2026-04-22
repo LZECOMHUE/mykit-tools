@@ -1,77 +1,46 @@
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/categories";
 
-/**
- * Breadcrumbs component with semantic HTML and aria labels
- * Improves SEO and accessibility, helps AI crawlers understand page hierarchy
- */
+// Direction B breadcrumbs — muted text with chevron separators, category as a
+// tinted pill chip. Preserves semantic <nav><ol> for SEO/a11y.
 export default function Breadcrumbs({ tool }) {
   const category = tool ? getCategoryBySlug(tool.category) : null;
 
-  // Build breadcrumb items for structured navigation
-  const breadcrumbItems = [
-    { name: "Home", url: "/" },
-  ];
-
-  if (category) {
-    breadcrumbItems.push({
-      name: category.name,
-      url: `/categories/${category.slug}`,
-    });
-  }
-
-  if (tool) {
-    breadcrumbItems.push({
-      name: tool.name,
-      url: `https://mykit.tools/${tool.slug}`,
-    });
-  }
-
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-text-muted mb-4">
-      {/* Semantic ol for breadcrumb trail */}
-      <ol className="flex items-center gap-1.5 flex-wrap">
-        {breadcrumbItems.map((item, idx) => (
-          <li key={idx} className="flex items-center gap-1.5">
-            {/* Separator between items (hidden from screen readers) */}
-            {idx > 0 && (
-              <span aria-hidden="true" className="text-text-muted">
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </span>
-            )}
+    <nav aria-label="Breadcrumb" className="mb-5">
+      <ol className="flex items-center gap-1.5 flex-wrap text-[13px] font-semibold text-[color:var(--color-muted)]">
+        <li className="flex items-center gap-1.5">
+          <Link href="/" className="hover:text-[color:var(--color-ink)] transition-colors">
+            Tools
+          </Link>
+        </li>
 
-            {/* Breadcrumb item */}
-            {idx === breadcrumbItems.length - 1 ? (
-              /* Last item is current page (not clickable) */
-              <span
-                className="text-text-primary font-medium"
-                aria-current="page"
-              >
-                {item.name}
-              </span>
-            ) : (
-              /* Intermediate items are links */
-              <Link
-                href={item.url}
-                className="hover:text-accent transition-colors"
-              >
-                {item.name}
-              </Link>
-            )}
+        {category && (
+          <li className="flex items-center gap-1.5">
+            <span aria-hidden className="text-[color:var(--color-subtle)]">›</span>
+            <Link
+              href={`/categories/${category.slug}`}
+              className="inline-flex items-center gap-1 text-[color:var(--color-ink)] font-bold press-scale"
+              style={{
+                background: `var(--color-${category.color})`,
+                padding: "2px 10px",
+                borderRadius: 999,
+              }}
+            >
+              <span>{category.icon}</span>
+              <span>{category.name}</span>
+            </Link>
           </li>
-        ))}
+        )}
+
+        {tool && (
+          <li className="flex items-center gap-1.5">
+            <span aria-hidden className="text-[color:var(--color-subtle)]">›</span>
+            <span className="text-[color:var(--color-ink)] font-bold" aria-current="page">
+              {tool.name}
+            </span>
+          </li>
+        )}
       </ol>
     </nav>
   );

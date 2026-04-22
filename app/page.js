@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ToolCard from "@/components/tools/ToolCard";
-import ToolCounter from "@/components/layout/ToolCounter";
-import SurpriseButton from "@/components/layout/SurpriseButton";
+import CategoryCard from "@/components/design/CategoryCard";
+import PopularToolCard from "@/components/design/PopularToolCard";
+import HomeHeroSearch from "@/components/design/HomeHeroSearch";
 import { tools, getToolBySlug, getCategoryCounts } from "@/lib/tool-registry";
 import { categories } from "@/lib/categories";
 
-// Curated popular tools that span different categories and showcase the site's breadth
+// Curated popular tools that span different categories
 const POPULAR_SLUGS = [
   "uk-tax-calculator",
   "word-counter",
@@ -15,17 +15,25 @@ const POPULAR_SLUGS = [
   "cups-to-grams",
   "bmi-calculator",
   "json-formatter",
-  "mortgage-calculator",
-  "colour-picker",
-  "percentage-calculator",
+];
+
+const QUICK_CHIPS = [
+  { emoji: "🏠", label: "Mortgage", slug: "mortgage-calculator" },
+  { emoji: "🥣", label: "Cups to Grams", slug: "cups-to-grams" },
+  { emoji: "🔐", label: "Password", slug: "password-generator" },
+  { emoji: "💪", label: "BMI", slug: "bmi-calculator" },
+  { emoji: "💰", label: "UK Tax", slug: "uk-tax-calculator" },
 ];
 
 export default function HomePage() {
   const counts = getCategoryCounts();
-  const popularTools = POPULAR_SLUGS
-    .map((slug) => getToolBySlug(slug))
-    .filter(Boolean)
-    .slice(0, 6);
+  const totalCount = Object.values(counts).reduce((a, b) => a + b, 0);
+  const popularTools = POPULAR_SLUGS.map((slug) => getToolBySlug(slug)).filter(Boolean);
+
+  // Sort categories by count (high to low), take first 12 for balanced 4-col grid.
+  const shownCategories = [...categories]
+    .sort((a, b) => (counts[b.slug] || 0) - (counts[a.slug] || 0))
+    .slice(0, 12);
 
   const recentTools = [...tools]
     .filter((t) => t.tier <= 2)
@@ -38,81 +46,163 @@ export default function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="flex flex-col items-center text-center py-16 md:py-24 px-4 sm:px-6">
-          <h1 className="font-heading font-black text-4xl md:text-6xl text-text-primary mb-6 tracking-tighter leading-tight">
-            Free tools that<br />
-            <span className="text-accent italic">actually work.</span>
-          </h1>
-          <p className="font-body text-lg text-text-secondary max-w-2xl mx-auto mb-12">
-            Calculators, converters, generators, and more. No sign-up needed —
-            just open and use.
-          </p>
-          <div className="flex justify-center mb-8">
-            <ToolCounter />
-          </div>
-          <div className="flex items-center justify-center gap-3 flex-wrap font-body">
-            <Link
-              href="/uk-tax-calculator"
-              className="inline-flex items-center px-6 py-3 text-sm font-bold text-white bg-accent hover:bg-accent-hover rounded-[var(--radius-input)] shadow-sm transition-all"
-            >
-              Try the UK Tax Calculator
-            </Link>
-            <Link
-              href="/categories/finance"
-              className="inline-flex items-center px-6 py-3 text-sm font-bold text-text-primary bg-white border border-border hover:bg-surface-hover rounded-[var(--radius-input)] shadow-sm transition-all"
-            >
-              Browse Categories
-            </Link>
-            <SurpriseButton />
-          </div>
-        </section>
+        <section className="relative text-center px-5 sm:px-10 pt-8 pb-16 md:pt-12 md:pb-24">
+          {/* Decorative floating blobs — hidden on mobile */}
+          <div
+            aria-hidden
+            className="absolute hidden md:block pointer-events-none"
+            style={{
+              top: 40, left: 80, width: 60, height: 60,
+              borderRadius: "50%", background: "var(--color-yellow)",
+              opacity: 0.7, transform: "rotate(8deg)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="absolute hidden md:block pointer-events-none"
+            style={{
+              top: 120, right: 100, width: 90, height: 90,
+              borderRadius: "42% 58% 50% 50% / 50%",
+              background: "var(--color-pink)", opacity: 0.55,
+            }}
+          />
+          <div
+            aria-hidden
+            className="absolute hidden md:block pointer-events-none"
+            style={{
+              top: 240, left: 130, width: 40, height: 40,
+              borderRadius: "50%", background: "var(--color-mint)",
+              opacity: 0.7,
+            }}
+          />
 
-        {/* Categories grid */}
-        <section className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 mb-12">
-          <div className="mb-10 text-center sm:text-left flex flex-col sm:flex-row justify-between items-end gap-4">
-            <div>
-              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
-                Browse by Category
-              </h2>
-              <p className="font-body text-sm text-text-secondary">Hand-picked tools for every workflow.</p>
-            </div>
-            <Link className="text-sm font-bold text-accent flex items-center gap-1 group" href="/categories">
-                View all categories
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </Link>
+          {/* Trust badge */}
+          <div
+            className="inline-flex items-center gap-2 mb-7 border-[1.5px] relative"
+            style={{
+              padding: "6px 14px 6px 10px",
+              borderRadius: 999,
+              background: "var(--color-paper)",
+              borderColor: "var(--color-border)",
+              fontSize: 13,
+              fontWeight: 600,
+              color: "var(--color-ink)",
+            }}
+          >
+            <span>🫶</span>
+            <span>{totalCount.toLocaleString()} free tools · no sign-up, no ads on Pro</span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {categories.map((cat) => (
+
+          <h1
+            className="mx-auto mb-[18px] text-balance relative"
+            style={{
+              fontSize: "clamp(52px, 9vw, 80px)",
+              fontWeight: 800,
+              lineHeight: 0.95,
+              letterSpacing: "-0.04em",
+              maxWidth: 900,
+            }}
+          >
+            Tiny tools for{" "}
+            <em
+              className="not-italic inline-block"
+              style={{
+                background: "var(--color-yellow)",
+                padding: "0 12px",
+                borderRadius: 14,
+                transform: "rotate(-1.5deg)",
+              }}
+            >
+              almost everything
+            </em>
+            .
+          </h1>
+
+          <p
+            className="mx-auto mb-10 text-pretty"
+            style={{
+              fontSize: 19,
+              color: "var(--color-muted)",
+              lineHeight: 1.45,
+              maxWidth: 560,
+              fontWeight: 500,
+            }}
+          >
+            Calculators, converters, generators, and a suspicious number of JSON tools. Open tab, use tool, done.
+          </p>
+
+          {/* Big search bar */}
+          <div className="relative">
+            <HomeHeroSearch />
+          </div>
+
+          {/* Quick chips */}
+          <div className="flex gap-2 justify-center mt-6 flex-wrap relative">
+            {QUICK_CHIPS.map(({ emoji, label, slug }) => (
               <Link
-                key={cat.slug}
-                href={`/categories/${cat.slug}`}
-                className="border border-black/5 rounded-2xl p-6 flex flex-col items-center text-center group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                style={{ backgroundColor: `var(--color-${cat.color})` }}
+                key={slug}
+                href={`/${slug}`}
+                className="press-scale transition-colors hover:bg-[color:var(--color-surface-hover)]"
+                style={{
+                  padding: "6px 14px",
+                  background: "var(--color-paper)",
+                  borderRadius: 999,
+                  border: "1.5px solid var(--color-border)",
+                  fontSize: 13.5,
+                  fontWeight: 600,
+                  color: "var(--color-ink)",
+                }}
               >
-                <div className="w-14 h-14 bg-white/60 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-white/90 transition-all duration-300 text-3xl shadow-sm">
-                  {cat.icon}
-                </div>
-                <span className="font-heading font-bold text-sm text-text-primary">{cat.name}</span>
-                <span className="text-xs text-text-secondary mt-1 font-medium opacity-80">{counts[cat.slug] || 0} tools</span>
+                {emoji} {label}
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Popular tools */}
+        {/* Categories grid */}
+        <section className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-16">
+          <div className="flex items-baseline justify-between mb-7">
+            <h2
+              className="m-0"
+              style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.03em" }}
+            >
+              Pick a category 👇
+            </h2>
+            <Link
+              href="/categories/finance"
+              className="text-sm font-bold text-[color:var(--color-accent)] press-scale"
+            >
+              All 25 →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5">
+            {shownCategories.map((cat, i) => (
+              <CategoryCard
+                key={cat.slug}
+                cat={cat}
+                count={counts[cat.slug] || 0}
+                index={i}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Popular */}
         {popularTools.length > 0 && (
-          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 mb-8">
-            <div className="mb-8">
-              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
-                Popular Tools
-              </h2>
-              <p className="font-body text-sm text-text-secondary">The essentials we're currently obsessing over.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section id="popular" className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-20 scroll-mt-24">
+            <h2
+              className="m-0 mb-2"
+              style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.03em" }}
+            >
+              Currently obsessed with
+            </h2>
+            <p className="text-[15px] text-[color:var(--color-muted)] mb-6">
+              The essentials everyone's opening right now.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {popularTools.map((tool) => (
-                <ToolCard key={tool.slug} tool={tool} />
+                <PopularToolCard key={tool.slug} tool={tool} />
               ))}
             </div>
           </section>
@@ -120,16 +210,19 @@ export default function HomePage() {
 
         {/* Recently added */}
         {recentTools.length > 0 && (
-          <section className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-12 mb-8">
-            <div className="mb-8">
-              <h2 className="font-heading font-bold text-2xl tracking-tight mb-2 text-text-primary">
-                Recently Added
-              </h2>
-              <p className="font-body text-sm text-text-secondary">Fresh tools right out of the oven.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-20">
+            <h2
+              className="m-0 mb-2"
+              style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.03em" }}
+            >
+              Fresh out of the oven
+            </h2>
+            <p className="text-[15px] text-[color:var(--color-muted)] mb-6">
+              Recently added — still warm.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {recentTools.map((tool) => (
-                <ToolCard key={tool.slug} tool={tool} />
+                <PopularToolCard key={tool.slug} tool={tool} />
               ))}
             </div>
           </section>

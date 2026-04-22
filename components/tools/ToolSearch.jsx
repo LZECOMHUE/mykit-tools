@@ -46,14 +46,14 @@ export default function ToolSearch({ onSelect }) {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search tools..."
-          className="w-full pl-10 pr-4 py-2.5 text-sm bg-surface border border-border rounded-[var(--radius-input)] placeholder:text-text-muted focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none transition-colors"
+          placeholder="Search 950+ tools…"
+          className="w-full pl-10 pr-4 py-2.5 text-sm font-semibold bg-[color:var(--color-paper)] border-ink rounded-full placeholder:text-[color:var(--color-muted)] focus:ring-2 focus:ring-[color:var(--color-accent)]/20 outline-none transition-colors"
           onFocus={() => results.length > 0 && setOpen(true)}
         />
       </div>
 
       {open && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-border rounded-[var(--radius-card)] shadow-lg overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-[color:var(--color-paper)] border-ink rounded-[18px] shadow-ink overflow-hidden z-50">
           {results.map((tool) => (
             <Link
               key={tool.slug}
@@ -63,7 +63,7 @@ export default function ToolSearch({ onSelect }) {
                 setQuery("");
                 onSelect?.();
               }}
-              className="flex items-center justify-between px-4 py-3 hover:bg-surface-hover transition-colors"
+              className="flex items-center justify-between px-4 py-3 hover:bg-[color:var(--color-surface-hover)] transition-colors"
             >
               <div>
                 <span className="text-sm font-medium text-text-primary">

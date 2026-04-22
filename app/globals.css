@@ -1,84 +1,174 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand Colours */
-  --color-background: #f8f6f1;
+  /* Brand colours — Direction B (Playful & Colorful) */
+  --color-background: #fff9f0;
   --color-surface: #ffffff;
-  --color-surface-hover: #f2f1eb;
-  --color-border: #deddd7;
-  --color-border-hover: #aeada9;
+  --color-surface-hover: #fff3e0;
+  --color-border: #efe7d7;
+  --color-border-hover: #e0d6c2;
 
-  --color-text-primary: #2e2f2c;
-  --color-text-secondary: #5c5c58;
-  --color-text-muted: #777773;
+  --color-text-primary: #1c1a17;
+  --color-text-secondary: #6f6a63;
+  --color-text-muted: #b5afa4;
 
-  --color-accent: #006b1b;
-  --color-accent-hover: #005e17;
-  --color-accent-muted: #d1ffc8;
+  --color-accent: #ff6b35;
+  --color-accent-hover: #e8592b;
+  --color-accent-muted: #ffe6d8;
 
-  --color-accent-warm: #e8a317;
+  --color-accent-warm: #ffd45e;
+
+  /* Direction B signature tokens */
+  --color-ink: #1c1a17;
+  --color-paper: #ffffff;
+  --color-muted: #6f6a63;
+  --color-subtle: #b5afa4;
+  --color-accent-soft: #ffe6d8;
+
+  /* Direction B named pastels (for decorative + tint use) */
+  --color-yellow: #ffd45e;
+  --color-mint: #b8e8cf;
+  --color-sky: #bfd9f2;
+  --color-pink: #ffc6d3;
+  --color-lavender: #d9c7f0;
 
   --color-success: #16a34a;
   --color-warning: #d97706;
   --color-error: #dc2626;
   --color-info: #2563eb;
 
+  /* Category tints — Direction B palette, mirrors CAT_TINT in direction-b.jsx */
+  --color-cat-finance: #b8e8cf;
+  --color-cat-cooking: #ffd45e;
+  --color-cat-games: #d9c7f0;
+  --color-cat-developer: #c9d4ff;
+  --color-cat-text: #bfd9f2;
+  --color-cat-converters: #bfd9f2;
+  --color-cat-health: #b8e8cf;
+  --color-cat-wedding: #ffd6e0;
+  --color-cat-education: #d9c7f0;
+  --color-cat-home: #ffdba8;
+  --color-cat-business: #d6dee8;
+  --color-cat-travel: #bfd9f2;
+  --color-cat-datetime: #c5e8e8;
+  --color-cat-maths: #d5c7f0;
+  --color-cat-creative: #ffc6d3;
+  --color-cat-parenting: #ffc6d3;
+  --color-cat-automotive: #d0d7e0;
+  --color-cat-music: #f0c7e8;
+  --color-cat-seasonal: #ffb3a7;
+  --color-cat-fun: #ffb380;
+  --color-cat-quiz: #e5c7f0;
+  --color-cat-sports: #b8e8cf;
+  --color-cat-pdf: #c9d4ff;
+  --color-cat-betting: #ffd45e;
+  --color-cat-maps: #c5e8d5;
+
   /* Typography */
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-heading: "Epilogue", sans-serif;
+  --font-body: "Quicksand", "Nunito", -apple-system, system-ui, sans-serif;
+  --font-heading: "Quicksand", "Nunito", -apple-system, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Spacing */
-  --radius-card: 1rem;
-  --radius-input: 1rem;
-  --radius-badge: 0.5rem;
+  /* Shape */
+  --radius-card: 1.25rem;      /* 20px */
+  --radius-card-lg: 1.375rem;  /* 22px */
+  --radius-card-xl: 1.75rem;   /* 28px */
+  --radius-input: 0.75rem;     /* 12px */
+  --radius-badge: 999px;
 }
 
 :root {
-  /* Category Tints (Guaranteed DOM presence for inline styles) */
-  --color-cat-finance: #dbeafe;
-  --color-cat-cooking: #ffedd5;
-  --color-cat-games: #fce7f3;
-  --color-cat-developer: #e0e7ff;
-  --color-cat-text: #f3e8ff;
-  --color-cat-converters: #d1fae5;
-  --color-cat-health: #ccfbf1;
-  --color-cat-wedding: #fdf2f8;
-  --color-cat-education: #fef9c3;
-  --color-cat-home: #fed7aa;
-  --color-cat-business: #e0f2fe;
-  --color-cat-travel: #cffafe;
-  --color-cat-datetime: #ede9fe;
-  --color-cat-maths: #d1fae5;
-  --color-cat-creative: #fbcfe8;
-  --color-cat-parenting: #d9f99d;
-  --color-cat-automotive: #e5e7eb;
-  --color-cat-music: #ddd6fe;
-  --color-cat-seasonal: #fecaca;
-  --color-cat-fun: #fef08a;
-  --color-cat-quiz: #e9d5ff;
-  --color-cat-sports: #bae6fd;
-  --color-cat-pdf: #fde68a;
-  --color-cat-betting: #c4b5fd;
-  --color-cat-maps: #a7f3d0;
+  /* Duplicated at :root for inline-style lookups */
+  --color-cat-finance: #b8e8cf;
+  --color-cat-cooking: #ffd45e;
+  --color-cat-games: #d9c7f0;
+  --color-cat-developer: #c9d4ff;
+  --color-cat-text: #bfd9f2;
+  --color-cat-converters: #bfd9f2;
+  --color-cat-health: #b8e8cf;
+  --color-cat-wedding: #ffd6e0;
+  --color-cat-education: #d9c7f0;
+  --color-cat-home: #ffdba8;
+  --color-cat-business: #d6dee8;
+  --color-cat-travel: #bfd9f2;
+  --color-cat-datetime: #c5e8e8;
+  --color-cat-maths: #d5c7f0;
+  --color-cat-creative: #ffc6d3;
+  --color-cat-parenting: #ffc6d3;
+  --color-cat-automotive: #d0d7e0;
+  --color-cat-music: #f0c7e8;
+  --color-cat-seasonal: #ffb3a7;
+  --color-cat-fun: #ffb380;
+  --color-cat-quiz: #e5c7f0;
+  --color-cat-sports: #b8e8cf;
+  --color-cat-pdf: #c9d4ff;
+  --color-cat-betting: #ffd45e;
+  --color-cat-maps: #c5e8d5;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
-/* Utility classes for mono numbers */
+/* Tabular numerals for figures */
 .font-mono-num {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
+.nums-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Direction B signature offset shadows */
+.shadow-ink {
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+.shadow-ink-sm {
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+.shadow-ink-lg {
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.shadow-ink-hover:hover {
+  box-shadow: 4px 4px 0 var(--color-ink);
+  transform: translateY(-1px);
+}
+.shadow-ink-transition {
+  transition: box-shadow 120ms ease-out, transform 120ms ease-out;
+}
+
+/* Direction B hard ink border — 1.5px */
+.border-ink {
+  border: 1.5px solid var(--color-ink);
+}
+.border-ink-2 {
+  border: 2px solid var(--color-ink);
+}
+
+/* Text wrap helpers */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Press effect */
+.press-scale:active {
+  transform: scale(0.97);
+  transition: transform 80ms;
+}
+
+/* Hide scrollbar utility (kept from previous version) */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

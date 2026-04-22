@@ -53,15 +53,12 @@ export default function CategoryBrowser({
   const flatList = useMemo(() => sortTools(searchFiltered), [searchFiltered, sortBy]);
   const showSections = sections && !search.trim();
 
-  // Track which section is in view
   useEffect(() => {
     if (!showSections || !sections) return;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.dataset.section);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.dataset.section);
         }
       },
       { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
@@ -73,7 +70,7 @@ export default function CategoryBrowser({
   const scrollToSection = (tag) => {
     const el = sectionRefs.current[tag];
     if (el) {
-      const navbarHeight = 64; // h-16 = 64px
+      const navbarHeight = 74;
       const jumpNavHeight = navRef.current?.offsetHeight || 44;
       const y = el.getBoundingClientRect().top + window.scrollY - navbarHeight - jumpNavHeight - 12;
       window.scrollTo({ top: y, behavior: 'smooth' });
@@ -82,132 +79,138 @@ export default function CategoryBrowser({
 
   return (
     <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
-      <aside className="w-full md:w-56 lg:w-64 shrink-0">
-        <div className="sticky top-20">
-          <div className="mb-4">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-3xl drop-shadow-sm">{cat.icon}</span>
-              <h1 className="font-heading text-3xl font-extrabold tracking-tight text-text-primary">
-                {cat.name}
-              </h1>
-            </div>
-            <p className="text-text-secondary text-sm font-medium">
-              {cat.description}
-            </p>
-          </div>
-
-          {showSections && sections.length > 1 && (
-            <nav className="space-y-0.5 mb-6 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
-              <div className="px-3 py-2 text-[10px] uppercase tracking-widest font-bold text-text-muted hidden md:block">
+      {showSections && sections.length > 1 && (
+        <aside className="w-full md:w-56 lg:w-64 shrink-0">
+          <div className="sticky top-24">
+            <nav ref={navRef} className="space-y-1 mb-6 max-md:flex max-md:overflow-x-auto max-md:pb-4 max-md:space-y-0 max-md:gap-2 max-md:-mx-4 max-md:px-4 hide-scrollbar">
+              <div className="px-3 py-2 text-[10px] uppercase tracking-widest font-[800] text-[color:var(--color-muted)] hidden md:block">
                 Subcategories
               </div>
-              
-              {sections.map((s) => (
-                <button
-                  key={s.tag}
-                  onClick={() => scrollToSection(s.tag)}
-                  className={`flex items-center justify-between group px-4 py-3 max-md:px-4 max-md:py-2 rounded-xl transition-all whitespace-nowrap shrink-0 w-full text-left ${
-                    activeSection === s.tag
-                      ? 'bg-surface shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-accent font-bold border border-border/60'
-                      : 'text-text-primary hover:bg-surface-hover font-medium border border-transparent'
-                  }`}
-                >
-                  <span className="flex items-center gap-3">{s.label}</span>
-                  <span className={`hidden md:inline-block px-2 py-0.5 rounded-full font-bold ml-2 text-[10px] ${
-                    activeSection === s.tag ? 'bg-accent/10 text-accent' : 'bg-surface text-text-muted'
-                  }`}>
-                    {s.tools.length}
-                  </span>
-                </button>
-              ))}
+              {sections.map((s) => {
+                const active = activeSection === s.tag;
+                return (
+                  <button
+                    key={s.tag}
+                    onClick={() => scrollToSection(s.tag)}
+                    className="flex items-center justify-between group whitespace-nowrap shrink-0 w-full text-left press-scale"
+                    style={{
+                      padding: "10px 14px",
+                      borderRadius: 14,
+                      background: active ? "var(--color-paper)" : "transparent",
+                      border: active ? "1.5px solid var(--color-ink)" : "1.5px solid transparent",
+                      boxShadow: active ? "2px 2px 0 var(--color-ink)" : "none",
+                      color: "var(--color-ink)",
+                      fontWeight: active ? 700 : 600,
+                      fontSize: 14,
+                    }}
+                  >
+                    <span>{s.label}</span>
+                    <span
+                      className="hidden md:inline-block font-bold ml-2 text-[10px]"
+                      style={{
+                        padding: "2px 8px",
+                        borderRadius: 999,
+                        background: active ? `var(--color-${cat.color})` : "var(--color-surface-hover)",
+                        color: "var(--color-ink)",
+                      }}
+                    >
+                      {s.tools.length}
+                    </span>
+                  </button>
+                );
+              })}
             </nav>
-          )}
-
-          {/* Sidebar Promo */}
-          <div className="p-6 bg-accent-muted rounded-xl relative overflow-hidden group hidden md:block border border-accent/10">
-            <div className="relative z-10">
-              <h4 className="font-heading font-bold text-accent-hover leading-tight">
-                Create your own kit.
-              </h4>
-              <p className="text-xs mt-2 text-accent-hover/80 font-medium tracking-tight">
-                Save and organize your favorite tools.
-              </p>
-              <Link href="/pricing" className="mt-4 inline-block bg-white text-accent-hover px-4 py-2 rounded-full text-xs font-bold hover:shadow-md transition-all">
-                Join Pro
-              </Link>
-            </div>
           </div>
-        </div>
-      </aside>
-
-      <div className="flex-1 min-w-0">
-      {/* Search + sort */}
-      <div className="flex flex-col sm:flex-row gap-2 mb-4">
-        <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-          <input
-            type="text" value={search} onChange={(e) => setSearch(e.target.value)}
-            placeholder={`Search ${categoryName} tools...`}
-            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent focus:ring-2 focus:ring-accent/10"
-          />
-        </div>
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-3 py-2.5 text-sm bg-white border border-border rounded-lg outline-none focus:border-accent cursor-pointer">
-          <option value="featured">Featured first</option>
-          <option value="a-z">A to Z</option>
-          <option value="newest">Newest first</option>
-        </select>
-      </div>
-
-      {/* Search results count */}
-      {search.trim() && (
-        <p className="text-sm text-text-muted mb-3">
-          {flatList.length} {flatList.length === 1 ? "tool" : "tools"} found
-          <button onClick={() => setSearch("")} className="ml-2 text-accent text-xs hover:underline">Clear</button>
-        </p>
+        </aside>
       )}
 
-      {/* Grouped sections */}
-      {showSections ? (
-        <div className="space-y-4">
-          {sections.map((section) => (
-            <div
-              key={section.tag}
-              ref={(el) => { sectionRefs.current[section.tag] = el; }}
-              data-section={section.tag}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <h2 className="font-heading text-lg font-bold text-text-primary">
-                  {section.label}
-                </h2>
-                <span className="text-xs font-mono text-text-muted bg-surface px-2 py-0.5 rounded-full">
-                  {section.tools.length}
-                </span>
-                <div className="flex-1 h-px bg-border" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {section.tools.map((tool) => (
-                  <ToolCard key={tool.slug} tool={tool} />
-                ))}
-              </div>
-            </div>
-          ))}
+      <div className="flex-1 min-w-0">
+        {/* Search + sort */}
+        <div className="flex flex-col sm:flex-row gap-2 mb-5">
+          <div className="relative flex-1">
+            <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[color:var(--color-muted)]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={`Search ${categoryName} tools…`}
+              className="w-full pl-10 pr-4 py-2.5 text-sm font-semibold bg-[color:var(--color-paper)] border-ink rounded-full placeholder:text-[color:var(--color-muted)] focus:ring-2 focus:ring-[color:var(--color-accent)]/20 outline-none transition-colors"
+            />
+          </div>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2.5 text-sm font-semibold bg-[color:var(--color-paper)] border-ink rounded-full outline-none cursor-pointer"
+          >
+            <option value="featured">Featured first</option>
+            <option value="a-z">A to Z</option>
+            <option value="newest">Newest first</option>
+          </select>
         </div>
-      ) : (
-        flatList.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+        {search.trim() && (
+          <p className="text-sm font-medium text-[color:var(--color-muted)] mb-4">
+            {flatList.length} {flatList.length === 1 ? "tool" : "tools"} found
+            <button onClick={() => setSearch("")} className="ml-2 text-[color:var(--color-accent)] text-xs font-bold hover:underline">Clear</button>
+          </p>
+        )}
+
+        {showSections ? (
+          <div className="space-y-8">
+            {sections.map((section) => (
+              <div
+                key={section.tag}
+                ref={(el) => { sectionRefs.current[section.tag] = el; }}
+                data-section={section.tag}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <h2 className="text-[20px] font-[800] tracking-[-0.01em] text-[color:var(--color-ink)] m-0">
+                    {section.label}
+                  </h2>
+                  <span
+                    className="text-xs font-bold"
+                    style={{
+                      padding: "2px 8px",
+                      borderRadius: 999,
+                      background: `var(--color-${cat.color})`,
+                      border: "1.5px solid var(--color-ink)",
+                    }}
+                  >
+                    {section.tools.length}
+                  </span>
+                  <div className="flex-1 h-px bg-[color:var(--color-border)]" />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  {section.tools.map((tool, i) => (
+                    <ToolCard key={tool.slug} tool={tool} featured={i === 0 && section === sections[0]} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : flatList.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {flatList.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
           </div>
         ) : (
-          <div className="bg-surface border border-border rounded-xl p-8 text-center">
-            <p className="text-text-secondary mb-2">No tools match your search.</p>
-            <button onClick={() => setSearch("")} className="text-sm text-accent font-medium hover:underline">Clear search</button>
+          <div
+            className="border-ink text-center"
+            style={{
+              background: "var(--color-paper)",
+              borderRadius: 22,
+              padding: 32,
+            }}
+          >
+            <p className="text-[color:var(--color-muted)] font-medium mb-2">No tools match your search.</p>
+            <button onClick={() => setSearch("")} className="text-sm text-[color:var(--color-accent)] font-bold hover:underline">
+              Clear search
+            </button>
           </div>
-        )
-      )}
+        )}
       </div>
     </div>
   );

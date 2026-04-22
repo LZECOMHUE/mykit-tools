@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoChip from "@/components/design/LogoChip";
 import { categories } from "@/lib/categories";
 
 const POPULAR_TOOLS = [
@@ -17,36 +18,56 @@ const POPULAR_TOOLS = [
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  // Split categories into 3 columns
-  const colSize = Math.ceil(categories.length / 3);
-  const catCol1 = categories.slice(0, colSize);
-  const catCol2 = categories.slice(colSize, colSize * 2);
-  const catCol3 = categories.slice(colSize * 2);
-
   return (
-    <footer className="bg-surface-hover/30 rounded-t-[3rem] mt-12 pb-4 overflow-hidden">
-      {/* Pro nudge strip */}
-      <div className="bg-accent-muted border-b border-accent/10">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[13px] text-text-secondary text-center sm:text-left">
-            <span className="font-medium text-text-primary">MyKit Pro</span>{" "}
-            - remove ads, unlock premium exports, and get unlimited AI features.
-          </p>
-          <Link
-            href="/pricing"
-            className="text-[13px] font-medium text-accent hover:text-accent-hover transition-colors whitespace-nowrap"
-          >
-            View plans &rarr;
-          </Link>
+    <footer className="mt-20 pb-8">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-10">
+        {/* Pro nudge card */}
+        <div
+          className="border-ink shadow-ink relative overflow-hidden mb-10"
+          style={{
+            background: "var(--color-yellow)",
+            borderRadius: 28,
+            padding: "28px 32px",
+          }}
+        >
+          <div
+            aria-hidden
+            className="absolute pointer-events-none"
+            style={{
+              top: -40, right: -40, width: 180, height: 180,
+              borderRadius: "50%", background: "rgba(255,255,255,0.4)",
+            }}
+          />
+          <div className="relative flex flex-col sm:flex-row items-center gap-4 justify-between">
+            <div>
+              <div className="text-[22px] font-[800] tracking-[-0.02em] text-[color:var(--color-ink)] mb-1">
+                MyKit Pro — everything unlocked ✨
+              </div>
+              <p className="text-[14px] text-[color:var(--color-ink)] opacity-80 font-medium">
+                No ads, unlimited premium exports, all AI features. £6.99/mo or £49.99/yr.
+              </p>
+            </div>
+            <Link
+              href="/pricing"
+              className="border-ink shadow-ink-sm press-scale whitespace-nowrap"
+              style={{
+                padding: "12px 22px",
+                borderRadius: 999,
+                background: "var(--color-ink)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 14,
+              }}
+            >
+              View plans →
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10">
         {/* Main footer grid */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-10">
-          {/* All Categories - spans 3 columns */}
           <div className="col-span-2 md:col-span-3">
-            <h3 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wide">
+            <h3 className="text-[13px] font-[800] mb-4 uppercase tracking-wider text-[color:var(--color-ink)]">
               Categories
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1.5">
@@ -54,7 +75,7 @@ export default function Footer() {
                 <Link
                   key={cat.slug}
                   href={`/categories/${cat.slug}`}
-                  className="text-[13px] text-text-secondary hover:text-accent transition-colors truncate"
+                  className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors truncate"
                 >
                   {cat.icon} {cat.name}
                 </Link>
@@ -62,17 +83,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Popular Tools */}
           <div className="col-span-1">
-            <h3 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wide">
-              Popular Tools
+            <h3 className="text-[13px] font-[800] mb-4 uppercase tracking-wider text-[color:var(--color-ink)]">
+              Popular
             </h3>
             <div className="flex flex-col gap-1.5">
               {POPULAR_TOOLS.map((tool) => (
                 <Link
                   key={tool.slug}
                   href={`/${tool.slug}`}
-                  className="text-[13px] text-text-secondary hover:text-accent transition-colors"
+                  className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors"
                 >
                   {tool.name}
                 </Link>
@@ -80,66 +100,44 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Resources */}
           <div className="col-span-1">
-            <h3 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wide">
+            <h3 className="text-[13px] font-[800] mb-4 uppercase tracking-wider text-[color:var(--color-ink)]">
               Resources
             </h3>
             <div className="flex flex-col gap-1.5">
-              <Link href="/blog" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Blog
-              </Link>
-              <Link href="/pricing" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Pricing
-              </Link>
-              <Link href="/categories/finance" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Finance Tools
-              </Link>
-              <Link href="/categories/cooking" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Cooking Tools
-              </Link>
-              <Link href="/categories/developer" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Developer Tools
-              </Link>
-              <Link href="/categories/health" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Health Tools
-              </Link>
+              <Link href="/blog" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Blog</Link>
+              <Link href="/pricing" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Pricing</Link>
+              <Link href="/categories/finance" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Finance</Link>
+              <Link href="/categories/cooking" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Cooking</Link>
+              <Link href="/categories/developer" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Developer</Link>
+              <Link href="/categories/health" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Health</Link>
             </div>
           </div>
 
-          {/* Company */}
           <div className="col-span-1">
-            <h3 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wide">
+            <h3 className="text-[13px] font-[800] mb-4 uppercase tracking-wider text-[color:var(--color-ink)]">
               Company
             </h3>
             <div className="flex flex-col gap-1.5">
-              <Link href="/about" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Contact
-              </Link>
-              <Link href="/privacy" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-[13px] text-text-secondary hover:text-accent transition-colors">
-                Terms of Service
-              </Link>
+              <Link href="/about" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">About</Link>
+              <Link href="/contact" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Contact</Link>
+              <Link href="/privacy" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Privacy</Link>
+              <Link href="/terms" className="text-[13px] font-medium text-[color:var(--color-muted)] hover:text-[color:var(--color-accent)] transition-colors">Terms</Link>
             </div>
-            <p className="text-[11px] text-text-muted mt-4 leading-relaxed">
-              Built in the UK.
-              <br />
+            <p className="text-[11px] text-[color:var(--color-muted)] mt-4 leading-relaxed font-medium">
+              Built in the UK.<br />
               Free to use, no sign-up required.
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="text-2xl font-black font-heading tracking-tighter text-accent hover:opacity-80 transition-opacity">
-            MyKit.tools
+        <div className="pt-6 border-t border-[color:var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-2.5 press-scale">
+            <LogoChip size={28} />
+            <span className="font-bold text-[15px] text-[color:var(--color-ink)]">mykit.tools</span>
           </Link>
-          <p className="text-xs text-text-muted">
+          <p className="text-xs font-medium text-[color:var(--color-muted)]">
             &copy; {year} MyKit.tools. All rights reserved.
           </p>
         </div>

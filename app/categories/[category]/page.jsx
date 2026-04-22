@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { categories, getCategoryBySlug } from "@/lib/categories";
 import {
   getToolsByCategory,
@@ -9,6 +8,7 @@ import {
 } from "@/lib/tool-registry";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CategoryHero from "@/components/design/CategoryHero";
 import CategoryBrowser from "@/components/tools/CategoryBrowser";
 import FinanceCategoryBrowser from "@/components/tools/FinanceCategoryBrowser";
 
@@ -36,30 +36,40 @@ export default async function CategoryPage({ params }) {
   const allTools = getToolsByCategory(category);
   const featured = getFeaturedTools(category, 6);
   const filterTags = getCategoryFilterTags(category);
-
   const counts = getCategoryCounts();
 
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-8">
-        {allTools.length > 0 ? (
-          category === "finance" ? (
-            <FinanceCategoryBrowser allTools={allTools} cat={cat} />
+      <main className="max-w-[1280px] mx-auto px-5 sm:px-10 pt-2 pb-10">
+        <CategoryHero cat={cat} count={counts[cat.slug] || 0} />
+
+        <div className="mt-8">
+          {allTools.length > 0 ? (
+            category === "finance" ? (
+              <FinanceCategoryBrowser allTools={allTools} cat={cat} />
+            ) : (
+              <CategoryBrowser
+                allTools={allTools}
+                featuredTools={featured}
+                filterTags={filterTags}
+                categoryName={cat.name}
+                cat={cat}
+              />
+            )
           ) : (
-            <CategoryBrowser
-              allTools={allTools}
-              featuredTools={featured}
-              filterTags={filterTags}
-              categoryName={cat.name}
-              cat={cat}
-            />
-          )
-        ) : (
-          <div className="bg-surface border border-border rounded-[var(--radius-card)] p-8 text-center text-text-muted">
-            <p>Tools coming soon for this category.</p>
-          </div>
-        )}
+            <div
+              className="border-ink text-center text-[color:var(--color-muted)] font-medium"
+              style={{
+                background: "var(--color-paper)",
+                borderRadius: 22,
+                padding: 32,
+              }}
+            >
+              <p>Tools coming soon for this category.</p>
+            </div>
+          )}
+        </div>
       </main>
       <Footer />
     </>
