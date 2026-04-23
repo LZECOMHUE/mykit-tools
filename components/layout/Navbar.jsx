@@ -35,7 +35,6 @@ function ClerkSignOutButton({ className, children, onClick }) {
 
 const NAV_LINKS = [
   { label: "Tools", href: "/", match: (p) => p === "/" },
-  { label: "Categories", href: "/categories/finance", match: (p) => p.startsWith("/categories") },
   { label: "Popular", href: "/#popular", match: () => false },
   { label: "Blog", href: "/blog", match: (p) => p.startsWith("/blog") },
 ];
@@ -67,7 +66,53 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-2">
-              {NAV_LINKS.map((link) => {
+              {/* Tools */}
+              {(() => {
+                const link = NAV_LINKS[0];
+                const active = link.match(pathname);
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-[14px] font-semibold transition-colors press-scale"
+                    style={{
+                      padding: "6px 12px",
+                      borderRadius: 999,
+                      background: active ? "var(--color-ink)" : "transparent",
+                      color: active ? "#fff" : "var(--color-ink)",
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })()}
+
+              {/* Categories — opens the MegaMenu */}
+              <button
+                className="text-[14px] font-semibold press-scale inline-flex items-center gap-1 transition-colors"
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 999,
+                  background: megaOpen || pathname.startsWith("/categories") ? "var(--color-ink)" : "transparent",
+                  color: megaOpen || pathname.startsWith("/categories") ? "#fff" : "var(--color-ink)",
+                }}
+                onClick={() => setMegaOpen(!megaOpen)}
+                aria-expanded={megaOpen}
+              >
+                Categories
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform ${megaOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Popular + Blog */}
+              {NAV_LINKS.slice(1).map((link) => {
                 const active = link.match(pathname);
                 return (
                   <Link
@@ -85,23 +130,6 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              {/* Explore-all categories trigger */}
-              <button
-                className="text-[14px] font-semibold text-[color:var(--color-ink)] press-scale inline-flex items-center gap-1"
-                style={{ padding: "6px 12px", borderRadius: 999 }}
-                onClick={() => setMegaOpen(!megaOpen)}
-              >
-                All 25
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform ${megaOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
             </nav>
           </div>
 

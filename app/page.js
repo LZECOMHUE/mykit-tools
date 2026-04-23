@@ -169,10 +169,10 @@ export default function HomePage() {
               Pick a category 👇
             </h2>
             <Link
-              href="/categories/finance"
+              href="/categories"
               className="text-sm font-bold text-[color:var(--color-accent)] press-scale"
             >
-              All 25 →
+              All {categories.length} →
             </Link>
           </div>
 
