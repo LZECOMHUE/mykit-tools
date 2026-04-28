@@ -43,6 +43,10 @@ install-and-run.bat
 /seo-data/
 *.zip
 
+# Session scratch (priority lists, slug groupings, build dumps)
+/tmp-seo/
+build-error.log
+
 # competitor analysis / inventory
 competitor-gap*.csv
 tool-inventory.csv
