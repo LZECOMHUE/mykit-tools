@@ -718,7 +718,138 @@ export const financeSEO = {
         "Rarely. Subsidies are usually capped at an 'hourly rate cap' set by the government (e.g. $13.73 an hour). If your prestigious daycare charges $16 an hour, the government only subsidizes a percentage of the $13.73 cap, leaving you to pay the gap completely out-of-pocket."
       )
     ]
-  }
+  },
+
+  "mortgage-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Your Monthly Mortgage Payment Is Calculated",
+        "The standard repayment formula is M = P × [r(1+r)^n] / [(1+r)^n - 1], where M is the monthly payment, P is the loan amount, r is the monthly interest rate (annual rate divided by 12) and n is the term in months. On a £200,000 loan at 4.5% over 25 years, that works out to £1,112 a month.",
+        "The maths is brutal in the early years. On that same £200,000 loan, your first monthly payment puts £750 toward interest and only £362 toward the actual loan balance. By year 15 the split flips and most of each payment is finally chipping away at the principal. Total interest paid across the 25 years comes to roughly £133,560. That is why overpaying even £100 a month early in the term can knock years off the mortgage and save tens of thousands."
+      ),
+      createAnswerFirstSection(
+        "Repayment vs Interest Only",
+        "Repayment mortgages reduce the loan each month, so you own the property outright at the end of the term. Interest only mortgages keep the loan balance flat and you owe the full original amount when the term ends.",
+        "Interest only is cheaper monthly. The same £200,000 loan at 4.5% costs £750 a month interest only, versus £1,112 a month on repayment. The catch is that you need a credible plan to clear the £200,000 at the end, usually selling the property, an investment portfolio or an inheritance. UK lenders have been strict about interest only since the 2014 Mortgage Market Review and most will not approve it for owner-occupiers without proof of a repayment vehicle. Most people buying a home should be on a repayment mortgage. Interest only is mainly used by buy-to-let landlords."
+      ),
+      createAnswerFirstSection(
+        "How Much Can I Actually Borrow?",
+        "UK lenders typically cap mortgage offers at 4.5 times your annual income, sometimes stretching to 5 or 5.5 times for higher earners and specialist schemes. On a household income of £60,000, that is a maximum loan of £270,000 to £330,000.",
+        "The income multiple is only the start. Lenders run your full outgoings (childcare, car finance, credit card minimums, student loan repayments) and then stress-test your payments at a higher rate to make sure you could still cope if rates rose. A £20,000 deposit on a £250,000 house leaves a 92% loan-to-value mortgage, which costs noticeably more than an 80% LTV mortgage because the lender sees more risk. Once you know what you can borrow, use the [stamp duty calculator](/stamp-duty-calculator) to add the upfront tax bill to your budget, and the [savings burndown](/savings-burndown) tool to plan how long your deposit savings will last."
+      ),
+      createAnswerFirstSection(
+        "Why a 0.5% Rate Change Matters So Much",
+        "A small change in the headline rate has a disproportionate effect on the total cost. Going from 4.5% to 5.0% on a £200,000, 25-year mortgage adds £61 to the monthly payment but adds £18,300 to the total interest paid over the life of the loan.",
+        "This is why fixed rate deals matter. Most UK borrowers fix for 2 or 5 years; when the deal ends, you re-mortgage onto a new rate or roll onto the lender's standard variable rate, which is currently 6 to 8%. The risk is that if rates have risen by the time you re-mortgage, your monthly payment jumps. The 2022 to 2023 rate cycle caught a lot of borrowers off guard: a 1.5% fix from 2020 that ended in 2023 often saw payments roughly double. The sensible move is to stress-test your own budget at 2 percentage points above your current rate before you commit."
+      ),
+      {
+        heading: "Worked Examples at 4.5%",
+        table: {
+          headers: ["Loan", "Term", "Monthly Payment", "Total Interest"],
+          rows: [
+            ["£150,000", "25 years", "£833", "£100,200"],
+            ["£200,000", "25 years", "£1,112", "£133,560"],
+            ["£250,000", "25 years", "£1,389", "£166,950"],
+            ["£300,000", "25 years", "£1,667", "£200,340"],
+            ["£200,000 at 5.5%", "25 years", "£1,228", "£168,360"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is a typical UK mortgage rate in 2026?",
+        "As of April 2026, typical 5-year fixed rates for borrowers with a 25% deposit sit around 4.0% to 4.5%. Smaller deposits push the rate up: a 90% LTV mortgage might be 4.8% to 5.2%. The rate you actually get depends on your credit profile, deposit size, the property type and the specific lender's appetite that week, so always confirm with a comparison site or broker before relying on a headline figure."
+      ),
+      createFAQ(
+        "How much deposit do I need to buy a house?",
+        "Most UK lenders accept a 5% deposit, but you get materially better rates with 10% or more, and the best rates start at 25%. A 5% deposit on a £250,000 house is £12,500, on top of which you need stamp duty, legal fees and a buffer for moving costs. First-time buyer schemes like the 95% mortgage guarantee exist if you cannot stretch further, but the underlying interest rates are usually higher."
+      ),
+      createFAQ(
+        "Can I overpay my mortgage and how much will it save?",
+        "Most fixed-rate UK mortgages let you overpay 10% of the outstanding balance each year without an early repayment charge. On a £200,000 mortgage that is up to £20,000 a year. Overpaying early in the term has the biggest impact because most of your monthly payment is interest at that point. An extra £100 a month on a £200,000, 25-year, 4.5% mortgage knocks roughly 4 years off the term and saves about £24,000 in interest."
+      ),
+      createFAQ(
+        "What is loan-to-value and why does the band matter?",
+        "LTV is the loan as a percentage of the property value. A £180,000 loan on a £200,000 house is 90% LTV. Lenders price mortgages in bands (typically 60%, 75%, 80%, 85%, 90%, 95%) and each step down to a lower band unlocks meaningfully better rates. Saving an extra £4,000 to drop from 91% LTV to 89% LTV might shave 0.3% off your rate, which on a £200,000 loan saves around £600 a year."
+      ),
+      createFAQ(
+        "Should I take a 25-year or 35-year mortgage term?",
+        "A longer term means lower monthly payments but much more interest paid overall. £200,000 at 4.5% costs £1,112 a month over 25 years (£133,560 interest) versus £946 a month over 35 years (£197,320 interest). Many lenders now offer 35 and even 40-year terms, and first-time buyers often pick longer terms to make affordability work. The smart play is to overpay or re-mortgage onto a shorter term as your income grows, so you do not pay the full long-term interest cost."
+      ),
+    ],
+    relatedTools: [
+      { slug: "stamp-duty-calculator", label: "Stamp Duty Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "savings-burndown", label: "Savings Burndown" },
+    ],
+  },
+
+  "debt-payoff-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Avalanche vs Snowball: Which Strategy Wins?",
+        "The avalanche method (clear the highest-interest debt first) saves you the most money in pure mathematical terms. On £15,000 of mixed debt at typical rates (a credit card at 24.9% APR, a personal loan at 9.9%, a car finance balance at 6.5%), avalanche saves around £1,200 in interest versus snowball over the payoff period. Snowball (clear the smallest balance first) is slower mathematically, but it gives you a quick win in the first 6 to 12 months, which dramatically improves the chances of actually finishing the plan.",
+        "Choose avalanche if you are emotionally steady, comfortable with a long timeline before the first debt clears, and motivated by saving money. Choose snowball if you have ever quit a budget, started and stopped a payoff plan, or know you need momentum to stay engaged. The best strategy is the one you will actually finish, and behavioural finance research has consistently shown snowball completion rates are higher in real-world studies despite the worse maths. The calculator runs both side by side, so you can see exactly how much extra interest snowball will cost in your specific case before you decide."
+      ),
+      createAnswerFirstSection(
+        "How the Calculation Works (Standard Amortisation, Nothing Fancy)",
+        "Each debt is treated as a separate amortising balance with monthly compound interest. Your monthly budget is split into minimum payments on every debt plus an 'attack' payment on whichever debt the chosen strategy targets first. Once that debt clears, the freed-up minimum payment plus the attack amount roll forward onto the next target. This is the snowball or avalanche 'roll-up' effect, and it is what gives both strategies their power.",
+        "On £20,000 of debt at an average 18% APR with a £500 monthly budget, you are looking at roughly 5 years 2 months to clear with avalanche, paying around £10,400 in total interest. The same setup with snowball clears in around 5 years 4 months at £11,100 interest. Less than two months of difference, around £700 in extra interest. For some debt mixes the gap is much smaller (a few pounds), for others much larger (a couple of thousand). The year-by-year timeline in the tool shows your remaining balance and total interest accrued at the end of each year."
+      ),
+      {
+        heading: "Common Debt Types and Typical 2026 Rates",
+        table: {
+          headers: ["Debt Type", "Typical APR", "Why It Matters"],
+          rows: [
+            ["Credit card (standard)", "20% - 30%", "Almost always the avalanche target"],
+            ["Store card", "25% - 35%", "Higher than credit cards, attack first"],
+            ["Personal loan", "6% - 15%", "Fixed term and fixed rate, simpler to model"],
+            ["Car finance (HP)", "5% - 12%", "Watch for early settlement charges"],
+            ["Overdraft", "35% - 40%", "Brutally high; clear before any savings"],
+            ["Buy Now Pay Later", "0% if on time, 30%+ if missed", "Diary the deadline or it gets nasty"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Should You Even Be Aggressively Paying Down All of This?",
+        "Some debt should not be aggressively paid early. A 0% balance transfer card has zero interest until the promo period ends, so paying anything more than the minimum during that window is a bad use of cash. UK student loans (Plan 2 and Plan 5) are income-contingent and many graduates never repay in full; voluntary overpayments are usually wasted money. Help to Buy mortgages and shared-ownership loans often have low subsidised rates that should not be priority targets.",
+        "An emergency fund usually trumps debt payoff, even high-interest debt. If you have no cash buffer, the next car repair or boiler breakdown will go straight onto the credit card you just cleared, and you will be back where you started but more demoralised. Most personal finance experts recommend at least one month of essentials in cash before any aggressive debt attack, then 3 to 6 months once the worst debt is gone. The [savings burndown](/savings-burndown) tool helps work out how long an emergency pot would last, and the [compound interest calculator](/compound-interest-calculator) shows how that pot grows once your debt is cleared and you redirect those payments into investing."
+      ),
+      createAnswerFirstSection(
+        "When Debt Consolidation Makes the Calculator Lie",
+        "If you can consolidate £20,000 of mixed debt at 18% APR onto a personal loan at 8% APR, you save thousands and the payoff timeline looks dramatically better. The maths is real, but two warnings: consolidation only works if you do not run the cleared cards back up (which most people do within 18 months according to lender data), and the headline rate quoted in advertising is the representative APR offered to 51% of accepted applicants, not necessarily the rate you will get. Soft-search the rate first before applying, because hard searches affect your credit file.",
+        "Balance-transfer cards are the other consolidation route. A 0% balance transfer for 24 months at a 3% transfer fee on £5,000 of credit card debt means £150 in fees but no interest for two years, saving roughly £2,200 versus paying it on a standard credit card. The catch: the calculator will show this as huge savings only if you include the fee as upfront cost, and only if you actually clear the balance in the promo window. Roll into a second balance transfer when the first ends if you cannot, but each transfer adds another fee and requires an active credit check. The [mortgage calculator](/mortgage-calculator) is the right comparison if you are considering a debt consolidation loan secured against your home (do not, for almost any normal level of consumer debt, but the tool exists to model the cost if you were to)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long will it take me to clear my debts?",
+        "It depends on your total balance, the average interest rate and your monthly budget after minimum payments. As a rough guide: £10,000 of mixed debt at 18% APR with £300 a month going in clears in around 4 years 4 months. £20,000 at the same rate with £500 a month takes around 5 years 2 months. The calculator gives you the exact figure for your specific debts, including the year-by-year remaining balance, so you can see how long the long bit feels rather than just the headline."
+      ),
+      createFAQ(
+        "What's the minimum payment trap?",
+        "Credit card minimum payments in the UK are typically 1% of the balance plus the month's interest, or £5, whichever is higher. On a £5,000 balance at 24.9% APR, that is around £105 a month, of which roughly £100 is interest. Paying only the minimum, you would clear the balance in roughly 25 years and pay around £8,500 in interest on top of the original £5,000. Adding even £50 a month above the minimum cuts the payoff time to under 7 years and saves roughly £4,500."
+      ),
+      createFAQ(
+        "Should I pay off the smallest debt or the highest-rate debt first?",
+        "Mathematically, highest rate first (avalanche) saves more. Behaviourally, smallest first (snowball) is more motivating because you see a debt fully clear in months rather than years. If the gap in interest cost is small (the calculator will tell you exactly how small), pick whichever method you will actually stick with. If the gap is large (one debt is a 30% APR store card and the rest are sub-10%), avalanche is almost always the right call regardless of personality."
+      ),
+      createFAQ(
+        "What if I can only afford the minimums right now?",
+        "Make the minimums on time, every time, while you work to free up extra money. Missing minimum payments triggers default fees (usually £12 per missed payment in the UK), can push your interest rate to a higher penalty rate, and damages your credit file for up to 6 years. If the minimums are unaffordable, contact StepChange or Citizens Advice before missing payments; both offer free debt advice and can help you negotiate with creditors. A Debt Management Plan (DMP) freezes interest on most debts and stretches payments over 5 to 10 years; an Individual Voluntary Arrangement (IVA) is more formal but writes off remaining debt after the agreed term."
+      ),
+      createFAQ(
+        "Does paying off debt early hurt my credit score?",
+        "Almost never in any meaningful way. Closing a long-held credit account can very slightly reduce your average account age, which is a minor factor in credit scoring. Reducing your credit utilisation (the percentage of available credit you are using) significantly improves your score. The net effect of paying off debt is overwhelmingly positive for credit health, and the only situation where it hurts is if you close your only credit account and stop using credit entirely, which makes it harder to demonstrate ongoing borrowing behaviour to future lenders."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "savings-burndown", label: "Savings Burndown" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
 };
 
 

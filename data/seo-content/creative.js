@@ -1564,4 +1564,249 @@ export const creativeSEO = {
       { slug: "image-compressor", label: "Image Compressor" },
     ],
   },
+
+  "3d-print-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Calculator Includes (and Why Most Free Calculators Get It Wrong)",
+        "Most online 3D print cost calculators only count the filament. This one adds the four hidden costs that actually determine whether you make money on a print: electricity, printer depreciation, failure overhead, and labour. The total cost formula is: (filament + electricity + depreciation) × (1 + failure rate %) + labour cost.",
+        "Worked example. A 50g PLA print at £18 per kg uses £0.90 of filament. On a 350-watt printer running for 2 hours at £0.28 per kWh, electricity is £0.20. A £350 printer with a 5,000-hour lifespan adds £0.14 of depreciation per print. Subtotal: £1.24. With a 10% failure rate that becomes £1.36. Add 20 minutes of post-processing at £12 per hour (£4.00) and the true cost is £5.36. The filament alone was just 17% of that. This is why charging customers \"twice the filament cost\" leaves you working for free."
+      ),
+      createAnswerFirstSection(
+        "Setting a Realistic Failure Rate",
+        "If you are honest, your failure rate is probably 10 to 15%, not the 5% most makers claim. That includes prints that come out usable but with visible defects you would not sell, prints that fail mid-way and waste filament, and prints you have to throw away because of warping, layer separation, or stringing.",
+        "FDM printers with a year of tinkering and a known-good profile can hit 5%. Resin printers fresh out of the box are closer to 20% until you dial in exposure times for each new resin. Bigger and longer prints fail more often than small quick ones (a 36-hour print has 36 hours of opportunities to go wrong). Bumping the failure rate slider from 5% to 15% on a £20 print adds £2 to the cost; that £2 covers the eventual print you bin. Underestimating failure rate is the single most common reason makers run their Etsy shop at a loss without realising."
+      ),
+      createAnswerFirstSection(
+        "Depreciation: The Hidden Cost That Builds Up Fast",
+        "Depreciation is the printer's purchase price spread across its expected lifespan in print hours. A £600 Bambu P1S with a realistic 5,000-hour lifespan costs you £0.12 per print hour. On an 8-hour print that is just £0.96, but at 50 prints a month that is £48 a month going toward eventual replacement.",
+        "Pick a lifespan honestly. A budget Ender 3 might give you 3,000 to 4,000 hours before major repairs become uneconomical. A premium machine like the Prusa MK4 or Bambu X1C will last 8,000 to 10,000+ hours of regular use. Halfway through the lifespan you will probably replace the hot-end (£30 to £50), nozzles (£5 each), build plate (£20 to £50) and eventually the mainboard. Add roughly 30% to the printer purchase price to estimate true total cost of ownership; the calculator does this implicitly when you set lifespan accurately."
+      ),
+      createAnswerFirstSection(
+        "Pricing for Etsy, Local Sales and Custom Commissions",
+        "If you are selling prints, the cost figure is the floor, not the price. Most successful Etsy 3D print shops use a markup of 200 to 400% on the calculator's total cost figure, then test against what comparable items actually sell for on the platform. The calculator's markup field defaults to 40% which suits commission work; for retail you usually need much more.",
+        "A £5.36 cost item with 40% markup sells for £7.50, which leaves £2.14 profit per print before Etsy's 6.5% transaction fee, the £0.20 listing fee, payment processing, and shipping costs. After all of that you might keep £1.20. To make Etsy worth your time you generally need either much higher per-item profit (charge £15 to £20 for that £5.36 item) or volume that lets you batch prints. Use the [filament comparison](/filament-comparison) tool to find cheaper material alternatives and the [filament usage calculator](/filament-calculator) to plan whether your current spool is enough for a job."
+      ),
+      {
+        heading: "Cost Breakdown for Common Print Scenarios",
+        table: {
+          headers: ["Print", "Filament", "Time", "True Cost", "Etsy Price (200% markup)"],
+          rows: [
+            ["Keychain (PLA)", "5g", "15 min", "£0.95", "£2.85"],
+            ["Phone stand (PLA)", "30g", "2 hr", "£3.20", "£9.60"],
+            ["Vase (PETG)", "120g", "8 hr", "£8.40", "£25.20"],
+            ["Cosplay helmet (PLA, multi-part)", "400g", "36 hr", "£32.80", "£98.40"],
+            ["Resin miniature batch (8 figures)", "60ml", "5 hr", "£6.50", "£19.50"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I work out how much filament my print uses?",
+        "Your slicer gives the exact figure. In Cura, look at the bottom-right of the preview screen for grams and metres of filament. In PrusaSlicer, the info panel shows total filament in g and the cost (if you set the price per kg). Bambu Studio and OrcaSlicer both display estimated material in the slice summary. Always slice with the same settings you will print at, since infill, walls and supports change the figure significantly."
+      ),
+      createFAQ(
+        "What is the cheapest filament that actually works well?",
+        "Generic PLA from a reputable brand sits around £15 to £20 per kg in 2026 and prints reliably on almost any machine. Sunlu, Eryone and Polymaker are common budget choices that match Prusament quality at half the price. Avoid no-brand £10 spools; they are cheap because of inconsistent diameter, brittle filament and contaminated resin, all of which push your failure rate up far more than the savings justify."
+      ),
+      createFAQ(
+        "Should I include my time in the cost?",
+        "If you are printing for hobby use, no. If you are selling, absolutely yes. Post-processing (removing supports, sanding, painting, glueing, packaging) is usually 15 to 45 minutes per print and adds up fast. If you do not include labour, you are subsidising your customers from your own free time. The calculator defaults to £12 per hour (UK minimum-ish) but you should set a rate you would actually accept for skilled work, typically £15 to £25."
+      ),
+      createFAQ(
+        "Is FDM or resin cheaper to run?",
+        "FDM is cheaper per gram of material (£18 per kg PLA versus £30 to £60 per litre of resin) and uses less electricity. Resin is cheaper per minute of print time for small detailed parts because resin printers cure a whole layer at once regardless of how much area is on it. For miniatures, jewellery, and small detailed parts, resin wins. For brackets, enclosures, large parts and prototyping, FDM wins."
+      ),
+      createFAQ(
+        "How much should I charge for a custom commission?",
+        "Take the calculator's true cost figure, multiply by 2.5 to 3.5 for commission work (more if the design is custom and not just printing a customer file), then add any design time at £25 to £50 per hour. A simple commission of an existing model with 1 hour of design work typically lands at £25 to £60. If you are getting low-balled, walk away; race-to-the-bottom commission work eats your printer hours and produces nothing for your portfolio."
+      ),
+    ],
+    relatedTools: [
+      { slug: "filament-calculator", label: "Filament Usage Calculator" },
+      { slug: "filament-comparison", label: "Filament Comparison" },
+      { slug: "3d-print-pricing-guide", label: "3D Print Pricing Guide" },
+    ],
+  },
+
+  "candle-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Does It Actually Cost to Make a Candle?",
+        "A standard 200ml soy candle works out to roughly £2.80 to £3.40 in materials and 20 minutes of labour, putting your true cost around £4.80. The big variables are wax type and fragrance load. Soy at £8 per kg is the cheap workhorse; beeswax at £15 per kg roughly doubles the wax line.",
+        "The calculator assumes 0.9 grams of wax per ml of container space, which accounts for the air gap at the top and the volume the wick takes up. A 200ml jar therefore needs about 180g of wax, costing £1.44 in soy or £2.70 in beeswax. Fragrance is the second biggest cost: an 8% load on that same 200ml jar uses 16g of fragrance oil, which at the typical UK trade price of £4.50 per 100ml costs £0.72. Once you add a £0.50 wick, £1.20 container, £0.30 label and 20 minutes of labour at £12 per hour, you land at around £4.80 of true cost before any markup."
+      ),
+      createAnswerFirstSection(
+        "How Much to Charge: Markup, Margin and the Etsy Reality",
+        "A 60% markup on a £4.80 cost candle gives a £7.68 selling price and a 37.5% gross margin. That sounds healthy until Etsy takes its cut. After the 6.5% transaction fee, £0.20 listing fee, payment processing and postage, you typically keep around £4.50 net on a £7.68 sale - basically your costs back, with no real labour pay.",
+        "This is why candle sellers who actually make money price at 2.5x to 4x their materials cost, not 1.5x. A £4.80 cost candle usually needs to retail at £14 to £18 to leave room for marketplace fees, returns, broken jars in transit and the dozens of little expenses that never make it into a calculator (printer ink, packing tape, the box you bought for shipping). The [Etsy fee calculator](/etsy-fee-calculator) shows exactly what each platform takes, and the [side hustle hourly rate](/side-hustle-hourly-rate) tool tells you whether your batch is paying you a real wage once everything is accounted for."
+      ),
+      {
+        heading: "Realistic Cost Per Candle by Wax Type and Size",
+        table: {
+          headers: ["Container", "Wax Type", "Wax Cost", "Fragrance (8%)", "Total Materials", "Suggested Retail"],
+          rows: [
+            ["100ml", "Soy", "£0.72", "£0.36", "£2.58", "£8 to £10"],
+            ["200ml", "Soy", "£1.44", "£0.72", "£3.66", "£14 to £18"],
+            ["200ml", "Coconut", "£2.16", "£0.72", "£4.38", "£18 to £22"],
+            ["200ml", "Beeswax", "£2.70", "£0.72", "£4.92", "£22 to £28"],
+            ["300ml", "Soy", "£2.16", "£1.08", "£5.04", "£20 to £26"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Batch Pricing and the Hidden Efficiency Gain",
+        "When you make a batch of 10 candles instead of one, the labour per candle drops because melting wax, weighing fragrance and washing pouring jugs is roughly the same effort whether you make 1 or 12. The calculator builds in a 15% labour efficiency gain on batches, which usually understates reality once you have a real production setup with multiple pouring stations.",
+        "A batch of 12 candles using the £4.80 unit cost above lands at roughly £53 in total cost (versus £57.60 if you priced each individually), revenue of £92.16 at the £7.68 retail, and £39 batch profit before fees. Realistic profit after Etsy fees and postage on 12 sales is closer to £18 to £22. That is two and a half hours of work for £20: better than nothing but it explains why successful candle businesses lean hard on direct sales (markets, Instagram, repeat customers) where the platform fee is zero."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much fragrance oil should I add to soy wax?",
+        "Soy wax safely holds 8 to 12% fragrance load by weight. For a 200ml container with about 180g of wax, that is 14g to 22g of fragrance oil. Beeswax is much lower at 4 to 6% maximum because the natural honey scent competes and the structure cannot bind more oil. Paraffin sits in the middle at 6 to 10%. Going above the safe maximum causes oil to weep out of the wax surface and creates fire risk."
+      ),
+      createFAQ(
+        "Is soy or beeswax cheaper for a small candle business?",
+        "Soy is roughly half the cost of beeswax (£8 versus £15 per kg in 2026 UK prices) and pours more easily, which is why most starter candle makers begin with soy. Beeswax has a higher perceived value, so you can charge £6 to £10 more per candle, but the upfront cost per batch is significantly higher and the natural scent limits which fragrances actually work."
+      ),
+      createFAQ(
+        "What hourly rate should I pay myself when pricing candles?",
+        "If you do not pay yourself anything, you are subsidising your customers. £12 per hour is the bare minimum that keeps you above the UK National Living Wage. £15 to £20 per hour is more realistic for skilled craft work; £25 to £30 if you are doing custom commissions or wedding favours where the design work itself takes time. The [wax melt calculator](/wax-melt-calculator) and [fragrance load calculator](/fragrance-load-calculator) use the same labour assumptions if you are pricing other products."
+      ),
+      createFAQ(
+        "Why does my candle cost calculator say I am losing money?",
+        "Usually one of three reasons. Either your fragrance oil is much more expensive than the £4.50 per 100ml default (premium oils run £8 to £15 per 100ml and crush margins), your container cost is high because you are buying in small quantities (£3 jars at retail versus £1.20 at wholesale), or your hourly rate is too high for the price point you are aiming at. Drop the wholesale containers to get unit cost down, or push retail price up to keep your hourly rate intact."
+      ),
+      createFAQ(
+        "Do I need insurance and CLP labels to sell candles in the UK?",
+        "Yes to both, and neither is in the calculator because they are fixed business costs rather than per-candle costs. Public liability insurance for a small candle maker runs £80 to £150 per year. CLP-compliant labels (which list the fragrance allergens and hazard warnings) need a chemist-issued safety data sheet for each fragrance, which costs £10 to £20 per fragrance. Spread across a year of sales these add maybe £0.10 to £0.30 per candle."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wax-melt-calculator", label: "Wax Melt Calculator" },
+      { slug: "fragrance-load-calculator", label: "Fragrance Load Calculator" },
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+    ],
+  },
+
+  "3d-print-pricing-guide": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Set a Selling Price for 3D Prints",
+        "Take your true cost from a print cost calculator (material, electricity, depreciation, failure overhead, labour) and multiply by 1.5x to 4x depending on the category. A typical phone case costing £2.50 to make sells for £8 to £15. A miniature costing £0.80 sells for £3 to £8. The variance is huge because customer expectations vary wildly between categories.",
+        "The pricing guide bakes in a default 50% markup, a 12.5% Etsy platform fee and £3.50 postage. On a £5 cost item this produces a £7.50 selling price, but after fees and postage you keep just £3.06 - meaning you have made £0.06 profit on top of cost. To actually take home meaningful money you usually need 100 to 200% markup, especially on lower-priced items where the £0.20 Etsy listing fee and 6.5% transaction fee eat a fixed slice of every sale. Use the [3D print cost calculator](/3d-print-cost-calculator) first to get accurate inputs."
+      ),
+      createAnswerFirstSection(
+        "Market Price Ranges by Category",
+        "Miniatures and figurines sit at £3 to £15. Phone cases £8 to £20. Replacement parts £5 to £25. Cosplay props £20 to £100. Planters £10 to £40. These ranges are what comparable items actually sell for on Etsy and eBay in 2026, not what they should sell for. The price marker on the calculator shows where your number lands relative to each market.",
+        "Below the range usually means you are underpricing. Buyers see suspiciously cheap and assume poor quality. Within the range means the price will not stop the sale, and your listing photos and reviews do the convincing. Above the range needs justification: premium materials (Nylon, TPU, metal-filled), exceptional finishing (multi-colour painting, acetone smoothing), or a recognisable brand. A first-time seller pricing 30% above market with no reviews will get zero sales."
+      ),
+      createAnswerFirstSection(
+        "Why Platform Fees Quietly Destroy Your Margin",
+        "Etsy charges 6.5% transaction fee plus £0.20 per listing plus 4% payment processing on UK sales. eBay charges around 12.8% all-in. That £7.50 print sale after Etsy fees nets you about £6.56, then £3.50 postage comes out, leaving £3.06. Subtract your £5 cost and you are 6 pence in profit. This is why prints below £10 often lose money even when the markup looks healthy on paper.",
+        "The fix is either pricing high enough that the fixed fees become a small percentage (a £30 sale with £0.20 listing fee is 0.7%, while a £6 sale is 3.3%), or shifting to channels with lower fees like local Facebook Marketplace, market stalls, or your own website. Many 3D print sellers run Etsy as a top-of-funnel discovery tool and direct repeat customers to direct order at lower prices. The [Etsy fee calculator](/etsy-fee-calculator) shows the full breakdown for any sale price."
+      ),
+      {
+        heading: "True Profit on Common Selling Prices",
+        table: {
+          headers: ["Sell Price", "Etsy Fees (12.5%)", "Postage", "Net to You", "Cost £3", "Cost £5", "Cost £8"],
+          rows: [
+            ["£8", "£1.00", "£3.50", "£3.50", "+£0.50", "Loss £1.50", "Loss £4.50"],
+            ["£12", "£1.50", "£3.50", "£7.00", "+£4.00", "+£2.00", "Loss £1.00"],
+            ["£18", "£2.25", "£3.50", "£12.25", "+£9.25", "+£7.25", "+£4.25"],
+            ["£25", "£3.13", "£3.50", "£18.37", "+£15.37", "+£13.37", "+£10.37"],
+            ["£40", "£5.00", "£3.50", "£31.50", "+£28.50", "+£26.50", "+£23.50"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How much should I charge for a 3D print on Etsy?",
+        "Take your cost from the 3D print cost calculator and multiply by 2.5 to 4 for retail. Then check the calculator's market range bars - if your figure lands inside the typical range for your category, you are competitive. Below the range and you are leaving money on the table. Above and you need premium photos, reviews and finishing to justify it. For a £3 cost item, £10 to £15 is the realistic Etsy sweet spot."
+      ),
+      createFAQ(
+        "What is a fair markup for 3D printing?",
+        "Markup depends on what you are pricing in. If your cost figure includes labour and machine time honestly, 50 to 100% markup leaves room for fees and postage. If your cost only counts material, you need 200 to 400% markup to actually pay yourself. Most successful sellers use 150 to 250% on top of an honest cost figure that includes everything: filament, electricity, machine depreciation, failure rate and post-processing time."
+      ),
+      createFAQ(
+        "Is selling 3D prints on Etsy actually worth it?",
+        "It can be, but the maths is tighter than people expect. After Etsy fees, postage and material, a £15 sale typically nets £8 to £10 of profit. To make the equivalent of a £15 per hour wage you need to sell roughly two prints per hour of work invested (including listing time, customer messages, packing). High-volume sellers with batch printing make it work; one-off custom commissions usually do not pay below £25 per item."
+      ),
+      createFAQ(
+        "Should I include postage in the price or charge separately?",
+        "Either works but the maths is the same. Etsy's algorithm slightly favours free postage listings (the platform calls them out in search results), which is why many sellers build the £3.50 to £5 postage into the price and offer free shipping. The trick is making sure the postage bake-in does not push your price above the market range bar in the pricing guide."
+      ),
+      createFAQ(
+        "What categories sell best for 3D prints?",
+        "In 2026 the consistent sellers are: phone grips and stands (£8 to £15, low cost to make), bag charms and keychains (£3 to £8, perfect impulse buys), replacement parts for IKEA furniture and appliances (£10 to £25, low competition), cosplay accessories (£15 to £80, high markup but slow turnover), and tabletop gaming miniatures (£3 to £12, repeat-customer driven). Avoid generic decor: planters and vases are saturated and price-pressured."
+      ),
+    ],
+    relatedTools: [
+      { slug: "3d-print-cost-calculator", label: "3D Print Cost Calculator" },
+      { slug: "filament-calculator", label: "Filament Usage Calculator" },
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+    ],
+  },
+
+  "pixel-dpi-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What DPI Should I Use? The Quick Answer",
+        "72 DPI for screen-only graphics, 96 DPI for Windows displays, 150 DPI for web images you want to look sharp on Retina screens, and 300 DPI for any image you plan to print. 600 DPI exists for line art and high-quality archival print but is overkill for most photographic work.",
+        "DPI (dots per inch) and PPI (pixels per inch) describe how densely pixels are packed into a physical inch when displayed or printed. A 1920x1080 image displayed at 96 DPI takes up 20 inches by 11.25 inches; the same image printed at 300 DPI is just 6.4 inches by 3.6 inches. The pixel count never changes - only the physical size does. This is why exporting a web graphic at 300 DPI does not make it sharper; it just metadata-tags it for print at a smaller physical size."
+      ),
+      createAnswerFirstSection(
+        "Pixel Dimensions for Common Print Sizes",
+        "A4 at 300 DPI needs 2480 x 3508 pixels. US Letter at 300 DPI needs 2550 x 3300 pixels. A 4x6 inch photo print needs 1200 x 1800 pixels. If your source image is smaller than these targets, the printer will upscale and the result will look soft. If the image is larger, the printer downsamples and quality is fine.",
+        "The maths is simple: pixels = inches × DPI. A 5x7 print at 300 DPI needs 1500 x 2100 pixels. A 16x20 poster at 300 DPI needs 4800 x 6000 pixels (28.8 megapixels - more than most phone cameras produce). For posters larger than A2 you can drop to 200 DPI without visible quality loss because the typical viewing distance is further away. Use the [aspect ratio calculator](/aspect-ratio-calculator) to plan crops before you size for print."
+      ),
+      {
+        heading: "Pixel Requirements by Print Size and Quality",
+        table: {
+          headers: ["Print Size", "150 DPI (web/draft)", "300 DPI (photo)", "600 DPI (archival)"],
+          rows: [
+            ["4x6 inch photo", "600 x 900", "1200 x 1800", "2400 x 3600"],
+            ["5x7 inch photo", "750 x 1050", "1500 x 2100", "3000 x 4200"],
+            ["8x10 inch photo", "1200 x 1500", "2400 x 3000", "4800 x 6000"],
+            ["A4 (8.27 x 11.69 in)", "1240 x 1754", "2480 x 3508", "4960 x 7016"],
+            ["A3 (11.69 x 16.54 in)", "1754 x 2481", "3508 x 4961", "7016 x 9922"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Common DPI Mistakes That Ruin Print Jobs",
+        "The classic error is pulling a 1080 x 1080 Instagram image and trying to print it at A4. At 300 DPI that image is just 3.6 inches square - smaller than a postcard. Stretched up to A4, every pixel becomes roughly 6 actual print dots and the result looks like a screenshot of a screenshot. The image needed to be at least 2480 x 2480 to print A4 cleanly.",
+        "The other common mistake is the opposite: shooting in 24 megapixels and emailing the full file when a 1500-pixel-wide version would have done. That 24MP raw is 50MB+ as JPEG and chokes the recipient's inbox. For email and web, 1500 to 2400 pixels on the longest edge at 72 to 96 DPI is plenty. Use the [image resizer](/image-resizer) and [image compressor](/image-compressor) to bring file sizes down before sending. The DPI tag on a screen-only image literally does nothing - it is metadata that print software uses, not browsers."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the difference between DPI and PPI?",
+        "Technically DPI (dots per inch) refers to printer dots and PPI (pixels per inch) refers to screen pixels, but in practice the terms are used interchangeably for image resolution. Photoshop labels the field as PPI; print shops and image software usually call it DPI. The number means the same thing: how many image pixels are crammed into one inch of physical output."
+      ),
+      createFAQ(
+        "Does changing DPI from 72 to 300 improve quality?",
+        "No. Changing the DPI metadata field alone does nothing to the actual pixels. It only changes how big the image will print. A 1920 x 1080 image at 72 DPI prints at 26.7 x 15 inches; the same file at 300 DPI prints at 6.4 x 3.6 inches. To genuinely improve quality you need either more pixels (re-shoot, re-render, or AI upscale) or to print smaller."
+      ),
+      createFAQ(
+        "How many pixels do I need for a sharp A4 print?",
+        "2480 x 3508 pixels is the standard for A4 at 300 DPI. If you only have 1240 x 1754 you can still print at 150 DPI and get a perfectly readable result for most uses (newsletters, posters viewed from a distance, draft proofs). Anything below 1000 pixels on the long edge of an A4 print will look visibly fuzzy when held at arm's length."
+      ),
+      createFAQ(
+        "Why does my Instagram photo look pixelated when printed?",
+        "Instagram serves images at 1080 x 1080 maximum. At 300 DPI that prints to 3.6 x 3.6 inches - smaller than a CD case. Anything larger requires upscaling, which is why the print looks soft. To print Instagram-style square photos properly, save the original from your camera roll (likely 3024 x 3024 or larger) before posting, since Instagram heavily compresses what you upload."
+      ),
+      createFAQ(
+        "What DPI do professional photographers use?",
+        "300 DPI is the print industry standard for photo books, magazines, gallery prints up to 16x20, and most fine art applications. Newspapers and budget print runs often drop to 150 to 200 DPI to save on file size and processing time. Large format (4ft+ posters, billboards) deliberately uses 100 to 150 DPI because the viewer is far away and higher resolution is wasted."
+      ),
+    ],
+    relatedTools: [
+      { slug: "image-resizer", label: "Image Resizer" },
+      { slug: "image-compressor", label: "Image Compressor" },
+      { slug: "aspect-ratio-calculator", label: "Aspect Ratio Calculator" },
+    ],
+  },
 };

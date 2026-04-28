@@ -111,6 +111,58 @@ export const businessSEO = {
         "For the tax year ending April 5th 2025, your online self-assessment tax return and any final tax balancing payment must be submitted to HMRC by midnight on January 31st, 2026."
       )
     ]
-  }
+  },
+
+  "hobby-cost-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "What Your Hobby Actually Costs You Per Year",
+        "The average UK road cyclist spends £1,800 a year once you add up the bike maintenance, kit replacement, race entries, gym membership and the spaghetti-bolognese-by-the-pan that fuels long Sundays. Photographers easily run £2,000 a year on lens upgrades, subscription software (Lightroom is £120 a year alone), travel to shoot locations and the occasional workshop. The point is not that hobbies are too expensive; it is that most people massively underestimate the running cost because they only remember the obvious purchases.",
+        "The tracker gives you 14 hobby presets covering Running, Cycling, Photography, Knitting, 3D Printing, Painting, Gardening, Baking, Fishing, Golf, Climbing, Gaming, Music and Woodworking, each with sensible default categories. Pick the closest match or use Custom if your hobby does not fit. Everything saves to your browser via localStorage, so you can keep adding entries over weeks and months without an account, and nothing leaves your device."
+      ),
+      createAnswerFirstSection(
+        "Categories That Catch the Hidden Costs",
+        "The eight default categories (Equipment, Materials, Subscriptions, Courses, Events, Travel, Clothing and Other) exist because hobby spending hides in places people forget to check. A Garmin watch is Equipment; the Strava Premium subscription that goes with it is Subscriptions; the parkrun travel each Saturday is Travel. Most people cheerfully log the Garmin then ignore the £71.99 Strava annual fee plus the £6 a week in petrol, and then wonder why running 'feels free but somehow always costs money'.",
+        "Subscriptions are the line item where almost every hobby hides ongoing cost. Cycling has Strava (£71.99), Komoot Premium (£59.99), TrainerRoad (£189.99). Photography has Adobe Creative Cloud (£238.32 a year on the photography plan). 3D printing has Fusion 360 personal use (free) but the filament-by-spool-subscription model is increasingly common. Music software runs on annual Sibelius or Logic licences. Tag every recurring charge as Subscriptions and the monthly average will tell you a story most hobbyists do not want to hear but should."
+      ),
+      createAnswerFirstSection(
+        "Monthly vs Yearly: Which View Tells the Truth?",
+        "The monthly view is good for spotting spikes; the yearly view is good for hiding them. A £900 spend in March (new bike, kit refresh) looks alarming month-on-month but reasonable annually. A £40 a month average looks innocuous but adds up to £480 a year and you might be carrying it across three hobbies. Use both views together: monthly to catch problem patterns, yearly to put numbers next to honest budget conversations.",
+        "Per-category breakdown is where most hobbyists get the genuine surprise. Almost everyone expects Equipment to be the biggest line, but for established hobbyists it is usually Materials (filament, paint, yarn, fishing bait, golf balls) or Events (race fees, competition entries, festivals). If your tracker shows Equipment dominating year after year, that is a sign you are still in the equipment-acquisition phase, which most hobbies eventually outgrow. For working out whether the hobby could pay for itself by clearing other debts, the [debt payoff calculator](/debt-payoff-calculator) compares the maths of redirecting hobby spend to credit cards, and the [savings burndown](/savings-burndown) tool shows how a savings pot disappears at any given monthly drawdown rate."
+      ),
+      createAnswerFirstSection(
+        "When Tracking Becomes Useful (and When It Just Becomes Sad)",
+        "Tracking helps when you are budgeting, justifying a purchase to a partner, deciding whether to take a hobby seriously enough to monetise, or working out if you can afford a new pursuit alongside an existing one. It stops helping the moment you start trimming purchases solely because the running total looks high. The point is awareness, not abstinence. A £1,800-a-year cycling habit is genuinely cheap if it replaces a £600-a-month gym membership and £400-a-month Friday-night taxis.",
+        "The most useful end-of-year exercise is comparing each hobby's annual cost against an honest answer to 'how many hours of joy did this give me?'. £1,800 for cycling at 200 hours of riding is £9 an hour, comparable to a cinema ticket. £1,800 for golf at 30 rounds is £60 a round, which is fine for some people and absurd for others. The 3D printing community uses a similar metric: cost per print, which the dedicated [3D print cost calculator](/3d-print-cost-calculator) handles in much more granular detail than this generic tracker."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is my data safe? Where is it saved?",
+        "Everything is saved in your browser's localStorage on your own device. Nothing is sent to any server, and there is no account. The trade-off is that if you clear your browser data, switch browser, switch device or use private/incognito mode, the entries will not be there. For long-term tracking that survives device changes, export your data periodically as a backup. A future Pro version will offer cloud sync, but the free local version is the right starting point for most people."
+      ),
+      createFAQ(
+        "Can I track multiple hobbies in one tracker?",
+        "Yes, you can swap between presets and the tracker keeps separate data per hobby. If you have three or more active hobbies it is usually clearer to use a separate browser bookmark or note for each, since the category breakdown only shows one hobby at a time. The yearly total at the top of each hobby is what you want to compare across hobbies, not the per-category breakdowns."
+      ),
+      createFAQ(
+        "Should I include items I bought before I started tracking?",
+        "Up to you. Adding existing equipment to the tracker as a one-off historic entry on the day you bought it gives a more complete picture of what the hobby has cost over its lifetime. Leaving them out keeps the running totals focused on going-forward spending, which is more useful for budgeting decisions. Most people start with going-forward only, then optionally backfill the big-ticket items (the bike, the camera body, the kiln) once they have a few months of habitual entries logged."
+      ),
+      createFAQ(
+        "What counts as a hobby vs a side hustle?",
+        "If you make money from it (selling prints, selling honey, selling 3D-printed bottle openers on Etsy) and the money is more than incidental, HMRC may treat it as a side business once turnover exceeds the £1,000 trading allowance. At that point you should stop tracking it as a hobby cost and move it into proper bookkeeping with income and expenses. The trading allowance is annual, not per project, so a hobby selling a few items occasionally is almost always under the threshold."
+      ),
+      createFAQ(
+        "Can I export the data for tax or insurance purposes?",
+        "The current free version stores data in localStorage and you would need to copy entries manually. If you are tracking equipment for insurance valuation, the simpler approach is to take photos of receipts and high-value items and store them with your insurer's app. If you are tracking expenses against side-hustle income for HMRC self-assessment, use proper accounting software rather than a hobby tracker, because HMRC will want a clean audit trail with date, amount, supplier and category."
+      ),
+    ],
+    relatedTools: [
+      { slug: "3d-print-cost-calculator", label: "3D Print Cost Calculator" },
+      { slug: "debt-payoff-calculator", label: "Debt Payoff Calculator" },
+      { slug: "savings-burndown", label: "Savings Burndown" },
+    ],
+  },
 };
 

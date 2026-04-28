@@ -48,5 +48,57 @@ export const fitnessSEO = {
       { slug: "cycling-pace-calculator", label: "Cycling Pace Calculator" },
       { slug: "bmi-calculator", label: "BMI Calculator" }
     ]
+  },
+
+  "macro-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How This Macro Calculator Works",
+        "The calculator first works out your Basal Metabolic Rate using the Mifflin-St Jeor equation, which is the most accurate BMR formula for the general population. It then multiplies your BMR by an activity factor (1.2 for sedentary up to 1.9 for extremely active) to get your Total Daily Energy Expenditure, then adjusts up or down based on your goal.",
+        "The maths in plain numbers: a 30-year-old male, 175cm, 75kg has a BMR of about 1,673 calories. At a moderately active job (factor 1.55) that is a TDEE of 2,593 calories. To lose weight at a 20% deficit, you eat 2,074. To lean bulk at a 10% surplus, you eat 2,852. Calories are then split into grams of protein, carbs and fat using your chosen diet ratio. Protein and carbs each have 4 calories per gram; fat has 9 calories per gram, which is why even small amounts of fat add up fast."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Macro Split for Your Goal",
+        "There is no single best split. The right macros depend on what you are training for and which foods you actually enjoy eating. The calculator offers nine pre-set diets covering keto (5% carbs, 70% fat), high protein (40% protein), Mediterranean (50% carbs, lots of olive oil), vegan (50% carbs, 25% protein), and others including a custom option.",
+        "Real world rules of thumb: if you are losing weight and lifting weights, you want at least 1.6g of protein per kg of body weight to keep muscle. If you are doing endurance work (long runs, cycling), you need carbs above 50% of total calories. If you are sedentary and trying to manage blood sugar, lower-carb splits like Low Carb or Mediterranean tend to work better. The biggest mistake is picking the most aggressive split (full keto, 1g/lb protein) when a moderate split would be far easier to actually stick to. The diet you can keep up for 6 months beats the diet you abandon in 3 weeks."
+      ),
+      createAnswerFirstSection(
+        "How Much Protein Do You Actually Need?",
+        "The legally required minimum (RDA) is 0.8g per kg of body weight, but research on muscle protein synthesis points to a higher target: 1.6 to 2.2g per kg if you are building or maintaining muscle, and 1.2 to 1.6g per kg for general fitness and health.",
+        "For a 75kg person, that is 120 to 165g of protein per day for muscle building, or 90 to 120g for general health. Spread across 3 to 5 meals so each meal hits 25 to 40g, which is the amount needed to maximise muscle protein synthesis per sitting. Practical examples: 150g chicken breast (45g protein), 200g Greek yoghurt (20g), three eggs (18g), one scoop of whey (25g). If you struggle to hit your target on whole foods alone, a daily protein shake covers the gap. Pair this calculator with the [calorie deficit calculator](/calorie-deficit-calculator) and the [TDEE calculator](/tdee-calculator) for a full picture of your nutrition plan."
+      ),
+      createAnswerFirstSection(
+        "When to Recalculate",
+        "Recalculate every time your weight changes by more than 5kg, or after about 3 months on the same plan. Your BMR drops as you lose weight (a smaller body needs fewer calories), so a calorie target that worked at 90kg will be too high once you reach 80kg.",
+        "The most common reason people stop losing weight is that their body has adapted to the new lower calorie level and they have not adjusted again. Re-run this calculator with your current weight and trim another 100 to 200 calories from the daily target if the scale has stalled for more than 3 weeks. Equally important: if you are bulking and the scale has been flat for 2 weeks, add 150 to 200 calories. Tracking accuracy slips over time too. If you have stopped weighing food, re-weigh your portions for a few days and you will often find what you thought was 100g is actually 130g."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the difference between BMR, TDEE and target calories?",
+        "BMR is the calories your body burns at rest, doing nothing. TDEE is BMR plus the calories you burn from movement and exercise (BMR multiplied by an activity factor). Target calories is TDEE adjusted for your goal: lower than TDEE for weight loss, equal for maintenance, higher for muscle gain. The calculator shows all three so you can see the breakdown."
+      ),
+      createFAQ(
+        "Should I eat the same macros every day or cycle them?",
+        "For most people, the same daily target is easier to stick to and works fine. Carb cycling (high carbs on training days, lower on rest days) can give a slight edge for advanced lifters or athletes, but it adds complexity that often is not worth it. Stick to consistent daily macros for 8 to 12 weeks before adding any cycling protocol, and only add it if you have already nailed the basics."
+      ),
+      createFAQ(
+        "How accurate are these macro calculations really?",
+        "The Mifflin-St Jeor equation is accurate to within about 10% for most people. Your real burn rate depends on factors no formula can capture: your genetics, gut microbiome, sleep quality, stress levels and even the temperature of your environment. Treat the calculator output as a starting point for the next 2 to 3 weeks. If the scale moves as expected, the numbers are right. If not, adjust by 100 to 200 calories and try again."
+      ),
+      createFAQ(
+        "Do I need to weigh and track every meal?",
+        "For the first 2 to 4 weeks, yes. You will be shocked at how off your eyeball estimates are (peanut butter, oils, cheese and nuts are usually 30 to 50% under-counted). After a month of tracking, most people can switch to estimating common meals and only weighing the trickier high-calorie foods. Long-term tracking everything is rarely sustainable, but periodic check-ins (a tracking week every 6 to 8 weeks) keep you honest."
+      ),
+      createFAQ(
+        "Is keto better than low carb for fat loss?",
+        "Both work, and the difference comes down to whether you can actually sustain it. Keto (5% carbs, around 30g per day) forces your body into ketosis, which suppresses appetite for many people. Low carb (20% carbs, around 100g per day) is much easier to maintain socially and includes more vegetables. Strict keto rarely beats moderate low carb in long-term trials because adherence falls off; pick the one you can stick with for 6 months."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "calorie-deficit-calculator", label: "Calorie Deficit Calculator" },
+      { slug: "protein-intake-calculator", label: "Protein Intake Calculator" },
+    ],
   }
 };

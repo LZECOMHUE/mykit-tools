@@ -21,6 +21,9 @@ import { funSEO } from "./fun.js";
 import { travelSEO } from "./travel.js";
 
 import { educationSEO } from "./education";
+import { parentingSEO } from "./parenting.js";
+import { bettingSEO } from "./betting.js";
+import { sportsSEO } from "./sports.js";
 
 const allSEOContent = {
   ...financeSEO,
@@ -42,6 +45,9 @@ const allSEOContent = {
   ...funSEO,
   ...travelSEO,
   ...educationSEO,
+  ...parentingSEO,
+  ...bettingSEO,
+  ...sportsSEO,
 };
 
 /**
