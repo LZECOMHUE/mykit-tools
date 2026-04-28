@@ -135,8 +135,10 @@ function RelatedTags({ currentTag, tools }) {
       }
     }
   }
+  // Only link to tags that have their own indexable page (3+ tools site-wide).
+  // Linking to thin tags would re-create the /tags/* 404 problem GSC flagged.
   const related = Object.entries(tagCounts)
-    .filter(([, count]) => count >= 2)
+    .filter(([tag]) => isValidTag(tag))
     .sort((a, b) => b[1] - a[1])
     .slice(0, 8);
 

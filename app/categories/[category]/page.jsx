@@ -25,6 +25,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${cat.name} Tools (${count})`,
     description: `${cat.description}. Browse ${count} free ${cat.name.toLowerCase()} tools, calculators and converters.`,
+    alternates: {
+      canonical: `https://mykit.tools/categories/${category}`,
+    },
   };
 }
 
