@@ -196,5 +196,145 @@ export const musicSEO = {
       { slug: "music-theory", label: "Music Theory Reference" },
       { slug: "key-finder", label: "Key Finder" },
     ],
-  }
+  },
+
+  "piano-chords": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Read the Piano Keyboard Diagrams",
+        "Each diagram shows two octaves of a piano keyboard, starting at middle C (C4). The notes you press for the chord are highlighted; everything else stays grey. Pick a root note from the 12 available (the chromatic scale runs C, C#, D, D# and so on round to B), then choose a chord type from the menu - Major, Minor, 7, Maj7, Min7, Sus2, Sus4, Add9, Dim, Aug, Min9, 9. The intervals shown above each diagram are the formula for that chord; a Major triad is 1-3-5, a Min7 is 1-b3-5-b7, an Aug is 1-3-#5.",
+        "The keyboard layout matters because piano chord shapes are physical patterns your hands learn by repetition. A C Major triad sits across three white keys (C-E-G); a D Major sits across two white keys plus a black key (D-F#-A); a B Major sits across three black keys plus a white key (B-D#-F#). Once you spot the recurring shapes, you can play any chord in any key without memorising every voicing individually."
+      ),
+      createAnswerFirstSection(
+        "Inversions and Why You'd Use Them",
+        "An inversion is the same chord with a different note on the bottom. Root position has the root at the bottom (C-E-G for C Major). First inversion moves the root to the top (E-G-C); second inversion moves the third on top of that (G-C-E). You hear all three as the same chord but they sit at different heights and pull the ear in different directions. The tool toggles between root, first, and second inversion so you can compare side by side and play whichever lies closest to the previous chord under your hand.",
+        "Practical use: when moving from C Major to F Major in root position, your hand jumps a fourth, which sounds clunky in fingerpicking patterns. Use first inversion of F (A-C-F) instead and your hand barely moves. Bach, Beatles songwriters, and modern pop arrangers all use inversions to keep voice leading smooth. The [chord library](/chord-library) shows guitar versions of the same idea."
+      ),
+      createAnswerFirstSection(
+        "The 12 Notes and Why They Repeat",
+        "Western music uses 12 notes per octave: C, C#, D, D#, E, F, F#, G, G#, A, A#, B. The pattern repeats above and below; the C an octave higher has exactly twice the frequency of the one below it. A standard 88-key piano covers 7 full octaves plus a few extra notes. The reference tool starts at C4 (middle C) and shows 24 keys, which is enough to lay out any single-octave chord and most stretched two-octave voicings.",
+        "The 5 black keys per octave aren't a separate scale; they're the sharps and flats. C# and Db are the same key (enharmonic equivalents); the spelling depends on which key you're in. In F# Major you write F#, in Gb Major you write Gb, but it's the same physical black key both times. The display defaults to sharps but the tool labels enharmonic notes correctly when you switch root."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why do some chords sound different to others with the same name?",
+        "Voicing changes the colour. A C Major played as C-E-G in middle range sounds bright and stable; the same chord voiced as G-C-E (second inversion) up an octave sounds airy and unresolved; spread C-G-E across two octaves sounds cinematic. Same notes, different feel. Try the inversion toggle on each chord to hear the shift."
+      ),
+      createFAQ(
+        "Can I use this for left-hand bass too?",
+        "The diagrams show the chord notes only, so you'd need to add a left-hand bass note manually - usually the root, sometimes the fifth for a fuller sound. Solo piano players often play the root with the left hand and the chord shape with the right; in a band setting the bassist covers the root and the pianist plays a higher voicing on top."
+      ),
+      createFAQ(
+        "What's the difference between a Sus2 and an Add9?",
+        "Sus2 replaces the third with the second, so Csus2 is C-D-G (no E). Add9 keeps the third and adds the second on top, so Cadd9 is C-E-G-D. Sus2 sounds open and floating because the third is missing; Add9 sounds rich and bright because both notes are there. They both appear in folk and indie pop and aren't interchangeable."
+      ),
+      createFAQ(
+        "How do I know which chord to play when reading a song?",
+        "Sheet music or chord charts will name the chord (Cmaj7, Em, F#m7, etc.). Match the name to the entry in the tool, then play the highlighted notes. Beginners can ignore the inversion choice and stick with root position; once you're comfortable, switch to whichever inversion keeps your hand closest to the previous chord."
+      ),
+      createFAQ(
+        "Why does my chord sound muddy in the lower register?",
+        "Low notes have closer overtone spacing, so chords played below middle C tend to sound thick and unclear. Move the chord up an octave or skip the lowest note and double a higher one. Most piano arrangements keep close-voiced chords above C4 and use single bass notes or wider intervals below."
+      ),
+    ],
+    relatedTools: [
+      { slug: "chord-library", label: "Chord Library" },
+      { slug: "music-theory", label: "Music Theory Reference" },
+      { slug: "key-finder", label: "Key Finder" },
+    ],
+  },
+
+  "tap-tempo": {
+    sections: [
+      createAnswerFirstSection(
+        "How Tap Tempo Calculates BPM",
+        "Tap the button along to a song's beat and the tool measures the milliseconds between taps. After two taps you have one interval; after three taps you have two intervals which it averages; after eight taps you have seven intervals averaged together. The BPM number updates after each tap and gets steadier the longer you tap because each new interval pulls the average closer to the actual tempo. Stop tapping for 3 seconds and the tool resets so you can start again on a new song.",
+        "The maths is simple: BPM = 60,000 / (average interval in milliseconds). Tap once a second and you'd see 60 BPM; tap twice a second and you'd see 120 BPM. The accuracy depends on how steadily you tap, which is why short bursts of 4-5 taps tend to drift while a held rhythm of 8 or more taps lands within 1-2 BPM of the true tempo."
+      ),
+      createAnswerFirstSection(
+        "When to Use a Tap Tempo (and When Not To)",
+        "DJs use it to find the BPM of an unlabelled track before mixing - if you can hum or click along, you can read the BPM in 4 seconds. Producers use it to set up a click track that matches a reference song before recording over it. Drummers use it as a portable metronome substitute when learning a song; tap along to the studio recording, get the BPM, then practice to that exact tempo with a regular metronome. Songwriters use it to log the tempo of a riff or vocal phrase before the idea slips away.",
+        "Where it falls short: songs with rubato (deliberately fluctuating tempo - lots of singer-songwriter ballads, classical music, jazz ballads) don't have a single BPM, so the tool will just average through the variation. Songs with sudden tempo changes need a re-tap at each new section. For checking if your own tempo is steady, a [metronome](/metronome) running alongside is a better feedback loop than tap tempo because it tells you whether you're rushing or dragging in real time."
+      ),
+      createAnswerFirstSection(
+        "Common BPM Ranges by Genre",
+        "Ballads usually sit between 60 and 80 BPM. Classic rock and pop run 110 to 130. Disco and house cluster around 118-128. Hip hop is broad: trap beats around 70 BPM (which feels like 140 if you count double-time), classic boom-bap around 90, dance-leaning hip hop around 100. Drum and bass and jungle live in the 160-180 zone. The fastest mainstream genres - speed metal, hardcore - push past 200. Songs you'd describe as 'medium tempo' almost always come in between 100 and 130."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many taps do I need for an accurate reading?",
+        "Two taps give you a rough estimate (you'll see a number, but it's based on a single interval that could be off by 10-20 BPM). Four taps tighten it considerably. Eight or more taps lands within 1-2 BPM of the true tempo for most steady-tempo music. The tool keeps a rolling average of your last 8 taps for this reason."
+      ),
+      createFAQ(
+        "Why is my BPM reading off by exactly half or double?",
+        "You're tapping on a different subdivision than the song's actual beat. If a song is 120 BPM but you're tapping on every other beat, you'll get 60 BPM. If you're tapping on every eighth note, you'll get 240. Decide whether you want the quarter-note pulse (the foot tap), the half-note pulse, or the eighth-note pulse before you start, and stick with one."
+      ),
+      createFAQ(
+        "Does this work on mobile?",
+        "Yes - the tap target is large enough for thumb taps on a phone screen and the timing precision is still well within the 1-2 BPM range that matters in practice. Tap with one finger and don't try to use two thumbs alternating, since the brain can't perfectly sync a left-right alternation to an external rhythm."
+      ),
+      createFAQ(
+        "What happens if I tap unevenly?",
+        "The averaging smooths out small inconsistencies, but big swings in your tap timing will still show up as a number that bounces around. If the BPM display jumps by more than 5 between taps, you're tapping unevenly. Reset and try again, focusing on a steady rhythm rather than trying to nail the exact moment of each beat."
+      ),
+      createFAQ(
+        "Can I use this for songs with tempo changes?",
+        "Tap during the section you care about, hit reset, then tap again during the next section. The tool can't detect tempo changes on its own; it just measures whatever interval you give it. For songs with constant gradual tempo drift (rare in pop, common in classical), the average across many taps gives you the song's overall mean tempo, which may or may not be what you want."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metronome", label: "Metronome" },
+      { slug: "transpose-tool", label: "Chord Transpose Tool" },
+      { slug: "guitar-tuner", label: "Guitar Tuner" },
+    ],
+  },
+
+  "transpose-tool": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Transpose a Chord Progression",
+        "Type or paste your chord progression (G Em C D, for example) and pick how many semitones to shift up or down. A semitone is the smallest step in Western music - one fret on a guitar, one key on a piano including the black notes. Shifting G up 2 semitones gives you A; shifting it up 7 gives you D. The tool moves every chord by the same amount, so the relationships between chords stay identical and the song still sounds like the song, just higher or lower.",
+        "Why bother? The most common reasons are vocal range (the original key sits too high or low for the singer), instrument-friendliness (G, C, D, Em are all easy open guitar shapes; F#, B, F are not, so transposing makes a song easier to play), and matching another instrument (a horn player asking for it in Bb, a recorder player who needs it in C). Choose your target key by picking a number of semitones, or just type a target key letter and the tool works out the semitone shift for you."
+      ),
+      createAnswerFirstSection(
+        "Capo Suggestions for Easier Shapes",
+        "On guitar, a capo clamps all the strings at a chosen fret, effectively raising the pitch of every chord shape you play. This means you can keep playing the easy open shapes (G, C, D, Em, Am) but have them sound higher. The tool calculates which capo position would let you play the simplest shape combinations to match your target key, and shows the original chords next to the capo'd shapes. If a song is in F (which has no clean open shapes), capo on fret 1 and play E shapes, or capo on fret 5 and play C shapes; both come out in F.",
+        "Capo trade-offs are worth knowing. Higher capo positions raise the chords' brightness but shorten the scale length, which can make fingerpicking feel cramped above fret 7. Some shapes work better at certain frets: capo 2 with G shapes is bright and rings well; capo 5 with C shapes is warmer and more parlour-style. The [chord library](/chord-library) shows all the open shapes referenced in the suggestions."
+      ),
+      createAnswerFirstSection(
+        "Transposing for Vocal Range",
+        "Most singers have a comfortable range of about 1.5 to 2 octaves. If a song's melody peaks at a high G but your vocalist tops out at a comfortable D, you need to transpose down 4 semitones (G to D). The trick is figuring out which note is the problem: usually the chorus high note or the bridge, not the verse. Find the highest melody note, decide where you want it to sit, count the semitones between, and apply the same shift to every chord.",
+        "Be aware: transposing changes the feel of the song slightly. Lower keys sound darker and more intimate; higher keys sound brighter and more excited. A folk song that lives in G can lose some of its edge in F, and a rock song in E can sound thin in G. If a transposition feels wrong even when the singer is comfortable, try a different key entirely or use a capo to keep the original guitar voicings while shifting pitch."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between transposing and using a capo?",
+        "Transposing changes the actual chord names you play (G becomes A). A capo lets you keep playing the same shapes but raises the pitch. Both achieve the same audible result but feel different to the player. Transposing is the right answer if you don't have a capo, are using a piano or non-fretted instrument, or want to sing in a specific key with custom voicings. Capo is the right answer if you want to keep the song's open-string ring."
+      ),
+      createFAQ(
+        "How do I transpose if the chord has slashes (like C/G)?",
+        "A slash chord names the chord first, then the bass note. C/G is C Major with G as the lowest note. Transpose both parts by the same number of semitones: shift up 2 and you get D/A. The tool currently focuses on basic triads and 7th chords; for elaborate jazz voicings you may need to handle the bass note manually."
+      ),
+      createFAQ(
+        "Why do some keys sound easier on guitar than others?",
+        "Guitar tuning (E-A-D-G-B-E) makes certain keys sit naturally with open-string drones. E, A, D, G, and their relative minors (C#m, F#m, Bm, Em) all have at least one chord that uses open strings and avoids barre chords. Keys like Bb, Eb, Ab, Db rely on barre shapes which are harder to play and don't ring as much. This is why folk and rock have so many songs in G and D and far fewer in Eb."
+      ),
+      createFAQ(
+        "How many semitones is a perfect fifth?",
+        "Seven semitones. C to G, D to A, E to B, F to C, G to D - all perfect fifths. The fifth is the most common transposition for solving range issues because it's far enough to make a real difference but close enough that the new key still feels related to the original. Up a fifth makes a song noticeably brighter; down a fifth makes it noticeably warmer."
+      ),
+      createFAQ(
+        "Can I transpose a chord progression with sharps and flats mixed?",
+        "Yes. The tool reads any combination of notes and accidentals, transposes each by the same amount, and outputs in a consistent spelling. If your input is mixed (F# in one chord, Gb in another), the output will be normalised to one spelling so you don't end up with awkward chord names that aren't in the destination key."
+      ),
+    ],
+    relatedTools: [
+      { slug: "chord-library", label: "Chord Library" },
+      { slug: "key-finder", label: "Key Finder" },
+      { slug: "guitar-tuner", label: "Guitar Tuner" },
+    ],
+  },
 };

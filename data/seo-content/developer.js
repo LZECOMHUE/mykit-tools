@@ -821,4 +821,593 @@ export const developerSEO = {
       { slug: "base64-to-image", label: "Base64 to Image Decoder" },
     ],
   },
+
+  "box-shadow-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "The Five Numbers Behind Every Box Shadow",
+        "A CSS box-shadow declaration has a strict order: inset (optional), offset-x, offset-y, blur-radius, spread-radius, then colour. The tool exposes each of these as its own slider so you can move them independently and watch the preview update on every change. The default starts at offset-x: 0, offset-y: 4px, blur: 6px, spread: 0, with black at 10% alpha, which matches the soft Material-style elevation most apps reach for first.",
+        "Offset-x and offset-y push the shadow horizontally and vertically; positive Y values drop the shadow below the box, mimicking light from above. Blur softens the edge, while spread expands or contracts the shadow before the blur kicks in. A negative spread on a positive offset is the trick behind subtle inset card shadows that look pressed-in rather than floating."
+      ),
+      createAnswerFirstSection(
+        "Stacking Layers for Realistic Depth",
+        "A single shadow rarely looks convincing. Real objects cast a tight, dark shadow close to the surface and a wider, softer shadow further out. The Layered preset combines two shadows separated by a comma, the first at 0 2px 4px / 5% alpha and the second at 0 8px 16px / 10% alpha, which is roughly the recipe behind Stripe's and Linear's card shadows.",
+        "Click 'Add Layer' to build your own stack. Each layer renders in source order, with the first listed shadow drawn on top. For glow effects, pick the Glow preset and switch the colour from black to your accent. Inset shadows are useful for input fields, pressed-button states, and faux engraving on labels. Combining one inset and one outer shadow on the same element is a common pattern for skeuomorphic toggles."
+      ),
+      {
+        heading: "Common Shadow Recipes",
+        table: {
+          headers: ["Effect", "Shadow Values", "Best For"],
+          rows: [
+            ["Subtle card", "0 1px 3px rgba(0,0,0,0.05)", "List items, table rows"],
+            ["Default elevation", "0 4px 6px rgba(0,0,0,0.1)", "Buttons, dropdown menus"],
+            ["Heavy lift", "0 10px 25px rgba(0,0,0,0.2)", "Modal dialogs, popovers"],
+            ["Sharp / brutalist", "2px 2px 0 rgba(0,0,0,0.3)", "Neobrutalist UI, retro buttons"],
+            ["Coloured glow", "0 0 20px rgba(59,130,246,0.6)", "Focus states, hero CTAs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the difference between blur and spread?",
+        "Blur softens the shadow's edge over the radius you specify, fading from solid colour to transparent. Spread changes the shadow's size before blur is applied; a positive spread makes the shadow visibly larger than the box, a negative spread shrinks it. Set blur to 0 and spread to 4px to get a hard, evenly enlarged outline. Set spread to 0 and blur to 20px for a soft halo."
+      ),
+      createFAQ(
+        "How do inset shadows work?",
+        "Add the keyword 'inset' before the offset values and the shadow renders inside the element instead of outside, exactly as if light were hitting from the opposite direction. Inset shadows are typical on form inputs and pressed states. You can mix inset and outer shadows on the same element by separating them with a comma."
+      ),
+      createFAQ(
+        "Why does my shadow get clipped at the parent's edge?",
+        "An ancestor element with overflow: hidden, overflow: clip, or border-radius without enough padding will clip shadows that extend past its bounds. The fix is usually to add padding to the parent equal to or greater than your shadow's blur plus spread, or to remove the overflow constraint where possible."
+      ),
+      createFAQ(
+        "Can I animate box-shadow?",
+        "Yes, but it triggers a paint on every frame and can stutter on lower-end devices. For smoother lift-on-hover effects, animate transform: translateY combined with a static shadow that already includes the lifted state, or use a pseudo-element with opacity to fade the shadow in. This keeps animations on the GPU-accelerated compositor layer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gradient-generator", label: "CSS Gradient Generator" },
+      { slug: "pixel-to-rem-converter", label: "Pixel to REM Converter" },
+      { slug: "contrast-checker", label: "Contrast Checker" },
+    ],
+  },
+
+  "cron-builder": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Five Cron Fields Mean",
+        "A standard cron expression has five fields, separated by spaces, in this order: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 and 7 both mean Sunday). The tool defaults to '0 9 * * 1-5', which fires at 09:00 every weekday, the most common schedule for a morning report job.",
+        "Each field accepts four notations: a single value (5), a list (1,15,30), a range (1-5), or a step (*/15 for 'every 15'). Combine them as needed; '0 8-18/2 * * 1-5' means 'on the hour, from 08:00 to 18:00, every two hours, weekdays only'. The tool parses your input, shows the plain-English translation, and computes the next five firing times so you can sanity-check the schedule before deploying."
+      ),
+      createAnswerFirstSection(
+        "Where Cron Actually Runs and Why Timezones Bite",
+        "The same cron expression can fire at different wall-clock times depending on where it runs. Linux crontab uses the system timezone, which on most production servers is UTC. Vercel Cron runs in UTC. AWS EventBridge schedule expressions accept an explicit timezone but cron expressions still default to UTC. GitHub Actions cron runs in UTC and warns you not to rely on it firing on time during high-load periods.",
+        "The lesson: pick UTC for anything serverless, and write the expression for UTC even if your team thinks in local time. A 'daily 9am report' in London is '0 9 * * *' in winter and '0 8 * * *' in summer if you want it to land at 09:00 BST. If you need DST-aware scheduling, run the job hourly and gate it inside the code with a timezone-aware check, or use a scheduler that supports IANA timezone names natively such as Quartz or Temporal."
+      ),
+      {
+        heading: "Common Cron Recipes",
+        table: {
+          headers: ["Schedule", "Expression", "Use Case"],
+          rows: [
+            ["Every minute", "* * * * *", "Health checks, queue pollers"],
+            ["Every 15 minutes", "*/15 * * * *", "Cache warmers, status updates"],
+            ["Hourly on the hour", "0 * * * *", "Log rotations, summary aggregations"],
+            ["Daily at 02:30", "30 2 * * *", "Database backups, low-traffic windows"],
+            ["Weekdays at 09:00", "0 9 * * 1-5", "Morning reports, standup reminders"],
+            ["First of the month", "0 0 1 * *", "Monthly invoices, billing cycles"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What does 0 in the day-of-week field mean?",
+        "In standard cron, 0 means Sunday and 6 means Saturday. Many implementations also accept 7 as Sunday for compatibility with older Unix systems. To run something on weekends, use '0,6' or '6-7'. To run only on weekdays, use '1-5'. The tool's preset list covers the most common patterns so you don't have to remember the numbering."
+      ),
+      createFAQ(
+        "Can I use named days and months?",
+        "Most modern cron implementations accept three-letter abbreviations: MON-SUN for days of the week, JAN-DEC for months. So '0 9 * * MON-FRI' is identical to '0 9 * * 1-5'. The strict POSIX cron only accepts numbers, so for maximum portability across BSD, Solaris, and minimal Docker images, stick to digits. Vercel Cron, GitHub Actions, and crontab on Linux all accept names."
+      ),
+      createFAQ(
+        "What happens if the day-of-month and day-of-week fields conflict?",
+        "Standard cron uses an OR rule when both fields are restricted: the job runs if either condition matches. So '0 0 15 * 1' fires on the 15th of every month AND on every Monday, not on Mondays that are also the 15th. To get an AND rule, you have to gate inside your script or use Quartz, which uses '?' to mark one of the two as 'no specific value'."
+      ),
+      createFAQ(
+        "Why didn't my cron job run?",
+        "The four most common causes: the expression resolves to a time that has already passed today (cron does not catch up missed runs unless you use anacron); the job's user has no PATH set in their crontab (specify full paths to binaries); the timezone differs from what you assumed (run 'date' on the server to confirm); or stdout/stderr is silently redirected and an error is swallowed. Add 'MAILTO=you@example.com' or pipe to a log file to surface failures."
+      ),
+    ],
+    relatedTools: [
+      { slug: "regex-tester", label: "Regex Tester" },
+      { slug: "json-formatter", label: "JSON Formatter & Validator" },
+      { slug: "uuid-generator", label: "UUID Generator" },
+    ],
+  },
+
+  "css-minifier": {
+    sections: [
+      createAnswerFirstSection(
+        "What Minification Actually Removes",
+        "CSS minification strips whitespace, comments, and the redundant trailing semicolons before each closing brace. A 4KB hand-formatted stylesheet typically shrinks to between 2.5KB and 3KB after this pass, a saving of 25-40%. Add gzip on top and the over-the-wire size drops further; brotli, where it's available (everywhere except Internet Explorer), usually beats gzip by another 10-20% on text payloads.",
+        "The tool runs everything client-side as you type. Paste your stylesheet and the minified output appears alongside an exact byte count for both versions and the percentage saved. There is no upload to a server, no rate limit, and no file-size cap beyond what your browser's memory can handle. Hit Copy to grab the result, or Download for a .css file."
+      ),
+      createAnswerFirstSection(
+        "When Build Tools Beat a Manual Minifier",
+        "If you're shipping a Next.js, Vite, or Webpack project, your bundler already minifies CSS using cssnano or LightningCSS as part of the production build. That pipeline does more than whitespace stripping: it merges duplicate rules, shortens hex colours from #ffffff to #fff, collapses font shorthand, and removes vendor prefixes that target dead browsers. A standalone tool like this one is useful for quick wins on hand-written CSS, single-file demos, email templates, or one-off WordPress themes where there's no build step.",
+        "One thing to watch: aggressive minification can break calc() expressions if it strips spaces around the inner operators, since 'calc(100% -16px)' is invalid but 'calc(100% - 16px)' is correct. This tool is conservative and preserves spaces inside parentheses, but if you ever migrate to a heavier minifier, run a visual regression check on layouts that use calc(), clamp(), or min/max."
+      ),
+      {
+        heading: "What Minifies and What Doesn't",
+        table: {
+          headers: ["Element", "Minified?", "Notes"],
+          rows: [
+            ["Whitespace and newlines", "Yes", "Collapsed to single spaces or removed entirely"],
+            ["/* Comments */", "Yes", "All block comments stripped"],
+            ["Trailing semicolons", "Yes", "; before } removed"],
+            ["calc() spacing", "No", "Preserved to keep expressions valid"],
+            ["Class and ID names", "No", "Renaming requires a CSS modules pipeline"],
+            ["Duplicate rules", "No", "Merging needs a full AST-based optimiser"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How much can I expect to save?",
+        "Typical hand-written CSS shrinks 25-40% with whitespace minification alone. After gzip, the wire savings are smaller because gzip is already very good at compressing repeated whitespace, but minified CSS still wins on initial parse time and the bytes the browser holds in memory. Brotli adds another 10-20% on top of gzip for the same payload."
+      ),
+      createFAQ(
+        "Will minification break my CSS?",
+        "The patterns this tool uses are conservative: it only strips whitespace around safe characters ({ } : ; , > + ~), removes comments, and trims trailing semicolons. It will not rename selectors, merge rules, or rewrite values. If you use unusual content like data: URIs in url() or content strings with whitespace inside double quotes, paste a small sample first and verify the output matches what you intended."
+      ),
+      createFAQ(
+        "Can I un-minify CSS?",
+        "Not back to your original formatting, but you can prettify minified CSS using any code formatter like Prettier or VS Code's built-in formatter. Indentation, line breaks, and spacing are all stylistic choices, so a re-formatted version will look clean but won't match your original style guide unless you reapply your formatter config."
+      ),
+      createFAQ(
+        "Should I minify in development?",
+        "No. Source maps and readable line numbers are essential for debugging. Most build tools only minify the production bundle and leave development output unminified. Browser DevTools also pretty-print minified CSS on the fly, but stack traces still point to the wrong lines without source maps. Keep your dev experience verbose; let the build pipeline handle the squeeze."
+      ),
+      createFAQ(
+        "Does the order of declarations change?",
+        "No. Whitespace minification preserves the original source order of every selector, every property, and every value. This matters because CSS specificity and source order both contribute to the cascade; reordering rules can change which value wins on an element. AST-based tools like cssnano sometimes reorder properties within a single rule (when safe) to improve gzip compression, but this tool does not."
+      ),
+    ],
+    relatedTools: [
+      { slug: "javascript-minifier", label: "JavaScript Minifier" },
+      { slug: "json-formatter", label: "JSON Formatter & Validator" },
+      { slug: "html-entity-encoder", label: "HTML Entity Encoder" },
+    ],
+  },
+
+  "gradient-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Linear, Radial, and Conic in Plain English",
+        "Linear gradients fade from one colour to another along a straight line at a given angle. The default is 90deg, which fades left-to-right. Set 0deg for bottom-to-top, 180deg for top-to-bottom, or any angle in between. Radial gradients fade outwards from a centre point in concentric circles or ellipses, useful for spotlight effects and soft vignettes. Conic gradients sweep around a centre like a clock hand and are how people build pure-CSS pie charts and colour wheels.",
+        "The tool starts with a two-stop linear gradient from coral (#ff6b6b) to teal (#4ecdc4) at 90deg. Drag stops along the bar to reposition them, double-click any stop to change its colour, or click the empty bar to add a new stop. Three or more stops let you build the smooth multicolour blends that have replaced flat colour as the default for hero sections in 2026."
+      ),
+      createAnswerFirstSection(
+        "Why Stops Matter More Than Colours",
+        "Two well-placed stops with mid-saturation colours look more polished than five clashing rainbow stops. The Sunset preset (#ff6b6b to #feca57 at 50% to #ff9ff3) demonstrates the rule: warm tones, similar luminance, and a gentle hue shift across roughly 80 degrees on the colour wheel. Adjacent stops at the same position create a hard line, useful for stripes; stops far apart create a soft fade.",
+        "Colour space matters too. The default `linear-gradient` interpolates in sRGB, which can produce muddy mid-tones when the start and end colours sit on opposite sides of the wheel. Modern browsers also support `linear-gradient(in oklch, ...)` which interpolates in a perceptually uniform colour space and avoids the grey muddy zone. The tool outputs sRGB syntax for compatibility, but you can prefix the type with `in oklch` manually if your audience is on Chrome 111+ or Safari 16.4+."
+      ),
+      {
+        heading: "Useful Angles for Linear Gradients",
+        table: {
+          headers: ["Angle", "Direction", "Common Use"],
+          rows: [
+            ["0deg", "Bottom to top", "Sky-to-ground hero backgrounds"],
+            ["45deg", "Bottom-left to top-right", "Dynamic, energetic feel"],
+            ["90deg", "Left to right", "Default, reads naturally"],
+            ["135deg", "Top-left to bottom-right", "Subtle depth on cards"],
+            ["180deg", "Top to bottom", "Header overlays, fade-to-dark"],
+            ["to bottom right", "Diagonal, viewport-aware", "Adapts when box is non-square"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the difference between deg and the 'to' keyword?",
+        "Both work, but they're not interchangeable on non-square boxes. '90deg' fixes the gradient line at exactly 90 degrees clockwise from north. 'to right' adapts to the box's aspect ratio so the gradient travels truly corner-to-corner on rectangles. For square hero sections the difference is invisible, but on a 16:9 banner '45deg' and 'to top right' give visibly different results."
+      ),
+      createFAQ(
+        "Do I still need vendor prefixes?",
+        "No. The unprefixed `linear-gradient`, `radial-gradient`, and `conic-gradient` syntaxes have been universally supported since Chrome 26, Firefox 16, and Safari 6.1. The only real-world reason to keep -webkit- prefixes is HTML email rendering, where some clients still need them. For the open web, ship the unprefixed version."
+      ),
+      createFAQ(
+        "How do I make a gradient text effect?",
+        "Set background-image to your gradient, then add background-clip: text and color: transparent (with -webkit-background-clip: text for Safari). The text becomes a window onto the gradient. This works best with bold weights and large sizes; thin fonts at body size lose definition because the visible glyph area is too small to show the colour fade."
+      ),
+      createFAQ(
+        "Can I animate a gradient?",
+        "Not directly: CSS can't transition the gradient itself because each stop is a separate value. The trick is to set the gradient's background-size larger than the element (e.g. 200% 200%) and animate background-position. This shifts the visible portion of a fixed gradient and looks like the gradient is morphing. The newer @property API allows custom property interpolation for true gradient animation in Chrome and Edge."
+      ),
+    ],
+    relatedTools: [
+      { slug: "box-shadow-generator", label: "CSS Box Shadow Generator" },
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "contrast-checker", label: "Contrast Checker" },
+    ],
+  },
+
+  "javascript-minifier": {
+    sections: [
+      createAnswerFirstSection(
+        "What Whitespace Minification Catches and Misses",
+        "Paste JavaScript and the tool removes single-line // comments, multi-line /* */ comments, leading and trailing whitespace, newlines, and the spaces around operators and punctuation. A typical hand-written file shrinks 30-50% with this pass alone. The byte counter shows pre and post sizes, so you can see exactly what you saved. Combined with gzip on the server, the wire-transfer reduction is usually 70-80% versus raw source.",
+        "What this tool does NOT do is rename variables. A real production minifier like Terser or esbuild renames `customerOrderTotal` to `a`, mangles property names (when configured), removes dead code branches, and inlines small functions. Those passes need a full AST and a deep understanding of the language; they typically halve the file size again on top of whitespace stripping. For a one-off script, a snippet, or a small embedded widget, whitespace minification is fast and predictable. For shipping a 200KB SPA, use a bundler."
+      ),
+      createAnswerFirstSection(
+        "When Minification Goes Wrong",
+        "Naive whitespace minification can break JavaScript in subtle ways. Automatic semicolon insertion (ASI) is the worst offender: 'return\\n{a:1}' is treated by the parser as 'return; {a:1};' and silently returns undefined. Stripping the newline doesn't change behaviour, but if your source relied on ASI to terminate a statement, joining lines with a missing semicolon can fuse two statements into one and change meaning entirely.",
+        "Template literals are another minefield. Whitespace inside `` `multi\\n  line` `` is significant; the tool preserves content inside backticks. Regex literals like /\\s+/g must not be split or have their flags stripped. The minifier here is conservative and preserves all string and template content, so the result runs identically to the source on every JavaScript engine from V8 to Hermes. Run your test suite against the minified output before shipping; if you don't have tests, paste a sample, run it in the browser console, and verify the result matches."
+      ),
+      {
+        heading: "Minification Approaches Compared",
+        table: {
+          headers: ["Technique", "Typical Saving", "Tool Examples"],
+          rows: [
+            ["Whitespace + comments only", "30-50%", "This tool, simple regex passes"],
+            ["AST-based variable mangling", "50-70%", "Terser, UglifyJS"],
+            ["Bundler with tree-shaking", "60-80%", "esbuild, swc, Rollup"],
+            ["Minify + gzip transfer", "75-85%", "Production CDN delivery"],
+            ["Minify + brotli transfer", "80-90%", "Modern static hosts"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Will this break my code?",
+        "It shouldn't, because the regex passes only touch whitespace, comments, and operator spacing. But there's no AST safety net, so if your source uses unusual constructs, run the output through Node or a browser before shipping. Common gotchas to test: ASI-dependent return statements, regex literals, JSX (which this tool will mangle if you forget to compile it first), and any code that relies on exact whitespace inside template literals."
+      ),
+      createFAQ(
+        "Should I use this instead of Terser?",
+        "For one-off scripts, embedded widgets, or paste-and-go situations, yes. For application code that you're going to deploy, no. Terser does compression passes that this tool can't (variable mangling, dead-code elimination, constant folding) and its output is roughly half the size again. Most modern build tools (Vite, Next.js, esbuild, swc) include a Terser-equivalent step automatically."
+      ),
+      createFAQ(
+        "Does this work on TypeScript or JSX?",
+        "No. Strip TypeScript types and compile JSX first using tsc, swc, or esbuild, then minify the resulting JavaScript. Running this tool directly on TypeScript will leave the type annotations in place but break the file by removing whitespace that the TypeScript parser depends on for line-based error recovery. Same logic applies to JSX: compile to React.createElement calls first."
+      ),
+      createFAQ(
+        "Why minify if I'm using gzip anyway?",
+        "Three reasons. First, gzip happens on the wire, but the unminified version still sits in your build output and your CDN cache, costing storage. Second, parse and compile time on the client matches the size of the un-gzipped file, not the gzipped one, so minified JS starts running faster. Third, on slow CPUs (low-end Android) parse time dominates load time more than transfer, so smaller source genuinely matters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "css-minifier", label: "CSS Minifier" },
+      { slug: "json-formatter", label: "JSON Formatter & Validator" },
+      { slug: "html-entity-encoder", label: "HTML Entity Encoder" },
+    ],
+  },
+
+  "json-formatter": {
+    sections: [
+      createAnswerFirstSection(
+        "Format, Minify, and Validate in One Pass",
+        "Paste raw JSON into the input box and the tool parses it with the browser's native JSON.parse, then immediately renders three things: the prettified version with your chosen indentation (2 spaces by default), the minified single-line version, and a stats panel showing total key count, maximum nesting depth, and minified byte size. If the JSON is malformed, the parser surfaces the exact character position of the failure so you can jump straight to the offending comma or unquoted key.",
+        "JSON is defined by RFC 8259, which is stricter than most people remember. Trailing commas are not allowed. Single-quoted strings are not allowed. Comments are not allowed. Unquoted property names are not allowed. If you're hand-editing config and the parser screams, those four rules are nearly always the cause. JSON5 and JSONC (used in tsconfig.json and VS Code settings) relax these rules, but they're separate dialects and standard parsers reject them."
+      ),
+      createAnswerFirstSection(
+        "Indent Width Conventions Across Ecosystems",
+        "There's no single right indent width, but conventions per ecosystem are remarkably stable. NPM's package.json and most JavaScript tooling default to 2 spaces. Python's standard library `json.dump(indent=4)` and most Java tools default to 4. Go's `encoding/json` MarshalIndent leaves the choice to the caller but examples almost always use a single tab. The tool defaults to 2 spaces because that's the dominant choice for files that get committed to JavaScript repos, but you can switch to 4 spaces or tabs from the dropdown.",
+        "Pick your indent based on the file's neighbours: if everything else in the project is 2 spaces, match it; consistency across files matters more than the absolute value. For deeply nested structures (depth 5+), 2 spaces stops the lines running off the screen. For shallow configs where readability matters more than line length, 4 spaces helps the eye trace nested keys."
+      ),
+      {
+        heading: "Common JSON Errors and Fixes",
+        table: {
+          headers: ["Error", "Cause", "Fix"],
+          rows: [
+            ["Unexpected token } in JSON", "Trailing comma before closing brace", "Remove the comma"],
+            ["Unexpected token ' in JSON", "Single quotes used for strings", "Change to double quotes"],
+            ["Unexpected token in JSON at position 0", "BOM or whitespace before {", "Strip leading bytes"],
+            ["Unexpected end of JSON input", "Truncated payload, missing brace", "Check the full response"],
+            ["Bad escape character", "Backslash not followed by valid escape", "Double the backslash"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my JSON fail validation when it looks fine?",
+        "The most common silent killers are: trailing commas (allowed in JavaScript, not in JSON), single quotes around strings or keys, unquoted property names, and JavaScript-style // or /* */ comments. JSON also requires keys to be strings, even when they look like numbers; `{1: 'a'}` is invalid, you need `{\"1\": \"a\"}`."
+      ),
+      createFAQ(
+        "What does maximum depth mean in the stats panel?",
+        "Depth counts how many nested levels exist between the root and the deepest leaf. A flat object like `{a: 1}` has depth 1. `{a: {b: 1}}` has depth 2. APIs that return paginated, deeply nested resource graphs often hit depth 6+, which is a flag that the response shape is making consumers do too much traversal. Consider flattening or denormalising on the server."
+      ),
+      createFAQ(
+        "Can I format JSON with comments (JSONC)?",
+        "Not with this tool's default mode, because JSONC is not valid JSON per RFC 8259 and the browser's JSON.parse rejects it. VS Code uses JSONC for settings.json and tsconfig.json by stripping comments before parsing. If your file contains // or /* */ comments, remove them first or open it in a JSONC-aware editor."
+      ),
+      createFAQ(
+        "Is the data sent anywhere?",
+        "No. The whole pipeline runs in your browser using JSON.parse and JSON.stringify. Nothing is uploaded, logged, or cached on a server. You can paste API responses containing tokens or PII without worrying about leakage."
+      ),
+    ],
+    relatedTools: [
+      { slug: "json-validator", label: "JSON Validator" },
+      { slug: "json-prettifier", label: "JSON Prettifier" },
+      { slug: "json-minifier", label: "JSON Minifier" },
+    ],
+  },
+
+  "jwt-decoder": {
+    sections: [
+      createAnswerFirstSection(
+        "What Each of the Three Parts Contains",
+        "A JSON Web Token is three base64url-encoded JSON blobs joined by dots: header.payload.signature. Paste a token at 11pm while debugging an API auth failure and the tool splits it on the dots, base64-decodes each segment, and parses the JSON. The header tells you the signing algorithm (alg, usually HS256, RS256, or ES256) and key id (kid). The payload contains your claims. The signature is the cryptographic seal, displayed truncated because you can't validate it without the secret or public key.",
+        "The decoder also reads the standard registered claims and surfaces them at the top: iss (issuer), sub (subject, typically the user id), aud (audience), iat (issued-at, Unix seconds), exp (expiration, Unix seconds), and nbf (not-before). If exp is set, the tool computes whether the token is currently expired and how long until expiry or how long since. This catches the most common JWT bug: the API rejects a token that 'looks fine' because it expired a few minutes ago and you forgot to refresh."
+      ),
+      createAnswerFirstSection(
+        "Decoding Is Not Validating",
+        "Anyone can decode a JWT. The base64-encoded segments are not encrypted, just encoded, so the contents are visible to any party that holds the token. This is by design: JWTs are meant to be readable by both client and server. What stops them being forged is the signature, which requires either the shared secret (HS256) or the issuer's private key (RS256, ES256) to produce.",
+        "Treat the payload as untrusted until your backend has verified the signature, the exp claim, and the iss/aud claims against expected values. Never put secrets, passwords, or sensitive PII inside a JWT payload; assume any token your client receives can be inspected by an attacker who steals it. If you need to encrypt the payload (not just sign it), use JWE, which is the encrypted variant defined alongside JWT in RFC 7519."
+      ),
+      {
+        heading: "Standard JWT Claims",
+        table: {
+          headers: ["Claim", "Meaning", "Common Value"],
+          rows: [
+            ["iss", "Issuer", "https://auth.example.com"],
+            ["sub", "Subject (user id)", "user_abc123"],
+            ["aud", "Audience", "https://api.example.com"],
+            ["iat", "Issued at (Unix seconds)", "1735689600"],
+            ["exp", "Expiry (Unix seconds)", "1735693200"],
+            ["nbf", "Not before (Unix seconds)", "1735689600"],
+            ["jti", "Token id (for revocation)", "uuid-v4"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is my token rejected even though the decoder shows valid JSON?",
+        "Six likely causes: the token has expired (check exp); the clock skew between your server and the issuer is too large (allow 30-60s slack); the signature is wrong (you decoded it with one key but it was signed with another); the audience doesn't match what your verifier expects; the issuer URL has a trailing slash mismatch; or the algorithm in the header doesn't match what your verifier accepts (alg: 'none' should always be rejected)."
+      ),
+      createFAQ(
+        "What is the difference between HS256, RS256, and ES256?",
+        "HS256 is HMAC with SHA-256, a symmetric algorithm where the signer and verifier share the same secret. Simple, fast, but useless across organisational boundaries because anyone who can verify a token can forge one. RS256 is RSA with SHA-256, asymmetric: the issuer signs with a private key and consumers verify with a public key, which is what OAuth 2.0 (RFC 6749) and OpenID Connect deployments use. ES256 is ECDSA with the P-256 curve, smaller signatures and faster verification than RSA, increasingly the default."
+      ),
+      createFAQ(
+        "Can I decode an expired token?",
+        "Yes. Expiry is enforced by the verifier, not the decoder. The tool will happily decode any structurally valid JWT regardless of exp. It will, however, flag the token as expired and show how long ago it expired so you can confirm that's the cause of the auth failure you're debugging."
+      ),
+      createFAQ(
+        "Where should I store JWTs in a browser?",
+        "Memory (a JS variable) is safest from XSS but lost on reload. localStorage and sessionStorage are convenient but readable by any script on the page if XSS is breached. httpOnly Secure cookies survive reload and are immune to JS-level XSS but require CSRF protection and a same-site cookie strategy. The current consensus for SPAs is short-lived access tokens in memory plus a long-lived refresh token in an httpOnly cookie."
+      ),
+    ],
+    relatedTools: [
+      { slug: "json-formatter", label: "JSON Formatter & Validator" },
+      { slug: "base64-converter", label: "Base64 Converter" },
+      { slug: "url-encoder", label: "URL Encoder" },
+    ],
+  },
+
+  "markdown-preview": {
+    sections: [
+      createAnswerFirstSection(
+        "Type on the Left, See HTML on the Right",
+        "Markdown was designed in 2004 by John Gruber as a way to write formatted text in a syntax that's still readable as plain text. The tool ships with a sample document covering headers, bold, italic, lists, and code blocks. Edit either side, see the rendering update on the next keystroke. Useful for rapidly drafting README files, blog posts, GitHub issues, and Notion-style notes without worrying about HTML.",
+        "The renderer here covers the core syntax: # through ###### for headings, **bold** and *italic*, [text](url) for links, ![alt](url) for images, > for blockquotes, --- for horizontal rules, ``` for fenced code blocks, and `inline` for inline code. Ordered and unordered lists are detected automatically. This matches the original Markdown spec closely; if you need GitHub-flavoured features like tables, task lists, strikethrough, or auto-linked URLs, write your source for [Markdown to HTML](/markdown-to-html) which uses a more complete parser."
+      ),
+      createAnswerFirstSection(
+        "GFM, CommonMark, and Why Your Output Differs",
+        "There is no single Markdown standard. The original Gruber spec was vague enough that every implementation made different choices, which is why the same input can render four different ways across GitHub, Reddit, Discord, and your static site generator. CommonMark (commonmark.org) is the closest thing to a precise spec; GitHub-Flavoured Markdown (GFM) extends CommonMark with tables, strikethrough, task lists, and autolinks. Most modern tools target GFM because that's what readers expect.",
+        "Quirks to watch for: a hard line break inside a paragraph is invisible in Markdown unless you end the line with two trailing spaces (which most editors strip on save) or a backslash. Tabs vs spaces inside list items behave differently across parsers. HTML embedded in Markdown is allowed by Gruber's spec but stripped by some sanitisers. If you're writing for a specific platform, render-test on that platform; this tool is a fast feedback loop, not a final preview."
+      ),
+      {
+        heading: "Markdown Syntax Cheat Sheet",
+        table: {
+          headers: ["Syntax", "Renders As", "Notes"],
+          rows: [
+            ["# Heading", "h1 element", "One # per heading level, up to ######"],
+            ["**bold**", "strong tag", "Two asterisks, no spaces inside"],
+            ["*italic*", "em tag", "Single asterisks, or _underscores_"],
+            ["[text](url)", "anchor link", "No space between ] and ("],
+            ["![alt](url)", "img element", "Same syntax with leading exclamation"],
+            ["```code```", "pre code block", "Triple backticks, language hint after the opening fence"],
+            ["> quote", "blockquote", "Space after the >"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why doesn't my line break work?",
+        "Markdown ignores single newlines by default and joins them into the same paragraph. To force a line break, end the line with two trailing spaces, or use a backslash, or use an empty line to start a new paragraph. This is the most common surprise for people coming from word processors."
+      ),
+      createFAQ(
+        "Does this support GitHub Flavoured Markdown?",
+        "Partially. The renderer covers headings, emphasis, links, images, lists, code, blockquotes, and horizontal rules, which are the CommonMark core. Tables, task lists, strikethrough, and autolinking are not in this fast-preview mode. For full GFM rendering use the dedicated [Markdown to HTML](/markdown-to-html) tool, which uses a parser library."
+      ),
+      createFAQ(
+        "Can I paste rich text and get Markdown?",
+        "No, this is one-way: Markdown to HTML. For HTML to Markdown, you need a different parser like Turndown. Pasting rich text from Word or Google Docs typically produces HTML on the clipboard; running it through Turndown gives you Markdown back, but the round-trip is lossy for complex formatting like nested tables or styled spans."
+      ),
+      createFAQ(
+        "Is the source saved anywhere?",
+        "No. Both the source and the rendered HTML stay in your browser tab and disappear when you close it. If you want persistence, copy the rendered HTML or the Markdown source out before navigating away."
+      ),
+    ],
+    relatedTools: [
+      { slug: "markdown-to-html", label: "Markdown to HTML" },
+      { slug: "html-encoder-decoder", label: "HTML Encoder/Decoder" },
+      { slug: "json-formatter", label: "JSON Formatter & Validator" },
+    ],
+  },
+
+  "meta-tag-previewer": {
+    sections: [
+      createAnswerFirstSection(
+        "What Google, Twitter, and Facebook Actually Show",
+        "Type a page title, description, and URL, and the tool renders three side-by-side previews matching what a Google SERP, a Twitter card, and a Facebook OG share will display. Titles longer than 60 characters get truncated by Google's mobile result display; descriptions over 160 characters get cut. The tool flags both as you type, so you can rewrite before the snippet looks bad in the wild. Default values seed the form so you can see a working preview immediately.",
+        "Beneath the previews, the tool generates the full HTML meta block: a `<title>`, `<meta name=\"description\">`, the seven Open Graph tags Facebook and LinkedIn read (og:title, og:description, og:url, og:image, og:type), and the three Twitter Card tags (twitter:card, twitter:title, twitter:description). Copy the block straight into your `<head>` to get correct previews on every platform that crawls your page."
+      ),
+      createAnswerFirstSection(
+        "Image Dimensions and the Open Graph Cache",
+        "Open Graph images should be 1200x630 pixels (1.91:1 ratio) for crisp rendering on Facebook, LinkedIn, and Twitter's `summary_large_image`. Smaller images get scaled up and look fuzzy; the wrong aspect ratio gets cropped unpredictably. JPG and PNG both work; PNG is better for images with text overlay or sharp graphics, JPG is smaller for photos. Keep the file under 5MB to avoid Facebook's hard reject.",
+        "The frustrating reality: Facebook caches OG metadata for around seven days, and Twitter caches for similar periods. Update your tags and the new preview won't appear until the cache expires or you force a refresh. Use Facebook's Sharing Debugger (developers.facebook.com/tools/debug) and Twitter's Card Validator to scrape your URL fresh; they also surface any parsing errors in your tags. LinkedIn has its own Post Inspector. Always test there before announcing a post."
+      ),
+      {
+        heading: "Recommended Character Limits",
+        table: {
+          headers: ["Field", "Ideal Length", "Hard Limit", "Why"],
+          rows: [
+            ["Page title (Google)", "50-60 chars", "60 chars on mobile", "Truncated with ellipsis past 60"],
+            ["Meta description", "150-160 chars", "160 chars on mobile", "Google rewrites long ones"],
+            ["OG title", "60-90 chars", "100 chars", "Facebook truncates around 90"],
+            ["OG description", "150-200 chars", "300 chars", "Cut around line 2 in feed"],
+            ["Twitter title", "70 chars", "70 chars", "Hard cap, no ellipsis"],
+            ["OG image", "1200x630px", "5MB file", "1.91:1 ratio for full-bleed"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does Google show a different title than what I set?",
+        "Since 2021 Google has frequently rewritten title tags using on-page H1, anchor text, or its own model when it judges your title to be misleading, stuffed with keywords, or off-topic. There's no way to disable the rewrite. The fix is to write a title that closely matches the page's primary topic, fits within 60 characters, and doesn't repeat your brand name in a way Google considers boilerplate."
+      ),
+      createFAQ(
+        "Do I need separate OG tags if I have meta description?",
+        "Yes. Google reads `<meta name=\"description\">` for the SERP snippet. Facebook, LinkedIn, Slack, Discord, and most messaging apps read `<meta property=\"og:description\">`. They're independent. Set both to the same value if you want consistency, or split them if you want a more conversational version for social shares and a search-optimised version for Google."
+      ),
+      createFAQ(
+        "What is the right value for og:type?",
+        "For most pages, `website` is correct. For blog posts, `article` enables extra Open Graph fields (article:published_time, article:author, article:section). For products, `product` if you're using the OG product extension. Facebook ignores most type-specific fields nowadays, so don't agonise; `website` is a safe default if you're unsure."
+      ),
+      createFAQ(
+        "Why is my OG image not showing?",
+        "Top causes: the image URL is on a domain that returns a 401 or requires login (use a public CDN); the URL uses HTTP not HTTPS (most platforms reject mixed content); the image is below the minimum dimensions (200x200 for Facebook); or the platform's cache is showing an older version. Run the URL through Facebook's Sharing Debugger to surface the exact reason."
+      ),
+    ],
+    relatedTools: [
+      { slug: "robots-txt-generator", label: "Robots.txt Generator" },
+      { slug: "html-encoder-decoder", label: "HTML Encoder/Decoder" },
+      { slug: "qr-code-generator", label: "QR Code Generator" },
+    ],
+  },
+
+  "pixel-to-rem-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Why REM Beats Pixels for Font Sizes",
+        "Browsers default the root font size to 16px. One rem equals the root font size, so 1rem = 16px out of the box, and 24px = 1.5rem, 12px = 0.75rem. The tool defaults to a 16px base; type a pixel value and see the rem instantly, or flip to rem-to-pixel mode if you're reading a stylesheet that uses rem. The conversion happens on every keystroke with no Calculate button.",
+        "REM matters because users can change their browser default from 16px to anything they like, usually for accessibility. If your CSS uses px everywhere, the user's setting is ignored and your text stays the size you hard-coded. If your CSS uses rem, every text size, padding, and spacing value scales with the user's preference. WCAG accessibility guidelines effectively require this; users with low vision who set their browser default to 24px depend on REM-based sites to render readably."
+      ),
+      createAnswerFirstSection(
+        "EM vs REM and the 62.5% Reset Trick",
+        "REM is always relative to the root html element. EM is relative to the parent element's font size, which means EM compounds: a 1.5em inside a 1.5em is 2.25 times the root. EM is useful for component-internal spacing where you want a button's padding to scale with its own font size. REM is what you want for global typography and layout because the maths is predictable: 1rem = root size, no matter how deeply nested.",
+        "The classic 'set html font-size to 62.5%' trick (which makes 1rem = 10px) lets you write 1.6rem instead of mentally converting 16px to 1rem. It works but it has a quiet cost: if a user has set their browser default above 16px for accessibility, your 62.5% multiplier propagates that change but at a smaller starting point. Modern guidance is to leave html font-size alone, write 1rem for body text, and use the Tailwind-style scale (0.875rem, 1rem, 1.125rem, 1.25rem, 1.5rem, 1.875rem, 2.25rem) for headings."
+      ),
+      {
+        heading: "Common Pixel Values in REM (16px Base)",
+        table: {
+          headers: ["Pixels", "REM", "Tailwind Equivalent"],
+          rows: [
+            ["12px", "0.75rem", "text-xs"],
+            ["14px", "0.875rem", "text-sm"],
+            ["16px", "1rem", "text-base"],
+            ["18px", "1.125rem", "text-lg"],
+            ["20px", "1.25rem", "text-xl"],
+            ["24px", "1.5rem", "text-2xl"],
+            ["32px", "2rem", "text-4xl"],
+            ["48px", "3rem", "text-5xl"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I use REM, EM, or PX?",
+        "Use REM for typography, layout spacing, and anything that should scale with the user's browser preferences. Use EM for component-internal spacing that should scale with that component's font size (e.g. a button's padding). Use PX for borders, hairlines, and anything that genuinely should not scale (e.g. a 1px divider should stay 1px regardless of zoom)."
+      ),
+      createFAQ(
+        "Does REM work in older browsers?",
+        "REM has been supported in every browser shipped since 2012 (IE9+). It's safe to use unconditionally. The only place you'd reach for px today is for one-pixel borders and decorative graphics where you specifically don't want scaling, plus media queries (some teams still prefer px-based breakpoints for predictability)."
+      ),
+      createFAQ(
+        "What about media queries?",
+        "Media queries can use rem and the value is calculated against the user-agent default font size, not your html element's font size. So `@media (min-width: 48rem)` resolves to 768px on a default browser, and 1152px if the user has set their default to 24px. This is intentional: it means your breakpoints scale with user accessibility settings, often a feature, sometimes a surprise. Pick a side and stay consistent."
+      ),
+      createFAQ(
+        "Why does my rem value have lots of decimals?",
+        "Pixel-to-rem conversion at non-multiples of 16 produces irrational fractions. 13px = 0.8125rem exactly, 15px = 0.9375rem. Most stylesheets round to three decimal places (0.813rem, 0.938rem). The visual difference between 0.8125rem and 0.813rem is sub-pixel and invisible. The tool shows three decimals, which is enough precision for any production use."
+      ),
+    ],
+    relatedTools: [
+      { slug: "box-shadow-generator", label: "CSS Box Shadow Generator" },
+      { slug: "gradient-generator", label: "CSS Gradient Generator" },
+      { slug: "contrast-checker", label: "Contrast Checker" },
+    ],
+  },
+
+  "regex-tester": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Tool Tests",
+        "Type a regular expression in the pattern field, paste your test string below, and the tool runs the regex against the string with whatever flags you've enabled. Matches highlight in yellow inline so you can see exactly which characters got picked up; below the test string, a list shows each match with its start position and any captured groups in parentheses. The pattern compiles on every keystroke, so you get immediate feedback when a syntax error breaks the expression - the error message tells you which part of the pattern is invalid.",
+        "Quick-insert presets cover common patterns: email address, URL, phone number, IPv4, date (YYYY-MM-DD), hex colour, alphanumeric username, strong password requirement. Each one is a working regex you can use as-is or modify. The 'strong password' pattern is a good teaching example: it requires lowercase, uppercase, digit, special character, and minimum 8 characters - written with positive lookaheads (?=...) which is one of the trickier regex features to write from memory."
+      ),
+      createAnswerFirstSection(
+        "What the Flags Actually Do",
+        "g (global): without it, the regex stops after the first match. With it, the regex finds every match in the string. This is the flag you want 90% of the time when extracting or replacing patterns. i (case-insensitive): /hello/i matches 'Hello' and 'HELLO'. Useful for human-input data where capitalisation is unreliable. m (multiline): changes the meaning of ^ and $ from 'start/end of string' to 'start/end of any line'. Important when working with multi-line text. s (dotall): makes the dot character (.) match newlines, which it doesn't by default. Critical when matching across line breaks.",
+        "The most common bug in newcomer regex is forgetting g and getting only the first match. The second most common is using . expecting it to match everything, then being surprised by newlines. Toggle s and the issue goes away. Test all four flags on the same pattern to see how the matches change; this is faster than reading documentation about flag behaviour."
+      ),
+      createAnswerFirstSection(
+        "Capture Groups and Why They Matter",
+        "Parentheses in a regex create capture groups - the part of the match you can extract separately. /(\\d{4})-(\\d{2})-(\\d{2})/ matched against '2026-04-27' captures three groups: '2026', '04', '27'. The tool displays these underneath each match so you can verify your groups are pulling the right data. This is essential for parsing structured text: log files, version numbers, dates, URLs.",
+        "Non-capturing groups (?:...) match the same content but don't store the capture, which is faster for the regex engine and cleaner when you only need to group for repetition. Named groups (?<name>...) let you reference matches by name in some languages (Python, JavaScript ES2018+, .NET). The tool shows numbered groups; switching to named groups in production code makes the code much more readable. The [URL parser](/json-formatter) is a good companion when working with structured data - regex extracts, parser validates structure."
+      ),
+      {
+        heading: "Common Regex Quick Reference",
+        table: {
+          headers: ["Pattern", "Matches", "Example"],
+          rows: [
+            ["\\d", "Any digit (0-9)", "2026 has 4 digits"],
+            ["\\w", "Word character (a-z, A-Z, 0-9, _)", "user_123"],
+            ["\\s", "Whitespace (space, tab, newline)", "splits words"],
+            ["[abc]", "Any of a, b, or c", "matches single letters"],
+            ["+", "One or more of previous", "\\d+ matches '123'"],
+            ["*", "Zero or more of previous", "a* matches '' or 'aaa'"],
+            ["?", "Zero or one (optional)", "colou?r matches both spellings"],
+            ["^", "Start of line/string", "^Hello"],
+            ["$", "End of line/string", "World$"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What flavour of regex does the tester use?",
+        "JavaScript regex (ECMAScript), since the tool runs in the browser. JS regex is similar to PCRE but has differences: lookbehinds need ES2018+, possessive quantifiers don't exist, the s/dotall flag is ES2018+. If you're writing regex for Python, Java, or PHP, the basic syntax transfers but specific features may differ. For 90% of patterns (digits, words, anchors, quantifiers, character classes), JS regex is portable to anywhere."
+      ),
+      createFAQ(
+        "Why doesn't my pattern match what I expect?",
+        "Most common causes: missing g flag (only finds first match), greedy quantifiers (* and + match as much as possible; use *? and +? for non-greedy), unescaped special characters (. + ? * ( ) [ ] { } ^ $ | \\ all need escaping with \\ if you want the literal character), or the pattern matching whitespace differently than expected (spaces vs \\s vs newlines)."
+      ),
+      createFAQ(
+        "What's the difference between [a-z] and \\w?",
+        "[a-z] matches only lowercase letters. \\w matches letters (a-z, A-Z), digits (0-9), and underscore. Use \\w when you want 'word characters' (variable names, usernames). Use [a-z] when you specifically want lowercase only. \\w in JavaScript uses ASCII; for Unicode letter matching, you need the u flag and a Unicode property pattern."
+      ),
+      createFAQ(
+        "Can regex handle nested HTML or JSON?",
+        "Officially no - regex can't match arbitrarily nested structures (this is a well-known computer science limitation, related to regular languages vs context-free languages). In practice, regex can handle simple cases of HTML/JSON parsing, but breaks on edge cases like quoted strings containing brackets, or comments containing tags. For real HTML or JSON, use a proper parser; for stripping a simple tag from known clean input, regex is fine."
+      ),
+      createFAQ(
+        "How do I match a literal dot or backslash?",
+        "Escape with backslash. Match a dot: \\. Match a backslash: \\\\. Match a forward slash: \\/. The pattern field shows your input as raw, so \\. is what you type. In JavaScript code, you'd double-escape (`\\\\.` in a string literal) but the tester removes that layer of indirection."
+      ),
+    ],
+    relatedTools: [
+      { slug: "json-formatter", label: "JSON Formatter" },
+      { slug: "json-validator", label: "JSON Validator" },
+      { slug: "css-minifier", label: "CSS Minifier" },
+    ],
+  },
 };

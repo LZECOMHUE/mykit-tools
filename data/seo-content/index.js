@@ -24,6 +24,9 @@ import { educationSEO } from "./education";
 import { parentingSEO } from "./parenting.js";
 import { bettingSEO } from "./betting.js";
 import { sportsSEO } from "./sports.js";
+import { pdfSEO } from "./pdf.js";
+import { quizSEO } from "./quiz.js";
+import { weddingSEO } from "./wedding.js";
 
 const allSEOContent = {
   ...financeSEO,
@@ -48,6 +51,9 @@ const allSEOContent = {
   ...parentingSEO,
   ...bettingSEO,
   ...sportsSEO,
+  ...pdfSEO,
+  ...quizSEO,
+  ...weddingSEO,
 };
 
 /**

@@ -850,6 +850,614 @@ export const financeSEO = {
       { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
     ],
   },
+
+  "can-i-retire-early": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Pension Pot Do You Need to Retire Early?",
+        "As a rough guide, multiply your desired annual income by 25. If you want £30,000 a year before tax, you need a pot of around £750,000; if you want £40,000, you need £1,000,000. That figure assumes the 4% rule, which suggests withdrawing 4% of your pot in year one and adjusting that pound figure for inflation each year afterwards.",
+        "The 4% rule was built on US data and a 30-year retirement. If you retire at 55 and live to 90, you are funding 35 years and the safe withdrawal rate drops closer to 3.3% on the cautious end. At 3.3%, the same £30,000 lifestyle needs roughly £910,000. None of this includes the State Pension, which adds £11,973 a year from age 66 in 2026/27 and reduces the gap your private pot has to fill once you cross that line."
+      ),
+      createAnswerFirstSection(
+        "The Bridge Years Are the Hard Part",
+        "Most pensions cannot be touched before age 55, rising to 57 in April 2028. The State Pension does not start until 66 (and is rising to 67 between 2026 and 2028). If you want to retire at 50, you need to fund five years of living costs entirely outside your pension wrapper, normally from a Stocks and Shares ISA or a General Investment Account. A 50-year-old wanting £30k a year for five bridge years needs roughly £150,000 in accessible non-pension money before they touch the [ISA calculator](/isa-calculator) for projections.",
+        "Salary sacrifice can bring forward your retirement date faster than most people expect because contributions into a pension save you 32% (basic rate plus NI) or 42% (higher rate plus NI) versus saving the same money out of net pay. Someone in the 40% band sacrificing £500 a month for ten years builds a pension pot worth roughly £85,000 at 5% growth, having only sacrificed £290 a month from their take-home. That accelerated pot is what makes 55 possible for higher earners and not just lottery winners."
+      ),
+      createAnswerFirstSection(
+        "What If the Calculator Says 'Not Yet'?",
+        "Three levers move the needle. Saving more is the obvious one and shows up immediately, but it has the smallest effect on long timelines because you are adding to a pot that compound growth is doing most of the work on. Working two extra years is mathematically larger because it is two more years of contributions, two more years of growth on the existing pot, and two fewer years of retirement to fund. Lowering target spending is the most powerful lever of all, and the one most early-retirement plans underweight; cutting target income from £40,000 to £32,000 cuts the pot needed by £200,000 at the 4% rule. A pension under-funded for £40k is fully funded for £32k."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I retire at 55 in the UK?",
+        "Yes, if your private pension and savings are large enough to bridge to State Pension age. From April 2028 the minimum pension access age rises to 57, so anyone born after April 1971 cannot draw a private pension at 55. You will not get the State Pension until 66 (rising to 67 by 2028), so retiring at 55 means funding 11 years entirely from your own savings before any state top-up arrives."
+      ),
+      createFAQ(
+        "How much do I need to retire at 60?",
+        "For a £30,000 annual income from 60 to State Pension age at 67, then a reduced top-up after, a typical pot is £550,000 to £650,000 depending on your housing costs and whether you have any defined benefit pensions. The seven bridge years from 60 to 67 are the most demanding part: you are drawing roughly £210,000 of cumulative income before the State Pension reduces your draw by around £12,000 a year."
+      ),
+      createFAQ(
+        "Is the 4% rule reliable for UK retirees?",
+        "It is a useful starting point but UK markets and pension wrappers behave differently to the US ones the rule was tested on. Most UK financial advisers now use 3% to 3.5% as a safe withdrawal rate for a 30-year retirement, falling to 2.8% to 3.2% for a 40-year retirement. The calculator on this page uses 4% to keep numbers comparable to common rules of thumb; if you want a more cautious answer, run it again with your desired income inflated by 20% to see what you would need under a 3.3% rule."
+      ),
+      createFAQ(
+        "Should I include my house in my retirement pot?",
+        "Only if you genuinely plan to downsize or use equity release. Living in a £500,000 mortgage-free house does not pay the gas bill. A common compromise is to assume downsizing in your late 70s releases roughly 30% of the house value as a late-retirement top-up; for a £400,000 house, that is £120,000 of extra capital from age 78 onward, useful for care costs but not for funding earlier discretionary spending."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "isa-calculator", label: "ISA Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
+
+  "child-benefit-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Child Benefit Will You Receive in 2026/27?",
+        "Child Benefit pays £26.05 per week for your first or only child and £17.25 per week for each additional child in 2026/27. A family with two children receives £43.30 a week, or £2,251.60 a year, paid every four weeks. A family with three children receives £60.55 a week, or £3,148.60 a year. Payments continue until your child turns 16, or 20 if they remain in approved education or training.",
+        "You only receive Child Benefit if you claim it. Many higher-earning parents skip the claim because of the tax charge described below, but doing so means missing out on National Insurance credits that protect your State Pension entitlement. The fix is to claim Child Benefit but tick the box opting out of payment. You keep the credits, you avoid the charge, and you can opt back in if your income falls."
+      ),
+      createAnswerFirstSection(
+        "The High Income Child Benefit Charge",
+        "From April 2026 the HICBC threshold rose to £80,000 (up from £60,000), with the charge tapering to 100% by £100,000. Between £80,000 and £100,000, you pay back 1% of your Child Benefit for every £200 you earn above the threshold. At £90,000 you owe back half. At £100,000 you owe back the lot. The charge is on the higher earner in the household, not on the parent claiming, and it is collected through Self Assessment.",
+        "Salary sacrifice into a pension is the cleanest workaround for someone earning £85,000 to £95,000 with kids. £5,000 sacrificed brings adjusted net income from £85k to £80k, restores the full Child Benefit, and saves 40% income tax on the sacrificed amount. For a two-child family that is roughly £2,250 of Child Benefit retained plus £2,000 of tax saved on a £5,000 sacrifice, before the long-term pension growth on the contribution. The [salary sacrifice calculator](/uk-salary-sacrifice-calculator) models this combination directly."
+      ),
+      createAnswerFirstSection(
+        "What Counts Towards the £80,000 Threshold",
+        "HICBC is based on adjusted net income, which is your total taxable income minus certain reliefs. It includes salary, bonuses, taxable benefits in kind (the company car, the private medical), self-employment profits, rental income, and most pension income. It excludes pension contributions made by salary sacrifice (because those reduce your taxable income at source), Gift Aid donations grossed up, and trading losses. A higher earner who pays £6,000 a year into pension via salary sacrifice and donates £1,200 to charity has their HICBC income calculated as their P60 figure minus the gross Gift Aid, not their headline salary."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much is Child Benefit for one child in 2026?",
+        "£26.05 a week, paid every four weeks (£104.20 per payment). That works out to £1,354.60 a year. The first-child rate is the same whether you are a single parent or a couple, and it is paid to one parent only, normally the one who registered the claim."
+      ),
+      createFAQ(
+        "Do I get Child Benefit if I earn over £80,000?",
+        "You can still claim and receive Child Benefit, but if you (or your partner) earn over £80,000 you start owing some of it back through the High Income Child Benefit Charge, and at £100,000 the charge equals 100% of the benefit. Most families in that band claim anyway to protect National Insurance credits, then either pay the charge through Self Assessment or opt out of receiving the cash."
+      ),
+      createFAQ(
+        "When does Child Benefit stop?",
+        "Automatically when your child turns 16, unless they continue in approved full-time education (A-levels, T-levels, or equivalent) or unpaid training. You can extend Child Benefit until age 20 by submitting form CH297. It stops on the 31 August following their 16th birthday if they leave school at 16, or at the end of their final year of approved education otherwise."
+      ),
+      createFAQ(
+        "Why claim Child Benefit if I will pay it all back?",
+        "Claiming gives the non-working or lower-earning parent National Insurance credits towards their State Pension for every year they are responsible for a child under 12. Missing those credits can permanently reduce a State Pension worth £230,000 over a typical retirement. The claim also automatically registers the child for an NI number at 16. You can opt out of receiving payment while keeping the credits, which is what most affected high earners do."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "uk-salary-sacrifice-calculator", label: "Salary Sacrifice Calculator" },
+      { slug: "childcare-cost-calculator", label: "Childcare Cost Calculator" },
+    ],
+  },
+
+  "credit-card-payoff-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Long Does It Take to Pay Off a Credit Card?",
+        "On a £5,000 balance at 24.9% APR paying only the 2% minimum (or £25, whichever is higher), you would take roughly 26 years to clear the debt and pay around £8,200 in interest on top. Adding £50 a month above the minimum cuts that to under 8 years and saves around £4,500 in interest. Adding £150 above the minimum clears the balance in just over 3 years and saves around £6,000.",
+        "The minimum-payment trap exists because UK credit card minimums are typically 1% of the balance plus the month's interest, or £25, whichever is higher. As your balance shrinks, so does the minimum, which is why minimum-only repayment stretches into decades. Fixed payments (paying the same pound figure every month regardless of the minimum) is the single biggest behavioural change you can make on a credit card, because it forces the principal down rather than letting interest erode every payment."
+      ),
+      createAnswerFirstSection(
+        "Where the UK Average Credit Card APR Sits in 2026",
+        "Bank of England data puts the average UK credit card APR at around 23% to 26% for standard cards in early 2026, with store cards higher (29% to 35%) and rewards or premium cards often higher still (24% to 29%). With the BoE base rate currently around 4%, that is a margin of roughly 20 percentage points between the cost of money to the bank and what you are charged, which is why credit card debt is almost always more expensive than any other debt you might also be carrying.",
+        "Promotional 0% purchase or balance-transfer cards are the obvious release valve. A 24-month 0% balance transfer with a 3% transfer fee on £5,000 of debt costs £150 upfront and saves roughly £2,200 in interest over the period versus a standard card, provided you actually clear the balance inside the 24 months. Miss the deadline and the card flips to a standard rate (often 23% or higher), which wipes out most of the saving. The [debt payoff calculator](/debt-payoff-calculator) lets you stress-test what happens if you only clear part of the balance before the promo ends."
+      ),
+      createAnswerFirstSection(
+        "Should You Save or Pay the Card Off First?",
+        "If you have any credit card balance accruing interest at 20%+, paying it down beats almost every savings or investment option available to a UK consumer. Even the best easy-access savings account in 2026 pays around 4.5% (taxed at your marginal rate, leaving 3.6% net for a basic-rate taxpayer). Paying down a 24% APR card returns 24% tax-free in effective interest avoided. The maths is not close. The exception is an emergency fund of one month's essential spending; without that, an unexpected boiler bill goes back onto the card and you start over. Build the £1,500 to £2,000 buffer first, then attack the card with everything else."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much should I pay above the minimum?",
+        "As much as you can afford while keeping any other essential debt (mortgage, rent, council tax) covered. As a benchmark, paying double the minimum on a £5,000 balance at 24.9% APR roughly halves the payoff time and cuts total interest by around 60%. Even £25 a month above the minimum makes a meaningful difference, especially on smaller balances under £2,000."
+      ),
+      createFAQ(
+        "What's a good APR for a credit card in the UK?",
+        "Anything below 20% is competitive in 2026. The headline 'representative APR' on advertising is what 51% of accepted applicants get, so your offered rate may be higher than the headline. Sub-15% rates are typically reserved for premium or excellent-credit cards. If your current card is above 25%, it is worth checking eligibility for a lower-rate card via a soft-search service before applying, because hard searches affect your file."
+      ),
+      createFAQ(
+        "Is a balance transfer worth it?",
+        "Almost always, if you have a clear plan to repay during the 0% period. A 24-month 0% transfer with a 3% fee on £4,000 costs £120 upfront and saves roughly £1,400 in interest versus paying it on a 22% APR card. Without a repayment plan, the saving disappears the moment the promo ends and the rate jumps. Eligibility depends on your credit file; balance transfers often require a 'good' or 'excellent' rating to access the longest 0% periods."
+      ),
+      createFAQ(
+        "Will paying off my card improve my credit score?",
+        "Paying down balances reduces your credit utilisation ratio (the percentage of available credit you are using), which is one of the largest factors in UK credit scoring. Dropping from 80% utilisation to 30% can lift your score significantly within one or two reporting cycles. Closing the card after paying it off can slightly hurt your score by reducing total available credit and shortening account age, so leaving the cleared card open is usually the better move."
+      ),
+    ],
+    relatedTools: [
+      { slug: "debt-payoff-calculator", label: "Debt Payoff Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "loan-repayment-calculator", label: "Loan Repayment Calculator" },
+    ],
+  },
+
+  "debt-snowball-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Snowball vs Avalanche: Which Pays Off Debt Faster?",
+        "Mathematically, the avalanche method (paying highest-interest debt first) always pays off debt faster and cheaper than snowball (paying smallest balance first). On a typical UK debt mix - £5,000 credit card at 18.9%, £15,000 car loan at 4.5%, £25,000 student loan at 3.1% - with £200 a month extra, avalanche saves around £1,200 in interest and clears the debt roughly two months sooner than snowball. The gap widens with higher-rate debts.",
+        "Snowball wins on behaviour, not maths. Clearing a £500 store card in three months gives you a visible win, freeing up that minimum payment as ammunition for the next debt and building momentum. Studies of actual debt-payoff completion rates (most notably by Ramsey Solutions and academic work by Gal and McShane) suggest people stick with snowball at higher rates because the early wins are motivating. If you have tried and abandoned the avalanche before, snowball may be the right call even though the calculator shows it costs more."
+      ),
+      createAnswerFirstSection(
+        "When the Difference Is Big Enough to Matter",
+        "If your highest-rate debt is dramatically more expensive than the rest (a 39% APR store card alongside two sub-5% loans), avalanche is almost always the right call regardless of personality, because the interest gap is too large to ignore. £3,000 on a 39% store card accrues £100 a month in interest alone. Throwing snowball payments at the £500 sub-5% personal loan first because it is smaller is a behavioural luxury that costs roughly £500 over the payoff timeline.",
+        "If your debts are all in a narrow rate band (say 6% to 9%), the maths of avalanche barely beats snowball, and the behavioural pull of snowball usually wins. The calculator shows you the exact pound difference between the two methods so you can make the call with eyes open. Below £500 difference over the whole payoff, most people who choose snowball stick with it; above £2,000 difference, most people switch to avalanche once they see the number. The [debt payoff calculator](/debt-payoff-calculator) lets you test the same debts under both strategies side by side."
+      ),
+      createAnswerFirstSection(
+        "What the Snowball Calculator Cannot See",
+        "The calculator assumes you keep adding the same monthly extra payment until the last debt is gone, and that you do not run any of the cleared cards back up. In practice, the second assumption is the one that breaks. Lender data published by UK Finance shows roughly one in three borrowers who consolidate or clear credit card debt return to a meaningful balance within 18 months. The behavioural fix is to either close the cleared card, lock it in a drawer, or set it to direct-debit-pay-in-full each month so that any new spend triggers an immediate full repayment. None of those fixes show up in the calculator output, but they are the single biggest determinant of whether the projected debt-free date actually arrives."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much extra should I pay each month?",
+        "As much as you can sustain for the full payoff period without burning out and reverting to minimums. £100 to £200 a month is a typical realistic range for most UK households with mixed debt totalling under £30,000. The calculator shows you the time and interest savings at every level, so you can pick the smallest extra amount that still gets you debt-free within a tolerable horizon, normally 3 to 5 years."
+      ),
+      createFAQ(
+        "Should I include my mortgage in the calculator?",
+        "No. Mortgages typically have rates of 4% to 6% in 2026, far below most other consumer debt, and are designed for very long terms with their own overpayment rules and early-repayment charges. Use the dedicated [mortgage overpayment calculator](/mortgage-overpayment-calculator) for that. The snowball calculator works best for credit cards, store cards, personal loans, car finance, and overdrafts."
+      ),
+      createFAQ(
+        "What about my Student Loan?",
+        "UK Plan 2 and Plan 5 student loans are income-contingent: you only repay 9% of income above the threshold (£27,295 for Plan 2 in 2026/27), and any remaining balance is written off after 30 to 40 years. For most graduates, voluntary overpayments are wasted money because they would not have repaid the full balance anyway. Leave student loans out of any aggressive payoff plan unless you are a high earner who will clearly clear the balance within the term."
+      ),
+      createFAQ(
+        "What if I miss a month?",
+        "Make the minimums on every debt every month, even if you cannot make the extra payment. Missing a minimum triggers default fees (typically £12 per missed payment in the UK), can push the rate to a penalty APR (often 5 to 10 percentage points higher), and reports as a missed payment on your credit file for six years. If the minimums themselves become unaffordable, contact StepChange or Citizens Advice before missing payments; both offer free debt advice."
+      ),
+    ],
+    relatedTools: [
+      { slug: "debt-payoff-calculator", label: "Debt Payoff Calculator" },
+      { slug: "credit-card-payoff-calculator", label: "Credit Card Payoff Calculator" },
+      { slug: "mortgage-overpayment-calculator", label: "Mortgage Overpayment Calculator" },
+    ],
+  },
+
+  "isa-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Could £20,000 a Year in an ISA Become?",
+        "Maxing the £20,000 ISA allowance every year for 20 years at 5% real growth produces a pot of around £660,000, all of it tax-free at withdrawal. At 6% real growth the same contributions produce roughly £736,000; at 7%, £820,000. Real growth means after inflation, so these are pots in today's money. Cash ISAs paying around 4.5% in 2026 grow more slowly in nominal terms and barely keep pace with inflation in real terms.",
+        "The shape of compound growth means the last few years of contributions do most of the heavy lifting. A 25-year-old who fills the ISA for ten years and then stops will retire with more in real terms than a 35-year-old who fills it for twenty years, because the early contributions have an extra ten years to compound. This is why financial planners obsess about starting early, even with smaller amounts. £200 a month from age 22 reaches a larger pot at 65 than £400 a month from age 35."
+      ),
+      createAnswerFirstSection(
+        "ISA Allowance Rules That Trip People Up",
+        "The £20,000 annual allowance for 2026/27 covers all your ISAs combined, not £20,000 per ISA. You can spread it however you like across Cash, Stocks and Shares, Innovative Finance, and Lifetime ISAs (the LISA has its own £4,000 sub-allowance which counts towards the overall £20,000). If you put £15,000 into a Stocks and Shares ISA in April, you have £5,000 left for the rest of the tax year across all your ISAs combined.",
+        "Partial-year transfers are the rule that catches most savers. You can transfer existing ISAs between providers without it counting towards your annual allowance, but you cannot withdraw from an ISA and re-contribute the same money in the same tax year unless your provider offers a 'flexible' ISA (most cash ISAs do, most stocks-and-shares ISAs do not). If you take £5,000 out of a non-flexible ISA in May to cover an emergency, you have lost that £5,000 of allowance for the year. The [compound interest calculator](/compound-interest-calculator) is useful for stress-testing whether breaking into ISA capital is worth the lost growth on the outflow."
+      ),
+      createAnswerFirstSection(
+        "Cash ISA vs Stocks and Shares ISA",
+        "Cash ISAs in 2026 pay around 4.5% on the best easy-access deals and 5% to 5.3% on one to two-year fixes. With CPI inflation hovering around 2.5% to 3%, that is roughly 1.5% to 2.5% real return. Stocks and Shares ISAs invested in a global tracker have averaged 6% to 7% real return over the last 30 years (FTSE All-World total return data), with significant volatility year to year. Over 20-year holding periods, stocks have outperformed cash 100% of the time in UK historical data; over 5-year periods, stocks beat cash roughly 75% of the time but with notable drawdowns in adverse periods. The choice usually comes down to time horizon: cash for goals under 5 years, stocks for goals over 10 years, a blended split for the awkward middle."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the ISA allowance for 2026/27?",
+        "£20,000 per person, per tax year. That figure has not changed since 2017/18 and is currently frozen with no scheduled increase. Couples can each use their full £20,000, giving a household allowance of £40,000 a year. Children get a separate £9,000 Junior ISA allowance up to age 18."
+      ),
+      createFAQ(
+        "Can I have multiple ISAs?",
+        "Yes. Since April 2024 you can pay into multiple ISAs of the same type within the same tax year (previously you had to pick one Cash ISA and one Stocks and Shares ISA per year). The combined contributions across all ISAs still cannot exceed £20,000. You can also hold ISAs from previous tax years across multiple providers without restriction."
+      ),
+      createFAQ(
+        "Do I pay tax on ISA gains or interest?",
+        "No. ISAs are completely shielded from income tax and capital gains tax inside the wrapper, and there is no further tax when you withdraw. This contrasts with general savings (where interest above £1,000 a year is taxed for basic-rate payers, £500 for higher-rate, £0 for additional-rate) and general investment accounts (where dividends above £500 are taxed and capital gains above £3,000 are taxed)."
+      ),
+      createFAQ(
+        "Should I move my ISA to a higher-paying provider?",
+        "Often yes, especially with cash ISAs. Use a provider's official ISA transfer process - never withdraw and re-pay, because that would count as a fresh contribution against your annual allowance. Stocks and shares ISA transfers between platforms typically take two to four weeks; cash transfers are quicker, normally five to seven working days. Some fixed-rate cash ISAs charge an early-exit penalty equivalent to 90 to 180 days' interest, so check before transferring."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "savings-burndown", label: "Savings Burndown" },
+    ],
+  },
+
+  "mortgage-overpayment-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Will Overpaying Your Mortgage Save You?",
+        "On a £200,000 mortgage at 5.5% with 25 years remaining, paying an extra £100 a month saves around £33,000 in interest and clears the mortgage 4 years and 2 months early. £200 a month extra saves around £58,000 and clears it 7 years and 3 months early. £500 a month extra saves around £104,000 and clears it nearly 13 years early. The bigger the rate and the earlier in the term, the more dramatic the saving.",
+        "The reason small overpayments produce such large savings is that mortgage interest is front-loaded. In year one of a 25-year £200,000 mortgage at 5.5%, roughly 80% of each monthly payment is interest and only 20% reduces the balance. An overpayment goes 100% to the balance, so a £100 overpayment in year one is worth around five times as much, in capital reduction terms, as the principal portion of a normal payment. Every overpayment in the early years compounds by avoiding decades of future interest on that capital."
+      ),
+      createAnswerFirstSection(
+        "The 10% Rule and Early Repayment Charges",
+        "Most UK fixed-rate mortgages allow you to overpay up to 10% of the outstanding balance per year without penalty. On a £200,000 mortgage that is £20,000 a year of allowed overpayment, far more than most households can muster. Going above 10% triggers an early repayment charge (ERC), typically 1% to 5% of the overpayment depending on how many years are left on the fix.",
+        "Tracker and SVR mortgages usually have no overpayment limit and no ERC, but their rates are typically higher (SVRs in 2026 sit at 7% to 8% with the Bank of England base rate at 4%). If you are mid-fix at 4% and considering whether to overpay or save, the 10% allowance is normally generous enough to cover anything you would realistically pay in. The [mortgage calculator](/mortgage-calculator) is useful for modelling the original payment schedule before layering overpayments on top."
+      ),
+      createAnswerFirstSection(
+        "Overpay or Save: When the Rate Comparison Changes",
+        "The rule of thumb most UK savers learn is 'compare your mortgage rate to the best savings rate after tax'. With a 5.5% mortgage and the best easy-access savings paying around 4.5% (3.6% net for a basic-rate taxpayer above the £1,000 personal savings allowance), overpaying clearly wins on pure rate. With a 4% fixed mortgage and the same 4.5% savings rate, saving in an ISA wins, especially because savings stay liquid while mortgage overpayments do not. The crossover point is roughly when your after-tax savings rate exceeds your mortgage rate, accounting for the personal savings allowance and your ISA capacity. The other consideration is flexibility: an offset mortgage gives you the same interest-saving effect as an overpayment but keeps the cash accessible, which is worth a 0.2 to 0.4 percentage point premium on the rate for some borrowers."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is it better to overpay or extend the term?",
+        "Almost always overpay. Extending the term reduces your monthly payment but increases total interest paid significantly. Overpaying cuts both the term and the total interest. The exception is if you genuinely cannot afford the current monthly payment due to a temporary income shock, in which case extending is a survival tool, not a long-term strategy."
+      ),
+      createFAQ(
+        "Should I lump-sum overpay or pay extra each month?",
+        "Mathematically, a lump sum at the start of the year saves more interest than the same total spread monthly, because the capital reduction starts working sooner. Practically, regular monthly overpayments are easier to budget and harder to forget. A common compromise is to overpay monthly within the 10% annual allowance and add any windfalls (bonuses, tax refunds) as one-off lump sums."
+      ),
+      createFAQ(
+        "What happens to my monthly payment after overpaying?",
+        "Most lenders give you a choice: keep the same monthly payment and shorten the term, or keep the same term and reduce the monthly payment. Keeping the same payment and shortening the term saves dramatically more interest. Reducing the monthly payment frees up cash flow but loses most of the saving. The default at most lenders is to keep the term and reduce the payment, so you may need to actively request the alternative."
+      ),
+      createFAQ(
+        "Can I get my overpayments back?",
+        "Generally no, unless you have an offset mortgage or a flexible mortgage that allows drawdown. Overpayments on a standard repayment mortgage become part of the balance and are only released when you sell the property or remortgage. This is the main reason some advisers prefer ISA saving for borrowers without strong job security; the money stays liquid in case of emergencies."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "mortgage-affordability-calculator", label: "Mortgage Affordability Calculator" },
+      { slug: "stamp-duty-calculator", label: "Stamp Duty Calculator" },
+    ],
+  },
+
+  "national-insurance-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much National Insurance Do You Pay in 2026/27?",
+        "Employees pay 8% on earnings between the primary threshold of £12,570 and the upper earnings limit of £50,270, then 2% on everything above. On a £35,000 salary you pay £1,794 a year (£149.50 a month). On £50,000 you pay £2,994 a year (£249.50 a month). On £100,000 you pay £4,008 a year (£334 a month). NI tops out as a flat 2% rate above £50,270, which is why high earners feel income tax bite far more than NI.",
+        "Employer National Insurance is the bigger number most employees never see. From April 2026 the employer rate is 15% (up from 13.8%) on salary above £5,000 (down from £9,100), so the cost to employ someone on £35,000 is now around £4,500 of employer NI on top of their salary. This is why salary sacrifice schemes are popular: the employer saves their NI on the sacrificed amount and often passes some or all of that saving back to the employee."
+      ),
+      createAnswerFirstSection(
+        "The Self-Employed and Class 4 NI",
+        "Self-employed people pay Class 4 NI on profits at 6% between £12,570 and £50,270, then 2% above (down from 9% in earlier tax years). Class 2 NI was effectively abolished from April 2024; you no longer pay the £3.45 weekly Class 2 contribution but you still get qualifying years for State Pension based on profits above £6,725. So a sole trader with £40,000 of profit pays roughly £1,646 in Class 4 NI, with no Class 2 due. Compare that to an employee on £40,000 salary paying £2,194 in Class 1 NI, plus their employer paying another £5,250 in employer NI on top.",
+        "Most directors of small limited companies optimise around this gap by paying themselves a salary at or just above the personal allowance and taking the rest as dividends, which avoids NI entirely. The trade-off is that dividends do not count towards State Pension qualifying years, so the small salary needs to be at least £6,500 a year to pick up an NI credit without actually paying contributions. The [salary sacrifice calculator](/uk-salary-sacrifice-calculator) is useful for employees considering pension sacrifice, which removes the NI charge on the sacrificed pound."
+      ),
+      createAnswerFirstSection(
+        "When You Stop Paying NI",
+        "You stop paying employee NI the day you reach State Pension age, even if you keep working. State Pension age is 66 throughout 2026, rising to 67 between April 2026 and March 2028, and to 68 between 2044 and 2046. Self-employed Class 4 NI also stops at State Pension age but is reconciled at the end of the tax year, so you typically pay a part-year amount in the year you cross the threshold. Voluntary Class 3 contributions (£17.45 a week in 2026/27) let you fill gaps in your NI record up to six years back, which can be worth thousands in lifetime State Pension if you are short of qualifying years."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the NI threshold for 2026/27?",
+        "The primary threshold (the point where employees start paying NI) is £12,570 a year, the same as the income tax personal allowance. The upper earnings limit (where the rate drops from 8% to 2%) is £50,270. Both thresholds have been frozen since 2022 and are scheduled to remain frozen until at least April 2028."
+      ),
+      createFAQ(
+        "Do I pay NI on my pension?",
+        "No. Pension income is subject to income tax but not National Insurance. This is one of the largest tax differences between salary and pension income, and is part of why retirees on the same gross income as workers have noticeably more take-home pay."
+      ),
+      createFAQ(
+        "How many years of NI do I need for a full State Pension?",
+        "35 qualifying years for the full new State Pension (£11,973 a year in 2026/27). 10 years is the minimum to get any State Pension at all. If you have fewer than 35 years on your record, you can pay voluntary Class 3 contributions to fill gaps; check your record on the gov.uk State Pension forecast page before paying, because some gap years cannot be backfilled."
+      ),
+      createFAQ(
+        "Does salary sacrifice reduce my NI?",
+        "Yes, and that is one of its main benefits. Sacrificing £5,000 of salary into pension reduces your Class 1 NI bill by 8% of £5,000 (£400 a year if the sacrifice is below the upper earnings limit) and saves your employer 15% (£750 a year). Many employers pass the employer saving back into your pension, making sacrifice a roughly 23% boost on the contribution before any income tax saving."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "uk-salary-sacrifice-calculator", label: "Salary Sacrifice Calculator" },
+      { slug: "hourly-to-salary", label: "Hourly to Salary" },
+    ],
+  },
+
+  "pension-income-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Income Will Your Pension Pot Produce?",
+        "A £200,000 pension pot using the 4% withdrawal rule generates £8,000 a year in year one, or £667 a month before tax. A £400,000 pot generates £16,000 (£1,333 a month). A £500,000 pot generates £20,000 (£1,667 a month). At State Pension age, those private pensions stack on top of the full new State Pension of £11,973 a year, so a £400,000 pot plus full State Pension produces a combined pre-tax income of around £27,973, leaving roughly £24,800 after tax for someone with no other income.",
+        "Annuity rates in 2026 sit at roughly 6.5% to 7.5% for a healthy 65-year-old buying a single-life level annuity. £200,000 spent on an annuity therefore buys about £13,000 to £15,000 a year, guaranteed for life. The annuity number looks better than the 4% drawdown number, but it is not directly comparable; an annuity uses up the capital, while drawdown leaves your pot invested with the chance of growth and a remainder to pass on. The choice between them is often about longevity risk preference rather than maths."
+      ),
+      createAnswerFirstSection(
+        "The 4% Rule, the 3.3% Rule, and Why It Matters",
+        "The 4% rule (Bengen, 1994) was tested on US data with a 30-year retirement starting at 65 and assumes you withdraw 4% in year one and adjust that pound figure for inflation each year afterwards. It worked in 96% of historical US 30-year periods. UK markets have lower long-term real returns and higher equity volatility in some windows, so most UK financial planners now use 3.3% to 3.5% as a comparable safe withdrawal rate. The difference matters: at 4%, a £400,000 pot supports £16,000 a year; at 3.3%, the same pot supports only £13,200 a year. £2,800 a year less is a meaningful constraint over a 25-year retirement.",
+        "Variable withdrawal strategies (Guyton-Klinger guardrails, ratcheting, the Yale-Endowment 80/20 rule) increase the safe starting rate to roughly 5% in exchange for accepting that you cut your spending in years following a major market drawdown. Nobody enjoys cutting spending in retirement, so most retirees end up with a hybrid: 3.5% to 4% as a base, with discretionary spending (holidays, gifts) layered on top in good market years and trimmed in bad ones. The [can I retire early calculator](/can-i-retire-early) lets you stress-test what happens to projected retirement income at different growth and withdrawal assumptions."
+      ),
+      createAnswerFirstSection(
+        "What Pension Income Looks Like After Tax",
+        "Pension income (apart from the 25% tax-free lump sum) is taxed as normal earned income. The personal allowance of £12,570 applies first, then 20% basic rate to £50,270, 40% higher rate to £125,140. So a £25,000 pension income for someone with no other income produces £22,514 net after tax (no NI, because pensioners do not pay NI). For someone still working part-time on £15,000, the pension income stacks on top and most of it falls into the basic rate band. The State Pension always uses up the personal allowance first, which catches retirees by surprise; with State Pension at £11,973 in 2026/27, every pound of private pension is taxable from the £597 mark upwards."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much pension income can I get from £100,000?",
+        "Using the 4% rule, £4,000 a year in year one (£333 a month). Using a more cautious 3.3%, £3,300 a year (£275 a month). Buying an annuity with the full pot at age 65 produces roughly £6,500 to £7,500 a year guaranteed for life, but uses up the capital. A £100,000 pot is best treated as a supplement to the State Pension and any other savings, not as a standalone retirement income."
+      ),
+      createFAQ(
+        "Should I take an annuity or use drawdown?",
+        "Drawdown gives flexibility and the chance of growth (and a residual pot to pass on), but you bear the longevity and market risk. Annuity gives certainty but uses up the capital and offers limited inflation protection unless you pay extra. A common compromise is to annuitise enough to cover essential bills (council tax, utilities, food) and use drawdown for discretionary spending; this caps your downside while keeping flexibility. Annuity rates in 2026 are at their highest in fifteen years, which has shifted some retirees back towards full or partial annuitisation."
+      ),
+      createFAQ(
+        "Can I take all my pension at once?",
+        "Yes, since 2015 pension freedoms. 25% of the pot is tax-free up to a Lump Sum Allowance (LSA) of £268,275; the remaining 75% is taxed as income in the year you take it. Taking a £200,000 pot all at once would push someone with no other income from a £12,570 personal allowance into the additional rate band, costing roughly £55,000 in tax versus spreading withdrawals over multiple years. For most retirees, a phased drawdown over 5 to 10+ years is dramatically more tax-efficient than a single large withdrawal."
+      ),
+      createFAQ(
+        "What happens to my pension if I die?",
+        "If you die before 75, your remaining pension pot can usually be passed to your nominated beneficiary tax-free. After 75, the beneficiary pays income tax at their marginal rate on any withdrawals from the inherited pot. This is one of the largest IHT planning advantages of pensions; pension assets sit outside the deceased's estate for inheritance tax purposes (with some exceptions being introduced from April 2027 onwards under recent Budget changes)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "pension-tax-free-lump-sum", label: "Pension Tax Free Lump Sum" },
+      { slug: "can-i-retire-early", label: "Can I Retire Early" },
+    ],
+  },
+
+  "pension-tax-free-lump-sum": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Tax-Free Lump Sum Can You Take?",
+        "You can take 25% of your pension pot as a tax-free lump sum from age 55 (rising to 57 from April 2028). On a £200,000 pot that is £50,000 tax-free; on £400,000 it is £100,000; on £1,000,000 it is £250,000. The cap is the Lump Sum Allowance of £268,275, which means anyone with a pot above roughly £1,073,000 hits the cap and the excess 25% becomes taxable.",
+        "The tax-free lump sum is one of the largest single tax breaks in the UK system. £50,000 of tax-free cash is equivalent to roughly £83,000 of gross salary for a higher-rate taxpayer (after 40% tax and 2% NI). Many retirees use it to clear remaining mortgage debt, fund the early bridge years before State Pension kicks in, or front-load discretionary spending in the active early years of retirement when health is best."
+      ),
+      createAnswerFirstSection(
+        "Take It All at Once or Drip-Feed?",
+        "You do not have to take the full 25% in one go. Under flexi-access drawdown, every withdrawal you make from your pension is split 25/75: 25% tax-free, 75% taxed as income. Withdrawing £40,000 a year therefore gives you £10,000 tax-free and £30,000 taxable, year after year, until either the 25% allowance is exhausted or the LSA cap is reached. This phased approach is normally more tax-efficient than taking the maximum lump sum on day one, because it stretches the tax-free element across multiple years and reduces the temptation to spend the lump sum quickly.",
+        "Taking the full 25% at age 55 also triggers some pension wrapper changes worth understanding. Once you have taken any taxable income from a flexi-access drawdown pot, the Money Purchase Annual Allowance kicks in, capping your future contributions at £10,000 a year (down from the standard £60,000). For anyone still working and contributing, that is a meaningful constraint. Taking only the tax-free lump sum without taking any taxable income avoids this trigger. The [can I retire early calculator](/can-i-retire-early) is useful for modelling whether the lump sum changes your retirement-readiness numbers materially."
+      ),
+      createAnswerFirstSection(
+        "What to Do with the Lump Sum",
+        "The single most popular use is clearing the remaining mortgage. With UK mortgage rates around 4.5% to 6% in 2026 and savings rates around 4.5% before tax, paying off a mortgage with the lump sum often produces a guaranteed risk-free return higher than any savings or investment alternative. The exception is if your mortgage is on a sub-3% legacy fix; in that case keeping the cash invested in an ISA or general investment account at expected 5%+ real returns probably wins. The second most popular use is rebuilding the lump sum into a Stocks and Shares ISA over several tax years, effectively moving capital from the pension wrapper (where future drawdowns are taxed) to the ISA wrapper (where future drawdowns are not). At £20,000 a year of ISA allowance per person, a couple can move £40,000 a year of pension lump sum into ISA over three to four years."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the Lump Sum Allowance?",
+        "£268,275 in 2026/27. This is the lifetime cap on the tax-free lump sum from all your pensions combined. It replaced the old Lifetime Allowance from April 2024. If your total pension wealth is £1,000,000, your 25% tax-free entitlement is £250,000 (under the cap). At £1,200,000, your entitlement is capped at £268,275 (because 25% would be £300,000 but the LSA limits it)."
+      ),
+      createFAQ(
+        "Do I have to take the lump sum at retirement?",
+        "No. You can leave your pension untouched indefinitely and pass it on to beneficiaries (often more tax-efficiently than other assets due to current pension IHT rules). You can also start drawing taxable income while leaving the tax-free lump sum untouched, then take the lump sum later. The flexibility is one of the main strengths of UK Defined Contribution pensions since the 2015 pension freedoms."
+      ),
+      createFAQ(
+        "Is the tax-free lump sum really tax-free?",
+        "Yes, on the way out of the pension. Once it is sitting in a savings account or investment account, any interest or growth on it is taxed under normal rules: interest above your personal savings allowance, dividends above £500, capital gains above £3,000. Most retirees move the lump sum (or as much as fits) into ISAs over the following years to keep the future returns tax-free as well."
+      ),
+      createFAQ(
+        "Can I take the lump sum from a Defined Benefit pension?",
+        "Yes, but it works differently. Most DB schemes offer a 'commutation' option where you give up some of your guaranteed annual pension in exchange for a lump sum, typically at a rate of 12 to 16 times the income given up. So giving up £1,000 a year of guaranteed pension might buy a £15,000 lump sum. The maths often favours keeping the income unless the scheme's commutation rate is unusually generous (above 20x), because £1,000 a year inflation-linked for life is hard to replace with a lump sum at modern annuity rates."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "pension-income-calculator", label: "Pension Income Calculator" },
+      { slug: "can-i-retire-early", label: "Can I Retire Early" },
+    ],
+  },
+
+  "retirement-countdown": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Working Days Until You Retire?",
+        "If you are 45 and planning to retire at the State Pension age of 66, that is 21 years, or roughly 5,460 working days assuming a five-day week with bank holidays. If you are 55 and aiming for 60, it is around 1,300 working days. The countdown is satisfying for two reasons: it makes a vague future date feel concrete, and it reframes time at work in units small enough to imagine using productively somewhere else.",
+        "The UK State Pension age is 66 throughout 2026, rising to 67 between 6 April 2026 and 5 April 2028, and to 68 between 2044 and 2046. Anyone born after April 1960 will be affected by at least one of these increases. Private pensions can be accessed earlier - currently from 55, rising to 57 from April 2028 - but only if the pot is large enough to bridge to State Pension age without running out."
+      ),
+      createAnswerFirstSection(
+        "Why Reframing Time Helps",
+        "Behavioural economics research (notably Hershfield's 'future-self continuity' work) shows that people who can vividly picture their retired self save more for retirement than those who cannot. A countdown that says '5,460 working days' makes the future feel close enough that it links to today's decisions, where a date 21 years out feels like science fiction. Tools that show working days remaining, Monday mornings remaining, or commutes remaining all hijack the same psychological mechanism, which is why they tend to get bookmarked rather than used once and forgotten.",
+        "The flip side is the regret half of the same calculation. Someone five years from a planned retirement at 60 has roughly 1,300 working days left, of which perhaps 400 are useful for adjusting the plan if the [can I retire early calculator](/can-i-retire-early) shows a shortfall. The other 900 are too late to make a meaningful pot-size difference; they only affect whether you delay retirement or scale down spending. Knowing the split helps focus action on the years that actually matter."
+      ),
+      createAnswerFirstSection(
+        "Setting a Realistic Target Date",
+        "The single most common error is anchoring on a round-number age (60, 55, 50) without checking the pension-pot maths. The second most common error is anchoring on State Pension age and ignoring the option of an earlier private retirement bridge. A useful exercise is to run three target dates side by side: your earliest theoretically possible date (the day you turn 55, or 57 from 2028), your minimum-effort date (the day your projected pot at current contributions hits 25 times your target spending), and your stretch date (a year or two earlier, if you ramped up contributions). The countdown then becomes three countdowns, and you pick the one whose extra effort is worth the freedom it buys."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When can I retire in the UK?",
+        "Whenever your savings allow. The legal minimum age for accessing a private pension is currently 55, rising to 57 from April 2028. The State Pension currently starts at 66, rising to 67 by 2028 and 68 by 2046. Most early retirees combine private pension drawdown from 55 (or earlier ISA savings) with a top-up from the State Pension when it kicks in."
+      ),
+      createFAQ(
+        "How many working days are in a year?",
+        "Roughly 252 in a typical UK year (365 days minus 104 weekend days minus 8 bank holidays minus around 1 to 2 days for floating bank holidays). Most full-time UK employees actually work 220 to 230 days once you subtract their typical 25 to 28 days of annual leave. So 'one year of work' is about 250 calendar working days but only 225 actual at-the-desk days."
+      ),
+      createFAQ(
+        "Should I retire at 60 or 65?",
+        "Five years of additional work between 60 and 65 typically grows a pension pot by roughly 30% to 45%, because you keep adding contributions and the pot keeps growing on the existing capital. Five years also reduces the years of retirement you need to fund. If your pot is borderline, working to 65 often makes the difference between a comfortable and a tight retirement. If your pot is already adequate, 60 frees up five years of useful, healthy time that working would have consumed."
+      ),
+      createFAQ(
+        "Is it too late to plan for retirement?",
+        "It is rarely too late but the levers shrink as you approach retirement. From age 55+ with a small pot, the realistic options are: working a few more years, ramping up contributions to use the £60,000 annual allowance (£10,000 if you have already triggered the MPAA), claiming any missing State Pension qualifying years through voluntary Class 3 contributions, and downsizing the house at retirement. Combined, these often add £50,000 to £150,000 of meaningful late-stage funding to a tight retirement plan."
+      ),
+    ],
+    relatedTools: [
+      { slug: "can-i-retire-early", label: "Can I Retire Early" },
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "state-pension-age-checker", label: "State Pension Age Checker" },
+    ],
+  },
+
+  "savings-burndown": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Burndown Calculation Works",
+        "The tool simulates your savings month by month. Each month it adds interest at your stated rate divided by 12, increases your spending by the monthly equivalent of inflation, then subtracts the net spending (spending minus any income) from the balance. It runs that loop until the balance hits zero or 100 years pass, whichever comes first. The output is the date your money runs out, plus milestones along the way (50% gone, 25% gone, emergency fund reached).",
+        "Two assumptions matter here. First, inflation compounds monthly even though most people think of it annually; the calculator handles this so a stated 3% annual inflation behaves correctly month-to-month. Second, interest is paid on the balance before that month's withdrawal, which is how most savings accounts and money-market funds actually work. Together these two details mean the burndown date is usually a few months later than a naive 'savings divided by monthly spending' estimate would suggest."
+      ),
+      createAnswerFirstSection(
+        "Sabbatical, Career Break, and Early Retirement Use Cases",
+        "The classic use case is planning a career break: you have £40,000 saved, you spend £2,500 a month, you want to know how long that lasts. The honest answer is around 16 months at zero inflation and zero interest, but realistic numbers stretch that to 18-19 months once you factor in even a modest 4% return on the cash sitting in an easy-access ISA. If you bring in some income (freelance work, a part-time job, rental income), the burndown extends further: £500 a month income against £2,500 spending means you only burn £2,000 net, pushing the same pot to closer to 23 months.",
+        "For early retirement, the burndown answers the harder question of whether your pot is genuinely sustainable. Most FIRE planning uses the [4% withdrawal rule](/uk-tax-calculator) but real lives have lumpy spending - a new boiler at year 3, a wedding at year 7, a knee replacement at year 12. The month-by-month view lets you stress-test the plan against single big withdrawals you'd struggle to model with a simple percentage rule. If the pot survives the first 10 years with extra £5,000 expenses every other year, it's probably durable."
+      ),
+      createAnswerFirstSection(
+        "Why Inflation Matters More Than You Think",
+        "Holding savings flat for 20 years feels safe, but inflation eats them slowly. At 3% annual inflation, £100 of spending today costs £180 in 20 years; the same pot of money buys roughly half what it does now. The simulator increases your spending each month to match inflation, which is why the burndown date is usually closer than people expect. A pot that 'lasts 30 years' at today's prices may only last 22 once the spending side rises with inflation.",
+        "The way to push back against this: your interest rate needs to beat inflation, ideally by 1-3%. UK easy-access savings accounts paying 4.5% in a 2.5% inflation environment give you about 2% real growth, which extends the runway. Cash in a current account paying 0% loses 2.5% of purchasing power a year and accelerates the burndown noticeably. The [compound interest calculator](/compound-interest-calculator) shows how that gap compounds across decades."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does the calculator account for tax on interest?",
+        "No, the interest rate you enter is treated as net (after tax). For most ISA and Personal Savings Allowance scenarios that's accurate (basic rate taxpayers get £1,000 of interest tax-free; higher rate gets £500). If you're earning more than the allowance and holding savings outside an ISA, reduce the rate you enter by your marginal tax band (so 5% gross becomes 4% net for a basic rate taxpayer, or 3% for higher rate)."
+      ),
+      createFAQ(
+        "What if my income changes during the period?",
+        "The simulator assumes constant monthly income. If you're planning a phased plan (full-time work, then part-time, then retirement), run it three times with different income figures and stitch the dates together. Future versions may support multi-phase scenarios but for now a manual three-pass approach gives you the right answer."
+      ),
+      createFAQ(
+        "Is 4% the right inflation rate to assume?",
+        "Use what fits your spending profile. UK CPI averaged around 2-3% over the last decade and spiked to 11% in 2022. For a long-running plan, somewhere between 2.5% and 3.5% is a reasonable central estimate. Run the calculation a second time at +2 percentage points (e.g. 5% instead of 3%) to see how the plan holds up against higher-than-expected inflation; that's the kind of sensitivity check professional planners do."
+      ),
+      createFAQ(
+        "Should I include my pension or just liquid savings?",
+        "Liquid only - the burndown is about cash you can spend immediately. Pensions, property equity, and shares you don't want to sell are separate from the savings runway calculation. Once you start drawing from a pension at 55+, that becomes a separate income stream you can add to the 'monthly income' field."
+      ),
+      createFAQ(
+        "What does the 'emergency fund' milestone mean?",
+        "When your remaining pot equals 3 months of current spending, the simulator flags it. That's the conventional minimum emergency reserve; anything below that and you have no buffer for unexpected costs. Hitting this milestone before the planned end date means you should have re-engaged with paid work several months earlier than you might have."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "savings-goal-calculator", label: "Savings Goal Calculator" },
+      { slug: "retirement-countdown", label: "Retirement Countdown" },
+    ],
+  },
+
+  "savings-goal-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Work Out Your Monthly Savings Target",
+        "Enter the amount you want to save, what you've saved already, and how many months you have. The tool subtracts your current savings from the target to find the gap, then divides by the number of months. For a £6,000 holiday fund with £600 already saved over 12 months, you need £450 a month, which equals roughly £104 a week or £208 a fortnight. The weekly and fortnightly figures are derived from the monthly amount using 4.33 weeks per month and 26 fortnights per year, which match calendar reality more closely than the rough 4-weeks-per-month assumption.",
+        "If you add an interest rate, the calculator runs a month-by-month projection: deposit goes in, balance earns the monthly equivalent of the annual rate (annual rate divided by 12), and the next month repeats. With even modest interest the required deposit shrinks because compounding does some of the work. At 5% interest, that £6,000 holiday goal needs roughly £435 a month instead of £450, a £15 monthly saving over the year that comes purely from picking the right account."
+      ),
+      createAnswerFirstSection(
+        "Common Savings Goals and Realistic Timelines",
+        "Emergency fund (3 months of spending, around £6,000-£10,000 for most UK households) typically takes 12-24 months on a moderate income. House deposit (£20,000-£50,000) takes 3-7 years for first-time buyers; saving £400-£600 a month gets most people there in a reasonable window. Wedding (£15,000-£25,000 average UK cost) usually has an 18-month runway from engagement, which works out to £800-£1,400 a month on top of normal living costs. Holiday (£2,000-£5,000) tends to be a 6-12 month goal at £200-£500 a month.",
+        "The reason these goals fail is almost always the same: not enough automation. People decide to save £400 a month then leave it as 'whatever's left over at the end' and the leftover is usually £50. Set up a standing order on payday for the target amount and treat the rest as money to live on. The [compound interest calculator](/compound-interest-calculator) shows how reliable that habit becomes when stretched across years."
+      ),
+      createAnswerFirstSection(
+        "Where to Park Short-Term Savings",
+        "For goals under 18 months, a high-yield easy-access savings account or a cash ISA is the right home. Stocks and shares ISAs can drop 20% in any given year, so they're inappropriate for short-term goals where you can't afford to lose ground. UK easy-access rates in 2026 range from around 3% on high-street current accounts to 4.5%+ on app-only banks; that 1.5 percentage points adds up to roughly £150-£300 over the life of a typical 12-18 month savings target.",
+        "For goals 5+ years out (house deposit on a slow build, or wedding savings started while still students), a Lifetime ISA can pay a 25% government bonus on contributions up to £4,000 a year if you're 18-39 and saving for your first home. That bonus is essentially free money that no high-street account can match. The trade-off is that withdrawing for any reason other than a first home or retirement triggers a 25% penalty that wipes out the bonus and a bit more."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the interest calculation accurate to real-world savings accounts?",
+        "It uses the standard monthly compounding formula, which matches how UK savings accounts typically pay. Some accounts pay annually rather than monthly which slightly reduces the effective rate; if your account pays annually you'd get roughly 0.1-0.2% less than the calculator suggests. For most planning purposes the difference is small enough to ignore."
+      ),
+      createFAQ(
+        "What if I miss a month?",
+        "The calculator assumes consistent contributions. Missing a month means you need to either extend the timeframe by one month, increase the next deposits to catch up, or accept reaching slightly less than the goal. Re-run with your updated current savings amount to see exactly what's required to recover."
+      ),
+      createFAQ(
+        "Should I include my employer pension contributions in this?",
+        "No, the calculator is for savings goals (holidays, deposits, weddings) where you can access the money. Pension contributions are locked away until 55+ and are tracked separately through your workplace scheme. For pension-specific projections, use the [pension calculator](/pension-calculator)."
+      ),
+      createFAQ(
+        "How accurate are the weekly and fortnightly figures?",
+        "They're derived from the monthly amount using calendar-accurate ratios (4.33 weeks per month, 26 fortnights per year). If you set up a weekly standing order rather than monthly, the result over 12 months will land within £5-£10 of the target, which is well within rounding tolerance."
+      ),
+      createFAQ(
+        "Can I model irregular income (commission, freelance)?",
+        "Not directly - the calculator assumes flat monthly contributions. If your income is lumpy, work out the average monthly amount you can realistically commit, plug that in, and treat any windfalls (bonuses, tax refunds, end-of-quarter commission) as bonus deposits that pull the goal closer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "savings-burndown", label: "Savings Burndown" },
+      { slug: "retirement-countdown", label: "Retirement Countdown" },
+    ],
+  },
+
+  "should-i-rent-or-buy": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Comparison Actually Calculates",
+        "The tool compares two parallel paths over a period you choose (typically 5 to 15 years). Path one: you rent at your current monthly rent, no equity built, no maintenance bills. Path two: you buy with the deposit you have, take on a mortgage at the rate and term you specify, pay maintenance and insurance on the property, and benefit from any property value growth. After the chosen number of years, the tool tots up total cost on each side, deducts the equity built and the property gain, and shows which path leaves you better off financially.",
+        "The standard estimates baked in: 1% of property value per year for maintenance, 0.3% for insurance, 0.2% for council tax escalation. These are rough industry averages; actual costs vary by property age, location, and condition. A 1970s detached house with a slate roof costs more to maintain than a new-build flat with a service charge that handles the structural side. Adjust the inputs upwards if you're buying older or more rural property."
+      ),
+      createAnswerFirstSection(
+        "The Opportunity Cost of the Deposit",
+        "Buying ties up the deposit in property; renting lets you invest it. If your deposit is £60,000 and you'd otherwise invest it at 6% in a Stocks and Shares ISA, that's roughly £24,000 of compound growth over 5 years that buying foregoes. Property has historically grown around 2.5-4% a year nationally, so the comparison usually favours investing the deposit unless you stay 8-10+ years and let property gains accumulate while you also build equity through mortgage payments.",
+        "This is why renting can be the rational choice even when 'rent is dead money' is the conventional view. The deposit invested productively, plus the avoidance of stamp duty, conveyancing, and immediate maintenance bills, often beats home ownership for stays under 5 years. The break-even tends to be 7-10 years for most UK markets, though London's price-to-rent ratio is so distorted that buying often only beats renting after 12-15 years."
+      ),
+      createAnswerFirstSection(
+        "Hidden Costs That Tilt the Maths",
+        "Stamp duty: 0% on first-time buyers under £425,000, then 5% on the slice between £425,000 and £625,000, rising to 10% and 12% on higher slices. Conveyancing and survey fees: £1,500-£3,000 typically. Mortgage arrangement fee: £0-£2,000 depending on the deal. Moving costs: £500-£2,000. These add up to roughly 2-4% of the purchase price as a one-off transaction cost that renting avoids.",
+        "On the other side of the ledger, rent rises with inflation while mortgage payments on a fixed-rate deal stay constant for the deal's term, then track interest rates. If you're 5 years into a fixed mortgage and rents have risen 25%, your payment hasn't changed and your monthly cash advantage versus renting has grown. The [stamp duty calculator](/stamp-duty-calculator) gives precise figures for any specific purchase price; the [mortgage calculator](/mortgage-calculator) shows what your monthly payment would actually be."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What if property prices fall?",
+        "The calculator assumes a steady annual growth rate. If prices fall, the buying side gets worse: you'd still be paying mortgage and maintenance, but the equity built is offset by the loss in property value. Try setting property growth to 0% or even negative to see how the buy side performs in a flat or falling market. UK national prices fell roughly 15% from 2007-2009 and took until 2015 to recover; renters during that period came out ahead."
+      ),
+      createFAQ(
+        "Does this account for mortgage repayments going to capital vs interest?",
+        "The total mortgage payments are calculated correctly, including the mix of capital and interest, and the equity built reflects the capital portion only. So even though you might pay £150,000 in mortgage payments over 10 years, only £50,000-£70,000 of that becomes equity (the rest is interest paid to the bank). The calculator shows both figures separately."
+      ),
+      createFAQ(
+        "What about tax benefits of homeownership?",
+        "In the UK there are limited tax advantages to owning your main residence: no capital gains tax on the primary home, but you can no longer offset mortgage interest against income (unlike pre-2017 buy-to-let). The model assumes a primary residence, so the only major tax effect is no CGT on sale - already implicitly captured by treating property gains as net of tax."
+      ),
+      createFAQ(
+        "How accurate is the maintenance estimate?",
+        "1% of property value per year is the long-run average across owners, including occasional big-ticket items (new boiler every 12 years, roof every 30 years, kitchen every 20). In any given year you might spend nothing or you might spend 5%; the average comes out around 1%. Newer properties trend lower (0.5-0.7%); older or listed properties trend higher (1.5-2%)."
+      ),
+      createFAQ(
+        "Should I factor in the security of homeownership?",
+        "The calculator measures money only. Renting brings less security (landlords can sell, raise rent, refuse to renew) which is a real cost not captured in pounds. If you have children settling in school or you've found a community you want to commit to, owning might be the right choice even if the spreadsheet narrowly favours renting. Conversely, if you're early career and likely to move for jobs, the financial case for renting is reinforced by the practical case."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "stamp-duty-calculator", label: "Stamp Duty Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
+
+  "split-bill-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Equal Split vs Itemised Split",
+        "Equal mode is the default and works for most restaurant trips: total bill plus tip, divided by the number of people. Five people, £125 bill, 15% tip = £143.75 total, £28.75 each. This is the right approach when everyone ate similar amounts or the group has agreed to split evenly even if one person had the steak and another had the salad. The tool defaults to 15% tip with one-tap presets for 10%, 12.5%, 15%, 18%, 20%, and a custom field if you want anything else.",
+        "Itemised mode handles the case where someone had the lobster and someone else just had a coffee. Add each item with its price and tick the people who shared it. The tool divides each item among its consumers, applies tip proportionally to what each person ate, and gives you a per-person total that reflects actual consumption. This is the right approach for work lunches where the company is paying back specific employees, for groups where one person doesn't drink alcohol, or for any situation where 'equal split' would feel unfair."
+      ),
+      createAnswerFirstSection(
+        "Tip Conventions in the UK and Abroad",
+        "UK restaurants: 10-12.5% is standard for table service, often added automatically as a 'service charge'. Higher-end restaurants in London might add 15%. Tipping isn't expected in pubs unless the staff bring food to the table. UK cafes and counter-service places don't expect tips. US restaurants: 18-20% is the floor; under 15% is read as a complaint. Service workers in the US are often paid a sub-minimum wage that assumes tips will make up the difference. European norms vary: 5-10% in France, 'rounding up' in Germany, often included in the bill in Italy and Spain.",
+        "Watch for service charges already on the bill. If a UK restaurant has added 12.5% service, you don't need to tip again on top - you can if the service was exceptional, but it's not expected. Check the bill before calculating, and if a service charge is included, set the tip to 0% in the calculator (you're already paying it). Some venues distinguish between 'optional service charge' and 'mandatory service charge'; both can be removed if the service was poor, but you have to ask."
+      ),
+      createAnswerFirstSection(
+        "Awkward Edge Cases",
+        "Birthday person not paying: subtract their meal cost from the bill, split the remainder among everyone else, then the rest of the group covers the birthday meal pro-rata. The tool handles this if you uncheck the birthday person from any items they consumed and add a separate 'birthday meal' line that everyone shares. One person paying with a card and getting refunds from others: do the maths first, send a screenshot of the per-person amounts to the group chat, then settle up via bank transfer or splitting apps. Most banking apps now support 'request money' which makes this less awkward.",
+        "Drinks vs food: many groups split the food evenly but pay for their own drinks separately, especially when one person has a £45 wine and another has tap water. The itemised mode handles this cleanly: add the food items with everyone ticked, then add each drink with only the drinker ticked. The [tip calculator](/tip-calculator) is the right alternative if everyone is paying their own bill and just needs to work out their individual tip."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should the tip be calculated on the pre-VAT or post-VAT amount?",
+        "Conventionally, tip on the post-VAT total because that's what's printed on the bill. Some American etiquette guides argue you should tip on the pre-tax amount, but in the UK no one separates VAT from the bill total in practice. The calculator applies tip to the bill amount you enter, which is the post-VAT figure printed on the receipt."
+      ),
+      createFAQ(
+        "What's the right tip for poor service?",
+        "Lower the tip to 5-10% to send a message; zero is reserved for genuinely bad service (rude staff, ignored requests, food returned). If a service charge is already on the bill, ask for it to be removed; UK restaurants are required to do this if the service was inadequate. Don't stiff a server because the kitchen was slow; the server didn't cook the food."
+      ),
+      createFAQ(
+        "How do I handle Venmo, PayPal, or transfer fees?",
+        "If splitting via a payment app that charges a fee (rare in the UK; common in the US), the person paying the bill should add a small percentage (1-3%) on top of each person's share to cover fees. Mention it explicitly in the group chat so people know why their share is slightly higher than the calculator says."
+      ),
+      createFAQ(
+        "Can the calculator handle a group where some people don't tip?",
+        "Yes - in itemised mode, the tip is calculated per item, so if you set up the group such that one person owns no items, they pay nothing including no tip. For more nuanced cases (everyone splits food with tip, but one person opts out of tip on their drinks), you'd have to do that adjustment manually."
+      ),
+      createFAQ(
+        "What if we have to round up to the nearest pound?",
+        "After splitting, the per-person total often has awkward pence. Round each person's amount up to the nearest pound or 50p; the small over-payment goes back to the person who paid the bill, which makes the maths easy and saves arguments. The calculator shows precise amounts; rounding is a manual step at the table."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tip-calculator", label: "Tip Calculator" },
+      { slug: "discount-calculator", label: "Discount Calculator" },
+      { slug: "percentage-calculator", label: "Percentage Calculator" },
+    ],
+  },
 };
 
 

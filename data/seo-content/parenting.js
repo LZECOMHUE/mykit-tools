@@ -358,4 +358,649 @@ export const parentingSEO = {
       { slug: "scavenger-hunt-generator", label: "Scavenger Hunt Generator" },
     ],
   },
+
+  "advent-calendar-activity-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Plan 24 Days Without Running Out of Steam by December 12",
+        "Generate the full 24-day list in one go and tag each day by effort level: 14 quick activities (under 20 minutes, no prep), 7 medium ones (20 to 45 minutes, ingredients you already have), and 3 big ones reserved for weekends. The mistake almost every parent makes is front-loading the cute, Pinterest-worthy crafts in week one, then panicking on December 13 because you have already used the salt dough ornaments and the gingerbread house ideas. The generator gives you a balanced spread automatically.",
+        "If you pick the Free or Nearly Free budget, expect a lot of paper-chain garlands, hand-print wreaths, snowflake cut-outs and Christmas charades; budget about £8 to £15 for the whole month if you already own scissors, glue and a printer. Low Cost (under £30) adds salt-dough ornaments, bird feeders made from pine cones and peanut butter, and homemade cinnamon biscuits. Any Budget unlocks the slower projects like a 2-hour gingerbread house or a 3-hour embroidered Christmas stocking, which only really work on a Saturday with a 9-year-old who actually wants to sit still."
+      ),
+      createAnswerFirstSection(
+        "Matching the Activity to the Age",
+        "For 3 to 5 year olds, lean heavily on the simple craft and outdoor categories: paper chain garlands, hand-print wreaths, hot chocolate, building a snowman. Most of these take 15 to 30 minutes with one parent fully engaged. For 5 to 7 year olds, mix in the kindness tasks (making a card for grandma, leaving treats for neighbours) and short cooking jobs like rice krispie treats. 7 to 9 year olds can handle a 45-minute solo project and start enjoying the planning side, so add Christmas quiz nights and designing your own wrapping paper. By 9 to 12, the Christmas movie marathons become genuine quality time rather than a desperate parental hack at 8pm on a Tuesday.",
+        "If you have multiple children at different ages, run two activities in parallel on the bigger days and use the simple craft as the shared one. Your 4-year-old does the messy part (gluing) while your 8-year-old does the fiddly part (cutting out the snowflake). Keep one fallback activity in reserve for the day someone is poorly, the day you forgot it was December until 6pm, and the day your child says \"I just want to watch telly\" - all three will happen, and a 30-minute movie counts."
+      ),
+      createAnswerFirstSection(
+        "What to Print and What to Skip",
+        "Print the full 24-day list as the parent reference sheet, plus the materials column. That single sheet on the fridge stops the daily \"what are we doing today?\" panic. Do not print 24 individual activity cards unless you actually run a physical advent calendar with paper inserts, which is lovely but adds 2 hours of cutting and folding to your prep. The premium PDF gives you both formats: a single overview page for parents, plus printable day-by-day cards if you want them.",
+        "Cross things off as you go and write down anything that flopped, because next year you will remember none of it. The [christmas treasure hunt generator](/christmas-treasure-hunt-generator) covers the big Christmas Day clue chase and the [christmas gift budget tracker](/christmas-gift-budget-tracker) keeps the whole month in check financially when the activities sit alongside present buying."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When should I start advent activities?",
+        "December 1 is the standard, running through to December 24, which is 24 activities. Some families do December 1 to 25 (25 activities including a special Christmas Day one) or start on December 6 (St Nicholas Day) for 19 activities through to Christmas Eve. Pick what suits your family and stick to it; the worst version is starting strong on December 1 and quietly abandoning it on December 8."
+      ),
+      createFAQ(
+        "How much should I budget for advent activities?",
+        "Free or Nearly Free runs about £8 to £15 for craft supplies you do not already own (paint, glue, ribbon). Low Cost (under £30) adds baking ingredients and a few specifics like jingle bells or salt-dough materials. Any Budget can creep up to £100 plus if you commit to a gingerbread house kit, resin ornament moulds and quality embroidery supplies, but most families do not need to go anywhere near that."
+      ),
+      createFAQ(
+        "What do I do if I miss a day?",
+        "Skip it and pick up the next day, or double up on the weekend if it was a quick activity. The whole point is connection, not perfection. If you missed three days in a row because of a stomach bug, just merge two leftovers into one big Saturday activity (a movie afternoon plus baking, for example) and let the rest go. Nobody is keeping score except the algorithm."
+      ),
+      createFAQ(
+        "Can I use this with a wooden advent calendar?",
+        "Yes, write each daily activity on a small slip of paper and pop it inside the corresponding numbered drawer or pocket. A single roll of masking tape costs about £1 and you can fold the slips small enough for a typical 2cm advent drawer. For chocolate-style calendars, just keep the activity list on the fridge separately so the chocolate is the morning treat and the activity is the afternoon one."
+      ),
+    ],
+    relatedTools: [
+      { slug: "elf-on-the-shelf-idea-generator", label: "Elf on the Shelf Idea Generator" },
+      { slug: "christmas-treasure-hunt-generator", label: "Christmas Treasure Hunt Generator" },
+      { slug: "christmas-gift-budget-tracker", label: "Christmas Gift Budget Tracker" },
+    ],
+  },
+
+  "baby-name-explorer": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Use Filters Without Drowning in 500 Names",
+        "Stack two filters first, not all six. Start with origin and gender, scroll through 12 results per page, and only add length or starting-letter filters if the list still feels too long after browsing the first two pages. The explorer has roughly 500 names spanning 12 origins (English, Irish, Scottish, Welsh, French, Italian, Arabic, Indian, Japanese, Spanish and others), and the meaning search is the most underused: typing \"light\" surfaces Lucia, Eleanor, Ciara and others across multiple origins in one go.",
+        "Couples often discover they each have a hidden veto rule that only emerges when they see specific names. One parent will not consider any name longer than 6 letters; the other refuses any name a colleague at work has used in the last decade. Run the length filter (min 4, max 6) to test the first; the explorer cannot help with the colleague problem, but at least it surfaces it 6 months before the birth rather than in the hospital car park."
+      ),
+      createAnswerFirstSection(
+        "Origin Filtering and Heritage Names",
+        "If you want a name that nods to one side of the family, the origin filter is the fastest way in. The Irish list (Liam, Siobhan, Aiden, Fiona, Ronan, Saoirse) has both classic and currently popular options; the Welsh list (Wyn, Gwyneth, Dylan, Carys) is shorter but more distinctive. Japanese, Indian and Arabic origins add names that work well in multicultural families: Hiroshi, Sakura, Arjun, Priya, Amir, Layla. Each entry shows the meaning, so you can sense-check before adding it to the shortlist.",
+        "Edge case: a name that is common in one origin can be jarring in another country. \"Saoirse\" is beautiful but expect a lifetime of \"sir-sha or seer-shay?\" if you live outside Ireland. Ask yourself how it will sound on a register call in 5 years and on a CV in 25. The [baby name generator](/baby-name-generator) is the better tool if you want a swipe-style shortlist instead of a filterable browse."
+      ),
+      createAnswerFirstSection(
+        "Meaning Search and the Shortlist",
+        "Pop a word like \"strong\", \"light\", \"sea\" or \"flower\" into the meaning keyword box. The filter scans the meaning field on every name, not just the most popular ones, so obscure but stunning options like Saoirse (\"freedom\"), Aurora (\"dawn\") or Atlas (\"bearer of the heavens\") rise to the top. Most parents find at least 3 names they had never heard of through this filter alone. Combine meaning with origin to find heritage names that also resonate with a personal value or family story.",
+        "Save your shortlist on paper or in a notes app as you browse, because the explorer is filter-only and does not persist favourites between sessions. For a tool that does keep a shortlist, switch to the [baby name generator](/baby-name-generator). For curiosity around how rare a name is in your country, the [how common is your name](/how-common-is-your-name) tool gives you the registered-births data."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many baby names are in the explorer?",
+        "Around 500 names spanning 12 origins (English, Irish, Scottish, Welsh, French, Italian, Arabic, Indian, Japanese, Spanish and a few others). Each entry includes the origin, gender, and the meaning. You can filter by origin, gender, length and starting letter, or run a keyword search across all the meanings."
+      ),
+      createFAQ(
+        "Can I find rare or unique baby names?",
+        "Yes. Pick origins outside the English shortlist (Welsh, Japanese, Arabic) and use the meaning keyword search for emotive words like \"freedom\", \"dawn\" or \"sea\". You can also set a tighter length filter; very short (3 to 4 letters) and longer names (8 plus) tend to be less common in birth registers."
+      ),
+      createFAQ(
+        "How do I find a baby name that matches a specific meaning?",
+        "Use the meaning keyword box at the top of the filter panel. Typing \"light\" surfaces Lucia, Eleanor and others across origins. Typing \"strong\" pulls up Liam (\"strong-willed warrior\") and Ethan (\"strong, firm\"). The keyword search is partial-match, so \"sea\" finds both Mary (\"of the sea\") and Dylan (\"son of the sea\")."
+      ),
+      createFAQ(
+        "Why does the explorer not save my favourites?",
+        "The explorer is built for filtering and browsing rather than shortlisting. If you want a swipe-and-keep shortlist with built-in meanings and an export to JPG, use the baby name generator on the same site. Most couples use both: the explorer for discovering options, the generator for narrowing down to a final 5 or 10."
+      ),
+    ],
+    relatedTools: [
+      { slug: "baby-name-generator", label: "Baby Name Generator" },
+      { slug: "how-common-is-your-name", label: "How Common Is Your Name" },
+      { slug: "baby-due-date-countdown", label: "Baby Due Date Countdown" },
+    ],
+  },
+
+  "baby-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Generator Builds a Shortlist of 15 to 30 Names",
+        "Pick gender (male or female), pick a style (classic, modern or unique), optionally pick a starting letter, then tap through one name at a time hitting Like or Skip. Each style has 15 names, so a single (gender, style) combination gives you up to 15 to consider; the Like list grows as you go and shows the meaning underneath each saved name. The classic boys' list is full of James, William, Benjamin, Henry, Charles; modern leans into Liam, Noah, Oliver, Elijah; unique pulls from Atlas, Phoenix, Sage, Silas, Orion.",
+        "Couples disagree faster on names than on almost any other parenting decision. The fastest way to find common ground is to do separate runs: each partner picks the same gender and style, builds their own Like list, then meets in the middle and looks for the overlap. If your overlap is zero on the first pass (which is normal), swap styles and try again. Two passes through classic and modern usually surfaces 3 to 5 names that survive the cut from both sides."
+      ),
+      createAnswerFirstSection(
+        "Style Differences That Actually Matter",
+        "Classic names (James, William, Mary, Elizabeth) are the safest in professional contexts decades down the line and tend to age extremely well, but they are also the most popular, so expect 1 to 2 other Jameses in primary school. Modern names (Liam, Sophia, Olivia) are the current peak; they sound fresh now but are rapidly becoming the new classics, with Olivia in the UK top 5 every year since 2016. Unique names (Atlas, Phoenix, Aurora) stand out and most have rich meanings (\"bearer of the heavens\", \"reborn\", \"dawn\"), but expect a lifetime of spelling clarifications.",
+        "If you swing both ways and want a foot in two camps, give a classic first name and a unique middle (or the other way round). \"Eleanor Phoenix\" or \"James Atlas\" lets the child pick what they introduce themselves as in school, university and work. A surprising number of \"Phoenix\" middles end up on professional CVs as just an initial."
+      ),
+      createAnswerFirstSection(
+        "Saving and Sharing the Shortlist",
+        "Once you have liked at least one name, the Download Shortlist button generates a JPG you can text to a partner or print and stick on the fridge. Each saved name appears with its meaning where the generator has it (James as \"supplanter\", Mary as \"of the sea\", Aurora as \"dawn\"). The image is gendered in colour: blue for boys, pink for girls. If you want to compare across genders or sift by origin, switch to the [baby name explorer](/baby-name-explorer) which has 500 plus names and origin filters.",
+        "Edge case: surnames matter. A 3-syllable first name with a 4-syllable surname is a mouthful in every register call for the next 80 years. Read your shortlist out loud with the surname before committing to anything. The [baby due date countdown](/baby-due-date-countdown) helps with the timing of all this; most parents nail the name in trimester 2."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many baby names are in the generator?",
+        "There are 90 names total split into 6 buckets: classic boys, modern boys, unique boys, classic girls, modern girls, unique girls (15 names per bucket). Pick a gender and style and you get up to 15 to swipe through. For a wider browse including 12 origins and a meaning search, use the baby name explorer."
+      ),
+      createFAQ(
+        "What is the difference between classic, modern and unique?",
+        "Classic names (Mary, James, Elizabeth, William) have been popular for centuries and are the safest long-term. Modern names (Olivia, Liam, Noah, Sophia) are the current top 20 in most English-speaking countries. Unique names (Atlas, Phoenix, Aurora, Sage) are nature-inspired or mythological and stand out, but expect spelling clarifications for life."
+      ),
+      createFAQ(
+        "Can I filter by starting letter?",
+        "Yes. The starting-letter filter is a single-letter input that narrows the current list to names beginning with that letter. Useful for honouring a relative (a Joan-honouring grandchild named Julia, James, Joseph) or for sticking to a family tradition where everyone shares an initial."
+      ),
+      createFAQ(
+        "Should I tell people the name before the baby is born?",
+        "Most parents who want honest opinions tell two trusted people privately and keep it secret from everyone else until the birth. Once a name is announced, it is harder to walk back, and unsolicited reactions in trimester 3 hit harder than they should. Save the public reveal for the announcement post once the name feels permanent."
+      ),
+    ],
+    relatedTools: [
+      { slug: "baby-name-explorer", label: "Baby Name Explorer" },
+      { slug: "how-common-is-your-name", label: "How Common Is Your Name" },
+      { slug: "baby-due-date-countdown", label: "Baby Due Date Countdown" },
+    ],
+  },
+
+  "breastfeeding-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Hours You Will Actually Spend Breastfeeding",
+        "Newborns (0 to 3 months) feed roughly 10 times per day for about 30 minutes a feed, including 3 night feeds. That is 5 hours a day on average. By 3 to 6 months it drops to about 7 feeds at 22 minutes each (around 2.5 hours daily) with 2 night wakes. From 6 to 12 months, expect 5 feeds at 15 minutes (1.25 hours daily) and a single night feed. From 12 months to 24, it slows to 3 feeds of 12 minutes (just over half an hour a day), often only morning and bedtime.",
+        "If you breastfeed exclusively for the first 12 months, the calculator totals roughly 1,000 hours of direct feeding time, plus night wakes. That is the equivalent of a 25-week full-time job that only one parent can do. The 3am cluster-feed in week 2, when the baby has fed for 40 minutes, fallen asleep on you and woken the moment you put them in the cot, is included in that figure. Knowing the number does not make it less knackering, but it does name the work."
+      ),
+      createAnswerFirstSection(
+        "Money Saved vs Formula Feeding",
+        "UK formula costs around £12.50 a week for typical brands like SMA or Aptamil; in the US it averages $30 a week and in Australia A$30. Plus equipment (bottles, sterilisers, prep machines) which is a £350 one-off in the UK and up to £500 in Australia. The calculator combines those numbers across the months you breastfeed, so a UK mother who breastfeeds exclusively for 12 months saves roughly £650 in formula plus £350 in equipment, before counting the time value at all.",
+        "If you mix-feed (combination), the savings scale linearly with the breast-feed share. A 50/50 mix saves about half the formula cost. The calculator has a slider for percentage formula so you can model your real pattern, including the case most working mothers know well: exclusive in the first 6 months, then dropping to maybe 20 percent breast as nursery and pumping take over from 9 months onwards."
+      ),
+      createAnswerFirstSection(
+        "The Time Value Nobody Calculates",
+        "Time spent breastfeeding is unpaid work nobody puts a number on. The calculator multiplies your feeding hours by the average hourly female wage in your country (£14.50 UK, $22.50 US, A$30 AU). For a 12-month UK breastfeeding journey at roughly 1,000 hours, that is around £14,500 of time value. Add the formula and equipment savings and the total worth lands somewhere between £15,000 and £20,000 depending on country and pattern.",
+        "This is not the same as saying you should be paid for it; it is saying that the work has a measurable economic value and that any policy debate that ignores it (statutory maternity pay at £187.18 a week in 2025/26, for example) is leaving most of the picture out. Edge case: returning to work and pumping. Pumping is slower than direct feeding (factor in 20 percent more time per session) and the calculator handles this with the Express setting. The [stay at home mum calculator](/stay-at-home-mum-calculator) covers the broader picture if you stayed home for the breastfeeding period."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does the average baby breastfeed for?",
+        "The WHO recommends exclusive breastfeeding for 6 months and continued breastfeeding alongside solids until at least 2 years. UK averages from the Infant Feeding Survey: 81 percent start, 55 percent are still breastfeeding at 6 weeks, 34 percent at 6 months and 0.5 percent exclusively at 6 months. Most mothers stop earlier than they planned, so any number of months counts as a real journey."
+      ),
+      createFAQ(
+        "How much milk does a breastfeeding mother produce?",
+        "Around 750 ml per day on average for an exclusively breastfed baby (range 500 to 1,200 ml). Over 12 months that totals roughly 270 litres of milk - about the volume of two baths. The calculator shows this in litres and the slightly absurd \"bathtubs\" comparison, which always makes mothers laugh and partners speechless."
+      ),
+      createFAQ(
+        "Does combination feeding still save money?",
+        "Yes, proportional to your breast share. A 50/50 mix in the UK saves about £325 in formula across a 12-month period; an 80/20 (mostly breast) saves around £520. Combination feeding is also a valid choice in its own right and the calculator does not judge ratios, it just shows the figures."
+      ),
+      createFAQ(
+        "What is the value of expressed milk?",
+        "Expressed (pumped) milk is the same nutritional product but takes about 20 percent more of your time per session because of setup, pumping and cleaning. The calculator builds that into the Express setting. If you are donating to a milk bank, NHS milk banks pay nothing but the social value of donor milk is huge for premature babies."
+      ),
+    ],
+    relatedTools: [
+      { slug: "stay-at-home-mum-calculator", label: "Stay-at-Home Mum Calculator" },
+      { slug: "baby-due-date-countdown", label: "Baby Due Date Countdown" },
+      { slug: "cost-of-raising-a-child", label: "Cost of Raising a Child" },
+    ],
+  },
+
+  "career-sacrifice-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What 5 Years Out of Work Actually Costs",
+        "Take a UK mother on £50,000 who took 5 years out and returned on £30,000. The salary gap of £20,000 over 5 years is £100,000 in direct lost earnings alone. On top, she missed 5 years of employer pension contributions (around 5 percent, so £2,500 a year) compounding to retirement at 67; if she took the break at age 30, those missed contributions compound for 32 years and tally roughly £40,000 to £60,000 in lost retirement value. Add lost progression (the 3.5 percent annual raises she was on track for) and the motherhood penalty (a documented 4 percent per child wage drop that persists), and the realistic total is £200,000 to £400,000.",
+        "The numbers feel huge because they are. The calculator is not designed to make anyone feel guilty; it is designed to put a real figure on what UK and US policy already knows. The motherhood penalty is structural, not personal. Countries with longer paid parental leave (Germany 14 weeks at 100 percent, Sweden 480 days shared) close the gap noticeably; the UK offers 39 weeks mostly unpaid at the £187.18 a week statutory rate, the US has no federal paid leave guarantee at all."
+      ),
+      createAnswerFirstSection(
+        "Where the Pension Loss Bites Hardest",
+        "Pension losses scale brutally with how young you were when the break happened. A break at age 30 with 5 percent employer contributions on a £50,000 salary loses around £40,000 to £60,000 in compound growth by age 67 (using a 5 percent annual return assumption). The same break at age 38 only loses about £25,000 to £35,000, because there are fewer years left for the missed pot to grow. This is why \"I will go back when the kids are in school\" sounds reasonable but quietly costs an extra £15,000 to £25,000 in retirement money compared to a shorter break at the same total cost.",
+        "If the calculator returns a number that scares you, the practical responses are: top up your own contributions when you do return (most employers match up to 5 to 8 percent), claim child benefit even if you do not need the cash because it counts as a National Insurance credit toward your state pension, and look at SIPPs or ISAs in the lower-earning years. None of this fixes the structural issue, but it slows the bleeding."
+      ),
+      createAnswerFirstSection(
+        "The Motherhood Penalty Number",
+        "Real research (Lundborg, Plug and Rasmussen 2017, Kleven 2019) finds mothers' wages drop by roughly 4 percent per child compared to childless peers, and the gap persists for the rest of the working life. The calculator applies this 4 percent per child to the years remaining from your return age to 67. For 2 children that is 8 percent off your post-return salary every year for 25 to 35 years; on a £30,000 returner's salary that is £2,400 a year, or roughly £75,000 over a 30-year career.",
+        "Edge case: many mothers return part-time, which makes the gap look larger because the comparator is full-time wages. Run the calculator with your actual current full-time-equivalent salary rather than your part-time pay packet to get the cleaner number. The [emotional labour calculator](/emotional-labour-calculator) and the [stay at home mum calculator](/stay-at-home-mum-calculator) capture the unpaid work that came with the break, which is a separate (and equally real) figure."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the motherhood penalty?",
+        "A documented 4 percent per child wage drop that persists across a mother's working life, compared to childless peers in similar jobs. It is separate from direct lost earnings during a career break; it is the lasting wage gap after returning. UK studies (IFS, Costa Dias 2018) show fathers' wages either rise or stay flat after children, so the gap is gendered."
+      ),
+      createFAQ(
+        "Should I include statutory maternity pay in lost earnings?",
+        "Statutory maternity pay is £187.18 a week (2025/26) for 33 of the 39 weeks of leave, after 6 weeks at 90 percent of pay. It is income, not lost earnings, so the calculator subtracts it implicitly when you put your post-break salary in the Current salary field. If you took unpaid leave or a longer career break beyond 12 months, that period counts as fully lost income."
+      ),
+      createFAQ(
+        "How is the lost pension figure calculated?",
+        "The calculator assumes 5 percent employer contributions on the pre-break salary, missed for the years out, and compounds the missed pot at 5 percent annual return until age 67. So a 30-year-old earning £50,000 who takes 5 years out misses 5 contributions of £2,500, each compounding for 27 to 32 years - around £40,000 to £60,000 in retirement value at the conservative 5 percent return."
+      ),
+      createFAQ(
+        "Is the career sacrifice the same for fathers?",
+        "Statistically no, which is the whole point of the motherhood penalty research. Fathers in the UK and US show either flat or slightly rising wages after children. The calculator applies to whichever parent took the career break, but the 4 percent per child penalty was measured on women specifically; men taking equivalent breaks show smaller persistent wage gaps in the data."
+      ),
+    ],
+    relatedTools: [
+      { slug: "stay-at-home-mum-calculator", label: "Stay-at-Home Mum Calculator" },
+      { slug: "emotional-labour-calculator", label: "Emotional Labour Calculator" },
+      { slug: "cost-of-raising-a-child", label: "Cost of Raising a Child" },
+    ],
+  },
+
+  "chore-chart-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Which Chores Actually Suit Each Age",
+        "3 to 5 year olds can manage 6 simple chores: picking up toys, putting books on a shelf, watering plants, wiping the table, putting dishes in the sink, sorting socks. None of these will be done well, but doing them at all is the win. 5 to 7 year olds add 7 more (emptying small bins, sweeping, helping with laundry, setting the table, unloading the dishwasher, feeding pets, wiping windows). 7 to 9 year olds genuinely contribute (loading the dishwasher, vacuuming, folding laundry, taking out bins, tidying their room, raking leaves, washing the car). 9 to 12 year olds can run their own laundry, cook simple meals, clean a bathroom and shop for groceries.",
+        "Pick 1, 2 or 3 chores per day in the configurator. One chore a day for under-7s is the sweet spot; more than that and the chart turns into a battle by Wednesday. Two chores a day works well from age 7 onward; three is reserved for older kids who genuinely understand it as their share of family running. The chart auto-rotates so each child gets variety across the week and nobody is stuck on the same dreaded job every day."
+      ),
+      createAnswerFirstSection(
+        "Why Rotation Matters and How It Works",
+        "The generator rotates chores across the 7 days using each child's index and the day index, so child 1 on Monday gets a different chore than child 1 on Tuesday, and child 2 on Monday gets a different chore than child 1 on Monday. With 4 kids on the 5-to-7 list (7 chores available), you get 28 chore slots a week and minimal overlap. Without rotation, you end up with the kid who hates emptying bins emptying bins for the next 6 months, which is a fair grievance and a failed system.",
+        "If you have one child who wildly outperforms (older kid in the home) and one who is genuinely too young (3-year-old still pretending), put the older one on the higher age bracket and the younger one on the lower age bracket on the configurator screen, run two charts and stick both on the fridge. Mixed-ability families almost always do better with separate charts than a forced one-size-fits-all."
+      ),
+      createAnswerFirstSection(
+        "Making the Chart Actually Stick (Beyond Week 2)",
+        "Two-thirds of chore charts collapse by week 3, regardless of how nice they look. The interventions that work: tie chores to a low-stakes weekly reward (Friday film night, choice of weekend activity), keep the chart in a high-traffic spot (fridge door, not a bedroom wall), and review the system together once a month so the kids feel ownership rather than enforcement. Avoid sticker charts past age 8; they feel babyish and the kids drift. Avoid pocket money tied to every chore; it turns family contribution into employment and then they negotiate.",
+        "Edge case: neurodivergent children. ADHD and autism spectrum kids often struggle with multi-step chores like \"tidy your room\" but thrive on single-step jobs (\"put the lego in the box\"). Use the 3 to 5 list for these even past age 7 and run two simple chores a day rather than one complex one. The [kids activity spinner](/kids-activity-spinner) is useful when the chores are done and they need something else to do; the [birthday party game planner](/birthday-party-game-planner) sits adjacent for the celebration end of family life."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What chores can a 5 year old do?",
+        "On the 5-to-7 list: emptying small bins, sweeping the floor, helping with laundry (sorting and putting socks together), setting the table, unloading the dishwasher (light items only), feeding pets, wiping windows. Pick one a day and rotate weekly; expect the job to take about twice as long with a 5-year-old as it does without one, which is fine because that is the learning."
+      ),
+      createFAQ(
+        "How many chores per day is reasonable?",
+        "1 chore a day for under-7s, 2 chores a day from age 7, 3 a day for 9 plus only if they are short jobs. The configurator caps at 3 because beyond that the chart becomes a job rota and the family vibe sours. Keep total chore time under 15 minutes a day for under-9s; under 30 minutes for older kids."
+      ),
+      createFAQ(
+        "Should I pay pocket money for chores?",
+        "Most family therapists suggest separating the two: a small fixed pocket money (£2 to £5 a week typical for ages 7 to 11) regardless of chores, and chores done as part of being in the family. Optional extras (washing the car, mowing the lawn) can have a paid bounty on top. Linking every chore to money turns the household into an employer-employee relationship and they will start to negotiate."
+      ),
+      createFAQ(
+        "What if my child refuses to do their chores?",
+        "First, check the chore is age-appropriate (use the right age band on the configurator). Second, sit down together and ask what they would swap it for; choice within constraints is a strong motivator. Third, accept that compliance will dip during exam stress, growth spurts, sibling fall-outs and friendship dramas, and ride it out. A chart that works 4 weeks out of 6 is a successful chart."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+      { slug: "birthday-party-game-planner", label: "Birthday Party Game Planner" },
+      { slug: "screen-time-calculator", label: "Screen Time Calculator" },
+    ],
+  },
+
+  "emotional-labour-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Counts as Emotional Labour and Why It Adds Up to £40,000+ a Year",
+        "The calculator covers 10 specific roles: remembering everything, planning and scheduling, anticipating needs, decision fatigue, worry and risk assessment, social coordination, household project management, family relationship management, research, and the default-parent tax. Each gets a professional-equivalent hourly rate (admin work £16.50, household management £17.50, emotional support £50.00 in the UK) and a default of 8 hours a week per role. With all 10 roles ticked, that is 80 hours a week of mental load at an average rate of around £24, which is roughly £100,000 a year of work value. Most users adjust the hours down and land between £35,000 and £80,000.",
+        "This is not the value of being a parent; it is the value of the unseen, unpaid management work that mostly sits with one person in heterosexual households. The 2019 Allianz Care of the Family report found UK women carry 71 percent of the mental load even when they earn equally. The number is shocking because it should be; if your household genuinely splits this 50/50, the calculator will respect that and the partner-percentage slider lets you show it."
+      ),
+      createAnswerFirstSection(
+        "Roles That Always Hit the Hardest",
+        "Decision fatigue (\"what's for dinner?\" times 365), worry and risk assessment (the 2am panic about whether they're breathing), and the default-parent tax (being the one the school always calls) consistently show up as the heaviest in the breakdown. Decision fatigue alone, at 8 hours a week and a £50 emotional-support rate, is £20,800 a year. That is a real number; it is also why mothers are 4 times more likely than fathers to report mental exhaustion in UK ONS surveys, and why \"taking the mental load off\" is genuinely meaningful when a partner remembers without being asked.",
+        "Edge case: single parents. The Single setting on the calculator removes the partner-percentage tab but does not change the role list, because the work is the same; it is just all on you. For separated and co-parenting families, run two separate calculations to see how the load actually splits in week-on-week-off arrangements; it usually surprises both parents."
+      ),
+      createAnswerFirstSection(
+        "How to Use This in a Real Conversation Without Starting a Row",
+        "Two ground rules. First, do the calculator together once, not as a gotcha. Sit down, talk through each of the 10 roles, agree the hours per week for each role honestly. Second, the goal is not 50/50 on every single role; it is ownership transfer on a few specific high-cost roles. \"Will you fully own the family medical admin from now on - GP appointments, vaccinations, medicine cabinet?\" is achievable. \"Will you do exactly half of every emotional-labour task for the rest of our lives?\" is not.",
+        "The calculator outputs a copy-to-clipboard summary you can text or post; most partners react more usefully to a number than to a feeling. Pair this with the [household task split](/household-task-split) tool which captures the physical work (cooking, cleaning, school runs) that sits alongside the mental load. The [stay at home mum calculator](/stay-at-home-mum-calculator) bundles both for parents who left paid work to do this full-time."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the mental load of motherhood?",
+        "The cognitive and emotional work of running a family: remembering, planning, anticipating, deciding, worrying, coordinating, researching and being the default contact. Distinct from physical chores (cooking, cleaning) which are visible. The 2019 Daminger study (American Sociological Review) split it into 4 stages: anticipating needs, identifying options, deciding and monitoring outcomes. The calculator priced these at professional-equivalent rates."
+      ),
+      createFAQ(
+        "How is emotional labour different from chores?",
+        "Chores are physical and visible (cooking dinner, cleaning the bathroom). Emotional labour is mental and invisible (remembering you need to buy more milk, noticing the child's shoes are a size too small, organising the playdate that maintains the friendship). The Allianz 2019 study found 71 percent of UK women carry the mental load even when chores are split equally; both matter, both have value."
+      ),
+      createFAQ(
+        "Can men do emotional labour?",
+        "Of course, and many do. The data shows current heterosexual partnerships skew the load heavily toward women, but that is a pattern not a rule. The fastest way to redistribute is to transfer full ownership of specific roles (\"you own all medical admin from this month\") rather than asking for help with everything; help-mode keeps the load on the manager."
+      ),
+      createFAQ(
+        "What is the dollar/pound value of the mental load?",
+        "The calculator uses professional-equivalent hourly rates: admin £16.50, household management £17.50, emotional support £50.00, plus equivalents in 12 countries. Default hours of 8 a week per role across 10 roles totals around £100,000 a year on the maximum settings; most users land between £35,000 and £80,000 once they trim the hours to their reality."
+      ),
+    ],
+    relatedTools: [
+      { slug: "household-task-split", label: "Household Task Split" },
+      { slug: "stay-at-home-mum-calculator", label: "Stay-at-Home Mum Calculator" },
+      { slug: "career-sacrifice-calculator", label: "Career Sacrifice Calculator" },
+    ],
+  },
+
+  "grandparent-childcare-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Free Grandparent Childcare Is Actually Worth",
+        "UK nursery rates for under-2s average £72 a day; for 2 to 3 year olds £62; for 3 to 5s £48 (after the 30 free hours kick in). A childminder is roughly £6.50 an hour, after-school clubs around £12 a session, holiday clubs about £32 a day. If your parents do school pickup 3 days a week (roughly 2 hours per day) for one 7-year-old, that is about £6 an hour at the childminder rate, or £36 a week, £1,872 a year. Switch them to full days for a toddler and the same 3 days a week is £216 weekly, £11,232 a year. The numbers escalate fast.",
+        "These are real market rates from 2025/26 nursery industry surveys (Coram Family and Childcare, NDNA), not theoretical. The calculator looks up your country's rates automatically (US averages $65 a day for under-2s, Australia A$140, Ireland €65) and combines age bands, hours and care types into one annual figure. Most UK families running 3 days of full-day grandparent care for a toddler are looking at £8,000 to £12,000 a year in saved childcare cost."
+      ),
+      createAnswerFirstSection(
+        "Why This Matters for the Conversation",
+        "Most grandparents will refuse cash. They want to help; they enjoy the time; charging anything feels wrong. The point of the calculator is not to send your mum an invoice; it is to make the value visible so the conversation about boundaries, gratitude and reciprocity has actual numbers behind it. £6,000 a year of saved nursery cost is the equivalent of two family holidays or a small private pension top-up; behaving as if grandparent help is free quietly devalues a lot of work.",
+        "Edge case: the grandparents' own retirement. UK grandparents who provide regular childcare for working parents may be eligible for Specified Adult Childcare Credits, which fill in National Insurance gaps for state pension purposes (worth around £300 a year of state pension at retirement, per year of credit claimed). The form is GAACC and many families miss it; mention it. If grandparents are also out-of-pocket on petrol, school-run snacks and craft materials, a monthly thank-you envelope or a paid family meal acknowledges the costs without making it feel like a wage."
+      ),
+      createAnswerFirstSection(
+        "When Grandparent Care Stops Working",
+        "It usually fails for one of three reasons: (1) the grandparents' health changes mid-year and you have no backup childcare lined up, (2) the screen-time, snacks or discipline rules at grandma's diverge so far from yours that the children come home wired and confused, (3) the implicit assumption that this will continue forever quietly suffocates the relationship. The calculator gives you a baseline year-on-year value so you can see if a few weeks of paid backup childcare or after-school clubs would solve a sustainability issue without ending the arrangement.",
+        "Run the years-of-care slider out to 10 years to see the cumulative figure (often £30,000 to £80,000 in the UK for 2 children) and use that number to think honestly about what fair reciprocity looks like. The [cost of raising a child](/cost-of-raising-a-child) tool shows the broader childcare picture if you stack grandparent care alongside paid days. The [stay at home mum calculator](/stay-at-home-mum-calculator) is the comparator if grandparent care let one parent stay in work part-time rather than leaving entirely."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does grandparent childcare save in the UK?",
+        "Average UK nursery costs are £72 a day for under-2s, £62 for 2-3s, £48 for 3-5s. A childminder is roughly £6.50 an hour, after-school club £12 a session, holiday club £32 a day. Three days of full-day grandparent care for a toddler is £216 a week, £11,232 a year saved. Two children of school age picked up 4 days a week is around £4,000 a year saved at childminder rates."
+      ),
+      createFAQ(
+        "Should grandparents be paid for childcare?",
+        "Almost always no - they refuse, and asking can feel insulting. But monthly thank-you (a meal out, a contribution to their petrol or a holiday gift) helps acknowledge the value without it feeling transactional. UK grandparents under state pension age may also claim Specified Adult Childcare Credits to fill NI gaps, which is worth roughly £300 a year of state pension per year of credit."
+      ),
+      createFAQ(
+        "How do childcare market rates vary by country?",
+        "UK under-2 nursery: £72 a day. US: $65 a day. Australia: A$140. Ireland: €65. Germany: €45. India: ₹600. The calculator looks up your country automatically using your timezone but you can switch via the country dropdown to compare or to model international family situations (grandparents who travel from another country to help)."
+      ),
+      createFAQ(
+        "Is grandparent childcare reliable for working parents?",
+        "It is the most flexible option but the least guaranteed. Health changes (knee surgery, a chest infection, bereavement) can pull the whole arrangement overnight, and most parents have no backup. Pair grandparent care with one paid backup day a week (after-school club or childminder) so a single grandparent absence does not derail your work week. This costs about £600 to £1,500 a year in the UK and saves the relationship from collapsing under expectation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cost-of-raising-a-child", label: "Cost of Raising a Child" },
+      { slug: "stay-at-home-mum-calculator", label: "Stay-at-Home Mum Calculator" },
+      { slug: "childcare-cost-calculator", label: "Childcare Cost Calculator" },
+    ],
+  },
+
+  "halloween-scavenger-hunt": {
+    sections: [
+      createAnswerFirstSection(
+        "Picking the Right Scare Level for Your Group",
+        "Three levels. Fun, Not Scary is the default for under-7s and any party with mixed ages: pumpkins, candy corn, autumn leaves, friendly skull decorations, witch hats. Mildly Spooky suits 7 to 9s: creepy masks, mummies, vampire capes, gravestone decorations, cobwebs. Full Halloween is for 9 to 12s and confident teens: gothic decorations, fake blood props, fog machines, motion-sensing decorations, full house transformations. Pick the lower level if there is any age 5 or under in the group; one freaked-out 4-year-old ends the hunt for everyone.",
+        "Item count is 8, 10, 12 or 15. For 8 items expect about 15 minutes; for 15 items closer to 30 minutes. A 5-year-old's hunt should be 8 items for 15 minutes; a 9-year-old can sustain attention for the full 15 items if the scare level matches. If the group is mixed age, run with 10 items at the lower scare level and let older kids \"help\" the younger ones rather than racing ahead."
+      ),
+      createAnswerFirstSection(
+        "Indoor, Garden or Neighbourhood Hunts",
+        "Indoor hunts are the safest weather-wise and the most reliable for 3 to 7 year olds, but they need decoration density: at least 8 to 10 Halloween bits actually placed around the house before you generate the list. Garden hunts add the natural autumn finds (fallen leaves, conkers, acorns, moss, feathers) which are perfect for nature-curious 5 to 9 year olds and require zero decoration spend. Neighbourhood hunts are the best for older kids and trick-or-treat time, scanning houses for Jack-o-lanterns, skeletons, fog machines and decorated wreaths.",
+        "Wet weather backup matters in October. UK Halloween night has roughly a 60 percent chance of rain in any given year. Run the indoor list as a backup before you set up the garden version; that way if the heavens open, you switch lists in 30 seconds rather than rescheduling. Print or save the JPG before you go out so you have it offline; phone signal in the back garden of a Victorian terrace is not always reliable."
+      ),
+      createAnswerFirstSection(
+        "Safety, Allergies and the Trick-or-Treat Crossover",
+        "If you are running this alongside trick-or-treating, agree the route with parents in advance and walk it once in daylight to spot trip hazards (raised paving slabs, low gateposts, dark steps). Bring a bag with a torch, plasters, wet wipes, water bottles and a few spare bags for the inevitable shared hauls. For nut and dairy allergies, the FSA recommends a teal pumpkin on the doorstep to signal allergy-friendly treats; ask trusted houses on your route to keep allergy-safe options if your child needs them.",
+        "Edge case: Halloween-anxious children. Around 10 percent of under-8s find the full-Halloween scare level genuinely upsetting (real research from BACP family therapists). Run Fun, Not Scary as the default and never use Full Halloween with a child who has not asked for it. If the hunt is for a Halloween party with mixed ages, the [halloween costume idea generator](/halloween-costume-idea-generator) covers what to wear and the [scavenger hunt generator](/scavenger-hunt-generator) is the year-round non-spooky version for the rest of the year."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What age is the Halloween scavenger hunt suitable for?",
+        "All ages, with the right scare level. Fun, Not Scary works from age 3 upward (pumpkins, autumn leaves, friendly skulls). Mildly Spooky suits 7 to 9s. Full Halloween is reserved for 9 to 12s and confident teens. The age toggle (3-5, 5-7, 7-9, 9-12) is on the configurator alongside the scare-level picker."
+      ),
+      createFAQ(
+        "How long does the hunt take?",
+        "About 15 minutes for an 8-item hunt, 20 to 25 minutes for 10 to 12 items, 30 minutes for 15 items. Add 5 to 10 minutes if the group is mixed age (older kids will speed-find while younger ones need help) and another 10 minutes if you are running it alongside actual trick-or-treating."
+      ),
+      createFAQ(
+        "Can I run this for a birthday party?",
+        "Yes. For a 5-to-7 year old Halloween-themed party, generate 10 items at Fun, Not Scary level for indoor or garden, set a 20-minute timer, give every child the same checklist and offer a small prize for everyone who completes it (not just the first finisher). Avoid elimination at this age; it ruins the party."
+      ),
+      createFAQ(
+        "What if a child is scared by the spooky decorations?",
+        "Drop the scare level immediately and switch to a non-spooky version, or pair the scared child with an older sibling or parent for the rest of the hunt. The Fun, Not Scary list is intentionally autumn-coded rather than horror-coded so you can use it as the fallback on the night without having to re-explain anything. About 10 percent of under-8s find Full Halloween distressing, which is normal."
+      ),
+    ],
+    relatedTools: [
+      { slug: "scavenger-hunt-generator", label: "Scavenger Hunt Generator" },
+      { slug: "halloween-costume-idea-generator", label: "Halloween Costume Idea Generator" },
+      { slug: "treasure-hunt-clue-generator", label: "Treasure Hunt Clue Generator" },
+    ],
+  },
+
+  "household-task-split": {
+    sections: [
+      createAnswerFirstSection(
+        "What 15 Tasks the Tool Tracks and Why That Number Matters",
+        "The split covers cooking, cleaning, laundry, food shopping, daytime childcare, night waking and bedtime, school runs, homework help, household admin (bills, appointments), DIY and maintenance, garden, pet care, social planning, emotional support for children, and emotional support for partner. Fifteen is the sweet spot: enough to surface the invisible categories (admin, social planning, emotional support) that often skew one way, but not so many that filling the form becomes a project. Each row takes hours per week per partner; total household time often lands between 60 and 100 hours combined.",
+        "Most households assume the split is closer to 50/50 than it actually is. The 2024 ONS Time Use Survey shows UK women still do 60 percent of household work and 71 percent of childcare on average. Putting real numbers in this tool, in front of the partner, reliably shifts the conversation from \"I feel like I do more\" to \"the data says you do 71 percent.\" The framing message at the top of the tool is deliberate: this is for reflection and conversation, not blame."
+      ),
+      createAnswerFirstSection(
+        "Reading the Result Without It Becoming a Row",
+        "Two cardinal rules. First, fill it in together at a calm time, not at 10pm on a Sunday after the third night of broken sleep. Second, the goal is not 50/50 on every row; it is balance overall plus ownership clarity on the rows that matter most to the lower-contributing partner. If one of you owns DIY end-to-end and the other owns school admin end-to-end, that is a fair split even if the hours are not equal, because both have full mental ownership of their domain. Hour balance plus role clarity beats raw equality on every line.",
+        "The colour bar at the top tells you what the system thinks. Within 30 percent of even is normal and healthy. Within 60 to 80 percent skewed flags as warning. Above 80 percent skewed flags as red, and almost certainly correlates with one partner heading for burnout within 12 months. The FTE (full-time equivalent) figure underneath translates the hours: 40 hours a week is 1.0 FTE, so a partner doing 60 hours a week of unpaid household work is doing 1.5 FTE, which is unsustainable indefinitely."
+      ),
+      createAnswerFirstSection(
+        "Common Patterns and What to Do With Them",
+        "Three patterns show up most often. The Default Parent pattern: one partner takes 70 percent plus and feels invisible in the home; the fix is full ownership transfer of 2 or 3 specific roles (medical admin, social planning, food shopping) to the other partner, not vague \"more help\". The Dad-Does-Outdoor-Mum-Does-Indoor pattern: looks 50/50 in hours but the indoor work happens daily and the outdoor work weekly, so the cognitive load is uneven; the fix is to swap one weekly outdoor job for one daily indoor job. The New Baby Skew: temporary 80/20 in the first 6 months is normal; over 12 months unhealthy.",
+        "Edge case: divorced and co-parenting families. Run the tool for each household separately and compare; the partner who has the children Mon-Fri does not have a 50/50 split with the partner who has them weekend-only. The [emotional labour calculator](/emotional-labour-calculator) digs into the mental side of the load (10 specific cognitive roles); this tool sits alongside it and covers the physical work. The [stay at home mum calculator](/stay-at-home-mum-calculator) is the comparator for households where one parent stays home full-time."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a fair household task split?",
+        "There is no single right answer, but within 30 percent of even on total hours (so 35/65 or better) is healthy. Above 70/30 the lower-contributing partner is rarely doing their share even allowing for paid-work hours; above 80/20 burnout in the higher partner is likely within 12 months. The 2024 ONS Time Use Survey shows UK women average 60 percent of household work."
+      ),
+      createFAQ(
+        "How do we use this tool without it ending in an argument?",
+        "Fill it in together at a calm moment (not after a row, not when sleep-deprived). Agree the hours per row honestly. Look at total hours not individual rows. Pick 2 or 3 specific tasks for full ownership transfer rather than asking for vague \"more help\". The goal is role clarity plus reasonable balance, not 50/50 on every single line."
+      ),
+      createFAQ(
+        "What if my partner says I am exaggerating my hours?",
+        "Run a one-week time diary as a test. Write down what you actually did each day for a week (mealtimes, bath time, homework, the school admin emails, the appointment calls). Most partners are sceptical until they see the diary, then accept the figures. The tool is not an audit; it is a starting point for the diary conversation."
+      ),
+      createFAQ(
+        "Does emotional labour count as a household task?",
+        "Yes - the tool includes emotional support for children and emotional support for partner as 2 of the 15 rows. For a deeper breakdown of the cognitive/mental load (the remembering, planning, anticipating, deciding, worrying), use the dedicated emotional labour calculator on the same site, which prices 10 specific mental-load roles separately."
+      ),
+    ],
+    relatedTools: [
+      { slug: "emotional-labour-calculator", label: "Emotional Labour Calculator" },
+      { slug: "stay-at-home-mum-calculator", label: "Stay-at-Home Mum Calculator" },
+      { slug: "career-sacrifice-calculator", label: "Career Sacrifice Calculator" },
+    ],
+  },
+
+  "party-bag-checklist-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Generator Builds Your Shopping List",
+        "Pick the children's age group (3-5, 5-7, 7-9, 9-12), the theme (general, princess, dinosaur, superhero, space, animals), the number of bags you need, and the budget per bag (£1, £2, £3, £4 or £5). The tool builds a shopping list of around 8 to 12 items per bag, totals the cost, and shows the running total against your budget. Items have realistic 2026 high-street prices: a small bouncy ball at 25p, a sticker sheet at 40p, a pack of crayons at 75p, and so on. Toggle items off if you do not want them, or click regenerate to swap one item for another at the same price point.",
+        "The £2-per-bag budget is the most common UK choice and will get you a small toy, a sticker sheet, two or three sweets, and a slice of cake in a napkin. The £4-budget pushes you into 'one nice item' territory: a small Lego figure, a quality colouring book, or a science-experiment kit. Below £1.50 per bag the contents are essentially the kind of plastic tat that goes straight in the bin within a week, and most parents have stopped pretending these add value. Many children's-party guidance now suggests skipping cheap fillers entirely and giving a single £3 to £4 item that actually gets used."
+      ),
+      createAnswerFirstSection(
+        "Avoiding the Tiny-Plastic-Tat Trap",
+        "The two most common complaints from parents on the receiving end: too many tiny choking-hazard items for the age group, and far too much sugar. For 3-5 year olds, anything smaller than 32mm in any direction is a UK choking-hazard threshold (the standard test cylinder used by Trading Standards). The tool flags the items the manufacturer rates 3+ if the chosen age is below that. For sugar, swap two of the four sweets for fruit-based snacks (raisin pots, fruit leathers, or party-bag-sized banana muffins).",
+        "Eco-friendly alternatives are increasingly popular: paper sticker sheets instead of plastic toys, small packets of seeds (sunflower or wildflower mix from £0.30) for older children to plant, beeswax-wrap mini sandwich kits, recycled-card colouring books. The [Birthday Party Game Planner](/birthday-party-game-planner) helps with the bigger picture so you do not over-spend on bags at the expense of game prizes; the [Pass the Parcel Forfeit Generator](/pass-the-parcel-forfeit-generator) covers the related question of forfeits inside the parcel layers."
+      ),
+      createAnswerFirstSection(
+        "Practical Logistics: Allergies, Returns and Numbers",
+        "Always order around 10 percent more than your guest count to cover late confirmations and any older or younger siblings who turn up. Order Tuesday or Wednesday for a Saturday party, since Amazon Prime and most supermarket next-day windows give you a slack day if anything is wrong. Check school allergy notices: many parties now go nut-free as a default, and some require gluten-free or dairy-free options for specific guests. Mark each bag with a name only if you have a confirmed RSVP list; otherwise label by colour or theme so you can hand them out in any order.",
+        "On collection: stack the bags on a side table near the door rather than handing them out during the party. Hand them over as parents arrive at pickup; this avoids children comparing contents during the party itself. If any guests do not show up, do not throw the spare bags; donate them to the school office or save for the next party."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the average UK budget for a party bag in 2026?",
+        "Most parents spend £2 to £4 per bag, with £2.50 the median. School-age birthdays (5 to 9) cluster around £2.50; pre-school (3 to 5) around £2; tween parties (10+) sometimes drop bags entirely or replace them with one bigger item like a cinema ticket or a small craft kit."
+      ),
+      createFAQ(
+        "What can I put in a party bag that is not plastic tat?",
+        "Stickers, packets of seeds, small books, mini puzzles, hair clips or accessories, packaged sweets, fruit pots or banana bread, mini bubbles, pencils, beaded bracelets, mini Lego packs, polished pebbles, a slice of cake in a napkin. The trick is one or two genuinely useful items rather than five tiny throwaway pieces."
+      ),
+      createFAQ(
+        "Should I include sweets in party bags?",
+        "Most parents include 1 or 2 small sweets but not more. Standard advice is one chocolate item plus one fruit-based item (raisins, fruit leather, banana bread). Avoid hard sweets and gum for under-5s due to choking hazard, and check school allergy notices before ordering anything containing nuts or sesame."
+      ),
+      createFAQ(
+        "Do I need party bags at all?",
+        "No. Many UK schools now politely discourage them as wasteful, and a growing number of parents skip bags entirely in favour of one shared takeaway like a balloon, a slice of cake in a box, or a small craft made during the party itself. If you do skip bags, mention it on the invite so other parents know not to expect one."
+      ),
+    ],
+    relatedTools: [
+      { slug: "birthday-party-game-planner", label: "Birthday Party Game Planner" },
+      { slug: "pass-the-parcel-forfeit-generator", label: "Pass the Parcel Forfeit Generator" },
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+    ],
+  },
+
+  "rainy-day-schedule-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Generator Fills the Day",
+        "Pick the child's age group (3-5, 5-7, 7-9, 9-12), set a start time (typically 9 am after breakfast), and the tool builds a balanced 6 to 8 hour schedule mixing five activity types: craft, screen time, baking, active games, and reading. Each block has a duration, a specific activity name and a supplies list. For a 3-5 year old, blocks are 20 to 30 minutes (their attention span maxes around 25 minutes); for a 9-12 year old blocks stretch to 45 to 60 minutes. The schedule alternates active and quiet blocks so children are not building up energy with no release, which is the single biggest cause of late-afternoon meltdowns.",
+        "A typical 5-7 year old schedule looks like: 9:00 craft (Paper Airplane Folding, 20 mins) - 9:20 active game (Hide and Seek, 20 mins) - 9:40 baking (Decorate Cup Cakes, 30 mins) - 10:10 reading (Independent Reading, 30 mins) - 10:40 screen (Educational YouTube, 30 mins) - 11:10 lunch break - 12:30 craft - and so on. Hit regenerate as many times as you like; the database has roughly 20 to 30 activities per slot per age, so a fresh combination appears each click. Pick the variant you like and either follow it loosely or print it for the kids to tick off."
+      ),
+      createAnswerFirstSection(
+        "Why Mixed Schedules Beat Free-for-All Days",
+        "The behavioural research is consistent: children with structured-but-flexible schedules during long indoor days have around 40 percent fewer parent-reported meltdowns, compared to free-form days where the parent fields constant 'I'm bored' requests. The structure does not need to be rigid: think of the schedule as a menu the child can pick from rather than a marching order. Most children of any age respond well to seeing a written list, ticking things off, and knowing what is next. The visual schedule reduces decision fatigue for both the parent and the child.",
+        "The other secret is the active-quiet alternation. A 30-minute craft followed by a 30-minute hide-and-seek followed by a 30-minute story keeps the energy curve oscillating instead of building a relentless climb to 4 pm tantrum-time. Screen time slots in this generator are deliberately capped: roughly 60 to 90 minutes total over a full day, broken into two or three blocks. This sits within the AAP and RCPCH joint recommendations: limited screens under 5, balanced family use after."
+      ),
+      createAnswerFirstSection(
+        "Pairing With Other Generators",
+        "If a craft block needs a specific project rather than a vague 'craft', open the [Craft Project Generator](/craft-project-generator) in another tab and feed the output back into the schedule. Same logic for science: the [Science Experiment Generator](/science-experiment-generator) gives age-appropriate kitchen experiments with method, explanation and safety notes that can fill a 30-minute block. The [Kids Activity Spinner](/kids-activity-spinner) is the random-pick alternative if you do not want a full schedule and just need 'one activity right now to get past this 20-minute bored patch'.",
+        "Edge case: holidays with multiple children of different ages. Run the generator for each child's age group separately, then overlap the schedules so reading time and screen time happen simultaneously (parents get a break) but active games are run together (kids stay together). For very long indoor stretches like a full week of half-term rain, regenerate daily for variety; using the same activities four days in a row is when parents report children losing engagement."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How do I keep kids entertained on a rainy day?",
+        "Mix five activity types across the day: craft, active games, baking, reading and limited screen time. Alternate active and quiet blocks of 20 to 45 minutes (longer for older kids). Have a written schedule the child can see and tick off; this dramatically reduces the 'I'm bored' loop. Hold a couple of spare activities back as 'emergency' picks for when one block falls flat."
+      ),
+      createFAQ(
+        "How much screen time is okay on a rainy day?",
+        "AAP and RCPCH guidance suggests a balanced approach: roughly 60 to 90 minutes total across the day for over-5s, broken into two or three blocks rather than one long session. Educational content and co-watched programmes count as lower-impact than passive YouTube binges. The [Screen Time Calculator](/screen-time-calculator) gives a more detailed breakdown by age."
+      ),
+      createFAQ(
+        "What activities work for a 3-year-old indoors all day?",
+        "Short blocks of 15 to 25 minutes alternating active and quiet: paper plate art, simple baking like decorating biscuits, dancing to music, picture book exploration, building blocks, hide and seek, sticker creations, puzzles, story time. Three-year-olds need a parent or older sibling alongside for most blocks; this is not an age that occupies itself for long stretches."
+      ),
+      createFAQ(
+        "How do I use this with kids of different ages?",
+        "Generate a schedule for each child's age separately, then overlap the blocks: schedule reading time and screen time at the same time (parents get a break), and schedule active games like hide-and-seek or treasure hunts together (mixed ages stay engaged). Avoid asking the older child to do the younger child's craft; use the [Kids Activity Spinner](/kids-activity-spinner) to give the older one a parallel option."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+      { slug: "craft-project-generator", label: "Craft Project Generator" },
+      { slug: "science-experiment-generator", label: "Science Experiment Generator" },
+    ],
+  },
+
+  "scavenger-hunt-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Build a Hunt That Actually Works",
+        "Pick the age group (3-5, 5-7, 7-9, 9-12), the location (indoor, nature, park), the number of items (5 to 25, with 10 to 15 the sweet spot for most ages), and click generate. The tool pulls items from an age-appropriate database: a 3-5 year old gets 'something red' and 'a leaf', a 9-12 year old gets 'evidence of plant competition' or 'a stone showing weather erosion'. Each list comes with a printable checklist and (premium) tick boxes, plus a parent setup guide for the nature and park variants explaining how to brief safety, where to set boundaries, and what to do if a child wanders.",
+        "Pacing matters more than item count. Younger children (3-5) finish a 10-item indoor hunt in around 15 to 20 minutes; if you want to fill an hour, run two or three smaller hunts back to back with different themes rather than one giant 30-item list (boredom kicks in around 20 minutes regardless of items remaining). Older children (9-12) can sustain interest for 45 to 60 minutes on a single 15-item nature hunt, especially if the items require identification or photographic evidence rather than collection. Group children into pairs for school-age hunts to slow the fastest finder and keep energy distributed."
+      ),
+      createAnswerFirstSection(
+        "Indoor, Nature and Park Variants",
+        "Indoor hunts are the rainy-day standard: items like 'something blue', 'something with batteries', 'a book published before 2010' work in any home and need zero prep. Nature hunts are the seasonal sweet spot: spring brings tadpoles, blossom and fresh shoots; autumn brings conkers, coloured leaves and mushrooms; the database is season-aware where possible. Park hunts add a social-observation layer: 'a sign with a number', 'a bench made of a specific material', 'evidence of maintenance work' get older children noticing the human-built environment they normally walk past.",
+        "Safety briefings to give before letting kids loose: stay within sight, do not pick wildflowers from designated nature reserves (collecting common wildflowers from public parks is generally fine in the UK; rare and protected species are not), do not put anything in mouths, wash hands afterwards. For a school holiday outing, pair the hunt with the [Kids Activity Spinner](/kids-activity-spinner) for variety between rounds, or run it alongside the [Easter Egg Hunt Clue Generator](/easter-egg-hunt-clue-generator) at Easter. The [Treasure Hunt Clue Generator](/treasure-hunt-clue-generator) is the riddle-based cousin if you want clues leading to specific hidden objects rather than open-ended item finds."
+      ),
+      createAnswerFirstSection(
+        "Birthday Parties, Classrooms and Wet-Weather Backups",
+        "For birthday parties, a scavenger hunt absorbs the awkward 15-minute window between arrival and the start of structured games. Print one checklist per child or per pair, hand them out as guests arrive, and let them tick items while waiting for everyone to turn up. For classrooms, teachers use scavenger hunts as a vocabulary-building activity (especially with EAL learners) or as a maths-prompt ('find 3 round things, count the steps from your desk to the door'). For wet weather, the indoor variant works in any home, and the parent setup sheet has a 'no-mess' filter that strips out items requiring collection (raisins, paper bits, glue residue).",
+        "Premium PDF (£1.99) gives you a beautifully laid-out one-page printable per child with images for younger kids, plus a parent route map showing recommended hiding spots if you want a guided hunt rather than open exploration. Free version is a watermarked JPG of the same checklist. Most parents find the free version is enough for casual rainy-day play; the paid pack is worth it for parties and teacher resources where you want the polished print."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What ages is a scavenger hunt suitable for?",
+        "From around age 3 (with a parent reading the list and helping) up to early teens. The sweet spot is 5 to 9. Under 3, children do not yet grasp the structure; over 12, kids prefer riddle-based [treasure hunts](/treasure-hunt-clue-generator) or geocaching. The generator's age-banded item lists scale the difficulty appropriately."
+      ),
+      createFAQ(
+        "How long should a scavenger hunt last?",
+        "Plan for 15 to 20 minutes for under-5s, 30 to 45 minutes for 5-9s, and up to an hour for 9-12s if items require identification or photo evidence. If you need to fill more time than that, run multiple shorter hunts with different themes back-to-back rather than one giant list."
+      ),
+      createFAQ(
+        "Are there environmental rules about taking things from nature?",
+        "In the UK, common wildflowers can be picked sparingly from public parks and unrestricted wild spaces (Wildlife and Countryside Act 1981 protects specifically listed rare species, not common ones). National parks and nature reserves often have local 'leave no trace' rules. For most parent-led hunts, the convention is 'observe and collect, then put back' for sticks, stones and leaves, and 'observe only' for living plants."
+      ),
+      createFAQ(
+        "Can I run a scavenger hunt at a birthday party?",
+        "Yes, and it is one of the best openers because it absorbs the 15-minute arrival window. Print one checklist per child or per pair, hand it out as guests arrive, set a clear boundary ('inside the house', 'in the garden only'), and call time when most children have found 80 percent of items. The [Birthday Party Game Planner](/birthday-party-game-planner) gives full party schedules with the hunt slotted in."
+      ),
+    ],
+    relatedTools: [
+      { slug: "treasure-hunt-clue-generator", label: "Treasure Hunt Clue Generator" },
+      { slug: "halloween-scavenger-hunt", label: "Halloween Scavenger Hunt" },
+      { slug: "easter-egg-hunt-clue-generator", label: "Easter Egg Hunt Clue Generator" },
+    ],
+  },
+
+  "science-experiment-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Generator Picks Experiments",
+        "Pick the age group (3-5, 5-7, 7-9, 9-12), the materials category (kitchen basics, craft supplies, garden), the mess level you can tolerate (none, low, medium, high), and the supervision level (parent-helping, child-led-with-watching). The tool returns one or more experiments with a title, full materials list, numbered steps, the science explanation in age-appropriate language, and a safety note. For 3-5 year olds, the database includes Rainbow Milk, Sinking and Floating, Dancing Raisins and Baking Soda Volcano. For 7-9 year olds it expands into pH-testing with red cabbage juice, density columns, and chromatography on coffee filters.",
+        "All experiments use household items you almost certainly already own: vinegar, baking soda, food colouring, milk, dish soap, paper, balloons, salt. The 'no-mess' filter strips out anything that involves runny liquids, paint, sticky residue or floor protection; ideal for rented homes or if you have just hoovered. The 'high-mess' filter opens up the proper experiments that pay off educationally - elephant toothpaste, oobleck non-Newtonian fluid, magic-mud cornstarch demos - but expect to clean for half an hour afterwards."
+      ),
+      createAnswerFirstSection(
+        "Why Kitchen Science Beats Boxed Kits",
+        "Boxed science kits run £15 to £30, contain three or four experiments, and once you have done them they go to the back of the cupboard. Kitchen science gives children the same 'why does that happen' moment using ingredients they can refill from any supermarket; it teaches the lasting lesson that science is not separate from everyday life. The dancing raisins experiment costs 10p and demonstrates carbon dioxide gas density; the baking soda volcano costs 20p and demonstrates an acid-base reaction. Both are exactly the same chemistry as university-lab demonstrations, just at a different scale.",
+        "The bigger benefit: kitchen science makes children active participants rather than passive observers. They predict what will happen, run the experiment, observe the result, and you discuss why. This is the basic structure of the scientific method, and the database is built around prompting that prediction step. Use the experiments alongside the [Rainy Day Schedule Generator](/rainy-day-schedule-generator) to fill 30-minute slots, or as a standalone activity for school holidays. The [Craft Project Generator](/craft-project-generator) covers the related making-things category if you want non-science creative activities."
+      ),
+      createAnswerFirstSection(
+        "Safety Notes That Actually Matter",
+        "Three real safety rules. First, no eye-level mess: vinegar volcanoes go on a tray on the floor or a low table, not at child face-height. Second, supervise with all liquids near electrical sockets; the 'no-mess' filter handles this for you, but if you go higher mess, choose a kitchen counter away from sockets. Third, make explicit before starting that the experiment ingredients are NOT for eating or drinking, even if they look or smell tempting (food colouring on milk, vinegar drinks).",
+        "Most experiments in the 'high-mess, parent supervision' tier involve mild acids (vinegar, lemon juice, citric acid) or bases (baking soda, washing soda). These are safe to touch but should not go in eyes; rinse with cold water for 5 minutes if any does, and call NHS 111 if irritation persists beyond 10 minutes. None of the experiments use any genuinely dangerous chemicals; if your child finds a database entry that uses bleach, hydrogen peroxide above 3 percent, or anything labelled 'corrosive' on the bottle, it has been added incorrectly and should be reported."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What science experiments work best for a 5-year-old?",
+        "Rainbow milk (food colouring + dish soap on milk), dancing raisins (raisins in fizzy water), sinking and floating with kitchen objects, and the classic baking soda volcano. All take 5 to 10 minutes, use ingredients you already have, and give a satisfying visible result. A 5-year-old can do these with light parent supervision."
+      ),
+      createFAQ(
+        "Are kitchen science experiments safe?",
+        "The experiments in this generator's 'kitchen basics' category use only food-grade or food-adjacent ingredients (vinegar, baking soda, food colouring, milk, dish soap, salt). They are safe to touch but not designed to be eaten or drunk. Standard supervision rules apply: keep liquids away from eyes, do not mix random ingredients outside the recipe, wash hands afterwards."
+      ),
+      createFAQ(
+        "How long does a kitchen science experiment take?",
+        "Most experiments take 5 to 30 minutes from setup to finish. The shortest are sinking and floating or rainbow milk (around 5 minutes); the longest involve growing something (crystals, beans, mould) and need 1 to 14 days of waiting. The schedule integrates with the [Rainy Day Schedule Generator](/rainy-day-schedule-generator) for a 30-minute block."
+      ),
+      createFAQ(
+        "Do these experiments meet the UK primary school science curriculum?",
+        "Many of them do. Sinking and floating maps to KS1 forces and materials; the volcano covers KS1 and KS2 chemical reactions; chromatography on coffee filters covers KS2 mixtures and separation. The generator does not explicitly tag curriculum points but the explanations are written to match the language used in primary school science textbooks."
+      ),
+    ],
+    relatedTools: [
+      { slug: "craft-project-generator", label: "Craft Project Generator" },
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+      { slug: "rainy-day-schedule-generator", label: "Rainy Day Schedule Generator" },
+    ],
+  },
+
+  "screen-time-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Calculator Allocates a Child's Day",
+        "Pick the child's age group, then enter how many hours they sleep, how many they spend at school or nursery, how long they take over meals, and how many hours they spend on other named activities (sports, homework, reading, other). The tool calculates the total awake hours (24 minus sleep), subtracts the committed time (school, meals, activities), and shows you the discretionary hours - the genuine 'what do they do with this' time of the day. Then it shows the recommended screen time for that age band as a percentage of those discretionary hours.",
+        "A typical 7-year-old example: 10 hours sleep, 6 hours school, 2 hours meals, 1 hour sports, 1.5 hours homework, 0.5 hours reading, 1 hour other. That is 12 hours committed plus 10 hours sleep, leaving 2 hours discretionary. AAP guidance for ages 6-12 caps screen time at around 2 hours of recreational screen use. So 100 percent of the discretionary time becomes screen time if you allow the maximum, which is the surface-level shocker most parents need to see written down. Most paediatricians recommend filling at least half that discretionary time with non-screen activities (outdoor play, free play, family time) and saving the maximum-screen days for genuinely tired or unwell evenings."
+      ),
+      createAnswerFirstSection(
+        "What the Guidelines Actually Say",
+        "The American Academy of Pediatrics, Royal College of Paediatrics and Child Health (RCPCH), and World Health Organization broadly agree on five age bands. Under 18 months: avoid screens entirely except for video calls with family. 18 months to 2 years: only high-quality educational content, co-watched with a parent, no more than 1 hour total. 2-5 years: maximum 1 hour per day of high-quality programming, balanced with free play and outdoor time. 6-12 years: consistent limits, balanced with school work, sleep, exercise and family time; loose 2-hour ceiling for recreational use. 13-18 years: focus on responsible use rather than hard caps, with bedroom-screen-free policies during school nights.",
+        "These are guidelines, not commandments. The RCPCH explicitly says there is no scientifically established 'safe' limit; the focus should be on whether screens are interfering with sleep, exercise, family interaction, and school. A 9-year-old doing 90 minutes of educational coding plus a bedtime audiobook is fundamentally different from a 9-year-old doing 90 minutes of TikTok in bed. The calculator helps you see the budget; the harder parenting question is what fills it."
+      ),
+      createAnswerFirstSection(
+        "Practical Rules That Hold Up Better Than Hour Caps",
+        "Five rules that consistently produce better outcomes than rigid hour caps. First, no screens at the dinner table; this protects family conversation. Second, no screens in the bedroom from age 5 onwards; this protects sleep, the single highest-impact health metric for children. Third, content matters more than duration; 30 minutes of TikTok is more cognitively expensive than 60 minutes of a slow Studio Ghibli film. Fourth, weekends are different from school nights; a longer Saturday-morning film does not need to come out of the weekday budget. Fifth, model what you want; children of parents who scroll on phones constantly use roughly twice as much screen time as children of parents who do not.",
+        "Pair this calculator with the [Sleep Calculator](/sleep-calculator) to see how screen time interacts with the recommended sleep window for the same age. The [Chore Chart Generator](/chore-chart-generator) is useful for the alternative-activity question - what to fill the discretionary hours with that is not screen-based - and the [Rainy Day Schedule Generator](/rainy-day-schedule-generator) covers school-holiday days when the structure of school is missing."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much screen time is healthy for a 5-year-old?",
+        "AAP and RCPCH guidance suggests up to 1 hour per day of high-quality educational programming, ideally co-watched or co-played with a parent. Free, unstructured play and outdoor time should make up the bulk of the day. Avoid screens in the hour before bedtime to protect sleep onset; the blue light is less of a problem than the cognitive arousal."
+      ),
+      createFAQ(
+        "Are guidelines different for tablets versus television?",
+        "Slightly. Interactive screens (tablets, phones, games) are more cognitively engaging and can be more habit-forming than passive TV. RCPCH and AAP guidance treats them broadly the same in terms of total time, but the bedroom-free rule is more important for handheld devices because they enable hidden late-night use. Co-watching a film as a family does not have the same impact as solo tablet use."
+      ),
+      createFAQ(
+        "What should I do if my child's screen time is way over the guidelines?",
+        "Three steps: identify the highest-impact swap (usually moving the bedtime tablet out of the bedroom and into the kitchen at 7 pm); replace one daily screen block with an outdoor or family activity for two weeks (it takes that long for the new habit to feel less effortful); accept that weekends will run higher than weekdays and budget across the week rather than the day. Do not try to cut screens cold turkey; gradual reductions stick."
+      ),
+      createFAQ(
+        "Do video calls with grandparents count as screen time?",
+        "No. AAP, RCPCH and WHO all explicitly exclude video calls with family from screen time limits, even for under-18-month-olds where most other screens are discouraged. Video calls are interactive social communication, not passive media consumption, and serve a different purpose. The same applies to using a tablet to read a digital book, although extended e-reader use should still factor into the daily picture."
+      ),
+    ],
+    relatedTools: [
+      { slug: "sleep-calculator", label: "Sleep Calculator" },
+      { slug: "chore-chart-generator", label: "Chore Chart Generator" },
+      { slug: "rainy-day-schedule-generator", label: "Rainy Day Schedule Generator" },
+    ],
+  },
 };

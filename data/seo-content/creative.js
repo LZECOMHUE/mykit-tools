@@ -1809,4 +1809,883 @@ export const creativeSEO = {
       { slug: "aspect-ratio-calculator", label: "Aspect Ratio Calculator" },
     ],
   },
+
+  "aspect-ratio-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Aspect Ratio Do I Actually Need?",
+        "It depends on where the image will live. YouTube thumbnails are 1280 x 720 (16:9). Instagram square posts are 1080 x 1080 (1:1). Instagram Stories and TikTok are 1080 x 1920 (9:16, vertical). Twitter/X timeline images are 1200 x 675 (16:9). Pick the platform first, then size the canvas to match - cropping a 16:9 video into a 9:16 Reel after the fact loses the top and bottom of every shot.",
+        "If your tool input shows a ratio like 17:9 or 853:480 instead of one of the clean ratios, the image is slightly off-spec for the platform you intended. The calculator simplifies any width and height into the smallest whole-number ratio using the greatest common divisor, then matches it against standard presets like 16:9, 4:3, 21:9 and 1:1. A perfectly square 1024 x 1024 will read 1:1; an Instagram Reel-bound 1080 x 1920 reads 9:16."
+      ),
+      createAnswerFirstSection(
+        "Locking the Ratio While Resizing",
+        "Toggle the lock icon and the calculator will keep the aspect ratio fixed while you change either dimension. Type a new width and the height auto-adjusts; type a new height and the width follows. This is the right way to scale a 1920 x 1080 video frame down to 1280 x 720 for a thumbnail without distorting people's faces.",
+        "Without the lock you can break the ratio on purpose, which is occasionally useful (squashing a 16:9 graphic into 1200 x 675 for a Twitter card lops a thin strip off the height because they are both 16:9 already, but a 1500 x 500 banner crop is genuinely a different ratio). The megapixel readout helps you spot when a resize has pushed an image below useful resolution: anything under 0.5 megapixels (roughly 800 x 625) starts to look soft on retina screens."
+      ),
+      createAnswerFirstSection(
+        "Common Resolutions for Print and Video",
+        "1920 x 1080 is the long-standing Full HD video standard at 16:9. 4K UHD is 3840 x 2160 (also 16:9, exactly four times the pixels of Full HD). Cinematic 21:9 widescreen typically renders at 2560 x 1080 or 3440 x 1440. For print, A4 lands at roughly 2480 x 3508 pixels at 300 DPI, which is closer to a 5:7 ratio than to any of the screen presets.",
+        "A common error is assuming Instagram posts are still 1080 x 1080 - the platform now accepts 1080 x 1350 (4:5 portrait) which gets considerably more screen real estate in the feed. The [colour palette generator](/colour-palette-generator) and [font pair suggester](/font-pair-suggester) can help finalise the look once you have committed to the right canvas size."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What does 16:9 actually mean?",
+        "16:9 means for every 16 units of width, the image is 9 units tall. So a 16:9 image at 1920 wide is 1080 tall (1920 divided by 16, multiplied by 9). It is the dominant ratio for modern TVs, YouTube videos and most computer monitors. The 4:3 ratio it replaced was the standard for older CRT TVs."
+      ),
+      createFAQ(
+        "How do I convert a 4:3 image to 16:9 without distortion?",
+        "You either crop or pad. Cropping a 1024 x 768 (4:3) image to 16:9 means cutting 96 pixels off the top or bottom (1024 x 576). Padding adds 192 pixels of background colour on left and right, giving a 1365 x 768 result. Distortion - simply stretching - is what to avoid because it makes circles oval and people look squashed."
+      ),
+      createFAQ(
+        "What aspect ratio is best for Instagram?",
+        "Instagram now supports four formats: 1:1 (square 1080 x 1080), 4:5 (portrait 1080 x 1350), 9:16 (Stories and Reels at 1080 x 1920), and 1.91:1 (landscape 1080 x 566). Portrait 4:5 takes the most space in the feed and tends to perform best for static posts. Reels and Stories must be 9:16 or they get letterboxed."
+      ),
+      createFAQ(
+        "Why does my image look different on TikTok versus Instagram?",
+        "TikTok crops the visible area to 1080 x 1920 (full 9:16) but the safe zone where text and faces will not be hidden by UI is closer to 1080 x 1350. Instagram Reels apply a similar safe zone. If you mastered for one platform without keeping critical content within the centre 60% of the frame, important elements may be hidden behind buttons or captions on the other."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "image-resizer", label: "Image Resizer" },
+      { slug: "megapixel-calculator", label: "Megapixel Calculator" },
+    ],
+  },
+
+  "canvas-size-guide": {
+    sections: [
+      createAnswerFirstSection(
+        "What Canvas Size Fits My Wall?",
+        "For a small room of 10 to 15 square metres, A4 (21 x 29.7cm), A3 (29.7 x 42cm) or 30 x 40cm prints sit comfortably above a desk or in a hallway. Medium rooms suit 40 x 50cm, A2 (42 x 59.4cm) or 50 x 60cm. Large living rooms need at least 60 x 80cm to hold the wall, and a feature piece above a sofa typically wants 80 x 100cm or larger so it does not look stranded.",
+        "The standard advice is that art should be roughly two-thirds the width of the furniture below it. A 180cm sofa wants a piece (or grouping) about 120cm wide. Centre the work so the middle is at eye level - around 145cm to 155cm from the floor. Hang too high and the room feels disconnected; hang too low and it competes with the sofa back."
+      ),
+      createAnswerFirstSection(
+        "Metric Versus Imperial Canvas Sizes",
+        "European canvases follow A-series and round metric sizes: A4, A3, A2, A1 plus 30 x 40, 40 x 50, 50 x 60, 60 x 80 and 70 x 100cm. American sizes are based on inches: 12 x 16, 16 x 20, 18 x 24, 24 x 36 and 30 x 40 inch. The two systems do not overlap cleanly - a 12 x 16 inch canvas is 30.5 x 40.6cm, almost but not quite the same as a 30 x 40cm European one. Off-the-shelf frames are not interchangeable.",
+        "Aspect ratios vary too. A4, A3 and A2 are all 1:1.41 (the silver ratio that lets you fold one in half to get the next size down). 30 x 40cm and 40 x 50cm are both 4:5. A 24 x 36 inch canvas is 2:3 - a longer, more cinematic shape. Match the ratio to the orientation: 4:5 portrait suits posters and figure work, 2:3 landscape suits photographs and panoramic scenes."
+      ),
+      createAnswerFirstSection(
+        "Frame and Mount Considerations",
+        "European A-series canvases pair with off-the-shelf A-series frames at most home stores. Round metric sizes (30 x 40, 40 x 50) have decent frame availability in the UK and Europe. US standard sizes are easy to frame in North America but harder in Europe - expect to order custom or buy unframed. Adding a 5cm mount around a print effectively bumps it up one size: a mounted A3 needs an A2 frame.",
+        "Gallery wraps (canvas stretched over a wooden frame, no external frame needed) work best at 40 x 50cm and above. Smaller canvases tend to look thin without a frame to anchor them. For floating frame effects, leave 1 to 2cm of space between the canvas edge and the frame. Use the [art pricing calculator](/art-pricing-calculator) and [painting cost calculator](/painting-cost-calculator) to budget materials before committing to a large piece."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What size canvas should I use for a living room?",
+        "For an average living room (15 to 25 square metres), aim for at least 60 x 80cm above a sofa. A pair of 50 x 70cm pieces side by side also works well. If the wall behind the sofa is over 3 metres wide, step up to 80 x 100cm or 100 x 120cm so the art holds its own against the furniture and ceiling height."
+      ),
+      createFAQ(
+        "What is the most popular canvas size for prints?",
+        "30 x 40cm and A3 (29.7 x 42cm) are the most popular sizes for home decor prints because they fit standard frames and look proportionate on most walls without overwhelming. For Etsy and gallery sales, 40 x 50cm and A2 (42 x 59.4cm) are the bestsellers - large enough to feel substantial but still easy to ship and frame."
+      ),
+      createFAQ(
+        "Can I frame a 30 x 40cm canvas in an A3 frame?",
+        "No, the dimensions are slightly different. A3 is 29.7 x 42cm; a 30 x 40cm canvas is shorter and wider. The canvas will not sit flat in an A3 mount. You need either a 30 x 40cm frame specifically, or a custom frame cut to fit. This is the most common framing mistake when buying European canvas prints."
+      ),
+      createFAQ(
+        "What aspect ratio is best for landscape photography?",
+        "2:3 (matching most DSLR sensors) is the natural choice. That maps to 24 x 36 inch in US sizing or roughly 40 x 60cm in metric. For wide panoramic landscapes, 1:2 or 1:3 ratios work better - think 30 x 60cm or 30 x 90cm. Square 1:1 crops suit Instagram-style street and architectural photography but rarely landscape work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "art-pricing-calculator", label: "Art Pricing Calculator" },
+      { slug: "painting-cost-calculator", label: "Painting Cost Calculator" },
+      { slug: "aspect-ratio-calculator", label: "Aspect Ratio Calculator" },
+    ],
+  },
+
+  "colour-contrast-checker-pro": {
+    sections: [
+      createAnswerFirstSection(
+        "What Contrast Ratio Do I Need?",
+        "WCAG AA - the legal accessibility standard for most websites - requires 4.5:1 contrast for normal body text and 3:1 for large text (18pt or 14pt bold and above). UI components like buttons and form borders need at least 3:1 against their background. The stricter AAA standard, which you should aim for on critical reading content like long-form articles, demands 7:1 for normal text and 4.5:1 for large text.",
+        "Black on white sits at 21:1 - the maximum possible. Pure white on a mid-grey #777777 lands at exactly 4.48:1 and fails AA by a hair. Light grey #999 on white is 2.85:1 and fails everything. The contrast checker calculates the WCAG ratio using the relative luminance formula (it weighs green more than red and red more than blue, matching how human eyes perceive brightness)."
+      ),
+      createAnswerFirstSection(
+        "Why Contrast Matters Beyond Compliance",
+        "About 8% of men and 0.5% of women have some form of colour vision deficiency. People over 40 lose contrast sensitivity gradually, and outdoor screen use in bright sunlight effectively halves the contrast you experience indoors. Designing to WCAG AA is not just legal cover - it is what makes your interface readable for the actual humans using it on a phone in a sunlit cafe.",
+        "The classic mistake is using brand colours that look great on a designer's calibrated monitor but fail on real devices. A subtle medium-grey body text at #888888 on white renders as 3.54:1 - it looks elegant in mockups and unreadable on a Kindle. The checker gives you nearby accessible variations: bumping #888 down to about #6b6b6b clears AA, and #595959 clears AAA, with minimal visual change for sighted users."
+      ),
+      createAnswerFirstSection(
+        "Common Combinations That Just Work",
+        "Black (#000000) on white (#FFFFFF) is the universal safe choice at 21:1. Dark navy #1a365d on pale blue #e0f2fe lands around 9.8:1 and clears AAA easily. White (#FFFFFF) on the standard accent blue #2563eb sits at 6.39:1 - clears AA for normal text and AAA for large. Dark on cream (#1a1a1a on #fffef0) is around 18.5:1 and works beautifully for long reading.",
+        "Combinations to avoid: any pastel on white, any colour on a similar hue (red text on pink, blue on light blue), and most coloured-on-coloured combinations except true complements. Yellow on white is almost always a fail. Red on green is the worst possible choice for the 8% of people with red-green colour blindness because the two colours look identical to them. Use the [colour palette generator](/colour-palette-generator) to pick palettes with built-in contrast headroom."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is WCAG AA versus AAA?",
+        "AA is the standard most regulators require: 4.5:1 contrast for normal text, 3:1 for large text. AAA is the enhanced level: 7:1 for normal, 4.5:1 for large. AAA is appropriate for content people read for extended periods (news articles, documentation). For interface chrome and short labels, AA is plenty and AAA can force visually heavy designs."
+      ),
+      createFAQ(
+        "Does contrast apply to icons and logos?",
+        "Logos are exempt from WCAG contrast requirements because brand identity overrides accessibility for that one element. Functional icons (a search magnifying glass, a hamburger menu) need 3:1 contrast against their background under WCAG 2.1 because users have to identify them to use the interface. Decorative icons that have a text label next to them have no contrast requirement on their own."
+      ),
+      createFAQ(
+        "How do I fix failing contrast without changing my brand colours?",
+        "Three options. First, use the brand colour for accents and headings only, with body text in near-black on white. Second, place the brand colour against a contrasting background (white text on the brand colour, instead of brand colour on white). Third, darken or lighten the brand colour by 20 to 30% for body text use - call it 'brand dark' as a separate variable. The checker's nearby accessible suggestions show you exactly how far to nudge."
+      ),
+      createFAQ(
+        "What contrast ratio do I need for buttons?",
+        "Button text needs 4.5:1 against the button background under AA (3:1 if the text is 18pt or larger). The button background also needs 3:1 against the surrounding page background, which catches the common mistake of pale-blue buttons on white. Disabled buttons are exempt from text contrast rules but still need to look visibly different from active buttons."
+      ),
+    ],
+    relatedTools: [
+      { slug: "contrast-checker", label: "Contrast Checker" },
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "font-pair-suggester", label: "Font Pair Suggester" },
+    ],
+  },
+
+  "crochet-blanket-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Yarn Will I Actually Need?",
+        "A throw blanket at 130 x 180cm in worsted-weight yarn using double crochet stitches needs roughly 515 metres - about 4 to 5 balls of standard 150-metre yarn. The same throw in chunky yarn needs 690 metres because each stitch eats more material. A baby blanket at 75 x 100cm in DK weight comes in at around 150 metres (1 to 2 balls); a king-size 260 x 260cm blanket in worsted weight needs over 1,500 metres or 10 to 12 balls.",
+        "The calculator multiplies the area by yarn-usage-per-square-metre figures derived from the stitch type and yarn weight, then adds 10% for joining seams and edge work. It also adds one extra ball on top of the rounded total because real-life dye lots vary, frogged sections happen, and ending a project 5 metres short of the cast-off row is the most demoralising thing in crochet."
+      ),
+      createAnswerFirstSection(
+        "Stitch Type Changes Everything",
+        "Single crochet uses the least yarn per square metre because the stitches sit close together and are short. Double crochet uses about 50% more yarn but works up roughly twice as fast. Granny squares are the most yarn-hungry of the common patterns because the cluster stitches and the joining yarn add extra material per row.",
+        "Yarn weight (lace, fingering, DK, worsted, aran, chunky, super-chunky) is the bigger lever. A super-chunky throw made in single crochet still uses considerably more yarn than a fingering-weight blanket made in granny squares, because each individual stitch is much larger. Pick the yarn weight first based on the weight and drape you want, then choose the stitch for speed and texture. The [yarn cost calculator](/yarn-cost-calculator) is useful when you have already settled on yarn brand and price per ball."
+      ),
+      createAnswerFirstSection(
+        "How Long Will It Take?",
+        "An average crocheter makes about 0.15 square metres of fabric per hour. A baby blanket (0.75 square metres) takes around 5 hours. A throw (2.34 square metres) takes about 16 hours. A king-size (6.76 square metres) takes 45 hours - roughly six full evenings of dedicated work. Faster crocheters can do 0.2 to 0.3 square metres per hour with a simple stitch and bulky yarn; intricate granny-square work can drop to 0.05 square metres per hour.",
+        "These times assume continuous crocheting without setup, pattern reading, or unpicking. Factor in 20 to 30% extra for first-time patterns and add another 50% if you are testing a new stitch you have never made before. For commission work, time tracking matters - you need to charge for hours, not just yarn cost."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many balls of yarn for a baby blanket?",
+        "For a 75 x 100cm baby blanket in DK or worsted weight using double crochet stitches, 1 to 2 standard 150-metre balls is enough. For chunky yarn or granny-square patterns, plan on 2 to 3 balls. Always buy one extra ball - returning unused yarn is easy at most shops, but matching dye lots months later is nearly impossible."
+      ),
+      createFAQ(
+        "How do I calculate yarn for any blanket size?",
+        "Multiply width by height in centimetres to get area, then divide by 10,000 to get square metres. Multiply by the yarn-per-square-metre figure for your stitch and weight (worsted with double crochet is about 2.1 metres per square metre stitched), then add 10% for edges and joining. Divide by metres per ball and round up. The calculator does this automatically for any size you enter."
+      ),
+      createFAQ(
+        "Should I always buy extra yarn?",
+        "Yes - one extra ball minimum, two for any project over 130 x 180cm. Dye lots vary subtly between batches, and finishing a blanket with the last 20 rows in a marginally different shade is obvious in good light. If you finish the project with one ball left over, most yarn shops will take it back if it is unopened with the label intact."
+      ),
+      createFAQ(
+        "How long does a king-size crochet blanket take?",
+        "Around 45 hours of actual crochet time using double crochet in worsted weight (about 6.76 square metres at the standard 0.15 m²/hr pace). Granny-square king blankets can take 80 to 100 hours because the joining work between squares adds substantial time. A king-size blanket is a 6 to 12 month project for most people working evenings and weekends."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yarn-cost-calculator", label: "Yarn Cost Calculator" },
+      { slug: "yarn-weight-converter", label: "Yarn Weight Converter" },
+      { slug: "stitch-counter", label: "Stitch Counter" },
+    ],
+  },
+
+  "curtain-fabric-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Fabric Do I Need for Curtains?",
+        "A single window 120cm wide with floor-length pencil-pleat curtains (2x fullness) needs about 4.4 metres of standard 137cm-wide fabric. The maths: width 120cm times 2x fullness equals 240cm of curtain. Standard fabric is 137cm wide so you need 2 widths joined down the middle. Multiply 2 widths by the 220cm drop, add 10% for hems and headers, and you land at roughly 4.4 metres at £15/m, or around £66 for the fabric alone.",
+        "Different heading types pull fabric quantities up or down. Eyelet and tab-top use 1.5x fullness (less material). Pinch pleats use 2.5x (more luxurious but expensive). Wave headings sit at 2x. The same window in pinch pleats needs 5.5 metres - over a metre more than pencil pleats. Always measure the pole or track width, not the window opening, because curtains overlap the frame by 15 to 20cm each side."
+      ),
+      createAnswerFirstSection(
+        "Drop Length Decisions",
+        "Three standard drops apply to most British windows. Sill-length (around 180cm from a typical pole) sits just below the windowsill - a casual look that works in kitchens and bathrooms. Floor-length (220cm from a typical pole) just brushes the floor - the safest option for living rooms and bedrooms. Below-sill or pooled lengths add 5 to 30cm extra and pool fabric on the floor for a dramatic look.",
+        "Always measure your specific window before relying on the defaults - ceiling heights vary from 220cm in older British homes to 270cm or more in modern builds and Victorian conversions. The pole or track sits 15cm above the window frame in most cases, but extending the pole higher (up to 30cm above the frame) makes the window look taller and the room look bigger. The calculator lets you enter a custom drop for those non-standard situations."
+      ),
+      createAnswerFirstSection(
+        "Lining and Total Costs",
+        "Lined curtains hang better, block more light, and last longer. Standard cotton lining costs about £6 to £8 per metre and you need roughly 95% as much lining as main fabric (lining is slightly narrower and you skip the bottom hem). For a 120cm window with floor-length pencil pleats, that is around 4.2 metres of lining at £6/m, or £25 to add to the £66 fabric cost.",
+        "Blackout lining costs £10 to £14 per metre and is essential for bedrooms facing east or street-lit pavements. Interlining (a soft middle layer) doubles the warmth and weight, costs another £4 to £8 per metre, and turns DIY curtains into a serious project that takes 6 to 10 hours per pair to make. The [fabric cost calculator](/fabric-cost-calculator) handles broader sewing projects beyond just curtains."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much fabric for floor-length curtains?",
+        "For a single 120cm window with pencil-pleat heading and floor-length drop on a standard 137cm-wide fabric, plan on about 4.4 metres of fabric plus the same again of lining. For two windows side by side, double the figure: roughly 8.8 metres of fabric and 8.4 metres of lining. Always add 10 to 15% for pattern matching if your fabric has a repeat."
+      ),
+      createFAQ(
+        "What is fullness in curtain making?",
+        "Fullness is how many times the curtain width is multiplied to create the gathered look. A 1x fullness curtain hangs flat with no gathers. 2x fullness (pencil pleats and wave) is standard for most rooms. 2.5x (pinch pleats) creates a more luxurious draped look but uses 25% more fabric. 1.5x (eyelet, tab top) gives a casual flatter drape that suits modern interiors."
+      ),
+      createFAQ(
+        "What heading type uses the least fabric?",
+        "Eyelet and tab-top headings use 1.5x fullness, the lowest of the common options. They suit modern, minimal interiors and lighter fabrics. Pencil pleat at 2x is the traditional choice and looks good in most homes. Pinch pleat at 2.5x uses the most fabric and is the most formal - typically reserved for living rooms and dining rooms in classical interiors."
+      ),
+      createFAQ(
+        "Do I need lining for curtains?",
+        "Almost always yes. Unlined curtains are translucent at night when the lights are on inside, hang poorly, and look thin. Cotton lining at £6 to £8 per metre adds about 35% to the fabric budget but transforms the finished result. Skip lining only for sheer voiles where seeing through the fabric is the point, or for very lightweight kitchen curtains."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fabric-cost-calculator", label: "Fabric Cost Calculator" },
+      { slug: "quilt-calculator", label: "Quilt Calculator" },
+      { slug: "seam-allowance-calculator", label: "Seam Allowance Calculator" },
+    ],
+  },
+
+  "filament-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Filament Is Left on My Spool?",
+        "Weigh the spool with a kitchen scale, subtract the empty spool weight (printed on the side, typically 200g to 250g for a 1kg spool), and you have the filament weight. Enter that figure and the calculator converts it to length using the filament's density and diameter. A 500g remainder of 1.75mm PLA (density 1.24 g/cm³) gives roughly 168 metres of usable filament - enough for about 10 small prints averaging 50g each.",
+        "If you do not want to dismount the spool, the calculator also accepts a percentage estimate. Looking at how full the spool is by eye is surprisingly accurate - 50% by visible volume is roughly 50% by weight because the filament is wound evenly. Just be aware that the cardboard or plastic core takes up 10 to 15% of the spool's outer volume, so what looks 25% full is closer to 15% by actual filament."
+      ),
+      createAnswerFirstSection(
+        "Density Differences That Matter",
+        "Different filaments have different densities, which changes the length you get from the same weight. PLA at 1.24 g/cm³ gives the standard length figure most calculators use. PETG at 1.27 is almost identical. ABS is lighter at 1.04 - meaning a 500g spool of ABS gives you about 19% more length than the same weight of PLA. Nylon at 1.14 sits in the middle. TPU varies between 1.20 and 1.25 depending on shore hardness.",
+        "Diameter is the bigger lever. 1.75mm filament is by far the most common - it works in nearly every consumer printer. 2.85mm (sometimes labelled 3mm) is used by Ultimaker, Lulzbot and a handful of older printers. The same weight of 2.85mm filament is much shorter in length because each metre is over twice the volume. A 1kg spool of 1.75mm PLA is roughly 335 metres; a 1kg spool of 2.85mm PLA is around 125 metres."
+      ),
+      createAnswerFirstSection(
+        "Will I Have Enough for the Next Print?",
+        "Enter your average print weight and the calculator works out how many full prints remain on the current spool. A common mistake is using the slicer's estimated filament weight without adding 5 to 10% buffer for support material, brim, and the purge line. A 50g print in your slicer is realistically 53 to 55g of actual material consumed.",
+        "If a print needs 80g and you have 75g left, do not start it - the print will fail at 95% complete and you will waste 5 hours. Either swap to a fresh spool or pick a smaller model. The [filament comparison](/filament-comparison) tool helps you choose between PLA, PETG and ABS when you are deciding what to load next, and the [3D print cost calculator](/3d-print-cost-calculator) puts the material cost into pounds and pence."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does 1kg of PLA filament last?",
+        "A 1kg spool of 1.75mm PLA is approximately 335 metres of filament. At 50g per typical small print, that is 20 prints. For larger functional prints averaging 200g, it is 5 prints. Heavy use printing benchmarks and large models can burn through 1kg in a weekend; hobbyist printers making the occasional figurine might stretch a spool over 6 to 12 months."
+      ),
+      createFAQ(
+        "How do I weigh just the filament without dismounting it?",
+        "Weigh the full spool with a kitchen scale (most printers' spools are too heavy for digital coffee scales). Look up the empty spool weight - it is usually printed on the spool itself or listed on the manufacturer's website. Subtract empty weight from total weight to get filament weight. For Bambu Lab, Prusament and most major brands, empty spools weigh 200 to 280g."
+      ),
+      createFAQ(
+        "Why does PETG show different length than PLA at same weight?",
+        "PETG is slightly denser than PLA (1.27 vs 1.24 g/cm³), so a 1kg spool of PETG is about 2.5% shorter than a 1kg spool of PLA at the same diameter. The differences become noticeable across the range of materials: ABS at 1.04 g/cm³ gives 19% more length per kilogram than PLA, while Polycarbonate at 1.20 is nearly identical."
+      ),
+      createFAQ(
+        "Should I keep the empty spool weight written down?",
+        "Yes. Either write it on the spool with a marker as soon as it arrives, or photograph the printed weight on the side. Once a spool is half-empty and tangled up with reload labels, the original printed empty weight gets hard to find. Tracking it lets you weigh accurately throughout the spool's life rather than guessing by eye in the final 30%."
+      ),
+    ],
+    relatedTools: [
+      { slug: "filament-comparison", label: "3D Printing Filament Comparison" },
+      { slug: "3d-print-cost-calculator", label: "3D Print Cost Calculator" },
+      { slug: "3d-print-pricing-guide", label: "3D Print Pricing Guide" },
+    ],
+  },
+
+  "filament-comparison": {
+    sections: [
+      createAnswerFirstSection(
+        "PLA vs ABS vs PETG: Which Should I Print With?",
+        "PLA for almost everything - it prints easily at 190 to 220°C with no heated bed required, has minimal odour, and costs around £18/kg. Pick PETG (£22/kg, 225 to 250°C) when you need the print to survive outdoors, hold water, or take impact - phone holders, bottle caps, plant pots. Pick ABS (£20/kg, 230 to 250°C with a heated bed at 80 to 110°C) only when you specifically need the high-temperature resistance for car interior parts or enclosures.",
+        "The honest truth is that 80% of hobbyist 3D printing should just be PLA. ABS is fussy, smells bad, and warps off the bed if your printer does not have an enclosure. The functional advantages over PETG are marginal in most situations. The exception is if you live somewhere hot and need parts that will not deform in a sun-warmed car - PLA softens at around 60°C while ABS holds shape past 100°C."
+      ),
+      createAnswerFirstSection(
+        "When You Need Specialty Materials",
+        "TPU (£28/kg) is the flexible filament for phone cases, gaskets, watch straps and anything that needs to bend. It prints slowly (15 to 25mm/s versus 50 to 80mm/s for PLA) and demands a direct-drive extruder. Nylon (£35/kg) is the strongest of the common materials at 5 out of 5 on strength rating - perfect for working gears and hinges - but it absorbs moisture from the air aggressively and prints poorly without a dry box.",
+        "ASA (£25/kg) is essentially ABS with excellent UV resistance. If you are printing outdoor signage, garden brackets or anything that lives in direct sun for years, ASA does not yellow or crack the way ABS does. It still requires the heated chamber and patience that ABS demands. For most outdoor non-structural use, PETG is good enough and far easier."
+      ),
+      createAnswerFirstSection(
+        "Cost Per Print Reality Check",
+        "Material cost for a typical small print of 50g: PLA is roughly 90p, PETG £1.10, ABS £1.00, TPU £1.40 and Nylon £1.75. The £1 difference between materials is rarely the deciding factor - a failed ABS print that wasted 5 hours of machine time and electricity costs far more than the same print succeeding in PLA. Print failures are the real cost driver, and PLA fails the least.",
+        "Electricity adds 5 to 15p per hour of print time. A 5-hour print costs 25p to 75p in power. The full cost of a 50g print is closer to £1.50 to £2.00 once you include the wear-and-tear share of nozzles, build plates and printer depreciation. The [3D print cost calculator](/3d-print-cost-calculator) handles these full-cost figures for accurate pricing if you sell prints."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is PETG stronger than PLA?",
+        "Yes, but not by as much as you might think. PETG is more impact-resistant and more flexible (it bends rather than snapping), but PLA is actually stiffer in tension. For a part that needs to take a sudden impact, PETG wins. For a part under steady load, PLA holds up well. Both rate 3 or 4 out of 5 on overall strength - Nylon is the proper choice if you need a material that genuinely outperforms both."
+      ),
+      createFAQ(
+        "Why is my ABS print warping off the bed?",
+        "ABS shrinks as it cools (around 0.7% linear shrinkage versus 0.3% for PLA). Without a heated bed at 100°C+ and ideally an enclosure to keep ambient air warm, the bottom layer cools faster than upper layers, contracts, and pulls itself off the build plate. Solutions: heated enclosure, brim or raft adhesion, ABS slurry on the bed, or just switch to PETG which warps far less."
+      ),
+      createFAQ(
+        "Is PLA food-safe?",
+        "Pure PLA is technically food-safe but the printing process introduces concerns. The nozzle leaves microscopic crevices in every layer that harbour bacteria, and most nozzles are brass with lead content. Some additives in coloured PLA are not food-rated. For genuine food contact, use PETG with a stainless steel nozzle, print in vase mode (single-wall, no bacteria-trapping layers), and do not put it in the dishwasher."
+      ),
+      createFAQ(
+        "What temperature should I print PLA at?",
+        "Start at 200°C nozzle and 60°C bed for most PLA brands. Premium PLA (Polymaker, Prusament) often prefers 210 to 215°C. PLA+ formulations sometimes need 220°C. Always print a temperature tower for any new spool - even the same brand varies between batches. Bed temperature matters less than nozzle temperature for PLA; some printers run PLA on an unheated bed with PEI sheets."
+      ),
+    ],
+    relatedTools: [
+      { slug: "filament-calculator", label: "Filament Usage Calculator" },
+      { slug: "3d-print-cost-calculator", label: "3D Print Cost Calculator" },
+      { slug: "print-shrinkage-calculator", label: "Print Shrinkage Calculator" },
+    ],
+  },
+
+  "font-pair-suggester": {
+    sections: [
+      createAnswerFirstSection(
+        "What Makes Two Fonts Pair Well?",
+        "Contrast and harmony at the same time. The two fonts should not look identical (boring), but they should share an underlying mood. The classic recipe is a serif heading with a sans-serif body, or vice versa - the structural difference creates a visual hierarchy. Playfair Display headings paired with Lato body text is the canonical example: a high-contrast modern serif against a humanist sans, both with similar x-heights and a calm tonal feel.",
+        "Avoid pairing two fonts from the same family classification. Two serifs together (Merriweather and Lora) often look like a designer could not decide. Two geometric sans fonts (Montserrat and Poppins) blur into each other and lose hierarchy. The exception is a font superfamily designed to work together, like IBM Plex Sans with IBM Plex Serif - they share the same skeleton but display differently enough to create useful contrast."
+      ),
+      createAnswerFirstSection(
+        "Tested Pairings From the Suggester",
+        "The 20-font library covers the Google Fonts catalogue's most reliable workhorses. Playfair Display heading with Lato body works for editorial sites and luxury brands. Montserrat headings with Lora body suit blogs and SaaS marketing. Poppins headings with Crimson Text body lean modern with editorial warmth. Roboto with Roboto Slab is the safe corporate choice. Cormorant Garamond with Lato gives wedding and lifestyle vibes.",
+        "The suggester pulls three pre-vetted body font options for each heading font. These pairings come from the Google Fonts community recommendations and have been used in production by enough sites to be safe defaults. Click any suggestion to see it live in the preview. The CSS @import line is generated for you to copy directly into your stylesheet - it pulls only the weights you actually need (600 and 700 for headings, 400 and 500 for body) to keep page weight down."
+      ),
+      createAnswerFirstSection(
+        "Loading Google Fonts Without Slowing Your Site",
+        "Each Google Font you load adds 30 to 80KB to your initial page weight, and roughly 100 to 300ms of perceived load time on a slow connection. Two fonts is the practical upper limit for a fast site. Three is acceptable if one is only used in a small place (like a logo). Four or more starts to noticeably hurt Core Web Vitals scores.",
+        "Self-hosting the font files (download from Google Fonts and serve from your own domain) generally beats the @import approach now that browsers no longer share cached fonts across sites. Use font-display: swap in your @font-face declaration so text appears immediately in a fallback font and switches to the web font once it loads - this prevents invisible text during the load phase. Pair the typography choices with the [colour palette generator](/colour-palette-generator) and [colour contrast checker](/colour-contrast-checker-pro) to lock in a complete visual system."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What font goes with Playfair Display?",
+        "Lato, Open Sans and Raleway are the three most reliable body partners for Playfair Display. Lato is the safest - both have similar x-heights and complementary letterform proportions. Source Sans Pro and Poppins also work but feel more contemporary. Avoid pairing Playfair with another serif (Merriweather, Crimson) because the high contrast of Playfair makes other serifs look heavy by comparison."
+      ),
+      createFAQ(
+        "Should the heading font be serif or sans-serif?",
+        "Either works - what matters is contrast with the body. The most common setup is serif heading + sans body (gives a magazine feel) or sans heading + serif body (gives an editorial blog feel). All-sans pairings are fine if the two fonts have different weights and personalities (Montserrat heading + IBM Plex Sans body works because they read distinctly). All-serif is the trickiest combination."
+      ),
+      createFAQ(
+        "How many Google Fonts should I use?",
+        "Two is ideal: one heading font, one body font. Three is acceptable if the third has a tiny role (logo only, or a single decorative pull-quote). Each additional font costs 30 to 80KB and a chunk of paint time. Most successful sites use just one or two fonts. Multi-font systems work well only when designed by someone with strong typographic discipline."
+      ),
+      createFAQ(
+        "What is the difference between font weight 400 and 700?",
+        "Weight 400 is regular (the default body weight). 500 is medium (slightly heavier, often used for buttons and labels). 600 is semibold. 700 is bold (common for headings). 900 is black or extrabold. Loading every weight is overkill - body text typically needs only 400 and 500, headings need 600 or 700. Loading just two weights per font keeps page size manageable."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "colour-contrast-checker-pro", label: "Colour Contrast Checker" },
+      { slug: "favicon-generator", label: "Favicon Generator" },
+    ],
+  },
+
+  "golden-hour-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Golden Hour Today?",
+        "Golden hour is the hour just after sunrise and the hour just before sunset, when the sun sits low and the light turns warm and directional. In London on a typical April morning, sunrise is around 06:00 BST and the morning golden hour runs roughly 06:00 to 07:00. Evening golden hour runs from about 19:00 to 20:00 (sunset around 20:00). The calculator works out exact times for any of 10 preset cities or any latitude/longitude you enter, on any date.",
+        "Times shift dramatically across the year. London in December: sunrise at 08:05, golden hour ends at 09:05; evening golden hour 14:55 to 15:55 with sunset at 15:55. Same city in June: sunrise 04:43, golden hour ends 05:43; evening golden hour 20:21 to 21:21. The further north or south of the equator, the more dramatic the seasonal swing. Reykjavik has a 24-hour golden hour at midsummer; Sydney's golden hour barely shifts season to season because it sits closer to the equator."
+      ),
+      createAnswerFirstSection(
+        "Blue Hour vs Golden Hour",
+        "Blue hour is the 20 to 30 minutes before sunrise and after sunset when the sun is below the horizon but the sky still glows. It produces a deep blue cast across the entire scene, with city lights and architecture in contrast. The morning blue hour starts roughly 30 minutes before sunrise; the evening blue hour ends 30 minutes after sunset.",
+        "Use golden hour for portraits, landscapes with side-lit textures, and anything where you want warm directional light. Use blue hour for cityscapes, architecture and twilight scenes - the artificial lighting (street lamps, building windows) reads at the same exposure as the sky, which is impossible during full daylight when buildings are silhouetted. Blue hour is shorter and harder to plan, which is why arriving 45 minutes before sunset gives you both: blue hour transitions into golden hour without the need to relocate."
+      ),
+      createAnswerFirstSection(
+        "Planning a Shoot Around the Light",
+        "Arrive 30 minutes before golden hour starts to scout your composition, set up tripod height and check exposure. Light conditions change every two minutes during the actual golden hour - you have time for maybe 10 to 15 carefully composed frames per shot before the quality drops. Bracket exposures because the dynamic range between bright sky and shaded ground is at its widest just before sunset.",
+        "Check the season in the calculator output. Summer evenings give you a long, slow golden hour. Winter golden hour is brief and the angle is so low that long shadows cover most of the foreground. Spring and autumn give the most flattering portrait light because the sun sits at roughly 30 degrees - high enough to light faces from above, low enough to stay warm. The [photography pricing calculator](/photography-pricing-calculator) helps when you are quoting timed sessions, since travel plus golden hour shooting plus editing rarely fits inside a one-hour booking."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does golden hour actually last?",
+        "Roughly an hour at temperate latitudes, hence the name. Closer to the equator (Bangkok, Cape Town) it can be as short as 20 minutes because the sun rises and sets nearly vertically. At high latitudes (Edinburgh, Stockholm) it can stretch beyond 90 minutes near the solstices. The calculator gives the exact duration for your location and date."
+      ),
+      createFAQ(
+        "What time is blue hour?",
+        "About 30 minutes before sunrise (morning blue hour, ending exactly at sunrise) and 30 minutes after sunset (evening blue hour, starting at sunset). For London on a April day with 20:00 sunset, evening blue hour runs roughly 20:00 to 20:30. Blue hour is shorter than golden hour because the sun moves quickly through the band where it lights the sky from below."
+      ),
+      createFAQ(
+        "Why does my photo look orange during golden hour?",
+        "Because golden hour light is genuinely orange - it has a colour temperature of around 3000K to 4000K compared to 5500K at midday. Your camera's auto white balance often tries to neutralise this and removes the warmth that made you want to shoot in the first place. Switch to manual white balance at around 5500K to 6500K (daylight setting) to preserve the golden tones rather than letting the camera correct them away."
+      ),
+      createFAQ(
+        "Is golden hour the same as magic hour?",
+        "Yes, photographers and filmmakers use both terms for the same period. 'Magic hour' is the older film-industry term; 'golden hour' is more common in photography. Some sources split them: magic hour as the broader 90-minute window covering blue hour through golden hour, golden hour as just the warm-light portion. In practice they are interchangeable."
+      ),
+    ],
+    relatedTools: [
+      { slug: "photography-pricing-calculator", label: "Photography Pricing Calculator" },
+      { slug: "photo-print-cost-calculator", label: "Photo Print Cost Calculator" },
+      { slug: "aspect-ratio-calculator", label: "Aspect Ratio Calculator" },
+    ],
+  },
+
+  "image-dpi-changer": {
+    sections: [
+      createAnswerFirstSection(
+        "What Happens When I Change DPI?",
+        "Two completely different things, depending on whether you tick 'resample'. Without resampling, changing DPI from 72 to 300 only updates a metadata tag in the file. The pixels stay identical. A 3840 x 2160 image at 72 DPI prints at 53 x 30 inches; the same file relabelled as 300 DPI prints at 12.8 x 7.2 inches. Same pixels, smaller print, sharper output. With resampling on, the calculator instead works out new pixel dimensions to maintain the original print size - which means inventing pixels that did not exist (a 72 DPI image resampled up to 300 DPI grows from 3840 to 16000 pixels wide, and looks soft).",
+        "The classic mistake is dragging a 1080 x 1080 Instagram graphic into Photoshop, changing the DPI to 300, and expecting it to print sharply at A4. With metadata-only change, the print just becomes 3.6 inches square (a postcard). With resampling, the image gets stretched up to 2480 x 2480 and looks blurry because Photoshop is averaging neighbouring pixels to invent new ones. Neither gives you a sharp A4 print - you needed the original at 2480 pixels wide in the first place."
+      ),
+      createAnswerFirstSection(
+        "When Should I Change DPI?",
+        "Change to 300 DPI (metadata only) when sending an image to a print shop. They will reject 72 DPI files even if the pixel count is enough, because their workflow software reads the DPI tag to lay out the print. Change to 72 DPI when exporting for web - it does not affect how browsers display the image (they ignore DPI entirely), but it shaves a few bytes off the file metadata.",
+        "Resample up (add pixels) only when you genuinely need more resolution and the source has been lost. Modern AI upscalers (Topaz, Magnific, even free options like Real-ESRGAN) do this far better than Photoshop's Bicubic resampling. Resample down (remove pixels) when emailing or uploading - the [image resizer](/image-resizer) and [image compressor](/image-compressor) handle this efficiently and let you preview file size savings before downloading."
+      ),
+      createAnswerFirstSection(
+        "DPI Settings for Common Tasks",
+        "Web and email: 72 DPI is the historic standard. The actual figure does not matter for screen display - it is purely a metadata tag. Print at home on a 600 DPI inkjet: 150 DPI source images give acceptable results, 300 DPI gives photo-quality output. Photo lab prints (5x7, 8x10, A4): 300 DPI is the spec. Large format posters viewed from over 1 metre away: 150 to 200 DPI is enough because viewing distance hides the lower resolution.",
+        "The calculator shows current physical print size, new physical size after a metadata-only change, and the pixel dimensions needed if you choose to resample to maintain physical size. It also estimates uncompressed file size in megabytes so you can see how much heavier the resampled version becomes. A 3840 x 2160 image at 72 DPI is 24MB uncompressed; resampled to 300 DPI to keep the same print size, it balloons to 415MB."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does changing DPI from 72 to 300 improve image quality?",
+        "Not by itself. If you only change the DPI metadata tag, the actual pixels are identical - the image just prints smaller. To genuinely improve print quality you need either more pixels (re-shoot, re-render, or AI upscale) or to print at a smaller physical size. Resampling up to 300 DPI at the original print size invents new pixels by averaging neighbours and the result looks soft."
+      ),
+      createFAQ(
+        "Why does my print shop ask for 300 DPI?",
+        "Their layout and prepress software reads the DPI metadata to position the image on the print. A file labelled 72 DPI tells the software the image is intended for screen and may get rejected automatically, even if the pixel count is sufficient. Open the file in Photoshop or use this calculator to change just the DPI metadata to 300 - no resampling needed if your pixel count already matches the desired print size."
+      ),
+      createFAQ(
+        "What is resampling and when should I do it?",
+        "Resampling means changing the actual number of pixels in the image. Resampling up adds invented pixels (always reduces sharpness). Resampling down throws away pixels (works fine if you do not need the original size). Use resampling down to make a 4K phone photo into a web-friendly 1500-pixel version. Avoid resampling up unless using an AI upscaler designed for that purpose."
+      ),
+      createFAQ(
+        "How much bigger does the file get if I resample to 300 DPI?",
+        "If you resample a 3840 x 2160 image (72 DPI, 53 x 30 inch print size) up to 300 DPI while keeping the same print size, the image grows to 16000 x 9000 pixels. Uncompressed file size jumps from 24MB to 415MB. Even compressed as JPEG the file is 4 to 8 times larger. This is rarely worth it unless you are genuinely trying to print at billboard size."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pixel-dpi-calculator", label: "Pixel DPI Calculator" },
+      { slug: "image-resizer", label: "Image Resizer" },
+      { slug: "megapixel-calculator", label: "Megapixel Calculator" },
+    ],
+  },
+
+  "jewellery-pricing-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Price Handmade Jewellery Without Underselling Yourself",
+        "Add up your materials, your time at a real hourly rate, packaging and postage, then layer marketplace fees on top before applying a markup. The classic mistake is pricing at materials plus a small fee, forgetting that an hour spent stringing beads is an hour you cannot get back. A pair of earrings using £4 of beads, 30 minutes of stringing at £18/hour, 75p packaging and an Etsy fee of 12.5% costs you about £15 once postage is included. Selling them for £8 might feel reasonable next to high street brands, but you are paying yourself less than the kettle on your hob.",
+        "The calculator splits costs into materials, labour, packaging, postage and platform fees, then shows a minimum break-even price plus a suggested price with your chosen markup. Use 40% as a starting markup if you sell on Etsy or Folksy and want headroom for sales and discount codes; closer to 100% if you sell direct through Instagram and need to absorb the cost of the customer service yourself. Anything below 40% rarely survives a busy month with broken clasps to replace and refunds to issue."
+      ),
+      {
+        heading: "Marketplace Fees and Postage Reality Check",
+        table: {
+          headers: ["Platform", "Listing Fee", "Transaction Fee", "Effective Cost on £25 Sale"],
+          rows: [
+            ["Etsy UK", "£0.16 per listing", "6.5% + 4% payment", "~£3.30"],
+            ["Folksy", "£0.20 per listing", "6% commission", "~£1.70"],
+            ["eBay", "Free up to 1000", "12.9% final value", "~£3.20"],
+            ["Own website (Shopify)", "Subscription", "1.5% + 25p Stripe", "~£0.65"],
+            ["Instagram + bank transfer", "Nil", "Nil (your time)", "£0"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Material Costs That Sellers Forget to Track",
+        "Findings get expensive faster than people expect. Sterling silver headpins are cheap individually, but if you make 30 pairs of earrings a month you will get through a £15 pack in two weeks. Gold-fill wire (which is sold by the foot, around £2.20 per foot at current prices) blows through budgets quietly because you cut more than the design needs. Track these as separate line items rather than rolling them into a vague 'materials' figure, otherwise you will keep wondering why your numbers look fine on paper and your bank balance disagrees.",
+        "Hidden costs to add to packaging: tissue paper, branded stickers, gift boxes for orders over £30, return postage labels, and the time spent printing dispatch notes. A 75p packaging line item is realistic for a small earring order; a fully branded gift-boxed necklace with ribbon and a thank-you card is closer to £2.50. The [art pricing calculator](/art-pricing-calculator) handles a similar breakdown for paintings and prints if you sell mixed work."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What hourly rate should I pay myself for handmade jewellery?",
+        "Most UK handmade sellers use £15 to £25 per hour for assembly time once they have the basic skills. Below £12 (around the National Living Wage) you are effectively paying yourself less than a supermarket job for skilled craft work. Above £30 starts to feel hard to justify against high street brands unless you sell at craft fairs or galleries where buyers expect higher prices. Rate your time honestly: design time, photography and listing time count too, and most sellers underestimate listing time by half."
+      ),
+      createFAQ(
+        "How much markup should I add for handmade jewellery?",
+        "A 40% markup over total costs is the floor for sustainable selling on Etsy or Folksy, where you need room for sales and the occasional refund. 60-100% is typical for direct sales through your own site or Instagram, where you carry no platform fee but spend more on marketing. Higher-end pieces using gold-fill or sterling silver often sit at 200% or more because materials are only a fraction of perceived value. Check what comparable sellers charge in your style and adjust from there."
+      ),
+      createFAQ(
+        "Should I include packaging in the price or charge separately?",
+        "Include it. Buyers compare 'price plus shipping' against other listings and a transparent total wins more sales than a low headline price plus £4 postage. Build packaging (around 75p to £2.50 depending on whether you use a gift box) into the item price, then offer free or low-cost shipping. Small parcel postage in the UK is currently £4.19 for second class signed-for via Royal Mail, which most sellers absorb for orders over £25."
+      ),
+      createFAQ(
+        "Why does Etsy charge so much in fees?",
+        "Etsy currently takes 6.5% transaction fee plus 4% payment processing on UK sales, which lands at roughly 12.5% once you add VAT and the listing fee. They argue this covers traffic and the marketplace infrastructure. For most sellers it is worth it because the alternative (driving traffic to your own site) costs more in ads. The break-even point is usually around £2,000 monthly turnover; below that, Etsy is cheaper, above that, Shopify with paid ads can be more profitable."
+      ),
+    ],
+    relatedTools: [
+      { slug: "art-pricing-calculator", label: "Art Pricing Calculator" },
+      { slug: "photography-pricing-calculator", label: "Photography Pricing Calculator" },
+      { slug: "ring-size-converter", label: "Ring Size Converter" },
+    ],
+  },
+
+  "knitting-gauge-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Why Gauge Matters More Than the Pattern Says",
+        "Gauge is the number of stitches and rows your knitting produces over a 10cm square in the yarn and needles you are using. DK weight on 4mm needles typically gives 22 stitches and 30 rows per 10cm; aran on 5mm needles is closer to 18 stitches and 24 rows. Patterns assume you knit at a specific gauge, and even a single stitch difference per 10cm compounds over a project. A jumper knitted at 20 stitches per 10cm instead of the pattern's 22 will end up around 10% wider, which on a 100cm chest jumper is 10cm extra room - the difference between fitted and falling off your shoulders.",
+        "The calculator takes your swatch gauge plus the pattern gauge and rescales the cast-on count automatically. Cast on 110 stitches at the pattern gauge of 22 sts/10cm gives a 50cm-wide piece; if your gauge is only 20 sts/10cm, the calculator tells you to cast on 100 stitches instead to land at the same 50cm. Same logic for rows: if you knit looser than the pattern, you need fewer rows to reach the right length, and the row counter saves you from mid-project frogging."
+      ),
+      createAnswerFirstSection(
+        "Swatching Properly Saves You Days of Knitting",
+        "Cast on at least 30 stitches and knit a 15cm square before you measure, because the edge stitches always lie differently from the middle. Wash and block the swatch the way you intend to wash the finished piece - a cotton or wool blend can grow 5% in length after the first wash, which turns a perfectly-sized cardigan into something that hangs to your knees. Measure across the middle 10cm in two places and average them, ignoring the cast-on row and the live stitches at the top.",
+        "Dye lot is the silent killer of long projects. A jumper using 8 balls of yarn from the same dye lot will look uniform; mixing two dye lots midway through (say, two balls from lot A4521 and two from lot A4528) creates a visible band where the colour changes. Buy enough yarn for the full project plus one extra ball at the start, even if it costs more, because reordering later almost always means a different lot. The [yarn cost calculator](/yarn-cost-calculator) helps work out how many balls you actually need before you commit at the till."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the standard knitting gauge for DK yarn?",
+        "DK weight wool on 4mm needles typically produces 22 stitches and 30 rows per 10cm in stocking stitch. Cotton DK runs slightly tighter, around 23 stitches per 10cm. Acrylic DK can vary more depending on brand. Always check the ball band for the manufacturer's recommended gauge and use that as your starting point, then adjust needle size up or down if your swatch is off."
+      ),
+      createFAQ(
+        "How do I adjust a pattern if my gauge is different?",
+        "Multiply the pattern's stitch count by the ratio of pattern gauge to your gauge. If the pattern is 22 sts/10cm with a 110-stitch cast-on and you knit at 20 sts/10cm, the maths is 110 × (20/22) = 100 stitches. Same for rows. The calculator does this automatically and rounds to the nearest stitch, but it is worth understanding so you can sanity-check the result before casting on."
+      ),
+      createFAQ(
+        "Should I go up or down a needle size if my gauge is too tight?",
+        "Tight gauge (more stitches per 10cm than the pattern) means your fabric is denser than intended. Go up half a needle size (3.75mm to 4mm, or 4mm to 4.5mm) and re-swatch. Half-size adjustments are the standard fix because a full size jump usually overshoots. If the pattern calls for 4mm needles and you knit at 24 sts/10cm instead of 22, try 4.5mm needles and expect to land around 21-22 sts/10cm."
+      ),
+      createFAQ(
+        "Why does washing change my gauge?",
+        "Wool and natural fibre yarns relax when wet, which can change both the stitch count per 10cm and the overall dimensions of the fabric. Cotton tends to grow lengthwise; wool plumps up and tightens slightly. Always swatch, wash and block the swatch the way you will treat the finished garment, then measure again. Pre-washed yarn is more stable but most knitters work with yarn straight from the ball, so factoring in the wash is essential."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yarn-cost-calculator", label: "Yarn Cost Calculator" },
+      { slug: "yarn-weight-converter", label: "Yarn Weight Converter" },
+      { slug: "stitch-counter", label: "Stitch Counter" },
+    ],
+  },
+
+  "megapixel-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Megapixels Actually Tell You",
+        "A megapixel is one million pixels, calculated as width times height divided by one million. A 4K image at 3840 x 2160 works out to 8,294,400 pixels, or 8.3MP. The number is useful for two things: knowing whether your file is sharp enough for a print at a given size, and estimating uncompressed file size (around 3MB per megapixel for an RGB JPEG before compression). It is not a sharpness metric on its own. A 50MP medium format file from a Fujifilm GFX has more usable detail than a 50MP cropped phone sensor because the larger photosites collect more light per pixel.",
+        "Bayer interpolation muddies the picture too. Every standard camera sensor captures only red, green or blue at each photosite, then the camera interpolates the missing two channels from neighbours. So a 24MP camera does not actually record 24 million full-colour pixels; it records 24 million single-channel measurements and works out the rest. Real resolving power is closer to 70-80% of the headline figure once interpolation is accounted for, which is why a 12MP iPhone photo can look softer than the spec implies when blown up to A3."
+      ),
+      {
+        heading: "Print Quality at Common Sizes (300 DPI Target)",
+        table: {
+          headers: ["Print Size", "Required Pixels", "Required MP", "Acceptable from"],
+          rows: [
+            ["6x4 inch", "1800 x 1200", "2.2MP", "Most phone cameras"],
+            ["7x5 inch", "2100 x 1500", "3.2MP", "Most phone cameras"],
+            ["A4 (300 DPI)", "2480 x 3508", "8.7MP", "12MP+ camera"],
+            ["A3 (300 DPI)", "3508 x 4961", "17.4MP", "20MP+ camera"],
+            ["A2 (240 DPI)", "3996 x 5664", "22.6MP", "24MP+ camera"],
+            ["Poster 24x36 in", "5760 x 8640", "49.8MP", "Medium format or stitched"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Choose Camera Megapixels for Your Work",
+        "12MP is enough for Instagram, web display, and prints up to A4 at viewing distance. 24MP gives you cropping room and clean A3 prints, which is why most enthusiast mirrorless bodies sit there. 45-50MP is overkill for general photography but right for landscape work where you want to crop heavily or print A1+. Beyond 50MP you are paying for diminishing returns unless you do commercial product or fine art prints. Wedding photographers in the UK typically charge £1,000 to £3,000 per day and almost universally shoot 24-30MP because the workflow stays manageable.",
+        "File size grows linearly with pixel count and quadratically with print size. A 50MP RAW from a Canon R5 is 60MB on disk, a 100MP medium format file is 110-120MB, and editing a wedding's worth of either in Lightroom needs at least 32GB of RAM. Use the calculator to check the uncompressed file size and storage cost before you buy a higher resolution body. Pair with the [pixels to physical size converter](/pixels-to-physical-converter) to translate a target print size back into the megapixel count you genuinely need."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many megapixels do I need for an A4 print?",
+        "8.7 megapixels at 300 DPI, which equates to a 2480 x 3508 pixel image. Most modern phones (12MP and up) and any mirrorless camera can produce A4 prints with no resampling needed. If you only need 240 DPI (acceptable for prints viewed at arm's length), the requirement drops to about 5.6MP. The calculator shows current DPI for your image at every standard print size so you can see exactly what holds up."
+      ),
+      createFAQ(
+        "Are 108MP phone cameras really better than 12MP?",
+        "Not always. High-megapixel phone sensors use a technique called pixel binning, where four (or more) tiny photosites are merged into one virtual pixel for low-light shots. The 108MP figure is marketing-led; in default mode the phone outputs around 12-27MP. Daylight sharpness can be slightly better but noise performance, dynamic range and lens limitations matter far more than the headline figure for most users."
+      ),
+      createFAQ(
+        "Why does my 12MP photo look fuzzy when printed at A3?",
+        "12MP is around 4000 x 3000 pixels. At A3 (11.7 x 16.5 inches), that gives 240-250 DPI, which is acceptable but not crisp. For perfect 300 DPI sharpness you would need 17.4MP. The fuzziness is more visible if the original photo had any motion blur, was taken in low light with high ISO, or has been compressed heavily by social media before you saved it back."
+      ),
+      createFAQ(
+        "How big a file is a 50MP photo?",
+        "Uncompressed RGB at 8 bits per channel works out to 150MB for a 50MP image (50 million pixels x 3 bytes). A typical RAW file with compression sits at 50-65MB. A high-quality JPEG from the same image is 12-25MB depending on subject complexity. Storage adds up fast: 1000 50MP RAW files needs around 60GB of drive space."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pixels-to-physical-converter", label: "Pixels to Physical Size Converter" },
+      { slug: "image-dpi-changer", label: "Image DPI Changer" },
+      { slug: "image-file-size-calculator", label: "Image File Size Calculator" },
+    ],
+  },
+
+  "meme-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Make a Meme That Actually Lands",
+        "Upload an image (or use a coloured background), type your top and bottom text, and let the generator render the classic Impact-style font with a thick black outline. The outline is what makes meme text readable on any background; without it, white text vanishes against a sky and black text gets lost in shadows. Most meme templates work best at 1200 x 1200 for Instagram square posts or 1200 x 630 for Twitter and link previews, and the generator scales the font automatically so longer text shrinks rather than running off the edge.",
+        "Tone is everything. The reason 'Drake pointing' or 'Distracted Boyfriend' templates keep working is that the format already does the comedy heavy lifting; your text just specifies what the joke is about. Original photos work too but need a sharper hook. Keep top text under 6 words and bottom text under 8 - more than that and the meme starts to read like a Twitter screenshot, which kills the format. Save with the download button as a PNG to preserve sharpness; JPEG compression turns the white-on-outlined-black text into a soup of artefacts."
+      ),
+      createAnswerFirstSection(
+        "Copyright, Templates and Where Memes Come From",
+        "Most popular meme templates are stills from films, TV shows, sports broadcasts or paparazzi photos, all of which are technically copyrighted. Meme use sits in a grey zone: rights holders rarely chase individual posts because the marketing value of going viral usually outweighs the cost of enforcement, but commercial use (selling t-shirts, putting a meme in an advert, using one in a paid sponsorship) is a different matter and gets cease-and-desisted regularly. If you are making memes for your business account, use templates from royalty-free sources or your own photos to stay safe.",
+        "The generator does not store templates because hosting copyrighted material would create liability. Bring your own image, use a solid colour background, or use one of the gradient presets. For brand-safe meme content, photograph your own products or team and use those as the base; the meme format works just as well with original material once you have a recognisable visual hook. Pair this with the [add text to image](/add-text-to-image) tool if you need more text positions than the classic top/bottom layout."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What font do memes use?",
+        "Impact, an Adobe-licensed condensed sans-serif, is the traditional meme font. It became the default on the original Impawards and Quickmeme generators in the early 2000s and has stuck. Some modern meme styles use Helvetica Bold, Arial Black, or thin-stroked sans-serifs for a cleaner look (typical of Tumblr-era memes). The generator uses Impact-style rendering with a heavy black stroke for the classic look."
+      ),
+      createFAQ(
+        "What size should a meme be for Instagram?",
+        "1200 x 1200 pixels for square feed posts, or 1080 x 1350 for portrait posts (the maximum Instagram allows). For Stories, use 1080 x 1920. The generator auto-scales the canvas based on your uploaded image, but if you are designing for a specific platform, resize the source image to the target dimensions first using the image resizer to avoid Instagram doing the cropping for you."
+      ),
+      createFAQ(
+        "Can I sell memes I make with this generator?",
+        "You can sell creative work that uses memes as a format, but selling a specific meme that uses someone else's image, photo, screenshot or character is risky and frequently challenged. Your own photos with meme-style text are fully yours to sell. Templates derived from films, TV shows, athletes or celebrities are not. The generator is intended for personal social posting; commercial use requires you to own (or license) the underlying image."
+      ),
+      createFAQ(
+        "Why does my meme text look pixelated when I share it?",
+        "Two common causes. First, the platform is recompressing your image (Twitter and Facebook both reduce quality on upload). Save as PNG rather than JPEG to start with cleaner output. Second, you may have created the meme at a small canvas size, which the platform then upscales. The generator outputs at 600px width by default; for sharper results, upload a larger source image so the canvas grows to match."
+      ),
+    ],
+    relatedTools: [
+      { slug: "add-text-to-image", label: "Add Text to Image" },
+      { slug: "photo-filter-tool", label: "Photo Filter Tool" },
+      { slug: "image-resizer", label: "Image Resizer" },
+    ],
+  },
+
+  "paint-mixing-ratios": {
+    sections: [
+      createAnswerFirstSection(
+        "How Paint Mixing Ratios Work in Practice",
+        "Pick a target colour and the calculator suggests approximate ratios from the standard primaries: red, blue, yellow, plus white and black for tinting and shading. Orange comes from roughly 40% red and 60% yellow; purple sits around 50/50 red and blue; a soft sage green needs about 60% yellow, 30% blue and 10% white to lift it from the muddy mid-tone you get with raw mixes. The maths is approximate because real pigments behave differently: cadmium red leans warmer than alizarin crimson, and cobalt blue is much greener than ultramarine. Two artists mixing 'red plus blue' will get visibly different purples depending on which red and which blue are in the tube.",
+        "Acrylic and oil paints follow similar mixing logic but dry differently. Acrylics darken slightly as they dry (around 5-10% shift toward the underlying tone) so always mix a touch lighter than the target if the painting is acrylic. Oils stay wet on the palette for hours and let you adjust as you go, but mineral spirits or linseed oil added to thin the paint will shift colour saturation. Test a small dab on the canvas first, let it dry properly, then commit to the larger mix."
+      ),
+      createAnswerFirstSection(
+        "Why Your Mixed Colour Drifts From the Calculator's Estimate",
+        "Pigment opacity is the biggest factor. Titanium white is very opaque and will dominate any mix it is in; using zinc white instead gives a more transparent, gentler tint. Phthalo blue and phthalo green are staining colours and a tiny amount overpowers everything else; cobalt and ultramarine are more polite and require larger ratios to show. The calculator assumes equal-strength pigments, which is why the suggested 'red 40%, yellow 60%' might land closer to orange-red rather than the bright orange you wanted: the red was a phthalo-based heavy tinter and grabbed the mix.",
+        "Lighting changes everything. A colour mixed under cool LED daylight bulbs (5000-6500K) looks completely different under warm domestic incandescent (2700K). Mix paint in the same lighting it will be displayed in, ideally near the actual canvas with the source colour reference held next to your test mix. Pair this with the [colour palette generator](/colour-palette-generator) when you are choosing target colours from a digital reference; it shows the hex codes and helps translate a screen colour into something achievable in physical paint."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I get any colour from the three primaries?",
+        "In theory yes, in practice no. Real-world pigments cannot mix to a fully saturated cyan, magenta or bright purple because each pigment absorbs a slightly different chunk of the spectrum, and the result of mixing two pigments is always more muted than either alone (subtractive mixing loss). For really vivid greens, pinks or violets, buy a tube of that colour rather than trying to mix it. Cadmium yellow plus phthalo blue gives a passable green; pure phthalo green is far brighter."
+      ),
+      createFAQ(
+        "How do I make a colour darker without using black?",
+        "Most professional painters avoid black because it deadens any mix it touches. Use the colour's complement instead: deepen red with a touch of green, deepen yellow with violet, deepen blue with orange. The result is a darker, richer version of the original colour rather than a muddy grey-tinged version. Burnt umber and raw umber are also useful 'natural' darkeners that warm a mix while shading it."
+      ),
+      createFAQ(
+        "Why does my white paint look different from another brand's white?",
+        "Titanium white (PW6) is brilliant, opaque and slightly cool. Zinc white (PW4) is semi-transparent and warmer. Mixing white (a blend of titanium and zinc) sits between the two. Different brands use different pigment blends and binders, so a Winsor & Newton titanium white will mix slightly differently from a Liquitex titanium white. Stick to one brand within a single painting if colour matching matters."
+      ),
+      createFAQ(
+        "Can I mix watercolour and acrylic paint together?",
+        "No, not reliably. Watercolour uses gum arabic as a binder and stays water-soluble forever; acrylic uses an acrylic polymer that dries permanent. Mixing them gives unpredictable results: the acrylic film locks in the watercolour but can crack, and the layer behaves differently in different humidity. Stick to one medium at a time, or use acrylic glazing techniques to get the watery feel without combining the two."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "painting-cost-calculator", label: "Painting Cost Calculator" },
+      { slug: "color-palette-from-image", label: "Color Palette from Image" },
+    ],
+  },
+
+  "photo-filter-tool": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Filters Actually Change Your Photo",
+        "Each filter is a stack of CSS-style image adjustments applied live in the browser. Brightness scales every pixel up or down; contrast pushes light pixels lighter and dark pixels darker; saturation increases or decreases the distance of each colour from grey. Blur uses a Gaussian convolution that averages neighbouring pixels (heavy blur destroys fine detail and cannot be undone). Hue rotation shifts every colour around the colour wheel by the same number of degrees, which is why the 'Cool' preset turns warm orange skin tones into a sickly cyan if you push it too far. Use the comparison toggle to flip between original and filtered before committing to a download.",
+        "The vintage preset adds 60% sepia, drops saturation to 80%, raises contrast to 120% and dims brightness to 90%, which together give you the faded-newsprint look without crushing detail. Dramatic uses 80% brightness and 150% contrast for a moody, high-contrast cinematic feel. Black and white sets saturation to zero with grayscale at 100%; you can then add a touch of sepia (10-20%) for a warmer mono look that mimics film. Everything is non-destructive: the filter values are applied at download time, the original file stays untouched."
+      ),
+      createAnswerFirstSection(
+        "When to Use Filters and When to Edit Properly",
+        "Filters are right for social posts, quick adjustments and ideas you want to test. They are not right for serious editing because every filter applies globally - you cannot brighten just the shadows, deepen just one colour, or fix a crooked horizon. For Instagram or a blog header, a single filter from this tool plus a brightness tweak gets you 90% of the way there in 30 seconds. For a portfolio shot, a print sale, or anything you will look at in a year, open the file in Lightroom, Affinity Photo or Photopea and edit properly with masks and adjustment layers.",
+        "Save filtered photos as PNG if the image has flat colour areas (graphics, logos with photo backgrounds), JPEG at 85-90% quality for everything else. The download keeps the original aspect ratio. If you need to adjust dimensions or compress further, use the [image resizer](/image-resizer) before applying filters, since downscaling after a strong sharpen filter often re-introduces artefacts that undo the filter's effect."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are the filters destructive to my photo?",
+        "Not until you download. The filters are previewed live by applying CSS transforms to a canvas; the original image data stays in memory and you can flip back to the original at any time. When you click download, the canvas is rendered to a new PNG or JPEG with the filter baked in. Your original file on disk is not touched."
+      ),
+      createFAQ(
+        "Why does the cool filter make skin look strange?",
+        "The cool preset rotates the hue by 180 degrees, which inverts warm tones to cool ones. Skin tones contain a lot of red and orange, and shifting them all the way around the colour wheel produces unnatural blue-green hues. For more subtle cooling, reduce the hue rotation to 10-20 degrees instead of 180, or turn down the saturation slightly without changing the hue at all."
+      ),
+      createFAQ(
+        "Can I apply multiple filters to one photo?",
+        "Yes - the tool stacks individual adjustments (brightness, contrast, saturation, blur, sepia, hue rotation, grayscale, invert) so you can build a custom look. The presets are pre-mixed combinations of those adjustments. Pick a preset as a starting point, then fine-tune the individual sliders for the exact look you want."
+      ),
+      createFAQ(
+        "What format should I download my filtered image as?",
+        "PNG for graphics, screenshots, logos with transparency, or anything with flat colour areas. JPEG at 85-90% quality for photos with continuous tones (faces, landscapes, food). PNG files are typically 3-5 times larger than equivalent JPEG, so for web use stick with JPEG unless you specifically need transparency or pixel-perfect detail. The tool exports both formats."
+      ),
+    ],
+    relatedTools: [
+      { slug: "adjust-image-brightness", label: "Adjust Image Brightness" },
+      { slug: "adjust-image-contrast", label: "Adjust Image Contrast" },
+      { slug: "sepia-filter", label: "Sepia Filter" },
+    ],
+  },
+
+  "photo-print-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Real Print Lab Costs for UK Photographers",
+        "Print costs vary more than buyers realise. A 6x4 standard glossy print from a UK pro lab (Loxley, OneVision, theprintspace) is around £1.50; the same image as a 6x4 fine art giclée on Hahnemühle paper is closer to £5. Step up to 8x10 inches and the standard print is £3.50, fine art is £12, and a stretched 8x10 canvas runs £18-20. The calculator builds in these market-rate figures so you can see what you actually pay before adding any markup. Lab pricing is usually per print without setup fees if you batch multiple prints in one order; one-off prints attract minimum order charges that can double the unit cost.",
+        "Frame costs add a separate layer. A basic 8x10 standard frame from a high street picture framer is around £25; a premium oak or matt-cut museum frame is £60+. Custom framing (cutting glass, mounting on board, signing) easily adds £100 to the cost of a 16x20 print. The trick is whether to absorb framing as part of your sale price or offer it as an add-on. Most fine art photographers charge separately for framing because it lets the customer choose, while wedding albums fold framing into the package price."
+      ),
+      {
+        heading: "Standard UK Print Sizes and Required Pixel Dimensions",
+        table: {
+          headers: ["Print Size", "300 DPI Pixels", "Lab Cost (Standard)", "Typical Sell Price"],
+          rows: [
+            ["6x4 inch", "1800 x 1200", "£1.50", "£8 - £15"],
+            ["7x5 inch", "2100 x 1500", "£2.00", "£10 - £20"],
+            ["8x10 inch", "3000 x 2400", "£3.50", "£20 - £45"],
+            ["A4 (8.3x11.7)", "2480 x 3508", "£4.00", "£25 - £50"],
+            ["A3 (11.7x16.5)", "3508 x 4961", "£6.00", "£45 - £90"],
+            ["16x20 inch", "6000 x 4800", "£10.00", "£75 - £150"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How Much Markup is Reasonable on a Photo Print?",
+        "80% over total cost is a comfortable starting point for direct-to-consumer print sales. A £5 fine art print at 8x10 sells for £9; an £18 canvas at 8x10 sells for £32. Higher markup (150-200%) is justified for limited editions, signed prints, gallery sales or commission work. Lower markup (40-60%) is necessary for high-volume online stores that compete on price - though you usually then make it up on quantity rather than per-piece profit. The calculator lets you adjust the markup percentage live to see the resulting margin against different print types and frame options.",
+        "Don't forget time costs. Printing 50 prints for a wedding album takes 30-45 minutes of file prep and quality checking even before the print order is placed. Wedding photographers typically charge £1,000-3,000 for the day, then album add-ons start at £400 for a basic 30-page leather-bound album. Standalone fine art print sales are slimmer-margin and need volume; the [photography pricing calculator](/photography-pricing-calculator) handles full session pricing if prints are bundled with shoots."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What DPI does my photo need to be for an A4 print?",
+        "300 DPI is the gold standard, requiring 2480 x 3508 pixels at A4. Most modern phone cameras (12MP and up) and any mirrorless camera produce A4-quality files. For lower DPI prints (240 DPI, viewable at arm's length), the requirement drops to about 1980 x 2810 pixels. The calculator shows the required pixel dimensions for every standard print size so you can check your file before sending to the lab."
+      ),
+      createFAQ(
+        "Are canvas prints worth selling?",
+        "Canvas has higher perceived value and better margins than standard paper prints. An 8x10 canvas costs £18 to print but sells comfortably at £45-60, giving 150-230% markup compared to 80-130% on standard paper. The downside is bulkier shipping (around £8-12 for canvas vs £4 for flat prints) and longer production lead times from labs (5-7 days vs 2-3 for standard). Best for prints over A4 size where the canvas finish makes a real visual difference."
+      ),
+      createFAQ(
+        "Should I include the frame in the print price?",
+        "Most fine art photographers charge for prints and frames separately so the customer can choose - some buyers prefer to frame themselves or already have frames at home. Wedding photographers typically include frames in album packages because the customer expects a finished product. Online sellers often offer both options: 'Print only £25, framed £55'. The calculator handles both scenarios via the frame option dropdown."
+      ),
+      createFAQ(
+        "How many prints can I sell per shoot to make it worth my time?",
+        "Wedding photographers typically sell 30-100 prints per wedding (album plus parent copies plus standalone prints), grossing £400-1500 in print sales on top of the shoot fee. Portrait photographers average 8-15 prints per session at £20-50 each, so £160-750. If you average less than 5 prints per session at low margin, focus on session fees instead and offer prints as add-ons rather than the main income."
+      ),
+    ],
+    relatedTools: [
+      { slug: "photography-pricing-calculator", label: "Photography Pricing Calculator" },
+      { slug: "pixel-dpi-calculator", label: "Pixel DPI Calculator" },
+      { slug: "megapixel-calculator", label: "Megapixel Calculator" },
+    ],
+  },
+
+  "photography-pricing-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What to Charge for a Photoshoot Without Underpricing Yourself",
+        "The honest formula is shooting time plus editing time plus equipment depreciation plus travel plus a sensible markup. A half-day portrait session at 4 hours of shooting plus 6 hours of editing at £50/hour is £500 of labour alone, before camera depreciation and travel. Many new photographers quote £150 for the same session because they only count the shoot itself, then wonder why they cannot afford to upgrade gear two years later. The calculator forces every cost into the open: shooting hours, editing hours (auto-set per shoot type, since weddings need 3x edit-to-shoot ratio while portraits only need 1.5x), camera and lens depreciation, mileage, second shooter, deliverables.",
+        "UK market rates as of 2026: portrait sessions £150-300 per session, family events £400-800 per day, weddings £1,000-3,000 per day for full-day coverage, product shoots £300-800 per shoot, newborn sessions £300-600 per session. The wide ranges reflect experience level, location, post-production complexity and what's included. London-based wedding photographers with 5+ years experience routinely charge £2,500-4,000 for full-day coverage; rural or starter photographers in less competitive markets charge £800-1,500 for the same day. The calculator suggests a price targeting roughly 150% gross margin over costs."
+      ),
+      {
+        heading: "Editing Time Multipliers by Shoot Type",
+        table: {
+          headers: ["Shoot Type", "Edit-to-Shoot Ratio", "8-Hour Shoot Edit Time", "Why"],
+          rows: [
+            ["Portrait", "1.5x", "12 hours", "Modest selection, light retouching"],
+            ["Event", "2x", "16 hours", "Larger volume, faster culling"],
+            ["Wedding", "3x", "24 hours", "Highest volume, detail retouching, album"],
+            ["Product", "2.5x", "20 hours", "Background removal, colour matching"],
+            ["Pet", "1.5x", "12 hours", "Sharp on eyes, light retouching"],
+            ["Newborn", "2x", "16 hours", "Skin retouching, colour grading"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Equipment Depreciation Most Photographers Forget",
+        "A £1,500 camera body lasts about 200 paid shoots before needing replacement (shutter wear, sensor cleaning, repair costs). That is £7.50 per shoot in pure depreciation, before lenses, batteries, memory cards, computer upgrades and software subscriptions (Lightroom + Photoshop is £21.99/month). Add a £800 lens that lasts 300 shoots and you are at £10.18 per shoot just to maintain your kit. The calculator builds depreciation in by dividing equipment cost by your expected shoots; if you only do 50 paid shoots a year, the per-shoot depreciation is much higher and your prices need to reflect that.",
+        "Travel costs are easy to under-charge. HMRC mileage allowance is currently 45p per mile for the first 10,000 miles a year, dropping to 25p after that. A 30-mile round-trip site visit before the shoot, 30 miles to the venue and back, plus 10 miles for an album delivery adds up to over £30 in mileage alone. The calculator handles this via the travel distance and mileage rate fields. Pair with the [photo print cost calculator](/photo-print-cost-calculator) if your packages include album or print sales as add-ons."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much should I charge for a wedding as a beginner photographer?",
+        "£800-1,200 is a reasonable starting band for a UK wedding photographer with under 2 years of experience and a portfolio. Below £800 you struggle to cover equipment depreciation plus 30-40 hours of shooting and editing time. Above £1,500 expects 2+ years of weddings shot and a polished portfolio. Build experience through second-shooter roles for established photographers (typical £150-300 per day) before charging full-day rates."
+      ),
+      createFAQ(
+        "Do I charge for travel time or just mileage?",
+        "Both, ideally. Mileage covers fuel and vehicle wear (45p/mile is the HMRC standard). Travel time is your professional time and should be billed at a reduced rate (typically 50% of your shooting rate) for journeys over 30 miles each way. For a 90-mile round-trip wedding, that's £40.50 mileage plus 1.5 hours x £25 = £37.50 travel time, totaling £78."
+      ),
+      createFAQ(
+        "Should I include album costs in the wedding price?",
+        "Including a basic album (20-30 pages, leather bound) in the package price simplifies the sale and feels generous to clients. Premium album upgrades (more pages, fine leather, bigger size) sell better as add-ons because the upgrade is a clear extra. A typical UK wedding package includes a 20-page album worth around £400 trade cost, with upgrades to 40 pages or fine leather sold at £200-500 extra."
+      ),
+      createFAQ(
+        "How do I price a second shooter?",
+        "Most UK second shooters charge £150-300 per day depending on experience and location. London rates run £200-350; rural rates £150-200. As the lead photographer, you absorb the second shooter cost into your overall package price - typical wedding packages with a second shooter cost the bride £200-400 more than the same package without. The calculator handles this via the second shooter toggle and rate field."
+      ),
+    ],
+    relatedTools: [
+      { slug: "photo-print-cost-calculator", label: "Photo Print Cost Calculator" },
+      { slug: "art-pricing-calculator", label: "Art Pricing Calculator" },
+      { slug: "golden-hour-calculator", label: "Golden Hour Calculator" },
+    ],
+  },
+
+  "pixel-art-maker": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Make Pixel Art in the Browser",
+        "Choose a grid size (16x16 is classic NES/Game Boy territory, 32x32 is SNES-era detail, 64x64 lets you do recognisable portraits), pick a colour from the palette, and click cells to fill them. The pen tool draws single pixels, the eraser removes them, and the fill bucket flood-fills any connected matching colour. Hold and drag to draw lines, undo with Ctrl+Z (or the back arrow). The 16-colour default palette mimics the EGA palette that defined early DOS games - bright primaries plus a few earth tones - though you can pick custom colours for anything beyond 8-bit retro work.",
+        "The trick to pixel art that does not look amateur is restraint. Use 8 colours max for character sprites; reserve the last 2-3 colours for shadow accents and highlights rather than entirely separate hues. Anti-aliasing (smoothly blending edge pixels) is the wrong instinct - pure pixel art keeps hard edges and lets the eye do the smoothing. The grid forces you into chunky shapes, which is why a single-pixel-thick line at the wrong angle ruins the whole sprite. Stay symmetric and pixel-perfect; jagged outlines should be deliberate rather than mistakes."
+      ),
+      createAnswerFirstSection(
+        "Saving and Using Pixel Art in Other Software",
+        "Download the canvas as PNG to preserve sharp pixel edges. JPEG compression smooths out pixel boundaries and turns clean lines into blurry edges, which defeats the entire point of pixel art. The PNG export is at native canvas resolution: a 32x32 grid downloads as a 32x32 PNG that you can scale up in any image editor using nearest-neighbour resampling (not bilinear or bicubic, which blur the pixels). For game assets, that 32x32 sprite usually gets imported into Unity or Godot at the native size and scaled in the engine using point filtering.",
+        "If you want to use pixel art on social media or in a blog, scale up to at least 512x512 with nearest-neighbour interpolation before posting. Twitter and Instagram both auto-resize uploaded images, and they default to bilinear smoothing, which blurs pixel art badly. Pre-scaling to a high resolution PNG with hard edges preserves the look. The [meme generator](/meme-generator) or [add text to image](/add-text-to-image) tool can add captions to your pixel art without smoothing the original pixels if you set the right export options."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What grid size should I use for pixel art?",
+        "16x16 for tiny icons or Game Boy-style sprites (Pokémon Red/Blue used 16x16). 32x32 for detailed character sprites in 16-bit style (Mega Man X, Final Fantasy VI). 64x64 for portrait pieces with recognisable facial features. Bigger is not always better in pixel art - the limitation is the point, and a well-made 32x32 sprite communicates more than a sloppy 128x128 one."
+      ),
+      createFAQ(
+        "Can I save my pixel art and continue later?",
+        "The current version exports your work as a PNG image when you click download. Reopening the PNG in the maker is not currently supported because the tool reads from a canvas grid rather than re-parsing image pixels. For now, save the PNG when you finish a session, and start a new piece next time. To continue specific work, take a screenshot of the canvas as a reference and recreate the early stages quickly."
+      ),
+      createFAQ(
+        "How do I scale up pixel art without it going blurry?",
+        "Use nearest-neighbour interpolation when scaling. In Photoshop: Image > Image Size, set Resample to 'Nearest Neighbor (hard edges)'. In Photopea (free, browser-based): Image > Image Size, choose 'Nearest neighbor'. In Affinity Photo: Document > Resize Document, set Resample to 'Nearest neighbor'. Scaling at 100%, 200%, 400% or other integer multiples gives the cleanest results."
+      ),
+      createFAQ(
+        "What format should pixel art be saved in?",
+        "PNG, always. PNG uses lossless compression and supports transparency, which both matter for pixel art. JPEG is compressed in a way that introduces colour artefacts at sharp edges - exactly the kind of edges pixel art is made of. GIF works for animated pixel art but is limited to 256 colours; static pieces should use PNG. The maker's download button outputs PNG by default."
+      ),
+    ],
+    relatedTools: [
+      { slug: "meme-generator", label: "Meme Generator" },
+      { slug: "favicon-generator", label: "Favicon Generator" },
+      { slug: "whiteboard", label: "Whiteboard" },
+    ],
+  },
+
+  "pixels-to-physical-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Pixels to Inches, Centimetres or Millimetres",
+        "The maths is simple: physical size = pixels divided by DPI (dots per inch). 300 pixels at 300 DPI is 1 inch; 1500 pixels at 150 DPI is 10 inches; 2480 pixels at 300 DPI is exactly A4 width (8.27 inches, 21cm, 210mm). The DPI tag in the file controls the output size at the print stage; the same 1500-pixel image prints at 5 inches if labelled 300 DPI, or at 10 inches if labelled 150 DPI. The calculator handles both directions: enter pixels plus DPI to get physical size in mm, cm and inches; or enter physical size and DPI to get the pixel count needed.",
+        "Different uses need different DPI. Web display ignores DPI entirely (browsers measure in CSS pixels, never paper inches), so the figure is purely metadata for any image used online. Photo lab prints standardise on 300 DPI for sizes up to A3, dropping to 240 DPI for A2 and 200 DPI for posters viewed at a metre or more. Newspaper printing uses 150 DPI because the paper itself cannot reproduce finer detail. Office laser printers run at 600 DPI on the printer side but typically receive 300 DPI source files because beyond that the file size grows with no visible benefit."
+      ),
+      {
+        heading: "Common Pixel-to-Print Conversions at 300 DPI",
+        table: {
+          headers: ["Pixels", "Inches", "Centimetres", "Common Use"],
+          rows: [
+            ["1800 x 1200", "6 x 4", "15.2 x 10.2", "Standard photo print"],
+            ["2100 x 1500", "7 x 5", "17.8 x 12.7", "Large photo print"],
+            ["2480 x 3508", "8.27 x 11.7", "21 x 29.7", "A4 page"],
+            ["3000 x 2400", "10 x 8", "25.4 x 20.3", "8x10 inch print"],
+            ["3508 x 4961", "11.7 x 16.5", "29.7 x 42", "A3 page"],
+            ["4961 x 7016", "16.5 x 23.4", "42 x 59.4", "A2 poster"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "When the DPI Setting Actually Matters",
+        "The DPI tag matters when the destination uses it: print labs, professional layout software (InDesign, QuarkXPress, Affinity Publisher), and some print-on-demand platforms (Printful, Society6) all read the DPI metadata to position the image at the intended physical size. A file labelled 72 DPI sent to a print lab will get rejected even if the pixel count is sufficient, because the lab's prepress software treats it as a screen-only file. Use the calculator to confirm both the pixel count and the implied physical size before sending files anywhere print-related.",
+        "DPI does not matter for web, email, social media, app icons, or any digital-first use case. Browsers and apps measure in CSS pixels and ignore the DPI tag completely. A 1200x630 image labelled 72 DPI displays exactly the same as the same file labelled 300 DPI on every website. If a designer says 'send me images at 300 DPI' and the destination is a webpage, they are repeating something they heard in design school but it does not change the output. For physical print, follow the [image DPI changer](/image-dpi-changer) to update metadata without resampling, or pair with the [megapixel calculator](/megapixel-calculator) to check whether a pixel count is enough for the intended print size."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many pixels are in an inch?",
+        "It depends on the DPI setting. At 72 DPI, 1 inch is 72 pixels. At 96 DPI (the Windows default), 1 inch is 96 pixels. At 300 DPI (the print standard), 1 inch is 300 pixels. There is no universal pixels-per-inch figure; the conversion always requires you to specify DPI. For screen display, 96 DPI is the historical figure but modern high-resolution displays use 144, 192 or higher actual pixel densities."
+      ),
+      createFAQ(
+        "How do I convert centimetres to pixels?",
+        "Convert centimetres to inches first (divide by 2.54), then multiply by DPI. 10cm at 300 DPI: 10/2.54 = 3.937 inches, then x 300 = 1181 pixels. The calculator does this in one step when you enter centimetres and DPI directly. Most A-series paper sizes are easier to remember in pixels at 300 DPI: A4 is 2480 x 3508, A3 is 3508 x 4961, A5 is 1748 x 2480."
+      ),
+      createFAQ(
+        "Why does my A4 print come out smaller than expected?",
+        "Either the file is labelled at a higher DPI than the lab is using (so the physical size shrinks), or the print software is auto-fitting to the page with margins. A 1500x2100 image labelled 300 DPI prints at 5x7 inches, not A4. To fill A4 you need at least 2480x3508 pixels at 300 DPI. Check the DPI metadata before sending to print, and confirm the lab does not auto-scale to fit margins."
+      ),
+      createFAQ(
+        "What's the difference between DPI and PPI?",
+        "Strictly speaking, DPI (dots per inch) refers to printer output and PPI (pixels per inch) refers to digital images, but the terms are used interchangeably in practice. Camera and image software use 'DPI' even though they really mean PPI. Unless you are deep in the prepress industry, treating them as the same value is fine. The calculator uses 'DPI' throughout to match what most users are searching for."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pixel-dpi-calculator", label: "Pixel DPI Calculator" },
+      { slug: "megapixel-calculator", label: "Megapixel Calculator" },
+      { slug: "image-dpi-changer", label: "Image DPI Changer" },
+    ],
+  },
 };
