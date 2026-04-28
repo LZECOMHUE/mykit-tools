@@ -2688,4 +2688,125 @@ export const creativeSEO = {
       { slug: "image-dpi-changer", label: "Image DPI Changer" },
     ],
   },
+
+  "interior-palette-creator": {
+    sections: [
+      createAnswerFirstSection(
+        "What the 60-30-10 Rule Actually Means",
+        "60-30-10 is a proportion guide, not a formula: 60% of the room reads as a dominant colour (walls, large rugs, the sofa if it dominates), 30% as a secondary tone (cabinetry, curtains, the second largest piece of furniture), and 10% as an accent (artwork, cushions, a feature chair, the thing your eye lands on). Get the proportions wrong and a room feels either flat or chaotic.",
+        "This palette generator picks six harmonious colours that already sit in those proportions; the dominant wall tone is the largest, the secondary trim and furniture sit in the middle band, and the accent is the saturated punch. Think of a Cotswold cottage living room: cream walls (60%), oatmeal sofa and natural-wood beams (30%), a single deep terracotta cushion and an oil painting (10%)."
+      ),
+      createAnswerFirstSection(
+        "Picking a Mood That Matches the Room",
+        "Choose the room first, then the mood. A bedroom set to 'Romantic & Soft' shifts the hue cooler and drops saturation, giving you dusty rose and powder blue against a near-white wall. A kitchen set to 'Bold & Dramatic' returns the same base hue at higher saturation and lower value, producing forest greens and inky navies that work well against brass handles.",
+        "Eight moods are built in: Cosy & Warm, Modern & Clean, Earthy & Natural, Coastal & Airy, Bold & Dramatic, Minimalist, Romantic & Soft, and Industrial & Raw. Each adjusts hue shift, saturation and brightness rather than picking from a fixed swatch list, so the palette stays harmonious whatever base colour you start with. Try the [Colour Palette Generator](/colour-palette-generator) for non-room creative work."
+      ),
+      {
+        heading: "Mood to Room Quick Match",
+        table: {
+          headers: ["Room", "Best Moods", "Avoid"],
+          rows: [
+            ["Living room", "Cosy, Modern, Earthy", "Industrial alone"],
+            ["Bedroom", "Romantic, Coastal, Minimalist", "Bold (sleep impact)"],
+            ["Kitchen", "Bold, Modern, Industrial", "Romantic (clashes with appliances)"],
+            ["Bathroom", "Coastal, Minimalist, Modern", "Earthy with low light"],
+            ["Nursery", "Romantic, Coastal, Minimalist", "Bold, Industrial"],
+            ["Home office", "Modern, Minimalist, Industrial", "Romantic (low focus)"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "From Hex Codes to a Pot of Paint",
+        "Hex codes do not match paint codes one-for-one. A hex like #E8DCC4 might be Farrow & Ball Tallow, Dulux Soft Stone, or Little Greene Stone-Mid Warm depending on the lighting in your room. Take the generated hex to a paint shop and ask for a colour match; modern in-store spectrophotometers can read a printout or a phone screen and find the closest match in any range.",
+        "A few practical notes. Always paint a 1m x 1m test patch in the actual room and watch it for 24 hours; north-facing rooms shift colours cooler, south-facing shift them warmer. Estimate paint quantity with the [Paint Calculator](/paint-calculator) once you have settled. And for accessibility (especially text-on-wall murals or feature signage) run the chosen wall and accent through a [Contrast Checker](/contrast-checker) to make sure they meet WCAG AA at 4.5:1."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I lock a colour and regenerate the rest?",
+        "Yes. Click any swatch to set it as the wall colour, then regenerate; the other five colours rebuild around your fixed choice. This is useful when you have already bought a sofa or committed to a kitchen worktop and need the wall, trim and accents to harmonise around it."
+      ),
+      createFAQ(
+        "What is the difference between trim and accent?",
+        "Trim is the supporting neutral applied to skirting, architrave, doors and ceiling, usually a near-white tone derived from the wall colour rather than pure brilliant white. Accent is the saturated punch that appears in cushions, artwork or a single feature chair, typically 5 to 10% of the visible surface area. Mixing the two up makes the room read as too busy or too washed out."
+      ),
+      createFAQ(
+        "Should I use the same palette across the whole house?",
+        "Use a thread, not a clone. Pick one or two anchor neutrals (the dominant and trim) that run through hallways, landings and open-plan areas, then vary the accent and saturation room by room. This gives flow without making every room feel identical, and is exactly how interior designers handle a Victorian terrace where every room is visible from the next."
+      ),
+      createFAQ(
+        "How does this differ from generic palette tools?",
+        "A general palette generator like Coolors picks pretty colours; an interior palette generator picks colours in the right proportions for a room, with saturation and brightness tuned to read well on actual paint and fabric rather than on a screen. The 60-30-10 weighting is built into the export, so the dominant colour gets the biggest swatch and the accent gets the smallest."
+      ),
+      createFAQ(
+        "Will the screen colours look the same on the wall?",
+        "Almost never exactly. Monitors emit light; paint reflects it, so saturated colours always look duller on the wall than on screen. Drop your expectation by about 10 to 15% on saturation when you imagine the finished room, and always test a sample pot before committing to a full tin."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "contrast-checker", label: "Contrast Checker" },
+      { slug: "paint-calculator", label: "Paint Calculator" },
+    ],
+  },
+
+  "yarn-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Yarn You Actually Need",
+        "An adult medium DK jumper takes around 2,600 metres, or roughly 1,200 grams. A typical adult-size DK throw or blanket comes in between 5,800 and 7,400 metres depending on size, which is 800g to 1,500g of yarn. A pair of adult fingering-weight socks needs about 550 metres (around 100g, conveniently one ball). The calculator looks up the right figure for your project type, size, and yarn weight, then rounds up and adds one extra ball as a safety buffer.",
+        "The buffer matters more than people think. Dye lots vary visibly between batches, so if you run out partway through a jumper and pop back to the shop a fortnight later, you may end up with subtly different shades of green meeting at the shoulder seam. Buying one extra ball at the start, from the same dye lot, costs another £4 or £5 at typical DK prices and saves a project-ruining colour mismatch. Knitters who substitute yarns or work cables and colourwork should add 15 to 20% on top of the calculator's estimate, because both consume more yardage than plain stocking stitch."
+      ),
+      createAnswerFirstSection(
+        "Reading Ball Bands and Sense-Checking the Math",
+        "A standard 100g ball of DK weight yarn typically holds around 200 to 240 metres. A 50g ball of fingering or 4-ply usually contains 175 to 210 metres. Aran yarn is denser, so a 100g ball is closer to 170 to 200 metres. The calculator asks for ball weight in grams and the metres per ball figure printed on the band, so you can use any yarn from any brand without converting. Substitute Drops Karisma for Stylecraft Special DK and the only number that changes is the price per ball.",
+        "UK high-street DK ranges from £2.50 a ball for budget acrylic up to £12 or more for hand-dyed merino. A reasonable mid-range pure wool DK costs £4 to £6 per 100g ball; a luxury 4-ply or fingering with cashmere or silk content runs £15 to £30 per 100g. The total project cost is balls needed multiplied by price per ball, and the calculator shows both the exact and rounded figures. If a jumper estimate comes out at 12 balls of £8 yarn, that is £96 of materials, which is worth knowing before casting on rather than discovering at ball 9. The [yarn weight converter](/yarn-weight-converter) helps when a US pattern lists 'worsted' but the shop only stocks UK weights."
+      ),
+      {
+        heading: "Yardage Estimates by Project (DK Weight)",
+        table: {
+          headers: ["Project", "Baby", "Child", "Adult M", "Adult L"],
+          rows: [
+            ["Scarf", "600 m", "1,000 m", "1,700 m", "2,000 m"],
+            ["Hat", "600 m", "1,000 m", "1,300 m", "1,400 m"],
+            ["Jumper", "1,000 m", "1,800 m", "2,600 m", "3,000 m"],
+            ["Blanket", "2,000 m", "3,600 m", "5,800 m", "6,600 m"],
+            ["Cardigan", "1,400 m", "2,400 m", "3,400 m", "3,800 m"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Time Estimates and What They Don't Include",
+        "Average knitting speed sits at around 20 metres per hour for plain stocking stitch with DK yarn. The tool uses this rate to estimate how long the project will take. An adult medium DK jumper at 2,600 metres works out to 130 hours, which is roughly two months of regular evening sessions. A baby blanket at 2,000 metres is around 100 hours. Faster knitters using basic stitches can hit 30 metres per hour; slower or beginner knitters can be closer to 12.",
+        "What the time estimate doesn't include: ribbing (slower than plain stocking stitch), cables (much slower, sometimes halving the speed), colourwork (slower again), seaming, blocking, swatching, and the inevitable rip-back when you spot a dropped stitch six rows ago. Plan for the calculated hours plus 30 to 50% of finishing time on top. Crocheters work at different rates, generally completing fabric faster than knitters but consuming more yarn per square inch. For socks specifically, factor in time for kitchener stitch grafting at the toe; first-time grafters can spend an hour on a single toe."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much yarn do I need for a jumper?",
+        "An adult medium jumper in DK weight needs roughly 2,600 metres (around 12 balls of 220m, or 1,200g total). Aran weight needs about 3,800m for the same size, fingering needs about 2,000m. Adjust up by 15% for cables or colourwork, and down by 10% for short-sleeved or vest versions. The calculator handles all weight and size combinations automatically, including child and baby sizes."
+      ),
+      createFAQ(
+        "Why does the calculator round up and add a ball?",
+        "Two reasons. First, ball lookups are a guideline, and your tension or yarn substitution can push actual usage higher than the estimate. Second, dye lots vary, so buying all your yarn at once from a single batch protects you against colour shifts mid-project. The extra ball usually costs £3 to £6 and is well worth the insurance. Many knitters keep leftover balls from previous projects to use as scrap yarn for swatches, repairs, or small accessories."
+      ),
+      createFAQ(
+        "Is it cheaper to knit a jumper than to buy one?",
+        "Almost never. A handmade DK jumper in mid-range yarn costs £40 to £80 in materials, and you spend 100 to 150 hours making it. A comparable jumper from a high-street shop costs £30 to £60 and arrives instantly. The value of knitting is in the bespoke fit, the choice of fibre, the satisfaction of the craft, and the absence of fast-fashion guilt; not in the per-pound cost saving. Hand-dyed yarn jumpers can easily run £150 to £300 in materials alone."
+      ),
+      createFAQ(
+        "Can I use this for crochet projects?",
+        "Yes. Crochet and knitting use yarn at slightly different rates: crochet typically consumes 20 to 30% more yarn per square inch than knitting because the stitches are bulkier. Add a 25% buffer to the calculator's estimate when working on a crochet project, or use the dedicated crochet blanket calculator for blankets specifically. The principles for ball weight, dye lots and project sizing are otherwise identical."
+      ),
+      createFAQ(
+        "What if my yarn doesn't match the standard weights?",
+        "Use the metres per ball field on the calculator regardless of what the band calls the weight. A 'sport' yarn might list as 4.5-ply on a UK ball band and DK on a US one. The calculator works from the actual metres per ball you enter, so you can substitute freely. If you have no metres figure (rare on modern yarn), divide the weight in grams by the wraps-per-inch figure to estimate, or pick the nearest standard weight from the dropdown and accept some rounding error."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yarn-weight-converter", label: "Yarn Weight Converter" },
+      { slug: "knitting-gauge-calculator", label: "Knitting Gauge Calculator" },
+      { slug: "crochet-blanket-calculator", label: "Crochet Blanket Calculator" },
+    ],
+  },
 };

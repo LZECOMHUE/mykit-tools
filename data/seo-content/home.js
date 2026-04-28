@@ -781,4 +781,64 @@ export const homeSEO = {
       { slug: "wood-finishing-calculator", label: "Wood Finishing Calculator" },
     ],
   },
+
+  "construction-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How a Construction Calculator Handles Feet, Inches and Fractions",
+        "A construction calculator works in feet-inches-sixteenths instead of decimals, which is what every tape measure on a job site reads. You can enter 10 ft 6 1/2 in, then add 4 ft 9 3/4 in, and the calculator gives you 15 ft 4 1/4 in directly. No mental conversion to decimal feet, no rounding errors, no scribbled longhand on the back of a stud.",
+        "This tool follows the layout most carpenters already know from the Construction Master Pro: dedicated feet, inch, and fraction buttons, with a yard key for concrete work and a metres key when a drawing is in mixed units. Internally everything is held as decimal feet so calculations are accurate; the display rounds to the nearest 1/16 inch because that is the smallest mark on a standard measuring tape."
+      ),
+      createAnswerFirstSection(
+        "Roof Pitch, Rise and Run in One Step",
+        "Enter the pitch as a single number (8 means 8/12) plus the run, and the calculator returns the rise, the diagonal (rafter length), and the angle in degrees. A 24 ft span with a 6/12 pitch gives a rise of 6 ft 0 in, a rafter of 13 ft 5 in, and an angle of about 26.57 degrees.",
+        "Roofers in the UK and Ireland often think in degrees rather than rise-over-run, so the angle output matters. A common gotcha: pitch in the US is rise-over-12-inches, while a roof drawing from a UK architect may be expressed as a percentage or in degrees. The calculator accepts pitch as a fraction of 12 by default; convert from degrees first if your plans use that. See the [Pythagorean Theorem Calculator](/pythagorean-theorem-calculator) for the underlying maths."
+      ),
+      {
+        heading: "Common Roof Pitches and What They Look Like",
+        table: {
+          headers: ["Pitch", "Angle (degrees)", "Visual", "Typical Use"],
+          rows: [
+            ["2/12", "9.5", "Almost flat", "Low-slope sheds, garden rooms"],
+            ["4/12", "18.4", "Gentle slope", "Bungalows, modern extensions"],
+            ["6/12", "26.6", "Standard", "Most UK pitched roofs"],
+            ["8/12", "33.7", "Steeper", "Lofts with usable headroom"],
+            ["12/12", "45.0", "Very steep", "Alpine, gothic, dormer-heavy designs"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Stair Calculations Without the Headache",
+        "Building Regs (Approved Document K) caps domestic stair risers at 220 mm and sets goings of at least 220 mm; the rule of thumb 2R + G = 600 to 620 mm gives a comfortable rhythm. Enter total rise (typically the floor-to-floor height, e.g. 8 ft 9 in) and the calculator divides it into legal risers, returns the going, the total run, and the stringer length.",
+        "If you have a fixed total run, you can work the other way: pin the run, and the calculator tells you how many treads fit and what each riser height needs to be. A staircase with a 2,650 mm total rise and 14 risers gives a riser of 189 mm and a going of about 230 mm, which is a classic pattern. Mark out the stringer with the rafter square; the diagonal output is the cut length you need."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I switch between feet-inches and metric?",
+        "Yes. The conversion key flips between feet, inches, yards, metres and millimetres, holding the same internal value. So 10 ft 6 1/2 in toggles to 3.213 m and back without losing precision. Architects, plumbers and tilers regularly mix units on a single project, especially when one supplier ships in metric and another in imperial."
+      ),
+      createFAQ(
+        "Why does my fraction round to the nearest 1/16?",
+        "Standard tape measures only mark to 1/16 inch, so anything finer is impossible to lay out by hand. If you need 0.412 inches, the closest tape mark is 7/16 (0.4375 in). The calculator rounds for you so the displayed answer is the one you actually transfer to the timber."
+      ),
+      createFAQ(
+        "How do I calculate a circle for a curved wall or arch?",
+        "Use the circle mode, enter the diameter, and you get the circumference (2 pi r), the area, and the radius. For an arch, you typically need the chord length and the rise of the arc; that is a job for the [Pythagorean Theorem Calculator](/pythagorean-theorem-calculator) since it reduces to a right-angle problem at the centre point."
+      ),
+      createFAQ(
+        "Does this match the Construction Master Pro?",
+        "The core feet-inches-fractions arithmetic, the area and volume modes, the pitch and rise/run buttons, and the stair calculator all behave the way the Master Pro does. A few advanced features (rebar, baluster spacing, drywall by sheet) are still on the roadmap. For sheet-goods estimation today, see the [Square Footage Calculator](/square-footage-calculator)."
+      ),
+      createFAQ(
+        "What is the easiest way to estimate a concrete pour?",
+        "Multiply length by width by depth, in feet. A 10 ft x 12 ft slab at 4 in deep is 10 x 12 x (4/12) = 40 cubic feet, or 1.48 cubic yards. Concrete is sold by the cubic yard in the US and by the cubic metre in the UK, and most ready-mix suppliers add a 5 to 10% allowance for spillage and uneven sub-grade. The volume mode handles this in one operation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-footage-calculator", label: "Square Footage Calculator" },
+      { slug: "paint-calculator", label: "Paint Calculator" },
+      { slug: "pythagorean-theorem-calculator", label: "Pythagorean Theorem Calculator" },
+    ],
+  },
 };

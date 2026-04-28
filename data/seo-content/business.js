@@ -747,5 +747,188 @@ export const businessSEO = {
       { slug: "json-formatter", label: "JSON Formatter" },
     ],
   },
+
+  "invoice-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Compliant Invoice Must Include",
+        "A UK invoice issued by a sole trader or limited company must include: a unique invoice number that runs sequentially, the date of issue, your business name and address, the customer's name and address, a clear description of goods or services, the amount being charged, and the payment terms. If you are VAT-registered you must also include your VAT number, the VAT rate per line, the amount of VAT, and the gross total.",
+        "The generator builds all of this for you from the form on the left, defaulting to GBP at 20% VAT and Net 30 payment terms. Switch to USD, EUR, AUD, CAD, JPY or INR if you bill internationally; the symbol and tax rate update accordingly. Limited companies must also display the registered company name and number, plus the registered office address, on the invoice; add these to the business name and address fields if they apply to you."
+      ),
+      createAnswerFirstSection(
+        "Choosing Payment Terms (and Why Net 30 Isn't Always Right)",
+        "Net 30 means payment is due 30 days from the invoice date and is the most common term in the UK. Net 15 is appropriate for new clients, smaller jobs, or anyone where cashflow matters; Net 60 and Net 90 are usually only used when a large enterprise dictates them. The Late Payment of Commercial Debts Act lets you charge statutory interest at 8% above the Bank of England base rate on overdue B2B invoices.",
+        "A freelancer issuing their first invoice should default to Net 14 or Net 15 to get paid faster, not the corporate-standard Net 30. The tool calculates the due date for you based on whichever term you pick. Track recurring receipts with the [Business Profit Calculator](/business-profit-calculator) once invoices start clearing."
+      ),
+      {
+        heading: "VAT Rates Across the Currencies the Generator Supports",
+        table: {
+          headers: ["Country", "Standard VAT/Sales Tax", "Reduced Rate", "Notes"],
+          rows: [
+            ["United Kingdom (GBP)", "20%", "5%", "Reduced rate covers home energy, child car seats"],
+            ["Ireland & most EU (EUR)", "23% (IE), varies elsewhere", "9%-13%", "Reverse charge applies on B2B EU exports"],
+            ["United States (USD)", "0% to 11.5%", "Varies by state", "No federal VAT; sales tax varies city to city"],
+            ["Australia (AUD)", "10% GST", "0% on basic groceries", "ABN required to charge GST"],
+            ["Canada (CAD)", "5% GST + provincial", "Varies", "HST in some provinces (e.g. Ontario 13%)"],
+            ["India (INR)", "5% to 28% GST", "Tiered by category", "GSTIN required on all B2B invoices"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Add Discounts Without Confusing Your Client",
+        "The generator handles two discount types: a percentage off the subtotal (e.g. 10% loyalty discount), or a fixed amount (e.g. £50 off for early settlement). The discount is applied before VAT, which is the correct UK approach because VAT is calculated on the net amount actually being charged. So a £1,000 invoice with a 10% discount and 20% VAT becomes £900 net, £180 VAT, £1,080 gross.",
+        "Show the discount as a separate line so the client can see what they would have paid; this both demonstrates value and avoids the awkward conversation when an old quote and a new invoice differ. For pricing decisions before you invoice, the [Markup Calculator](/markup-calculator) and [Profit Margin Calculator](/profit-margin-calculator) help you set rates that survive the discount."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How should I number my invoices?",
+        "Use a sequential, gap-free system. INV-001, INV-002, INV-003 is fine; you can prefix the year (2026-001), the client (ACME-001), or both. HMRC and Companies House require sequential numbering for VAT-registered businesses, and skipping numbers raises questions during an audit. The generator defaults to INV-001 and you bump it manually for each new invoice."
+      ),
+      createFAQ(
+        "Do I need to register for VAT to issue an invoice?",
+        "No. You can issue invoices as a non-VAT-registered sole trader or company; just leave the tax rate at 0% and don't include a VAT number. You only need to register for VAT once your taxable turnover exceeds £90,000 in any rolling 12-month period (2026 threshold). Many freelancers stay below this threshold deliberately to avoid the admin."
+      ),
+      createFAQ(
+        "Can I add my logo to the invoice?",
+        "Yes. The tool accepts a logo URL - host the image somewhere stable (your website, Imgur, Cloudinary) and paste the direct URL. The logo appears at the top of the generated invoice. For one-off use, drag-and-drop logo support is on the roadmap; for now the URL field is the way."
+      ),
+      createFAQ(
+        "Is the downloaded invoice legally valid?",
+        "Yes, provided it includes all the legally required fields listed above. HMRC accepts PDF invoices for self-assessment and VAT returns; you don't need a printed signature. Keep a copy of every invoice you issue for at least 6 years (the standard UK record-retention period for tax purposes), and ideally back them up to cloud storage as well as your accountant's portal."
+      ),
+      createFAQ(
+        "What payment methods should I list?",
+        "Bank transfer is the cheapest and fastest for UK domestic clients - include your sort code and account number in the notes field, or your IBAN and BIC for international clients. PayPal, Stripe and GoCardless are useful for clients who want card payments but cost 1.4 to 2.9% in fees, which eats into thin freelance margins. Avoid taking cheques unless absolutely necessary; they take days to clear and clients forget to send them."
+      ),
+    ],
+    relatedTools: [
+      { slug: "vat-calculator", label: "VAT Calculator" },
+      { slug: "markup-calculator", label: "Markup Calculator" },
+      { slug: "profit-margin-calculator", label: "Profit Margin Calculator" },
+    ],
+  },
+
+  "social-media-post-scheduler": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Tool Does (and Doesn't Do)",
+        "It plans a week of posts across Instagram, Twitter/X, Facebook, and LinkedIn. You add each post with a day, time, platform, and content, and the schedule builds up as a sortable list. The tool does not actually publish to those networks - that requires platform credentials, OAuth, and ongoing API costs that consumer-grade tools cost £15-50 a month for. This planner is the strategy and copy stage; the publishing happens in Buffer, Later, Hootsuite, or directly on each platform.",
+        "The benefit of separating planning from publishing is honesty. Most people who say they're \"too busy to post consistently\" actually mean they're too busy to come up with what to post. Sit down for 45 minutes once a week, draft 7-15 posts here, then the daily publishing takes 90 seconds and the weekly content load drops dramatically. The tool saves to your browser so you can come back to a half-built schedule rather than starting from a blank text file."
+      ),
+      createAnswerFirstSection(
+        "Best Time to Post by Platform",
+        "The tool surfaces a quick reference panel for each platform. Instagram lands well 09:00-11:00 (commute and morning coffee window). Twitter/X peaks 17:00-19:00 (evening scroll). Facebook does best 13:00-15:00 (post-lunch break). LinkedIn favours 08:00-10:00 (start of business day). These are UK timezone defaults; shift them if your audience is mostly elsewhere.",
+        "These windows are averages from large engagement studies and they hide huge variation by industry and audience. A B2B SaaS audience on LinkedIn is on at 8:30am Tuesday-Thursday; a fitness influencer's Instagram audience is on at 6am and 9pm. Check your own platform analytics after a month of posting at these defaults and adjust to whichever window your specific audience actually uses. The tool's suggested times are a starting point, not a finished answer."
+      ),
+      {
+        heading: "Posting Cadence by Platform",
+        table: {
+          headers: ["Platform", "Posts per Week", "Best Window (UK)", "Content Mix"],
+          rows: [
+            ["Instagram", "3-5 grid + daily Stories", "09:00-11:00", "Visual-first, captions short"],
+            ["Twitter/X", "10-20 (volume game)", "17:00-19:00", "Replies count more than posts"],
+            ["Facebook", "3-4", "13:00-15:00", "Longer text, link previews"],
+            ["LinkedIn", "2-3", "08:00-10:00 Tue-Thu", "Personal voice, niche expertise"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "When the Schedule Falls Apart",
+        "Two failure modes are common. First, batching too far ahead - you write 30 posts on a Sunday in good mood, then by Wednesday week 2 the news cycle has moved on and your scheduled posts feel out of touch. Aim for one week ahead, not four. Second, treating every post as a polished asset. Most platforms reward casual, frequent posts; over-edited content reads as marketing and gets less engagement than a quick observation typed in 90 seconds.",
+        "Pair this with the [Content Calendar Generator](/content-calendar-generator) when you're stuck for what to post about; it produces topic prompts you can drop into the scheduler. For longer content like blog posts or YouTube videos that feed your social posts, the [Meeting Agenda Generator](/meeting-agenda-generator) doubles as a content brainstorm structure when you sit down to plan the week."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can this auto-post to Instagram and Twitter?",
+        "No, this tool plans posts but doesn't publish them. To auto-post you need a tool with API access (Buffer £6/month, Later £18/month, Hootsuite £39/month). Use this planner as the writing stage and one of those for the publishing stage. The reason consumer planners don't include publishing is each platform charges API access fees that would push the monthly price tag well over what most users want to pay for a planner."
+      ),
+      createFAQ(
+        "How many times a week should I post?",
+        "Depends on the platform: Instagram 3-5 main posts a week plus daily Stories; LinkedIn 2-3; Twitter/X 10-20 if you can sustain it; Facebook 3-4. Posting more than this per platform usually has diminishing returns and starts to fatigue your audience. Posting less than this means the algorithm assumes you're inactive and your reach drops further."
+      ),
+      createFAQ(
+        "Should I post the same content across all platforms?",
+        "No, but you can adapt one core idea to each platform's format. A blog post becomes: a long LinkedIn essay, a 5-tweet thread, an Instagram carousel of slides, a single Facebook post with the link. The core idea is reused, the format respects each platform's conventions. Copy-pasting identical content reads as lazy and performs worse than tailored versions."
+      ),
+      createFAQ(
+        "Does the tool save my schedule?",
+        "Yes, the schedule saves to your browser's local storage so closing the tab won't lose your draft posts. It does not sync across devices or browsers - if you start on your laptop and continue on your phone, the schedule won't follow you. For cross-device access, copy your draft posts into a notes app or use a paid scheduler with cloud sync."
+      ),
+      createFAQ(
+        "What's the best day to post?",
+        "Tuesdays and Wednesdays give the broadest audience attention across most platforms. Mondays are reactive (people are dealing with their inbox); Fridays from lunch onwards have rapidly falling engagement; weekend rules vary by audience (B2C peaks Saturday morning, B2B drops to near-zero). Test each day for your specific audience over a month rather than copying a universal best-time-to-post chart."
+      ),
+    ],
+    relatedTools: [
+      { slug: "content-calendar-generator", label: "Content Calendar Generator" },
+      { slug: "meeting-agenda-generator", label: "Meeting Agenda Generator" },
+      { slug: "word-counter", label: "Word Counter" },
+    ],
+  },
+
+  "content-calendar-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Generator Produces",
+        "Pick a niche (technology, fitness, or business) and a frequency (daily or weekly), and the tool generates a list of content ideas tagged by format: blog posts, social posts, videos, emails, podcasts, or webinars. The daily list contains 3-4 ideas you'd rotate through; weekly is 2-3 longer-form pieces that anchor each week. The tool also outlines a three-tier content pillar strategy: core topics, related content, and engagement content.",
+        "The output is a starting framework, not a finished month of content. Treat the generated ideas as topic prompts. \"Latest AI trends\" in technology or \"Recovery techniques\" in fitness is a category, not a headline; you turn each one into a specific angle (\"5 AI tools that replaced my Excel macros this quarter\") before it's something worth writing. The tool gets you past the blank page; the angle and execution still come from you."
+      ),
+      createAnswerFirstSection(
+        "Why Content Pillars Beat Random Posting",
+        "A content pillar is one of three to five recurring themes you keep coming back to. Tier 1 (core topics) is the 50-60% of your content that directly serves what you're known for - if you're a fitness coach, this is workouts, programming, recovery. Tier 2 (related content) is the 25-30% adjacent topics that broaden your reach without losing your positioning - nutrition, sleep, stress. Tier 3 (engagement) is the 15-20% lighter content - personal stories, behind-the-scenes, polls, jokes.",
+        "Without pillars, content feels random and your audience never quite knows what they're following you for. With pillars, you build authority in a defined space. The classic mistake is leaning too hard on Tier 1 (boring after 3 weeks) or all the way into Tier 3 (forgettable, no value). The 50/30/20 split is a useful anchor; adjust to your industry. B2B SaaS leans more Tier 1; lifestyle creators lean more Tier 3."
+      ),
+      {
+        heading: "Content Format Cadence",
+        table: {
+          headers: ["Format", "Time Investment", "Frequency", "Best For"],
+          rows: [
+            ["Blog post", "3-6 hours", "1-2 a week", "SEO, evergreen authority"],
+            ["Social post", "10-30 mins", "Daily on chosen platforms", "Top of funnel, awareness"],
+            ["Video", "4-12 hours", "1 a week", "YouTube SEO, retention"],
+            ["Email newsletter", "2-3 hours", "Weekly or fortnightly", "Owned audience, direct sales"],
+            ["Podcast", "2-4 hours per episode", "Weekly or fortnightly", "Niche expertise, depth"],
+            ["Webinar", "8-15 hours", "Monthly or quarterly", "Lead generation, B2B sales"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Customising Beyond the Three Built-In Niches",
+        "The tool ships with technology, fitness, and business as the niches because they cover the broadest market. If you're in a different space (parenting, finance, food, beauty, B2B SaaS), use the generated prompts as a starting structure and rewrite the topics for your audience. The format split (blog/social/video/email) and the pillar strategy work in any niche; only the specific topic seeds change.",
+        "Once you have a month of ideas in front of you, slot them into the [Social Media Post Scheduler](/social-media-post-scheduler) for the actual posting calendar. The scheduler tracks day-and-time and platform; this generator gives you what to post about. For meeting-format content like webinars or sales calls, the [Meeting Agenda Generator](/meeting-agenda-generator) builds the timed run-of-show."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How far ahead should I plan content?",
+        "One month is the sweet spot for most creators. Plan further out and the world changes around you (news cycles, algorithm shifts, your own business pivots) and the calendar feels stale. Plan less than two weeks ahead and you're constantly in scramble mode. The generator gives you a month of prompts; pick the ones that resonate, leave space for reactive content tied to current events."
+      ),
+      createFAQ(
+        "Can I generate ideas for niches not in the dropdown?",
+        "The built-in niches (technology, fitness, business) are starting templates. For other niches, run the generator on the closest match and rewrite the topics to fit your audience. The format split and content pillar strategy is universal; only the topic seeds change. A travel blogger using the fitness template just swaps \"workout routine\" for \"itinerary breakdown\" and the structure carries over."
+      ),
+      createFAQ(
+        "What's the difference between a content calendar and an editorial calendar?",
+        "Used interchangeably by most people. Strict definition: a content calendar is the plan of what gets published when across all formats; an editorial calendar is specifically for written content (blog, newsletter, articles). The generator outputs a content calendar that includes editorial pieces alongside video, social, and audio. For most creators with one or two formats, the distinction doesn't matter."
+      ),
+      createFAQ(
+        "How many topics do I need for a full month?",
+        "If you're posting 3 times a week across one platform, that's 12 posts. If you're posting daily across three platforms, that's 90 posts (though most get reused across platforms, so 30-40 unique ideas). The generator gives you 3-7 ideas per run; running it three or four times with different niche/frequency combinations will fill out a month for most creators."
+      ),
+      createFAQ(
+        "What about seasonal or holiday content?",
+        "Bake holidays and key dates into your calendar as fixed anchors before you fill in regular content. Christmas, Valentine's, Black Friday, school summer holidays - these drive massive search and social interest in their respective windows. The generated prompts don't include seasonal angles automatically; layer them in when your industry has a strong seasonal pattern (retail, fitness, education, finance all do)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "social-media-post-scheduler", label: "Social Media Post Scheduler" },
+      { slug: "meeting-agenda-generator", label: "Meeting Agenda Generator" },
+      { slug: "word-counter", label: "Word Counter" },
+    ],
+  },
 };
+
+
 

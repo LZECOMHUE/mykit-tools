@@ -291,6 +291,128 @@ export const musicSEO = {
     ],
   },
 
+  "guitar-tuner": {
+    sections: [
+      createAnswerFirstSection(
+        "Standard Guitar Tuning is E-A-D-G-B-E",
+        "From the thickest string (closest to your face) to the thinnest, the standard 6-string guitar is tuned to E2 (82.41 Hz), A2 (110 Hz), D3 (146.83 Hz), G3 (196 Hz), B3 (246.94 Hz), and E4 (329.63 Hz). The reference pitch most modern tuners and recordings use is A4 = 440 Hz, which is why your A string sits exactly an octave plus an octave below that frequency. The mnemonic 'Eddie Ate Dynamite Good Bye Eddie' helps beginners remember the order.",
+        "The tool plays each string in turn so you can match by ear. Each note uses five summed sine wave harmonics (fundamental plus 2nd, 3rd, 4th and 5th overtones with decreasing gain) to imitate the timbre of a real plucked string, rather than a sterile single sine wave. Pluck your string, listen to the reference, and turn the machine head slowly until the two pitches lock into a single tone with no audible 'wobble'. The wobble (called beating) is what your ear hears when two close-but-not-identical frequencies interfere; tune until it disappears."
+      ),
+      createAnswerFirstSection(
+        "Why You Might Want a Different Tuning",
+        "The tool ships with 11 tunings beyond standard. Drop D (D-A-D-G-B-E) lowers only the 6th string by a tone, giving you a power-chord-friendly low D for rock, metal, and a fair amount of folk. Drop C and Drop B keep going down for heavier styles. Half-step-down (Eb tuning) lowers everything by a semitone for a fuller, looser feel popular with Hendrix, Stevie Ray Vaughan and many country players. Open tunings (Open D, Open G, Open E) tune the strings to a chord shape, so strumming the open strings produces a major chord; these are the foundation of slide guitar and a lot of acoustic blues.",
+        "DADGAD is worth singling out. Dropping the 6th to D, the 2nd to A and the 1st to D gives you a sus4 chord on the open strings, which is why Celtic and modern fingerstyle players love it; it sits ambiguously between major and minor and rings out spectacularly. Open G (D-G-D-G-B-D) is Keith Richards's tuning of choice and behaves differently again. Switching tunings every few practice sessions builds your ear for note relationships, since you cannot just rely on muscle memory. The [chord library](/chord-library) only covers standard tuning, so once you switch to DADGAD you will need a separate chord reference."
+      ),
+      {
+        heading: "Note Frequencies for Common Guitar Tunings",
+        table: {
+          headers: ["String", "Standard", "Drop D", "Half-Step Down", "DADGAD"],
+          rows: [
+            ["6 (low)", "E2 (82.41 Hz)", "D2 (73.42 Hz)", "Eb2 (77.78 Hz)", "D2 (73.42 Hz)"],
+            ["5", "A2 (110 Hz)", "A2 (110 Hz)", "Ab2 (103.83 Hz)", "A2 (110 Hz)"],
+            ["4", "D3 (146.83 Hz)", "D3 (146.83 Hz)", "Db3 (138.59 Hz)", "D3 (146.83 Hz)"],
+            ["3", "G3 (196 Hz)", "G3 (196 Hz)", "Gb3 (185 Hz)", "G3 (196 Hz)"],
+            ["2", "B3 (246.94 Hz)", "B3 (246.94 Hz)", "Bb3 (233.08 Hz)", "A3 (220 Hz)"],
+            ["1 (high)", "E4 (329.63 Hz)", "E4 (329.63 Hz)", "Eb4 (311.13 Hz)", "D4 (293.66 Hz)"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Tuning by Ear vs Microphone Tuners",
+        "This tool is a reference-pitch tuner: you hear the correct note and turn the peg until your string matches. That trains your ear over time and works in any environment, including with broken or muffled microphones. The trade-off is that you need to be able to hear small pitch differences, and a noisy room makes it harder. Beginners typically take 30 seconds per string for the first few months and a few seconds per string after that.",
+        "Microphone-based tuners (which use the Web Audio API to listen and detect pitch) are faster but rely on your phone or laptop microphone hearing the string clearly. They struggle in band rehearsals, outside, or when other instruments are sounding. They also do nothing for ear training; you watch the needle and never learn to hear the pitch yourself. The middle ground is to use ear tuning for a few weeks until your ear locks the pitches in, then switch to microphone tuning for speed when needed. New strings drift out of tune for the first few hours of playing as they stretch, so retune every 10 minutes or so during a fresh string-change session. The [bass tuner](/bass-tuner) and [ukulele tuner](/ukulele-tuner) work the same way for those instruments."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How often should I tune my guitar?",
+        "Every time you pick it up, before every gig, and again partway through if you have been playing hard. New strings need retuning every 10 minutes for the first hour or two of play. Temperature and humidity changes can knock a guitar out of tune within minutes; taking it from a cold car into a warm house will usually require a fresh tune. Acoustic guitars drift more than solid-bodies, and nylon-strung classical guitars drift the most of all."
+      ),
+      createFAQ(
+        "Why does my guitar go out of tune so quickly?",
+        "Common causes include old strings (more than 3 months of regular play), poorly seated machine heads, slipping bridge or nut, climate changes, or aggressive bending and string-bending styles. New strings need stretching: gently pull each string up away from the fretboard a few times after fitting, then retune. If a single string keeps slipping, the tuning peg may need tightening or the nut slot may be too narrow and pinching the string."
+      ),
+      createFAQ(
+        "What is A=440 Hz and should I use a different reference?",
+        "A=440 Hz is the international concert pitch standard set by ISO in 1955. Almost all modern recordings, software, and tuners use it. Some performers use A=432 Hz (claiming a warmer sound) or A=441 to A=444 Hz for orchestral work; baroque ensembles often use A=415. Stick with 440 unless you are deliberately matching a specific recording or ensemble. The reference pitches in this tuner are calibrated to A=440."
+      ),
+      createFAQ(
+        "Can I use this tuner for a 7-string or 12-string guitar?",
+        "Partially. A 7-string guitar usually adds a low B (61.74 Hz) below the standard 6 strings, which is not a default tuning here, but you can use the Drop B tuning's 6th string note to tune your 7th string. A 12-string guitar pairs each string with a higher octave (or unison for the top two pairs); tune the lower octave to the standard frequencies, then tune the higher octave to the next E, A, D and G one octave up by ear."
+      ),
+      createFAQ(
+        "Does the tuner work with an electric guitar plugged in?",
+        "Yes, but you don't actually plug into the tool; you tune by listening to the reference pitch played through your speakers and matching the natural acoustic sound of the strings. Even an unamplified electric guitar produces enough acoustic sound for this. If you want a microphone-based pitch detection method, you would need a separate plug-in tuner or a different tool variant; this tuner is reference-pitch only and does not listen to your input."
+      ),
+    ],
+    relatedTools: [
+      { slug: "bass-tuner", label: "Bass Tuner" },
+      { slug: "ukulele-tuner", label: "Ukulele Tuner" },
+      { slug: "metronome", label: "Online Metronome" },
+    ],
+  },
+
+  "metronome": {
+    sections: [
+      createAnswerFirstSection(
+        "Picking the Right BPM for the Music",
+        "Tempo in music is measured in beats per minute (BPM). The tool runs from 20 to 300 BPM, which covers everything from the slowest funeral march to the fastest speed metal. Standard descriptive markings: Largo sits between 40 and 66 BPM, Adagio between 66 and 76, Andante 76 to 108, Moderato 108 to 120, Allegro 120 to 168, Presto 168 to 200, Prestissimo above 200. Pop and rock songs cluster between 100 and 130 BPM; ballads sit at 60 to 80; dance and house music hovers around 120 to 130; drum and bass lives in the 160 to 180 zone.",
+        "When practising, set the BPM at the slowest speed you can play the passage cleanly, not the speed you wish you could play it. A common mistake is starting at 110 BPM because the song is at 110 BPM, then making mistakes for an hour. Drop to 80, play the passage perfectly five times in a row, then jump up by 4 BPM. Repeat. This is how the speed trainer feature works automatically; you set a start tempo, an end tempo, and a duration, and the metronome ramps gradually so your hands learn the muscle memory at every intermediate speed."
+      ),
+      createAnswerFirstSection(
+        "Time Signatures and Subdivisions",
+        "4/4 (four crotchet beats to the bar) is the most common time signature in Western popular music; you can play roughly 80% of pop, rock, country and dance music in 4/4 without ever leaving it. 3/4 is waltz time, used in ballads and country waltzes. 6/8 has a rolling triplet feel and turns up in shuffles, ballads and Celtic music. 5/4 (Take Five, Mission Impossible theme) and 7/8 (most progressive rock) feel deliberately off-balance because the brain expects an even count. The metronome accents beat 1 of each bar at a higher pitch so your ear can latch onto the start of every cycle.",
+        "Subdivisions split each beat into smaller pulses. Eighth notes (8ths) play two ticks per beat, triplets play three, sixteenth notes play four. Practising scales with sixteenth-note subdivisions on at slow tempo trains absolute rhythmic precision; the moment your fingers drift from the metronome you hear it. Drummers in particular benefit from a metronome with multiple subdivision options because each drum part typically sits on a different one. The [tap tempo](/tap-tempo) tool reads the BPM of any song you tap along with, which pairs well: tap to find the tempo, then run the metronome at that tempo to practise."
+      ),
+      {
+        heading: "Tempo Markings and Typical BPM Ranges",
+        table: {
+          headers: ["Italian Term", "BPM Range", "Common In"],
+          rows: [
+            ["Largo", "40 - 66", "Funeral marches, lament"],
+            ["Adagio", "66 - 76", "Slow ballads, classical"],
+            ["Andante", "76 - 108", "Walking pace, folk songs"],
+            ["Moderato", "108 - 120", "Pop ballads, mid-tempo"],
+            ["Allegro", "120 - 168", "Pop, rock, classical fast movements"],
+            ["Presto", "168 - 200", "Bluegrass, fast classical"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Tap Tempo and Speed Trainer in Practice",
+        "The tap tempo button measures the milliseconds between your taps and converts to BPM. Tap four times along with a song and the display lands within 1 to 2 BPM of the actual tempo. Useful when you have a recording and want to set the metronome to match, or when learning a song from a YouTube video without a published BPM. Tap evenly; uneven tapping produces averaged numbers that swing wildly, which is why the readout stabilises after about eight steady taps.",
+        "The speed trainer ramps tempo automatically over a duration you choose. Set start at 80 BPM, end at 160 BPM, duration 5 minutes, and the metronome creeps from 80 to 160 over those five minutes, increasing by roughly 16 BPM per minute. This is the closest single tool gets to replicating the way classical conservatoire teachers train scales: slow first, fast last, no plateau, no chance to stop and rest at the speed you find easy. For sight-reading practice, the opposite approach works better: set a single fixed BPM, play through the piece, repeat at the same tempo until it is clean, then move on. Use the practice tracker if you want to log how many minutes you spent at each BPM across a session."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What BPM should I practise at as a beginner?",
+        "Start at the BPM where you can play the passage cleanly with no mistakes, even if that is 50 BPM for a piece that is supposed to be 140. Speed without accuracy is a habit you have to unlearn later, which costs more time than starting slow does. Most beginner scale and chord exercises sit comfortably at 60 to 80 BPM. Once you can play five repetitions in a row with no errors, increase the tempo by 4 to 6 BPM and repeat."
+      ),
+      createFAQ(
+        "Why does the click track sound 'off' compared to the music?",
+        "Almost always because the BPM is slightly wrong, the time signature is wrong, or the song has a swing/shuffle feel that a straight-eighth metronome cannot capture. Try the tap tempo first to get the BPM exactly right. If the song has a triplet feel (most blues, some jazz) switch the subdivision to triplets and the click will sit naturally where it should. Songs with fluctuating tempo (rubato, intentional speed changes, live recordings without a click track) can never be perfectly matched to a fixed metronome."
+      ),
+      createFAQ(
+        "Can I use this metronome with a band?",
+        "Yes, especially for rehearsing tight arrangements where everyone needs to lock to the same tempo. Send the click into a small speaker so the drummer hears it, or pipe it into in-ear monitors if you have them. Most professional touring bands now play to a click track for at least the songs that need precise tempo (anything with backing tracks or video sync). The Web Audio implementation here is sample-accurate, meaning the click does not drift over the course of a long song the way some browser-based timers can."
+      ),
+      createFAQ(
+        "What is the difference between BPM and tempo?",
+        "Tempo is the general concept of speed in music; BPM is the specific numerical measurement. Tempo can also be described qualitatively (Allegro, Andante, etc.) where BPM is always a number. They are related but not identical: a piece marked Allegro could be anywhere from 120 to 168 BPM depending on the composer's intent and the performer's interpretation. Numerical BPM became standard with the invention of Maelzel's metronome in the 1810s, before which composers relied on Italian tempo terms alone."
+      ),
+      createFAQ(
+        "Why does my metronome sound different at high tempos?",
+        "At very high BPMs (above 200), the click sounds tend to merge into a near-continuous drone because each beat is shorter than the natural decay of the click sound. The tool uses short, sharp click and woodblock sounds specifically to keep individual beats distinct at high speeds. If you find the high-tempo clicks blurry, try the woodblock sound instead of the default click; its sharper attack stays defined up to 280 BPM."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tap-tempo", label: "Tap Tempo BPM Counter" },
+      { slug: "practice-tracker", label: "Music Practice Tracker" },
+      { slug: "song-structure", label: "Song Structure Builder" },
+    ],
+  },
+
   "transpose-tool": {
     sections: [
       createAnswerFirstSection(

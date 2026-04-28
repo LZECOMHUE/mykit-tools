@@ -190,4 +190,124 @@ export const sportsSEO = {
       { slug: "bmi-calculator", label: "BMI Calculator" },
     ],
   },
+
+  "running-training-plan": {
+    sections: [
+      createAnswerFirstSection(
+        "How Long the Plans Run",
+        "Race distance and experience set the plan length. A beginner aiming at a 5K gets 8 weeks; an advanced runner targeting a marathon gets 16. Half marathons sit at 12 to 16 weeks, 10Ks at 8 to 12, marathons at 16 to 20. The numbers are pulled from training frameworks used by Hal Higdon, Jack Daniels, and Runner's World, then adapted for the level you select.",
+        "Each plan has four phases: base (about 30% of the weeks), build (40%), peak (15%), and taper (15%, minimum 2 weeks). The base ramps weekly mileage from roughly 50% to 70% of peak. Build ramps from 70% to 90%. Peak holds at 100% for one or two weeks. Taper drops back to 40% of peak in the final 2-3 weeks so you reach race day rested. Every fourth week is a cutback at 75% volume to let your body absorb the load."
+      ),
+      createAnswerFirstSection(
+        "Why Easy Runs Are Most of the Plan",
+        "About 80% of the running in a well-structured plan is at easy, conversational pace. You should be able to chat in full sentences while running. The remaining 20% is the hard stuff - tempo runs at lactate threshold, intervals at VO2 max effort, the long run that builds endurance. This 80/20 split is one of the most replicated findings in endurance training research and applies whether you're aiming at 25 minutes for 5K or sub-3 for the marathon.",
+        "Beginners often run their easy days too hard and their hard days too soft, ending up in the grey zone where everything feels moderately rough and nothing improves. If your easy run feels like work, slow down, even if the pace feels embarrassingly slow. Walk breaks during easy runs are fine. The marathon plan at peak still includes 4 easy runs for every interval session."
+      ),
+      {
+        heading: "Plan Length and Peak Weekly Mileage",
+        table: {
+          headers: ["Race", "Beginner", "Intermediate", "Advanced", "Peak Long Run"],
+          rows: [
+            ["5K", "8 weeks / 15 km peak", "6 weeks / 22 km peak", "6 weeks / 32 km peak", "5-8 km"],
+            ["10K", "12 weeks / 25 km peak", "10 weeks / 35 km peak", "8 weeks / 50 km peak", "10-14 km"],
+            ["Half Marathon", "16 weeks / 35 km peak", "12 weeks / 50 km peak", "12 weeks / 65 km peak", "18-24 km"],
+            ["Marathon", "20 weeks / 50 km peak", "18 weeks / 65 km peak", "16 weeks / 85 km peak", "32-38 km"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "When to Skip a Session",
+        "Honest niggle test: would the pain stop you walking? If yes, rest. Mild stiffness that loosens after 10 minutes of jogging is usually fine to continue. Sharp pain that worsens with each step, especially in the shins, knees, or Achilles, is a sign to stop and walk home. Missing one easy run costs almost nothing in fitness terms; missing six weeks because you ignored an early warning costs the whole race.",
+        "Sleep loss, illness, and high life stress all tank your ability to absorb training. The plan can flex: replace a tempo with an easy run, swap a long run to next week, or do the cross-training session twice. If you're missing more than one quality session a week, drop back to the previous level rather than push through and risk injury. The [Miles to Steps](/miles-to-steps) tool is useful if you're tracking volume on a watch that defaults to imperial."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is this a substitute for a running coach?",
+        "No. The plans are based on widely used frameworks but they cannot see your gait, watch you suffer in week 9, or notice the limp you're hiding. For a first marathon or a serious time goal, a real coach (£60-120 a month for online coaching) outperforms any generated plan. This tool works well for self-directed runners who want a structured starting point and are willing to listen to their bodies."
+      ),
+      createFAQ(
+        "What if I miss a week of training?",
+        "One missed week from a 16-week plan won't ruin the race. Drop back two weeks in the schedule when you return and rebuild from there. If you miss more than two consecutive weeks, especially during the build phase, consider dropping to a shorter race or pushing the goal back. Running on an undertrained body is how stress fractures happen."
+      ),
+      createFAQ(
+        "Can I run my long run on a Sunday instead of Saturday?",
+        "Yes, the day you do each session matters less than the spacing. The plan suggests Saturday long runs and Wednesday quality sessions, but shifting everything by a day or two is fine. What matters is keeping at least one rest or easy day before and after the long run, and not stacking two hard sessions back to back unless the plan specifically schedules them."
+      ),
+      createFAQ(
+        "Why does the plan include cross-training?",
+        "Cross-training (cycling, swimming, strength work) builds aerobic fitness with much lower joint impact than running. Beginners get 2-3 cross days a week to keep injury risk down while building running volume. Even advanced plans keep at least one cross day, usually a strength session, because runners who lift heavy 2x a week have measurably lower injury rates than those who don't."
+      ),
+      createFAQ(
+        "What pace should I run my easy days at?",
+        "Roughly 60-90 seconds per kilometre slower than your goal race pace, or about a minute slower per kilometre than your last 5K time. A useful test: if you can hold a conversation in full sentences without pausing for breath, you're at easy pace. If you're snatching air between words, you're going too fast. Heart rate methods (Maffetone, zone 2) work too if you're a numbers person."
+      ),
+    ],
+    relatedTools: [
+      { slug: "miles-to-steps", label: "Miles to Steps Calculator" },
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "protein-intake-calculator", label: "Protein Intake Calculator" },
+    ],
+  },
+
+  "darts-score-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "How a 501 Darts Game Works",
+        "501 starts each player on 501 points, and players take turns throwing 3 darts to reduce that total to exactly zero. The catch is that the final dart must land in a double or the bullseye; finishing on a single or treble is a bust and your turn does not count. A bust also occurs if you go below zero or land on exactly 1, since 1 cannot be finished on a double.",
+        "The tracker scores 2, 3 or 4 players at once, defaults to 501, and lets you switch to 301 (faster) or 701 (longer practice games). It detects busts automatically, suggests checkout routes, and keeps a running 3-dart average so you can see who is throwing well at the pub on a Friday night without anyone arguing over a smudged scoreboard."
+      ),
+      createAnswerFirstSection(
+        "Reading Checkout Suggestions",
+        "Once you drop below 170, every score is finishable in 3 darts. The classic professional checkouts are built in: 170 (T20, T20, Bull), 167 (T20, T19, Bull), 164 (T20, T18, Bull), 161 (T20, T17, Bull). Anything above 170 takes 4+ darts, and that is why pros call 167 the highest 'tournament' checkout - 170 is the absolute ceiling.",
+        "Common pub-level checkouts: 40 (Double 20, the most-thrown finish in the world), 60 (Treble 20 or 20 + Double 20), 90 (Treble 20, 10, Double 10). The tracker shows the conventional route in the suggestions panel; experienced players often have personal preferences (some loathe the bullseye, some can never hit T19) and the suggestion is a guide, not a rule."
+      ),
+      {
+        heading: "Common Finishes Every Pub Player Should Know",
+        table: {
+          headers: ["Score", "Suggested Route", "Difficulty"],
+          rows: [
+            ["32", "Double 16 (or D8 if missed)", "Easy"],
+            ["40", "Double 20", "Easy - most-thrown finish"],
+            ["60", "T20 (out on bull)", "Medium"],
+            ["100", "T20 + Double 20", "Medium"],
+            ["120", "T20 + 20 + Double 20", "Hard"],
+            ["170", "T20 + T20 + Bull", "Maximum 3-dart finish"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Tracking Match Statistics That Actually Matter",
+        "Three numbers matter: 3-dart average (total scored divided by visits to the oche, multiplied by 3), checkout percentage (finishes hit divided by attempts at a finish), and 180s thrown. A pub player averages 40 to 55, a county player 70 to 85, a televised pro 95 to 110. The current world record over a major final is Michael van Gerwen's 123.40 average in the 2017 Premier League.",
+        "The tracker logs every visit and runs the average live, so by the third leg you can already see whether anyone is having a 'one of those nights'. Use the scoreboard for league nights, knockout tournaments at home, or just settling who buys the next round. For tournament structure beyond a single match, see the [Tournament Bracket Generator](/tournament-bracket-generator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a bust in darts?",
+        "A bust is when your scoring takes you below zero, exactly to 1, or to zero on a single or treble (when finishing-on-a-double is required). Your turn does not count - the score reverts to what it was at the start of the throw, and the next player goes. The tracker reverts the score for you when it detects a bust, so there is no manual rewinding."
+      ),
+      createFAQ(
+        "Do I have to finish on a double?",
+        "In standard 501 (PDC, BDO, league rules) yes - the final dart must land in a double segment or the bullseye (50, which counts as a double). In casual pub games people sometimes play straight-out, where any finish is valid. The tracker has a toggle for this; flip it off for a faster, less frustrating game with mates who are still learning."
+      ),
+      createFAQ(
+        "Can I track 4 players at once?",
+        "Yes. Pick 2, 3 or 4 players, name them (or leave them as Player 1 to 4), and the tracker rotates through visits in order, highlighting whose throw is next. For more than 4 players (a singles tournament for example), use the bracket generator to draw the schedule and run separate matches in the tracker."
+      ),
+      createFAQ(
+        "Does the tracker work for cricket or around-the-clock?",
+        "Currently it scores 501, 301 and 701 only - the most-played pub formats in the UK. Cricket (the American format) and around-the-clock are different scoring entirely and not yet supported. The Premier League pro-style format with 'sets and legs' uses standard 501 scoring underneath, so the tracker handles each leg, but you would tally sets externally."
+      ),
+      createFAQ(
+        "What is a 9-darter and has it ever been done in a pub?",
+        "A 9-dart finish is the perfect leg of 501 - finishing in nine throws (the minimum mathematically possible). The classic route is T20, T20, T20, T20, T20, T20, T20, T19, D12 (180, 180, 141). It has been televised hundreds of times now but is still rare; in pubs it happens almost never, and most weeks no one breaks 100. The tracker would show it as a 3-dart average of 167.0 if it happened on your local league night."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tournament-bracket-generator", label: "Tournament Bracket Generator" },
+      { slug: "betting-odds-calculator", label: "Betting Odds Calculator" },
+      { slug: "dice-roller", label: "Dice Roller" },
+    ],
+  },
 };

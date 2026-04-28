@@ -1008,4 +1008,64 @@ export const gameSEO = {
       { slug: "music-round-generator", label: "Music Round Generator" },
     ],
   },
+
+  "roulette-wheel": {
+    sections: [
+      createAnswerFirstSection(
+        "European vs American Wheel: The 2.7% That Matters",
+        "The European wheel has 37 pockets numbered 1 to 36 plus a single zero, giving the house an edge of 2.7%. The American wheel adds an extra 00 pocket, taking the total to 38 and almost doubling the house edge to 5.26%. The numbers, the colours and the layout look almost identical to a casual eye, yet that single extra green pocket is the difference between losing about £2.70 and £5.26 per £100 wagered over a long enough run.",
+        "Practical consequence: if you ever sit down at a real roulette table, choose European every time. American roulette only really exists in US casinos and a handful of Las Vegas-style rooms abroad; in the UK and most of Europe the single-zero wheel is standard. The simulator here lets you switch between the two so you can see the same bets resolve under both house edges, and watch the bankroll drift downward faster on the American wheel even though every spin individually feels fair."
+      ),
+      createAnswerFirstSection(
+        "Why 'Systems' Don't Beat the Wheel",
+        "Every roulette outcome is independent. The wheel does not remember the last 10 reds in a row, and the probability of red on the next spin is still 18 in 37 (or 18 in 38 on the American wheel). The Martingale system (double your bet after every loss) sounds clever until you hit a losing streak that runs into the table maximum, at which point you are out a small fortune and cannot recover with another double. Real casinos welcome system players; they pay the bills.",
+        "The maths behind every betting strategy from D'Alembert to Fibonacci to Labouchere all reduces to the same outcome over enough spins: you will lose 2.7% of your total turnover on European, 5.26% on American. The simulator demonstrates this with no risk to your wallet. Place 100 spins of the same bet at any chip size, watch the balance trend, and you will see the house edge behaving exactly as advertised. There is no winning long-term strategy. The only way to leave roulette ahead is to leave early and not come back. Try the [random number generator](/random-number-generator) if you just want a fair, edgeless source of numbers."
+      ),
+      {
+        heading: "Roulette Bet Payouts and True Odds",
+        table: {
+          headers: ["Bet Type", "Payout", "European Win Chance", "House Edge"],
+          rows: [
+            ["Straight (single number)", "35 to 1", "1 in 37 (2.7%)", "2.7%"],
+            ["Red, Black, Odd, Even", "1 to 1", "18 in 37 (48.6%)", "2.7%"],
+            ["1-18 or 19-36", "1 to 1", "18 in 37 (48.6%)", "2.7%"],
+            ["Dozen (1-12, 13-24, 25-36)", "2 to 1", "12 in 37 (32.4%)", "2.7%"],
+            ["Split (two adjacent numbers)", "17 to 1", "2 in 37 (5.4%)", "2.7%"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Use This as a Practice Tool",
+        "The simulator starts you with 1,000 chips and lets you place straight numbers, red, black, odd, even, and the high or low halves. Place a bet, hit spin, and watch the wheel decelerate over four seconds before settling on the winning pocket. The history strip across the bottom keeps the last 20 results so you can see the natural variance of the game; expect runs of five or six reds in a row, and the very occasional run of ten. None of these sequences predict the next spin.",
+        "Where this is genuinely useful: learning the table layout before visiting a real casino, testing a betting strategy without losing actual money (you will see why every strategy fails), and watching how the balance behaves over 50 to 100 spins. A common surprise is how often you can be 'up' temporarily even though the long-term trend is downward; that fleeting win window is what makes roulette psychologically addictive. Roulette is gambling, not strategy. If you find yourself wanting to spin again to chase a loss, that is the moment the simulator has done its job. Compare the variance with a [dice roller](/dice-roller) to see how different probability distributions behave."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the best bet in roulette?",
+        "Mathematically, every bet on a European wheel has the same 2.7% house edge, so there is no single 'best' bet by expected value. The even-money bets (red, black, odd, even, 1-18, 19-36) win 48.6% of the time, which gives you the slowest bankroll drain and the longest playing time per pound. Straight number bets win 2.7% of the time but pay 35 to 1, so the variance is much higher and your bankroll swings dramatically. Pick based on whether you want a long, slow game or a short, exciting one."
+      ),
+      createFAQ(
+        "Why does the wheel have a green zero?",
+        "The green zero is the entire reason the casino makes money. Without it, red and black would each win exactly half the time, paying 1 to 1 with zero edge. The single zero on a European wheel makes red and black each pay 18 in 37 instead of 18 in 36, which is the source of the 2.7% house edge. The American 00 doubles this to 5.26%. Every other 'fair' bet on the table is similarly tilted by the green pocket, even when it is not directly involved in your bet."
+      ),
+      createFAQ(
+        "Are some numbers 'due' to come up after a long absence?",
+        "No. This is the gambler's fallacy. The wheel has no memory; each spin is mechanically independent. If 17 has not appeared in 200 spins, the probability of 17 on the next spin is still exactly 1 in 37. The streak feels meaningful because human brains are pattern-finding machines, but no statistical test on a fair wheel will show any predictive value in past results. Casinos display the recent history specifically because it encourages this fallacy."
+      ),
+      createFAQ(
+        "Can I beat roulette by betting on the same number repeatedly?",
+        "No. Betting on 17 every spin gives you a 1 in 37 chance each time. Over 100 spins you would expect to hit 17 roughly 2.7 times, winning 35 chips each hit (94.5 chips total) while spending 100 chips on bets. That is the 5.5% loss the European house edge mathematically guarantees. Some real-world wheels have tiny mechanical biases that pros have exploited historically, but online and modern casino wheels are tested for fairness and any bias is microscopic."
+      ),
+      createFAQ(
+        "What does 'En Prison' or 'La Partage' mean in roulette rules?",
+        "These are French roulette rules that reduce the house edge on even-money bets to 1.35%. La Partage returns half your bet if zero hits; En Prison locks your bet for one more spin and refunds it if you win the next one. They are only offered on French roulette tables and are worth seeking out if you find one. Standard European roulette and the American wheel do not include these rules, so the full house edge applies on every spin."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lottery-odds-comparison", label: "Lottery Odds Comparison" },
+      { slug: "dice-roller", label: "Dice Roller" },
+      { slug: "random-number-generator", label: "Random Number Generator" },
+    ],
+  },
 };

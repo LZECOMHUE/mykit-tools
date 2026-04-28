@@ -519,4 +519,63 @@ export const quizSEO = {
       { slug: "what-element-are-you", label: "What Element Are You?" },
     ],
   },
+
+  "emotional-intelligence-quiz": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Quiz Actually Measures",
+        "20 questions across the four-branch model of emotional intelligence developed by Salovey and Mayer in the early 1990s. You score 1 to 4 on each question, giving 20 points per branch and 80 total. Your result lands in one of four bands: Developing (35 or below), Growing (36-50), Strong (51-65), or Exceptional (66+).",
+        "The four branches are perceiving emotions (reading faces, tone, body language), using emotions (channelling moods to fuel work), understanding emotions (knowing why an emotion shows up and what it leads to), and managing emotions (regulating yourself and others under pressure). The branch breakdown matters more than the total. Two people can both score 55 but be wildly different - one scoring 18 in perceiving and 8 in managing, another the reverse. The quiz takes about 4 minutes."
+      ),
+      createAnswerFirstSection(
+        "Why Some People Score Low on Managing Emotions",
+        "The managing branch is consistently the lowest-scoring across most people who take this quiz. It's the branch that asks you to do something with the emotion, not just notice it. Becoming defensive at criticism, ruminating after a setback, or reacting in high-stress moments all show up here.",
+        "If your managing score is below 12 out of 20, the lift comes from rehearsed, boring habits rather than insight. Naming the emotion out loud (\"I'm feeling defensive right now\") slows the reaction down by a few seconds, which is often enough to choose a different response. Six-second pauses between trigger and reaction, journalling 90 seconds after a tough meeting, asking one trusted person for feedback every fortnight - none of it sounds glamorous, but the data on emotional regulation is clear that the boring work outperforms the insight-led work."
+      ),
+      {
+        heading: "Score Bands and What They Indicate",
+        table: {
+          headers: ["Total Score", "Band", "Typical Pattern", "First Step"],
+          rows: [
+            ["0-35", "Developing", "Often miss emotional cues, struggle to name feelings", "Build vocabulary - learn 30+ emotion words beyond happy/sad/angry"],
+            ["36-50", "Growing", "Notice emotions but react before regulating", "Practice the 6-second pause between trigger and response"],
+            ["51-65", "Strong", "Read situations well, occasional reactive moments", "Work the weakest branch - usually managing or understanding"],
+            ["66-80", "Exceptional", "Read others, regulate self, use emotions strategically", "Coach others; teaching cements the skill"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What This Quiz Is Not",
+        "This is a self-report quiz for personal reflection, not a clinical or diagnostic instrument. The MSCEIT (the validated ability test based on the same four-branch model) costs around £300 to administer and uses scenarios judged by expert raters. Self-report questionnaires of any kind, including this one, tend to inflate when people answer how they wish they responded rather than how they actually do.",
+        "Use the result as a prompt, not a label. If the [Communication Style Quiz](/communication-style-quiz) shows you favour assertive communication but your managing score is 8, that's a useful gap - you have the words but lose them under pressure. The [Big Five Personality Test](/big-five-personality-test) covers the broader trait architecture; emotional intelligence is closer to a learnable skill stack than a fixed trait, which is why the developing-to-exceptional band shifts over months of deliberate practice."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a good emotional intelligence score?",
+        "Scoring 51 or higher (the Strong band) puts you in the upper half of typical responses on this quiz. Scores above 65 are uncommon and usually appear in people who have done years of therapy, leadership coaching, or contemplative practice. Branch balance matters too: a 60 with 18-12-15-15 across the four branches is healthier than a 60 with 19-19-12-10."
+      ),
+      createFAQ(
+        "Is this quiz scientifically validated?",
+        "No. This quiz uses the four-branch framework from Salovey and Mayer's published research, but it has not been independently validated for reliability or external criterion validity. Validated tests in this space are the MSCEIT (ability-based) and the EQ-i 2.0 (trait-based, self-report), both administered by accredited practitioners. Treat this quiz as a self-reflection tool, not a clinical measurement."
+      ),
+      createFAQ(
+        "Can emotional intelligence be improved?",
+        "Yes, more reliably than IQ. Emotional regulation responds well to mindfulness training, cognitive behavioural techniques, and structured feedback over a 6-12 month window. Perceiving emotions improves with deliberate face-and-voice practice, the kind used in acting schools. Managing emotions is the branch most often coached in leadership development and shows the largest gains in workplace settings."
+      ),
+      createFAQ(
+        "Why are my four branch scores so different?",
+        "Most people are uneven. A common pattern is high perceiving and understanding (you read others well, see patterns) but lower managing (you struggle to act on what you read). Therapists and coaches often score the inverse: strong managing and using, weaker perceiving in their own emotions. The asymmetry tells you where to focus, not whether something is wrong."
+      ),
+      createFAQ(
+        "Should I share my results?",
+        "Personal call. The downloadable results card is designed to be shareable with a coach, therapist, or trusted colleague who can help you interpret the branches. Sharing on social media without context tends to invite people to compete on a number that means very little out of context, which defeats the purpose of the reflection."
+      ),
+    ],
+    relatedTools: [
+      { slug: "communication-style-quiz", label: "Communication Style Quiz" },
+      { slug: "big-five-personality-test", label: "Big Five Personality Test" },
+      { slug: "attachment-style-quiz", label: "Attachment Style Quiz" },
+    ],
+  },
 };

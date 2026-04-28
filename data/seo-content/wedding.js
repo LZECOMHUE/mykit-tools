@@ -292,4 +292,124 @@ export const weddingSEO = {
       { slug: "wedding-invitation-wording-generator", label: "Wedding Invitation Wording Generator" },
     ],
   },
+
+  "wedding-guest-list-manager": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Tool Tracks",
+        "Each guest entry stores eight pieces of information: name, side (bride/groom/mutual), invitation type (day or evening only), RSVP status (pending/accepted/declined), plus-one (yes/no), dietary requirement, dietary notes, and a table number. You can filter the list by RSVP status or invitation type, and sort by name, side, or RSVP. The whole list saves to your browser, so closing the tab won't lose it.",
+        "The split between day and evening guests matters more than couples often realise. Most UK venues charge per head for the wedding breakfast (£60-£140 per cover for 2026 prices), so day guests are your largest cost. Evening-only guests typically only get drinks and finger food, around £15-£30 per head. Tracking who is on which list lets you see the real catering bill before the RSVPs come in."
+      ),
+      createAnswerFirstSection(
+        "Handling RSVPs in Three Stages",
+        "Send invitations 8-12 weeks before the wedding for a UK ceremony, 16 weeks for a destination wedding. Set your RSVP deadline 4-6 weeks out so you have time to chase non-responders before the venue needs final numbers (most ask for confirmed headcount 14 days before). Track everything in the Pending column until you get a definite yes or no.",
+        "Roughly 10-20% of invited guests will decline. The figure climbs to 25-35% if you're inviting from across the country, have a midweek date, or it's a destination wedding. Plan a B-list of evening guests you can upgrade to day if you have catering spare after the first round. Keep this list separate; sending B-list invitations after the first wave is fine, sending them visibly less than 6 weeks out is awkward."
+      ),
+      {
+        heading: "Catering Headcount Categories",
+        table: {
+          headers: ["Field", "Why It Matters", "Common Slip"],
+          rows: [
+            ["Day vs Evening", "Day guests cost 4-7x more per head", "Friends-of-parents added late as day guests"],
+            ["Plus-One", "Each plus-one is a full per-head cost, not half", "Counting plus-ones as confirmed before they're named"],
+            ["Dietary Requirement", "Venue charges may differ for special meals", "Late dietary changes after the deadline"],
+            ["Table Number", "Drives seating chart and stationery print run", "Editing the chart after place cards have been printed"],
+            ["RSVP Status", "Final number locks venue and caterer charges", "Marking 'probably yes' as 'accepted' too early"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Dietary Requirements and Allergies",
+        "Standard categories are vegetarian, vegan, gluten-free, dairy-free, and nut allergy. The dietary notes field handles edge cases (\"no shellfish\", \"low FODMAP\", \"halal please\", \"two-year-old, needs simple food\"). Your venue or caterer needs the full breakdown 10-14 days before the wedding, with allergy information separated clearly so the kitchen can avoid cross-contamination.",
+        "Pair this with the [Wedding Seating Planner](/wedding-seating-planner) once you have most RSVPs back; it uses the same table numbers and dietary tags. The [Wedding Budget Calculator](/wedding-budget-calculator) uses your final headcount to project remaining costs. For the running countdown, the [Wedding Countdown](/wedding-countdown) gives a single date-aware view of how many weeks remain until each milestone."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I split the list between bride's and groom's families?",
+        "Yes. Each guest is tagged bride, groom, or mutual when added. You can filter the list to see just one side, which is useful when one family is paying for a portion of the day or when you're discussing cuts to make budget. The mutual tag is for friends or relatives both partners share, which prevents a tug-of-war over who claims them."
+      ),
+      createFAQ(
+        "How do I handle a guest who hasn't RSVPed?",
+        "Phone or message them once at the 2-week-before-deadline mark. If they haven't responded by the deadline itself, mark them as declined and reassign their seat. Most venues will not give you a refund for a no-show but will charge for the meal you ordered. You're better off losing a possible attendee than over-catering by 8 covers because you assumed five families would show."
+      ),
+      createFAQ(
+        "Should children get their own invitation?",
+        "If you're inviting them, yes - their names should appear on the invitation alongside their parents'. If you're not inviting them, the invitation is addressed to the parents only and you may want to mention this gently when sending. Children under 12 typically eat a children's menu at half adult cost. Children of guests who travel from far away are harder to exclude than local children."
+      ),
+      createFAQ(
+        "What about plus-ones for single guests?",
+        "Most couples extend plus-ones to single guests in serious relationships (over 6 months) or who would otherwise know nobody at the wedding. Singles attending with friends or family rarely need a plus-one. The plus-one column tracks who has been offered one and whether they've named the guest yet. Unnamed plus-ones at 4 weeks out are usually a sign nobody is coming."
+      ),
+      createFAQ(
+        "Can I export the list to give to my venue?",
+        "Yes, the Premium PDF download produces a clean catering manifest with names, dietary requirements, table assignments, and totals. Most caterers prefer this in PDF form rather than a screenshot of a spreadsheet because it formats consistently and prints cleanly. The free version downloads a JPG which is fine for personal records but less useful as a venue-handover document."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-seating-planner", label: "Wedding Seating Planner" },
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+      { slug: "wedding-countdown", label: "Wedding Countdown" },
+    ],
+  },
+
+  "wedding-seating-planner": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many People Should Sit at Each Table?",
+        "Round tables seat 8 to 10 comfortably; pushing to 12 makes it hard for guests on opposite sides to talk. Long banquet tables (6 ft trestles) seat 6 to 8 per length, plus 1 at each end if your venue allows. The planner defaults to 8 per table, so a 80-guest reception lands on 10 tables, which is the sweet spot for most UK barn and hotel venues.",
+        "If you are tight on floor space, 8 round tables seating 10 is more efficient than 10 tables of 8 because each round needs roughly the same 1.8 m diameter regardless of seat count. Long tables save 20% of floor area but kill cross-table conversation, so save them for receptions where the focus is the speeches and the food rather than mingling."
+      ),
+      createAnswerFirstSection(
+        "Grouping Guests Without Causing a Family Row",
+        "The planner ships with eight pre-set groups: Bride's Family, Groom's Family, Bride's Friends, Groom's Friends, Colleagues, Plus Ones, Children, and Other. Tagging each guest is the single most useful thing you can do; it then becomes obvious that putting Aunt Margaret on the same table as her ex-husband's new partner is a mistake before you commit to printing place cards.",
+        "A common pattern: top table for the immediate wedding party, family tables radiating out from it (his parents on one side, hers on the other), friend tables further out, and a children's table near the exit so parents can grab a tired toddler without disturbing the speeches. Use the [Wedding Budget Calculator](/wedding-budget-calculator) to track how table count drives catering, linen and centrepiece costs."
+      ),
+      {
+        heading: "Quick Sizing Guide for Common Guest Counts",
+        table: {
+          headers: ["Guests", "Round Tables (10 each)", "Long Tables (8 each)", "Floor Space (approx)"],
+          rows: [
+            ["50", "5", "7", "60 sq m"],
+            ["80", "8", "10", "95 sq m"],
+            ["100", "10", "13", "120 sq m"],
+            ["140", "14", "18", "165 sq m"],
+            ["200", "20", "25", "230 sq m"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Tracking Dietary Requirements in One Place",
+        "Eight dietary tags cover almost every UK wedding: vegetarian, vegan, gluten-free, nut allergy, dairy-free, halal, kosher, and other. Tag guests as their RSVPs come in, and the planner shows how many of each are sat at each table; your caterer needs that breakdown by table 14 days before the day, not a single grand total.",
+        "For a 100-guest reception, expect 10 to 15 vegetarian, 3 to 5 vegan, 3 to 5 gluten-free, and 1 to 3 nut-allergic. These numbers vary wildly by region (a London wedding skews higher on plant-based; a Welsh farm wedding skews lower) and by friend group. The planner exports a per-table dietary list as a PDF you can email straight to the chef without retyping anything."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I drag tables around the floor plan?",
+        "Yes. Tables are draggable on the canvas, so you can match the actual venue layout: dance floor in the middle, top table against the long wall, family tables nearest the action, and the children's table by the exit. The drag-and-drop view doubles as a venue diagram you can hand to the venue manager when they set up the morning of the wedding."
+      ),
+      createFAQ(
+        "What about the top table - who sits there?",
+        "The traditional UK top table seats the couple in the centre, with the bride's parents on her side and the groom's on his, then the best man and chief bridesmaid at each end. Modern variations skip the head table entirely (sweetheart table for two), or seat both sets of parents at their own family tables to give them ownership of the room. The planner supports both - tag a table as 'Top Table' in the table name field."
+      ),
+      createFAQ(
+        "How do I handle plus-ones who haven't RSVP'd yet?",
+        "Add them as named placeholders ('John Doe +1') with the Plus One tag, leave them unassigned to a table, and revisit the seating once the RSVP deadline (typically 4 to 6 weeks before the wedding) has passed. The planner saves your work in your browser, so you can come back to it as the final guest count firms up."
+      ),
+      createFAQ(
+        "Should children sit with their parents?",
+        "Under-5s yes; 5 to 12 year olds usually love a dedicated kids' table with colouring, simple food and an early service slot. Teenagers often prefer to sit with adult friends. The Children group tag makes it easy to spot at a glance how many you have and whether a separate table is worth the linen hire and high chair surcharges."
+      ),
+      createFAQ(
+        "Can I print place cards from this?",
+        "The premium PDF export gives you a per-table seating list, a master seating chart, and a name-to-table lookup that doubles as the printer-friendly source for place cards. Use a service like Printed.com or order from Etsy for the final cards in your wedding stationery style."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+      { slug: "wedding-speech-outline-generator", label: "Wedding Speech Outline Generator" },
+      { slug: "wedding-hashtag-generator", label: "Wedding Hashtag Generator" },
+    ],
+  },
 };

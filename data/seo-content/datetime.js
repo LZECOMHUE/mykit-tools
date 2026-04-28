@@ -467,4 +467,64 @@ export const datetimeSEO = {
       { slug: "stopwatch", label: "Online Stopwatch" },
     ],
   },
+
+  "pomodoro-timer": {
+    sections: [
+      createAnswerFirstSection(
+        "Why 25 Minutes Is the Default",
+        "The Pomodoro Technique was invented by Francesco Cirillo in the late 1980s while he was a university student struggling to focus. He used a tomato-shaped kitchen timer (pomodoro is Italian for tomato) set to 25 minutes, took a 5-minute break, then repeated. After four cycles he took a longer break of 15 to 30 minutes. The numbers were chosen experimentally; 25 minutes is short enough that procrastination is hard to justify and long enough to make real progress.",
+        "The timer ships with these defaults but lets you adjust each phase. Some users do better on 50 work / 10 break (the 'Ultradian Rhythm' approach favoured by deep-work writers), and ADHD users sometimes find 15 work / 5 break more sustainable. The shape matters more than the exact minutes: focused effort, brief recovery, repeat."
+      ),
+      createAnswerFirstSection(
+        "Tracking Daily Sessions and Focus Time",
+        "Every completed work block adds to your daily counter, which resets at midnight local time. Eight pomodoros equals roughly 3 hours 20 minutes of pure focused work, which is what most cognitive-load researchers (Anders Ericsson, Cal Newport) consider the realistic upper limit for sustained deliberate practice in a day. If you are doing more than that you are probably mixing in shallow work and counting it as deep, or burning the candle in a way that won't last.",
+        "The timer stores stats in your browser via localStorage, so closing the tab does not lose your count. A student revising for finals can run two morning blocks (8 pomodoros), a long break for lunch, and another evening block, then see at a glance whether they hit a sustainable rhythm. Pair this with the [Sleep Calculator](/sleep-calculator) to make sure recovery matches output."
+      ),
+      {
+        heading: "Suggested Pomodoro Profiles for Different Tasks",
+        table: {
+          headers: ["Task Type", "Work / Break", "Sessions Before Long Break", "Long Break"],
+          rows: [
+            ["Standard knowledge work", "25 / 5", "4", "15 min"],
+            ["Deep writing or coding", "50 / 10", "2-3", "30 min"],
+            ["Quick admin or email", "15 / 3", "6", "15 min"],
+            ["Study/revision", "25 / 5", "4", "20 min (recall test)"],
+            ["Creative work (drawing, music)", "45 / 15", "3", "30 min"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Common Reasons Pomodoro Fails (and How to Fix Them)",
+        "It fails most often when interruptions destroy the block. The technique relies on uninterrupted focus, so the very first thing to do is silence Slack, close email, and put the phone in another room. Cirillo's original rule is that any interruption invalidates the pomodoro, full stop; you start the next 25-minute block from zero. That is harsh, but it forces you to defend the time.",
+        "Second failure mode: planning blocks for tasks that genuinely need more than 25 minutes of unbroken thought (writing a complex contract, debugging a tricky distributed-systems issue). Switch to the 50/10 profile for those, or use the [Work Hours Calculator](/work-hours-calculator) to plan a longer protected block. A bell sounds at the end of each phase via the Web Audio API, so you don't need to watch the screen."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What happens after every 4 work sessions?",
+        "After your 4th, 8th, 12th and so on, the timer automatically switches to a long break (default 15 minutes) instead of the usual 5. The longer break lets your prefrontal cortex actually recover; multiple short breaks alone don't quite deliver the same restoration. You can adjust the long break duration in settings."
+      ),
+      createFAQ(
+        "Does the Pomodoro Technique have research behind it?",
+        "Some, but it is more rule of thumb than science. The general principle (focused effort followed by recovery, repeated) is supported by attention-restoration research and ultradian rhythm studies. The specific 25-minute interval has no special biological status; it works because it is short enough to start without dread and long enough to make real progress. If 25 doesn't suit you, change it."
+      ),
+      createFAQ(
+        "Can I track which task I'm working on?",
+        "Yes. The task label field at the top lets you note what the current pomodoro is for ('Maths revision Chapter 4', 'Email backlog', 'Draft pitch deck'). The label persists across the work block but does not save into the daily history yet; for full historical tracking pair the timer with a journal or task manager like Todoist or Things 3."
+      ),
+      createFAQ(
+        "Will the timer keep running if I close the tab?",
+        "No. The timer runs in JavaScript in the browser tab, so closing the tab pauses it. The Page Visibility API keeps it ticking accurately as long as the tab is open even when minimised; modern Chrome, Firefox, Safari and Edge all handle this correctly. If you need a timer that survives a tab close, run a separate phone timer alongside as backup."
+      ),
+      createFAQ(
+        "What is the bell sound at the end of each phase?",
+        "Three short tones at 800 Hz, 600 Hz, 800 Hz, lasting about half a second total. It is generated client-side using the Web Audio API rather than streamed, so it works offline and never blocks on slow connections. If your office mates can hear it, mute the tab and watch for the visual phase change instead."
+      ),
+    ],
+    relatedTools: [
+      { slug: "work-hours-calculator", label: "Work Hours Calculator" },
+      { slug: "sleep-calculator", label: "Sleep Calculator" },
+      { slug: "online-timer", label: "Online Timer" },
+    ],
+  },
 };

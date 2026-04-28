@@ -1003,4 +1003,125 @@ export const parentingSEO = {
       { slug: "rainy-day-schedule-generator", label: "Rainy Day Schedule Generator" },
     ],
   },
+
+  "treasure-hunt-clue-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Generator Builds a Hunt",
+        "Pick a theme (pirates, space, nature, detective, or general), an age band (3-5, 5-7, 7-9, or 9-12), an indoor/outdoor/both setting, and how many clues you want. The generator pulls from a curated pool of clues written for each combination, then sequences them so each clue points to a believable next location in a typical home or garden. 8 clues is the default and works well for a 30-minute hunt; 5 is right for a quick pre-bedtime adventure, 12-15 for a full birthday-party hunt.",
+        "The clues are written so kids find a slip of paper at the location, read the next clue, and run to find the next slip. The treasure (sweets, a small gift, or a birthday cake reveal) is at the final location. For a 4-year-old's hunt, expect the whole thing to take 15-20 minutes; for 9-year-olds with the cryptic clue set, plan 45-60 minutes including the inevitable squabbles about who got there first."
+      ),
+      createAnswerFirstSection(
+        "Why Age Banding Matters More Than Theme",
+        "Age band changes the entire reading level and clue mechanic. The 3-5 band gives near-direct hints (\"check the box where we keep cold things\" = the fridge); 5-7 introduces simple metaphors and theme language (\"the captain's quarters\" for a bedroom); 7-9 expects kids to solve a small riddle and hold the theme in their head; 9-12 leans into cryptic clues, requires-previous-clue logic, and waterproof containers buried in the garden.",
+        "Mismatched ages and a single hunt? Read the youngest child's clues out loud while the older one solves them silently, or split the group into two pairs working different colour-coded clues that converge at the final location. The generator runs twice with different settings if you want two parallel hunts. For a mixed-age birthday party, the 5-7 band is the safest single choice; it's enough challenge for an older sibling without leaving the youngest stranded at clue three."
+      ),
+      {
+        heading: "Clue Difficulty by Age Band",
+        table: {
+          headers: ["Age Band", "Clue Style", "Reading Level", "Hunt Length"],
+          rows: [
+            ["3-5", "Direct hints, picture-friendly language", "Read by parent", "5-8 clues, 15 mins"],
+            ["5-7", "Themed phrases, simple riddles", "Early reader, with help", "8-10 clues, 20-30 mins"],
+            ["7-9", "Riddles, multi-step logic", "Confident reader", "10-12 clues, 30-45 mins"],
+            ["9-12", "Cryptic clues, codes, locked containers", "Independent reader", "12-15 clues, 45-60 mins"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Outdoor Hunts Need 30 Minutes of Setup",
+        "An outdoor hunt at the older end (7-9 or 9-12) takes longer to set up than the kids spend running it. Hide the slips in waterproof bags or sealed sandwich bags - British weather is the cause of most failed hunts. Use chalk to mark a starting line, brief the kids that the boundary stops at the fence, and walk the route yourself once before the kids start to make sure each clue actually points to the next location.",
+        "Pair this with the [Easter Egg Hunt Clue Generator](/easter-egg-hunt-clue-generator) for a seasonal twist with rhyming clues, or the [Scavenger Hunt Generator](/scavenger-hunt-generator) for an item-finding format that works better in public spaces like parks. For a Christmas morning hunt where the treasure is the main present, the [Christmas Treasure Hunt Generator](/christmas-treasure-hunt-generator) sets up the December-specific clues and locations."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many clues should a treasure hunt have?",
+        "8 clues is the sweet spot for most ages and party sizes. Fewer than 5 feels like the hunt ended just as it began; more than 12 starts losing younger kids' attention. For a birthday party of 8-12 children, 10 clues with the treasure at the end works well; for a Sunday afternoon hunt with one or two kids, 6 is enough. The generator caps at 15 because beyond that, you're really running a multi-stage event."
+      ),
+      createFAQ(
+        "Can I edit the clues before printing?",
+        "Yes. The clue list shows on screen before you download, and you can rewrite any clue to match a specific feature of your house (\"check next to Granny's photo\", \"by Dad's old guitar\"). The generator gives you a starting point that's roughly right; the personal touches make the hunt feel like it was made for that child. Premium PDF export prints them as cut-up cards ready to hide.",
+      ),
+      createFAQ(
+        "What's a good final treasure?",
+        "For under-5s, a small wrapped gift or a bowl of pick-and-mix sweets. For 5-9s, a slightly bigger toy, a craft kit, or a voucher for an experience day. For 9-12s, the treasure can be the actual main present (a games console, a bike for their birthday) revealed at the end. Avoid cash for under-7s; they prefer something tangible."
+      ),
+      createFAQ(
+        "Do I need to print the clues?",
+        "Handwritten clues on coloured paper feel more special than printed ones, and you can match the handwriting to the theme (pirate-style for pirates, blocky letters for the detective theme). Printed is faster though, especially for parties with 10+ clues. The premium PDF formats them as cut-out cards with theme borders. For under-7s, drawing a small picture next to the clue helps non-readers follow along."
+      ),
+      createFAQ(
+        "Can I run the same hunt twice?",
+        "Run the generator a second time with the same settings and you'll get a different sequence pulled from the same theme/age pool. For sibling rivalries, this is the easiest fix: each child gets their own colour-coded set of clues that lead to different parts of the same final treasure pile. Otherwise, the older child solves them faster and the younger one ends up trailing behind in tears."
+      ),
+    ],
+    relatedTools: [
+      { slug: "easter-egg-hunt-clue-generator", label: "Easter Egg Hunt Clue Generator" },
+      { slug: "scavenger-hunt-generator", label: "Scavenger Hunt Generator" },
+      { slug: "christmas-treasure-hunt-generator", label: "Christmas Treasure Hunt Generator" },
+    ],
+  },
+
+  "christmas-treasure-hunt-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Clues Should a Christmas Morning Hunt Have?",
+        "Seven is the sweet spot for most families. Too few (3 or 4) and the hunt is over before the children's adrenaline has caught up with them; too many (15+) and tired six-year-olds give up halfway through and start crying instead of laughing. The generator defaults to 7 clues, which keeps a hunt to 10 to 15 minutes - long enough to feel like an adventure, short enough that the present at the end is still wanted.",
+        "For larger families with multiple children at different ages, run two parallel hunts with different starting points (so they don't collide in the kitchen) and meet at the present. The generator lets you change the child's name on each clue card so each child has their own personalised set, which prevents the older one from racing ahead and shouting answers."
+      ),
+      createAnswerFirstSection(
+        "Choosing the Right Age Group",
+        "Four age bands are built in: 3-5, 5-7, 7-9, and 9-12. The vocabulary, sentence length and clue type vary considerably between them. A 3-5 clue is short and concrete: 'By the tree where presents sit, look under the green branches low'. A 9-12 clue uses inference: 'In the appliance maintaining temperature, sealed in a waterproof pouch behind' (the fridge). Picking the right band is the single biggest determinant of whether a child enjoys the hunt or feels patronised.",
+        "If your children straddle two bands (a 5-year-old and an 8-year-old), pick the younger band - the older child will solve faster but won't feel the clues are babyish, whereas the younger child will struggle if you pick the older band. The 7-9 band is the most universally enjoyable; 9-12 starts feeling clue-puzzle-cryptic in a way younger siblings can't follow. See the [Easter Egg Hunt Clue Generator](/easter-egg-hunt-clue-generator) for the same age-banding applied to springtime."
+      ),
+      {
+        heading: "Hiding Spots That Show Up in the Built-in Clue Database",
+        table: {
+          headers: ["Location", "Clue Style", "Best Age", "Risk"],
+          rows: [
+            ["Under the Christmas tree", "Universal", "3-5", "Spoiled by curious eyes pre-hunt"],
+            ["Fridge or freezer", "Cold/temperature reference", "All ages", "Forgetting to remove before lunch"],
+            ["Stocking by the fireplace", "Festive imagery", "3-7", "Already-occupied stockings"],
+            ["Under a sofa cushion", "Soft-furnishings hint", "5-9", "Pets pulling the gift out"],
+            ["Inside a coat pocket in the hall", "Outdoors/clothing hint", "7-12", "Forgetting which coat"],
+            ["Under the bed", "Bedroom hint", "5-12", "Dust and hoover detritus"],
+            ["Behind a picture frame", "Wall-decoration hint", "9-12", "Frame falling off"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Personalising Without Killing the Magic",
+        "The single best add is the child's name in every clue. 'Henry, where the frost keeps everything cold' lands harder than a generic 'Where the frost keeps everything cold' because it makes the hunt feel made-for-them. The generator adds the name to each clue automatically once you fill in the field; leave it blank if you prefer generic clues for sibling hunts where you reuse the same set.",
+        "Resist the temptation to write all the clues yourself unless you have an hour to spare on Christmas Eve. The pre-built clues are written by people who have run dozens of hunts, with deliberate variety in clue type (rhyming, descriptive, riddle, location-based) so the hunt has rhythm. The premium PDF arranges them as cut-out cards with a route map for the parent showing where each clue gets hidden, which is the single thing that turns a chaotic 6 am hunt into a smooth one."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Where should I hide the actual present?",
+        "Somewhere that needs the final clue to be solved but isn't going to take 20 minutes to fetch. Common end-points: under the bed, in the wardrobe behind the clothes, under the sofa, on a high shelf, behind the curtain. Avoid the loft, the garden shed, anywhere that requires putting on shoes and a coat - the magic dies the moment a child has to break the chain to get dressed."
+      ),
+      createFAQ(
+        "What if my child can't read yet?",
+        "Pick the 3-5 age band, which uses very short, picture-friendly clues that an adult can read aloud. The whole hunt becomes a parent-and-child activity, with the parent reading and the toddler running. Or pair each clue with a simple drawn picture (a tree, a fridge, a chair) - the generator's PDF leaves space for a small illustration if you want to sketch one in by hand."
+      ),
+      createFAQ(
+        "Should I do the hunt before or after Father Christmas's gifts are opened?",
+        "After. Stocking gifts and the main pile under the tree should be opened first - that is the moment of peak Christmas-morning excitement. The treasure hunt then sits as a second wave of fun mid-morning, around 9 to 10 am, when the initial sugar rush from chocolate Santas is wearing off and the children need something new to channel their energy. It also lets you stretch out the morning so lunch doesn't feel rushed."
+      ),
+      createFAQ(
+        "Can I do this for Christmas Eve instead?",
+        "Yes. A Christmas Eve evening hunt for one small Christmas Eve present (pyjamas, a Christmas storybook, a hot chocolate kit) is a lovely tradition - it gives children something to look forward to that isn't the main event the next morning. It also wears them out, which is exactly what you want before bed on the 24th."
+      ),
+      createFAQ(
+        "How do I keep the older sibling from giving away the answers?",
+        "Two options: run two simultaneous hunts with different clue sets and different start points, or set the older sibling as the 'helper' who reads the clues but isn't allowed to say the answer. The latter works surprisingly well from age 9 onwards, because being the helper feels grown-up. Use the [Advent Calendar Activity Generator](/advent-calendar-activity-generator) for daily activities in the run-up that include sibling-friendly variations."
+      ),
+    ],
+    relatedTools: [
+      { slug: "easter-egg-hunt-clue-generator", label: "Easter Egg Hunt Clue Generator" },
+      { slug: "treasure-hunt-clue-generator", label: "Treasure Hunt Clue Generator" },
+      { slug: "advent-calendar-activity-generator", label: "Advent Calendar Activity Generator" },
+    ],
+  },
 };

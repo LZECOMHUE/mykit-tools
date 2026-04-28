@@ -477,4 +477,65 @@ export const educationSEO = {
       { slug: "word-scramble-generator", label: "Word Scramble Generator" },
     ],
   },
+
+  "word-search-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Goes Into a Good Word Search Puzzle",
+        "Three things: a word list with the right length spread, a grid sized to fit it, and a difficulty level that matches the player. The generator caps each word at roughly 80% of the grid size, so a 12 x 12 grid (the default) holds words up to 9 letters; pushing longer words into a small grid causes placement failures. It will quietly drop words it can't fit and tell you which ones, rather than producing a half-finished puzzle.",
+        "Five built-in themes ship with the tool: Animals (CAT, DOG, FROG, PENGUIN, ELEPHANT), Food (PIE, SUSHI, CHOCOLATE), Sports (GOLF, RUGBY, BASEBALL), Science (DNA, GRAVITY, ECLIPSE), and Countries (USA, JAPAN, FRANCE). Each theme has a graded mix of 3-letter, 4-letter and longer words so the puzzle has visual variety. Or paste your own word list - one per line, or comma-separated - to build a custom puzzle for a classroom topic, a birthday party, or a wedding favour."
+      ),
+      createAnswerFirstSection(
+        "Picking Difficulty (Easy, Medium, Hard)",
+        "Difficulty controls direction. Easy uses only right and down; medium adds left and up; hard adds all four diagonals, including the awkward up-and-back-to-the-left direction that turns kids into puzzle detectives. For Key Stage 1 (5 to 7 year-olds) easy is right; Key Stage 2 (7 to 11) tolerates medium; from KS3 onwards hard is fair game. Adults rarely find even hard challenging unless the word list is unfamiliar.",
+        "Bigger grid + harder direction set = much longer solve time. A 15 x 15 hard puzzle with 20 words takes a competent adult 8 to 12 minutes; the same word list at easy on a 10 x 10 grid takes 3 to 4. The built-in timer is useful for classroom challenges, party games, and personal-best tracking. For a related printable puzzle format, see the [Word Scramble Generator](/word-scramble-generator)."
+      ),
+      {
+        heading: "Recommended Settings by Age and Use Case",
+        table: {
+          headers: ["Use Case", "Grid Size", "Difficulty", "Word Count"],
+          rows: [
+            ["Reception / EYFS", "8 x 8", "Easy", "6 - 8"],
+            ["KS1 (5-7 years)", "10 x 10", "Easy", "10 - 12"],
+            ["KS2 (7-11 years)", "12 x 12", "Medium", "12 - 15"],
+            ["KS3+ (11+ years)", "14 x 14", "Hard", "15 - 18"],
+            ["Adult / dinner party", "16 x 16", "Hard", "20 - 25"],
+            ["Themed party favour", "12 x 12", "Medium", "10 - 12 (theme words)"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Printing for the Classroom or Party Bag",
+        "The premium PDF download outputs a clean A4 puzzle with the word list at the side, a separate solution sheet on page 2, and an optional caller-style answer key showing where each word starts. A teacher running 30 children through a Friday-afternoon vocabulary recap can print the same puzzle 30 times, or run the generator 30 times for unique grids that prevent copying.",
+        "For seasonal classrooms, you can shortcut to themed variants directly: [Christmas Word Search](/christmas-word-search), [Halloween Word Search](/halloween-word-search), and [Animals Word Search](/animals-word-search) are pre-themed pages with the right vocabulary baked in, suitable for assemblies and party-bag inserts. Or generate your own if your classroom topic doesn't have a pre-built theme."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I include words with spaces or hyphens?",
+        "The generator strips spaces and hyphens automatically, so 'ICE CREAM' becomes 'ICECREAM' and 'X-RAY' becomes 'XRAY' in the grid. The word list shown to the player keeps the original formatting so they know what to look for. If you absolutely need the space preserved (for a name like 'NEW YORK'), break it into two separate entries."
+      ),
+      createFAQ(
+        "What grid size should I pick?",
+        "Match the longest word: the grid should be at least 25% longer than your longest word. So 'ELEPHANT' (8 letters) needs a 10 x 10 grid minimum, and 'INTERNATIONAL' (13 letters) wants 16 x 16 or larger. The default 12 x 12 is the right starting point for most school and party use."
+      ),
+      createFAQ(
+        "How does it handle words that don't fit?",
+        "It tries up to 200 placements per word with random positions and directions. If it still can't fit a word, the word is added to the unplaced list and the puzzle is still generated with the words that did fit. You'll see a message saying which words were dropped, so you can either shrink the word, enlarge the grid, or remove the difficult word entirely."
+      ),
+      createFAQ(
+        "Is the puzzle the same every time?",
+        "No. The placement is randomised on every generation, so the same word list produces a different layout each time you click Generate. This is great for printing class sets where each child gets a slightly different puzzle. Hit the button until you get a layout you like, then download."
+      ),
+      createFAQ(
+        "Can I make a word search where words go backwards?",
+        "Yes - that's what 'medium' difficulty turns on. Right-to-left and bottom-to-top placement makes the puzzle harder because the eye is trained to read left-to-right. Hard difficulty adds the four diagonal directions on top, including up-left, which is the hardest single direction for most solvers to spot."
+      ),
+    ],
+    relatedTools: [
+      { slug: "christmas-word-search", label: "Christmas Word Search" },
+      { slug: "halloween-word-search", label: "Halloween Word Search" },
+      { slug: "word-scramble-generator", label: "Word Scramble Generator" },
+    ],
+  },
 };

@@ -786,4 +786,66 @@ export const cookingSEO = {
       { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
     ],
   },
+
+  "meal-planner": {
+    sections: [
+      createAnswerFirstSection(
+        "How a Weekly Meal Planner Saves Money and Time",
+        "A household that meal-plans typically wastes 30% less food and spends 20 to 25% less on weekly groceries, according to WRAP's UK food-waste research. The planner gives you a 21-cell grid (7 days x 3 meals: breakfast, lunch, dinner) with a paired grocery list of 16 lines down the side. Fill in the meals you want, jot the ingredients on the right, and you have a shopping list that exactly matches the week's cooking - no impulse buys, no half-used cucumbers wilting by Friday.",
+        "The grid is intentionally compact. A typical week needs about 12 to 18 grocery lines once you account for repeated ingredients (one onion can cover three dinners), so 16 default rows fit most households. Add more if you are catering for a family of five; the 'Add 5 rows' button extends the list as you go."
+      ),
+      createAnswerFirstSection(
+        "Building a Week That Actually Works on a Tuesday Night",
+        "The single biggest meal-planning failure is over-ambition. Monday is fine - you've had the weekend to prep, you still feel virtuous. By Tuesday you are tired, by Wednesday someone has a school play, and by Thursday the elaborate dinner you planned is a takeaway. Mix three categories: 1-2 'flagship' dinners (slow-cooked, mid-week-friendly), 2-3 'fast' dinners (under 30 minutes), and 1-2 'planned leftovers' nights where Tuesday's roast becomes Wednesday's wraps.",
+        "The planner has a notes box at the bottom for shopping reminders ('big shop Saturday', 'fishmonger closed Mondays') and budget/spent fields so you can track whether the £80 weekly budget actually covered it. Combine this with the [Calories in Recipe](/calories-in-recipe) calculator to add a nutrition lens for anyone tracking macros, or the [BBQ Planner](/bbq-planner) for weekend cooking that doesn't fit a normal weekday slot."
+      ),
+      {
+        heading: "Realistic Cook-Time Categories for Each Slot",
+        table: {
+          headers: ["Day", "Suggested Style", "Time Budget", "Examples"],
+          rows: [
+            ["Monday", "Make-ahead Sunday batch", "10 min reheat", "Bolognese from Sunday's batch, jacket potato"],
+            ["Tuesday", "30-minute dinner", "30 min", "Pesto pasta, fish fingers + greens, stir-fry"],
+            ["Wednesday", "Slow cooker / oven", "8 hr unattended", "Chilli, casserole, lasagne"],
+            ["Thursday", "Quick & easy", "20 min", "Eggs & beans, omelette, simple curry"],
+            ["Friday", "Fakeaway", "30 min", "Homemade pizza, fried rice, kebabs"],
+            ["Saturday", "Flagship / dinner party", "1+ hr", "Roast, slow-cooked beef, pad thai"],
+            ["Sunday", "Sunday roast / batch cook", "2-3 hr", "Roast chicken with leftovers planned in"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "The Grocery List That Doesn't Forget the Onion",
+        "The right way to use the grocery list is to fill it in as you fill in the meals, line by line. Plan tagliatelle bolognese for Tuesday? Add 'mince' and 'tinned tomatoes' to the grocery list immediately. Don't try to derive the list at the end of the week from your meal plan; the human brain is terrible at compiling 16 ingredients across 7 meals without skipping the staple you assumed was in the cupboard.",
+        "Each grocery line has a checkbox so you can tick items off as you shop or as you add them to the trolley online. The premium PDF download is built like a fridge magnet: meal grid on the left, grocery list with checkboxes on the right, notes section at the bottom. Print it Sunday evening, stick it on the fridge, and the rest of the week runs itself. For prep-ahead recipes that turn into multiple meals, the [Recipe Cost Calculator](/recipe-cost-calculator) helps you see which ones are also the cheapest per portion."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many meals should I actually plan each week?",
+        "Most UK households eat at home 5 nights out of 7. Plan all 7 dinners but mark 2 as 'flexible' or 'leftovers' - one of those will inevitably become a takeaway, the other an Uber Eats moment of weakness, and the rest will hold. Planning all 7 rigidly leads to wasted food when life intervenes; planning only 3 or 4 leads to mid-week scrambling around 5 pm."
+      ),
+      createFAQ(
+        "Should I plan breakfasts and lunches too?",
+        "Optional but helpful for school-age children's packed lunches and for anyone trying to control snacking. Most adults default to a small number of breakfasts (porridge, toast, eggs) on rotation, so the breakfast row repeats. Lunches get more interesting if you batch-cook a lunch-friendly soup or curry on Sunday evening to portion across the week."
+      ),
+      createFAQ(
+        "What's the best way to handle dietary restrictions?",
+        "Tag each meal with the most-restrictive eater's needs. If your household has one vegetarian and three omnivores, plan vegetarian-friendly meals for everyone twice a week (lentil curry, halloumi traybake, mushroom stroganoff) and have a side of meat available the other nights. The dietary filter at the top toggles 'all', 'vegetarian', 'vegan', 'gluten-free' to nudge meal suggestions when you're stuck for inspiration."
+      ),
+      createFAQ(
+        "Can I save my plan and reuse it next week?",
+        "Yes - the planner saves to your browser's localStorage automatically. Hit 'Clear' to start fresh on Sunday evening. The premium PDF export is the better long-term archive: download a copy each week and you build a personal recipe rotation over a couple of months. Most families have about 25 'staple' weeknight dinners they cycle through; the rest is variation."
+      ),
+      createFAQ(
+        "How does this work alongside online food shopping?",
+        "Beautifully. Tesco, Sainsbury's, Ocado and Morrisons all let you build a basket Sunday and book a Monday or Tuesday slot. Use the meal planner to draft the week, then add items from the grocery list to the basket as you go. The checkbox column ticks off items as you click 'add to basket', so by the time the basket is full, the list is fully ticked. Most weeks this takes about 25 minutes and saves £15 to £25 vs unplanned in-store shopping."
+      ),
+    ],
+    relatedTools: [
+      { slug: "calories-in-recipe", label: "Calories in Recipe" },
+      { slug: "bbq-planner", label: "BBQ Planner" },
+      { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
+    ],
+  },
 };
