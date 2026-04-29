@@ -600,4 +600,359 @@ export const funSEO = {
       { slug: "savings-burndown", label: "Savings Burndown" },
     ],
   },
+
+  "celebrity-birthday-twin": {
+    sections: [
+      createAnswerFirstSection(
+        "Who Shares My Birthday?",
+        "Enter your birth date and the tool returns the celebrities born on the same day of the year (the same calendar date, ignoring birth year). The list draws from a database of around 800 well-known names spanning actors, musicians, athletes, scientists, politicians and historical figures, and shows each person's name, birth year and what they're known for. You'll typically get between 5 and 15 matches depending on how popular your date is.",
+        "Some dates are absurdly stacked. 14 February has Michael Bloomberg, Florence Henderson and a dozen others; 25 December crams Humphrey Bogart, Annie Lennox, Justin Trudeau and Sissy Spacek into the same line. Other dates are quieter and you'll get a handful of names you may not recognise. That's not a bug; it just means fewer A-list celebrities happened to be born on 7 March. The fun part is when you find someone who shares not just the date but the same year as you."
+      ),
+      createAnswerFirstSection(
+        "What Counts as a 'Birthday Twin'?",
+        "Strictly, a birthday twin shares the same calendar date. A 'star twin' shares the same date AND year, which is much rarer and gives you the same astrological chart down to the minute if you also know the time. The chance of any two random people sharing a birthday is 1 in 365, but in a room of 23 people the probability that two of them share a birthday is over 50%. That's the famous birthday paradox.",
+        "If you want to push it further, the chance of being a star twin with a specific celebrity (same date, same year) drops to roughly 1 in 133,000 if they're alive and roughly your age. Worth a screenshot if it happens. Pair this with the [how common is your name](/how-common-is-your-name) tool to see whether you also share a popular name with your celebrity twin, which makes for a fun social media post."
+      ),
+      createAnswerFirstSection(
+        "How the Database Was Built",
+        "The list was assembled from public-domain biographical sources and weighted toward people likely to be recognised by a global English-speaking audience in 2026. Coverage is heaviest for 20th and 21st century film, music and sport (where most users will recognise names) and lighter for 18th and 19th century historical figures. If a date returns nobody you've heard of, it's not because nobody famous shares your birthday; it's because famous-by-our-definition skews modern.",
+        "Names are not weighted by current fame. A child star from the 1980s sits next to a sitting head of state. The tool also includes some high-recognition deceased figures (Mozart, Lincoln, Marilyn Monroe) where the date is iconic. If you'd like to dig into how popular your own name is alongside your celebrity twin's, try [How Common Is Your Name?](/how-common-is-your-name)."
+      ),
+      createAnswerFirstSection(
+        "What to Do With the Result",
+        "It's a great icebreaker. 'I share a birthday with [name]' beats 'I'm a Capricorn' as a conversation starter at a party, because it's specific and people can actually picture the celebrity. Some people pin it to their LinkedIn or use it in dating profiles. Others screenshot the list every year on their birthday and share it on social media; February dates in particular tend to do well because the lists are dense.",
+        "If your match is someone you genuinely admire, you've got a low-effort birthday tradition: rewatch one of their films, listen to one of their albums, read about them. If your match is someone awful, treat it as a coincidence and move on; you don't have to claim them. For more shareable trivia about yourself, try the [mental age quiz](/mental-age-quiz) or [which decade do you belong in](/which-decade-do-you-belong-in)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why don't I recognise any of the names on my list?",
+        "Some calendar dates have fewer 'household name' celebrities than others. Mid-July and early February are densely populated with famous birthdays; some January and November dates are sparser. The database currently covers around 800 well-known figures, so on a thin date you may only see 3 or 4 names and they might be more niche (older film stars, historical figures, athletes outside your country's main sports)."
+      ),
+      createFAQ(
+        "Can I find someone born on the same day AND year as me?",
+        "The tool shows birth years for every celebrity on the list, so you can scan the year column for a match. Same-day-same-year matches are rare; you're looking at roughly a 1 in 130,000 chance for a given celebrity who happens to be alive and roughly your age. If you find one, you have a 'star twin' and your astrological chart matches theirs (minus the time and place of birth)."
+      ),
+      createFAQ(
+        "Is this list updated when celebrities pass away?",
+        "Currently it's a static database, so deceased celebrities still appear (which is the right call, since people often want to see if they share a birthday with a historical figure). New high-profile birthdays get added periodically when public figures break into mainstream recognition. The list errs on the side of inclusion: better to show you a name you can google than miss your favourite obscure indie musician."
+      ),
+      createFAQ(
+        "Does this work for any country's celebrities?",
+        "The database leans Anglophone (UK, US, Canada, Australia, Ireland) because that's the user base, but includes high-profile figures from elsewhere where they're internationally recognised. If you're looking for celebrities specifically from a non-English-speaking country, coverage will be patchier; you'll see Federer or Beyoncé but probably not the equivalent local star unless they crossed over."
+      ),
+      createFAQ(
+        "Can I use this for trivia or pub quizzes?",
+        "It's surprisingly good for that. Pick three random dates, see who shares each one, and you have a quick 'guess whose birthday this is' round. Pair it with the [pub quiz generator](/pub-quiz-generator) for a full quiz. Also works well as a kid's history lesson: 'Mozart and you share a birthday' tends to land better than a textbook."
+      ),
+    ],
+    relatedTools: [
+      { slug: "how-common-is-your-name", label: "How Common Is Your Name?" },
+      { slug: "mental-age-quiz", label: "Mental Age Quiz" },
+      { slug: "which-decade-do-you-belong-in", label: "Which Decade Do You Belong In?" },
+      { slug: "fortune-cookie-generator", label: "Fortune Cookie Generator" },
+    ],
+  },
+
+  "paint-colour-mixer": {
+    sections: [
+      createAnswerFirstSection(
+        "What Colour Do You Get When You Mix Two Colours?",
+        "Pick two colours from the palette (or use the custom hex picker) and the tool returns the average of the two RGB values, which is what most paint-mixing in everyday life produces. Mix red (#FF0000) and blue (#0000FF) and you get purple (#7F007F). Mix yellow (#FFFF00) and blue (#0000FF) and you get a muddy grey-green (#7F7F7F), which surprises people raised on the 'yellow + blue = green' rule from primary school.",
+        "That surprise is the entire reason the tool exists. Subtractive colour mixing (real paint, where pigments absorb wavelengths) and additive RGB mixing (screens, where light combines) follow different rules. Online tools work in RGB because that's what your monitor speaks. The result you see is what those two colours produce on screen; in actual oil or acrylic paint, the result will be a bit different because of how pigments interact. Use this for digital design, hex code experiments and 'what would this look like' tests, not for predicting the exact shade your wall will become."
+      ),
+      createAnswerFirstSection(
+        "How the Mixer Calculates the Result",
+        "The maths is the average of the two hex codes' red, green and blue components, taken separately. Red 100 mixed with red 200 gives red 150. Same for green and blue. So #FF0000 (255, 0, 0) mixed with #0000FF (0, 0, 255) gives (127, 0, 127), which is hex #7F007F. The tool then matches the result against a list of around 30 named colours and shows you the closest one (e.g. 'Mauve', 'Olive', 'Mint').",
+        "If you want different ratios (70% red, 30% blue instead of 50/50), this tool doesn't do that. It always splits 50/50. That's a deliberate simplification: real paint mixing has hundreds of variables (white base, drying time, light source, gloss vs matte) and a tool that pretended to model all of them would be giving false precision. For weighted mixes try the [colour palette generator](/colour-palette-generator), and for digital colour work the [colour contrast checker pro](/colour-contrast-checker-pro) checks accessibility once you've picked your shades."
+      ),
+      createAnswerFirstSection(
+        "Why Yellow Plus Blue Doesn't Always Make Green",
+        "On screen, yellow is full red and full green light combined (#FFFF00). Blue is full blue light (#0000FF). Average those and you get half red, half green, half blue, which is grey. That's not a bug in the tool; that's how RGB averaging works. In actual paint, yellow pigment absorbs blue light and reflects green/red; blue pigment absorbs red/green and reflects blue. Mixed together, only green light gets reflected by both, so you see green.",
+        "Tools that simulate paint properly use a model called Kubelka-Munk that approximates how light bounces through layers of pigment. That model is overkill for picking a hex code. If you're a digital artist or designer, the RGB average is what you actually want, because it tells you what your screen will show. If you're a traditional painter trying to predict the exact colour of cobalt blue mixed with cadmium yellow, no tool will fully replace mixing a test patch on your palette."
+      ),
+      createAnswerFirstSection(
+        "Common Use Cases",
+        "Designers use this when they want a transition shade between two brand colours (e.g. mixing a logo blue with a logo green to find a midpoint for a gradient). Hobbyists use it to see what custom hex values would look like before committing them to a CSS file or a craft project. Children use it because it's a satisfying loop: pick two squares, see what comes out, repeat.",
+        "Worth saying: the tool is fully client-side. Your colour combinations don't get logged or stored. If you find a result you like, save the hex code somewhere (a text file, a Notion page, a notes app) because the tool has no save feature. For building out a full palette from one starting colour, switch to [colour palette generator](/colour-palette-generator), which takes one input and gives you four or five complementary shades."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why does mixing red and green give brown?",
+        "On screen, red is (255, 0, 0) and green is (0, 255, 0). The average is (127, 127, 0), which is olive/dark yellow, not brown exactly but close. In the colour-naming list, this lands at 'Olive'. Brown is technically just a dark, low-saturation orange or red, so the perception of 'brown' depends on what surrounds it. Try mixing the result with a third colour for richer browns."
+      ),
+      createFAQ(
+        "Can I mix more than two colours?",
+        "Not in one step. The tool is strictly two-input. If you want a three-colour mix, mix the first two, copy the resulting hex code, then mix that with the third colour. Each step takes the average, so the final result is mathematically equivalent to weighting the first two colours at 25% each and the third at 50%."
+      ),
+      createFAQ(
+        "What's the closest named colour for my mix?",
+        "The tool runs the result against around 30 well-known colour names (Burgundy, Mauve, Olive, Coral, Teal, etc.) and returns the closest match by RGB distance. If your result doesn't match any common name within a reasonable threshold, it labels it 'Mixed Color'. The match isn't perfect; colour naming is subjective and brands often disagree on what counts as 'coral' vs 'salmon'."
+      ),
+      createFAQ(
+        "Will the on-screen colour match real paint?",
+        "Approximately, in good lighting, on a calibrated monitor. In practice, no. Paint has texture, sheen and pigment behaviour that screens don't reproduce. Use the tool to narrow your shortlist, then get a paint sample pot before committing to a wall. For brands like Farrow & Ball or Dulux, also check their official hex code, which is usually published; this tool's RGB average won't match their published values exactly."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "colour-contrast-checker-pro", label: "Colour Contrast Checker Pro" },
+      { slug: "gradient-generator", label: "Gradient Generator" },
+      { slug: "hex-to-rgb", label: "Hex to RGB Converter" },
+    ],
+  },
+
+  "how-common-is-your-name": {
+    sections: [
+      createAnswerFirstSection(
+        "How Popular Is Your Name in the UK?",
+        "Type your first name and the tool returns its rank in the UK over the past century, the decade it peaked in popularity, and whether it's currently rising, falling or stable. Names like 'Oliver' and 'Noah' are rising sharply (Oliver was rank 16 historically but is the top boys' name in 2025); names like 'Karen' and 'Linda' have collapsed since their 1960s peak. The database covers around 100 male and female names that have appeared in the UK Office for National Statistics top-ranked baby name lists since 1900.",
+        "If your name isn't in the database, you're probably either very common (it should be there - try a different spelling) or genuinely rare. The tool also shows a six-decade bar chart so you can eyeball the trend. James was huge in the 1940s (rank 1) and is still strong but no longer top. Sarah peaked in the 1990s. Mary was the dominant girls' name for most of the 20th century and has now fallen off entirely from the top 100."
+      ),
+      createAnswerFirstSection(
+        "Why Some Names Vanish While Others Endure",
+        "Names follow generational cycles of around 80 to 100 years. A name your grandmother had (Doris, Edna, Mildred) feels old-fashioned to your parents but charming to your children, who will likely revive it. Names your parents had (Karen, Linda, Susan) are in the trough right now and feel dated, but they'll come back in 30 to 40 years. This is why baby naming consultants advise against picking the dominant name of your own parents' generation; you're picking the name that will feel most aged to your child as they grow up.",
+        "Some names break the cycle and become genuinely timeless. James, William, Mary and Elizabeth have stayed in the UK top 30 for over a century. They're 'safe' picks if you want a name that won't date. The downside is that your child will share a classroom with two other Williams. For more naming research, try the [baby name explorer](/baby-name-explorer) or generate options with the [baby name generator](/baby-name-generator)."
+      ),
+      createAnswerFirstSection(
+        "How the Rankings Are Calculated",
+        "The data approximates UK ONS baby name records from 1900 to 2020s, sampled in decade buckets (1920s, 1930s, etc.). Rank shown is roughly that name's position in the all-time top 100 across the period. The 'peak' value tells you which decade saw the most babies given that name. The trend label compares the most recent two decades against the earlier four: 'rising' means current popularity exceeds historical average, 'stable' means flat, 'falling' means it's well below its peak.",
+        "There are limits. Spelling variants (Sara vs Sarah, Stephen vs Steven) are usually grouped, but not always. Welsh, Scottish and Northern Irish names that didn't break into the all-UK top list won't appear; the ONS publishes separate national lists for those, which this tool doesn't currently merge in. Names with strong religious or cultural roots in immigrant communities (Mohammed, Fatima) are in the actual ONS top 100 for the 2010s and 2020s but historical depth is shallow because they weren't recorded as separate entries before mass migration."
+      ),
+      createAnswerFirstSection(
+        "What to Do With Your Result",
+        "If your name is rare (rank 80+) you've got something distinctive. If it's top 10 (currently Olivia, Amelia, Isla, Ava, Mia for girls; Noah, Oliver, George, Arthur, Muhammad for boys), prepare to share it with classmates and colleagues forever. Knowing your name's peak decade is a fun shortcut for guessing someone's age: if you meet a Karen, she's almost certainly born between 1955 and 1975. If you meet an Olivia, she's almost certainly under 25.",
+        "Pair this with the [celebrity birthday twin](/celebrity-birthday-twin) tool to find a celebrity who shares both your name and your birthday, which is genuinely rare and a great social media post. If you're picking a baby name, run the candidates through here to avoid accidentally picking something currently surging (your kid will be one of five in their class) or sliding into trough territory (your kid will sound like their grandmother)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "My name isn't in the database. What does that mean?",
+        "It usually means your name has never appeared in the UK ONS all-time top 100, so it's genuinely uncommon. The database currently covers around 100 male and 100 female names that have hit the top 100 at some point since 1900. Names with regional, ethnic or modern coinages (Mohammed-spellings, very modern American imports, made-up Instagram names) may be missing even if they're now rising. If you spelled it differently (Sara vs Sarah, Mohammed vs Muhammad), try both."
+      ),
+      createFAQ(
+        "Why is the data UK-only?",
+        "The UK Office for National Statistics publishes high-quality baby name data going back over a century, which makes the trend lines reliable. US Social Security Administration data also exists but the lists differ significantly (Madison, Ashley and Tiffany rank much higher in the US than the UK, and vice versa for Oliver and Charlotte). A US-specific version may come later. For now, names ranked here are by UK frequency."
+      ),
+      createFAQ(
+        "Does the tool know about double-barrel or compound names?",
+        "Mostly no. Mary-Jane, Tommy-Lee, Lily-May and similar compound names are tracked separately by the ONS but aren't in this tool's current database. If you have a double-barrel name, search for the first half and you'll get a reasonable approximation of how common your full name is."
+      ),
+      createFAQ(
+        "Can I see the trend chart for my name?",
+        "Yes, when your name is in the database you'll see a six-bar chart showing approximate frequency by decade (1960s through 2020s, roughly). The bars are scaled relative to that name's peak, not to other names, so a small bar for 'James' is still more babies than a tall bar for 'Atticus'. The trend label ('rising', 'falling', 'stable') summarises the shape of the chart."
+      ),
+      createFAQ(
+        "Is it OK to pick a falling name for my baby?",
+        "Yes, if you like it. Falling names often feel fresh again after 60 to 80 years. 'Margaret' and 'Florence' were considered terribly dated in the 1990s and are now solidly back in fashion. Use the chart to spot names that are deep in their trough; those are the names most likely to be revived in the next decade. Avoid names that are at peak right now, because they'll feel saturated to your child as they grow up."
+      ),
+    ],
+    relatedTools: [
+      { slug: "celebrity-birthday-twin", label: "Celebrity Birthday Twin" },
+      { slug: "baby-name-explorer", label: "Baby Name Explorer" },
+      { slug: "baby-name-generator", label: "Baby Name Generator" },
+      { slug: "mental-age-quiz", label: "Mental Age Quiz" },
+    ],
+  },
+
+  "excuse-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "When a Genuine Excuse Won't Do",
+        "The tool returns a random excuse from one of five categories: work, social, gym, chores or school. Pick the category, click generate, and you get one excuse at a time (no list dumps). Each excuse is a complete one-liner you can copy and paste into a text. Examples lean believable rather than absurd: 'My washing machine flooded and I'm waiting for the engineer' for work, 'I've come down with something and don't want to spread it' for social, 'My back has been giving me trouble' for gym.",
+        "It's not a tool to teach you how to lie effectively. It's a tool for the moments when you genuinely need to bail, you can't find words, and you'd rather have a list to pick from than stare at a blank text input. The four most common scenarios users actually hit: declining a colleague's after-work drinks, getting out of a gym day you committed to with a friend, postponing a chore you said you'd do, and writing a 'sorry I missed it' message after the event."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Category",
+        "Work excuses lean toward logistics and dependents (childcare emergency, household problem, urgent appointment). Social excuses lean toward energy and timing (early start tomorrow, family thing came up, not feeling 100%). Gym excuses are mostly body-related (sore from yesterday, twinge in the back, virus going round). Chores excuses are practical (ran out of time, store was closed, missing the right tool). School ones (designed for older kids and teenagers, not primary-age) are the classic forgot-my-book / left-it-at-home / printer-broke set.",
+        "Match the category to the relationship. Don't use a 'gym' excuse with your boss. Don't use a 'school' excuse on your dentist. The categories aren't disguised; they affect tone (chores excuses are casual, work excuses are professional). If the excuse the tool gives you would obviously not work for your situation, generate again. There are around 15 to 20 excuses per category and you can keep cycling until something fits. Pair this with the [compliment generator](/compliment-generator) if you want to soften the message."
+      ),
+      createAnswerFirstSection(
+        "What Makes an Excuse Believable",
+        "Specific beats vague. 'My boiler broke this morning' is better than 'something came up' because it's hard to follow up on without being intrusive. Excuses that name a third party (the engineer, the doctor, the school) are stickier than excuses that depend only on you. Excuses that imply you'll be free later or tomorrow are kinder than 'I just don't feel like it', which feels rejecting even if it's the honest version.",
+        "Don't escalate. If you've used 'my boiler is broken' twice this month with the same person, switch categories. Most excuses get burned after one use; the same household crisis happening repeatedly looks suspicious. The tool deliberately rotates examples so you don't pick the same one twice in a row. Where possible, soft-cancel rather than hard-cancel: 'Can we move it to next week?' instead of 'I can't make it tonight.'"
+      ),
+      createAnswerFirstSection(
+        "When You Should Just Say No",
+        "If you're regularly using excuses to dodge something, the problem isn't the excuse, it's the commitment. Saying no without justification is a skill worth building. 'Thanks for the invite, I won't make this one' is a complete sentence and doesn't need a story. Most people don't follow up. The ones who do are usually the ones who'd see through a bad excuse anyway. Keep this tool for the genuinely awkward one-offs (last-minute cancellations, things you said yes to and now regret) rather than as a daily habit.",
+        "If you find yourself constantly bailing, look at why. Are you over-committing? Are you saying yes when you mean maybe? Use a structured plan to figure out which obligations you actually want to keep. The [bucket list generator](/bucket-list-generator) is good for re-prioritising what you actually want your free time for; the [roast generator](/roast-generator) is good if you need a friend to call you out instead. The excuse generator is the bandage, not the cure."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are these excuses safe to use professionally?",
+        "The 'work' category is written to be plausible in office settings. They lean toward unverifiable household or family issues that managers won't typically grill you on. Avoid using them more than once a quarter with the same manager; HR systems usually log absence patterns and a string of 'flooded boilers' raises eyebrows. Genuine illness ('I've come down with something') is usually the safest excuse because most workplaces don't want sick people in the office anyway."
+      ),
+      createFAQ(
+        "Will my friend know I used a generator?",
+        "Almost certainly not. The excuses are written to sound natural in a text message and don't have telltale phrases. The give-away is usually behaviour, not wording: if you reply five seconds after seeing their invite with a perfectly polished 30-word excuse, that's faster and tidier than a real bail message normally is. Wait a minute, drop a typo or two, and add a relationship-appropriate phrase ('sooo sorry') and it'll read as genuine."
+      ),
+      createFAQ(
+        "Can I generate an excuse for being late?",
+        "Most of the work and school excuses double as 'late' excuses if you swap 'I can't come in' for 'I'm running late'. Traffic, train delays, a school run that overran, finding the cat that escaped, are all on the lists. The tool doesn't have a separate 'late' category but the work category covers it well."
+      ),
+      createFAQ(
+        "Why does the gym category feel guilt-trippy?",
+        "Gym excuses are weird because the only person you're letting down is yourself (or a workout buddy). Most users hitting that category are looking for words to say to a friend after they've already decided not to go. The excuses are written to acknowledge that and not pretend you tried. If you want motivation instead of a way out, swap to the [compliment generator](/compliment-generator) for some self-affirmation."
+      ),
+      createFAQ(
+        "Can I add my own excuses?",
+        "Not in the tool itself; it's a fixed database. If you've got a great excuse the tool doesn't have, the easiest workaround is to use it as a starting point and rewrite the result in your own voice. For something funnier and more absurd, try the [conspiracy theory generator](/conspiracy-theory-generator) or the [roast generator](/roast-generator) for irreverent angle."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compliment-generator", label: "Compliment Generator" },
+      { slug: "roast-generator", label: "Roast Generator" },
+      { slug: "conspiracy-theory-generator", label: "Conspiracy Theory Generator" },
+      { slug: "fortune-cookie-generator", label: "Fortune Cookie Generator" },
+    ],
+  },
+
+  "compliment-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "When You Want to Say Something Nice and Can't Find the Words",
+        "The tool returns a single warm compliment from one of four categories: friends, partner, colleagues, or self-affirmation. Each compliment is written to feel genuine rather than smarmy: 'You make even ordinary days feel special' for partners, 'Your work ethic inspires the whole team' for colleagues, 'I'm proud of how far I've come' for self. Click generate to cycle through the bank (around 10 to 15 per category). Copy the one you like and send it.",
+        "Most users land here for one of three reasons: they want to send something kind to someone going through a rough patch but don't trust their own writing voice; they're trying to dilute a long stretch of grumpy texts with something warmer; or they're working on self-talk and want a starter phrase they can actually believe. None of those are silly. Putting kindness into words is a skill, not a personality trait, and reading three good examples helps you write a better fourth."
+      ),
+      createAnswerFirstSection(
+        "Why the Compliment Has to Match the Relationship",
+        "A 'partner' compliment ('You make me feel completely myself') sent to a colleague will land at best as awkward and at worst as creepy. A 'colleague' compliment ('Your professionalism sets the standard') sent to your partner reads as cold and corporate. The category structure exists so you can sort the language register before you send. If the tool throws you something that doesn't fit, generate again; the bank is small enough that you'll see most options within five clicks.",
+        "The 'self' category is different. It's written in first person ('I'm proud of how I handled that') rather than 'you' statements, because self-affirmation needs to feel like something you'd actually say to yourself in the mirror, not something a stranger said about you. If you want positive content for journalling or morning routines, this category produces single-sentence prompts that are short enough to write on a sticky note. The [bucket list generator](/bucket-list-generator) pairs well if you also want goal-setting prompts."
+      ),
+      createAnswerFirstSection(
+        "Making a Compliment Feel Genuine",
+        "Compliments work best when paired with one specific thing the person actually did. The generator gives you the warm framing; you add the detail. 'You make even ordinary days feel special' becomes 'You make even ordinary days feel special - like that random Tuesday you brought home a slice of cake just because you knew I'd had a long meeting'. The specifics turn it from a greeting card into something only you could have written.",
+        "Don't string three compliments together. One sincere line beats three. Don't use it as a setup for a request ('You're so talented... could you also help me move on Saturday?'); the compliment becomes obvious manipulation. Use them at neutral moments rather than after arguments or right before asks; the timing matters more than the wording. If you're trying to repair after a fight, lead with apology, not flattery."
+      ),
+      createAnswerFirstSection(
+        "Why Self-Affirmation Works (Even When It Feels Silly)",
+        "Saying nice things to yourself feels artificial at first because most people aren't in the habit of it. There's actually decent research behind it: writing self-affirmations before stressful events lowers cortisol and improves task performance, particularly for people who are usually self-critical. The trick is to pick affirmations you can plausibly believe ('I'm capable of handling difficult conversations') rather than ones that feel too far from where you are ('I am the most successful person in my industry').",
+        "Treat the self-affirmations from this tool as a starting bank. The ones that resonate, you save. The ones that feel hollow, you skip. Over a couple of weeks you'll naturally drift toward the framing that fits your life. Pair this with the [excuse generator](/excuse-generator) if your problem is also that you're saying yes to too many things and need a way to bow out kindly, or with the [nickname generator](/nickname-generator) if you want a more playful angle."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Will it sound generic if I send a generated compliment?",
+        "It's the difference between 'happy birthday' and 'happy birthday, hope today's amazing'. The base phrase from the tool is fine; the bit of context you add (a name, a specific shared moment, an emoji that fits how you actually text) makes it sound like you. Most people don't analyse compliments for evidence of human writing; they just feel pleased."
+      ),
+      createFAQ(
+        "Is the 'partner' category appropriate for a new relationship?",
+        "Some of them are. The longer-relationship ones ('After all these years you still surprise me') will feel premature in week three. The shorter ones ('You make me laugh in a way nobody else does') work fine from early dating onwards. Generate a few, pick the ones that match where you actually are, ignore the rest."
+      ),
+      createFAQ(
+        "Can I use these for online dating profiles or bios?",
+        "The 'self' category works well as a tone-setter for a bio, but read the result out loud first. Anything that sounds like a corporate mission statement ('I am committed to excellence') will turn people off. The compliments in this tool are designed for one-to-one messages, not public profiles, so use them as inspiration rather than copy-paste."
+      ),
+      createFAQ(
+        "How is this different from a roast generator?",
+        "Compliments are sincere and warm; the [roast generator](/roast-generator) is for friendly teasing between people who clearly like each other. They're not interchangeable. A roast lands as a roast because the relationship is already strong; a compliment lands when timing and specificity are right. Pick the tool that matches the vibe you want, not the energy you have at the moment of writing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "excuse-generator", label: "Excuse Generator" },
+      { slug: "roast-generator", label: "Roast Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+      { slug: "fortune-cookie-generator", label: "Fortune Cookie Generator" },
+    ],
+  },
+
+  "nickname-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Nickname Generator Builds Variants From Your Name",
+        "Type a name and pick a style (cute, cool, funny, sporty, royal, gamer). The tool generates eight nickname variants by chopping your name into syllables and combining the chunks with style-specific suffixes. For 'Alexander' in cute style: Alexie, Alexkins, Alexy, Alexpoo, little A, Alexsweet, Alexcup, honeyA. Same name in gamer style: xAlexx, Alex_pro, darkAlex, Ar_gaming, Alexslayer, legend_Alex, Alexnova, epic_A.",
+        "It works best for names that have at least 5 letters and some kind of repeatable syllable. Short names (Tom, Sam, Liz) come out a bit thin because there's not much to chop; you'll see things like 'tokins' and 'tosweet' which are fine for small kids but odd for adults. Longer names (Christopher, Elizabeth, Alexander) give the most varied output. Click any of the eight results to copy it to clipboard; the tool doesn't save anything."
+      ),
+      createAnswerFirstSection(
+        "Picking a Style That Fits the Person",
+        "Cute (-ie, -kins, -y, -poo, honey-) is for partners, kids, pets and very close friends. Don't use a 'cute' nickname for a colleague; it will read as patronising or worse. Cool (initials, -man, the -, -force, captain -) is what people pick when they want their gamertag or DJ name to sound confident. Funny (-zilla, -tron, professor -, mighty -) is for friend groups where everyone has an in-joke nickname; outside that context it'll fall flat.",
+        "Sporty (turbo -, flash -, speed -, power -) is what coaches give younger kids; it sounds dated on adults. Royal (king -, his majesty -, sir -, emperor -) is high-camp and only works ironically. Gamer (x_x, dark_, legend_, _slayer) is for usernames on Steam, Discord and Xbox Live; absolutely don't put it on your CV. The category structure exists so you don't accidentally call your boss 'Alexpoo'. Try the [excuse generator](/excuse-generator) if you want a way to get out of an awkward nickname someone gave you."
+      ),
+      createAnswerFirstSection(
+        "When the Output Is Bad",
+        "It happens. Some name-and-style combinations break the formula and produce something unusable. 'Hugh' in royal style becomes 'King Hu' which isn't ideal. 'Phil' in cute becomes 'Philpoo' which is a hard sell. The tool doesn't filter for actual usability; it just runs the algorithm. If your eight results all look weird, try a different style, try a longer version of the name (Philip not Phil, Hugh not Hu) or use the name in a different way (last name, full name, middle name).",
+        "If you're naming a character (game, novel, podcast handle) rather than a person, the 'cool' and 'gamer' styles tend to give the most usable output because they're designed to look like internet handles. Don't expect the result to be a one-shot perfect name; most people generate, copy two or three favourites, and pick from there. Pair with the [business name generator](/business-name-generator) if you're naming something other than a person."
+      ),
+      createAnswerFirstSection(
+        "Nicknames That Stick vs Ones That Don't",
+        "A nickname sticks because it's short, easy to say, and earned naturally. 'Beth' for Elizabeth sticks because everyone in the family started using it when she was 6. 'Eli-thunder-beth' invented by your friend group in week two of university doesn't stick because nobody can be bothered to say all of it. The names from this tool are starting points; they only become real nicknames if the person you give them to actually starts using them. Most won't.",
+        "Don't impose nicknames on adults you don't know well. Even a friendly 'cool' style nickname can read as overstepping. Wait until someone uses it about themselves first, or ask. For self-naming (a gamertag, a podcast name, a Discord handle) you have full freedom; pick whatever you like, you can always change it. For naming someone else (a partner, a colleague, a sibling), be lighter on the trigger. The [compliment generator](/compliment-generator) is a safer way to give someone something positive than inventing a nickname they didn't ask for."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why are some of the nicknames just my name with letters tacked on?",
+        "That's the algorithm. The tool slices your name in half (first syllable) and adds style-specific suffixes. Long names with multiple natural break points (Alexander → Alex, Christopher → Chris) generate cleaner-sounding nicknames than short names. If your output is mostly 'name + suffix' results, try entering a slightly longer version (full name including middle, or first + last) for more variety."
+      ),
+      createFAQ(
+        "Are gamer nicknames OK to use as actual usernames?",
+        "On Steam, Discord, Xbox Live and most game platforms, yes. The format (lowercase, underscores, mixed letters and numbers) matches platform conventions. They won't be unique because thousands of other people have similar handles, so you'll likely have to add numbers when you register. The tool doesn't check uniqueness; it just generates possible names."
+      ),
+      createFAQ(
+        "Can I generate a nickname for my pet?",
+        "Yes. Cute style works particularly well for pets (Bellakins, Rexie, Honeymax). Royal style is unintentionally hilarious for cats (King Whiskers, Lord Mittens). Just type the pet's name in the input field instead of a person's."
+      ),
+      createFAQ(
+        "What if my name is non-Western and the suffixes don't fit?",
+        "The suffixes are designed around English phonology, so they may sound forced on names from other languages. Try the cool or gamer styles, which use initials and shorter chunks rather than English diminutives. If nothing fits, the tool may just not be the right fit for your name; the [business name generator](/business-name-generator) might give you a better starting point if you're looking for something creative rather than diminutive."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compliment-generator", label: "Compliment Generator" },
+      { slug: "business-name-generator", label: "Business Name Generator" },
+      { slug: "baby-name-generator", label: "Baby Name Generator" },
+      { slug: "excuse-generator", label: "Excuse Generator" },
+    ],
+  },
+
+  "this-or-that-decider": {
+    sections: [
+      createAnswerFirstSection(
+        "When You Genuinely Cannot Pick Between Two Things",
+        "Type two options into the boxes (Pizza vs Tacos by default) and click Decide. The tool runs a 3-second animation, then declares one of the two the winner. After the result, it asks 'How do you feel?' with two buttons: 'Great!' (you accept the result) or 'Actually, [the other one]' (you flip to the other option). That second button is the entire point of the tool: the moment you see the random pick and feel disappointed, you've just learned which one you actually wanted.",
+        "It's not a serious decision aid. The randomisation is a 50/50 coin flip; the tool isn't weighting cost, time, calories or any other factor. What it does well is force a decision out of someone who's been stuck for ten minutes between two restaurants. Use it for tiny choices that don't matter much (lunch, film, route home) and for medium choices where you've over-thought it and need a tiebreaker. Don't use it for genuinely consequential decisions; you need a pros-and-cons list, not a coin flip."
+      ),
+      createAnswerFirstSection(
+        "The Real Decision-Making Trick (Disguised as a Random Tool)",
+        "The 'How do you feel?' prompt after the result is borrowed from a classic decision-making technique: when you can't pick, flip a coin, and the moment the result lands, notice which one you wanted to win. If you're glad the coin showed Option A, then A is your real preference; if you're disappointed, B is. The tool just automates that trick. Most people who use it don't even need the random pick; they need the tiny moment of relief or disappointment that tells them what they actually want.",
+        "If you keep flipping the result with the 'Actually...' button until you're satisfied, you've used the tool perfectly. That's not a failure of the randomiser; that's you arriving at your real preference through elimination. The animation between options exists to give you that moment of suspense in which you commit emotionally to one outcome. A pure instant-result coin flip wouldn't trigger the same feeling."
+      ),
+      createAnswerFirstSection(
+        "Common Use Cases",
+        "Lunch decisions are by far the top use, followed by film/show decisions and 'should I go out tonight or stay in'. Couples and friend groups use it as a tiebreaker when they've been arguing in circles for fifteen minutes. Solo users use it to break analysis paralysis on tiny purchases (red mug or blue mug, this jumper or that one). It also works for binary ethical-but-not-serious dilemmas: 'tell my friend their haircut looks weird, or stay quiet'.",
+        "Don't use it for things that would benefit from research. 'Buy this house or that house' is not a coin-flip decision. 'Which job offer should I take' is not a coin-flip decision. For those, sit down with a list of pros and cons or talk to someone you trust. The this-or-that decider is a low-stakes tool for low-stakes decisions; using it for life choices is the equivalent of choosing your university by drawing names from a hat. Save it for the trivial stuff and you'll get good use out of it."
+      ),
+      createAnswerFirstSection(
+        "Why You Get Stuck on Tiny Decisions",
+        "Decision fatigue is real. Once you've made 50 decisions in a day (what to wear, what to eat for breakfast, which email to answer first), tiny binary choices late in the day become disproportionately hard. Your brain is conserving glucose and would rather defer than commit. That's why people who eat the same breakfast every day or wear the same outfit (Steve Jobs, Mark Zuckerberg) report feeling sharper for the bigger decisions; they've eliminated the small ones.",
+        "If you find yourself reaching for this tool multiple times a day, you might be over-optioning your life. Try eating the same lunch on weekdays for a fortnight and see how much mental energy that frees up. Use the tool for the genuinely random choices (which film tonight) and try to reduce the number of trivial decisions you face overall. The [bucket list generator](/bucket-list-generator) is a counterpoint: it's for when you have too few choices, not too many."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the result genuinely random?",
+        "Yes. The tool uses Math.random() which gives a pseudo-random 50/50 split. There's no weighting based on which option you typed first, no tracking of past choices, no algorithm that figures out what you 'really' want. Whatever appears is a true coin flip. The 'Actually, the other one' button is what makes the tool useful, not the randomness itself."
+      ),
+      createFAQ(
+        "Can I add more than two options?",
+        "Not in this tool, no. It's strictly a binary decider. If you have three or more options, you've got two ways forward: run the tool multiple times in a tournament bracket (A vs B, then winner vs C), or eliminate options yourself first and bring it down to two. Most three-option dilemmas are really two-plus-a-default; spot the default and you're back to a binary."
+      ),
+      createFAQ(
+        "Does it work for serious decisions like job offers?",
+        "Don't use it that way. The 'check how you feel about the result' trick can be a useful tiebreaker between two roughly equal options, but if your decision involves significant money, time or relationships, you need a proper pros-and-cons sheet and ideally a conversation with someone who's been through a similar choice. This tool is for trivia."
+      ),
+      createFAQ(
+        "Why does it take 3 seconds to decide?",
+        "The animation gives you time to commit emotionally to one option before the result appears. A pure instant flip would skip that emotional step and miss the entire point of the tool. The 3 seconds is intentional; if you're impatient, you're using it wrong (and probably don't actually need the tool, you've already decided)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "magic-8-ball", label: "Magic 8 Ball" },
+      { slug: "coin-flip", label: "Coin Flip" },
+      { slug: "fortune-cookie-generator", label: "Fortune Cookie Generator" },
+      { slug: "bucket-list-generator", label: "Bucket List Generator" },
+    ],
+  },
 };

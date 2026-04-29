@@ -700,4 +700,368 @@ export const fitnessSEO = {
       { slug: "early-pregnancy-symptoms-checker", label: "Early Pregnancy Symptoms Checker" },
     ],
   },
+
+  "tdee-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What TDEE Actually Tells You",
+        "Your Total Daily Energy Expenditure is the calorie figure your body burns in 24 hours including everything: breathing, heart rate, walking the dog, the gym session, fidgeting at your desk. This calculator works it out in two steps. First it computes your Basal Metabolic Rate using the Mifflin-St Jeor equation (the most accurate of the common formulas for adults), then multiplies that by an activity factor between 1.2 and 1.9 to land on TDEE.",
+        "A worked example. A 35-year-old woman, 165cm, 68kg, who trains 3 to 5 days a week sits at a BMR of about 1,392 and a TDEE of around 2,158 (BMR x 1.55). Eat that number and weight stays flat. Eat 500 fewer (around 1,658) and the calculator marks that as a weight-loss target of roughly 0.45kg per week. Eat 500 more and that is the gain target. The 500 figure comes from the rough rule that 7,700 kcal equals 1kg of body fat, so a daily 500-kcal change works out to half a kilo a week."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Activity Multiplier",
+        "Almost everyone overestimates this. Sedentary (1.2) is desk work and almost no purposeful exercise. Light (1.375) is 1 to 3 short workouts a week. Moderate (1.55) is 3 to 5 sessions. Very active (1.725) is 6 to 7 sessions or a physical job. Extremely active (1.9) is twice-a-day training or hard manual labour. If you are unsure, drop one level - underestimating activity gives a TDEE that is closer to your real maintenance, which is exactly what you want for a fat-loss target.",
+        "The activity multiplier already includes your incidental movement (NEAT), not just the workout itself. So a one-hour gym session does not bump you up a tier on its own. The honest test: have you trained at least 3 times this week, AND walked or moved noticeably outside that? If only the first is true, stay on light. If you sit at a desk all day and train hard 4 times a week, moderate is closer than very active. Pair the result with the [calorie deficit calculator](/calorie-deficit-calculator) if you want a deficit target tied to a specific weekly weight-loss goal."
+      ),
+      createAnswerFirstSection(
+        "Why the Scale Tells You More Than the Calculator",
+        "The Mifflin-St Jeor equation has a standard error of about 10% in either direction. So a TDEE of 2,200 might actually be 1,980 or 2,420 for a real human. The calculator is a starting point; your bathroom scale and tape measure are the editor. Eat at the calculated maintenance for two weeks, weigh yourself daily and average the readings. If weight is steady, the number is right. If you have gained 0.5kg, drop the target by 100 to 150 calories. If you have lost without trying, add the same.",
+        "Two specific things break the formula. Muscular people are underestimated (the equation assumes average body composition), so a lifter at 80kg often has a higher TDEE than the maths suggests. People with very low body fat after a long diet are over-estimated because metabolic adaptation reduces TDEE by 5 to 15% below predicted. If you have just finished a long cut, expect maintenance to be lower than the calculator says for 8 to 12 weeks. The [BMI calculator](/bmi-calculator) gives a rough sense of whether the standard formula will fit your body, and the [protein intake calculator](/protein-intake-calculator) helps split the calorie target into macros."
+      ),
+      createAnswerFirstSection(
+        "Macros Inside the TDEE Number",
+        "The calculator splits your calorie total into protein, carbs and fats. A sensible default for active adults is around 30% protein, 40% carbs, 30% fat. On a 2,200-calorie target that is 165g protein, 220g carbs, 73g fat. Protein and carbs are 4 calories per gram; fat is 9. That ratio works for most people; weight-loss phases lean higher protein (35 to 40%), endurance athletes lean higher carbs (50 to 55%).",
+        "If you only track one number, track protein. Hitting the protein target is what protects muscle in a deficit and what fills you up so the deficit is bearable. A useful floor: 1.6g per kg of bodyweight (so 109g for the 68kg woman in the worked example), 2.2g per kg if you are lean and lifting hard. The carb and fat split is mostly preference; some people sleep better with more carbs at dinner, some feel sharper with more fat in the morning. Test both for two weeks and pick the one you actually stick to."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is TDEE the same as BMR?",
+        "No. BMR is what you would burn lying in bed for 24 hours - the calorie cost of just keeping organs running. TDEE is BMR plus everything else you do: walking, working, training, digesting food. For most people TDEE is 30 to 90% higher than BMR depending on activity level. The calculator gives you both numbers; you eat to TDEE, not BMR."
+      ),
+      createFAQ(
+        "Why does the calorie loss target subtract exactly 500?",
+        "1kg of body fat stores roughly 7,700 calories of energy. A daily deficit of 500 calories adds up to 3,500 a week, which works out to about 0.45kg of fat loss per week (1lb in old money). It is the round number that ends up being the safe upper limit for sustainable fat loss without losing too much muscle. If you want faster, the [calorie deficit calculator](/calorie-deficit-calculator) lets you set the deficit manually, but going beyond 1,000 calories below TDEE rarely sticks for more than a few weeks."
+      ),
+      createFAQ(
+        "Should I recalculate TDEE as I lose weight?",
+        "Yes. Every time you drop 5kg, TDEE drops by roughly 50 to 100 calories because there is less of you to maintain. If your weekly weight loss has stalled for 3+ weeks, recalculate using your current weight and shave another 100 to 150 calories off the daily target. Do not eat back exercise calories on top of the activity multiplier; that double-counts."
+      ),
+      createFAQ(
+        "Does TDEE include the workout I just did?",
+        "Only via the activity multiplier. The calculator does not let you log a specific session and add the calories burned. The activity factor is a weekly average baked into your maintenance number. So if you train 4 times a week, the moderate multiplier (1.55) already accounts for those sessions on average. Adding extra calories on training days is a personal preference, not a calculation requirement."
+      ),
+      createFAQ(
+        "Why does the same height and weight give different TDEE for men and women?",
+        "Mifflin-St Jeor uses different constants for each: men get +5, women get -161 in the BMR equation. The gap is about 166 calories at the same height, weight and age. The reason is that men typically carry more lean tissue and less fat at the same total bodyweight, and lean tissue burns more calories at rest. The formula approximates that population difference."
+      ),
+    ],
+    relatedTools: [
+      { slug: "calorie-deficit-calculator", label: "Calorie Deficit Calculator" },
+      { slug: "protein-intake-calculator", label: "Protein Intake Calculator" },
+      { slug: "macro-calculator", label: "Macro Calculator" },
+      { slug: "bmi-calculator", label: "BMI Calculator" },
+    ],
+  },
+
+  "heart-rate-zone-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the 5 Heart Rate Zones Are Calculated",
+        "The calculator uses the simplest reliable estimate of maximum heart rate: 220 minus your age. So a 35-year-old has an estimated max HR of 185 bpm. From there it splits the range into five zones at 50/60/70/80/90% intensity: Recovery (50-60%), Fat Burn (60-70%), Aerobic (70-80%), Anaerobic (80-90%) and VO2 Max (90-100%). Each zone has a different physiological purpose, and structuring training around them is what separates polarised training from grinding away at one pace forever.",
+        "There is also a Karvonen toggle, which is more accurate. Karvonen takes your heart rate reserve (max HR minus resting HR) and applies the zone percentages to the reserve, then adds back the resting figure. For the same 35-year-old with a resting HR of 60, the aerobic zone via 220-age is 130-148 bpm; via Karvonen it is 148-160. Karvonen produces higher zone targets because it accounts for the fact that fit people start with a lower resting HR and have more dynamic range to work with."
+      ),
+      createAnswerFirstSection(
+        "What Each Zone Is Actually For",
+        "Recovery (50-60%) is genuinely conversational - you could sing. It is for active recovery, warm-ups and cool-downs. Fat Burn (60-70%) is the longest part of any aerobic build; it is where most of your weekly volume should sit if you are building base fitness. Aerobic (70-80%) is comfortably hard, the tempo zone, where threshold improves. Anaerobic (80-90%) is what most people picture when they say 'hard cardio' - intervals of 3 to 8 minutes. VO2 Max (90-100%) is short, awful efforts of 30 seconds to 5 minutes that improve maximum oxygen uptake.",
+        "The single most common mistake is spending all your time in zone 3 (aerobic). Comfortable enough to do every day, hard enough to feel like training, hard enough to leave you tired without any of the adaptations of true zone 2 or true zone 5. The 80/20 rule from coaching research: 80% of weekly minutes in Recovery and Fat Burn, 20% in Aerobic and above. If a session feels moderately hard the whole way, you are probably grey-zoning. Use a chest strap and push the easy days easier."
+      ),
+      createAnswerFirstSection(
+        "Why the 220-Age Formula is Only Roughly Right",
+        "The 220-minus-age formula was derived in the 1970s and has a standard deviation of about 10-12 bpm. So for any given age, real max HR ranges over roughly 25 bpm. A 40-year-old might have a true max of 168 or 192. The calculator's estimate is the population midpoint, not your actual ceiling. If your zone 4 efforts feel impossibly easy or impossibly hard at the predicted heart rates, your true max HR is probably above or below the formula.",
+        "The accurate way to find max HR is a hard test. After a thorough warm-up, do 4 minutes hard, 2 minutes easy, then run or cycle uphill for 3 minutes increasing pace until you cannot maintain it. The peak number on your watch is close to true max HR. Do not do this without a baseline of training, and not at all if you have any history of heart issues. Beta blockers, thyroid medication and some antidepressants change resting and max HR; if you take any, ask your GP before training to numbers from this calculator."
+      ),
+      createAnswerFirstSection(
+        "When to Use Karvonen Instead",
+        "If you know your resting heart rate, Karvonen is the better default. Resting HR drops as you get fitter, so the gap between the two methods grows over a training year. A new runner with a resting HR of 75 and an experienced runner with a resting HR of 50 will have very different zones at the same age, and Karvonen reflects that. The plain 220-age method ignores resting HR completely.",
+        "Measure resting HR for accuracy. First thing in the morning, before getting up, before coffee or your phone alarm, take a 30-second pulse at the wrist or neck and double it. Do that for three to seven days and average. A typical adult sits at 60-80 bpm; trained endurance athletes are often in the 40s; under 40 bpm is normal in highly trained runners and cyclists but warrants a chat with your GP if you also feel dizzy or fatigued. The [TDEE calculator](/tdee-calculator) is useful alongside this if you are training for fat loss and want to set the calorie target to match the cardio volume."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Which zone burns the most fat?",
+        "By percentage, the Fat Burn zone (60-70% of max HR) burns the highest fraction of calories from fat - around 50 to 60% of total calories. By absolute amount, harder zones burn more total calories and therefore more grams of fat in the same workout, even though the percentage from fat is lower. So 'fat burn zone' is a misleading name. For weight loss, total weekly calories burned matters more than the zone you burn them in. Use whichever zone you can sustain for the most minutes per week."
+      ),
+      createFAQ(
+        "Should I train in the higher zones every day?",
+        "No. The polarised model that elite endurance athletes use puts roughly 80% of weekly time in zones 1-2 and 20% in zones 4-5, with very little in zone 3. High intensity needs recovery; doing zone 4 every day produces overtraining within 6 to 8 weeks for most non-elite athletes. A typical week for a recreational runner: three easy zone 2 runs, one zone 4 interval session, one long zone 1-2 run, two rest days."
+      ),
+      createFAQ(
+        "Why does my heart rate spike higher than my predicted max?",
+        "Because the formula is an average. About 30% of people have a true max HR more than 10 bpm above or below 220-age. If your watch shows you regularly hitting 195 when your predicted max is 185, your true max is probably 195 (or higher) and your zones should be recalculated using that. Heat, dehydration, caffeine and stress can all push HR up by 5 to 15 bpm without changing your effort level, so a one-off spike on a hot day is normal."
+      ),
+      createFAQ(
+        "Is heart rate or pace the better way to control intensity?",
+        "Heart rate is better for solo training, hilly terrain, hot days and base-building. Pace is better for flat track work, race-pace efforts and when you know your fitness exactly. Most experienced runners use both: pace as the target on track sessions, heart rate as a reality check on easy days when ego pushes pace too high. If your easy run heart rate is climbing week-on-week at the same pace, you are tired."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "swim-pace-calculator", label: "Swim Pace Calculator" },
+      { slug: "bmi-calculator", label: "BMI Calculator" },
+    ],
+  },
+
+  "conception-date-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How This Tool Works Backwards From Your Due Date",
+        "This calculator runs the pregnancy clock in reverse. Give it a due date and it subtracts 266 days to land on the most likely conception date. Give it the first day of your last period (LMP) and it adds 14 days. Both routes assume a textbook 28-day cycle with ovulation on day 14, which is why the result is a single date and not a range. Knowing this number is useful for matching ultrasound dating, working out which night actually counts and answering a partner's quietly persistent maths.",
+        "Worked example. Your due date is 1 January 2027. Subtract 266 days and conception was around 11 April 2026. Or: your last period started on 28 March 2026, add 14 days, conception around 11 April 2026. The two methods agree because the standard pregnancy duration of 280 days from LMP is exactly 266 days from conception plus 14 days from LMP to ovulation. Use the [pregnancy due date calculator](/pregnancy-due-date-calculator) if you need to go the other way and pin down the due date first."
+      ),
+      createAnswerFirstSection(
+        "Why It Differs From What You Remember",
+        "Sperm survive in the female reproductive tract for up to 5 days. The egg lives 12 to 24 hours after ovulation. So the conception date is not necessarily the same as the date of intercourse: a Saturday encounter can result in fertilisation on the following Wednesday if ovulation arrives later. The calculator gives you the most likely fertilisation day, not the most likely fun day. For couples trying to confirm paternity timing or date a complicated pregnancy, the realistic intercourse window is conception date minus 5 days through to conception date plus 1 day.",
+        "Cycle length matters too. The 14-day estimate assumes ovulation is exactly halfway through the cycle, but for someone on a 35-day cycle ovulation is closer to day 21, not day 14. If your cycles are reliably longer or shorter than 28 days, the LMP-based estimate from this tool will be off by the difference. The conception date calculation from due date is more reliable in that case, because the due date itself was usually adjusted for cycle length at your dating scan."
+      ),
+      createAnswerFirstSection(
+        "Matching It Up With Your Dating Scan",
+        "An early ultrasound (8 to 13 weeks) measures crown-rump length and works out how far along the embryo is. The result is a 'gestational age' counted from LMP, so subtract 14 days to get a conception estimate. If the scan says you are 9 weeks 4 days on the day of the scan, you conceived approximately 9 weeks 4 days minus 14 days = 7 weeks 4 days before scan day. Most due dates are revised at the dating scan if the scan-based age differs from LMP-based age by more than 5 to 7 days, because the scan is more reliable than memory of the last period.",
+        "If the calculator says one date and the scan says another, trust the scan. Your last period might have been a week earlier or later than you remember; ovulation might have been delayed by stress or illness. Scan dating is accurate to within 3 to 5 days in the first trimester. After 14 weeks scan dating gets less reliable because growth rates vary. The [implantation calculator](/implantation-calculator) projects the next milestone forward from this conception date, and the [fertile window calculator](/fertile-window-calculator) shows the broader window of intercourse dates that could explain the same conception."
+      ),
+      createAnswerFirstSection(
+        "When Knowing the Conception Date Actually Matters",
+        "Three real reasons people work this out. First, pinning down whose pregnancy it is when there are two possible partners and the last period predates both. Second, matching the conception window to a specific event - a wedding, a holiday, a fertility treatment cycle - so the rough timing makes sense. Third, working out whether a positive test is consistent with what you remember; a 4-week pregnancy means conception roughly 2 weeks ago, so a date 5 weeks ago should not have produced a positive test until last week.",
+        "This is a planning tool, not a diagnostic one. It cannot prove paternity (only DNA testing can), it cannot account for an irregular cycle without more information than 'last period date', and it does not replace medical advice. If the answer here matters legally, talk to your GP and ask for a dating scan as early as possible; the NHS offers one between 8 and 14 weeks and that is the date a court will rely on, not a calculator."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why does the calculator show one date and my partner counts a different week?",
+        "Because pregnancy is dated from LMP, not from conception. Doctors say 'you are 8 weeks pregnant' starting 8 weeks after your last period, when the actual embryo is 6 weeks old. The 2-week gap exists because you cannot pinpoint conception accurately, but you can pinpoint the LMP. So the conception date from this tool will always be roughly 2 weeks after the start of your gestational age count."
+      ),
+      createFAQ(
+        "Can I get pregnant from sex earlier or later than the calculated date?",
+        "Yes, within a 6-day window. Sperm can fertilise an egg up to 5 days after intercourse, and the egg itself lasts 12 to 24 hours after ovulation. So sex from 5 days before through to 1 day after the conception date can result in this pregnancy. If the question is which specific encounter caused the pregnancy and dates are close, only DNA testing can answer definitively."
+      ),
+      createFAQ(
+        "What if my cycle is not 28 days?",
+        "The LMP-based method assumes day 14 ovulation, which is wrong for most people. If your cycles run 30 days, ovulation is closer to day 16; for 35-day cycles, day 21. Add or subtract those days from the calculator's result. The due-date-based method (266 days back from due date) is more reliable for irregular cycles because the due date was probably already corrected at your dating scan."
+      ),
+      createFAQ(
+        "Why is conception 266 days before due date and not 280?",
+        "280 days (40 weeks) is measured from the first day of LMP. Conception happens roughly 14 days into that cycle, so 280 minus 14 = 266 days from conception to birth. The same baby, two reference points, two day counts. Pregnancy literature uses both, which is where most of the confusion comes from."
+      ),
+      createFAQ(
+        "Is this accurate enough to work out paternity?",
+        "Not on its own. The tool gives a single most-likely conception date based on the assumption of a regular 28-day cycle. The real conception window spans 6 days. If two possible partners had intercourse within that 6-day band, the calculator cannot distinguish between them. For paternity certainty, a non-invasive prenatal paternity test (from 7 weeks) or postnatal DNA test is the only reliable answer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pregnancy-due-date-calculator", label: "Pregnancy Due Date Calculator" },
+      { slug: "ovulation-calculator", label: "Ovulation Calculator" },
+      { slug: "implantation-calculator", label: "Implantation Calculator" },
+      { slug: "fertile-window-calculator", label: "Fertile Window Calculator" },
+    ],
+  },
+
+  "implantation-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Implantation Window is Projected",
+        "Implantation is when the fertilised egg burrows into the uterine lining, and it happens 6 to 12 days after ovulation, with peak frequency around day 9. Give the calculator either an ovulation date or your last period (LMP) plus cycle length, and it projects the start, peak and end of the implantation window. The default 28-day cycle puts ovulation at LMP + 14 days; a 30-day cycle pushes that to day 16, and the implantation window shifts with it.",
+        "Worked example. Ovulation on 12 May. Implantation window: 18 May (day 6) to 24 May (day 12). Most likely date: 21 May (day 9). The earliest a sensitive home pregnancy test would pick anything up is around day 8 to 10 post-ovulation, which is right inside this window, but most negative tests during the window are not false reassurance - they are just too early. The [when can I take a pregnancy test calculator](/when-can-i-take-a-pregnancy-test) tells you when to test based on this same timing."
+      ),
+      createAnswerFirstSection(
+        "Why This is Different From Conception Dating",
+        "Conception happens when sperm meets egg - within 24 hours of ovulation. Implantation happens 6 to 12 days later. Plenty of fertilised eggs never implant; medical estimates put pre-implantation loss at around 30% of all conceptions, mostly without the woman ever knowing she was pregnant. Implantation is the moment the body starts producing detectable HCG, the hormone home tests look for. So implantation, not conception, is the start of pregnancy biology that is visible from outside.",
+        "This is why the [conception date calculator](/conception-date-calculator) is the wrong tool if you are looking at a positive test and trying to match it to an event. A test going positive on day 14 post-ovulation means implantation happened around day 8 or 9, not necessarily that conception was 14 days ago - it was conception that planted the seed and implantation that announced it. If you are tracking early symptoms, count from the implantation window, not from intercourse."
+      ),
+      createAnswerFirstSection(
+        "What Implantation Actually Feels Like (and What It Doesn't)",
+        "Around 25 to 30% of pregnancies produce noticeable implantation bleeding: light pink or brown spotting that lasts a few hours to two days, lighter than a period and not always seen at all. It happens 6 to 12 days post-ovulation, often mistaken for an early period. Cramping is reported in a minority of cases, usually mild and one-sided. The other 70% of pregnancies implant silently - no spotting, no symptoms, just a positive test a week later. Absence of bleeding does not mean implantation failed.",
+        "What is not implantation: heavy bleeding with clots, sharp pain, fever, or any symptom that worsens over hours. Those need a phone call to your GP or 111, not a Google search. Symptoms that overlap (sore breasts, mild fatigue, queasiness) usually do not appear until a few days after implantation, when HCG is climbing. If you are tracking these for personal interest the [early pregnancy symptoms checker](/early-pregnancy-symptoms-checker) lists the timeline; just note that pre-period symptoms feel similar enough that most early signs are not diagnostic."
+      ),
+      createAnswerFirstSection(
+        "When You Can Reliably Test After Implantation",
+        "HCG starts at 0 mIU/mL the day before implantation and roughly doubles every 48 hours. By the day of missed period (usually 14 to 16 days post-ovulation), levels in a confirmed pregnancy are typically 25 to 100 mIU/mL, well above the 10 to 25 mIU/mL detection threshold of standard home tests. Tests labelled 'early result' or 'first response' detect from around 6.5 mIU/mL, so they can pick up pregnancy 2 to 4 days before missed period in roughly 70% of cases.",
+        "Three things help test reliability. Use first-morning urine when HCG is most concentrated. Wait at least 11 days post-ovulation; testing earlier produces false negatives even in textbook pregnancies. If a test is negative and your period has not arrived, retest in 48 hours. HCG that doubles every 2 days will cross the detection threshold within a few days even if it started below it. The [when can I take a pregnancy test calculator](/when-can-i-take-a-pregnancy-test) gives the day-by-day reliability curve if you are deciding whether to test or wait another two days."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "I had spotting 8 days after ovulation. Is that implantation?",
+        "It might be. Implantation bleeding occurs in 25 to 30% of pregnancies in the 6-12 day post-ovulation window, with day 8 well inside that range. The colour is usually pink or brown, the volume is much less than a period, and it stops within a day or two. The other possibility is a normal cycle with light spotting before a period; you cannot tell the difference until you test, and a useful test result usually needs another 3 to 5 days for HCG to rise enough."
+      ),
+      createFAQ(
+        "Can implantation happen later than 12 days after ovulation?",
+        "Rarely. The medical literature reports implantation at day 13 or 14 post-ovulation in a small percentage of pregnancies, and these later implantations have higher rates of early loss. If you are testing and getting negatives at 14 to 16 days post-ovulation but your period also has not arrived, repeat the test in 48 hours and contact your GP if it is still negative after 18 to 21 days post-ovulation."
+      ),
+      createFAQ(
+        "Does pain during the implantation window mean implantation is happening?",
+        "Probably not. Mid-cycle cramping is common around ovulation and the days that follow, with or without pregnancy. If pain is on one side, sharp, persistent or accompanied by shoulder-tip pain or dizziness, get medical advice the same day - those can be signs of an ectopic pregnancy and need ruling out. Mild, intermittent twinges are not a reliable sign of implantation either way."
+      ),
+      createFAQ(
+        "If I miscarried at 5 weeks, when did implantation actually fail?",
+        "Most very early miscarriages (called chemical pregnancies) reflect implantation that started but did not establish a stable connection with the uterine wall. The pregnancy registers on a test, then HCG fails to double or starts to fall within 1 to 2 weeks. The implantation window itself was probably normal; the issue is usually chromosomal in the embryo and not something the parent caused or could prevent."
+      ),
+      createFAQ(
+        "What if I do not know when I ovulated?",
+        "Use the LMP option and enter your usual cycle length. The calculator estimates ovulation as LMP + (cycle length - 14) days, then projects the implantation window from there. The estimate is rougher than working from a confirmed ovulation date (from OPKs, basal temperature charting or fertility tracking apps), but it is close enough for planning when to test. Add or subtract a couple of days of uncertainty either side."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ovulation-calculator", label: "Ovulation Calculator" },
+      { slug: "fertile-window-calculator", label: "Fertile Window Calculator" },
+      { slug: "pregnancy-due-date-calculator", label: "Pregnancy Due Date Calculator" },
+      { slug: "early-pregnancy-symptoms-checker", label: "Early Pregnancy Symptoms Checker" },
+    ],
+  },
+
+  "fertile-window-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Your Fertile Window is Calculated",
+        "The fertile window is the 6-day stretch each cycle when intercourse can result in pregnancy: the 5 days before ovulation plus ovulation day itself. The calculator works it out from your LMP and average cycle length. Ovulation is estimated as cycle length minus 14 (so day 14 for a 28-day cycle, day 16 for a 30-day cycle, day 21 for a 35-day cycle), and the fertile window is the 5 days before that plus the day itself.",
+        "Worked example. LMP on 1 May, 28-day cycle. Predicted ovulation: 14 May. Fertile window: 9 May to 14 May. Best chance of conception is the 2 to 3 days right before ovulation - around 11 to 13 May - because sperm need time to reach the egg and fertilisation chances peak when sperm are already waiting when the egg arrives. The calculator highlights ovulation day with a thicker ring and shades the fertile window across multiple months so you can plan ahead."
+      ),
+      createAnswerFirstSection(
+        "Why It is a 6-Day Window, Not a Single Day",
+        "Two biological windows decide it. Sperm can survive in the cervical mucus and fallopian tubes for up to 5 days, especially when fertile-quality mucus (clear, stretchy, slippery) is present. The egg, by contrast, only lives for about 12 to 24 hours after ovulation. Multiply those: sex up to 5 days before ovulation can still produce pregnancy because viable sperm are present when the egg drops, but sex more than 24 hours after ovulation is too late.",
+        "The classic Wilcox study from 1995 found that 100% of pregnancies in the dataset were conceived within this 6-day window, and roughly 30% of cycles in fertile couples produced pregnancy when intercourse happened within it. Daily intercourse during the window slightly outperforms every-other-day, but every-other-day is enough for most couples and is more sustainable. Pair this calculator with the [ovulation calculator](/ovulation-calculator) for a sharper view of the single highest-probability day."
+      ),
+      createAnswerFirstSection(
+        "What This Tool Cannot Predict",
+        "Calendar-based prediction works on the day-14-before-period assumption. That assumption holds for women with cycles between 26 and 32 days that are reasonably regular. It breaks for irregular cycles, cycles after coming off hormonal contraception, perimenopause, breastfeeding, after a recent miscarriage and during high-stress months. If your cycles vary by more than 5 days month to month, calendar prediction is a rough guide at best and can be completely wrong in any given cycle.",
+        "More reliable methods stack on top of the calendar. Cervical mucus changes from sticky and white to clear and stretchy in the days before ovulation. Basal body temperature rises by 0.2-0.5°C the day after ovulation, confirming it has happened. Ovulation predictor kits (OPKs) detect the LH surge 24 to 36 hours before ovulation. Used together with this calculator, they confirm whether the calendar prediction matches the body's actual signal. The [implantation calculator](/implantation-calculator) takes the next step forward and tells you when to expect implantation and when a test would be reliable."
+      ),
+      createAnswerFirstSection(
+        "Trying to Conceive vs Trying to Avoid",
+        "Reverse the use case and the same calculator becomes a fertility awareness tool. Couples avoiding pregnancy without hormonal contraception use this window plus 4-day buffers either side: do not have unprotected sex from 7 days after the start of the period until 3 days after temperature confirms ovulation. The buffer accounts for cycles that ovulate earlier than predicted (sperm could be alive and waiting) or later than predicted (an egg that arrives outside the calculated window).",
+        "Effectiveness varies dramatically. Calendar method on its own (Knaus-Ogino), the same approach this calculator uses, has a typical-use failure rate around 24% per year. Symptothermal methods that combine calendar with cervical mucus and temperature charting drop that to 2 to 5% with perfect use. If avoiding pregnancy matters, do not rely on this tool alone - use it alongside a fertility awareness method with proper training, or pair it with barrier protection during the highlighted window."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How often should we have sex during the fertile window?",
+        "Every 1 to 2 days is the sweet spot. Daily intercourse marginally raises per-cycle pregnancy chances but can lead to lower sperm counts in some men and burns couples out fast. Every-other-day during the 6-day window catches all the high-fertility days while keeping things sustainable. Save the more strategic days (2 days before ovulation through ovulation day) for guaranteed timing if energy is finite."
+      ),
+      createFAQ(
+        "Why does the calendar predict day 14 ovulation but my OPK says day 17?",
+        "Because the calendar prediction is an average, not a personal measurement. Many women ovulate later than day 14 even with a 28-day cycle; the luteal phase (post-ovulation) varies from 10 to 16 days between people. If your OPKs consistently detect the LH surge on day 17 in 28-day cycles, your fertile window is actually days 13 to 18, not days 9 to 14. Trust the OPK over the calculator when they disagree."
+      ),
+      createFAQ(
+        "Can I get pregnant outside the fertile window?",
+        "Almost never if calendar prediction is correct. The few documented pregnancies outside the calculated window happened because ovulation was earlier or later than the calendar predicted, not because sperm somehow survived 6+ days. The window itself is biological; only the timing of when it falls in your cycle is variable. If your cycles are unpredictable, the safe assumption is that fertile days could fall anywhere from day 7 to day 21 of any cycle."
+      ),
+      createFAQ(
+        "How long does it take to get pregnant within the fertile window?",
+        "For couples under 35 with no fertility issues, about 30% per cycle when intercourse is timed within the window, 50% within 3 cycles, 85% within 12 cycles. After 35, monthly chances drop to around 20%. If you have been timing intercourse correctly within the fertile window for 12 cycles (6 cycles if over 35) without conceiving, that is the threshold for talking to your GP about fertility investigations."
+      ),
+      createFAQ(
+        "What if my cycle length changes from month to month?",
+        "Track at least 6 cycles before relying on the calculator. Pick the shortest cycle and the longest cycle, then calculate the fertile window using both. If the shortest is 26 days, ovulation could be as early as day 12; if the longest is 33 days, as late as day 19. The combined fertile window for a variable cycle is the union: roughly day 7 to day 19, which is wide enough that calendar tracking alone is much less useful than it would be for someone with regular 28-day cycles."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ovulation-calculator", label: "Ovulation Calculator" },
+      { slug: "implantation-calculator", label: "Implantation Calculator" },
+      { slug: "conception-date-calculator", label: "Conception Date Calculator" },
+      { slug: "pregnancy-due-date-calculator", label: "Pregnancy Due Date Calculator" },
+    ],
+  },
+
+  "maternity-leave-planner": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Planner Calculates",
+        "Give the planner your due date, employment start date, average weekly earnings and (optionally) your intended leave start, and it works out four things: the earliest date you can start maternity leave (11 weeks before due date), your MATB1 deadline (you must give your employer the form by the end of the 15th week before due date), your Statutory Maternity Pay schedule, and your return-to-work date if you take the full 52 weeks. SMP is paid for 39 weeks: 6 weeks at 90% of your average weekly earnings, then 33 weeks at the statutory rate of £184.03 per week (or 90% of earnings, whichever is lower).",
+        "Worked example. Due date 1 October 2026, average weekly earnings £600, employment started January 2024. The planner shows: earliest leave start 17 July 2026, MATB1 deadline 18 June 2026, SMP weeks 1-6 at £540/week (£3,240 total), SMP weeks 7-39 at £184.03/week (£6,073 total), total SMP £9,313 across 39 weeks, leave end 30 September 2027. Weeks 40-52 of leave are unpaid. Job protection runs the full 52 weeks; you have a right to return to the same job if you take 26 weeks or less, a similar job if longer."
+      ),
+      createAnswerFirstSection(
+        "How to Qualify for SMP",
+        "You qualify for Statutory Maternity Pay if you have worked for the same employer for at least 26 weeks ending with the 15th week before your due date (the 'qualifying week'), and your average weekly earnings in the 8 weeks before that qualifying week are at least £125 (the lower earnings limit for 2025/26). Earnings means gross pay including overtime and bonuses, not just basic salary. The planner uses your declared earnings figure to compute SMP; double-check it against actual payslips for the calculation reference period.",
+        "If you do not qualify for SMP, you might qualify for Maternity Allowance via the DWP, which pays the same statutory rate (£184.03 for 2025/26) for 39 weeks but has different employment requirements. You can be self-employed, recently changed jobs, or have low earnings and still qualify for MA in many cases. The form is MA1 and you can claim from week 26 of pregnancy. This calculator focuses on SMP; for the alternative track, the gov.uk maternity-allowance page has the eligibility checker."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Leave Start Date",
+        "The earliest you can start maternity leave is 11 weeks before your due date. The latest is when the baby arrives. Most people start somewhere in between, and the choice matters financially. Starting at 11 weeks before due date means SMP starts at 11 weeks before due date - so you are paid 39 weeks from then, ending at 28 weeks postpartum. Starting at 4 weeks before due date pushes the SMP end date out to roughly 35 weeks postpartum but leaves you working in late pregnancy.",
+        "There is also an automatic trigger: if you are off sick with a pregnancy-related illness in the 4 weeks before due date, your maternity leave starts automatically the day after the first day of sickness. So planning to work until the day before due date is risky; many people aim to start leave at 35 to 38 weeks pregnant to give themselves cushion. You must give your employer 28 days' notice of your intended leave start (or 28 days' notice of any change to it), and the MATB1 form is the formal evidence. The [paye calculator](/paye-calculator) is useful alongside this if you are working out tax on the SMP figures (SMP is taxable income just like salary)."
+      ),
+      createAnswerFirstSection(
+        "What Happens to Pension and Benefits During Leave",
+        "Pension contributions continue during the paid 39 weeks at the level you would have received if working normally. So if your employer contributes 5% of salary, they should contribute 5% of your normal salary (not 5% of SMP) for the full 39 weeks. Your own contributions are based on what you actually receive - 5% of SMP, not 5% of normal salary. During the unpaid 13 weeks (weeks 40-52), employer pension contributions are not legally required, though some employers continue them.",
+        "Holiday accrues throughout the full 52 weeks of leave at your normal rate. So 28 days statutory holiday over a year of leave is still 28 days you can take when you return (or before, by tagging it on to maternity leave). Universal Credit, child benefit and tax credits work alongside SMP; child benefit kicks in once the baby is born and is currently £26.05 a week for the first child. The [child benefit calculator](/child-benefit-calculator) handles the high-income charge if either parent earns over £60,000. SMP itself is taxable and counts as earnings for tax credit purposes, so include it in your annual earnings declarations."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When do I have to tell my employer I am pregnant?",
+        "By the end of the 15th week before your due date, which is 25 weeks pregnant, give or take a week depending on cycle. Most people tell their employer earlier than that for practical reasons (occupational health, risk assessments), but the legal deadline for triggering SMP entitlement is the 15th-week-before mark. You also need to give them the MATB1 form (issued by your GP or midwife from week 20) by the same deadline."
+      ),
+      createFAQ(
+        "What is the actual difference between SMP and Maternity Allowance?",
+        "SMP is paid by your employer (who recovers most of it from HMRC). Maternity Allowance is paid directly by the DWP. The pay rates and 39-week duration are identical at the statutory level (£184.03/week for 2025/26). The difference is in qualifying conditions: SMP needs 26 weeks with the same employer, MA needs 26 weeks of work in the 66 weeks before your due date but allows multiple jobs, gaps and self-employment."
+      ),
+      createFAQ(
+        "Can I take all 52 weeks of maternity leave?",
+        "Yes. Statutory maternity leave is up to 52 weeks regardless of how long you have worked there. The first 26 weeks are 'ordinary maternity leave' and the second 26 weeks are 'additional maternity leave'. Pay only runs for 39 of those 52 weeks, so weeks 40 to 52 are unpaid unless your employer offers enhanced terms. You can return earlier than 52 weeks; you must give 8 weeks' notice of an early return."
+      ),
+      createFAQ(
+        "Does the planner account for shared parental leave?",
+        "Not directly. This tool plans your maternity leave assuming you take it all. If you and a partner are converting unused maternity leave into shared parental leave, you can transfer up to 50 weeks of leave and 37 weeks of pay (the 39 SMP weeks minus the 2 mandatory post-birth weeks). The maths gets fiddly and depends on how you split the time. Use the gov.uk shared parental leave calculator for that scenario, or the [child benefit calculator](/child-benefit-calculator) for the income-tax knock-on effects of either route."
+      ),
+      createFAQ(
+        "What is the MATB1 form and when do I get it?",
+        "MATB1 is the maternity certificate issued by your GP, midwife or hospital from 20 weeks pregnant. It states your due date and is the legal evidence your employer needs to start SMP. You must give the original (not a copy) to your employer no later than the end of the 15th week before due date - so usually around week 25 of pregnancy. Without MATB1, the employer is not legally required to start SMP."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pregnancy-due-date-calculator", label: "Pregnancy Due Date Calculator" },
+      { slug: "child-benefit-calculator", label: "Child Benefit Calculator" },
+      { slug: "paye-calculator", label: "PAYE Calculator" },
+    ],
+  },
+
+  "blood-alcohol-limit-by-country": {
+    sections: [
+      createAnswerFirstSection(
+        "How Drink-Drive Limits Compare Across Countries",
+        "Legal blood alcohol limits range from zero tolerance to 0.08% BAC depending on country. The lowest enforcement is in the UAE and Saudi Arabia at 0.00% (any alcohol behind the wheel is illegal). Sweden, Norway and Poland sit at 0.02%. Most of continental Europe (Germany, France, Spain, Italy) is at 0.05%. The UK (England, Wales, Northern Ireland), the US and Canada are at 0.08%. Scotland tightened to 0.05% in 2014 but the rest of the UK kept the older 0.08% limit. The calculator highlights the limit for the country you select and compares your estimated BAC against it.",
+        "Worked example. A 70kg adult drinks 2 standard drinks (each 14g of pure alcohol, roughly a pint of 4% beer) over an hour. The Widmark formula gives a starting BAC of around 0.05 to 0.06%, dropping at 0.015% per hour. After 1 hour, BAC sits around 0.04 to 0.05%. That is below the UK limit of 0.08% but at or above the Scottish, French and German limits of 0.05%. Same drinks, same body, three different countries, three different legal answers."
+      ),
+      createAnswerFirstSection(
+        "Why a Standard Drink is Not the Same Everywhere",
+        "The calculator uses 14g of pure alcohol per drink, the US definition. UK 'units' are 8g of alcohol each, Australia uses 10g, Japan uses about 19.75g. So 'one drink' on this tool is roughly 1.75 UK units, 1.4 Australian standard drinks, or 0.7 Japanese single drinks. If you are using UK units and want to convert, multiply UK units by 0.57 to get this tool's drink count. A pint of 4% beer is about 2.3 UK units which is 1.3 'drinks' on this calculator. A 175ml glass of 13% wine is 2.3 UK units, also about 1.3 drinks here.",
+        "Drink size matters more than people realise. A British pub pint at 5.2% beer carries 3 UK units (1.7 drinks). A 250ml glass of 13.5% wine carries 3.4 UK units (1.9 drinks). 'Two drinks' in a UK setting, calculated honestly, is often 4 to 5 UK units, which is 2.3 to 2.9 drinks on this tool. The result is a BAC closer to 0.08-0.10% for the same body weight. The [wedding drink calculator](/wedding-drink-calculator) is the same family of maths if you are working out drink quantities for an event."
+      ),
+      createAnswerFirstSection(
+        "Why a Calculator Cannot Tell You If You Are Safe to Drive",
+        "Real BAC depends on more than weight, drinks and time. Genetics affect alcohol dehydrogenase activity, sex changes the water-to-tissue ratio (women generally hit higher BAC than men at the same drinks and weight, by about 30%), food in the stomach slows absorption, fitness and hydration shift it. The Widmark formula this calculator uses is a population average and individual results can differ by 30 to 40%. So if the tool says 0.06% and the limit is 0.08%, your real BAC could be anywhere from 0.04% to 0.09%.",
+        "Police breath tests measure breath alcohol, which is converted to blood alcohol equivalent. The conversion ratio is set by law per country and is conservative: a borderline reading on this calculator can fail a breath test. Penalties scale fast: in the UK, drink-driving is a 12-month minimum disqualification, an unlimited fine, possible 6 months prison. In Sweden a result over 0.10% can be 2 years prison. In France first offence at 0.05% is a 4,500 EUR fine and 6-point licence penalty. The only safe BAC is zero, which means no alcohol within at least 12 hours of driving (longer if you drank heavily the night before). If in doubt, do not drive - taxi, public transport or a taxi-like app."
+      ),
+      createAnswerFirstSection(
+        "Specific Country Rules to Know",
+        "Some countries have lower limits for new drivers. Germany has 0.00% for under-21s and drivers in the first 2 years of holding a licence. France imposes 0.02% for new drivers (within 2 years of licence). Australia varies by state but most have 0.00% for learner and probationary drivers. The US has 0.02% for under-21 drivers in most states (zero tolerance). The calculator uses the standard adult limit; if you are a new or under-21 driver, treat any reading above 0.02% as illegal in most countries.",
+        "Commercial drivers face stricter limits everywhere. Truckers, bus drivers and taxi drivers in the UK and most of Europe are at 0.02% or zero. Aviation pilots in most jurisdictions are at 0.02% with an 8-hour bottle-to-throttle rule. Cycling under the influence is illegal in many European countries (Germany at 0.16% for cyclists, France at 0.05% same as drivers). The [travel visa checker](/travel-visa-checker) covers entry rules but each country's transport laws are worth checking before driving abroad - especially Italy, Czech Republic, Hungary and Romania, all at 0.00% for any driver."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the UK limit really 0.08% when most of Europe is 0.05%?",
+        "England, Wales and Northern Ireland are still 0.08% BAC, the joint highest in Europe alongside Malta. Scotland reduced its limit to 0.05% in December 2014. There has been ongoing campaigning to bring the rest of the UK in line with Scotland and the EU norm but the law has not changed. So a driver crossing from Carlisle to Gretna sees the legal limit drop in one step."
+      ),
+      createFAQ(
+        "How long does it take to be safe to drive after drinking?",
+        "Roughly 1 hour per UK unit, but the safe answer is longer. Alcohol elimination averages 0.015% BAC per hour, so a 0.06% peak takes around 4 hours to drop to 0.00%. After heavy drinking (5+ drinks), expect 8 to 12 hours minimum and potentially still over the limit the next morning. Coffee, cold showers and food do not speed up elimination - only time does. Plan ahead: if you drink past 11pm, do not drive before lunch."
+      ),
+      createFAQ(
+        "What is the limit in Saudi Arabia, Dubai and other zero-tolerance countries?",
+        "0.00% BAC. In the UAE, Kuwait, Qatar and Saudi Arabia, any detectable alcohol behind the wheel is a serious criminal offence carrying jail time, fines and deportation for foreigners. This applies regardless of where the alcohol was consumed - drinking on a flight in and then driving from the airport can be enough to trigger prosecution. If travelling to these countries, do not drink anything if you might drive."
+      ),
+      createFAQ(
+        "Does my body weight really change the legal answer?",
+        "Yes, significantly. The same 3 drinks produce 0.07% BAC in a 60kg adult, 0.05% in a 80kg adult, 0.04% in a 100kg adult. So at the UK 0.08% limit a heavier person can drink more before hitting it - but reaction time, judgement and coordination are impaired well below the legal limit for everyone. The [tipping guide abroad](/tipping-guide-abroad) is the kind of pre-trip check; this is another: know the limit, know your weight, plan transport home before the first drink."
+      ),
+      createFAQ(
+        "Can I be over the limit the morning after?",
+        "Easily. 8 standard drinks finished at midnight gives a BAC around 0.16%; at 0.015% elimination per hour, that drops to 0.06% by 7am - still over the Scottish, French and German limits, and only just under the English limit. Police set up morning checkpoints partly because of this. Heavy drinking the night before driving is one of the most common ways legitimate adults end up failing a breath test. If you want to drive at 8am and you drank 4+ standard drinks the previous evening, the safe rule is do not."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tipping-guide-abroad", label: "Tipping Guide Abroad" },
+      { slug: "travel-visa-checker", label: "Travel Visa Checker" },
+      { slug: "road-trip-cost-calculator", label: "Road Trip Cost Calculator" },
+    ],
+  },
 };

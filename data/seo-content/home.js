@@ -841,4 +841,764 @@ export const homeSEO = {
       { slug: "pythagorean-theorem-calculator", label: "Pythagorean Theorem Calculator" },
     ],
   },
+
+  "square-footage-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Working Out the Area You Actually Need to Cover",
+        "Square footage is length times width. The arithmetic is school-level. The mistake people make is measuring the room edge to edge and forgetting that flooring, paint and tile all need a wastage allowance on top. A 16 ft by 13 ft living room (the preset here) is 208 sq ft on the tape; the order you place at the trade counter should be closer to 230 sq ft once cuts, broken planks and the bad-batch reserve are accounted for.",
+        "The calculator splits a complex room into separate sections, so an L-shaped lounge or a kitchen-diner with an alcove gets totalled correctly. Drop in your cost per square foot or per square metre and the tool returns a project total with a 10% wastage line you can adjust upwards for diagonal laying, herringbone or tile patterns with a strong direction. Most flooring offcuts add 10 to 15%, and engineered planks at angles can push that to 20%."
+      ),
+      createAnswerFirstSection(
+        "Common UK Room Sizes for Sanity Checks",
+        "An average UK bedroom sits at about 120 sq ft, a typical living room around 200 sq ft, a single garage 128 sq ft. Knowing the rough shape of these numbers stops you placing an order for half a kitchen because the tape was being read in centimetres on one wall and feet on another. The calculator accepts metric or imperial and converts under the hood.",
+        "Circles and triangles trip people up. A round patio with a 4 m diameter has an area of pi r squared, not 4 m squared; the actual figure is closer to 12.6 sq m. The triangle mode halves a base-by-height rectangle for simple wedge sections. For kerb-stones, soakaway pits or anything with a depth, [Cubic Feet Calculator](/cubic-feet-calculator) takes the area output and adds the third dimension."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How do I calculate square footage for an irregular room?",
+        "Break the room into rectangles, triangles and any half-circle bays. Measure each piece, calculate the area separately, then add them. The calculator's section mode does this automatically: add a section for each piece, set the shape, enter the dimensions and the totals roll up at the bottom."
+      ),
+      createFAQ(
+        "How much wastage should I add for flooring?",
+        "10% is the default for straight laying with a uniform plank length. Push to 15% for a diagonal pattern or for short rooms where waste off each cut is bigger relative to the run. Tile mosaics and intricate patterns can need 20%. It is always cheaper to add the extra than to come back for half a box that turns out to be a different dye lot."
+      ),
+      createFAQ(
+        "What is the difference between square feet and square yards?",
+        "1 square yard equals 9 square feet (a yard is 3 ft each side). Carpet is sometimes priced per square yard in the UK, especially for older stock. Divide your sq ft total by 9 to compare like for like, or switch the calculator to yards directly."
+      ),
+      createFAQ(
+        "How do I convert square metres to square feet?",
+        "Multiply by 10.7639. A 20 sq m kitchen is 215 sq ft. The calculator accepts both units in the same project, so you can measure a tiled wall in metric and the floor in imperial without converting by hand."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tile-calculator", label: "Tile Calculator" },
+      { slug: "paint-calculator", label: "Paint Calculator" },
+      { slug: "cubic-feet-calculator", label: "Cubic Feet Calculator" },
+    ],
+  },
+
+  "tile-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Tiles You Actually Need",
+        "Floor area divided by tile area gives the bare minimum. The defaults here, a 4 m by 3 m kitchen with 450 mm by 450 mm tiles, work out at 12 sq m of floor and roughly 60 tiles before any wastage. Add the standard 10% allowance and the order rises to 66 tiles, which at 10 tiles per box rounds up to 7 boxes. That spare partial box is the buffer for breakages, off-cuts at the door threshold, and the inevitable chip when the diamond blade slips on the last cut.",
+        "Different tile sizes change the maths in surprising ways. Going from 300 mm to 600 mm tiles cuts the count fourfold for the same area, but each cut wastes more material because the off-cuts are bigger. Mosaics on a 300 mm sheet behave more like wallpaper than tile when it comes to allowance. For walls with a feature pattern or for a herringbone lay, push the wastage to 15% before you order."
+      ),
+      createAnswerFirstSection(
+        "Cost, Adhesive and Grout Often Get Forgotten",
+        "Floor tile prices in the UK range from about £15 per square metre at the budget end (plain ceramic, glazed) up to £80 or more for porcelain large-format and natural stone. The calculator takes per-tile or per-box pricing and totals the project, but the supplier line on the receipt is rarely the full bill. A 12 sq m floor needs roughly two 20 kg bags of flexible adhesive (about £30 each) and a 5 kg bag of grout (£15). Levelling clips and spacers add a tenner.",
+        "If the substrate is timber or an unstable screed, an uncoupling membrane is the difference between a floor that lasts twenty years and one that cracks in two winters. That layer adds £15 to £25 per square metre and is non-negotiable in bathrooms over joists. For paint and wall finishes near the tile line, [Paint Calculator](/paint-calculator) handles the trim coverage."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much wastage should I allow for tiles?",
+        "10% is standard for a straight grid layout in a simple square or rectangle. For diagonal lays, herringbone or pattern repeats, allow 15%. For complex bathrooms with multiple cuts around toilets, vanities and pipes, push to 20%. Returning unopened boxes is usually possible; running out mid-job is much worse."
+      ),
+      createFAQ(
+        "How many tiles fit in a square metre?",
+        "It depends on tile size. A 300 mm tile gives 11.1 per square metre, a 450 mm tile gives 4.9, a 600 mm tile gives 2.78. Trade counters usually quote coverage per box rather than tile count; one 10-tile box of 450 mm tiles covers about 2 sq m."
+      ),
+      createFAQ(
+        "How much adhesive and grout do I need?",
+        "Standard rule of thumb is one 20 kg bag of tile adhesive per 4 to 5 sq m for floor tiles, or one bag per 6 to 8 sq m for walls. A 5 kg bag of grout covers around 8 to 10 sq m of standard 6 mm joints. Wider joints and larger tiles use more grout."
+      ),
+      createFAQ(
+        "Should I buy tiles with the same batch number?",
+        "Yes. Even within a single design, dye lots vary slightly between batches. Buying enough on day one to finish the job, including the wastage allowance, avoids the heartbreak of finishing a wall with a noticeably different shade across the grout line. Keep a spare box for future repairs."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-footage-calculator", label: "Square Footage Calculator" },
+      { slug: "paint-calculator", label: "Paint Calculator" },
+      { slug: "wallpaper-calculator", label: "Wallpaper Calculator" },
+    ],
+  },
+
+  "fence-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Panels, Posts and the Bag of Concrete You Forget",
+        "Standard UK lap-panel fencing is sold in 1.83 m (6 ft) wide panels at heights from 0.9 m to 1.8 m. A 20 m run of 1.8 m panels (the default here) needs 11 panels and 12 posts, because there is always one more post than panel. At roughly £25 a panel and £8 a post that is £371 in timber alone before fixings. Add a 20 kg bag of postcrete per post (£3 each) and post caps at £2 a piece, and the total drifts past £450 just for the basics.",
+        "Concrete-set posts last 15 to 20 years if the timber is pressure-treated and the concrete is dome-shaped to drain water away from the post base. Metal post spikes are quicker to install (no waiting for the concrete to set) but only suit short panels in firm ground; on a windy site, anything above 1.5 m wants concrete. Swap the fixing type in the calculator and the materials list adjusts."
+      ),
+      createAnswerFirstSection(
+        "Adding a Gate Changes the Posts",
+        "A single gate is typically 0.9 m wide and a double gate around 3 m. The calculator subtracts the gate from the panel length so the run still works out, but a gate post is doing more work than a panel post and usually steps up to a heavier 100 mm by 100 mm timber or a metal gate post with concrete in. Budget around £35 for a single gate, £45 for a double, plus the heavier gate post.",
+        "Gravel boards underneath the panel keep the panel itself off wet ground and add a second life to the timber. They cost around £3 each and are worth every penny on a fence that runs along a flower bed. For the patio and driveway groundwork that sometimes ties in with a new fence, [Gravel Calculator](/gravel-calculator) handles the aggregate side."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many fence panels do I need for 20 metres?",
+        "Eleven 1.83 m panels covers 20.13 m, just over the run. You also need 12 posts (panels plus one), 12 post caps and 12 bags of postcrete if setting in concrete. Add gravel boards if you want the panels held off the ground."
+      ),
+      createFAQ(
+        "How deep should fence posts be?",
+        "For a 1.8 m fence, sink the post at least 600 mm into the ground (so use a 2.4 m post). Heavier or windier sites benefit from 750 mm. The hole should be roughly three times the post width across, filled with concrete that domes upwards above ground level to shed water."
+      ),
+      createFAQ(
+        "Concrete or metal post spikes?",
+        "Concrete is the standard for fences over 1.5 m or in soft ground; spikes shake loose under wind load on tall panels. Spikes work fine for 0.9 m garden borders or for replacing a single failed post in firm clay. Most installers use concrete by default."
+      ),
+      createFAQ(
+        "Whose fence is it on the boundary?",
+        "Check the deeds. There is no legal default in England and Wales; a T mark on the plan points to the side responsible for that boundary. If the deeds are silent, neighbours often agree informally to share the cost. Always have the conversation before driving a post in."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gravel-calculator", label: "Gravel Calculator" },
+      { slug: "concrete-calculator", label: "Concrete Calculator" },
+      { slug: "square-footage-calculator", label: "Square Footage Calculator" },
+    ],
+  },
+
+  "gravel-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Volume First, Then Tonnes",
+        "Gravel is sold by weight, but you measure the area and depth. Multiply length by width by depth (in metres) for cubic metres, then multiply by the gravel density to get tonnes. Pea gravel runs at about 1.6 tonnes per cubic metre; MOT Type 1 sub-base is denser at 2.1. A 10 m by 5 m driveway laid 50 mm deep needs 2.5 cubic metres, which converts to roughly 4 tonnes of pea gravel before wastage.",
+        "The calculator handles this in one step and adds a 10% allowance, because gravel always settles, scatters and disappears down border edges. Bulk bags hold around 850 kg each (the trade calls them tonne bags but most are slightly under). On a typical 4-tonne driveway order, expect 5 bulk bags delivered. Mini-bags at 25 kg each are useful for top-ups and hard-to-access gardens, but at roughly £4 a bag they cost three times as much per tonne as bulk delivery."
+      ),
+      createAnswerFirstSection(
+        "Depth Is Where People Underorder",
+        "A decorative top-up of 25 mm looks fine on a smart border. Anything you walk on regularly needs at least 50 mm to bed in properly without showing the membrane underneath. Driveways take a 50 mm finishing layer over a 100 to 150 mm sub-base of MOT Type 1, which is why a new driveway uses two different products and roughly four times the tonnage of a decorative scheme.",
+        "On the slope of a sloping garden, gravel migrates downhill. A retaining edge (timber or steel) keeps it in place and saves a top-up every spring. For the path edging and patio kerbs that often go alongside the gravel job, [Concrete Calculator](/concrete-calculator) handles the bedding mix."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much gravel do I need for a driveway?",
+        "For a 50 mm finishing layer, allow about 0.08 cubic metres per square metre, or roughly 130 kg per square metre of pea gravel. A 30 sq m driveway needs about 4 tonnes for the top layer alone. A new driveway also needs a 100 mm to 150 mm MOT Type 1 sub-base underneath, doubling or tripling the order."
+      ),
+      createFAQ(
+        "How many bulk bags is a tonne of gravel?",
+        "Most UK suppliers' bulk bags hold 800 to 850 kg, despite often being called 'tonne bags'. So one tonne of gravel arrives as roughly 1.2 bulk bags. A 4-tonne order is 5 bulk bags. Always confirm the actual bag weight with the supplier before ordering."
+      ),
+      createFAQ(
+        "Should I lay weed membrane under gravel?",
+        "Yes for any gravel area you do not want to weed every fortnight. Heavy-duty woven landscape membrane (the black kind, not the white fleece) costs about £1 per square metre and stops perennial weeds pushing through. Pin it down with U-pegs every metre and overlap joints by 100 mm."
+      ),
+      createFAQ(
+        "What is the cheapest gravel for a driveway?",
+        "Plain limestone or quarry-run gravel runs at about £25 to £30 per tonne delivered in bulk. Decorative slate and golden gravel are double or more. For a working driveway where the wow factor matters less than function, plain MOT Type 1 with a thin top layer of pea gravel is the most affordable durable choice."
+      ),
+    ],
+    relatedTools: [
+      { slug: "concrete-calculator", label: "Concrete Calculator" },
+      { slug: "fence-calculator", label: "Fence Calculator" },
+      { slug: "square-footage-calculator", label: "Square Footage Calculator" },
+    ],
+  },
+
+  "concrete-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Volume in Cubic Metres, Then Bags",
+        "Concrete works the same way as any other volume calculation: length by width by depth in metres gives cubic metres. A 3 m by 2 m slab at 100 mm deep is 0.6 cubic metres. Where it gets fiddly is the bag arithmetic. A standard 20 kg premix bag yields roughly 0.009 cubic metres of mixed concrete, so that 0.6 cubic metre slab needs 67 bags. At £3.50 a bag in 2026, that is £234 in mix alone, before delivery.",
+        "Above about 0.5 cubic metres it is almost always cheaper to buy ready-mix from a local depot. They charge by the cubic metre (typically £100 to £130 in the UK), deliver in a wagon or mini-mix barrow, and the quality is more consistent than mixing 60 bags by hand in a wheelbarrow. The calculator shows both the bag total and the DIY cement-sand-gravel breakdown so you can compare."
+      ),
+      createAnswerFirstSection(
+        "Mix Ratios for Different Jobs",
+        "A 1:2:3 mix (one part cement, two sand, three aggregate) is the workhorse for slabs, paths and footings. For post holes, a 1:2:4 mix or even straight Postcrete (a fast-set blend you pour dry, then add water) is fine because the load is compressive. A bag of cement weighs 25 kg in the UK and yields roughly 0.025 cubic metres at standard ratios, so the cement count is the volume divided by 0.025 then rounded up.",
+        "Always order an extra 5 to 10% on top of the calculated volume. Concrete is unforgiving: if you run short halfway through a pour you cannot really pause and order more, because the original mix sets and the new pour will not bond cleanly. For the aggregate side, [Gravel Calculator](/gravel-calculator) handles the volume to tonnes conversion."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many 20 kg bags of concrete do I need for 1 cubic metre?",
+        "Roughly 110 bags. Each 20 kg bag yields about 0.009 cubic metres of mixed concrete. At £3.50 a bag, that is £385 in mix alone. For anything over 0.5 cubic metres, ready-mix delivery from a local depot is cheaper and more consistent."
+      ),
+      createFAQ(
+        "What mix ratio should I use for a garden slab?",
+        "1:2:3 (cement:sand:aggregate) by volume is the standard for general garden slabs. For driveways or anything taking heavier load, step up to 1:1.5:3. For post holes and fence posts, 1:2:4 or Postcrete works fine because the load is purely compressive."
+      ),
+      createFAQ(
+        "How thick should a concrete slab be?",
+        "75 mm for a garden shed base, 100 mm for a patio, 150 mm for a driveway carrying a car. Anything carrying a vehicle needs reinforcement (steel mesh or rebar) bedded mid-depth. A 100 mm slab without mesh will crack within a few seasons under repeated frost cycles."
+      ),
+      createFAQ(
+        "How long before I can walk on concrete?",
+        "Light foot traffic after 24 to 48 hours. Full cure (when concrete reaches design strength) takes 28 days, though it is usable for vehicles after 7. Cover the slab with hessian or polythene for the first few days to slow evaporation and prevent surface cracking."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gravel-calculator", label: "Gravel Calculator" },
+      { slug: "fence-calculator", label: "Fence Calculator" },
+      { slug: "square-footage-calculator", label: "Square Footage Calculator" },
+    ],
+  },
+
+  "energy-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Wattage, Hours and the Real Cost of Running an Appliance",
+        "Every plug-in appliance has a wattage on the label. Divide by 1,000 to get kilowatts, multiply by hours of use, and you have the kWh consumed. Multiply by your unit rate (around 28p/kWh in the UK in 2026 for most domestic standard tariffs) and you get the running cost. A 3,000 W kettle on for 15 minutes a day uses 0.75 kWh, which is roughly 21p; over a year that adds up to £77 in tea alone.",
+        "The calculator runs this maths for a list of appliances at once. The defaults (kettle, TV, washing machine) are starting points; tap an appliance from the common list to add it, or type your own with custom wattage. Typical hidden costs include the tumble dryer (3,000 W for an hour is 84p per cycle) and the electric shower (8,000 W for ten minutes is over a pound a wash for one person)."
+      ),
+      createAnswerFirstSection(
+        "Where the Real Savings Hide",
+        "Most households focus on the kettle and the lights, but the biggest savings are in heating, hot water and the appliances that run continuously. A fridge-freezer at 150 W running 24/7 is 1,314 kWh a year and roughly £370 at 28p/kWh; a 10-year-old model can run 50 percent more than a modern A-rated one. An old halogen oven or plug-in heater used for an hour a day in winter often outweighs every other plug appliance in the house combined.",
+        "Standby loss adds up too. Phantom loads from set-top boxes, smart speakers and games consoles can eat £50 to £80 a year. The calculator helps you spot the worst offenders. For the whole-house breakdown rather than appliance by appliance, [Home Energy Cost Calculator](/home-energy-cost-calculator) takes a longer list of weekly hours and totals the bill."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much electricity does a UK home use?",
+        "Ofgem's typical domestic consumption value (TDCV) sits at around 2,700 kWh per year for a low-use household, 3,800 kWh for medium and 5,500 kWh for high. At 28p/kWh that is £756, £1,064 and £1,540 respectively. A heat pump or electric heating roughly doubles those figures."
+      ),
+      createFAQ(
+        "What appliances cost the most to run?",
+        "Tumble dryers, electric showers, electric heaters and immersion heaters top the per-hour cost list. Always-on appliances (fridges, freezers, routers) top the per-year list because of sheer hours. Combined, white goods and heating typically account for 60 to 70 percent of a UK electricity bill."
+      ),
+      createFAQ(
+        "Is it cheaper to use the oven or the air fryer?",
+        "Air fryers usually win for small portions: 1,500 W for 20 minutes is 0.5 kWh, roughly 14p. A 2,000 W oven needs 10 minutes to preheat plus 30 minutes to cook, so 1.3 kWh and 36p. For a full Sunday roast feeding four, the oven is more efficient per portion. For one person reheating a piece of chicken, the air fryer is half the cost."
+      ),
+      createFAQ(
+        "How accurate are these running cost estimates?",
+        "Within about 10 percent for plug-in appliances with steady draw. Less accurate for appliances that cycle (fridges, freezers, electric heaters with thermostats), where actual consumption is roughly half the rated wattage averaged over a day. For the most precise reading, plug an energy monitor (a £15 device like a Belkin Conserve) between the appliance and the socket."
+      ),
+    ],
+    relatedTools: [
+      { slug: "home-energy-cost-calculator", label: "Home Energy Cost Calculator" },
+      { slug: "electricity-cost-calculator", label: "Electricity Cost Calculator" },
+      { slug: "fuel-cost-calculator", label: "Fuel Cost Calculator" },
+    ],
+  },
+
+  "moving-house-checklist": {
+    sections: [
+      createAnswerFirstSection(
+        "Eight Weeks Out, Two Weeks Out, Moving Day",
+        "A move done well starts eight weeks before completion. That is when you give notice to a landlord, ring the council, contact utilities and book a removal company before the diary fills up. The checklist sequences 25 tasks across four categories - notifications, utilities, post and packing - timed in days back from your moving date. Enter the date and the dated countdown does the rest.",
+        "Most stress on moving day comes from tasks left to the final week. Royal Mail redirection takes up to 10 working days to start, banks need a written notice or app update, and the council needs new-address details for council tax. The free version downloads as a watermarked JPG; the premium PDF is the one that actually goes on the fridge with magnets, with tick boxes printed large enough to fill in standing up. For the cleaning of the old place once the van leaves, [Cleaning Schedule Generator](/cleaning-schedule-generator) builds a final-walkthrough rota."
+      ),
+      createAnswerFirstSection(
+        "The Tasks People Always Forget",
+        "Three things bite people every move. First, transferring the broadband: most ISPs need 14 days notice and the new property may need a fresh installation visit, so book early. Second, updating the address on a driving licence (free at the DVLA, but the V5C log book also needs updating separately for any vehicle). Third, telling pet microchip databases (£8 fee, totally forgettable, illegal not to). The checklist flags all three.",
+        "Removal companies charge by the van size and the number of movers. A typical UK three-bed move costs £600 to £1,200 within 30 miles, more if you need packing services or a long carry from the front door to the truck. Get three quotes, ideally with a home survey rather than a phone estimate; quotes via photos miss the wardrobe that does not come apart."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When should I start packing for a house move?",
+        "Eight weeks out, start sorting through belongings and decluttering. Two weeks before completion, pack non-essential items (books, art, out-of-season clothes). The final week, pack room by room except for an essentials box (kettle, mugs, phone chargers, basic tools, toilet roll) that stays out until the last morning."
+      ),
+      createFAQ(
+        "Who do I need to inform when moving house?",
+        "Council (council tax), HMRC, employer, GP and dentist, banks and credit cards, insurance providers (home, car, life), utility companies (electricity, gas, water), broadband and TV provider, DVLA (driving licence and V5C), pet microchip database, electoral roll, and any subscription services. Royal Mail redirection covers anyone you forget for £33.99 for 12 months."
+      ),
+      createFAQ(
+        "How much does it cost to move house in the UK?",
+        "The move itself (removal van) is £600 to £1,200 for a three-bed within 30 miles. On top of that, conveyancing and surveys for a purchase add £1,500 to £3,000, stamp duty depends on the price, and small extras (Royal Mail redirection, address updates, potential overlap rent) add another £200 to £500."
+      ),
+      createFAQ(
+        "Can I save the checklist and come back to it?",
+        "Yes. Tick boxes save automatically in your browser, so closing the tab and returning later resumes your progress. The premium PDF download captures the checklist with tick boxes for printed use, and is timestamped with your moving date."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cleaning-schedule-generator", label: "Cleaning Schedule Generator" },
+      { slug: "home-inventory-tracker", label: "Home Inventory Tracker" },
+      { slug: "back-to-school-checklist", label: "Back to School Checklist" },
+    ],
+  },
+
+  "cleaning-schedule-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "A Rota That Actually Splits the Work",
+        "Set the number of rooms (up to 6), the people in the household, and how often you want to clean. The generator builds a rota assigning specific tasks to specific people on specific days. Two adults sharing a four-room flat with weekly cleaning gets a 14-task week, with each task tagged to a person and a day so nobody is doing the bins twice while the other one watches television.",
+        "The default frequency is weekly, which works for most households who do a 30-to-45-minute blitz on Saturday mornings. Daily mode spreads 7 tasks per day for households with kids or pets where the bathroom needs daily attention. Fortnightly mode batches more tasks into longer sessions for working couples who would rather give up two Saturdays a month than every one."
+      ),
+      createAnswerFirstSection(
+        "What Gets Cleaned, How Often",
+        "The schedule pulls from a library of 40+ standard tasks split by room: kitchen (counters, hob, sink, floor, bins), bathroom (toilet, sink, mirrors, shower, tiles), bedroom (bed, vacuum, dust, mirrors), living room (sofas, surfaces, electronics), hallway and general. The randomisation means the same job rarely lands on the same person two weeks running, which kills resentment over who always gets the toilet.",
+        "The free version is the on-screen schedule. The premium PDF is the printable rota - one page per week, large enough to magnet to the fridge, with tick boxes per task. Households that already track other repeating jobs sometimes pair this with [Habit Tracker](/habit-tracker) to keep daily kitchen wipe-downs visible alongside personal habits."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should a weekly clean take?",
+        "For a typical 3-bed UK home, plan 60 to 90 minutes for a full weekly clean if two people split the work. Solo, allow 90 to 120 minutes. A daily 10-minute tidy plus a weekly 60-minute deep clean is more sustainable than a single Saturday morning blitz."
+      ),
+      createFAQ(
+        "What is the best cleaning order in a room?",
+        "Top to bottom, dry to wet, back to front. Dust shelves before vacuuming the floor (so dust falls onto the floor, gets vacuumed up). Wipe surfaces before mopping. Start at the back of the room and work towards the door so you do not walk back over wet floor."
+      ),
+      createFAQ(
+        "How do I split chores fairly in a houseshare?",
+        "Either split by room (one person does the kitchen all week, another does the bathroom) or by task category (one does floors and surfaces, another does bins and laundry). The generator uses a rotation, which works well when no one task is much worse than the others."
+      ),
+      createFAQ(
+        "Can I print the schedule?",
+        "Yes. The premium PDF download is a one-page-per-week printable with tick boxes, designed to fit on a fridge or notice board. Tick boxes are large enough to fill in with a pen while standing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "habit-tracker", label: "Habit Tracker" },
+      { slug: "moving-house-checklist", label: "Moving House Checklist" },
+      { slug: "chore-chart-generator", label: "Chore Chart Generator" },
+    ],
+  },
+
+  "tv-size-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Far You Sit Decides the Size",
+        "There is a sweet spot for TV size based on viewing distance. For a typical living room, the recommended diagonal is roughly the viewing distance divided by 1.5 to 2.5. Sitting 2 m back in a living room (the default here) puts the recommendation at 39 to 65 inches, with the closest standard size being 55 inches. Too small and the TV looks lost in the room; too large and the eyes strain trying to track action across the screen.",
+        "The optimal range varies by room type. A bedroom, where viewing is more casual and often from bed, uses a tighter ratio (1.2 to 1.5x distance) which means smaller screens. A dedicated cinema room, where the goal is full immersion, uses 2.5 to 3x distance and rewards the biggest screen the room can take. The calculator switches the ratio when you change the room type, so a cinema setup at 2 m gets a recommendation closer to 75 inches."
+      ),
+      createAnswerFirstSection(
+        "4K Changes the Old Rules",
+        "The old 'three times screen height' viewing rule was written for 1080p, where pixels become visible if you sit too close. With 4K, you can sit much closer without seeing individual pixels, which means a bigger screen at the same distance is now optimal. For an 8K screen the rule changes again; you would need to sit on the screen to see the difference.",
+        "Practical limits matter too. A 75-inch TV needs about 1.7 m of clear wall width and a sturdy mount or stand rated for around 35 kg. Check the stand width if your unit is fixed; a 65-inch TV is usually 1.45 m wide which is near the limit of standard 1.5 m TV units. For internet speed sufficient to stream 4K reliably, [Broadband Speed Converter](/broadband-speed-converter) shows how Mbps translates to download speed for streaming."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What size TV for a 3 metre viewing distance?",
+        "For a 3 m living room viewing distance, the sweet spot is 60 to 90 inches diagonal. The closest standard sizes are 65 or 75 inches. For a bedroom at 3 m, drop to 50 to 65 inches. For a dedicated cinema room at 3 m, push up to 85 to 100 inches."
+      ),
+      createFAQ(
+        "Is bigger always better with 4K?",
+        "Within reason, yes. With 4K resolution, you can comfortably go bigger than the old 1080p guidelines allowed because pixel structure is invisible at normal viewing distance. The limit is more about the room and the wall: a 75-inch TV is huge in a 3 m by 3 m living room and dominates everything else."
+      ),
+      createFAQ(
+        "How high should I mount my TV?",
+        "Centre the screen at eye level when seated. For a typical sofa where eyes are 1.05 m off the floor, the centre of a 55-inch TV (which is about 0.7 m tall) should be at 1.05 m, putting the bottom at 0.7 m off the floor. Mounting too high causes neck strain after long viewing."
+      ),
+      createFAQ(
+        "What is the difference between screen size and aspect ratio?",
+        "Screen size is the diagonal measurement in inches, corner to corner. Aspect ratio is the width-to-height proportion (16:9 is standard widescreen, 21:9 is ultra-wide cinema). Two TVs with the same diagonal can have very different physical widths if they have different aspect ratios."
+      ),
+    ],
+    relatedTools: [
+      { slug: "broadband-speed-converter", label: "Broadband Speed Converter" },
+      { slug: "screen-size-calculator", label: "Screen Size Calculator" },
+      { slug: "electricity-bill-estimator", label: "Electricity Bill Estimator" },
+    ],
+  },
+
+  "habit-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "A Visual Grid That Survives Past Day Three",
+        "Most habits fail not because the habit is hard but because there is no visible reminder of progress. A monthly habit tracker grid solves this with the simplest possible mechanism: each habit on a row, each day on a column, fill in the box when you do the thing. Add up to 10 habits, pick a month, and the tracker shows a daily grid with completion percentages calculated for each habit at the end.",
+        "The defaults (morning exercise, read 30 minutes, meditate) are a starting point. Most people get the best traction from 3 to 5 habits at once; tracking 10 simultaneously usually means abandoning seven of them by week two. Start with the smallest version of the habit (two minutes of meditation, not twenty) and add intensity once the streak is 14 days long."
+      ),
+      createAnswerFirstSection(
+        "Print It, Stick It Somewhere Visible",
+        "Digital habit trackers (apps with notifications) work for some people, but a printed grid stuck on the fridge or beside the kettle has a visible weight that a phone app doesn't. The premium PDF is exactly this: a one-page printable for the chosen month, with rows for each habit and a clean grid for the days. The minimal theme prints well in black and white; the colourful theme uses pastel row colours for visual variety.",
+        "Visible progress is the secret. A grid that is 80 percent ticked makes you reluctant to break the streak on day 25 in a way that a phone notification never will. For broader household routines that go alongside personal habits, [Cleaning Schedule Generator](/cleaning-schedule-generator) builds the rota for shared chores."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many habits should I track at once?",
+        "3 to 5 is the sweet spot. Tracking more dilutes attention and increases the chance you abandon several mid-month. Once a habit is fully embedded (60 days of consistent completion), it can drop off the tracker and be replaced by a new one."
+      ),
+      createFAQ(
+        "How long does it take to form a habit?",
+        "The popular '21 days' figure is a myth from a 1960s book. Research from University College London found that simple habits average 66 days to become automatic, with a range from 18 to over 250 days depending on the habit and the person. Drinking water after waking forms faster than running every morning."
+      ),
+      createFAQ(
+        "What should I do if I miss a day?",
+        "One missed day rarely breaks a habit; missing two in a row is when the streak risk becomes real. The 'never miss twice' rule is the most useful single piece of habit advice. If yesterday was missed, do something today, even a tiny version of the habit, just to keep the chain moving."
+      ),
+      createFAQ(
+        "Can I print the tracker?",
+        "Yes. The premium PDF download is a one-page printable for your chosen month, with the grid sized for A4 paper. The minimal theme prints well in black and white if you do not want to use coloured ink."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cleaning-schedule-generator", label: "Cleaning Schedule Generator" },
+      { slug: "moving-house-checklist", label: "Moving House Checklist" },
+      { slug: "chore-chart-generator", label: "Chore Chart Generator" },
+    ],
+  },
+
+  "solar-panel-savings-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a 5 kW System Actually Saves",
+        "A 5 kW solar system on a south-facing 30-degree roof in the UK generates roughly 5,500 kWh a year, the calculator's default. At an electricity price of 28p/kWh and an export tariff of 15p, with around 45 percent self-consumption, that is about £1,065 of annual benefit (£693 in bill savings plus £372 in export income). The system itself runs around £10,000 installed in 2026, and there is no specific UK grant for solar in 2026, though a £5,000 placeholder is included for any local council schemes that may apply.",
+        "The numbers swing significantly with orientation and angle. A north-facing roof loses about 30 to 40 percent of its potential output. A south-east or south-west facing roof at 30 degrees sits within 3 percent of optimal. East and west alone (without south) lose around 10 percent. The calculator applies the right performance factor automatically when you change the inputs."
+      ),
+      createAnswerFirstSection(
+        "Self-Consumption Is the Variable That Pays Back Fastest",
+        "The real economics of solar live in the self-consumption rate. Power used in your house is worth 28p/kWh (your bill rate); power exported to the grid is worth 15p (the Smart Export Guarantee rate from most suppliers). So a household that runs the dishwasher, washing machine and EV charger during the day captures roughly twice as much value per kWh generated as one that uses electricity mainly in the evening.",
+        "A battery raises self-consumption from around 45 percent to 70 or 80 percent, but adds £4,000 to £6,000 to the install. The payback maths gets tighter as battery prices fall, and there are useful hybrid inverter options if you might add a battery later. For the battery side specifically, [Solar Battery Payback Calculator](/solar-battery-payback-calculator) walks through the storage economics in detail."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does a 5 kW solar system cost in the UK?",
+        "Around £8,500 to £11,000 fully installed in 2026, including panels, inverter, scaffolding, certification and labour. The default in this calculator is £10,000 (£2,000 per kW). Prices have fallen significantly since 2010 but installation labour is the slowest-falling component."
+      ),
+      createFAQ(
+        "What is the payback period for solar in the UK?",
+        "Typically 9 to 13 years on a south-facing roof in southern England, longer in Scotland or on a north-facing roof. Households that use a lot of daytime electricity (work-from-home, EV charging, daytime appliance use) hit closer to 9 years; evening-only users land nearer 13."
+      ),
+      createFAQ(
+        "Are there any UK government grants for solar?",
+        "There is no specific solar panels grant in 2026. The Boiler Upgrade Scheme (BUS) only covers heat pumps. ECO4 funding is available for low-income households for various energy measures including solar. Local councils sometimes run schemes; the £5,000 placeholder in this calculator is for those edge cases."
+      ),
+      createFAQ(
+        "Do solar panels work on a north-facing roof?",
+        "Yes, but with around 30 to 40 percent less output than south-facing. East-west splits (panels on both sides of the roof) often work better than committing everything to the worse facing direction, because production spreads across the day rather than peaking at noon when nobody is home."
+      ),
+    ],
+    relatedTools: [
+      { slug: "solar-battery-payback-calculator", label: "Solar Battery Payback Calculator" },
+      { slug: "epc-improvement-checker", label: "EPC Improvement Checker" },
+      { slug: "boiler-vs-heat-pump-calculator", label: "Boiler vs Heat Pump Calculator" },
+    ],
+  },
+
+  "epc-improvement-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What Lifts Your EPC Rating Fastest",
+        "EPCs in England and Wales score from A (92+) to G (1-20), with most existing UK homes sitting at D or E. The cheapest, fastest gains come from the basic envelope: loft insulation to 270 mm depth, cavity wall insulation if uninsulated, and modern double glazing. Loft insulation alone takes a typical D-rated house up by 10 to 15 EPC points and costs around £500. Cavity walls add another 10 to 15 points for £400 to £700.",
+        "The big-ticket items (heat pumps, solar, full external wall insulation) move ratings further but at much higher cost. The checker ranks improvements by cost-effectiveness, not just by absolute EPC gain, so you see what the next cheapest move is rather than the most dramatic. For most semi-detached homes built between 1975 and 1995 (the defaults here), four or five basic measures lift a low D into a high C, which is the threshold many landlord regulations target."
+      ),
+      createAnswerFirstSection(
+        "Why C Matters for Landlords",
+        "Properties rented in England and Wales must have an EPC of E or higher under MEES (Minimum Energy Efficiency Standards). Government proposals have repeatedly floated raising the bar to C for new tenancies, and although the timeline keeps slipping, the direction is clear. Landlords who plan to keep a portfolio for 5+ years are wise to lift each property to C now rather than scrambling later when installer demand spikes prices.",
+        "Owner-occupiers face fewer hard rules but still benefit. Mortgage lenders increasingly offer green mortgages with discounted rates for higher-rated properties. Buyers also notice; surveys show that EPC-A and B properties sell for 2 to 5 percent more than equivalent D or E homes. For the running cost side once improvements are in, [Home Energy Cost Calculator](/home-energy-cost-calculator) shows the new monthly bill."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How can I improve my EPC rating?",
+        "In rough order of cost-effectiveness: loft insulation to 270 mm, cavity wall insulation, low-energy lighting throughout, modern thermostat or smart heating controls, double or triple glazing, modern condensing boiler or heat pump, then solar panels. The first four often cost less than £2,000 combined and lift a typical D-rated house by 15 to 25 EPC points."
+      ),
+      createFAQ(
+        "How much does it cost to go from D to C?",
+        "Typically £1,500 to £4,000 in measures, depending on the property's starting point. A pre-1975 cavity wall house with no insulation can hit C for under £1,500 with loft and cavity wall work. A 1930s solid-wall semi with single glazing might need £8,000 to £15,000 in fabric upgrades to clear C."
+      ),
+      createFAQ(
+        "Do I need to upgrade my EPC if I am a landlord?",
+        "Yes for England and Wales. The current minimum for both new and renewing tenancies is E. The Government has proposed raising this to C for new tenancies (potentially 2028 onwards) and for all tenancies later. Properties below the minimum can be let only with a registered exemption."
+      ),
+      createFAQ(
+        "How long does a new EPC take to organise?",
+        "About 2 to 5 working days from booking. The assessor visits for around 30 to 60 minutes, takes measurements and photos, then files the report on the central register within 28 days. Cost in 2026 is typically £60 to £120 plus VAT."
+      ),
+    ],
+    relatedTools: [
+      { slug: "insulation-savings-calculator", label: "Insulation Savings Calculator" },
+      { slug: "home-energy-cost-calculator", label: "Home Energy Cost Calculator" },
+      { slug: "double-glazing-payback-calculator", label: "Double Glazing Payback Calculator" },
+    ],
+  },
+
+  "insulation-savings-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Where the Heat Actually Escapes",
+        "In an uninsulated UK home, roughly 25 percent of heat loss is through the roof, 35 percent through the walls, 15 percent through the floor and 25 percent through draughts and windows. That order matters because it tells you what to insulate first. Loft insulation is the cheapest fix (around £5 per square metre installed) and addresses the biggest single loss path other than walls. The calculator estimates roof area at 60 percent of internal floor area, which is roughly accurate for most semis.",
+        "A typical 3-bed semi (160 sq m floor area, 96 sq m roof area in the calculator) with no loft insulation saves around £240 a year by going to 270 mm. That is a payback of about 2 years on the £480 install cost. Going from 100 mm to 270 mm only saves around £100 a year, with a 6-year payback - still worthwhile, but less dramatic. The diminishing returns above 270 mm are why building regulations stop there."
+      ),
+      createAnswerFirstSection(
+        "Walls Are the Bigger Prize and the Bigger Cost",
+        "Cavity wall insulation (for houses built between 1920 and 1990 with cavity construction) costs about £400 to £700 installed and saves £200 to £350 a year. Payback is around 2 to 3 years and the rating gain is often equal to loft insulation. Solid wall insulation, for older houses, is far more expensive: external wall insulation is £8,000 to £15,000 for a semi, internal is £5,000 to £8,000, but saves £400 to £600 a year and transforms thermal comfort.",
+        "The calculator ranks measures by payback so the obvious wins surface first. Insulation matters more than heat-pump efficiency in older homes; spending £8,000 on a heat pump in a draughty 1930s semi often saves less than spending £4,000 on the fabric first. For the heating system side, [Boiler vs Heat Pump Calculator](/boiler-vs-heat-pump-calculator) compares running costs once the envelope is sorted."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much can I save with loft insulation?",
+        "A typical UK semi with no existing loft insulation saves around £250 a year by upgrading to 270 mm. The work costs about £500 and pays back in 2 years. Going from 100 mm to 270 mm saves around £100 a year for a £300 cost (3-year payback)."
+      ),
+      createFAQ(
+        "Is cavity wall insulation worth it?",
+        "Almost always. Cavity wall insulation typically costs £400 to £700 for a semi-detached house and saves £200 to £350 per year, paying back in 2 to 3 years. The exception is cavity walls already filled (check by drilling a small inspection hole) or homes in very exposed coastal locations where damp risk is higher."
+      ),
+      createFAQ(
+        "What is the difference between internal and external solid wall insulation?",
+        "Internal goes inside, reducing room size by 50 to 100 mm per wall and disrupting living for weeks. External goes outside, keeps room size, doesn't disrupt living, but requires planning permission in some areas and changes the look of the property. External costs roughly double the internal price."
+      ),
+      createFAQ(
+        "Can I get a grant for insulation?",
+        "ECO4 grants (formerly ECO Help to Heat) cover insulation for low-income households or those on certain benefits. The Great British Insulation Scheme (GBIS) covers homes in EPC bands D-G in council tax bands A-D in England and A-E in Scotland and Wales. Both are administered through energy suppliers."
+      ),
+    ],
+    relatedTools: [
+      { slug: "epc-improvement-checker", label: "EPC Improvement Checker" },
+      { slug: "boiler-vs-heat-pump-calculator", label: "Boiler vs Heat Pump Calculator" },
+      { slug: "double-glazing-payback-calculator", label: "Double Glazing Payback Calculator" },
+    ],
+  },
+
+  "home-energy-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Whole-House Energy in One List",
+        "This calculator runs a long appliance list at once: heating, hot water, oven, hob, white goods, electronics, lighting and EV charger. The defaults model a typical family home and produce an annual electricity figure of around £2,000 to £3,500 at 28p/kWh, depending on heating type. Each appliance has wattage and weekly hours; the maths is wattage divided by 1,000, multiplied by hours, multiplied by the unit rate.",
+        "The big drivers are heating (often 30 to 50 percent of the total in homes with electric heating), hot water (10 to 20 percent), white goods that run continuously (fridge and freezer combined, around 8 percent) and the EV charger if you have one (15 to 30 percent for a typical 8,000 km/year EV). Knock the heating hours back and the total drops fast; cycle the EV charger to off-peak overnight rates and the per-kWh cost halves."
+      ),
+      createAnswerFirstSection(
+        "Standing Charges and Tariff Caps Are Separate",
+        "The calculator shows usage cost only. On top of that, every UK property pays a standing charge of around 60p per day for electricity (£220 a year) regardless of usage. So a household using 4,000 kWh of electricity at 28p (£1,120) pays £1,340 in total once the standing charge is added. The Ofgem price cap moves quarterly and varies slightly by region.",
+        "Time-of-use tariffs (Octopus Agile, Economy 7) shift the maths if you can move heavy loads to off-peak. Charging an EV on Economy 7 night rate (around 10p/kWh) instead of standard (28p) saves around £400 a year on a 4,000 kWh annual EV draw. For appliance-by-appliance breakdowns rather than the whole-house view, [Energy Cost Calculator](/energy-cost-calculator) handles individual appliance running costs."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the average UK household energy bill in 2026?",
+        "Around £1,800 to £2,400 a year combined gas and electricity for a typical 3-bed semi, depending on insulation, heating habits and which Ofgem cap period you are in. Electric-heated homes run higher (£2,500 to £4,000). All-gas heated homes with modern condensing boilers often come in below £1,800."
+      ),
+      createFAQ(
+        "How can I cut my energy bill?",
+        "In rough order of impact: turn the thermostat down by 1 degree (saves around 10 percent of heating cost), shorter showers (especially with electric showers), full loads in dishwasher and washing machine, unplug standby appliances, switch lights to LED if not already, and use the air fryer for small portions instead of the oven."
+      ),
+      createFAQ(
+        "Is gas or electricity cheaper in the UK?",
+        "Per kWh, gas is much cheaper (around 6p/kWh) than electricity (around 28p/kWh) in 2026. But gas boilers are around 90 percent efficient, while electric heat pumps are 280 to 400 percent efficient (each kWh of electricity moves 2.8 to 4 kWh of heat). On running cost a heat pump in a well-insulated home is competitive with gas, while resistance electric heating is roughly four times the cost of gas."
+      ),
+      createFAQ(
+        "How accurate is this energy cost estimate?",
+        "Within about 15 percent for plug-in appliances and lighting. Less accurate for thermostat-controlled heating where actual run hours depend on weather and insulation. For the most accurate read, take a baseline meter reading, run the house for a month, take a second reading, and compare with the calculator's predicted total."
+      ),
+    ],
+    relatedTools: [
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+      { slug: "boiler-vs-heat-pump-calculator", label: "Boiler vs Heat Pump Calculator" },
+      { slug: "insulation-savings-calculator", label: "Insulation Savings Calculator" },
+    ],
+  },
+
+  "boiler-vs-heat-pump-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Upfront Cost vs Running Cost",
+        "A new gas boiler costs around £2,500 installed, runs at roughly 90 percent efficiency, and costs the typical UK household £1,500 a year to heat a 3-bed semi (the calculator's default annual heating cost). A heat pump costs £10,000 to install plus £3,000 in extras (cylinder, radiators, pipework upgrade), so £13,000 total, less the £7,500 BUS heat-pump grant - net £5,500.",
+        "Running costs flip in the opposite direction. A heat pump with a coefficient of performance (COP) of 3.2, on an electricity price of 28p/kWh, runs at roughly £1,055 a year for the same heat output (£1,500 x 0.9 / 3.2 = £422 of energy at gas-equivalent terms, scaled by the electricity-to-gas price ratio). The 10-year cost gap shrinks fast: £4,000 in extra capital up front, around £450 a year saved in running, payback in roughly 9 years on average insulation."
+      ),
+      createAnswerFirstSection(
+        "Insulation Matters More Than COP",
+        "A heat pump in a draughty 1930s semi with single glazing performs poorly because it has to work harder to maintain the flow temperature, and the COP drops. The same heat pump in a well-insulated 2010s home delivers a real-world COP of 3.5 to 4 and runs cheaper than a gas boiler. The calculator adjusts the COP based on insulation level (poor: 2.8, average: 3.2, good: 3.5).",
+        "If you are within 2 to 3 years of a planned move, the maths usually points to a new boiler. If you are staying 7+ years and the home is reasonably insulated, a heat pump pays back. If insulation is poor, fix that first - spending £4,000 on the fabric usually saves more than spending £8,000 on the heat source. For the insulation prioritisation step, [Insulation Savings Calculator](/insulation-savings-calculator) ranks measures by payback."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much is the heat pump grant in 2026?",
+        "The Boiler Upgrade Scheme (BUS) pays £7,500 for an air source heat pump and £7,500 for ground source heat pump in England and Wales. The grant is paid to the installer who reduces the customer's bill. Scotland's equivalent is the Home Energy Scotland grant and loan, which can be more generous."
+      ),
+      createFAQ(
+        "Are heat pumps cheaper to run than gas?",
+        "It depends on your tariff and your home. With a COP of 3.2 and current 2026 prices (gas 6p, electricity 28p), a heat pump runs roughly the same cost as a gas boiler. With a heat pump tariff (special heat pump electricity rates around 18p/kWh) the heat pump is 30 to 40 percent cheaper. In a poorly insulated home, a heat pump is more expensive than gas to run."
+      ),
+      createFAQ(
+        "Will a heat pump work in my old house?",
+        "Yes, but it will work better with insulation upgrades first. Older houses often need bigger radiators (or underfloor heating) to deliver the same heat output at the lower flow temperatures heat pumps prefer (45 degrees C versus 70 degrees C for boilers). Budget £500 to £2,000 for radiator upgrades on top of the heat pump install."
+      ),
+      createFAQ(
+        "How long do heat pumps last?",
+        "Air source heat pumps typically last 20 to 25 years, double the lifespan of a gas boiler (10 to 15 years). Ground source heat pumps last even longer (25 to 30 years for the heat pump unit, 50+ years for the ground loop). Lifecycle cost comparisons over 25 years usually favour the heat pump even before grants."
+      ),
+    ],
+    relatedTools: [
+      { slug: "insulation-savings-calculator", label: "Insulation Savings Calculator" },
+      { slug: "epc-improvement-checker", label: "EPC Improvement Checker" },
+      { slug: "home-energy-cost-calculator", label: "Home Energy Cost Calculator" },
+    ],
+  },
+
+  "underfloor-heating-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Electric or Wet, and What That Means for Cost",
+        "Electric underfloor heating (mat or cable) is cheaper to install (£40 to £50 per square metre) but more expensive to run. A 20 sq m kitchen with electric mat at 150 W per square metre, on for 8 hours a day at 28p/kWh, costs around £6.70 a day in winter and roughly £450 over a heating season. Wet systems with a boiler cost £80 per square metre installed plus the boiler itself, but run at roughly half the cost of electric because gas is around a quarter of the per-kWh price.",
+        "The fastest payback equation favours wet systems for whole-house installs and electric for single-room retrofits like a bathroom or kitchen extension. A 6 sq m en-suite at electric mat costs around £300 to install and £80 a year to run; replacing a radiator there is overkill. A whole ground floor at 50 sq m running 8 hours a day on electric would cost £1,500 a year - territory where wet systems win clearly."
+      ),
+      createAnswerFirstSection(
+        "Heat Pump Underfloor Is the Cheapest to Run",
+        "Wet underfloor heating paired with a heat pump (COP 3.2) runs at roughly a third of the cost of electric underfloor in the same room, because each kWh of electricity moves 3.2 kWh of heat. Install cost is highest (£100 per square metre for the floor plus £8,000 for the heat pump) but running cost is the lowest of any underfloor option. Over a 25-year system life, heat pump underfloor often beats every alternative on total cost.",
+        "Insulation under the screed is non-negotiable. A typical UFH install loses 30 to 40 percent of heat downwards into the floor structure if there is no insulation board (50 to 100 mm of PIR rigid foam) underneath. The £5 to £10 per square metre that adds is the single best efficiency upgrade you can specify. For the wider heat-source comparison, [Boiler vs Heat Pump Calculator](/boiler-vs-heat-pump-calculator) covers the system choice in more depth."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does underfloor heating cost to install in the UK?",
+        "Electric mat: £40 to £60 per square metre supply only, £80 to £120 installed. Wet system: £80 to £120 per square metre installed including manifold, plus the boiler or heat pump. A 20 sq m kitchen typically costs £800 to £1,500 for electric and £2,000 to £3,500 for wet, plus the heat source."
+      ),
+      createFAQ(
+        "Is underfloor heating cheaper to run than radiators?",
+        "Wet underfloor on the same heat source is roughly equal cost or slightly cheaper, because UFH runs at lower flow temperatures (35 to 45 degrees C versus 70 degrees for radiators) which is more efficient. Electric underfloor is significantly more expensive to run than gas radiators for the same heat output."
+      ),
+      createFAQ(
+        "Can I retrofit underfloor heating?",
+        "Yes, but it depends on floor build-up. Low-profile retrofit systems (15 to 20 mm thick) work over existing concrete or timber floors. Full screed systems (50 mm plus) require taking up the existing floor and lowering the level, or accepting a 50 mm rise that needs door modifications. Electric mats can go straight under tile, ideal for bathroom retrofits."
+      ),
+      createFAQ(
+        "How long does underfloor heating last?",
+        "Wet pipework laid in screed typically lasts 50+ years; manifolds and pumps 15 to 20 years. Electric mats and cables last 25 to 30 years. The weak link in wet systems is usually the pump or actuator, both replaceable without disturbing the floor."
+      ),
+    ],
+    relatedTools: [
+      { slug: "boiler-vs-heat-pump-calculator", label: "Boiler vs Heat Pump Calculator" },
+      { slug: "insulation-savings-calculator", label: "Insulation Savings Calculator" },
+      { slug: "tile-calculator", label: "Tile Calculator" },
+    ],
+  },
+
+  "pet-food-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Dog or Cat Actually Costs to Feed",
+        "Daily food intake for a dog scales with weight: under 10 kg needs about 150 g a day, 10 to 25 kg needs 250 g, 25 to 50 kg needs 400 g, over 50 kg needs 500 g. The default here is a 20 kg medium dog on mid-range mixed feeding, costing around £3.75 a day, £26 a week, £113 a month, £1,370 a year, and roughly £16,400 over a 12-year lifespan. Cats are simpler: about 225 g a day regardless of breed, costing roughly £3.40 a day for mid-range food.",
+        "The biggest swing is the quality tier. Budget kibble at £6 per kg versus premium raw at £30 per kg is a fivefold difference; that 20 kg dog on premium raw costs £6,200 a year, four and a half times the mid-range mixed bill. Few dogs need premium raw to thrive, but many do better on mid-range than budget; the cheapest kibbles often pad with grain fillers that stress digestion."
+      ),
+      createAnswerFirstSection(
+        "Hidden Costs Around the Food Bill",
+        "Food is the headline number but not the full pet bill. A typical UK dog also costs £200 to £400 a year in vet visits and vaccinations, £400 to £600 in pet insurance, and £100 to £200 in grooming. Cats are cheaper on insurance (£200 to £350) and skip the grooming bill. Across a 12-year dog life, food is roughly half the total ownership cost; insurance and vet care make up most of the rest.",
+        "The lifespan multiplier in the calculator (12 years for dogs, 15 for cats) is the average, but big breeds (Great Danes, Mastiffs) often live closer to 8 to 10 years and small breeds (Chihuahuas, Yorkshire terriers) sometimes pass 16. Adjust mentally if your breed is far from the average. For walking costs which often exceed the food bill in London, [Dog Walking Cost Calculator](/dog-walking-cost-calculator) breaks down the rates."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does it cost to feed a dog in the UK?",
+        "On mid-range food, around £25 to £40 a week for a medium dog (10 to 25 kg), £40 to £60 a week for a large dog (over 25 kg). Annual cost is £1,300 to £3,000 depending on size and food tier. Premium raw or fresh-cooked diets push the upper end into £4,000 to £6,000."
+      ),
+      createFAQ(
+        "Is dry food cheaper than wet food?",
+        "Yes, dry kibble is typically half the cost of wet food per kg of food, and roughly a third of the cost on a calories-fed basis (because wet food is 75 percent water). A mixed diet of dry plus a topping of wet is often the best value compromise for taste and hydration."
+      ),
+      createFAQ(
+        "Should I switch my pet to premium food?",
+        "It depends on the dog. Dogs with allergies, sensitive stomachs or skin issues often improve dramatically on a premium grain-free or single-protein recipe. Healthy dogs on a quality mid-range food usually get no measurable benefit from premium upgrades; the difference is mostly in the marketing budget."
+      ),
+      createFAQ(
+        "How does feeding cost compare to other pet costs?",
+        "For a typical UK dog, food is roughly 40 to 50 percent of total annual ownership cost. The rest is vet care and insurance (30 to 40 percent), grooming (5 to 10 percent), training, beds, toys and miscellaneous (10 to 15 percent). For cats, food is a higher share of total cost (50 to 60 percent) because vet bills are typically lower."
+      ),
+    ],
+    relatedTools: [
+      { slug: "dog-walking-cost-calculator", label: "Dog Walking Cost Calculator" },
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+      { slug: "moving-house-checklist", label: "Moving House Checklist" },
+    ],
+  },
+
+  "wood-joint-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Dovetail, Mortise, Box: the Maths Behind Each",
+        "Each traditional joint has a proportional rule of thumb. Dovetails use a slope ratio of 1:6 for softwoods and 1:8 for hardwoods, where the steeper ratio resists the higher tear-out tendency of softwood. The default 150 mm board with 1:6 slope gives around 5 tails at roughly 25 mm wide each. Mortise and tenon traditionally uses a tenon thickness of one-third the board thickness; an 18 mm board (the default) gives a 6 mm tenon, with a mortise depth of two-thirds board thickness, so 12 mm.",
+        "Box and finger joints are simpler: equal-width fingers across the joint, with finger width usually equal to gap width. The calculator divides the board width by 20 mm to get a rough finger count for a 150 mm board, returning around 8 fingers. Dowel joints use a dowel diameter of half the board thickness with a length of roughly board thickness plus 20 mm to give grip on both sides."
+    ),
+      createAnswerFirstSection(
+        "Why the Numbers Are a Starting Point",
+        "These ratios are rules of thumb refined over centuries, not absolute laws. A drawer pull will look better with 6 evenly spaced dovetail tails than with 5 unevenly spaced ones, even if the maths suggests 5. A small jewellery box might use 1:5 dovetails to make the slope visually obvious. The point of the calculator is to give a sensible default that fits the wood type and dimensions, then you adjust for aesthetic preference.",
+        "Joint strength depends as much on glue surface area and grain orientation as on proportions. A well-cut mortise and tenon glued with PVA on long-grain to long-grain surfaces is essentially permanent. The same joint cut sloppy, with end-grain trying to take load, fails in months. For the wood pricing and project costing side, [Wood Cost Calculator](/wood-cost-calculator) handles the timber bill of materials."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the strongest wood joint?",
+        "Mortise and tenon is the strongest traditional joint for frame work, especially when reinforced with a wedge or pin. Dovetails are strongest for box corners under tension (drawer fronts pulling out). Box joints have the most glue surface area and are often the most practical for cabinet construction with modern adhesives."
+      ),
+      createFAQ(
+        "What slope angle for dovetails?",
+        "1:6 for softwoods (pine, fir): around 9.5 degrees from vertical. 1:8 for hardwoods (oak, ash, walnut): around 7.1 degrees. Hardwoods need less slope because the wood resists tear-out better and the steeper slope can leave fragile short-grain at the corners."
+      ),
+      createFAQ(
+        "How thick should a tenon be?",
+        "One-third of the board thickness is the traditional rule. An 18 mm board gives a 6 mm tenon. The mortise width should match exactly. Tenon length is typically two-thirds of the joining piece's thickness, so a 6 mm thick tenon goes into a 12 mm deep mortise."
+      ),
+      createFAQ(
+        "Can I cut these joints with hand tools?",
+        "Yes. All the joints in the calculator have been cut by hand for centuries. Dovetails by tenon saw and chisel, mortise and tenon by mortise chisel and tenon saw, box joints by saw and chisel or a router with a jig. A bench plane and a sharp paring chisel handle the fitting."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wood-cost-calculator", label: "Wood Cost Calculator" },
+      { slug: "wood-finishing-calculator", label: "Wood Finishing Calculator" },
+      { slug: "sawhorse-angle-calculator", label: "Sawhorse Angle Calculator" },
+    ],
+  },
+
+  "wood-finishing-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Coverage by Finish Type",
+        "Different wood finishes cover at very different rates per litre. Varnish covers around 12 sq m per litre per coat, oil 15 sq m, wax 20 sq m, paint 10 sq m, stain 15 sq m, lacquer 12 sq m. The default project here, a 5 sq m surface in varnish at 2 coats, needs 0.83 litres of product across both coats - so a single 1-litre tin handles it with leftover for touch-ups. At £12 per litre that is £12 in materials.",
+        "Multiply by the number of coats and divide by the tin size to get the buy quantity. Varnish typically wants 3 coats for full build (the default the calculator suggests for varnish), so the same 5 sq m surface needs 1.25 litres total - still one tin in practice but with very little left. For a 20 sq m floor in varnish at 3 coats, you need 5 litres - a 5-litre tin or a 2-litre plus a 5-litre to allow generous waste."
+      ),
+      createAnswerFirstSection(
+        "Drying Time Adds Real Hours to a Project",
+        "Coverage tells you how much to buy; drying time tells you how long the project will take. Lacquer dries in 15 to 30 minutes, so a 3-coat lacquer job can finish in a single day. Varnish wants 4 to 6 hours between coats, so 3 coats spreads over 1 to 2 days. Oil takes 24 hours between coats and 2 to 7 days to fully cure - a real overnight job at minimum. The calculator estimates total project hours so you can plan when to start.",
+        "Sanding between coats also adds time. Most varnishes and paints need a light scuff with 240-grit between coats for adhesion; oils and waxes do not. A 5 sq m surface with 3 coats of varnish, with sanding, is roughly 4 to 6 hours of actual hands-on work spread across 2 days. For the joinery work that often comes before finishing, [Wood Joint Calculator](/wood-joint-calculator) handles the joint dimensions."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much varnish do I need for a table?",
+        "A typical 1.6 m by 0.8 m dining table top is about 1.3 sq m. At varnish coverage of 12 sq m per litre per coat, with 3 coats, you need around 0.32 litres total. A 500 ml tin is the smallest economic buy and leaves plenty for touch-ups."
+      ),
+      createFAQ(
+        "How many coats of varnish do I need?",
+        "For a hard-wearing surface (table, floor), 3 coats minimum. For a decorative piece (frame, shelf) 2 coats is usually enough. Each coat builds up the protective film; 3 coats is roughly 25 to 35 microns thick once cured, which resists most household wear."
+      ),
+      createFAQ(
+        "Oil or varnish for an oak table?",
+        "Oil enhances the grain and feels natural to touch but offers less spill protection. Varnish protects better but creates a plastic-feeling surface. A common compromise is hard-wax oil (Osmo Polyx is the leading brand) which combines oil's appearance with reasonable spill resistance. Most modern oak table finishes use hard-wax oil."
+      ),
+      createFAQ(
+        "How long should I wait between coats?",
+        "Varnish: 4 to 6 hours. Oil: 24 hours minimum. Wax: 1 hour, then buff. Paint: 2 to 4 hours. Stain: 2 to 8 hours depending on whether the next coat is stain (2 hours) or sealer (8 hours). Always sand lightly between coats of varnish or paint with 240-grit; oil and wax need no inter-coat sanding."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wood-cost-calculator", label: "Wood Cost Calculator" },
+      { slug: "wood-joint-calculator", label: "Wood Joint Calculator" },
+      { slug: "paint-calculator", label: "Paint Calculator" },
+    ],
+  },
+
+  "watering-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Plant, Season and Pot Size All Change the Answer",
+        "Watering schedules depend on the plant, the time of year and the container. A monstera in spring wants 250 ml every 7 days; in summer the same plant needs 300 ml every 5 days; in winter it drops to 150 ml every 14 days. A snake plant on the next shelf goes much longer between drinks - 100 ml every 14 days in spring, easily 21 days in winter. The calculator stores per-plant data for 10 common species so the schedule is plant-specific rather than generic.",
+        "Pot size matters too. A 15 cm pot drains faster and dries out quicker than a 30 cm pot of the same plant. The calculator adjusts amount and frequency for pot size. Indoor plants generally need less water than outdoor (less wind, lower light), so a tomato outdoors in a 30 cm pot in summer can need 500 ml every day, while the same plant indoors might need only 250 ml every 2 days."
+      ),
+      createAnswerFirstSection(
+        "How to Tell When to Water (Without a Calculator)",
+        "The finger test still beats any schedule. Push a finger 2 to 3 cm into the compost; if it feels dry at that depth, water; if it feels damp, wait. Heavy plants (cacti, succulents, snake plants) want to dry out completely between waterings. Thirsty plants (tomatoes, herbs, peace lilies) want consistent moisture. The calculator gives a starting frequency; the finger test fine-tunes it for your specific home, light level and pot.",
+        "Symptoms cut both ways. Yellowing leaves are usually overwatering (root rot suffocates the plant). Brown crispy leaf tips and wilting are usually underwatering. The calculator lists the typical symptoms for each plant so you can debug a struggling plant. For the seed-spacing question that often comes up at planting time, [Seed Spacing Calculator](/seed-spacing-calculator) handles row and plant distances."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How often should I water houseplants?",
+        "Most popular UK houseplants want watering every 7 to 14 days in spring and summer, every 14 to 21 days in autumn and winter. Cacti and succulents stretch to 21 to 30 days. Tropicals like peace lilies and ferns may need watering every 3 to 5 days in summer. Always check the soil before watering rather than sticking rigidly to a schedule."
+      ),
+      createFAQ(
+        "Can you overwater plants?",
+        "Yes, and it is the most common way houseplants die. Overwatering drowns the roots and creates conditions for root rot fungi. Symptoms include yellowing leaves, mushy stems at soil level and a sour smell from the compost. Most plants recover from one missed watering; few survive prolonged overwatering."
+      ),
+      createFAQ(
+        "Should I water plants in the morning or evening?",
+        "Morning is best for outdoor plants in summer: water reaches the roots before the heat of the day, and leaves dry by nightfall (wet leaves overnight encourage fungal disease). Indoor plants are less sensitive but morning watering still slightly outperforms evening because the plant uses water during its active light hours."
+      ),
+      createFAQ(
+        "How do I know if my plant needs less water in winter?",
+        "Most plants slow growth in winter (lower light, cooler temperatures) and use less water. The calculator's winter setting reduces frequency by 30 to 50 percent compared to summer. If a plant is putting out new leaves and growing actively, treat it as in active season; if it has stopped producing new leaves, treat it as dormant and water less."
+      ),
+    ],
+    relatedTools: [
+      { slug: "raised-bed-calculator", label: "Raised Bed Calculator" },
+      { slug: "seed-spacing-calculator", label: "Seed Spacing Calculator" },
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+    ],
+  },
 };

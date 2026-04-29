@@ -1410,4 +1410,225 @@ export const developerSEO = {
       { slug: "css-minifier", label: "CSS Minifier" },
     ],
   },
+
+  "password-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Makes a Password Actually Strong",
+        "NIST's 2024 password guidance flipped decades of conventional wisdom: length matters far more than character complexity. A 16-character lowercase passphrase resists brute-force attacks better than an 8-character password with mixed cases, numbers and symbols. The Password Generator builds passwords from cryptographically secure randomness (Web Crypto API rather than Math.random), which is the difference between a password that's truly unguessable and one that has subtle patterns an attacker can exploit.",
+        "The actual numbers: a 12-character password with a 94-character set has 4.7 x 10^23 possible values, which a billion-attempt-per-second offline attack would take 14,000 years to exhaust. A 16-character lowercase-only password (26 characters) has 4.4 x 10^22 possibilities, also effectively unbreakable. Both are fine; both are vastly stronger than any password under 10 characters regardless of complexity."
+      ),
+      {
+        heading: "Password Strength by Length and Character Set",
+        table: {
+          headers: ["Length", "Character Set", "Possibilities", "Brute-Force Time"],
+          rows: [
+            ["8", "Lowercase + numbers (36)", "2.8 x 10^12", "47 minutes"],
+            ["8", "All printable (94)", "6.1 x 10^15", "70 days"],
+            ["12", "Lowercase + numbers (36)", "4.7 x 10^18", "150 years"],
+            ["12", "All printable (94)", "4.7 x 10^23", "14,000 years"],
+            ["16", "Lowercase only (26)", "4.4 x 10^22", "1,400 years"],
+            ["16", "All printable (94)", "3.7 x 10^31", "1.2 x 10^15 years"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Use a Password Manager, Not Your Memory",
+        "The reason NIST stopped recommending mandatory complexity rules is that they push users into reusing passwords (because complex passwords are hard to remember). The modern answer: a password manager (Bitwarden, 1Password, KeePassXC) generates and stores a unique 16+ character password for every site, and you only memorise the master password. The Password Generator is for the master password and for passwords you must enter manually (Wi-Fi keys, server logins, anything not in the manager).",
+        "Pair this with the [QR Code Generator](/qr-code-generator) if you need to share a Wi-Fi password as a printable QR code, and the [Robots.txt Generator](/robots-txt-generator) if you're hardening a site's server-side configuration alongside its access controls. Always enable two-factor authentication on accounts that support it; even a leaked password is useless without the second factor."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should a password be?",
+        "12 characters minimum for general accounts, 16 or more for important accounts (email, banking, password manager master), 20+ for crypto wallets and high-value accounts. NIST's 2024 guidance allows passwords up to 64 characters and recommends length over complexity. A 16-character lowercase passphrase is stronger than a 10-character mix of cases, digits and symbols."
+      ),
+      createFAQ(
+        "Are passwords with symbols stronger than letters and numbers?",
+        "Marginally, but length matters more. A 16-character lowercase password (26 character set) has more entropy than a 10-character all-printable-character password (94 character set). The reason complexity rules survived as long as they did is they made 8-character passwords slightly harder; the modern fix is just to make passwords longer."
+      ),
+      createFAQ(
+        "What's the difference between Math.random and crypto.getRandomValues?",
+        "Math.random is a pseudo-random number generator that's not cryptographically secure: outputs follow patterns that an attacker can model. crypto.getRandomValues (Web Crypto API) produces cryptographically secure random bytes suitable for password generation, encryption keys and tokens. The Password Generator uses crypto.getRandomValues exclusively."
+      ),
+      createFAQ(
+        "Should I include similar-looking characters?",
+        "Excluding similar characters (0/O, 1/l/I) makes passwords easier to read aloud or copy from a screen, at the cost of slightly less entropy. For a 16-character password the entropy reduction is about 5%, which is negligible. For passwords you'll dictate over the phone or read from a printed sheet, exclude similar characters; for passwords stored in a password manager and never seen again, include them."
+      ),
+      createFAQ(
+        "Is it safe to generate passwords in a browser?",
+        "Yes, the Password Generator runs entirely client-side using crypto.getRandomValues. The generated password never leaves your device or hits any server. You can verify this by opening the browser's network tab and confirming there are no requests when you click 'Generate'. For maximum paranoia, generate passwords offline using a password manager's built-in generator."
+      ),
+    ],
+    relatedTools: [
+      { slug: "qr-code-generator", label: "QR Code Generator" },
+      { slug: "robots-txt-generator", label: "Robots.txt Generator" },
+      { slug: "uuid-generator", label: "UUID Generator" },
+    ],
+  },
+
+  "robots-txt-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What robots.txt Does (and What It Doesn't)",
+        "robots.txt is a text file at your site's root (yoursite.com/robots.txt) that tells crawlers which paths to request and which to skip. It uses three directives: User-agent (which bot the rule applies to), Disallow (paths to skip), and Allow (paths to include despite a broader Disallow). Sitemap (a URL pointing to your sitemap.xml) is the fourth standard directive. The Robots.txt Generator builds these visually so you can compose a config without remembering the syntax.",
+        "What robots.txt does not do: enforce access control. A determined crawler ignores robots.txt entirely; a malicious scraper wouldn't bother reading it. Anything truly private must sit behind authentication, not just a Disallow. robots.txt is a polite request to well-behaved bots (Googlebot, Bingbot, AhrefsBot, the major AI crawlers), and that's the right way to think about it."
+      ),
+      {
+        heading: "Common robots.txt Patterns",
+        table: {
+          headers: ["Pattern", "Effect", "When to Use"],
+          rows: [
+            ["User-agent: *  Disallow:", "Allow all bots everywhere", "Public marketing sites"],
+            ["User-agent: *  Disallow: /", "Block all bots from everything", "Staging environments only"],
+            ["Disallow: /admin/", "Block admin paths from indexing", "Login screens, dashboards"],
+            ["Disallow: /api/", "Block API routes from crawling", "JSON endpoints, webhooks"],
+            ["User-agent: GPTBot  Disallow: /", "Block OpenAI's crawler", "Sites blocking AI training"],
+            ["Sitemap: https://...", "Point crawlers to your sitemap", "Always include if you have one"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Blocking AI Crawlers and Common Bots",
+        "Many publishers now block AI training crawlers explicitly. The major ones to know: GPTBot (OpenAI), Google-Extended (Google's AI training, separate from Googlebot), CCBot (Common Crawl, often used as training data), ClaudeBot and anthropic-ai (Anthropic), PerplexityBot (Perplexity), Bytespider (TikTok / ByteDance). Block these without affecting search ranking by adding a per-user-agent Disallow rule, since search bots (Googlebot, Bingbot) read different identifiers.",
+        "Pair this with the [Password Generator](/password-generator) for hardening the actual access controls behind robots.txt, and the [QR Code Generator](/qr-code-generator) if you're publishing a printable URL. Always test your robots.txt with Google Search Console's robots.txt tester before deploying; a misplaced slash can accidentally block your entire site."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Where does robots.txt go on my site?",
+        "At the root of your domain: yoursite.com/robots.txt. It must be a plain text file (not HTML), accessible without authentication, served with Content-Type: text/plain. Subdirectory robots.txt files (yoursite.com/blog/robots.txt) are ignored. Subdomains have their own robots.txt: blog.yoursite.com needs its own."
+      ),
+      createFAQ(
+        "Does robots.txt prevent pages from showing in Google?",
+        "No, robots.txt prevents crawling, not indexing. Google can still index a URL it has discovered through external links, even if it can't crawl the page contents. To prevent indexing, use a meta robots tag (noindex) or HTTP X-Robots-Tag header. To prevent both crawling and indexing, use both robots.txt and noindex (the page must be crawlable for noindex to be read)."
+      ),
+      createFAQ(
+        "How do I block AI crawlers without blocking search engines?",
+        "Add per-user-agent rules. Block GPTBot, Google-Extended, ClaudeBot, anthropic-ai, CCBot, PerplexityBot, and Bytespider individually with their own User-agent and Disallow lines, while leaving the catch-all User-agent: * with full access. This blocks AI training without affecting Googlebot's search-indexing crawl."
+      ),
+      createFAQ(
+        "What is the wildcard syntax in robots.txt?",
+        "The * wildcard matches any sequence of characters; $ matches end-of-URL. Disallow: /*.pdf$ blocks all URLs ending in .pdf. Disallow: /search?* blocks all URLs starting with /search?. Both Googlebot and Bingbot support wildcards; older or simpler crawlers may not, so don't rely on wildcards alone for sensitive paths."
+      ),
+      createFAQ(
+        "Should I include a sitemap in robots.txt?",
+        "Yes, always. The Sitemap directive points crawlers directly to your sitemap.xml, which speeds up the discovery of new pages. The line is simply: Sitemap: https://yoursite.com/sitemap.xml. Multiple sitemaps are allowed; each gets its own line."
+      ),
+    ],
+    relatedTools: [
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "qr-code-generator", label: "QR Code Generator" },
+      { slug: "sql-formatter", label: "SQL Formatter" },
+    ],
+  },
+
+  "qr-code-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How QR Codes Actually Work",
+        "A QR code is a 2D barcode that encodes text in a grid of black and white squares. The QR Code Generator turns any URL or plain text into a downloadable PNG or SVG. It picks the smallest QR version that fits your data, applies error correction, and renders the result with the colours and quiet zone you choose. SVG output scales infinitely without pixelation, so it's the right choice for print; PNG suits screen embedding and email signatures.",
+        "Error correction is the part most people don't understand. QR codes have four levels: L (7% damage tolerance), M (15%), Q (25%), H (30%). Higher correction means a denser code (more squares) but lets the code survive a logo overlay, a torn corner, or a smudged print. For a clean URL on a clean background, L is fine; for a code printed on a t-shirt or behind a logo, use Q or H."
+      ),
+      {
+        heading: "QR Code Error Correction Levels",
+        table: {
+          headers: ["Level", "Damage Tolerance", "Density", "When to Use"],
+          rows: [
+            ["L (Low)", "7%", "Smallest", "Clean digital display, simple URLs"],
+            ["M (Medium)", "15%", "Standard", "Default for most printed codes"],
+            ["Q (Quartile)", "25%", "Larger", "Logo overlay, decorative designs"],
+            ["H (High)", "30%", "Largest", "Outdoor signs, printed on fabric"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Designing QR Codes That Scan Reliably",
+        "The biggest mistake: insufficient contrast between the foreground and background. A QR scanner needs to clearly distinguish dark from light, so don't use light grey on white or dark grey on black. Pure black on pure white is the gold standard; coloured QR codes work if the foreground is genuinely dark and the background genuinely light. The 'quiet zone' (the white margin around the code) is also critical; reduce it below 4 modules wide and scanners will struggle.",
+        "Print at the right size for the scan distance: roughly 1cm of QR width for every 30cm of expected scan distance. A QR on a poster across a room needs to be at least 10 to 15cm wide. A QR on a business card scanned at arm's length needs only 2 to 3cm. Pair this with the [Password Generator](/password-generator) if you're encoding Wi-Fi credentials, and the [Robots.txt Generator](/robots-txt-generator) if the QR points to a public landing page you want indexed."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the maximum amount of text a QR code can hold?",
+        "A QR code can hold up to 7,089 numeric digits, 4,296 alphanumeric characters, or 2,953 binary bytes at the highest QR version (40) with the lowest error correction. In practice, codes that hold more than around 500 characters become so dense they're hard to scan from any distance. For long content, encode a URL pointing to a page with the full text instead."
+      ),
+      createFAQ(
+        "Are QR codes free to use commercially?",
+        "Yes. The QR code format is an open standard (ISO/IEC 18004) and free to use without licensing for any purpose. No royalties, no trademark restrictions on the codes themselves. The QR Code Generator outputs unrestricted PNG and SVG files you can use on packaging, posters, marketing materials, anything."
+      ),
+      createFAQ(
+        "Can I add a logo to a QR code?",
+        "Yes, but only if you use Q or H error correction. The logo covers part of the code and the error correction reconstructs the missing data. Keep the logo in the centre and no larger than 25% of the total code area. Test the result with multiple scanners (iPhone Camera app, Google Lens, dedicated scanner apps) before printing thousands."
+      ),
+      createFAQ(
+        "Why does my QR code not scan?",
+        "Most often: insufficient contrast (light grey on white doesn't read), missing quiet zone (the white margin around the code is essential), too small for the scan distance, or aspect-ratio distortion (the QR has been stretched non-proportionally). Print at original aspect ratio, use full black on full white, leave at least 4 modules of white margin around all four sides, and size to your expected scan distance."
+      ),
+      createFAQ(
+        "What's the difference between PNG and SVG QR codes?",
+        "PNG is a fixed-resolution raster image, ideal for screens and email signatures. SVG is scalable vector, ideal for print (any size, no pixelation) and for editing in design tools (Illustrator, Figma). For business cards and posters, always use SVG; for in-app embedding, PNG at 2x screen resolution is fine."
+      ),
+    ],
+    relatedTools: [
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "robots-txt-generator", label: "Robots.txt Generator" },
+      { slug: "json-formatter", label: "JSON Formatter" },
+    ],
+  },
+
+  "sql-formatter": {
+    sections: [
+      createAnswerFirstSection(
+        "Why Formatted SQL Catches Bugs Faster",
+        "Unformatted SQL is one of the worst things to debug because the syntax is dense and the errors are subtle. A missing comma, a JOIN with a wrong key, or a GROUP BY that's missed a column can hide in a 30-line query that looks like one big run-on sentence. The SQL Formatter restructures the query with proper indentation, uppercase keywords, and aligned clauses so the structure is visible at a glance. Format any query before reading it; the few seconds you spend pasting and clicking save you minutes of squinting.",
+        "Most professional SQL editors (DataGrip, DBeaver, pgAdmin, Postico) have built-in formatters; this tool is for the moments when you're staring at a query in Slack, an email, a Stack Overflow answer, or a logged error message. Paste, format, read. The formatter handles SELECT, INSERT, UPDATE, DELETE, JOIN variants (INNER, LEFT, RIGHT, FULL OUTER), CTEs (WITH ... AS), window functions, and subqueries."
+      ),
+      {
+        heading: "Common SQL Formatting Conventions",
+        table: {
+          headers: ["Convention", "Example", "Why"],
+          rows: [
+            ["Uppercase keywords", "SELECT, FROM, WHERE", "Distinguishes SQL syntax from data"],
+            ["One column per line", "SELECT a,\\n       b,\\n       c", "Easier to spot missing commas"],
+            ["JOINs on new lines", "FROM users\\nJOIN orders ON ...", "Each table relationship visible"],
+            ["WHERE clauses indented", "WHERE x = 1\\n  AND y = 2", "Logical structure clearer"],
+            ["2-space or 4-space indent", "Either, but consistent", "Matches team style guide"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Reading EXPLAIN Plans Alongside Formatted SQL",
+        "Once a query is formatted readably, the next debugging step is running EXPLAIN (or EXPLAIN ANALYZE in Postgres, EXPLAIN PLAN FOR in Oracle, EXPLAIN FORMAT=JSON in MySQL) to see how the database engine intends to execute it. Look for sequential scans on tables that should hit an index, nested loop joins on large tables (usually a missing index), and large estimated row counts that don't match reality (often a stale ANALYZE statistics issue). A query that looks slow to you isn't necessarily slow to the engine; EXPLAIN tells you the truth.",
+        "GROUP BY queries are the most common source of subtle bugs: every column in SELECT that isn't aggregated must appear in GROUP BY, or you get either a syntax error (Postgres, strict MySQL) or silently wrong results (loose MySQL). Format the query first, scan the SELECT list and GROUP BY list side by side, and check they match. Pair this with the [JSON Formatter](/json-formatter) when working with JSONB columns, and the [Password Generator](/password-generator) for database connection passwords."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why are SQL keywords uppercase by convention?",
+        "It's a long-standing readability convention rather than a syntactic requirement. SELECT and select are equivalent to the SQL parser, but uppercase keywords make the query's structural elements (SELECT, FROM, WHERE, GROUP BY) visually pop out from the column and table names. Most style guides require uppercase keywords for legacy compatibility and code reviews."
+      ),
+      createFAQ(
+        "Should I put each JOIN on a new line?",
+        "Yes, every JOIN on its own line with the ON clause inline. This makes table relationships visible at a glance: 'this table joins to that table on this key'. For complex queries with five or more JOINs, placing each ON clause on a separate indented line improves readability further but is less universally adopted."
+      ),
+      createFAQ(
+        "How do I format a SELECT with many columns?",
+        "One column per line, all aligned, with the comma at the end of each line (the standard) or at the start of each line (Postgres/legacy style, harder to maintain). Many teams put SELECT on its own line and indent the column list under it. The SQL Formatter applies your chosen indent (2-space or 4-space) consistently."
+      ),
+      createFAQ(
+        "Does the formatter handle CTEs and window functions?",
+        "Yes. CTEs (WITH name AS (...)) get their own block with the inner SELECT formatted independently. Window functions (OVER (PARTITION BY ... ORDER BY ...)) get the contents of the OVER clause indented for readability. Both work the same way in Postgres, MySQL 8+, SQL Server, and Oracle."
+      ),
+      createFAQ(
+        "Why does my formatted SQL still produce errors?",
+        "The formatter doesn't validate the SQL, only structures it. Missing tables, wrong column names, type mismatches, or grammar errors will still produce database errors when you run the query. After formatting, run the query through your database's EXPLAIN to validate logic, or paste it into a SQL linter (sqlfluff, sqlcheck) for static analysis before execution."
+      ),
+    ],
+    relatedTools: [
+      { slug: "json-formatter", label: "JSON Formatter" },
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "css-minifier", label: "CSS Minifier" },
+    ],
+  },
 };

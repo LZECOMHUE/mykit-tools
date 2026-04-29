@@ -497,4 +497,224 @@ export const convertersSEO = {
       { slug: "clothing-size-converter", label: "Clothing Size Converter" },
     ],
   },
+
+  "uk-to-us-shoe-size-mens": {
+    sections: [
+      createAnswerFirstSection(
+        "Men's UK to US Shoe Sizes Are Just +1",
+        "Men's US shoe sizes are 1 number larger than UK men's sizes. UK 8 men's = US 9, UK 9 = US 10, UK 10 = US 11, UK 11 = US 12. Half-sizes follow the same rule: UK 8.5 = US 9.5, UK 9.5 = US 10.5. This holds across the calculator's full range from UK 6 (US 7) up to UK 13 (US 14). It is one of the simplest international shoe-size conversions, much cleaner than the women's +2 jump or the EU's Paris Point system.",
+        "The reason men's is +1 and women's is +2 is largely historical. When the modern US sizing system was finalised in the early 20th century, the starting reference foot for women's size 1 was set differently to the starting reference for men's size 1. Both countries' systems use the same physical 'last' (the foot mould inside the shoe), so a UK 9 and a US 10 are the same length of shoe; only the number on the label changes. The calculator covers UK 6 through 13, which is the full standard adult men's range."
+      ),
+      createAnswerFirstSection(
+        "Where the Conversion Breaks Down",
+        "Trainers (sneakers) ignore most of this. Nike, Adidas, New Balance, Asics and Reebok use a global system tied to centimetres, and their men's UK 9 listing is roughly the same shoe as the US 10 listing, but you'll often see UK and US labels both on the box. Always check the brand chart for the specific model. Running shoes in particular tend to fit half a size smaller than dress shoes from the same brand because of the closer foot-to-shoe contact when running.",
+        "Width is the bigger conversion problem than length. UK men's shoes typically come in one width (medium, sometimes called 'F' or 'G' in British retailers like Clarks). US men's shoes are widely available in B (narrow), D (medium), 2E (wide) and 4E (extra wide) on the same length. If your UK size 9 medium feels tight at the toes, a US size 10 in 2E width may fit much better than a US size 10.5 medium. UK retail rarely sells width options outside specialist orthotic shops."
+      ),
+      createAnswerFirstSection(
+        "Worked Example: UK Size 9 Across Three Systems",
+        "A UK 9 men's shoe corresponds to a US 10 men's, an EU 43 and a foot length of roughly 27.5 cm or 10.83 inches. If you also need centimetres (Japanese sizing uses cm directly, so 27.5 cm appears on Japanese listings), you have all four numbers from this single starting point. UK 9.5 is US 10.5, EU 43.5, 27.9 cm. UK 8 is US 9, EU 42, 26.7 cm.",
+        "Brands you might encounter: Clarks (UK retail), Cole Haan (US retail), Allen Edmunds (US dress shoes, narrow last), Crockett & Jones (UK dress shoes, wider last). Clarks and Crockett & Jones run true to UK size; Allen Edmunds historically runs half a size large; Cole Haan tends to run true to US size with a slightly wider toe box. The conversion table tells you which size to order; the brand-specific running advice tells you whether to size up or down within that system."
+      ),
+      {
+        heading: "UK to US Men's Shoe Size Conversion",
+        table: {
+          headers: ["UK", "US", "EU", "Foot Length (cm)", "Foot Length (inches)"],
+          rows: [
+            ["6", "7", "39.5", "24.6", "9.69"],
+            ["7", "8", "40.5", "25.4", "10.0"],
+            ["8", "9", "42", "26.7", "10.51"],
+            ["8.5", "9.5", "42.5", "27.1", "10.67"],
+            ["9", "10", "43", "27.5", "10.83"],
+            ["9.5", "10.5", "43.5", "27.9", "10.98"],
+            ["10", "11", "44", "28.3", "11.14"],
+            ["11", "12", "45", "29.2", "11.50"],
+            ["12", "13", "46", "30", "11.81"],
+            ["13", "14", "47", "30.8", "12.13"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is UK 9 the same as US 10 in men's shoes?",
+        "Yes, UK 9 men's = US 10 men's. This is the most common search because UK 9 is the modal men's size in Britain. The matching EU size is 43 and the foot length is roughly 27.5 cm or 10.83 inches. If you're ordering from a US brand and your UK size is 9, look for a US 10."
+      ),
+      createFAQ(
+        "Why are women's UK to US +2 but men's only +1?",
+        "Historical accident. The two systems were standardised separately in the early 20th century with different starting points for size 1, and both have stuck. The actual physical shoes are the same length; only the printed number differs. The calculator does the conversion for you so you don't need to remember which gender uses which offset."
+      ),
+      createFAQ(
+        "Do US men's shoes really run wider than UK men's?",
+        "On the same length, yes, slightly. The standard US 'D' width is marginally roomier than the UK 'F' width that most British retailers default to. If you have a wide foot and have always struggled with British shoes, a US 'D' or '2E' often fits better than a UK shoe sized up. Width letters (A, B, D, E, EE, EEE) are printed on most US shoe boxes; UK shoes rarely show them."
+      ),
+      createFAQ(
+        "What if my UK size is between two whole numbers?",
+        "Most UK retailers stock half-sizes for men's footwear (UK 8.5, 9.5, etc.), and the US system mirrors them (US 9.5, 10.5). If a brand only offers whole sizes and you're a 9.5, size up to 10 rather than down to 9 - shoes can be tightened with insoles or lacing but cannot be made longer. EU sizing rarely uses half-sizes for men's, so a UK 9.5 typically maps to either EU 43 or 44 depending on the brand."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-to-us-shoe-size-womens", label: "UK to US Shoe Size (Women's)" },
+      { slug: "uk-to-eu-shoe-size", label: "UK to EU Shoe Size" },
+      { slug: "us-to-eu-shoe-size", label: "US to EU Shoe Size" },
+      { slug: "clothing-size-converter", label: "Clothing Size Converter" },
+    ],
+  },
+
+  "uk-to-eu-shoe-size": {
+    sections: [
+      createAnswerFirstSection(
+        "Why UK to EU Shoe Sizes Don't Have a Single +Number",
+        "EU sizes use the Paris Point system: each size is exactly 2/3 of a centimetre longer than the previous. UK sizes use a system based on the 'iron' (one third of an inch). The two scales line up unevenly, so the offset between UK and EU sizes is roughly +33 to +34 but drifts a little across the range. UK 6 = EU 39, UK 7 = EU 40.5, UK 8 = EU 42, UK 9 = EU 43, UK 10 = EU 44. There is no clean integer rule; you need a lookup table, which the calculator provides.",
+        "EU sizing is the closest of the three systems (UK, US, EU) to genuine foot length. EU 39 means a 26 cm shoe internal length, EU 40 a 26.67 cm shoe, EU 41 a 27.33 cm shoe. If you're between two EU sizes, look at your foot length in centimetres and pick whichever is closest. UK and US sizes hide this length information behind arbitrary numbering, which is why EU sizes are often the most reliable label when shopping for foreign brands."
+      ),
+      createAnswerFirstSection(
+        "EU Sizes Treat Men's and Women's the Same",
+        "Unlike UK and US sizing, the EU system uses one continuous scale for both men's and women's shoes. EU 38 is EU 38 whether on a man, woman or unisex shoe. The shoes themselves are still cut differently for men and women (women's lasts are usually narrower at the heel, with a higher arch), but the numbering doesn't switch. This avoids the confusion of 'is this a men's 8 or a women's 8' you get with UK and US labels.",
+        "When converting, this means a UK 6 women's and a UK 6 men's both have EU equivalents (38.5 and 39.5 respectively in some tables, or both 39 in simplified ones). The calculator's table is the unisex version that most European retailers use. If you're buying from a brand that distinguishes men's vs women's, double-check by looking at the foot-length-in-cm column instead. Italian brands (Geox, Tods, Ferragamo) tend to be fastidious about cm; Spanish and Portuguese brands (Mango, Camper) tend to use round EU numbers and fit slightly large."
+      ),
+      createAnswerFirstSection(
+        "Worked Example: A UK 7 in EU Sizing",
+        "A UK 7 maps to EU 40.5 by the standard table (the calculator returns 40.5 for that input). Some retailers round to either 40 or 41, which can produce a half-size difference between identical UK 7 shoes from two European brands. The actual foot length is roughly 26 cm or 10.24 inches.",
+        "If you're buying from a German brand like Birkenstock, sizes are whole numbers only (39, 40, 41). A UK 7 woman would buy a 40 from Birkenstock; a UK 7 man would also buy a 40 since the brand uses a single scale. If you're a UK 7.5 (not in the standard half-size system used by the calculator), you'd need to choose between EU 41 and EU 42 - generally size up, since the EU half-step is larger than a UK quarter-inch step."
+      ),
+      {
+        heading: "UK to EU Shoe Size Conversion",
+        table: {
+          headers: ["UK", "EU", "US (Men's)", "US (Women's)", "Foot Length (cm)"],
+          rows: [
+            ["3", "36", "4", "5", "22"],
+            ["4", "37", "5", "6", "23"],
+            ["5", "38", "6", "7", "24"],
+            ["6", "39", "7", "8", "25"],
+            ["7", "40.5", "8", "9", "26"],
+            ["8", "42", "9", "10", "26.7"],
+            ["9", "43", "10", "11", "27.5"],
+            ["10", "44", "11", "12", "28.3"],
+            ["11", "45", "12", "13", "29.2"],
+            ["12", "46", "13", "14", "30"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is UK 8 the same as EU 42?",
+        "Yes for men's; for women's it's roughly EU 41. The calculator's standard table returns EU 42 for UK 8, which is the unisex/men's reference. The corresponding foot length is around 26.7 cm. If you're a woman buying European shoes, double-check whether the brand distinguishes by gender; many use the same scale, but Italian brands sometimes split."
+      ),
+      createFAQ(
+        "Why does UK 6.5 give EU 39.5?",
+        "Because the UK system uses half-sizes in 1/3-inch increments and the EU system uses 2/3-cm increments, the conversion is not a clean integer step. UK 6.5 lands at roughly EU 39.5. Most European retailers don't actually stock a 39.5; they'll either round to 39 or 40 depending on the brand. Italian brands are most likely to genuinely stock half-sizes; German and Scandinavian brands typically don't."
+      ),
+      createFAQ(
+        "Should I trust the EU number or the foot length in cm?",
+        "When buying online, foot length is the most reliable. Measure your foot in cm (heel to longest toe) and look for that number on the size chart. EU sizes claim to map directly to cm but brand variations can be 5-10mm in either direction. Most reputable brand size charts publish the cm value next to the EU number; use that to choose, especially if you're buying without being able to try on."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-to-us-shoe-size-mens", label: "UK to US Shoe Size (Men's)" },
+      { slug: "uk-to-us-shoe-size-womens", label: "UK to US Shoe Size (Women's)" },
+      { slug: "us-to-eu-shoe-size", label: "US to EU Shoe Size" },
+      { slug: "clothing-size-converter", label: "Clothing Size Converter" },
+    ],
+  },
+
+  "uk-to-us-dress-size": {
+    sections: [
+      createAnswerFirstSection(
+        "UK Dress Sizes Are Roughly 4 Larger Than US",
+        "UK women's dress sizes run 4 numbers higher than US sizes. UK 6 = US 2, UK 8 = US 4, UK 10 = US 6, UK 12 = US 8, UK 14 = US 10, UK 16 = US 12, UK 18 = US 14, UK 20 = US 16. The calculator covers UK 6 through 20, the standard British high-street range. If you wear a UK 12 from Marks & Spencer, you would order a US 8 from a brand like J.Crew or Banana Republic.",
+        "The 'minus 4' rule holds across the whole high-street range, but breaks down at extremes. Petite sizing in the US uses different numbers (the 'P' suffix denotes 5'4\" and under), and plus sizing above US 16/UK 20 is labelled in different ways depending on the brand (1X, 2X, 3X in some American brands). The calculator handles the standard range; outside it, always check the brand's own size guide because labels become inconsistent."
+      ),
+      createAnswerFirstSection(
+        "Why Vanity Sizing Makes the Numbers Lie",
+        "Both UK and US sizes have drifted larger over the last 30 years through 'vanity sizing': the practice of relabelling a slightly larger garment with a smaller number so the customer feels good. A UK 12 today has a 92 cm bust; a UK 12 from a 1980s pattern book had an 86 cm bust. US sizes have drifted even more aggressively because of the cultural premium on small-number labels. So a US 4 in 2026 is genuinely roughly the same as a UK 8 in 2026, but a 1990s US 4 was substantially smaller.",
+        "This is why measurements (bust, waist, hip in cm or inches) are more useful than size labels when ordering across markets. Most reputable retailers (Nordstrom, Net-a-Porter, ASOS) publish a size chart with cm values alongside the size labels. Use those values, not the number, to pick. The [clothing size converter](/clothing-size-converter) handles a wider range of size systems including dress, tops, trousers and outerwear."
+      ),
+      createAnswerFirstSection(
+        "EU and Italian Sizing Are Different Again",
+        "EU dress sizes are roughly UK +28 (a UK 10 is an EU 38). Italian sizes (Diesel, Prada, etc.) are roughly UK +30 (UK 10 = IT 40). French sizes match EU. Spanish and Portuguese brands often use a mix. The calculator's UK-to-US conversion is the cleanest of these because the two countries' systems share a similar history; conversions to continental sizes need a separate lookup, which the [UK to EU dress size](/uk-to-eu-dress-size) converter handles.",
+        "Worked example: A UK 12 dress is a US 8, an EU 40 and an IT 42 (some sources say IT 44; Italian sizing varies brand to brand more than any other system). Buy from a brand once, take note of which size in their range fits, and stick with that brand. The number on the label tells you less than how that specific brand cuts."
+      ),
+      {
+        heading: "UK to US Dress Size Conversion",
+        table: {
+          headers: ["UK", "US", "EU", "Bust (cm)", "Waist (cm)"],
+          rows: [
+            ["6", "2", "34", "80", "60"],
+            ["8", "4", "36", "84", "64"],
+            ["10", "6", "38", "88", "68"],
+            ["12", "8", "40", "92", "72"],
+            ["14", "10", "42", "96", "76"],
+            ["16", "12", "44", "100", "80"],
+            ["18", "14", "46", "104", "84"],
+            ["20", "16", "48", "108", "88"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is UK 10 the same as US 6 dress size?",
+        "Yes. UK 10 = US 6 in standard women's dress sizing. The bust measurement at this size is roughly 88 cm (34.6 inches) and the waist is roughly 68 cm (26.8 inches). If you're a UK 10 buying from an American retailer like J.Crew or Old Navy, order a US 6."
+      ),
+      createFAQ(
+        "Why does a US 4 sometimes fit when I'm a UK 10?",
+        "Vanity sizing varies wildly between US brands. American Eagle and Old Navy run noticeably larger than the standard table; J.Crew and Theory run closer to true. If a US 4 fits, the brand has padded its sizing chart to flatter customers. Always cross-check the brand's actual chart in cm rather than relying on the label number."
+      ),
+      createFAQ(
+        "What's the difference between US misses, juniors and petite?",
+        "Misses (or just 'women's') is the standard US 0-16 range and matches the UK conversion. Juniors uses odd numbers (1, 3, 5, 7, 9) and is cut for a younger, less-developed body shape, so a juniors 9 fits a smaller bust than a misses 8. Petite ('P' suffix) is the same numbering as misses but cut shorter for women under 5'4\"; the proportions, not the sizes, change."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-to-eu-dress-size", label: "UK to EU Dress Size" },
+      { slug: "uk-to-us-shoe-size-womens", label: "UK to US Shoe Size (Women's)" },
+      { slug: "uk-to-eu-shoe-size", label: "UK to EU Shoe Size" },
+      { slug: "clothing-size-converter", label: "Clothing Size Converter" },
+    ],
+  },
+
+  "a5-to-half-letter-dimensions": {
+    sections: [
+      createAnswerFirstSection(
+        "A5 vs Half Letter: Both Compact, But Different Shapes",
+        "A5 is 148 x 210 mm (5.83 x 8.27 in). Half Letter is 139.7 x 215.9 mm (5.5 x 8.5 in). A5 is 8.3 mm wider and 5.9 mm shorter than Half Letter. The two formats look similar at a glance and many people use them interchangeably for personal planners, notebooks and small printables, but they don't share dimensions and a printable designed for one will get cropped or leave whitespace if printed on the other.",
+        "A5 follows the ISO 216 standard used everywhere outside the US and Canada: every A-size has the same 1:1.414 width-to-height ratio, so cutting an A4 in half gives you exactly two A5 sheets. Half Letter follows the ANSI standard used in North America: it's exactly half a US Letter sheet (216 x 280 mm folded in half lengthwise gives Half Letter at 139.7 x 215.9 mm). The aspect ratios are different (1.42 for A5, 1.55 for Half Letter), so A5 is squarer and Half Letter is more elongated."
+      ),
+      createAnswerFirstSection(
+        "When You'll Hit This Conversion in Practice",
+        "Three common scenarios. First: you've downloaded a printable planner template made in the US (Half Letter) and you're trying to print it on UK paper (A5 closer match) - it'll look slightly off because the proportions differ. Second: you sell digital planner inserts to an international audience and need both sizes to cover both markets (you'll need separate files; you can't just resize one to the other without distortion). Third: you're buying notebook refills internationally - Filofax 'Personal' size is closer to Half Letter, Filofax 'A5' is genuinely A5, and the two are not interchangeable.",
+        "The cleanest workflow for designers: build your master in A5 if your audience is UK/EU/global, build it in Half Letter if it's North America-first, then create a 'fit-to-page' export for the other format. For paper-only use (just printing onto whichever paper you have), set the printer to 'fit to printable area' and accept a 4 mm white margin difference. For high-design work where bleed and registration matter (zines, art prints), build separate files; the proportional difference will warp critical layout otherwise."
+      ),
+      createAnswerFirstSection(
+        "Other Paper Sizes Near This Range",
+        "A5 sits between A6 (105 x 148 mm, postcard size) and A4 (210 x 297 mm, standard office). Half Letter sits between Quarter Letter (140 x 108 mm) and Letter (216 x 280 mm). Statement (5.5 x 8.5 in / 139.7 x 215.9 mm) is the same as Half Letter; the names are interchangeable in North America. 'Junior Legal' (5 x 8 in) is smaller than both. If you're buying a notebook and the spec sheet says 'B5' (176 x 250 mm), that's significantly bigger than A5; don't assume.",
+        "For paper purchases: A5 paper is ubiquitous in the UK/EU at any office supply shop. Half Letter is harder to find as actual sheets in the UK; you usually buy Letter paper and cut it in half. North American shops do the opposite. If you're shipping printed product internationally, A5 will be familiar to UK/EU customers; Half Letter to US/Canada. The [A4 to Letter dimensions](/a4-to-letter-dimensions) and [A3 to Tabloid dimensions](/a3-to-tabloid-dimensions) tools cover the larger sizes."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are A5 and Half Letter close enough to use interchangeably?",
+        "For personal use (a planner, a journal, sketch notes), yes. The 8.3 mm width and 5.9 mm height differences are small enough that most people don't notice. For design work with critical margins, bleeds or registration marks, no - the aspect ratios are different (1.42 vs 1.55), so a layout designed for one will visibly stretch or crop when forced into the other. If your printables include backgrounds that go to the edge of the page, design separately for each."
+      ),
+      createFAQ(
+        "Can I print an A5 PDF onto Half Letter paper?",
+        "Yes, with a fit-to-page setting on your printer. The result will have a 4-5 mm white margin on the longer sides because A5 is squarer than Half Letter. Most home printers default to fit-to-printable-area which scales down slightly to avoid clipping; this gives a slightly smaller print than full A5 size. For best results, set the PDF reader to 'actual size' and the printer to A5 paper if you have it."
+      ),
+      createFAQ(
+        "Is Half Letter the same as Statement?",
+        "Yes. Half Letter and Statement are two names for the same size: 5.5 x 8.5 inches (139.7 x 215.9 mm). Microsoft Word historically labelled it 'Statement' in the page setup dropdown. Stationery retailers in the US sometimes use 'Half Letter' on product packaging and 'Statement' on internal SKUs. They're identical."
+      ),
+      createFAQ(
+        "What's the difference between A5 and Filofax Personal?",
+        "Filofax 'Personal' size is 95 x 171 mm - much smaller than both A5 and Half Letter. Filofax 'A5' is genuinely 148 x 210 mm and accepts standard A5 inserts. If you're buying refills, check the Filofax size name carefully because a 'Personal' insert won't fit an 'A5' binder and vice versa. The naming convention is unique to Filofax and predates ISO standardisation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "a4-to-letter-dimensions", label: "A4 to Letter Dimensions" },
+      { slug: "a3-to-tabloid-dimensions", label: "A3 to Tabloid Dimensions" },
+      { slug: "inches-to-mm", label: "Inches to Millimetres" },
+      { slug: "mm-to-cm", label: "Millimetres to Centimetres" },
+    ],
+  },
 };

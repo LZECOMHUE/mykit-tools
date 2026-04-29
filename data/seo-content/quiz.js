@@ -578,4 +578,417 @@ export const quizSEO = {
       { slug: "attachment-style-quiz", label: "Attachment Style Quiz" },
     ],
   },
+
+  "attachment-style-quiz": {
+    sections: [
+      createAnswerFirstSection(
+        "What Attachment Theory Actually Is",
+        "Attachment theory was developed by John Bowlby in the 1950s and refined by Mary Ainsworth's 'Strange Situation' studies in the 1970s. It started as a framework for understanding how infants bond with caregivers and was later extended to adult romantic relationships by Hazan and Shaver in 1987. The four adult styles, secure, anxious, avoidant and disorganised, describe consistent patterns in how people approach closeness, conflict, and the fear of abandonment.",
+        "Population estimates from large adult samples typically run roughly 60% secure, 20% anxious, 15-20% avoidant, and around 5% disorganised (sometimes called fearful-avoidant). These distributions hold up surprisingly well across cultures, though the 'standards' for what counts as secure shift slightly with cultural norms around independence and emotional expression. This quiz scores you across all four styles and shows your dominant pattern with a percentage breakdown."
+      ),
+      createAnswerFirstSection(
+        "What Each Style Looks Like in Practice",
+        "Secure people are comfortable with closeness and with space, can regulate emotion under stress, and don't take normal relationship friction as evidence the relationship is doomed. Anxious-preoccupied people crave closeness, get destabilised when partners pull back even briefly, and tend to monitor the relationship for threat signals. Avoidant-dismissive people prize independence, struggle with vulnerability, and tend to retreat when partners push for more emotional engagement.",
+        "Disorganised (or fearful-avoidant) people show contradictions: they want closeness and fear it simultaneously, often because of inconsistent or frightening early caregiving. The styles aren't fixed personality types; they're patterns shaped by early relationships and continually updated by new ones. A long-term relationship with a secure partner can shift an anxious or avoidant attachment over time, sometimes substantially."
+      ),
+      {
+        heading: "Quick Comparison of the Four Styles",
+        table: {
+          headers: ["Style", "Comfort with closeness", "Comfort with independence", "Typical population"],
+          rows: [
+            ["Secure", "High", "High", "~60%"],
+            ["Anxious-preoccupied", "High (sometimes craved)", "Low", "~20%"],
+            ["Avoidant-dismissive", "Low", "High (sometimes excessive)", "~15-20%"],
+            ["Disorganised", "Mixed/contradictory", "Mixed/contradictory", "~5%"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Use Your Result",
+        "The quiz is a self-reflection tool, not a diagnosis. The most useful thing you can do with a result is read about the style with a partner, friend or therapist and notice which descriptions feel uncomfortably accurate. People who do well with attachment work tend to start with curiosity ('that's interesting, where did this pattern come from') rather than with shame ('I'm broken'). Anxious and avoidant patterns are extremely common; you're not unusual.",
+        "If your result genuinely surprises you or you're struggling in relationships, this is the kind of work a couples or individual therapist can help with. The British Association for Counselling and Psychotherapy (BACP) directory lists therapists who explicitly work in attachment. Also see the [Communication Style Quiz](/communication-style-quiz) for an angle on how you handle conflict, which is closely related to attachment style."
+      ),
+      createAnswerFirstSection(
+        "Disclaimer",
+        "This quiz is for self-reflection and education only. It is not a clinical diagnosis. The four-style framework is well-established in psychology, but no 20-question quiz can capture the full picture of your relational history. If you're struggling with anxiety, intrusive thoughts, or distress in relationships, speak to your GP or a qualified therapist."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can my attachment style change?",
+        "Yes, more than people often think. Long-term relationships with secure partners, individual therapy (especially attachment-focused or schema therapy), and life events like becoming a parent can all shift attachment patterns over months and years. Around 25-30% of people show measurable style change over a 5-year window in longitudinal studies. The pattern most resistant to change tends to be disorganised, which usually needs structured therapeutic work."
+      ),
+      createFAQ(
+        "What is the most common attachment style?",
+        "Secure, by a clear margin. Around 60% of adults in studies score primarily secure. The next most common is anxious-preoccupied at roughly 20%, then avoidant-dismissive at 15-20%, then disorganised at around 5%. These numbers shift slightly by sample, age and country but the rough order is consistent."
+      ),
+      createFAQ(
+        "Is anxious or avoidant 'worse'?",
+        "Neither. Both are insecure styles that come with their own characteristic relationship friction. Anxious people tend to over-engage and struggle with reassurance-seeking; avoidant people tend to under-engage and struggle with intimacy. Anxious-avoidant pairings are particularly fraught (the classic 'pursuer-distancer' pattern) but neither style is inherently broken."
+      ),
+      createFAQ(
+        "Can two anxious or two avoidant people have a relationship?",
+        "Yes, though both pairings have characteristic challenges. Two anxious people can spiral into mutual reassurance-seeking that exhausts both. Two avoidant people can drift into parallel lives with very low intimacy. The healthiest insecure-insecure pairings tend to involve both partners being aware of the dynamic and working on it together rather than blaming each other."
+      ),
+      createFAQ(
+        "Is the quiz a diagnosis?",
+        "No. This is a self-reflection tool drawing on Bowlby and Ainsworth's framework, not a clinical assessment. Validated research instruments include the Experiences in Close Relationships scale (ECR-R) and the Adult Attachment Interview (AAI), both of which require trained administration. Treat the result as a starting point for thought, not a label."
+      ),
+    ],
+    relatedTools: [
+      { slug: "love-language-quiz", label: "Love Language Quiz" },
+      { slug: "big-five-personality-test", label: "Big Five Personality Test" },
+      { slug: "red-flags-quiz", label: "Red Flags Quiz" },
+    ],
+  },
+
+  "crush-quiz": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Crush Quiz Works",
+        "The quiz asks 15 multiple-choice questions about your crush's behaviour: how they text, what their body language looks like when you're together, whether they make plans with you, how they respond to teasing, and whether their friends seem to know who you are. Each answer is weighted into a 'likely' / 'maybe' / 'unlikely' scoring matrix, and the result gives you a percentage along with the top three signals that pushed your score up or down.",
+        "It's an entertainment tool, not a science one. There's no peer-reviewed 'do they like you' test in the psychology literature; what this quiz draws on is the cluster of behaviours that surveys consistently associate with romantic interest (sustained eye contact, mirroring, initiating contact, prioritising the other person's company). Treat the percentage as a prompt for reflection, not an oracle."
+      ),
+      createAnswerFirstSection(
+        "What the Strongest Signals Actually Are",
+        "Three behavioural categories matter more than any single tell. First, initiation: who texts first, who suggests plans, who restarts conversations after a lull. People rarely initiate consistently with someone they don't actively want around. Second, time-protection: someone with romantic interest typically rearranges their schedule to make space rather than slot you into gaps. Third, social inclusion: do their friends know your name, do they invite you to group plans, do they introduce you with context (like 'this is X, the person I told you about').",
+        "The classic pop-culture signals (smiling more, blushing, finding excuses to touch) are real but unreliable on their own; introverts and shy people often do almost none of these even when very interested. The behavioural signals (initiation, time, social inclusion) are more diagnostic across personality types."
+      ),
+      createAnswerFirstSection(
+        "When the Quiz Gives You a Mixed Result",
+        "A score in the 40-60% range is the most common outcome and usually means there's genuine ambiguity. They might like you, they might be friendly, they might be in a phase where their behaviour is noisy for reasons that have nothing to do with you. Mixed results are often a signal that you don't have enough data yet, which is fine; it's hard to be sure about someone you've known for two weeks.",
+        "The honest move when you get a mixed result is to give it more time and pay attention to the three categories above (initiation, time-protection, social inclusion) over the next few weeks. If you genuinely cannot tell after several months of contact, the kindest thing for both of you is usually a low-stakes direct ask: 'I'd like to take you for a drink, would that be a thing you'd want?'"
+      ),
+      createAnswerFirstSection(
+        "What the Quiz Can't Tell You",
+        "It can't see what's happening in their head. It can't account for the friend who's already partnered, the friend who's just out of a hard breakup, the friend who's neurodivergent and reads as 'cold' to people who don't know them well, or the colleague who's professional rather than rejecting. Behavioural signals work best when you can read them in context, and only you have that context.",
+        "It also can't fix the 'they're great as a friend, I want more' situation. If you score 80% on the quiz and they're still saying 'just friends' explicitly, the quiz is wrong about your specific case and you have your answer. Pair this with the [Red Flags Quiz](/red-flags-quiz) if you're trying to assess whether to pursue someone whose behaviour has felt off."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is the result?",
+        "It's a heuristic, not a measurement. Self-reported observations of someone else's behaviour are noisy, and a 15-question quiz can't capture nuance. The result is more useful as a structured way to notice what you've actually been seeing rather than as a precise prediction. People who get high scores and then ask the person out tend to have read the situation correctly more often than not, but mid-range scores are genuinely ambiguous."
+      ),
+      createFAQ(
+        "What if my crush is shy?",
+        "Most of the strongest signals (initiation, time-protection, social inclusion) work for shy people too, just at lower volume. A shy person who likes you will still text first sometimes, will still rearrange a plan to see you, will still mention you to their close friends. They're less likely to flirt overtly, hold long eye contact, or touch you 'accidentally' in early stages. If you can, weight the answers based on how outgoing they are with everyone else."
+      ),
+      createFAQ(
+        "What if we only talk online?",
+        "The signals shift but most still apply. Initiation still matters: who messages first, who restarts the conversation after a lull, who replies quickly versus letting it sit for days. Effort matters: are messages thoughtful or one-word, do they remember things you said weeks ago, do they share things they think you'd find funny. The quiz works fine for online-only situations but expect more ambiguity than in-person reading."
+      ),
+      createFAQ(
+        "How do I know if it's flirting or just friendliness?",
+        "Volume and direction. Flirting is friendliness directed at you specifically and consistently; if they treat everyone the same way you're seeing in your interactions, that's their baseline rather than a signal. The cleanest test is comparing how they are with you to how they are with their wider friend group."
+      ),
+      createFAQ(
+        "Should I just ask them?",
+        "Often yes, especially after a few weeks of mixed signals. Direct, low-stakes asks ('would you want to grab a drink, just us?') tend to work better than dramatic confessions and let the other person say no without humiliation. The risk of asking and being rejected is real but usually less painful than months more of analysing texts."
+      ),
+    ],
+    relatedTools: [
+      { slug: "love-language-quiz", label: "Love Language Quiz" },
+      { slug: "red-flags-quiz", label: "Red Flags Quiz" },
+      { slug: "attachment-style-quiz", label: "Attachment Style Quiz" },
+    ],
+  },
+
+  "communication-style-quiz": {
+    sections: [
+      createAnswerFirstSection(
+        "The Four Communication Styles",
+        "The standard framework groups communication into four styles: assertive, passive, aggressive, and passive-aggressive. Assertive communication is direct, respectful, and clear about needs without trampling on others. Passive communication minimises one's own needs to avoid conflict. Aggressive communication asserts at the expense of the other person. Passive-aggressive communication routes anger through indirection, sarcasm or sulking instead of stating it.",
+        "Most people aren't a clean single style; they have a default that shifts under stress. The quiz scores you across all four with 16 real-world scenarios (workplace, family, friendships, romantic disagreements) and shows where you cluster. Assertive is the goal style most communication training points towards because it produces the best long-term outcomes in both relationships and professional settings."
+      ),
+      createAnswerFirstSection(
+        "Why Style Matters at Work and Home",
+        "In professional settings, assertive communicators get more of what they ask for, get heard in meetings, and tend to be promoted faster. Passive communicators often feel overlooked because they don't surface their work or push back on unreasonable asks. Aggressive communicators may get short-term compliance but build resentment that surfaces in turnover and underground resistance. Passive-aggressive patterns are particularly toxic in management because team members can never tell where they actually stand.",
+        "In close relationships, the same dynamic plays out. Assertive partners can negotiate ('I'm not happy with how chores are split, can we look at it'). Passive partners suppress and resent. Aggressive partners win arguments at the cost of intimacy. Passive-aggressive patterns ('fine, whatever') are linked in research to higher relationship distress than direct conflict, because the partner can't address what isn't openly said."
+      ),
+      {
+        heading: "How Each Style Tends to Sound",
+        table: {
+          headers: ["Style", "Typical phrasing", "Body language"],
+          rows: [
+            ["Assertive", "I'd like / I'd prefer / I disagree because...", "Steady eye contact, open posture"],
+            ["Passive", "Whatever you think / It's fine / I don't mind", "Avoiding eye contact, smaller posture"],
+            ["Aggressive", "You always / You never / You should", "Pointing, raised voice, looming"],
+            ["Passive-aggressive", "Fine. Whatever. I'm not angry.", "Eye-rolling, sighing, silent treatment"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Building More Assertive Communication",
+        "The classic assertive frame is 'I' language: 'I feel X when Y happens, and I'd like Z'. It separates the observation from the interpretation and the request, which is what makes it land without putting the other person on the defensive. The harder skill is staying assertive when you're activated; most people can be assertive when calm and slip into one of the other three styles when stressed.",
+        "If you're scoring high on passive or passive-aggressive, the tactical fix is rehearsing direct asks before high-stakes conversations and writing them down if needed. If you're scoring high on aggressive, the fix is slowing down: counting to ten, naming your emotion ('I'm angry') instead of acting on it, and using shorter sentences that don't escalate. Pair this quiz with the [Stress Level Assessment](/stress-level-assessment) to see whether stress is pushing you out of assertive into a default style."
+      ),
+      createAnswerFirstSection(
+        "Disclaimer",
+        "This quiz is for self-reflection and personal development; it is not a clinical or diagnostic tool. If communication patterns are causing distress in important relationships and you'd like more structured help, consider talking to a counsellor, couples therapist, or workplace coach. The BACP directory and Relate are good UK starting points."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is assertive always the right style?",
+        "Almost always, but the form varies by context. Assertive in a heated family argument looks different to assertive in a board meeting; the underlying principles (clear, direct, respectful, owning your own needs) are the same, the volume and formality change. There are rare cases where passive or aggressive is briefly tactical (de-escalating with a stranger, defending against actual aggression) but as a default style, assertive wins."
+      ),
+      createFAQ(
+        "Can I be different styles in different settings?",
+        "Yes, very common. Many people are assertive at work but passive at home (or vice versa). The quiz takes a mix of scenarios, so your score reflects the average across contexts. If you notice big differences between domains, that's useful information; usually it points to a relationship dynamic where one style feels safer than another."
+      ),
+      createFAQ(
+        "Is passive-aggressive really worse than just aggressive?",
+        "Often, in close relationships. Open aggression is at least addressable: the other person knows there's a fight and can engage with the actual content. Passive-aggressive behaviour is harder to challenge because the partner is denying the conflict ('I'm not angry, I'm fine') while broadcasting it through behaviour. Couples research shows passive-aggressive patterns predict relationship breakdown more reliably than open conflict."
+      ),
+      createFAQ(
+        "How do I deal with an aggressive communicator?",
+        "Stay assertive without matching. Slow down, keep your voice steady, name what's happening ('I want to hear this but I can't have it shouted at me, can we sit down'). If the aggression is verbal abuse rather than just heated disagreement, that's a separate problem and often needs distance, not better communication technique. Refuge and Citizens Advice both publish guidance on verbal abuse in relationships."
+      ),
+      createFAQ(
+        "Do men and women score differently?",
+        "On average, slightly. Surveys typically show women scoring marginally higher on passive scales and men marginally higher on aggressive ones, but the within-gender variance is much larger than the between-gender difference. Cultural background, family of origin, and workplace history matter more than gender for predicting style."
+      ),
+    ],
+    relatedTools: [
+      { slug: "attachment-style-quiz", label: "Attachment Style Quiz" },
+      { slug: "stress-level-assessment", label: "Stress Level Assessment" },
+      { slug: "introvert-extrovert-scale", label: "Introvert or Extrovert Scale" },
+    ],
+  },
+
+  "what-type-of-friend-are-you": {
+    sections: [
+      createAnswerFirstSection(
+        "The Five Friend Archetypes",
+        "The quiz sorts you into one of five archetypes: the Mum Friend (the one who texts to check you got home, packs paracetamol on every night out, and remembers everyone's birthday), the Chaos Friend (the one who suggests another bar at 1am and lost three phones to date), the Planner (the one who runs the WhatsApp group, books the restaurant, and circulates the spreadsheet), the Therapist (the one people call at 11pm because they can sit with hard conversations), and the Hype Person (the one who genuinely believes you can do the thing).",
+        "Real friend groups need a mix. A group of five Planners produces zero spontaneity; a group of five Chaos Friends produces injuries. The quiz isn't trying to rank the archetypes; it's giving you a vocabulary for the role you tend to play, which can help when you notice you're tired of always being the Mum or always being the Therapist."
+      ),
+      createAnswerFirstSection(
+        "What the Result Actually Tells You",
+        "Most people get one dominant archetype with a strong secondary. A pure Mum/Planner is the friend who runs the trip and also makes sure you've eaten. A Hype/Chaos is the friend who'll talk you into something brave at 2am. The combinations are more interesting than the single answers. The result page shows you your dominant archetype, your secondary, and which archetype you're least like (which can be useful information about who you might need in your life).",
+        "It's an entertainment quiz first, but it does have a useful side effect: people who recognise themselves as the Therapist or Mum often realise they've been pouring out without much pouring back, and the result can prompt them to ask different things from their group. People who get Chaos sometimes use the result to apologise for the missing wallets."
+      ),
+      createAnswerFirstSection(
+        "When You Don't Like Your Result",
+        "If you scored Mum and feel exhausted, that's a real signal. The Mum role gets praised but rarely gets cared for; the running joke is that the Mum Friend has nobody who's the Mum to her. The fix isn't dropping the role overnight (your friends rely on it) but adding small asks of your own and rotating the labour, especially in groups where one person has been carrying logistics for years.",
+        "If you scored Chaos and your friends are tired of you, this is also a real signal but worth talking through rather than panicking about. There's a difference between 'fun chaotic' (people enjoy your energy) and 'genuinely unsafe chaotic' (people are scared on your behalf). If you suspect it's the latter, talking to a GP about whether anything underlying is driving the behaviour is more useful than a personality quiz. Pair this with the [What Element Are You](/what-element-are-you) quiz for another angle."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I be more than one type?",
+        "Yes, almost everyone is. The result shows your dominant and secondary archetypes because pure single-archetype people are rare. The interesting friendships often emerge from the combinations: a Mum/Hype person is the friend who'll bring you snacks and tell you you're brilliant; a Chaos/Therapist is the friend who'll get you in trouble and then sit up listening to you cry about it."
+      ),
+      createFAQ(
+        "What if I'm just not very social?",
+        "That's not in the quiz directly, but the result still applies to small-group or one-on-one friendships. The archetypes show up in any friend dynamic, even if your 'group' is one person you've known for fifteen years. If you'd like a sense of where you sit on introversion versus extroversion, run the [Introvert or Extrovert Scale](/introvert-extrovert-scale) instead."
+      ),
+      createFAQ(
+        "Are some types better than others?",
+        "No. The quiz deliberately doesn't rank the archetypes. Mum Friends and Therapists tend to get more public credit because their work is visible, but a group without a Hype Person is a flat group, and a group without a Chaos Friend is a group that never tries anything. The 'best' friend is the one who shows up consistently, not the one with a particular archetype."
+      ),
+      createFAQ(
+        "Why is everyone in my group the Planner?",
+        "Common pattern in long friend groups, especially as people hit 30s and have kids and careers. The Mum Friend energy from your 20s often morphs into Planner energy in your 30s because the labour shifts from emotional to logistical. If everyone in your group is a Planner, it's a sign you all care, you're all responsible, and nobody is initiating fun. One Chaos friend (or one designated Chaos night a quarter) usually fixes it."
+      ),
+      createFAQ(
+        "Can my type change?",
+        "Yes, with life stages. Big life events (moving, breakup, new job, kids, illness) often shift people between archetypes. Someone who was Chaos in their 20s often becomes the Mum or Planner in their 30s. The quiz captures who you are now, not who you were or will be."
+      ),
+    ],
+    relatedTools: [
+      { slug: "which-decade-do-you-belong-in", label: "Which Decade Do You Belong In?" },
+      { slug: "what-element-are-you", label: "What Element Are You?" },
+      { slug: "introvert-extrovert-scale", label: "Introvert or Extrovert Scale" },
+    ],
+  },
+
+  "what-career-suits-you": {
+    sections: [
+      createAnswerFirstSection(
+        "The Holland Code Framework Behind the Quiz",
+        "The quiz uses Holland's RIASEC model, developed by John Holland in the 1950s and still the backbone of most professional career-counselling tools (including the US O*NET interest profiler and many UK careers services). RIASEC sorts work interests into six clusters: Realistic (hands-on, practical, mechanical), Investigative (analytical, scientific, research), Artistic (creative, expressive, unstructured), Social (helping, teaching, supporting), Enterprising (leading, persuading, business), and Conventional (organising, detail-orientated, structured).",
+        "The 15 questions present scenarios across these six clusters and score you on each. Your result shows your top three (the 'three-letter code', e.g. RIA or SEC) which is how Holland's model is normally read. Three letters because most people have a primary, secondary, and tertiary interest cluster rather than a single overwhelming one, and the combinations are more useful for career suggestions than the single top score."
+      ),
+      createAnswerFirstSection(
+        "What Each Cluster Looks Like in Real Jobs",
+        "Realistic jobs include mechanic, electrician, surgeon, farmer, paramedic. Investigative includes researcher, doctor, data analyst, engineer, scientist. Artistic includes designer, writer, musician, architect, photographer. Social includes teacher, nurse, social worker, therapist, HR. Enterprising includes manager, salesperson, lawyer, entrepreneur, politician. Conventional includes accountant, paralegal, librarian, project administrator, financial analyst.",
+        "Plenty of jobs combine clusters. Architecture is RIA (Realistic-Investigative-Artistic). Nursing is SI or SR. Project management is ECS or EC. Doctoring is IRS. Use the three-letter code to look at job families rather than single jobs; sites like the National Careers Service and Prospects.ac.uk let you filter careers by RIASEC code."
+      ),
+      {
+        heading: "RIASEC Quick Reference",
+        table: {
+          headers: ["Code", "Cluster", "Example careers"],
+          rows: [
+            ["R", "Realistic", "Mechanic, paramedic, surgeon, farmer"],
+            ["I", "Investigative", "Researcher, data analyst, doctor"],
+            ["A", "Artistic", "Designer, writer, architect, musician"],
+            ["S", "Social", "Teacher, nurse, social worker, therapist"],
+            ["E", "Enterprising", "Manager, lawyer, sales, entrepreneur"],
+            ["C", "Conventional", "Accountant, paralegal, project admin"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Actually Use Your Code",
+        "The point isn't to find the one perfect job; it's to filter. Around 70 to 80% of UK working-age adults are in jobs that match their top two letters within reason; the unhappiest are usually those whose job sits in their bottom two. If you score high on Artistic and you're working in a Conventional role, the friction will show up as the work feeling drudge-like even when you're competent at it.",
+        "If you're early career or considering a switch, look at jobs in your three-letter code that you'd never previously thought about. Most people only know about 20 careers by name and there are hundreds in any cluster. Pair this with the [What Type of Friend Are You](/what-type-of-friend-are-you) quiz for a complementary read on team-role preferences, and the [Stress Level Assessment](/stress-level-assessment) if you suspect your current role is the source of burnout rather than just a poor interest fit."
+      ),
+      createAnswerFirstSection(
+        "Limitations of Holland Codes",
+        "RIASEC is one of the best-validated career interest frameworks, but it measures interests rather than aptitude or values. You can be deeply interested in something and not have the temperament for the day-to-day work; you can have the aptitude for something that bores you. A real career conversation involves interests, skills, values (autonomy, money, security, impact), and lifestyle constraints. Treat the result as one input among several, not a verdict."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is RIASEC scientifically validated?",
+        "Yes. Holland's model is one of the most extensively validated frameworks in vocational psychology, with hundreds of studies across decades supporting its reliability and its ability to predict job satisfaction when interest-environment match is high. The US O*NET system, the largest occupational database in the world, is built around it."
+      ),
+      createFAQ(
+        "What if my top two letters seem contradictory?",
+        "Common, and often more useful than a 'pure' code. AC (Artistic-Conventional) suggests jobs that combine creativity with structure, like graphic design at a regulated organisation, or architecture. RS (Realistic-Social) suggests hands-on helping work, like paramedic, physiotherapist, or veterinary nurse. The 'contradictions' are where interesting careers tend to live."
+      ),
+      createFAQ(
+        "Can the result change over time?",
+        "Yes. Interests are reasonably stable but not fixed. People often see drift over 10-year windows, especially after major life events (parenthood, illness, moves, redundancy). Re-running the quiz every few years is fine, especially before a planned career switch."
+      ),
+      createFAQ(
+        "Should I trust this over a paid careers service?",
+        "Treat them as complements. A paid careers consultant or coach typically goes much deeper than a 15-question quiz, looks at skills and values alongside interests, and can talk through specific options for your situation. The quiz is a useful starting point and can save you the first hour of a paid session by giving you a code to bring in."
+      ),
+      createFAQ(
+        "Is salary part of the result?",
+        "No. The quiz measures interest, not income. Some clusters skew higher-paid on average (Enterprising, parts of Investigative) and some lower (Artistic, Social), but within every cluster there are wide income ranges. If salary is a hard constraint, factor that into your shortlist after the quiz tells you what you're interested in."
+      ),
+    ],
+    relatedTools: [
+      { slug: "introvert-extrovert-scale", label: "Introvert or Extrovert Scale" },
+      { slug: "stress-level-assessment", label: "Stress Level Assessment" },
+      { slug: "what-type-of-friend-are-you", label: "What Type of Friend Are You?" },
+    ],
+  },
+
+  "stress-level-assessment": {
+    sections: [
+      createAnswerFirstSection(
+        "What the PSS-10 Actually Measures",
+        "The Perceived Stress Scale (PSS-10) is a 10-item questionnaire developed by Sheldon Cohen and colleagues in 1983 and updated to its current form in 1988. It is one of the most widely used psychological measures of stress in the world, used in thousands of academic studies and routinely deployed in occupational health, primary care research, and workplace wellbeing programmes. The questions ask how often, in the last month, you've felt unable to cope, overwhelmed, on top of things, or in control.",
+        "Total scores run from 0 to 40. The standard published bands are 0-13 low stress, 14-26 moderate stress, and 27-40 high perceived stress. The scale measures perceived stress (your sense of how stressful life is feeling) rather than the objective volume of stressors you're under, which is a deliberate design choice; two people in the same situation can perceive the load very differently and the perception is what predicts health outcomes."
+      ),
+      createAnswerFirstSection(
+        "What Your Score Means",
+        "A low score (under 14) suggests you're managing reasonably well at the moment, which is the band most adults fall into during stable periods. A moderate score (14 to 26) is also extremely common and tends to track temporary load: a busy month at work, a difficult relationship phase, parenting a young child. Most people drift in and out of this band repeatedly across a year. A high score (27 plus) suggests sustained perceived overload and is associated in research with elevated risk of depression, anxiety, sleep disturbance, and physical symptoms.",
+        "A high score on a one-off assessment isn't a verdict; it's a snapshot. The same person could score 32 in the middle of a redundancy and 18 a few months after the dust settles. What matters more than a single result is whether scores are persistently high over weeks and whether the stress is interfering with sleep, appetite, work, or relationships."
+      ),
+      {
+        heading: "PSS-10 Score Bands",
+        table: {
+          headers: ["Score", "Band", "Typical context"],
+          rows: [
+            ["0-13", "Low perceived stress", "Stable period, manageable load"],
+            ["14-19", "Moderate (lower)", "Mild ongoing stress, normal range"],
+            ["20-26", "Moderate (higher)", "Sustained busy period, monitor"],
+            ["27-32", "High perceived stress", "Worth addressing actively"],
+            ["33-40", "Very high perceived stress", "Speak to GP/therapist"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What Helps When Stress Is High",
+        "The interventions with the strongest evidence base are unsexy but effective: regular sleep (the single biggest lever), regular movement (any sustained activity for 20+ minutes most days), social contact (frequency matters more than depth), and reducing one specific stressor where possible rather than trying to fix everything at once. If you can offload one obligation, even a small one, the perceived load typically drops more than the objective change suggests.",
+        "For sustained high scores, the next layer is structured help: NHS Talking Therapies (now called NHS Talking Therapies for Anxiety and Depression, formerly IAPT) is free at point of use and you can self-refer in England without a GP appointment. Cognitive Behavioural Therapy (CBT) and Mindfulness-Based Stress Reduction (MBSR) both have strong evidence for moderate-to-high stress. Pair this with the [Communication Style Quiz](/communication-style-quiz) if you suspect interpersonal friction is driving your scores."
+      ),
+      createAnswerFirstSection(
+        "Disclaimer",
+        "This is an educational self-screening tool based on the published PSS-10. It is not a clinical diagnosis. A high score on this quiz alone does not mean you have a mental health condition, and a low score does not mean you don't. If your stress is interfering with daily functioning, you're having intrusive thoughts, you're sleeping badly for sustained periods, or you're worried about yourself, speak to your GP or refer yourself to NHS Talking Therapies. The Samaritans (116 123) are available 24/7."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the PSS-10 used clinically?",
+        "It's not a diagnostic tool; it's a research and screening instrument. Clinicians do use it (especially in occupational health and research settings) as one input alongside structured interviews and validated diagnostic tools like the GAD-7 (anxiety) and PHQ-9 (depression). A high PSS-10 score in a primary-care setting often prompts further conversation rather than a diagnosis."
+      ),
+      createFAQ(
+        "Why does the same situation feel more stressful some days?",
+        "Perceived stress depends on sleep, blood sugar, cortisol baseline, social support, and the cumulative load of recent weeks more than the specific event in front of you. A meeting that feels manageable on Tuesday after a good weekend can feel impossible on Friday at the end of a hard month. The PSS-10 deliberately asks about the last month rather than 'right now' to smooth out daily noise."
+      ),
+      createFAQ(
+        "What's the difference between stress and anxiety?",
+        "Overlapping but distinct. Stress is your response to a specific load (real or perceived); anxiety is a more pervasive worry pattern that doesn't necessarily map to a current stressor. The PSS-10 measures stress; the GAD-7 measures anxiety. People can score high on both, or one and not the other. If your worry is more about future events than current load, the [GAD-7 Anxiety Screening](/anxiety-screening-gad7) is the more relevant tool."
+      ),
+      createFAQ(
+        "Can stress make me physically ill?",
+        "Yes, well-evidenced. Sustained high stress is linked in research to weakened immune function, slower wound healing, higher inflammation, sleep disturbance, gut symptoms, headaches, and elevated cardiovascular risk. The mechanism (chronic cortisol elevation) is well-documented. Short-term stress is largely benign; sustained-over-months stress is the version that shows up in physical symptoms."
+      ),
+      createFAQ(
+        "Is the quiz a substitute for therapy?",
+        "No. It's an awareness tool. If you score high and the stress is sustained, structured help (talking therapies, GP, occupational health) will go further than any self-assessment. The quiz can be a useful prompt for that conversation but isn't a replacement for it."
+      ),
+    ],
+    relatedTools: [
+      { slug: "introvert-extrovert-scale", label: "Introvert or Extrovert Scale" },
+      { slug: "what-career-suits-you", label: "What Career Suits You?" },
+      { slug: "what-element-are-you", label: "What Element Are You?" },
+    ],
+  },
+
+  "what-element-are-you": {
+    sections: [
+      createAnswerFirstSection(
+        "Where the Four Elements Come From",
+        "The Fire-Water-Earth-Air framework is one of the oldest personality systems in human history, predating most modern psychology by over 2,000 years. It originated in Greek philosophy with Empedocles around 450 BC, was extended by Hippocrates into the 'four humours' theory of personality (sanguine, choleric, melancholic, phlegmatic), and shows up in countless later traditions: Western astrology, Tarot, Wuxing in Chinese cosmology (which uses five elements), and Ayurveda's tridosha system in India.",
+        "The quiz isn't claiming any of this is scientifically validated personality theory; it isn't. The four-element framing is a satisfying lens because it's archetypal: most people instinctively recognise themselves in one of the four. Fire is energetic, bold, fast-moving. Water is emotional, intuitive, adaptable. Earth is grounded, practical, dependable. Air is intellectual, communicative, free-moving. The 10 questions place you across these four traits and show you your dominant element with a percentage breakdown."
+      ),
+      createAnswerFirstSection(
+        "What Each Element Tends to Look Like",
+        "Fire types are the people who walk into a room and change the energy: confident, action-orientated, often the first to suggest something. Strengths include leadership and initiative; pitfalls include burning out hot and steamrolling quieter people. Water types are the empathetic, emotionally tuned-in friend who notices when something's off before you've said it; strengths include emotional depth and adaptability, pitfalls include overwhelm and difficulty with rigid structure.",
+        "Earth types are the people you call when the wheels are coming off: steady, practical, finishes-what-they-start. Strengths include reliability and groundedness; pitfalls include stubbornness and reluctance to take risks. Air types are the curious, idea-flinging, restlessly-thinking friend who'll send you a podcast at midnight; strengths include communication and intellectual flexibility, pitfalls include scatter and avoidance of emotional depth."
+      ),
+      {
+        heading: "Element Compatibility at a Glance",
+        table: {
+          headers: ["Element", "Best with", "Friction with", "Why"],
+          rows: [
+            ["Fire", "Air", "Water", "Air feeds fire; water dampens it"],
+            ["Water", "Earth", "Fire", "Earth holds water; fire evaporates it"],
+            ["Earth", "Water", "Air", "Water nourishes earth; air unsettles it"],
+            ["Air", "Fire", "Earth", "Fire energises air; earth grounds it heavily"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How to Read the Result",
+        "Don't take the compatibility table too literally. Real relationships involve much more than archetype matching, and 'opposite' elements often produce some of the most interesting partnerships once both people understand the dynamic. The compatibility column is a fun shorthand, not relationship advice. The more useful read is your secondary element: a Fire/Earth person is differently shaped than a Fire/Air person, even though both are dominant Fire.",
+        "If the result feels wrong, that's also useful. People often score high on the element they aspire to rather than the one they currently embody, which can be its own piece of self-knowledge. Pair this with the [Hogwarts House Quiz](/hogwarts-house-quiz) for a related four-archetype quiz, or [What Dog Breed Are You](/what-dog-breed-are-you) for a different-but-similar self-image read."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is this scientifically validated?",
+        "No. This is an entertainment-based personality quiz drawing on a 2,500-year-old archetypal framework, not a research-validated instrument. For something with peer-reviewed backing, the Big Five Personality Test (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) is the gold standard. The four-element quiz is more about resonance and self-recognition than measurement."
+      ),
+      createFAQ(
+        "Why are there only four elements when Chinese astrology has five?",
+        "Different traditions chose different schemas. Western astrology and Greek philosophy use four (Fire, Water, Earth, Air); Wuxing uses five (Wood, Fire, Earth, Metal, Water); Tibetan Buddhist cosmology uses five (Earth, Water, Fire, Air, Space). The quiz uses the Greek/Western four because it's the most familiar to English-speaking audiences and the simplest to communicate."
+      ),
+      createFAQ(
+        "Can I be more than one element?",
+        "Yes, almost everyone is. The result shows your dominant element (usually 35-50% of your score) and a clear secondary (usually 25-35%). Pure single-element people are rare. The interesting reads are the combinations: Fire/Air is the classic charismatic leader; Earth/Water is the deeply grounded carer; Air/Earth is the systems thinker."
+      ),
+      createFAQ(
+        "Does my zodiac sign tell me my element?",
+        "In Western astrology, yes, but the quiz isn't astrology. Each zodiac sign is assigned a triplicity (Fire: Aries/Leo/Sagittarius; Earth: Taurus/Virgo/Capricorn; Air: Gemini/Libra/Aquarius; Water: Cancer/Scorpio/Pisces). If you're curious, your sun sign's element is one input but the quiz scores you on actual question responses, not your birth chart, so the two can disagree."
+      ),
+      createFAQ(
+        "Can my element change over time?",
+        "If you take it as personality, generally not by much; people stay broadly themselves. If you take it as 'how am I currently showing up', yes, big life events shift the result. Someone deep in caring for a parent often scores Water more strongly than they would in a quieter season; someone leading a startup often scores Fire."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hogwarts-house-quiz", label: "Hogwarts House Quiz" },
+      { slug: "what-dog-breed-are-you", label: "What Dog Breed Are You?" },
+      { slug: "which-decade-do-you-belong-in", label: "Which Decade Do You Belong In?" },
+    ],
+  },
 };

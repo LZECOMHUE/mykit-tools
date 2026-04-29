@@ -2809,4 +2809,452 @@ export const creativeSEO = {
       { slug: "crochet-blanket-calculator", label: "Crochet Blanket Calculator" },
     ],
   },
+
+  "contrast-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What Contrast Ratio Does Your Text Actually Need?",
+        "WCAG 2.1 sets two thresholds. AA needs a ratio of at least 4.5:1 for normal body text and 3:1 for large text (18pt and above, or 14pt bold). AAA is stricter at 7:1 for body and 4.5:1 for large text. Anything below 3:1 fails for everyone. The number itself is a maths comparison of relative luminance, not a perception score, so two colours that look similar to you can still pass while two that look different can fail.",
+        "Most production sites aim for AA on body text and AAA on critical UI like form errors and pricing. The reason is pragmatic: hitting AAA on every paragraph forces a near-monochrome palette and most clients reject it. A safe default is body copy at 7:1 or higher, secondary text at 4.5:1, and disabled or placeholder text accepted at 3:1 with a clear non-text indicator. Run anything you publish through a checker like this one before launch, not after."
+      ),
+      createAnswerFirstSection(
+        "Large Text vs Normal Text - The 3:1 Loophole",
+        "The WCAG large text rule is widely misunderstood. It only applies to text that is 18pt (24px) and above, OR 14pt (about 18.66px) and above when bolded. A 16px headline that looks big on screen is still 'normal text' for the purposes of contrast and needs 4.5:1. The threshold drops to 3:1 because larger and heavier strokes are easier to read against a low-contrast background, not because designers feel like it.",
+        "If you have a hero headline at 64px in light grey on white, you are probably fine at 3:1. If you have body copy at 16px in the same grey, it fails. The fix is rarely to enlarge the body copy; it is to darken the text or lighten the background a few shades. Use the auto-fix suggestions in this tool to see the smallest possible change that takes you from failing to passing. For graphics and icons, the rule is again 3:1 against the adjacent colour."
+      ),
+      createAnswerFirstSection(
+        "Why Brand Colours Fail Accessibility (and How to Fix It Without a Rebrand)",
+        "Brand palettes get designed for posters and packaging where contrast is huge. They get reused on websites where 16px text on a 'brand light blue' button suddenly fails. A common offender: white text on the brand-blue button at #2563eb hits about 4.6:1, just passing AA, but the same button in a 'lighter, friendlier' shade at #60a5fa drops to 2.4:1 and fails completely. You did not change the brand. You ruined accessibility.",
+        "You almost never need to change the hue. You need to change the lightness. Take the brand colour into HSL, hold the hue and saturation, and slide the lightness up or down until you pass. The auto-fix in this tool does exactly that. If you must keep the exact failing brand colour for a button, pair it with a darker text colour (deep navy on light blue often works), or add an underline so you are not relying on contrast alone. Want the underlying numbers? See the [hex to RGB converter](/hex-to-rgb) and [colour palette generator](/colour-palette-generator)."
+      ),
+      createAnswerFirstSection(
+        "Don't Forget Focus Rings, Borders and Disabled States",
+        "Contrast applies to more than paragraph text. WCAG 2.1 added a 3:1 minimum for non-text content used to identify UI components and their states. A focus ring of 1px in a colour that barely shows against the background fails the same way ghost-grey text does. Form input borders against a white card need 3:1. Selected vs unselected toggles need 3:1 between them. Most design systems we audit fail on focus rings before they fail on body copy.",
+        "The mistake is showing only one state to the contrast checker. Audit your hover state, your focus state, your selected state, your error state and your disabled state separately. Disabled buttons are exempt from contrast requirements (WCAG calls them 'inactive'), but if you greyed out a button without making it look disabled, sighted users still need to know they can't click it. A 3:1 focus ring against the page background is the single most reliable accessibility win you can ship in an afternoon."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between AA and AAA?",
+        "AA is the working legal standard in the UK (Equality Act 2010 case law) and the US (ADA Title III, Section 508, plus the European Accessibility Act 2025). AAA is an aspirational target. Body text passes AA at 4.5:1 and AAA at 7:1; large text passes AA at 3:1 and AAA at 4.5:1. Most public sector and regulated sites must hit AA on every page. Aim for AAA on body copy if you can, but never miss AA on critical content like prices, error messages and CTAs."
+      ),
+      createFAQ(
+        "Does contrast matter on dark mode?",
+        "Yes, identically. The ratio is symmetric: white text on black has the same 21:1 ratio as black on white. Dark mode failures usually come from designers picking 'light grey on dark grey' for a softer look. A pale grey (#a3a3a3) on a near-black (#1a1a1a) hits about 6.4:1 and passes AA but fails AAA for body. Test both your light and dark themes in this checker before shipping; do not assume that if one works the other does."
+      ),
+      createFAQ(
+        "What about coloured text on coloured backgrounds?",
+        "All combinations are tested by the same maths: relative luminance of the text vs relative luminance of the background. Yellow (#ffff00) on white fails badly (1.07:1). The same yellow on black smashes it (19.6:1). The colour wheel does not predict contrast - luminance does. If you must use a low-contrast pair for visual reasons (a watermark, a decorative caption), make sure the same information appears elsewhere in passing contrast."
+      ),
+      createFAQ(
+        "Will this tool fix my colour, or just check it?",
+        "Both. Enter your text and background, and the checker shows the current ratio plus the AA / AAA pass-or-fail badges. If you fail, click the auto-fix button and the tool keeps the same hue and saturation but darkens or lightens until you pass at the target threshold. You can pick which side to adjust (darken the text or lighten the background) so you keep your design intent."
+      ),
+      createFAQ(
+        "Is there a legal requirement to meet WCAG AA in the UK?",
+        "Public sector bodies in the UK must meet WCAG 2.1 AA under the Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018. Private companies are covered by the Equality Act 2010, which requires reasonable adjustments; courts have repeatedly cited WCAG AA as the practical standard. From June 2025 the European Accessibility Act extends similar duties to most consumer-facing services across the EU. The short answer: yes, you should meet AA, and large companies are increasingly being sued when they don't."
+      ),
+    ],
+    relatedTools: [
+      { slug: "colour-palette-generator", label: "Colour Palette Generator" },
+      { slug: "hex-to-rgb", label: "Hex to RGB Converter" },
+      { slug: "colour-contrast-checker-pro", label: "Colour Contrast Checker Pro" },
+    ],
+  },
+
+  "signature-pad": {
+    sections: [
+      createAnswerFirstSection(
+        "Drawing a Signature That Actually Looks Like Yours",
+        "The trick is to write at the speed and pressure of a real pen, not the slow, careful strokes most people use on a touchpad. Hold your finger or stylus the way you hold a pen, plant your wrist on the desk to anchor it, and write the whole signature in one fluid motion. Don't draw letter by letter. The signature pad here defaults to a 3px black stroke on a 600px-wide canvas, which roughly matches a fine-tipped pen on a slip of A6 paper, so the proportions feel familiar.",
+        "If your first attempt looks like a four-year-old's, try three things in order. First, slow down only on the loops and pick up the speed on straight strokes. Second, drop the pen size from 3 to 2 if your real signature is fine, or push to 4-5 if you tend to write thick. Third, write bigger than you'd write on paper, then export and let the recipient print at scale - a signature drawn at 600px wide and printed at 5cm reads beautifully, while one drawn at 100px and stretched looks pixelated."
+      ),
+      createAnswerFirstSection(
+        "PNG with Transparency vs PNG with White Background",
+        "This signature pad lets you download two ways. The transparent version drops out the background entirely, so you can layer your signature over a contract PDF, a letter template, or a photograph without a white box around it. The opaque version keeps the white fill, which is what you want when the recipient is going to print and scan, since transparency can render unpredictably in some PDF viewers and email clients.",
+        "Rule of thumb: send the transparent PNG when the document already has a signature line you want to overlay, and send the opaque one when the recipient is pasting the image somewhere unknown. If you're not sure which the recipient needs, send both - they cost you nothing and the file sizes are tiny (typically under 30KB for a black-ink signature). Pair this with a [PDF compressor](/whiteboard) workflow if you're combining the signature with other artwork later."
+      ),
+      createAnswerFirstSection(
+        "Are Drawn Signatures Legally Binding?",
+        "In the UK, an electronic signature is legally valid for almost all contracts under the Electronic Communications Act 2000 and the eIDAS Regulation as retained in UK law. A drawn signature created in a signature pad and pasted into a PDF is a 'simple electronic signature' - the lowest tier - and is binding for everyday contracts including employment agreements, NDAs, supplier contracts, leases under 7 years and consumer purchases.",
+        "The exceptions are narrow but worth knowing. Some property transactions (deeds), wills, lasting powers of attorney and certain HMRC declarations still require a wet-ink signature or a qualified electronic signature with identity verification. If you're signing a £400k house transfer, don't use a free signature pad. For everything else - the £200 freelance invoice, the contractor onboarding form, the school permission slip you forgot until 9pm - a drawn PNG signature is fine and has been since at least 2002."
+      ),
+      createAnswerFirstSection(
+        "Storing Your Signature Securely",
+        "Treat your signature PNG like a credit card photo. Save it in a password-protected note or vault rather than your camera roll, and never email it as an unencrypted attachment unless the recipient genuinely needs the raw file. Anyone with the image can paste it into a fake document, and while courts will look at metadata and intent, you're handing them a head start.",
+        "A reasonable working setup: generate the signature once on this pad, download both transparent and opaque versions, save them in your password manager's secure-files area, and delete the local copy from Downloads. Re-export each time you need a fresh signature for a high-value document; the file is small and the act of re-drawing creates a slightly different image, which is its own form of authenticity. The [whiteboard tool](/whiteboard) is the one to use if you want a quick scratch sketch with no security concerns - keep them mentally separate."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is my signature data sent to a server?",
+        "No. The drawing happens entirely in your browser using the HTML Canvas API. Nothing leaves your device unless you download the PNG and email it yourself. Close the tab and the canvas is gone."
+      ),
+      createFAQ(
+        "Can I sign with a stylus or my finger?",
+        "Yes. Apple Pencil, Samsung S Pen, generic capacitive styluses and fingertips all work. Stylus gives the most realistic result; finger is fine for casual use; mouse is the worst (you can't control the curves). On a phone, lay the device flat on a desk rather than holding it in one hand and signing with the other."
+      ),
+      createFAQ(
+        "How big should my signature be?",
+        "The canvas is 600px wide. Fill 70-80% of that width with your signature for the best print result; signatures that take only 100-200px end up grainy when scaled up. If you want a tiny output, draw it big and let the receiving software shrink it. PNG handles downscaling cleanly; upscaling, less so."
+      ),
+      createFAQ(
+        "What's the difference between this and a 'qualified electronic signature'?",
+        "A drawn signature is a simple electronic signature (SES). A Qualified Electronic Signature (QES) is created on a hardware device after a face-to-face identity check, typically through DocuSign QES, Adobe Sign EU Qualified, or Yoti. QES has the same legal force as a handwritten signature for any document type, including those that exclude SES. For 99% of consumer and small-business contracts, SES is enough."
+      ),
+      createFAQ(
+        "Why does my signature look wobbly on a touchpad?",
+        "Touchpads sample position less smoothly than touch screens, and the angle between your finger and the cursor is unnatural. Workarounds: write much larger than feels normal (the bigger you go, the smoother the curves), turn off touchpad acceleration in your OS settings, or borrow a phone or tablet for the 30 seconds it takes to sign once."
+      ),
+    ],
+    relatedTools: [
+      { slug: "whiteboard", label: "Whiteboard" },
+      { slug: "pixel-art-maker", label: "Pixel Art Maker" },
+      { slug: "meme-generator", label: "Meme Generator" },
+    ],
+  },
+
+  "whiteboard": {
+    sections: [
+      createAnswerFirstSection(
+        "Six Tools, One Canvas, No Account Needed",
+        "This whiteboard gives you a pen, a highlighter (30% opacity), an eraser, and three shape tools (line, rectangle, circle), all on a 800px-wide canvas. Pick a colour from the seven quick-pick swatches or open the colour picker for any hex value. Brush size goes from 1px (precise diagrams) up to 30px (chunky teaching strokes). Undo and redo work for the last 20 actions, so you can experiment without worrying about ruining a good sketch.",
+        "The canvas resizes itself to fit your viewport up to 800px wide and 500px tall. On mobile it shrinks proportionally so you can sketch a quick idea on your phone and download it as PNG. Nothing is uploaded - the drawing lives in your browser only - so you can use this for confidential meeting notes, throwaway ideas during a call, or kids' drawing time without any privacy worry. Closing the tab clears everything."
+      ),
+      createAnswerFirstSection(
+        "When a Whiteboard Beats a Note App",
+        "Three situations: explaining a layout, sketching a process flow, or doodling while you think. Note apps force you into linear text, but a network diagram, a kitchen-floor sketch or a quick wireframe needs spatial freedom. Drop a rectangle for the kitchen, a circle for the island, a few lines for the cabinets, and you've communicated more in 30 seconds than two paragraphs of description.",
+        "The other use case is teaching. Parents helping with maths homework can draw the carrying-the-1 step rather than describe it. Online tutors can scribble on a shared screen in real time. Remote design reviews go faster when someone can sketch over a screenshot rather than typing 'maybe move the button down a bit'. The PNG export means you can drop the sketch into Slack, an email, a Google Doc, or a child's homework folder. For more permanent diagrams, try [pixel art maker](/pixel-art-maker); for a contained signature, see the [signature pad](/signature-pad)."
+      ),
+      createAnswerFirstSection(
+        "Highlighter, Eraser, and the Layer Trick",
+        "The highlighter draws at 30% opacity, so overlapping strokes build up colour the way a real highlighter does. Use it to mark up text in a screenshot, draw a coloured background behind a sketch, or shade in regions of a diagram without hiding what's underneath. The eraser doesn't erase your strokes - it draws white, so if you're working over a coloured background, the eraser will leave white marks. To 'erase' on a coloured background, use the same colour as your background.",
+        "There's no layer system, which is deliberate - this is a whiteboard, not Photoshop. If you need to edit elements separately, draw your sketch, export to PNG, then start a new whiteboard with the previous PNG as your background reference (open it in another tab next to the whiteboard). For real layered work, a desktop tool like Figma or Procreate is the right answer; this tool is for the 95% of cases where you just need a sketch in 60 seconds."
+      ),
+      createAnswerFirstSection(
+        "Shape Tools and the Drag-to-Draw Pattern",
+        "Line, rectangle and circle work the same way: click to set the start point, drag to where you want the shape to end, release to commit it. While you drag, you'll see a live preview so you can size it visually rather than by guesswork. Hold the same colour and brush size as you had selected for the pen tool; the shape borrows them. Want a filled rectangle? Currently the tool draws outlines only - draw the rectangle, then switch to pen and scribble inside, or use the highlighter for a soft fill.",
+        "The most common use of shapes is wireframing. Draw a header rectangle across the top, a sidebar rectangle on the left, a few rectangles for content cards, and you've sketched a webpage layout in seconds. Add the pen tool for labels and arrows. For maths or geometry homework, the line tool plus the circle tool covers most diagrams kids encounter up to GCSE level. Numbers are easier added later in a screenshot annotation tool, but for the rough sketch this is enough."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I save my whiteboard and come back later?",
+        "Not directly. Closing the tab clears the canvas. The workaround is to download the PNG, then re-open it in a viewer next to a fresh whiteboard tab when you want to continue. We've kept the tool stateless on purpose so it stays fast and private."
+      ),
+      createFAQ(
+        "Does it work on a tablet with a stylus?",
+        "Yes, and it's the best way to use it. Apple Pencil, Samsung S Pen and any standard active stylus all work. Pen pressure isn't supported (the canvas API uses one stroke width per stroke), but the smooth tracking of a real stylus on glass is what makes the difference between a usable sketch and a mouse-drawn squiggle."
+      ),
+      createFAQ(
+        "What's the maximum canvas size?",
+        "800px wide by 500px tall. That's roughly a 4:3 widescreen ratio at standard DPI, which suits most diagrams, sketches and quick visuals. For poster-size or print-resolution work, sketch the rough idea here and rebuild in a vector tool like Inkscape or Figma; this canvas is for ideas, not finished artwork."
+      ),
+      createFAQ(
+        "Does undo work on shapes too?",
+        "Yes. Each completed action - a pen stroke, a highlighter mark, a shape, even an eraser drag - is one undo step. You can undo up to 20 actions back. Redo restores anything you undid, until you draw something new on top, at which point the redo stack clears."
+      ),
+    ],
+    relatedTools: [
+      { slug: "signature-pad", label: "Signature Pad" },
+      { slug: "pixel-art-maker", label: "Pixel Art Maker" },
+      { slug: "meme-generator", label: "Meme Generator" },
+    ],
+  },
+
+  "print-shrinkage-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Bigger Should You Print?",
+        "Multiply each desired dimension by (1 + shrinkage / 100). For PLA at the typical 0.4% shrinkage, a 100mm cube needs to print at 100.4mm. For ABS at 0.75%, the same cube prints at 100.75mm. Nylon at 1.75% means 100mm becomes 101.75mm. Resin sits in the wide range of 1.0% to 2.5% depending on chemistry, with 1.5% as a practical default. The calculator above bakes these typical values in and applies the multiplier per axis.",
+        "The reason it matters is that shrinkage isn't optional - it happens whether you compensate or not. If you print a part designed for a 4mm hole at PLA's 0.4% shrinkage, your real hole will measure 3.984mm; you'll struggle to fit a 4mm dowel into it. Compensate up-front and the dowel slides in cleanly. The catch is that shrinkage is rarely uniform across X, Y and Z, so many serious users measure a calibration cube on their own printer and feed the actual percentages in rather than trusting the typical figure."
+      ),
+      createAnswerFirstSection(
+        "Why X, Y and Z Shrink Differently",
+        "X and Y (the horizontal axes) usually shrink uniformly because each layer cools quickly while pressed against the bed and the layer below. Z (the vertical axis) often shrinks less, because each layer is laid down at extrusion temperature on top of an already-cooled layer, so the cooling distance is shorter. ABS in particular shows pronounced X-Y shrinkage from the heated bed cooling unevenly across the perimeter, with the corners curling first.",
+        "The practical implication: a single shrinkage value works for cubes and simple prints, but for a part where the Z dimension matters (a stacked tolerance, a sliding fit), measure Z separately. The calculator lets you set X, Y and Z dimensions independently, so once you've measured a calibration print on your specific filament and machine you can plug in three different percentages. For a deeper cost analysis on filament use, pair this with the [3D print cost calculator](/3d-print-cost-calculator)."
+      ),
+      createAnswerFirstSection(
+        "Filament Type vs Brand vs Reality",
+        "PLA from Brand A and PLA from Brand B can shrink differently. The polymer is the same in name, but additives, dyes and the supplier's drying regime change the cooling behaviour. The values in this calculator (PLA 0.4%, ABS 0.75%, PETG 0.45%, Nylon 1.75%, ASA 0.7%, Resin 1.5%) are typical mid-range figures that match published datasheets and the consensus on the RepRap and 3D printing forums. They are starting points, not guarantees.",
+        "If you're doing dimensional work - parts that fit other parts, threaded inserts, push-fits, gears - print a calibration cube in your specific filament, measure it cold (24 hours after printing for ABS, since it keeps shrinking), and dial the calculator's custom shrinkage percentage to match. Spend an hour calibrating once and you save weeks of failed prints. For a comparison table of common filaments by warp and shrinkage behaviour, see the [filament comparison](/filament-comparison) tool."
+      ),
+      createAnswerFirstSection(
+        "Resin and SLA - A Different Beast",
+        "FDM filaments shrink as the molten plastic cools to room temperature. Resin shrinks during cure, when liquid polymer becomes solid through UV exposure. The numbers look similar (1.0% to 2.5% typical), but the failure modes are different. Resin shrinkage is anisotropic, meaning it's stronger in the direction of layer-build (Z), and it depends heavily on how thoroughly the part is cured.",
+        "Under-curing leaves residual monomer that keeps shrinking for hours after wash. Over-curing makes the part brittle but more dimensionally stable. The shop trick: cure resin parts overnight with the door of the wash-and-cure station closed, then measure 24 hours later. Apply the resin shrinkage value to all three axes equally as a first pass, but expect Z to shrink slightly more than X and Y. For high-precision parts, scale up by 1.5% then sand to final size; for cosplay and decorative work, the typical 1.5% bake-in is accurate enough."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I scale up in my slicer or in my CAD model?",
+        "Either works, but scale in CAD when you can. Scaling in the slicer scales every feature uniformly, which is what you usually want, but it also rounds dimensions to the printer's resolution and can introduce tiny errors on small features. CAD lets you compensate per-feature - upsize the holes by their shrinkage and leave decorative surfaces alone. For most users, slicer scaling is the simpler path and the error is negligible."
+      ),
+      createFAQ(
+        "Why does my ABS part still warp even after compensating?",
+        "Shrinkage and warping are different problems. Shrinkage is uniform contraction; warping is uneven contraction caused by the bed cooling faster than the upper layers. Compensate for shrinkage with this calculator, but to fight warp you need an enclosure, a heated chamber, or a switch to a less warp-prone filament like PETG or PC-CF. ASA was developed partly to fix ABS's warp issues and gives you the strength benefits without the corner-curl."
+      ),
+      createFAQ(
+        "Do I need to compensate for tolerance fits like push-fits and bearings?",
+        "Yes, and shrinkage is only half the story. Most printers also have a horizontal expansion error of 0.05 to 0.2mm where the outer wall slightly oversizes due to extrusion overshoot. After applying shrinkage compensation, leave 0.1 to 0.3mm of clearance for sliding fits and 0.05mm interference for press fits. Calibrate by printing a tolerance test piece (e.g. the All In One 3D Printer Test) and measuring the snug-fit pin."
+      ),
+      createFAQ(
+        "Does shrinkage matter for cosmetic prints?",
+        "Less. A 100mm decorative vase that comes out at 99.6mm looks identical. The reason to compensate even for cosmetic prints is when they have to mate with something - lids, handles, bases that screw on. If the part is freestanding and not measured, skip compensation and save the calibration time."
+      ),
+    ],
+    relatedTools: [
+      { slug: "3d-print-cost-calculator", label: "3D Print Cost Calculator" },
+      { slug: "filament-comparison", label: "Filament Comparison" },
+      { slug: "resin-calculator", label: "Resin Calculator" },
+    ],
+  },
+
+  "fabric-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Fabric Do I Need? - The Quick Answer",
+        "The calculator covers five common projects with sensible default measurements: a dress (1.5m length on 137cm-wide fabric), curtains, quilts, bags and cushion covers. It then adds a 10% wastage allowance, rounds up to the nearest quarter metre, and multiplies by your price per metre. For a typical 1.5m dress on 137cm-wide fabric at £12 per metre, that's 1.65m metres after waste, rounded to 1.75m, costing £21.",
+        "Why round up to a quarter metre? Because fabric shops cut on 25cm increments. Asking for 1.66m gets you 1.75m anyway. Why 10% wastage? Because pattern matching, fabric flaws, off-grain corrections and the inevitable mis-cut all eat fabric. Skip the wastage allowance and you'll be back at the shop next weekend buying another half-metre at the new (sold-out) price. Pattern matching alone can push wastage to 25-30% on busy florals or large-scale checks."
+      ),
+      createAnswerFirstSection(
+        "The Three Standard Fabric Widths and Why They Matter",
+        "Most retail fabric comes in 44 inch (1.12m), 54 inch (1.37m), or 60 inch (1.52m) widths. The wider the fabric, the less linear length you need. A garment that takes 2.5m on 44-inch quilting cotton might take only 2m on 60-inch dressmaking poplin. The calculator switches the maths automatically when you change the width dropdown, so you can compare two bolts of the same print at different widths and price-per-metre.",
+        "Quilting cotton is almost always 44 inch. Dressmaking fabric (poplin, viscose, linen) is usually 54 inch or 60 inch. Curtain and upholstery fabric runs 137cm to 280cm wide; the wide end (sometimes 'extra-wide') matters for lined curtains where you want a single panel without joins. If you're not sure, measure the bolt at the shop, don't trust the label, and convert from inches to metres if needed (44 inch is 1.118m, 54 inch is 1.372m, 60 inch is 1.524m)."
+      ),
+      createAnswerFirstSection(
+        "Pattern Repeats Eat Fabric - Plan for It",
+        "A 60cm pattern repeat on a curtain means every panel must align at the same point in the print. To get matching panels, you cut each one to the next full repeat above your finished length, and you order extra. Two 240cm-drop curtains on fabric with a 60cm repeat need at least 5m, not 4.8m, because the second panel starts 60cm later than ideal in the cutting plan. Quilting prints with directional florals or stripes work the same way - one wrong-way piece ruins the block.",
+        "The calculator has a pattern-repeat field. Enter the repeat in cm and the maths adjusts. For a plain or random-pattern fabric, leave it at zero. For directional prints (people, animals, words, large florals), add 30-50% extra on top of the calculator's number, especially for clothing where the pattern direction must match across seams. The classic disaster: cutting a sleeve upside-down because the print 'looks like a leaf' until you sew it on and your client's mum points out it's a fern."
+      ),
+      createAnswerFirstSection(
+        "Cushion Covers, Bags and Small Projects",
+        "For cushion covers, plan for both faces of the cushion plus seam allowances and a zip or envelope opening. The calculator handles the maths in cm: enter the cushion size and it works out the area, applies wastage and rounds up. A 45cm square cushion needs about 0.5m of 137cm-wide fabric (front + back + 1.5cm seam allowance + envelope overlap). Anything bigger than 60cm and you should switch to the 'curtains' calculation, because you'll want the print direction to match.",
+        "Bags are the same: total surface area divided by fabric width plus wastage. The trap with bags is the lining - if you want a contrasting lining, you need the same metreage in a second fabric, often costing as much again as the outer. Don't forget interfacing for structured bags (typically 0.5m of medium-weight fusible per small bag). For seam allowances on patterns that don't include them, see the [seam allowance calculator](/seam-allowance-calculator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my pattern say 2m but the calculator says 1.75m?",
+        "Pattern envelopes assume the worst-case fabric (44-inch wide, with a directional print, with a beginner cutter). The calculator gives you the realistic minimum for plain fabric on the width you're actually buying. If you're buying 137cm-wide plain calico for a wearable toile, trust the calculator. If you're buying 110cm-wide directional poplin for the final garment, trust the pattern."
+      ),
+      createFAQ(
+        "Does the calculator account for fabric shrinkage in the wash?",
+        "No - it accounts for cutting wastage only. Pre-washing fabric is the standard advice precisely because cotton can shrink 3-7% on the first wash. Always pre-wash and tumble dry on the heat setting you'll use long-term, then cut. If you don't pre-wash, the dress fits when you finish it and is two sizes too small after laundry day."
+      ),
+      createFAQ(
+        "What's the difference between metres and yards?",
+        "1m equals 1.094 yards. Most UK and European fabric shops sell in metres; US shops sell in yards. The calculator outputs both. Don't mix them on a single project - 4 yards is 3.66m, not 4m, so a US pattern will under-buy if you read the number as metres."
+      ),
+      createFAQ(
+        "How much extra should I buy for matching across seams?",
+        "Add the pattern repeat distance once for each major seam. For a dress with side seams, shoulder seams and a centre back, that's 3 to 4 extra repeats. On a 60cm repeat fabric, that's 1.8m to 2.4m of extra fabric. This sounds like a lot, but it's the only way to get a polished result on bold prints. For solids and small all-over prints, skip the extra."
+      ),
+    ],
+    relatedTools: [
+      { slug: "quilt-calculator", label: "Quilt Calculator" },
+      { slug: "curtain-fabric-calculator", label: "Curtain Fabric Calculator" },
+      { slug: "seam-allowance-calculator", label: "Seam Allowance Calculator" },
+    ],
+  },
+
+  "painting-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Painting Actually Costs to Make",
+        "Add up five things: canvas, paint, brush wear, varnish and framing. For an A3 painting in acrylic, the calculator's defaults give you canvas £25, paint £60, brushes-and-other £15, varnish £8 and frame £40 - £148 in materials before you've picked up a brush. For oil at £15 per tube vs acrylic at £8.50 it climbs another £30-£50 per painting depending on coverage. Watercolour sits between at £12 per tube but uses less per piece, often £40-£50 of paint per A3.",
+        "The number that surprises new artists is brush wear. A Pro-Arte Series 200 round brush costs £12-£18 and lasts maybe 30 paintings if you wash it properly. Across 30 paintings that's £0.40-£0.60 per painting in brush amortisation, plus replacements when one inevitably goes hard with dried paint. Bottles of medium, varnish and white spirit also need amortising; the calculator's £15 'brushes/other' line covers that for an average mid-career painter. Track your real spending for three months and the figure you get is usually within 20% of this default."
+      ),
+      createAnswerFirstSection(
+        "Hours x Hourly Rate - The Honest Bit",
+        "Most painters undercharge for time. The calculator defaults to 10 hours at £25 per hour - that's £250 of labour. For a serious A3 oil painting that involves layers and drying time, 10 hours is conservative; a mid-detail work in oils can easily take 25-40 hours. £25 per hour is what a self-employed designer charges; £50 per hour matches an established artist with a gallery, and £100+ per hour is realistic only when collectors are buying.",
+        "Set an hourly rate you'd be willing to take if a client offered you a private commission. If you're emerging, that's typically £20-£35. If you're established with a price track record at galleries, it's £45-£80. Remember the calculator's hourly rate is your cost to the painting, not your final selling rate; the markup on top is where your gallery margin and profit live. For other side-income hourly thinking, see the [side hustle hourly rate](/side-hustle-hourly-rate) calculator."
+      ),
+      createAnswerFirstSection(
+        "Markup vs Selling Price - The Two Numbers Most Painters Confuse",
+        "Markup is the percentage you add on top of total cost. A £148 materials cost plus £250 labour is £398 total cost; a 50% markup makes the painting £597; 100% markup makes it £796. The calculator defaults to 50% markup, which is conservative but realistic for self-represented sales. Galleries that take 40-50% commission effectively need you to set the markup at 100% to come out at the same net.",
+        "The mistake painters make is calling 'I add 50% to my materials' a markup. Materials might be £148; 50% of that is £74; the painting goes up at £222. That's not enough to pay for your time, let alone profit. Always include labour in the cost base before you mark up. The calculator does this automatically - the markup percentage applies to materials + labour combined. If the resulting number feels too high to your target buyer, lower the labour first (paint faster, or paint smaller), not the materials."
+      ),
+      createAnswerFirstSection(
+        "Pricing for Galleries vs Direct Sales",
+        "If you sell direct (Etsy, your own site, art fairs), the price the buyer pays is the price you set in this calculator. If you sell through a gallery, double the calculator's selling price - the gallery takes 40-50% and you keep the rest. So a calculator output of £597 needs to retail at £1,200 in a gallery for you to net the same £597. Pricing inconsistently across channels (lower direct, higher gallery) is one of the most common ways emerging artists damage their gallery relationships.",
+        "The pragmatic approach: pick the gallery price first using the calculator, then decide whether to also sell direct at the same price (most galleries require this in their contracts) or only through the gallery. If you're emerging and self-represented, set the calculator's markup at 50%, treat the result as your direct price, and revisit when you have a track record. Pair this with the [art pricing calculator](/art-pricing-calculator) to compare cost-based pricing against per-square-inch industry rates."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I include the cost of my studio in the painting cost?",
+        "Strictly yes - studio rent, electricity and heating are part of overhead. The calculator doesn't add them per painting because most home-studio artists fold them into the hourly rate (a £25 hourly rate already implies £15-£20 per hour of profit after overhead). If you rent a separate studio, add £5-£15 to your hourly rate to cover it, or build a separate per-painting overhead figure. Don't double-count."
+      ),
+      createFAQ(
+        "What if I work in mixed media?",
+        "Treat the painting as the most expensive medium you used and adjust the paint cost manually. A piece that's mostly acrylic with oil pastel highlights costs roughly acrylic plus £10-£20 for the pastels. The 'paint type' selector is shorthand; the calculator accepts your manual paint-cost figure and uses that for the maths."
+      ),
+      createFAQ(
+        "Is framing always included in the price?",
+        "Convention varies. UK galleries usually expect the painting to arrive ready-to-hang (framed for traditional media, with the canvas edges painted for contemporary work on stretched canvas). Etsy buyers often expect unframed and pay extra for framing. Set framing cost to zero in the calculator if you're selling unframed and bill it separately, but make sure the listing says so or you'll get angry messages."
+      ),
+      createFAQ(
+        "How do I decide between cost-based and per-square-inch pricing?",
+        "Cost-based pricing works at lower price points (£50-£500) where buyers are deciding rationally. Per-square-inch pricing dominates the £500-£10,000 range where buyers compare your work against other artists at the same career stage. Check both numbers in this calculator and the [art pricing calculator](/art-pricing-calculator); whichever gives you the higher number is usually what your peers charge, but the lower number is usually what your work actually sells for early on."
+      ),
+    ],
+    relatedTools: [
+      { slug: "art-pricing-calculator", label: "Art Pricing Calculator" },
+      { slug: "canvas-size-guide", label: "Canvas Size Guide" },
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+    ],
+  },
+
+  "art-pricing-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Cost-Based vs Per-Square-Inch - The Two Pricing Methods Artists Actually Use",
+        "Cost-based pricing adds up materials and labour, then applies a markup. The calculator uses defaults of £45 materials, 8 hours at £30 per hour, and a 50% markup, which gives £427 for a 50x70cm painting. Per-square-inch pricing multiplies width-times-height in inches by a flat rate - here £15 per square inch as default. The same 50x70cm painting (about 19.7 x 27.6 inches, or 543 sq inches) comes out at £8,145 at £15/sq inch. The difference is huge and that's the point - the methods serve different career stages.",
+        "Use cost-based pricing when you're new, selling direct, and trying to hit a price point a non-collector will pay. Use per-square-inch when you have a sales track record, gallery representation, and your work commands a stable rate that buyers compare against your peers. The calculator shows both numbers side by side so you can see where you sit. The gap usually closes as your career grows: emerging artists at £2-£4 per square inch climb to £15-£30 over 5-10 years, then jump to £50-£200+ when galleries start dictating prices."
+      ),
+      createAnswerFirstSection(
+        "Why £15 per Square Inch Isn't a Magic Number",
+        "Per-square-inch rates roughly correlate with career stage. Hobbyist or self-taught: £1-£3 per square inch. Emerging artist with a portfolio: £3-£8. Mid-career with a gallery and 5+ solo shows: £10-£30. Established with consistent collector demand: £30-£100. Major artist with auction record: £100-£10,000. The calculator's £15 default sits at the upper-emerging / lower-mid level. Drop it to £3 for your first ten paintings and raise it deliberately as you sell out shows.",
+        "The trap is jumping straight to a number you've seen another artist use. Sarah at the gallery up the road might charge £25 per square inch, but she has a 15-year track record and a waiting list. If you set yours at £25 with no track record, your work doesn't sell, and you can't 'reduce' the price next year without signalling failure. Better to start at £4-£6, sell out a couple of small shows, and step the rate up by 20% per year. Once you're at £15-£20 and selling consistently, the gallery conversation becomes easier."
+      ),
+      createAnswerFirstSection(
+        "Width x Height vs Linear Inch - Pick a Convention and Stick to It",
+        "Most artists use width times height in inches for square-inch pricing. A 24x36 inch painting is 864 square inches; at £10 per square inch, that's £8,640. Some artists use 'linear inches' (width plus height), which gives wildly different results: 24+36 = 60 linear inches; at £10 per linear inch, just £600. Linear pricing is more common in markets where buyers want consistent prices across paintings of different aspect ratios; square-inch pricing rewards larger work disproportionately and is what most galleries use.",
+        "The calculator uses square inches because that's the international gallery standard. If you find your work isn't selling because the larger pieces feel overpriced, two things to try: cap the per-square-inch rate at a maximum painting size (so anything over 36x48 inches is priced at a discount), or switch to linear-inch pricing for smaller works and keep square-inch for larger commissions. Either is more honest than starting with mixed conventions and confusing your buyers."
+      ),
+      createAnswerFirstSection(
+        "Reading the Calculator's Two Numbers",
+        "When the cost-based price is much higher than the per-square-inch price, you're either overestimating your hours or underpricing your work for the format. Either work faster (or estimate hours more honestly) or raise your per-square-inch rate. When per-square-inch is much higher, the rate is aspirational for your size of work - either drop it to a more realistic level or paint larger to capture the rate's benefits.",
+        "The sweet spot is when the two numbers come out within 20-30% of each other. That tells you your hourly rate, your markup and your per-square-inch rate are all roughly aligned. Established artists usually have these three numbers consistent within a tight band, which is what 'pricing maturity' looks like. For the cost side, see the [painting cost calculator](/painting-cost-calculator); for the marketplace fees that take a slice when you sell, see the [Etsy fee calculator](/etsy-fee-calculator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I include framing in my pricing?",
+        "Either include it and price the painting framed, or exclude it and charge framing as an add-on. Don't change conventions between paintings of the same series - if buyers see framed-included on one and frame-extra on another, they assume you're inconsistent. The calculator works either way: include the frame in materials cost if you're pricing framed, or leave it out and add framing on the invoice."
+      ),
+      createFAQ(
+        "What's a fair hourly rate for a self-taught artist?",
+        "£15-£25 per hour is realistic. UK minimum wage for self-employed equivalent is around £12-£13, but you're charging for skill, not labour. Most professional self-employed creatives (designers, illustrators, photographers) charge £35-£75 per hour, and your hourly rate as a painter should sit in the lower end of that range when you're starting and climb as your portfolio grows. Below £15 per hour you're essentially paying for the privilege of painting."
+      ),
+      createFAQ(
+        "Why does my cost-based price feel too low?",
+        "Usually because you've underestimated hours. Pick a recent painting, count actual studio hours including drying, varnishing and photography, and the number is normally 50-100% higher than your initial guess. Re-run the calculator with the higher hours and the cost-based price climbs significantly. The other common cause is too low a markup - 30% is below trade norms; 50-100% is healthy."
+      ),
+      createFAQ(
+        "Do galleries want me to set the price or do they?",
+        "Galleries usually set the price after looking at your portfolio and target buyers. They take 40-50% commission. If your gallery says 'we'll price it at £600' on a piece that costs you £200 to make, and they keep £270, you net £330 - more than the calculator's cost-based output of, say, £427 minus their 45% (£235). Run both numbers and have a frank conversation if the gallery's number undershoots your costs. Most galleries will agree to a floor price if you can show your maths."
+      ),
+    ],
+    relatedTools: [
+      { slug: "painting-cost-calculator", label: "Painting Cost Calculator" },
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+      { slug: "side-hustle-hourly-rate", label: "Side Hustle Hourly Rate" },
+    ],
+  },
+
+  "soap-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How a Lye Calculator Works (and Why You Can't Skip It)",
+        "Cold-process soap is a chemical reaction: oils plus a strong alkali (NaOH for bar soap, KOH for liquid soap) become soap and glycerine. Each oil has its own SAP (saponification) value that tells you exactly how much lye is needed to fully react with 1g of that oil. Coconut oil's SAP is 0.186 (NaOH); olive oil is 0.134; shea butter is 0.128; castor is 0.129. The calculator multiplies each oil's weight by its SAP value, sums the totals, then applies your superfat and lye-to-water ratio.",
+        "Skipping the calculator and using someone else's recipe with different oils is how soap-makers end up with bars that are either harsh and lye-heavy (causing skin burns) or soft and oil-heavy (causing rancidity). The numbers matter to within 1g for a 500g batch. Even the same oil from a different supplier can shift the SAP by 1-2% depending on origin and processing, but for hobby and small-batch commercial work, the standard SAP table the calculator uses is accurate enough. Always weigh, never measure by volume."
+      ),
+      createAnswerFirstSection(
+        "Superfat - The 5% That Makes Soap Skin-Safe",
+        "Superfat is the percentage of oils left unreacted in the finished bar. A 0% superfat means every gram of oil is converted to soap; a 5% superfat (the calculator's default) means 5% of the oils survive unreacted and remain in the bar as moisturising free oils. This is the buffer that makes the bar gentle on skin and accounts for the small variations in real-world SAP values. Below 3% superfat, the bar can feel drying or even slightly caustic on sensitive skin.",
+        "Standard ranges: 5% superfat for bar soap, 1-3% for liquid soap (KOH) because higher superfat in liquid soap leaves cloudy unreacted oil, 8-10% for facial bars where extra mildness matters, up to 15% for shaving soaps. The calculator applies the superfat as a discount on the total lye amount: at 5% superfat, you use 95% of the calculated lye, leaving 5% of the oils unreacted. Don't go above 8% for general body bars or the bar gets soft and rancid quickly."
+      ),
+      createAnswerFirstSection(
+        "Lye-to-Water Ratio and Why It Affects Trace Time",
+        "Water dissolves the lye so it can react with the oils. Less water means a thicker, faster-reacting lye solution and faster trace; more water means a slower, gentler reaction. The calculator's default 2:1 water-to-lye ratio (e.g. 100g lye in 200g water) is the textbook standard. Master soapers use 1.5:1 for water discount (faster trace, less unmoulding wait), or 2.5:1 to 3:1 for cold-pour designs where you want extended workability.",
+        "The trade-off: less water makes a bar that unmoulds in 12-24 hours and cures in 4 weeks. More water makes a bar that needs 48-72 hours to unmould safely and cures in 6-8 weeks because the extra water has to evaporate. Beginners should stick with 2:1 until they've made 10+ batches. Advanced techniques like swirls, embeds and intricate designs benefit from a 2.5:1 ratio for the extra workable time. The calculator shows you the water amount in grams once you set the ratio."
+      ),
+      createAnswerFirstSection(
+        "NaOH vs KOH - Bar vs Liquid Soap",
+        "NaOH (sodium hydroxide) makes solid bar soap; KOH (potassium hydroxide) makes liquid soap (or pastes that dilute into liquid soap). The chemistry is the same - oils react with the alkali to form soap - but the molecular weights are different (NaOH is 40.0, KOH is 56.1), so the SAP values are different and you'd never use the same recipe for both. The calculator switches all the maths automatically when you change the lye type dropdown.",
+        "Practical implications: solid bar work is more forgiving for beginners because the soap is easy to mould, unmould, slice and cure. Liquid soap requires a heated cook (60-80°C for 2-4 hours), pastes that look alarming during cooking, and a dilution stage where you add water to the cooled paste over hours or days. Liquid soap also needs a different storage approach - it ferments and cloudies if water content is too high. If you're starting out, do 5-10 NaOH bar batches before attempting your first KOH liquid batch. For pricing your finished bars to sell, see the [candle cost calculator](/candle-cost-calculator) - the costing approach transfers."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is this calculator safe enough to trust for my recipes?",
+        "Yes for hobby and small-batch commercial work. The SAP values used (coconut 0.186 NaOH, olive 0.134 NaOH, palm 0.141 NaOH, shea 0.128 NaOH, cocoa 0.137 NaOH, castor 0.129 NaOH, sweet almond 0.136 NaOH) match the standard SAP tables published by every major soap-making textbook. For commercial regulatory submissions in the UK (cosmetic safety assessment, CPSR), use a SAP table from a verified source and consult your safety assessor; the calculator is a working tool, not a regulatory document."
+      ),
+      createFAQ(
+        "What's the safety equipment I need?",
+        "Goggles or a full-face shield, lye-rated nitrile or rubber gloves, long sleeves, closed-toe shoes, and an apron you don't mind ruining. Work in a ventilated area or outside; lye dust and fumes are caustic. Have white vinegar nearby to neutralise spills on surfaces (don't put vinegar on skin - rinse with water, lots of it). Always add lye to water, never water to lye - the reverse causes a violent eruption. Keep children, pets and distractions away during the lye-mixing stage."
+      ),
+      createFAQ(
+        "Can I substitute oils mid-recipe?",
+        "Only with the calculator. Each oil has a different SAP value, so swapping 100g of olive (SAP 0.134) for 100g of coconut (SAP 0.186) changes the lye requirement by 28%. Substitution without recalculation gives you a lye-heavy bar (skin-burning) or oil-heavy (rancid). The calculator lets you change oil weights live and updates the lye and water amounts; that's the safe way to iterate."
+      ),
+      createFAQ(
+        "Why is my finished soap dripping fluid weeks after curing?",
+        "Usually one of three things: too much soft oil (olive, sweet almond) in the recipe so the bar never hardens; too high a superfat (above 8%) leaving free oils to seep; or insufficient cure time (cold-process bars need 4-6 weeks minimum). Drop the soft-oil percentage to 50% or less, hold superfat at 5%, and cure for 6 weeks before you decide whether the recipe failed."
+      ),
+      createFAQ(
+        "Can I use this calculator for melt-and-pour soap?",
+        "No. Melt-and-pour soap is pre-saponified - the lye chemistry has already happened in the manufacturing of the base. You melt it, add fragrance and colour, and pour. There's no lye calculation needed. This calculator is only for cold-process and hot-process soap-making where you handle raw lye yourself."
+      ),
+    ],
+    relatedTools: [
+      { slug: "candle-cost-calculator", label: "Candle Cost Calculator" },
+      { slug: "fragrance-load-calculator", label: "Fragrance Load Calculator" },
+      { slug: "wax-melt-calculator", label: "Wax Melt Calculator" },
+    ],
+  },
+
+  "resin-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Resin for My Mould? - The Volume Maths",
+        "Volume in millilitres equals the geometry. For a cylinder, it's pi times radius squared times height (a 50mm-diameter, 80mm-tall cylinder mould holds about 157ml). For a cube, it's width times depth times height (40 x 40 x 80 = 128ml). For a sphere, four-thirds pi times radius cubed (50mm diameter sphere holds 65ml). For a dome, pi divided by 3, times radius squared, times height. The calculator does the maths for any of those four shapes plus a custom volume input for irregular moulds.",
+        "Once you have the total volume, split it by your mix ratio. A 1:1 epoxy on 100ml total means 50ml Part A and 50ml Part B. A 2:1 ratio means 67ml of A and 33ml of B (the larger number is always the resin, the smaller the hardener, unless your manufacturer says otherwise). The calculator handles 1:1, 2:1, 3:1 and 1:2 in the dropdown. Always read your specific resin's instructions - mixing ratios vary by brand and getting them wrong by even 10% leaves the cure tacky."
+      ),
+      createAnswerFirstSection(
+        "Mix Ratios - Why 1:1 vs 2:1 Matters",
+        "Most clear casting resin (ArtResin, Pebeo Gedeo, Glass Coat) is 1:1 by volume - equal parts A and B. Some structural epoxies (West System, Smooth-On EpoxyMax) are 2:1 by volume because the hardener is more chemically active. Polyester resin is usually measured by drops or grams of catalyst per 100g of resin and doesn't follow the 1:1 / 2:1 logic at all - the calculator's ratio dropdown is for epoxy, not polyester.",
+        "If you mix epoxy at the wrong ratio, the cure suffers. Too much hardener (e.g. you mixed 1:1 a 2:1 resin) leaves the part soft, oily and often white-speckled with unreacted hardener. Too little hardener and the cure is incomplete - the part stays tacky weeks later. Always check the manufacturer's spec sheet, even for 'just clear casting resin' - some brands switched their formula in the last few years and old guides on YouTube are wrong."
+      ),
+      createAnswerFirstSection(
+        "Cost Per Piece and Bulk Buying",
+        "Resin costs roughly £20-£35 per litre for hobby clear casting resin, £30-£50 for premium UV-resistant brands like ArtResin, and £15-£25 for industrial clear epoxy. The calculator's £25 default sits at the middle of the hobby range. For a 157ml cylinder pour, that's about £3.93 in resin per piece. Add the cost of pigments (£2-£5 per piece), inclusions (£0.50-£20 depending on what you embed), and the mould amortisation if it's a single-use silicone mould.",
+        "Bulk buying drops the per-piece cost significantly. A 1L kit at £25 makes about six 157ml pieces; a 5L kit at £100 (£20 per litre) makes 30 pieces with the per-piece cost down to £3.14. If you're selling, the pricing has to cover the labour-intensive sanding, polishing and dome-finishing stages on top of materials - typically 30-60 minutes per finished piece. For pricing handmade pieces against marketplace fees, see the [jewellery pricing calculator](/jewellery-pricing-calculator) and [Etsy fee calculator](/etsy-fee-calculator)."
+      ),
+      createAnswerFirstSection(
+        "Pour Depth Limits and Why You Can't Just Pour Bigger Moulds",
+        "Standard hobby resin has a maximum pour depth of around 1-2cm in a single layer. Pour deeper and the exothermic reaction (resin generates heat as it cures) overheats, yellows the resin, creates bubbles or even cracks the cured piece. For a 5cm-deep mould, you have to pour in 2-3 layers, waiting 4-12 hours between layers for the previous layer to gel. The calculator gives you total volume; planning the layer schedule is on you.",
+        "If you need a single deep pour (a 10cm river table, a thick paperweight), switch to deep-pour resin (also called 'casting resin' as opposed to 'coating resin'). Deep-pour resins like Liquid Glass Deep Pour, Stone Coat Countertops Super Cast and Smooth-On Crystal Clear have slower cures (24-72 hours) that release heat gradually and let you pour 5-10cm in one go. They cost more per litre (£35-£60) but eliminate layer lines and save days of work. Match the resin to the depth before you order."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is the volume calculation?",
+        "The volume maths is exact for the geometric shapes (cylinder, cube, sphere, dome). Real moulds often deviate slightly - silicone moulds flex when filled, air pockets form, and the surface tension of resin means it usually pours about 1-2% short of the geometric volume. Mix 5% more than the calculator says for any project where running out mid-pour would ruin the piece."
+      ),
+      createFAQ(
+        "Should I measure by weight or volume?",
+        "Volume is the standard for epoxy resin manufacturers' instructions. Weight (grams) is more precise but only works if your resin spec lists density - most brands give the ratio in volume. For very small batches under 30ml, weight on a 0.1g scale is more accurate than measuring cups. For batches over 100ml, volume in graduated mixing cups is faster and accurate enough."
+      ),
+      createFAQ(
+        "What's the difference between Part A and Part B?",
+        "Part A is the resin (the larger of the two for non-1:1 ratios). Part B is the hardener (the smaller). They're chemically inert until mixed; once combined, they cure within hours via an exothermic reaction. Always store them separately, never mix until you're ready to pour, and never add more hardener 'to speed it up' - that just creates a hot, brittle, yellowed piece. If your resin is curing too slowly, raise the room temperature to 22-25°C, which speeds the reaction without changing the chemistry."
+      ),
+      createFAQ(
+        "Can I save leftover mixed resin?",
+        "No. Once Part A and Part B are mixed, the chemistry is running and the resin will cure in the cup whether you use it or not. Leftover mixed resin is a hot, sometimes smoking, definitely-going-in-the-bin disaster. Plan portions tightly using this calculator and pour any small leftover into a silicone offcut mould as a 'bonus piece' rather than letting it cure in the mixing cup."
+      ),
+      createFAQ(
+        "Does the calculator work for UV resin?",
+        "Yes for the volume calculation, no for the mix ratio. UV resin cures via UV light alone and is not mixed with a hardener - it's a single-part product. Set the mix ratio to anything (it's ignored) and use only the total volume figure. UV resin is best for shallow, small pieces (jewellery, small charms) because UV light only penetrates 3-5mm; for anything larger, switch to two-part epoxy."
+      ),
+    ],
+    relatedTools: [
+      { slug: "jewellery-pricing-calculator", label: "Jewellery Pricing Calculator" },
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+      { slug: "print-shrinkage-calculator", label: "3D Print Shrinkage Calculator" },
+    ],
+  },
 };

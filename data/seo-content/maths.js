@@ -617,4 +617,186 @@ export const mathsSEO = {
       { slug: "trigonometry-calculator", label: "Trigonometry Calculator" },
     ],
   },
+
+  "standard-deviation-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Use the Standard Deviation Calculator",
+        "Paste your dataset into the input box. The calculator accepts numbers separated by commas, spaces, or new lines (so you can drop a column straight from a spreadsheet without reformatting). It works out the count, mean, median, mode, range, variance and standard deviation, and shows where the data sits within one, two and three standard deviations of the mean.",
+        "Pick population or sample mode at the top. Population uses divisor n; sample uses divisor n-1 (Bessel's correction). The difference matters for small datasets and almost vanishes for large ones. Most real-world statistics, including pretty much every survey, every controlled experiment, and every test from a class of pupils, are samples drawn from a wider population, so sample standard deviation is the safer default unless you genuinely have every value in the population."
+      ),
+      createAnswerFirstSection(
+        "What Standard Deviation Actually Measures",
+        "Standard deviation tells you how spread out a set of numbers is around the mean. A small standard deviation means most values are clustered tightly around the average; a large one means they're scattered widely. Two datasets can share the same mean and look completely different in shape. Class A scoring 70, 70, 70, 70, 70 has a mean of 70 and a standard deviation of 0. Class B scoring 40, 55, 70, 85, 100 also has a mean of 70 but a standard deviation of about 23. The mean alone hides this entirely.",
+        "The formula is sqrt(sum((x - mean)^2) / n) for population, or sqrt(sum((x - mean)^2) / (n-1)) for sample. You square the deviations to make negatives positive (otherwise they'd cancel), average them to get variance, then square-root to bring the units back to the original scale. The 68-95-99.7 rule says that for a normal distribution, roughly 68% of values fall within 1 SD of the mean, 95% within 2 SDs, and 99.7% within 3 SDs."
+      ),
+      {
+        heading: "Worked Example: Test Scores",
+        table: {
+          headers: ["Score", "Difference from mean", "Squared difference"],
+          rows: [
+            ["62", "-8", "64"],
+            ["68", "-2", "4"],
+            ["70", "0", "0"],
+            ["72", "+2", "4"],
+            ["78", "+8", "64"],
+            ["Mean = 70", "Sum = 0", "Sum = 136"],
+            ["", "Population SD = sqrt(136/5) = 5.22", "Sample SD = sqrt(136/4) = 5.83"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "When You'd Want to Know the Standard Deviation",
+        "Comparing consistency. Two football pundits make scoring predictions; whichever has the lower SD between predicted and actual scores is more reliable, even if their averages are similar. Quality control. A factory wants its product weights to cluster tightly around the target; rising SD signals a problem on the line before any single weight goes badly wrong. Investment risk. Standard deviation of monthly returns is the textbook definition of volatility; a fund with low SD is steady, a fund with high SD swings.",
+        "It's also the basis of z-scores, where a value is reported as 'X standard deviations above or below the mean'. A z-score of 0 is exactly average; a score of +2 means well above average (about top 2.5% if the data is normally distributed); a score of -3 means very far below. For more on combinations, sequences and core statistics, see the [Probability Calculator](/probability-calculator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I use population or sample standard deviation?",
+        "Use sample SD (divide by n-1) when your data is a sample from a larger population, which is almost always the case in social science, business analytics, opinion polls and class results. Use population SD (divide by n) only when you have literally measured every member of the population, like every employee at a small company on a specific day."
+      ),
+      createFAQ(
+        "Why divide by n-1 for sample standard deviation?",
+        "It's called Bessel's correction. When you calculate variance from a sample, the sample mean is itself an estimate (not the true population mean), and using it slightly underestimates the true variance. Dividing by n-1 instead of n inflates the answer just enough to remove the bias. The effect is large for small samples (10 vs 9 changes the result by 10%) and tiny for large samples (1000 vs 999 changes it by 0.1%)."
+      ),
+      createFAQ(
+        "What does a standard deviation of zero mean?",
+        "Every value in the dataset is identical. This is rare with real measurements (there's almost always some noise) but common with categorical data converted to numbers, or in trivial test cases. A near-zero SD on real measurements suggests either extraordinary precision or that you've accidentally put the same value in every row."
+      ),
+      createFAQ(
+        "What units is the standard deviation in?",
+        "The same units as your data. Heights in centimetres give an SD in centimetres; temperatures in Celsius give an SD in Celsius. This is why we square-root the variance: variance is in 'units squared' (centimetres squared, hard to visualise), and the square root brings it back to the original scale."
+      ),
+      createFAQ(
+        "How many decimal places should I report?",
+        "One more than your raw data. If your measurements were to the nearest whole number, report SD to one decimal place. If they were to one decimal place, report to two. The calculator shows four decimal places so you can round as appropriate."
+      ),
+    ],
+    relatedTools: [
+      { slug: "probability-calculator", label: "Probability Calculator" },
+      { slug: "quadratic-equation-solver", label: "Quadratic Equation Solver" },
+      { slug: "greatest-common-factor-calculator", label: "Greatest Common Factor Calculator" },
+    ],
+  },
+
+  "quadratic-equation-solver": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Use the Quadratic Equation Solver",
+        "Enter the three coefficients a, b and c from your equation in the form ax² + bx + c = 0. The solver works out the discriminant (b² - 4ac), uses it to decide whether the roots are real or complex, and applies the quadratic formula to give you the values of x. Steps and the discriminant value are shown alongside the answer so you can check the working rather than just trusting the output.",
+        "Coefficient a cannot be zero, otherwise the equation isn't quadratic at all (it collapses to a linear equation bx + c = 0, which the solver flags as an error). Coefficients b and c can be zero. If c is zero you get x = 0 as one root automatically; if b is zero you get a pure square root."
+      ),
+      createAnswerFirstSection(
+        "What the Discriminant Tells You",
+        "The discriminant is the bit under the square root sign in the quadratic formula: b² - 4ac. It tells you the nature of the roots before you even calculate them. If it's positive, you get two distinct real roots (the parabola crosses the x-axis at two different points). If it's zero, you get one repeated real root (the parabola just touches the x-axis at its vertex). If it's negative, you get two complex roots (the parabola never touches the x-axis at all).",
+        "Complex roots come in conjugate pairs of the form p + qi and p - qi, where i is the square root of negative one. They're not 'wrong' answers, they're just answers that exist in the complex plane rather than on the standard real number line. For physics and engineering problems involving oscillation, complex roots actually correspond to important damped or oscillating behaviour."
+      ),
+      {
+        heading: "Discriminant Outcomes at a Glance",
+        table: {
+          headers: ["b² - 4ac", "Number of real roots", "Geometric meaning"],
+          rows: [
+            ["Positive", "Two distinct real roots", "Parabola crosses x-axis at two points"],
+            ["Zero", "One repeated real root", "Parabola touches x-axis at the vertex"],
+            ["Negative", "No real roots (two complex)", "Parabola sits entirely above or below x-axis"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Where Quadratic Equations Show Up",
+        "Projectile motion uses them constantly. Throw a ball into the air and its height as a function of time is roughly h(t) = -½gt² + v₀t + h₀, a quadratic. Solving for h = 0 (when the ball hits the ground) is a quadratic equation. Optimisation problems, especially ones involving area and rectangles ('I have 100m of fencing, what dimensions give the largest enclosed area?'), reduce to quadratics. Profit-maximisation in business when revenue and cost are quadratic functions of quantity. Trigonometry sometimes throws them up too.",
+        "Beyond physics and economics, quadratics turn up in computer graphics (intersecting a ray with a sphere), genetics (Hardy-Weinberg equilibrium), and statistics (variance is a quadratic function). For more numerical tools, see the [Probability Calculator](/probability-calculator) or [Standard Deviation Calculator](/standard-deviation-calculator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the quadratic formula?",
+        "x = (-b ± sqrt(b² - 4ac)) / 2a. The plus and minus give you the two solutions: one root from adding the square root of the discriminant, the other from subtracting it. It's derived by completing the square on the general quadratic ax² + bx + c = 0, and works for any quadratic with real coefficients."
+      ),
+      createFAQ(
+        "Can I solve quadratics by factoring instead?",
+        "Yes, when the roots are 'nice' integers or simple fractions. Factoring x² - 5x + 6 = 0 gives (x - 2)(x - 3) = 0, so x = 2 or x = 3. The trouble starts when the roots aren't whole numbers; factoring x² - x - 1 = 0 (the equation for the golden ratio) by hand is a nightmare, while the formula gives (1 ± sqrt(5)) / 2 in one step. The solver doesn't try to factor; it always uses the formula, which works in every case."
+      ),
+      createFAQ(
+        "What does 'completing the square' mean?",
+        "It's an algebraic technique that rewrites ax² + bx + c into the form a(x - h)² + k, where (h, k) is the vertex of the parabola. It's also the method used to derive the quadratic formula in the first place. For most everyday solving you don't need to bother with it; the formula is the more direct route."
+      ),
+      createFAQ(
+        "Are complex roots useful for anything?",
+        "In a pure 'where does this graph cross zero' sense, complex roots tell you the graph never crosses, which is itself a valid answer. In engineering and physics, particularly anything involving oscillation, alternating current, signal processing or quantum mechanics, complex numbers are standard. Solving the characteristic equation of a damped oscillator yields complex roots whose imaginary part is the oscillation frequency and real part is the damping rate."
+      ),
+      createFAQ(
+        "Why do you need a, b and c separately?",
+        "Because the quadratic formula needs each coefficient explicitly. The solver lets you change one at a time and watch the roots move, which is useful when you're studying how the discriminant flips from positive to negative as one coefficient changes. If you have an equation in a different form, like x² = 5x - 4, rearrange it to x² - 5x + 4 = 0 first, then a=1, b=-5, c=4."
+      ),
+    ],
+    relatedTools: [
+      { slug: "probability-calculator", label: "Probability Calculator" },
+      { slug: "standard-deviation-calculator", label: "Standard Deviation Calculator" },
+      { slug: "pythagorean-theorem-calculator", label: "Pythagorean Theorem Calculator" },
+    ],
+  },
+
+  "probability-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Probability Calculator Covers",
+        "Four tabs handle four core questions. Basic computes the probability of a single event as favourable outcomes divided by total outcomes. Combinations (nCr) tells you how many ways you can choose r items from n when order doesn't matter. Permutations (nPr) does the same when order matters. Independent events combines two probabilities to find the chance of both happening, either happening, or neither happening.",
+        "Probability values always sit between 0 (impossible) and 1 (certain), and the calculator shows them both as a decimal and a percentage. A probability of 0.25 is the same as a 25% chance, or odds of 1 in 4. The calculator doesn't deal with conditional probability or Bayesian updating directly, those are deeper topics best handled with a worked example rather than a generic tool."
+      ),
+      createAnswerFirstSection(
+        "Combinations vs Permutations",
+        "The classic way to remember the difference: combinations are about committees, permutations are about podiums. If you're picking 3 people from 10 to form a committee, the order they're picked in doesn't matter, so use nCr. If you're picking 3 people from 10 to come 1st, 2nd and 3rd in a race, the order matters (1st place is different from 3rd), so use nPr. The formulas: nCr = n! / (r! × (n-r)!), nPr = n! / (n-r)!. Permutations are always at least as large as combinations because they count more arrangements as distinct.",
+        "Common surprises: the number of possible bridge hands (13 cards from 52) is C(52, 13) = 635 billion. The number of distinct handshakes in a room of 20 people is C(20, 2) = 190. The number of ways to order a deck of 52 cards is 52! which is roughly 8 × 10^67, more than the number of atoms in the Earth."
+      ),
+      {
+        heading: "Common Probability Examples",
+        table: {
+          headers: ["Event", "Probability", "Approximate odds"],
+          rows: [
+            ["Flipping heads", "0.5 (50%)", "1 in 2"],
+            ["Rolling a 6 on a die", "0.167 (16.7%)", "1 in 6"],
+            ["Drawing an ace from a deck", "0.077 (7.7%)", "1 in 13"],
+            ["Two coins both heads", "0.25 (25%)", "1 in 4"],
+            ["Three coins all heads", "0.125 (12.5%)", "1 in 8"],
+            ["Rolling a double 6 with two dice", "0.028 (2.8%)", "1 in 36"],
+            ["UK Lotto jackpot (6 from 59)", "0.0000000223 (0.00000223%)", "1 in 45,057,474"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How Independent Events Combine",
+        "Two events A and B are independent if the outcome of one doesn't affect the other. For independent events: P(A and B) = P(A) × P(B), P(A or B) = P(A) + P(B) - P(A) × P(B). Multiplying probabilities lowers them quickly, which is why getting four heads in a row drops to (1/2)^4 = 1/16 even though each flip is 50/50. The 'or' formula subtracts the overlap because P(A) + P(B) on its own would double-count the case where both happen.",
+        "Common mistakes: assuming independence when the events are actually linked (drawing two cards without replacement is not independent because removing the first card changes the deck), or forgetting the subtraction in the 'or' formula. For dependent events you'd need conditional probability, which the [Standard Deviation Calculator](/standard-deviation-calculator) doesn't cover but is closely related to via Bayes' theorem."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between a combination and a permutation?",
+        "Order. Picking 3 people for a committee from 10 is C(10, 3) = 120 ways because no one cares who was picked first. Picking 3 people for gold, silver and bronze medals from 10 athletes is P(10, 3) = 720 ways because the medal order is part of the answer. P(n, r) = C(n, r) × r! always, since for each unordered combination there are r! ways to arrange it."
+      ),
+      createFAQ(
+        "Why does the calculator show probabilities in two formats?",
+        "Decimals between 0 and 1 are the mathematical standard and the form used in formulas, while percentages between 0% and 100% are how most people speak about chance. A 0.045 probability and a 4.5% chance are exactly the same thing, just different notations. Odds (like '1 in 22') are a third notation, useful for headline numbers but harder to combine algebraically."
+      ),
+      createFAQ(
+        "What happens when r is greater than n?",
+        "C(n, r) and P(n, r) are both zero. You can't pick more items than exist. The calculator returns 0 in that case, which can be confusing if you've made a typo, since the result looks the same as a genuine zero probability. Double-check that n is the larger of the two values."
+      ),
+      createFAQ(
+        "Are coin flips and dice rolls really independent?",
+        "Yes, in any practical sense. The result of one fair coin flip has no physical influence on the next. The 'gambler's fallacy' is the false belief that, after a streak of heads, tails is somehow 'due'; the coin doesn't know what it did before, and each flip is 50/50 fresh. The same applies to dice and lottery balls."
+      ),
+      createFAQ(
+        "How do I calculate the probability of getting at least one success?",
+        "Use the complement: P(at least one) = 1 - P(none). For example, the probability of rolling at least one 6 in four rolls is 1 - (5/6)^4 = 1 - 0.482 = 0.518, just over half. This 'at least one' technique is much easier than enumerating all the cases where you get one, two, three or four sixes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "standard-deviation-calculator", label: "Standard Deviation Calculator" },
+      { slug: "quadratic-equation-solver", label: "Quadratic Equation Solver" },
+      { slug: "prime-number-checker", label: "Prime Number Checker" },
+    ],
+  },
 };

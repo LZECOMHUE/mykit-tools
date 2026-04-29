@@ -412,4 +412,280 @@ export const weddingSEO = {
       { slug: "wedding-hashtag-generator", label: "Wedding Hashtag Generator" },
     ],
   },
+
+  "wedding-timeline-builder": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Build a Wedding Day Timeline That Doesn't Slip",
+        "Most UK weddings start the ceremony around 1pm or 2pm and run on until midnight, which leaves about ten hours to fill without a single ten-minute slip cascading into a late first dance. The Wedding Timeline Builder takes your ceremony time and works out the rest, baking in the buffers professional planners use: 30 minutes before ceremony for guest seating, 30 to 45 minutes for the ceremony itself, and a one-hour drinks reception while the wedding party shoots couple photos.",
+        "The biggest source of overrun is photographs. Group shots take roughly two minutes each once you account for assembling the right people, so a list of fifteen formal groupings is half an hour gone before anyone gets a glass of fizz. Trim the list ruthlessly, hand it to a designated 'shot wrangler' (usually an organised bridesmaid), and the timeline holds together."
+      ),
+      {
+        heading: "Standard UK Wedding Day Order of Events",
+        table: {
+          headers: ["Time", "Event", "Duration", "Notes"],
+          rows: [
+            ["13:30", "Guests arrive", "30 mins", "Order of service handed out"],
+            ["14:00", "Ceremony begins", "30-45 mins", "Civil typically 30, religious 45"],
+            ["14:45", "Confetti and group photos", "30 mins", "Move directly outside if dry"],
+            ["15:30", "Drinks reception", "1 hour", "Canapes essential if meal is later"],
+            ["17:00", "Wedding breakfast", "1.5-2 hrs", "Three courses plus speeches"],
+            ["19:30", "Cake cut, evening guests arrive", "30 mins", "Room turnaround if same venue"],
+            ["20:00", "First dance, then party", "Until close", "Last orders 23:30 for 00:00 close"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Speeches: Before, During, or After the Meal?",
+        "Speeches before the meal mean nervous speakers can eat properly afterwards and guests stay attentive on full bladders rather than empty stomachs. Speeches during the meal break up the courses and give the catering team breathing room between starter, main and dessert service. Speeches after dessert is the British tradition but means cold food gets even colder while guests tap forks against glasses.",
+        "Whichever you pick, the rule is 25 to 30 minutes total for father-of-the-bride, groom and best man combined; 45 minutes once you add a maid of honour or extra family speaker. Anything longer and the room loses focus. Pair this with the [Wedding Speech Outline Generator](/wedding-speech-outline-generator) to pre-time each contribution and the [Wedding Catering Calculator](/wedding-catering-calculator) to coordinate course pacing with the kitchen."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What time should we start the ceremony?",
+        "1pm to 2pm is the standard UK ceremony start. Earlier than that and morning guests struggle with travel; later and you run out of daylight for outdoor photos in winter. A 2pm ceremony gives you a 3pm to 4pm photo and drinks window, a 5pm sit-down meal, and the first dance comfortably before 9pm."
+      ),
+      createFAQ(
+        "How long should the gap between ceremony and reception be?",
+        "Aim for under 90 minutes if at the same venue, no more than 2 hours if guests need to travel. Longer than that and energy dips; older guests get tired and younger guests start drinking on empty stomachs. If a longer gap is unavoidable, organise something for guests to do (a tour of the venue grounds, a yard game setup, or directing them to a nearby pub)."
+      ),
+      createFAQ(
+        "When should we serve canapes?",
+        "During the drinks reception, starting around 30 minutes after the ceremony ends. Allow three to five canapes per guest if the wedding breakfast is more than 90 minutes after the ceremony, two to three if it's sooner. Without canapes during a long reception window, guests will be properly drunk by sit-down."
+      ),
+      createFAQ(
+        "What time does the bar usually close at a UK wedding?",
+        "Most UK venues run their licence to midnight, with last orders at 11:30pm and music off by 12am. A few rural barns and hotels can extend to 1am for an extra fee. If you want to keep the party going beyond that, plan a late-night snack moment (bacon rolls, pizzas, fish and chip vans) that bridges to taxi pickups."
+      ),
+      createFAQ(
+        "Can I download the timeline to share with vendors?",
+        "Premium PDF export gives you a per-vendor schedule (one for the photographer, one for the venue, one for the band) plus a master copy you can hand to your day-of coordinator or maid of honour. Send it three weeks before the wedding so suppliers can flag any clashes while there's still time to adjust."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-speech-outline-generator", label: "Wedding Speech Outline Generator" },
+      { slug: "wedding-catering-calculator", label: "Wedding Catering Calculator" },
+      { slug: "wedding-seating-planner", label: "Wedding Seating Planner" },
+    ],
+  },
+
+  "wedding-invitation-wording-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Word a Wedding Invitation Without Causing a Family Row",
+        "Wedding invitation wording is one of the few places in modern life where the rules still genuinely matter, because the wording signals who is hosting (and therefore paying), how formal the day will be, and whose names get top billing. The Wedding Invitation Wording Generator gives you three options at the formality level you choose, so you can compare a 'Mr and Mrs Smith request the pleasure of your company' opener against a 'Sarah and Tom invite you to celebrate' opener side by side.",
+        "Traditionally the bride's parents host and are named first; modern weddings name the couple themselves as hosts, particularly when the couple is paying or when both sets of parents contribute. The generator handles divorced or remarried parents (each parent listed on a separate line), single-parent families, and same-sex couples without forcing you into outdated phrasing."
+      ),
+      {
+        heading: "Wording by Formality Level",
+        table: {
+          headers: ["Formality", "Opener", "Style", "Best For"],
+          rows: [
+            ["Very formal", "request the honour of your presence", "Religious ceremony, full names, year written out", "Cathedral, large family wedding"],
+            ["Formal", "request the pleasure of your company", "First and last names, traditional phrasing", "Most UK weddings"],
+            ["Casual", "would love you to join us", "First names, conversational tone", "Garden, barn, intimate weddings"],
+            ["Modern", "are getting married and want you there", "Casual, sometimes humorous, includes hashtag", "City weddings, second marriages"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What to Include Beyond the Names",
+        "Date, time, venue and dress code are the essentials. Spell the date out for very formal invites ('Saturday, the fifteenth of June, two thousand and twenty-six'); use numerals for everything else. Include the dress code only if it's stricter than 'wedding guest standard' (white tie, black tie, morning dress, no white). For RSVPs, give a clear deadline (six weeks before the wedding is the standard) and a reply method (return card, email, or RSVP website).",
+        "Pair this with the [Wedding Hashtag Generator](/wedding-hashtag-generator) for a custom social tag, and the [Wedding Timeline Builder](/wedding-timeline-builder) to make sure the ceremony time you print on the invite still works once you've allowed for travel buffers."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Whose names go first on the invitation?",
+        "Traditionally the bride's name goes before the groom's, and the bride's parents are listed first as hosts. Modern weddings list whoever is paying or both names alphabetically. For same-sex couples, alphabetical order is the simplest convention. There's no rule that requires the bride's family to host any more, and many couples find naming themselves as hosts feels right for the way they're funding the day."
+      ),
+      createFAQ(
+        "How do I word an invitation if my parents are divorced?",
+        "Each parent gets their own line, in the order: bride's mother, bride's father, groom's mother, groom's father. If a parent has remarried and the stepparent is hosting too, include them on the same line ('Mr and Mrs Robert Smith'). If a parent has remarried but isn't hosting financially, you can still list them separately as a courtesy."
+      ),
+      createFAQ(
+        "What's the difference between 'honour' and 'pleasure'?",
+        "'Request the honour of your presence' indicates a religious ceremony in a place of worship. 'Request the pleasure of your company' indicates a civil ceremony or non-religious venue. The distinction is genuinely observed by traditional wedding stationery firms even now, so getting it right signals you've thought about the formality."
+      ),
+      createFAQ(
+        "Should I put 'No children' on the invitation?",
+        "No, it reads harshly. Address the envelope only to the parents (not 'and family'), include 'an adult-only celebration' on a separate Information card, or put 'we have reserved x seats in your honour' on the RSVP card. The message gets through without anyone feeling slighted."
+      ),
+      createFAQ(
+        "How early should invitations go out?",
+        "Save-the-dates: 6 to 9 months before. Formal invitations: 2 to 3 months before, with RSVPs requested 4 to 6 weeks before the wedding. Destination weddings: send formal invites 3 to 4 months out so guests can book travel and time off."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-hashtag-generator", label: "Wedding Hashtag Generator" },
+      { slug: "wedding-timeline-builder", label: "Wedding Timeline Builder" },
+      { slug: "wedding-table-name-generator", label: "Wedding Table Name Generator" },
+    ],
+  },
+
+  "wedding-drink-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Alcohol Do You Actually Need for a Wedding?",
+        "The standard rule of thumb is one drink per guest per hour, but raw guest numbers don't tell the full story. A wedding for 100 guests over five hours is 500 drinks, which sounds enormous until you realise that includes welcome fizz on arrival, toasting fizz before speeches, wine through dinner, and bar drinks during dancing. The Wedding Drink Calculator splits these out so you order the right type of bottle in the right place rather than over-buying one category and running short on another.",
+        "A standard 750ml bottle of wine pours five glasses; a bottle of prosecco pours six smaller flutes. For a 100-guest wedding, you typically want around 17 bottles of prosecco for arrival (one glass each), 50 bottles of wine through dinner (split white and red), and 100 to 150 bottles of beer. Soft drinks and water for designated drivers and non-drinkers (around 20% of any UK guest list) often get under-ordered, so plan for 1.5 soft drinks per guest minimum."
+      ),
+      {
+        heading: "Drinks Per Guest by Wedding Length",
+        table: {
+          headers: ["Wedding Length", "Total Drinks/Guest", "Welcome", "With Meal", "Evening"],
+          rows: [
+            ["4 hours", "4-5", "1 glass fizz", "2 glasses wine", "1-2 bar drinks"],
+            ["6 hours (typical)", "6-7", "1 glass fizz", "3 glasses wine", "2-3 bar drinks"],
+            ["8 hours", "8-9", "1-2 fizz", "3 glasses wine", "4-5 bar drinks"],
+            ["Summer (hot)", "+30%", "Add Pimm's", "Lean white", "Lean lager"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Open Bar vs Cash Bar vs Limited Bar",
+        "Open bar (host pays for everything) is generous but expensive: budget £20 to £30 per head if your venue charges retail prices. Cash bar (guests pay their own) is fine for evening guests but feels stingy if the wedding breakfast is also dry; the compromise is a wine-with-meal-then-cash-bar arrangement. Limited bar (host pays for beer, wine and one signature cocktail; guests buy spirits) is the most common UK setup, costing around £12 to £18 per head.",
+        "Always ask the venue about corkage. Bringing your own wine usually costs £10 to £15 per bottle in corkage but saves £10 to £20 per bottle on retail markup, so for a 100-guest wedding with 50 bottles, you save £500 to £1,000. Pair this with the [Wedding Catering Calculator](/wedding-catering-calculator) to align food and drink quantities, and the [Wedding Cost Per Head Calculator](/wedding-cost-per-head-calculator) to see what you're really spending per guest."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many bottles of prosecco do I need for the toast?",
+        "One bottle of prosecco pours six small flutes, so 100 guests need around 17 bottles for a single toast. If you also want welcome fizz on arrival (one glass each), double it to 34 bottles. Many venues allow you to bring your own fizz with corkage, which can save £5 to £10 per bottle compared to venue prices."
+      ),
+      createFAQ(
+        "Do I need to budget drinks for the evening guests?",
+        "Yes, but they typically arrive after the wedding breakfast so you only need to plan for evening drinks (around 2 to 3 per evening guest over four hours). A 30-strong evening guest contingent adds roughly 75 to 90 drinks, mostly beer and wine. Most couples extend the open bar through the cake cut, then switch to cash bar for the dance floor."
+      ),
+      createFAQ(
+        "What about non-drinkers and pregnant guests?",
+        "Plan for around 20% of the guest list to be non-drinkers (sober, designated drivers, pregnant, or unwell). Order at least 1.5 soft drinks per guest plus a generous water provision (still and sparkling, jugs on tables). A few bottles of zero-alcohol beer and a low-alcohol or alcohol-free fizz option are increasingly standard."
+      ),
+      createFAQ(
+        "How much does the wedding bar typically cost?",
+        "Around £20 to £30 per head for an open bar at a typical UK venue, £35 to £50 per head at premium venues with retail-marked-up drinks. Limited bar arrangements come down to £12 to £18 per head. For 100 guests, expect £1,200 to £3,000 on drinks alone, which is around 5 to 8% of the typical UK wedding budget of £20,700."
+      ),
+      createFAQ(
+        "When should I order wedding drinks?",
+        "Final numbers go in 4 to 6 weeks before the wedding, alongside catering. Most suppliers (Majestic Wine, Naked Wines, local independents) accept sale-or-return on wedding orders, so you can over-order slightly without risk. Confirm corkage, glass hire, ice, and chilling logistics with the venue before placing the order."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-catering-calculator", label: "Wedding Catering Calculator" },
+      { slug: "wedding-cost-per-head-calculator", label: "Wedding Cost Per Head Calculator" },
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+    ],
+  },
+
+  "wedding-catering-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate Wedding Catering Quantities Without Running Short",
+        "Caterers work to a 1.2 to 1.5 portions-per-person buffer for a reason: people eat more at weddings than they do at home, take more than they intend, and a few guests will always want seconds. The Wedding Catering Calculator multiplies your guest count by the right ratio for each course (1.2 for plated, 1.5 for buffet, 2 to 3 canapes per person for receptions) and converts those portions into kilograms so you can hand the figures straight to your caterer.",
+        "For 100 guests sitting down to a three-course meal, you typically need 25kg of meat or fish for mains (250g per portion times 100 plus buffer), 15kg of potatoes, 12kg of mixed vegetables, and around 10kg of dessert. Buffet quantities run higher because guests serve themselves and over-portion: budget 350g of main protein per person rather than 250g."
+      ),
+      {
+        heading: "Catering Quantities by Service Style (per guest)",
+        table: {
+          headers: ["Course", "Plated", "Buffet", "Notes"],
+          rows: [
+            ["Canapes", "0", "0", "3-5 if drinks reception > 90 mins"],
+            ["Starter", "150g", "200g", "Soups need 300ml per person"],
+            ["Main protein", "250g", "350g", "Beef trims more than chicken"],
+            ["Vegetables", "120g", "180g", "Add 50% in summer for salads"],
+            ["Potato/carb", "150g", "200g", "Roast holds heat better than dauphinoise"],
+            ["Dessert", "120g", "180g", "Cheeseboard add 30g per person"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Sit-Down vs Buffet vs BBQ vs Canapes",
+        "Sit-down meals are around £60 to £100 per head at typical UK venues and feel formal. Buffets are £40 to £70 per head and let guests choose, but you need 50% more food because of self-service over-portioning. BBQs and food trucks run £25 to £45 per head and work brilliantly for relaxed summer weddings, with the caveat that you must factor in queueing time (allow 15 minutes per 30 guests at one station). Pure canape receptions can replace a meal at £35 to £55 per head if you serve substantial canapes (sliders, mini fish and chips, gnocchi), but allow 8 to 10 per guest minimum.",
+        "Always ask caterers if their per-head price includes service, equipment hire (cutlery, glassware, linen), VAT, and gratuity, because these can add 25 to 30% to the headline figure. Pair this with the [Wedding Drink Calculator](/wedding-drink-calculator) to coordinate bar and food spend, and the [Wedding Cost Per Head Calculator](/wedding-cost-per-head-calculator) to see catering as a percentage of total wedding spend."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much food do I need for a wedding buffet?",
+        "Plan for 1.5 portions per guest at a buffet because people serve themselves more than they would at a plated dinner. For 100 guests, that's around 35kg of main protein (chicken, beef or salmon), 18kg of potatoes, 15kg of vegetables and 12kg of dessert. Buffets work best when there are at least two main protein options to keep queues moving."
+      ),
+      createFAQ(
+        "What's the catering cost per head for a UK wedding?",
+        "£60 to £100 per head for a sit-down three-course meal at a typical UK venue. Buffets are £40 to £70, BBQs and food vans £25 to £45, canape receptions £35 to £55. For 100 guests, expect £4,000 to £10,000 on catering alone, which is typically the second-largest line item after the venue."
+      ),
+      createFAQ(
+        "Should I have a vegetarian option as the default?",
+        "Offer vegetarian and vegan options on the RSVP and assume around 15 to 20% of guests will pick them. Some couples make the vegan option the standard and have meat as the alternative, particularly for younger London weddings. Caterers will need final dietary numbers 2 to 3 weeks before the wedding."
+      ),
+      createFAQ(
+        "How many canapes per person?",
+        "3 to 5 per person for a 60 to 90 minute drinks reception that precedes a meal. 8 to 10 per person if canapes are replacing a main course (a 'canape reception'). Always include at least one substantial canape (sliders, mini fish and chips, arancini) per person if there's a long gap before the meal, otherwise guests will be drunk by sit-down."
+      ),
+      createFAQ(
+        "Do I need food for evening guests too?",
+        "Yes, evening guests typically arrive around 7:30 to 8pm and expect either a hot evening buffet (bacon rolls, hog roast, pizza, mac and cheese) or substantial sharing platters. Budget £15 to £30 per evening guest for evening food. A buffet or food truck for the evening doubles as a late-night sober-up before guests drive home."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-drink-calculator", label: "Wedding Drink Calculator" },
+      { slug: "wedding-cost-per-head-calculator", label: "Wedding Cost Per Head Calculator" },
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+    ],
+  },
+
+  "wedding-cost-per-head-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Wedding Actually Costs Per Guest",
+        "The average UK wedding cost £20,700 in 2024 according to Hitched's national survey, and most couples invite around 80 to 100 guests, which works out to roughly £80 to £200 per head. The Wedding Cost Per Head Calculator takes your total budget and guest count and breaks it across the eight standard categories, then shows what each guest is genuinely costing you once you factor in their share of the venue hire, photography, flowers and music as well as the obvious food and drink.",
+        "Cost per head matters most when you're deciding whether to invite borderline guests. The 'extra' cost of one more guest isn't just their meal; it's their share of corkage, place setting, favour, evening food, and (often) one more bottle of wine. Most couples find the marginal cost lands at £80 to £130 per additional guest beyond the obvious catering line."
+      ),
+      {
+        heading: "Typical Cost Per Head by Total Budget",
+        table: {
+          headers: ["Total Budget", "Guests", "Per Head", "Style"],
+          rows: [
+            ["£10,000", "60", "£167", "Pub or restaurant venue, simple meal"],
+            ["£20,000", "80", "£250", "Typical UK wedding budget"],
+            ["£20,700", "100", "£207", "Hitched 2024 average"],
+            ["£35,000", "100", "£350", "Manor house or barn, full catering"],
+            ["£50,000", "120", "£417", "London or destination, premium suppliers"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Cutting the Guest List vs Cutting Categories",
+        "When the budget feels tight, the lever most couples reach for is cutting suppliers (cheaper photographer, smaller cake, no videographer), but cutting the guest list often does more for the bottom line. Removing 10 guests from a £20,000 wedding for 100 saves around £700 to £1,000: the catering and drinks for those guests, plus their share of place settings, favours, transport, and the marginal increase in venue capacity. Cutting the cake budget by £200 saves £200; removing 10 guests saves four times that.",
+        "The hardest part is who to cut. The simplest test: 'have we seen them in the last two years?' Anyone who answers no can typically be excluded without offence. Pair this with the [Wedding Budget Calculator](/wedding-budget-calculator) to see the full category split, and the [Wedding Catering Calculator](/wedding-catering-calculator) to map exact food and drink savings as the headcount changes."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the average wedding cost per head in the UK?",
+        "Around £200 per head based on the Hitched 2024 average of £20,700 for 100 guests. London weddings run higher (£300 to £450 per head); rural and weekday weddings run lower (£100 to £150 per head). The figure varies wildly by venue type: pubs are £80 to £120, manor houses £200 to £400, marquee weddings on private land can be either depending on infrastructure costs."
+      ),
+      createFAQ(
+        "How do I work out the marginal cost of one extra guest?",
+        "Add together the per-head catering cost (typically £60 to £100), per-head drinks (£20 to £30), evening food share (£15 to £25), favour and place setting (£5 to £10), and a small allocation for the increased flowers, transport, and admin. The marginal cost lands at £100 to £170 per extra guest at most UK weddings, even though the headline 'per head' average looks higher because it includes fixed costs like venue hire."
+      ),
+      createFAQ(
+        "Should the wedding party be excluded from the per-head total?",
+        "No. Bridesmaids, groomsmen and parents eat and drink the same as everyone else, and excluding them just hides the real cost. What you can do is include their costs (gifts, accommodation, suit hire contributions) as separate budget line items, which keeps the per-head figure focused on the catering side."
+      ),
+      createFAQ(
+        "Is it cheaper to have a smaller or larger wedding?",
+        "Smaller is almost always cheaper on the headline number, but cost per head is often higher because fixed costs (venue, photographer, music) get spread across fewer guests. A 30-guest intimate wedding can land at £400 to £600 per head; a 100-guest wedding at the same venue can land at £180 to £250 per head. The total budget is what matters, not the per-head figure in isolation."
+      ),
+      createFAQ(
+        "How do I track my actual spending against this calculator?",
+        "Use this tool for the planning estimate, then move to a detailed spreadsheet or the [Wedding Budget Calculator](/wedding-budget-calculator) for tracking actual deposits and final invoices as you book each supplier. The two together cover both the strategic 'is this affordable' question and the operational 'are we still on track' question."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+      { slug: "wedding-drink-calculator", label: "Wedding Drink Calculator" },
+      { slug: "wedding-catering-calculator", label: "Wedding Catering Calculator" },
+    ],
+  },
 };

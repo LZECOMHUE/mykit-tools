@@ -521,4 +521,185 @@ export const bettingSEO = {
       { slug: "powerball-number-picker", label: "Powerball Number Picker" },
     ],
   },
+
+  "dutching-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Dutching Is",
+        "Dutching is the practice of backing more than one runner in the same race so that whichever of your selections wins, you collect the same profit (or the same loss). Instead of betting your entire stake on one horse, you split it across two, three, four or more, with the split weighted by their decimal odds so the returns even out. The calculator does the weighting for you: enter your total stake and the odds for each selection, and it shows the stake to put on each, the uniform return, and the combined book percentage.",
+        "Note up front: dutching is only mathematically profitable when the combined book percentage of your selections is below 100%. If three horses are quoted at odds that imply 110% combined probability, you cannot dutch them at a profit, no matter how you split the stake. The bookmaker's overround is built in. The calculator shows the book percentage and flags whether it represents a positive-value position."
+      ),
+      createAnswerFirstSection(
+        "When Dutching Makes Sense",
+        "It comes up most often in horse racing or golf, where there are several contenders and the favourite is far from a certainty. Rather than guessing which of two or three credible runners will win, you can cover all of them. The trade-off is that your effective odds drop: dutching three runners at 4.0, 6.0 and 12.0 gives a flat return that's lower than backing any one of them to win, but you have a much wider chance of any of those returns landing.",
+        "Dutching is also a key part of arbitrage betting (covering all outcomes across multiple bookmakers to lock in a profit) and matched-betting (offsetting a free bet against a back/lay pair). In each case the calculator runs the same arithmetic: stake-weighted by inverse odds so that every winning scenario pays the same. For lay-side cover on an exchange, see the [Lay Bet Calculator](/lay-bet-calculator)."
+      ),
+      {
+        heading: "Worked Example: Dutching Three Selections",
+        table: {
+          headers: ["Selection", "Odds", "Implied prob", "Stake (from £100)", "Return if wins"],
+          rows: [
+            ["A", "3.0", "33.3%", "£44.78", "£134.33"],
+            ["B", "5.0", "20.0%", "£26.87", "£134.35"],
+            ["C", "8.0", "12.5%", "£16.79", "£134.32"],
+            ["Combined book", "65.8%", "", "£88.44 staked", "Profit ~ £45.91 each"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Dutching Risks and Realistic Expectations",
+        "If none of your selections win, you lose the full stake. So dutching three horses at combined 65% implied probability still leaves a 35% chance of total loss. Spread across long enough sessions, the variance can be substantial. The calculator gives you the maths cleanly but cannot tell you whether the prices are actually mispriced; that's your job, and it requires either domain knowledge of the sport or an edge over the bookmaker's pricing model that very few bettors actually have.",
+        "The Gambling Commission and GambleAware both publish guidance on staying in control. Set a budget you can afford to lose, treat dutching like any other form of gambling, and don't chase losses by stacking bigger or wider duts. If you're betting at all, bet small and don't borrow to do it."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the book percentage?",
+        "The sum of the implied probabilities of every selection in the market, calculated as 1 divided by each decimal odds. A book of 100% represents a fair market with no margin. Anything above 100% is the bookmaker's overround (typical UK racing books are 105-115%). Dutching is only mathematically profitable when your selected subset has a book under 100%."
+      ),
+      createFAQ(
+        "Will dutching guarantee a profit?",
+        "No. Dutching guarantees the same profit (or loss) regardless of which selection wins, but only among the selections you've actually backed. If a runner you didn't include wins, you lose your entire stake. The 'guarantee' is conditional on one of your picks winning. Across many bets, dutching is profitable only when you systematically pick subsets that combine to under 100% book."
+      ),
+      createFAQ(
+        "How do I find dutch-able prices?",
+        "Compare odds across multiple bookmakers and look for divergence. The same race priced at three different bookies will sometimes have a combined book under 100% if you take the best price for each runner. This is called arbing and is what professional arbitrage bettors do. Be aware that bookmakers are quick to limit or close accounts of customers who arb persistently."
+      ),
+      createFAQ(
+        "How many selections should I dutch?",
+        "There's no universal answer. Two or three selections is most common because each addition cuts your potential return per winning bet. Five or six selections in an 8-runner race might give you a near-arb but a tiny return. Beyond that, you're approaching 'just buy a tracker fund'. Most bettors dutch two or three selections that they actually fancy, rather than trying to cover the whole field."
+      ),
+      createFAQ(
+        "Is dutching legal?",
+        "Yes, in the UK and most jurisdictions. It's just a way of structuring multiple bets. Bookmakers are aware of it, don't object to it as such, and are licensed by the Gambling Commission to take such bets. If you do it well enough to have a long-term edge, individual bookmakers may limit or close your account, which is their commercial right."
+      ),
+    ],
+    relatedTools: [
+      { slug: "matched-betting-calculator", label: "Matched Betting Calculator" },
+      { slug: "lay-bet-calculator", label: "Lay Bet Calculator" },
+      { slug: "odds-converter", label: "Odds Converter" },
+    ],
+  },
+
+  "each-way-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Each-Way Bets Work",
+        "An each-way bet is two bets in one. Half your stake goes on the selection to win, the other half on it to place (finish in the top few). If your selection wins, both halves pay out. If it places but doesn't win, only the place half pays out (at a reduced fraction of the win odds). If it does neither, you lose the lot. The calculator takes your stake per part, the win odds, the place fraction (1/4 or 1/5 typically), and the number of paid places, then shows your three possible outcomes side by side.",
+        "Bookmakers set the place terms based on field size. Standard UK terms: 5-7 runners gives 1/4 odds and 2 places, 8-15 runners gives 1/5 odds and 3 places, 16+ handicaps give 1/4 odds and 4 places. Some big races (Grand National, Derby) extend to 5 or 6 places. The 'preset' buttons load these standard terms quickly. Smaller fields of 4 or fewer runners typically don't accept each-way bets at all."
+      ),
+      createAnswerFirstSection(
+        "When Each-Way Is and Isn't Good Value",
+        "Each-way is sensible when you fancy a horse to be in the frame but aren't confident it can win. A 12.0 win-priced runner in an 8-runner race pays 12.0 if it wins, plus 3.20 (the 1/5 fraction of 11.0, plus the stake back) if it places. The double upside helps absorb the cost of the second part of the stake. It's poor value on short-priced favourites: backing a 2.5 favourite each-way is mostly just an inflated win bet, since the place return is barely above your stake.",
+        "There's a known each-way value pattern in handicap racing: when the field has 12-15 runners (qualifying for 1/4 odds and 3 places) and a fancied runner is priced 7.0 to 11.0, the place portion alone can be a positive-value bet. Specialist tipsters and the so-called 'each-way thieves' communities target these. The calculator shows you the underlying numbers so you can spot the same pattern. For converting between fractional and decimal odds, the [Odds Converter](/odds-converter) handles all formats."
+      ),
+      {
+        heading: "Standard UK Each-Way Terms by Field Size",
+        table: {
+          headers: ["Field size", "Place fraction", "Paid places"],
+          rows: [
+            ["2-4 runners", "Win only (no E/W)", "0"],
+            ["5-7 runners", "1/4 odds", "2"],
+            ["8-11 runners", "1/5 odds", "3"],
+            ["12-15 runners (handicap)", "1/4 odds", "3"],
+            ["16+ runners (handicap)", "1/4 odds", "4"],
+            ["Extended (e.g. Grand National)", "1/4 odds", "5 or 6 (varies)"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What the Calculator Tells You",
+        "Three scenarios. If the selection wins, you get the full win return (stake × odds) plus the place return (stake × (1 + place fraction × (odds - 1))) and the total profit is large. If the selection places without winning, you lose the win half and collect only the place half, often a small profit or a small loss depending on the place odds. If the selection neither wins nor places, you lose the full stake (which is twice the per-part stake, since each-way doubles your outlay).",
+        "Read all three scenarios before placing the bet. A common mistake is focusing on the win-scenario profit and forgetting that the place-only scenario is the most likely outcome for most each-way picks. The fact that a place return is small or break-even is part of the design: each-way reduces variance, it doesn't increase expected value above what the underlying market price implies."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What does '1/4 odds, 3 places' mean?",
+        "If you bet each-way on a horse at 8.0 (which is 7.0 to 1 in fractional terms) and it places, the place part of your bet pays out at 1/4 of the fractional odds, so 7/4 = 1.75 to 1, meaning a £10 place stake returns £27.50 (£17.50 profit plus your £10 stake). 'Three places' means the bookmaker pays out the place part of the bet for any of the first three finishers."
+      ),
+      createFAQ(
+        "Why does 'win only' apply to small fields?",
+        "Bookmakers don't offer each-way on fields of 4 or fewer because there's not enough variance to make the place portion meaningful. With 2 runners, places aren't a thing; with 3 or 4, the place market would essentially mirror the win market. Some big races also have non-runner rules that can shift the field size and trigger Rule 4 deductions, which the calculator doesn't handle."
+      ),
+      createFAQ(
+        "Is each-way better value than win-only betting?",
+        "On average, no. Each-way is two bets, so the bookmaker takes margin twice. The variance is lower (you're less likely to walk away with nothing) but the expected return is generally lower than win-only. The exception is when place markets are mispriced relative to win markets, which happens occasionally in handicap races with mid-priced runners."
+      ),
+      createFAQ(
+        "What is an each-way double or treble?",
+        "An accumulator where each leg is itself an each-way bet. Each-way doubles consist of a win double and a place double; if any leg fails, the win accumulator dies, but the place portion can still pay if all legs place. They're popular but compound the bookmaker's margin twice across two or more legs, so they're typically poor value compared to single each-way bets."
+      ),
+      createFAQ(
+        "Can I lose more than my stake on each-way?",
+        "No. Your maximum loss is exactly your total stake (which is twice the per-part stake). Unlike spread betting, where losses can exceed the stake, traditional each-way is bounded by your outlay. The calculator's 'loss' scenario shows the negative of your total outlay, not anything more."
+      ),
+    ],
+    relatedTools: [
+      { slug: "odds-converter", label: "Odds Converter" },
+      { slug: "accumulator-calculator", label: "Accumulator Calculator" },
+      { slug: "betting-odds-calculator", label: "Betting Odds Calculator" },
+    ],
+  },
+
+  "lay-bet-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Lay Bet Is",
+        "A lay bet is the inverse of a back bet. When you lay a selection, you act as the bookmaker for that bet: you accept someone else's money in return for paying out if their selection wins. You collect the stake when the selection loses, and pay out the liability when it wins. Lay betting is only available on betting exchanges (Betfair, Smarkets, Betdaq), not at high-street bookies, because exchanges match individual backers and layers against each other.",
+        "The calculator takes the lay odds, the lay stake (the amount you'd collect if the selection loses), and the exchange commission percentage, and shows you three things: your liability (how much you must pay out if the selection wins), the required balance you need in your account before placing the bet, and your profit and loss in each scenario. Liability is always (lay odds - 1) × lay stake."
+      ),
+      createAnswerFirstSection(
+        "How Liability and Required Balance Work",
+        "Lay liability is what makes lay betting feel different from back betting. If you lay a selection at odds of 5.0 with a £20 stake, your liability is £20 × (5.0 - 1) = £80. You need at least £80 free in your exchange account to place that lay bet, even though you only collect £20 (less commission) if you win. This is why exchange accounts often hold larger balances than back-only bookmaker accounts: the working capital required scales with the odds you're laying.",
+        "The higher the lay odds, the bigger the liability for the same potential profit. Laying at 2.0 with a £20 stake means £20 liability (£20 risked to win £20). Laying at 10.0 with a £20 stake means £180 liability (£180 risked to win £20). Laying short prices is therefore more capital-efficient than laying long shots, which is one reason many lay-bettors focus on favourites. For the back side of arbitrage, the [Dutching Calculator](/dutching-calculator) shows how to spread stakes across multiple selections instead."
+      ),
+      {
+        heading: "Liability Examples for £10 Lay Stake",
+        table: {
+          headers: ["Lay odds", "Liability", "Net profit if loses (5% commission)"],
+          rows: [
+            ["1.5", "£5.00", "£9.50"],
+            ["2.0", "£10.00", "£9.50"],
+            ["3.0", "£20.00", "£9.50"],
+            ["5.0", "£40.00", "£9.50"],
+            ["10.0", "£90.00", "£9.50"],
+            ["20.0", "£190.00", "£9.50"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What Lay Betting Is Used For",
+        "Three main uses. Matched betting: combine a free bet at a bookmaker with a lay at the exchange to lock in most of the free bet's value as cash. Trading: lay at one price expecting it to drift, then back at higher odds to lock in a profit regardless of outcome. Hedging: if you've already backed a selection, laying it back at lower odds can lock in a guaranteed profit before the event happens.",
+        "Commission on exchanges typically runs 5% on Betfair (lower for high-volume customers, the famous 'premium charge' aside), 2% on Smarkets and Betdaq. Commission applies only to your net winnings on a market, so if you lose more than you win in a market the commission is zero. The calculator's commission setting affects only the profit-if-loses scenario, since the loss-if-wins scenario already accounts for the full liability."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between a back bet and a lay bet?",
+        "A back bet is what high-street bookmakers offer: you put down a stake, and if your selection wins, the bookmaker pays you out. A lay bet is the opposite: you act as the bookmaker, accepting another punter's stake, and you pay out if their selection wins. Both forms exist together on exchanges where backers and layers match each other directly."
+      ),
+      createFAQ(
+        "Can I lose more than my stake on a lay bet?",
+        "Yes, in a sense. The amount you can lose (liability) is greater than the amount you can win (stake) for any odds above 2.0. This is fundamental to lay betting and is why exchanges require you to have the full liability available in your account before you place the bet. You won't go into negative balance, but the maximum loss is liability, not stake."
+      ),
+      createFAQ(
+        "What is the exchange commission?",
+        "A percentage of your net winnings that the exchange takes as their fee for matching your bet. Betfair charges 5% on most accounts, Smarkets and Betdaq charge 2%. Some accounts pay reduced rates for high volume. Commission is only charged on net winnings in a market, not on every bet, so if you lose more than you win in a market, no commission is taken."
+      ),
+      createFAQ(
+        "Is matched betting still profitable in 2026?",
+        "Margins have shrunk considerably since the heyday of free-bet sign-up offers. UK bookmakers also limit or close accounts of customers they identify as bonus-hunters. It's still done by some, particularly with reload offers and lower-stakes promotions, but as a sustainable income source it's much harder than it was in 2015-2018. Treat any matched-betting income forecast with scepticism."
+      ),
+      createFAQ(
+        "What happens if no one matches my lay bet?",
+        "Your bet sits in the order book at the price you specified until it is matched (someone backs it) or the market closes. Unmatched lay bets carry no liability and don't tie up your balance once cancelled. Liquidity varies by market: top football matches and main horse races have deep order books; obscure markets may not match at all."
+      ),
+    ],
+    relatedTools: [
+      { slug: "dutching-calculator", label: "Dutching Calculator" },
+      { slug: "matched-betting-calculator", label: "Matched Betting Calculator" },
+      { slug: "odds-converter", label: "Odds Converter" },
+    ],
+  },
 };

@@ -459,4 +459,279 @@ export const musicSEO = {
       { slug: "guitar-tuner", label: "Guitar Tuner" },
     ],
   },
+
+  "recording-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What an EP or Album Actually Costs to Record",
+        "Recording costs vary enormously depending on whether you're tracking in a friend's home studio or in a proper acoustically-treated room with an engineer who's worked on records you've heard of. UK home studios charge £30 to £60 per hour; mid-tier project studios run £60 to £120; established commercial rooms (the kind with isolation booths and a vintage console) charge £100 to £300 per hour, sometimes more. The Recording Cost Calculator takes your hours-per-song estimate and multiplies through across tracking, mixing, mastering, session musicians, artwork and distribution.",
+        "A four-song EP recorded efficiently in a project studio (8 hours per song, mixing included) typically lands at £1,500 to £2,500 all in. A full album in a commercial studio with an outside mixer and mastering engineer can easily run £15,000 to £40,000. Where you fall depends mostly on how prepared you arrive: pre-production rehearsals where every part is locked in saves more studio money than any other single decision."
+      ),
+      {
+        heading: "EP and Album Costs at Different Tiers",
+        table: {
+          headers: ["Tier", "Per Hour", "4-Song EP", "10-Song Album", "Notes"],
+          rows: [
+            ["Home / DIY", "£0-30", "£200-800", "£500-1,500", "Self-produced, friend mixes"],
+            ["Project studio", "£30-60", "£1,500-2,500", "£3,500-6,000", "Engineer included"],
+            ["Mid-tier", "£60-120", "£3,000-5,000", "£8,000-15,000", "Professional engineer, treated room"],
+            ["Commercial", "£100-300", "£8,000-15,000", "£20,000-50,000+", "Vintage gear, named producer"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Hidden Costs Most Bands Forget",
+        "The studio invoice is just the start. Mixing typically runs £200 to £500 per song from a freelance mixer (separate from the studio engineer), mastering £50 to £150 per song. Session musicians cost £150 to £400 per song for a string player or horn player, more for a session drummer brought in to fix tracking issues. Artwork commissioned from an illustrator runs £200 to £800; distribution through DistroKid is around £20 per year for unlimited releases, but pressing 300 vinyl LPs costs £1,500 to £3,000 plus shipping.",
+        "Pair this with the [Setlist Timer](/setlist-timer) to plan how the recorded material maps to your live set, and the [Music Practice Tracker](/practice-tracker) to log the pre-production rehearsal hours that save you studio money. Always book mixing and mastering as separate engagements; the engineer who tracks you brilliantly might not be the right person to mix you."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does it cost to record an album in the UK?",
+        "Anywhere from £500 to £50,000 depending on the studio tier, how many songs, and whether you're using session musicians, an external mixer and a mastering engineer. Most independent UK bands record a full album for £3,000 to £10,000 at a project studio with an in-house engineer, then send the mixes out for mastering at around £80 per track. The £20,000-plus end of the market is reserved for funded releases or established acts."
+      ),
+      createFAQ(
+        "Should I record at home or hire a studio?",
+        "Home for early demos and songwriting; studio for the release. Home recording saves the per-hour fee but costs you in time spent troubleshooting interfaces, room acoustics, and microphone placement. A good engineer in a treated room can capture a song in 4 hours that would take 20 hours at home with a worse result. The exception is electronic music, where the 'studio' is a laptop and the recording stage is essentially free."
+      ),
+      createFAQ(
+        "How long does it take to record a song?",
+        "Allow 6 to 10 hours per song for a typical four-piece band recording live with overdubs. Drums alone take 1 to 2 hours per song; bass 30 to 60 minutes; rhythm guitars 1 to 2 hours; vocals 1 to 3 hours; lead and texture parts 1 to 2 hours. Mixing adds another 4 to 8 hours per song. Bands that arrive under-rehearsed double these times because every section needs multiple takes."
+      ),
+      createFAQ(
+        "Do I need to pay for mastering separately?",
+        "Yes, mastering is a separate process from mixing and almost always done by a different engineer. UK mastering ranges from £40 to £80 per song online (LANDR, eMastered) up to £150 to £300 per song at established mastering houses (Abbey Road, Metropolis). Don't skip mastering: it's what makes your record sound competitive against commercial releases on the same playlist."
+      ),
+      createFAQ(
+        "What about mechanical royalties and PRS?",
+        "If you write your own songs, register them with PRS for Music (£100 lifetime joining fee for writers) and PPL (free for performers). PRS collects performance royalties when your songs play on radio, in venues, or on streaming services. PPL collects performer royalties on the recording side. Neither is a recording cost as such, but registering before release is essential or you forfeit the royalties for that release period."
+      ),
+    ],
+    relatedTools: [
+      { slug: "setlist-timer", label: "Setlist Timer" },
+      { slug: "practice-tracker", label: "Music Practice Tracker" },
+      { slug: "song-structure", label: "Song Structure Builder" },
+    ],
+  },
+
+  "bass-tuner": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Tune a Bass Guitar by Ear",
+        "Standard 4-string bass tuning is E-A-D-G low to high, exactly an octave below the bottom four strings of a guitar. The Bass Tuner plays a clean reference pitch for each string so you can match your bass to it by ear: pluck the open string, listen for the wobbling 'beat' between your note and the reference, and turn the tuner until the wobble slows to nothing. A 5-string bass adds a low B below the E (B-E-A-D-G); a 6-string adds both a low B and a high C (B-E-A-D-G-C).",
+        "The trick most beginners miss is tuning up to the note rather than down. Always start a half-step flat and tighten the string up to pitch; if you go past and have to loosen back down, the slack in the tuning post lets the string sag again as soon as you play hard. This is why basses go out of tune mid-set: the string was tuned down to pitch and the post is unwinding under playing tension."
+      ),
+      {
+        heading: "Common Bass Tunings",
+        table: {
+          headers: ["Tuning", "Notes", "Used For", "Notes per String"],
+          rows: [
+            ["Standard 4-string", "E-A-D-G", "Most rock, pop, jazz, funk", "Same as guitar bottom 4, octave lower"],
+            ["Drop D", "D-A-D-G", "Metal, hard rock", "Low E down a whole step"],
+            ["Half-step down", "Eb-Ab-Db-Gb", "Blues, grunge, easier vocal keys", "All strings down a half-step"],
+            ["Standard 5-string", "B-E-A-D-G", "Modern rock, gospel, worship", "Adds low B for extended low range"],
+            ["Standard 6-string", "B-E-A-D-G-C", "Jazz, fusion, solo bass", "Extended range top and bottom"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Why Bass Tuning Matters More Than You Think",
+        "An out-of-tune bass clashes with everything: the kick drum, the rhythm guitar, the keyboard left hand. The lower the frequency, the more obvious the wobble; a slightly sharp top G is forgivable but a slightly flat low E sounds like the whole band is detuned. Always tune the low strings first and check them against the rest of the band's reference pitch, particularly if a keyboard is involved (electric pianos and synths are calibrated to A=440Hz and won't compromise).",
+        "If you play with a guitarist who uses the [Guitar Tuner](/guitar-tuner), tune to the same reference. For bedroom practice with a [Metronome](/metronome) and click track, use the bass tuner first to lock in pitch before you start. New bass strings (especially flatwounds) take a few days to settle, so you'll need to retune more often during the first week of a fresh set."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What are the bass guitar string notes?",
+        "Standard 4-string bass tuning is E-A-D-G from lowest (thickest) to highest (thinnest). The frequencies are E1 (41.2Hz), A1 (55Hz), D2 (73.4Hz) and G2 (98Hz). 5-string adds a low B below at B0 (30.9Hz); 6-string adds a high C above the G at C3 (130.8Hz)."
+      ),
+      createFAQ(
+        "How often should I tune my bass?",
+        "Every time you pick it up. Strings settle and shift with temperature changes, humidity, and string age. Even a bass left in tune for an hour can drift a few cents, particularly the higher strings. Touring players often retune between every song; gigging musicians at minimum tune at the start of each set."
+      ),
+      createFAQ(
+        "Why does my bass keep going out of tune?",
+        "Most often: tuning down to pitch instead of up (the string slips back under playing tension), worn or stretched strings (older than 6 months for daily players), badly cut nut slots that pinch the string, or a loose tuning post. Take the bass to a tech if the same string keeps drifting after a string change."
+      ),
+      createFAQ(
+        "Can I use a guitar tuner for bass?",
+        "Yes, most chromatic tuners cover bass frequencies down to a low B. The pedal tuners used by many bassists (Boss TU-3, Korg Pitchblack) handle bass and guitar identically. The tool you're using right now is purpose-built for bass, with reference pitches at the actual bass octave (one octave below the guitar reference) so you don't get confused octave readings."
+      ),
+      createFAQ(
+        "What's the difference between drop D and half-step down?",
+        "Drop D tunes only the lowest string (E) down a whole step to D, leaving A-D-G the same. Half-step down tunes all four strings down a semitone (Eb-Ab-Db-Gb). Drop D extends the low range; half-step down is for matching a vocalist's lower key without changing chord shapes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "guitar-tuner", label: "Guitar Tuner" },
+      { slug: "ukulele-tuner", label: "Ukulele Tuner" },
+      { slug: "metronome", label: "Online Metronome" },
+    ],
+  },
+
+  "setlist-timer": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Plan a Setlist That Hits the Right Length",
+        "A typical UK pub gig runs 60 to 90 minutes, split as either one long set or two 45-minute halves with a 15-minute break. A festival slot is usually 30 to 45 minutes; a headline show 75 to 120 minutes; a wedding band set 90 minutes plus encore. The Setlist Timer lets you drop your songs into the order you want, set each duration, and see the running total update as you reorder, so you stop arriving at a venue with 75 minutes of material booked into a 60-minute slot.",
+        "The standard rule is to pad your raw runtime by 15% to account for tuning between songs, banter, the inevitable false start, and (if you're playing original material) song introductions. A 60-minute set therefore needs about 51 minutes of audio. Nail the opener and closer first; those two songs do more for how the audience remembers the gig than anything in the middle."
+      ),
+      {
+        heading: "Setlist Length by Venue Type",
+        table: {
+          headers: ["Gig Type", "Set Length", "Songs (3-4 min avg)", "Notes"],
+          rows: [
+            ["Open mic", "15-20 mins", "4-5", "One strong opener, one strong closer"],
+            ["Pub gig (one set)", "60-75 mins", "16-20", "Pacing matters more than song count"],
+            ["Pub gig (two sets)", "2 x 45 mins", "12-14 per set", "Build first set, peak second set"],
+            ["Festival slot", "30-45 mins", "8-12", "Hit hard, no slow songs unless climactic"],
+            ["Headline show", "75-120 mins", "20-30", "Build narrative arc, save 'big song' for late"],
+            ["Wedding band", "90 mins + encore", "22-26", "Filler dance songs back-to-back"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Pacing the Set: The Energy Curve That Works",
+        "The pacing template that almost always works for original-material gigs: open with a recognisable mid-tempo song, push to a faster second song, settle into a 'mid-set' valley with two slower or quieter songs, build back through three energetic songs, peak with your single biggest song two-thirds through, then ride down to a memorable closer. Cover bands ignore this and play purely for dance-floor density; rock bands ignore it at their peril.",
+        "Always run a live timer during your set so you don't drift. The Setlist Timer's timer view gives you a running total and a 'time remaining' indicator that lets you cut a song mid-set if you're overrunning, or add an unplanned encore if you have time. Pair this with the [Tap Tempo BPM Counter](/tap-tempo) for picking dancing tempos, and the [Song Structure Builder](/song-structure) for deciding which arrangements to extend or shorten on the night."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should a setlist be?",
+        "60 to 90 minutes for a typical UK pub gig, 30 to 45 minutes for a festival slot, 75 to 120 minutes for a headline show, 90 minutes plus encore for a wedding band booking. Always check the contracted runtime with the venue or promoter and pad your audio by 15% to allow for between-song talk, tuning, and changeovers."
+      ),
+      createFAQ(
+        "What's a good setlist opener?",
+        "Mid-tempo, recognisable, no extended intro. Save your biggest, most technical song for two-thirds of the way through; you want the audience locked in before you take risks. The opener's job is to establish that you're worth listening to, not to be your best song. Build trust first, peak later."
+      ),
+      createFAQ(
+        "Should I leave time for an encore?",
+        "Plan for one but only play it if the audience genuinely calls you back. Hold one song in reserve from the main set; this becomes your encore. Don't pre-announce 'we have an encore lined up'; let the room ask for it. If they don't, the main set ended on a high note and you walk off cleanly."
+      ),
+      createFAQ(
+        "How do I time songs I haven't recorded yet?",
+        "Tap through the song with a [Tap Tempo BPM Counter](/tap-tempo) to get the BPM, then count bars: a 120 BPM song with 80 bars is 80 x 4 / 120 = 2 min 40 sec. Or just play the song into a phone voice memo at rehearsal to get an actual stopwatch time. Estimating 'about three minutes' for unplayed songs is the fastest way to overrun a set."
+      ),
+      createFAQ(
+        "Can I save the setlist and reuse it?",
+        "Yes, the Setlist Timer auto-saves your set in your browser so you can come back to it next gig. Premium PDF export gives you printable A5 setlists for the band and stage, plus a guide for the sound engineer with notes on tempo changes, key changes, and 'turn this guitar up here' cues."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tap-tempo", label: "Tap Tempo BPM Counter" },
+      { slug: "song-structure", label: "Song Structure Builder" },
+      { slug: "metronome", label: "Online Metronome" },
+    ],
+  },
+
+  "song-structure": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Structure a Song That Doesn't Outstay Its Welcome",
+        "Most popular songs follow one of two structures: verse-chorus-verse-chorus-bridge-chorus (the standard pop form, around 3 to 4 minutes) or the simpler ABA form where a single section returns after a contrasting middle (common in folk, jazz, and ballads). The Song Structure Builder lets you drag verses, choruses, bridges and pre-choruses into the order you want, set bar counts for each section, and see a colour-coded timeline so the proportions are visible at a glance.",
+        "The mistake newer writers make is treating each section as the same length. A pop chorus typically runs 8 bars at 120 BPM (16 seconds); a verse 16 bars (32 seconds); a bridge 8 bars (16 seconds). Front-loading the song so the first chorus arrives within the first 60 seconds is what makes a track feel modern; older writing styles let the verse breathe for a full minute before the chorus appears, which feels slow to current ears."
+      ),
+      {
+        heading: "Common Song Structures",
+        table: {
+          headers: ["Structure", "Pattern", "Length", "Examples / Style"],
+          rows: [
+            ["Verse-chorus", "V-C-V-C-B-C", "3-4 mins", "Most pop and rock"],
+            ["AABA", "A-A-B-A", "2.5-3 mins", "Jazz standards, older pop"],
+            ["ABA", "A-B-A", "3-5 mins", "Folk, ballads, jazz"],
+            ["Through-composed", "A-B-C-D...", "Variable", "Prog rock, classical, art-pop"],
+            ["12-bar blues", "12-bar repeated", "Variable", "Blues, early rock and roll"],
+            ["Modern pop", "V-PC-C-V-PC-C-B-C-C", "3-3.5 mins", "Contemporary radio singles"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Verse, Pre-Chorus, Chorus and Bridge: What Each Section Does",
+        "The verse tells the story or sets the scene; lyrics change between verses. The pre-chorus builds energy, often by changing key or rhythm; same lyric every time. The chorus is the hook, the bit you remember; lyrics stay the same. The bridge contrasts: new chord progression, new melody, often a key change, only appears once usually two-thirds through the song. Lots of modern songwriting works because the contrast between sections is sharp, not because any one section is brilliant in isolation.",
+        "Pair this with the [Song Key Finder](/key-finder) to confirm which key your existing chord progression sits in, and the [Online Metronome](/metronome) to feel the timing of each section at your target BPM before you commit. Most writers find that locking the bar count for each section at writing time saves arguments later when you're trying to fit the song to a co-writer's preferred form."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the most common song structure in pop music?",
+        "Verse-chorus-verse-chorus-bridge-chorus, sometimes with a pre-chorus added before each chorus. This 'VCVCBC' or 'V-PC-C-V-PC-C-B-C' structure dominates contemporary pop, rock and country. It works because it gets you to the chorus quickly (the bit listeners want to hear), provides contrast through the bridge, and finishes on the chorus so the hook is the last thing in your head."
+      ),
+      createFAQ(
+        "How long should each song section be?",
+        "Pop chorus: 8 bars (around 16 seconds at 120 BPM). Pop verse: 16 bars (32 seconds). Pre-chorus: 4 to 8 bars (8 to 16 seconds). Bridge: 8 bars (16 seconds). These are starting points, not rules; jazz and folk run longer, modern radio-pop sometimes runs shorter. The first chorus should land before 60 seconds in most contemporary songwriting."
+      ),
+      createFAQ(
+        "What's the difference between ABA and verse-chorus form?",
+        "ABA is two contrasting sections where the second 'A' is a return to the first idea. A typical ABA might be a long verse-like A section, a contrasting middle (B), then a return to the A material. Verse-chorus form has more sections cycling more rapidly, with the chorus repeating multiple times. ABA suits ballads and through-composed writing; verse-chorus suits hooks-driven songs."
+      ),
+      createFAQ(
+        "Do I need a bridge?",
+        "Not always. Many radio singles skip the bridge and use a contrasting outro chorus instead (modulating up a tone, or stripping the arrangement). Bridges work brilliantly when they introduce a new lyrical or harmonic idea that makes the final chorus feel earned. They drag when they're just 'a different bit' with no reason to exist."
+      ),
+      createFAQ(
+        "Can I save my song structure to come back to?",
+        "Yes, the Song Structure Builder auto-saves to your browser so the structure persists between sessions. You can also share a link so a co-writer or producer can see the same structure on their own device. Use this with the [Setlist Timer](/setlist-timer) once the song is finished to plan how it sits in a live set."
+      ),
+    ],
+    relatedTools: [
+      { slug: "setlist-timer", label: "Setlist Timer" },
+      { slug: "key-finder", label: "Song Key Finder" },
+      { slug: "metronome", label: "Online Metronome" },
+    ],
+  },
+
+  "practice-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Track Music Practice Without Lying to Yourself",
+        "Practice journals work because they show you the truth about your week. Most musicians who 'practice every day' are practising four days; most who think they 'practice an hour' are spending 20 minutes on warm-ups and 40 minutes scrolling through tabs. The Music Practice Tracker logs each session with the time, what you worked on, and a quick rating of how the session went, then plots the data so you can see whether your practice is actually growing or just running on the spot.",
+        "The single most important finding from music education research: spaced practice (30 minutes a day for six days) consistently beats marathon practice (3 hours on Saturday). Sleep consolidates motor learning, so daily sessions of even 15 minutes at a tricky passage will outperform a weekend cram. The tracker's streak counter exists for exactly this reason; the gamified pressure to maintain a streak keeps daily practice on the calendar."
+      ),
+      {
+        heading: "How Much to Practice by Goal",
+        table: {
+          headers: ["Goal", "Daily Time", "Per Week", "Notes"],
+          rows: [
+            ["Beginner, hobbyist", "15-20 mins", "1-2 hrs", "Consistency beats duration"],
+            ["Intermediate, ABRSM grades", "30-45 mins", "3-5 hrs", "Split scales, pieces, sight-reading"],
+            ["Advanced, gigging", "60-90 mins", "5-10 hrs", "Repertoire maintenance plus new material"],
+            ["Conservatoire, professional", "3-6 hrs", "20-40 hrs", "Multiple instruments common"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What to Practice in Each Session",
+        "A useful session structure: 5 minutes of warm-ups (long tones, scales, simple exercises), 10 to 15 minutes of technical work on a specific weakness (slow practice with a [Online Metronome](/metronome) at 70% target tempo), 15 to 20 minutes on repertoire or pieces, 5 minutes of free play or improvisation to end on something fun. Adjust proportions to your level: beginners need more time on technique; advanced players need more time on repertoire.",
+        "The other research-backed finding: deliberate practice (focused, slow, attentive, error-correcting) is much more valuable than time-on-instrument (just playing along to records). The tracker lets you tag each session by category so you can see whether you're spending most of your time in deliberate practice mode or just noodling. Pair this with the [Guitar Scale Finder](/scale-finder) for daily scale rotation, or the [Guitar Chord Library](/chord-library) for systematic chord work."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should I practice each day?",
+        "15 to 20 minutes is enough for a beginner; 30 to 45 minutes for intermediate players; 60 to 90 minutes for serious students or gigging musicians; 3 to 6 hours for conservatoire and professional players. The single rule that holds across all levels: 30 minutes a day for six days outperforms 3 hours on Saturday, because sleep consolidates motor memory and physical tension dissipates between sessions."
+      ),
+      createFAQ(
+        "Is it better to practice daily or do longer sessions less often?",
+        "Daily, almost without exception. Spaced practice with sleep between sessions consistently outperforms marathon sessions because sleep is when motor learning consolidates. The exception is occasional 'deep work' sessions for memorising a long piece or working through a complex arrangement, but these supplement daily practice rather than replacing it."
+      ),
+      createFAQ(
+        "What should I track in each practice session?",
+        "Time, what you worked on (categorise as warm-up, technique, repertoire, sight-reading, improvisation), and a 1-to-5 rating of how the session felt. The categories matter because they reveal patterns: many self-taught players spend 80% of their time on repertoire and almost none on technique, which is why they plateau."
+      ),
+      createFAQ(
+        "How do I keep a practice streak going?",
+        "Set a tiny minimum (5 minutes counts) so you never miss a day on a busy week. Practice at the same time daily; habit-stack with an existing routine (immediately after morning coffee, before dinner). The Music Practice Tracker shows your current streak and longest-ever streak, and the visual reward of an unbroken chain is the actual mechanism that makes streaks work."
+      ),
+      createFAQ(
+        "Should I practice scales every day?",
+        "Most teachers say yes, for around 10 to 15 minutes daily. Scales are technical exercise: they build the muscle memory that lets you respond to musical ideas in real time. Skip scales and your improvisation suffers six months later. The [Guitar Scale Finder](/scale-finder) gives you a rotating set so you don't drill the same major scale every day for years."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metronome", label: "Online Metronome" },
+      { slug: "scale-finder", label: "Guitar Scale Finder" },
+      { slug: "chord-library", label: "Guitar Chord Library" },
+    ],
+  },
 };

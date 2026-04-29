@@ -928,6 +928,675 @@ export const businessSEO = {
       { slug: "word-counter", label: "Word Counter" },
     ],
   },
+
+  "business-profit-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Margin vs Markup: They Are Not the Same Thing",
+        "Profit margin is profit divided by selling price. Markup is profit divided by cost. A product that costs £40 and sells for £100 has a 60% margin and a 150% markup. People mix these up constantly and end up underpricing themselves, especially in retail and e-commerce where suppliers quote 'use a 50% markup' but the buyer hears 'I want a 50% margin' and ships at half the intended price.",
+        "Use margin when you are reporting profitability or comparing across SKUs. Use markup when you are pricing from cost upwards on the shop floor. The calculator runs both directions: enter cost and selling price to see margin and markup side by side, or enter cost and a target margin to back out the price you need to charge."
+      ),
+      {
+        heading: "Margin to Markup Conversion Reference",
+        table: {
+          headers: ["Target Margin", "Required Markup", "Example: £10 cost"],
+          rows: [
+            ["20%", "25%", "Sell at £12.50"],
+            ["30%", "42.9%", "Sell at £14.29"],
+            ["40%", "66.7%", "Sell at £16.67"],
+            ["50%", "100%", "Sell at £20.00"],
+            ["60%", "150%", "Sell at £25.00"],
+            ["70%", "233%", "Sell at £33.33"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What a Healthy Margin Actually Looks Like",
+        "Healthy margins vary wildly by sector. Supermarkets run on 2 to 4% net margins because volume carries them. Software businesses commonly hit 70 to 90% gross margin because the cost of the next sale is almost zero. Handmade goods on Etsy often look healthy at 50% gross margin until you subtract Etsy's 6.5% transaction fee, the £0.16 listing fee, payment processing and offsite ad fees, at which point the real number drops below 30%.",
+        "Always separate gross margin (revenue minus cost of goods) from net margin (after rent, salaries, software, ads). Founders quote gross margin in pitch decks because it sounds better; banks and accountants want to see the net. If your net margin is below 5% you have almost no buffer for a bad month, so price up or cut overheads."
+      ),
+      createAnswerFirstSection(
+        "The Break-Even Price Is Your Floor, Not Your Target",
+        "Break-even is the selling price that returns your cost with zero profit. It is useful for clearance sales and competitor matching, but it is the worst possible price to anchor your menu on. Pricing 'just above break-even' leaves no room for discounts, bulk orders, returns or fees. The first time a customer asks for 10% off, you are now losing money.",
+        "A more honest floor is break-even plus the percentage cost of doing business: card fees (around 1.5 to 2.5% on Stripe), refund rate (often 3 to 8% on consumer goods), and any platform commission. For an Etsy seller pricing their first product, that means break-even plus around 12 to 15% before you have made a single penny. Use the [etsy-fee-calculator](/etsy-fee-calculator) to see exactly what comes off the top before profit."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the formula for profit margin?",
+        "Profit margin equals (selling price minus cost) divided by selling price, multiplied by 100. So a product that costs £40 and sells for £100 has a margin of (100 minus 40) divided by 100, which is 60%. The same product has a markup of 60 divided by 40, which is 150%. The two figures describe the same gap from different angles."
+      ),
+      createFAQ(
+        "How do I calculate selling price from a target margin?",
+        "Divide your cost by (1 minus the margin expressed as a decimal). For a 40% margin on a £15 cost item, that is 15 divided by 0.6, giving £25. The shortcut formula in the calculator does this automatically; this is the inverse of the margin calculation and the right way to price up from cost."
+      ),
+      createFAQ(
+        "Is a 30% margin good for a small business?",
+        "Gross margin of 30% is reasonable for retail and e-commerce, slim for manufacturing, and weak for software or services. The crucial question is whether 30% is enough to cover your overheads (rent, salaries, software, marketing) and still leave a net profit. Many product businesses target a 50 to 65% gross margin so that net profit lands in the 10 to 20% range after fixed costs."
+      ),
+      createFAQ(
+        "Should I include VAT in margin calculations?",
+        "No, calculate margin on the net (ex-VAT) figure. VAT is collected on behalf of HMRC and is not your money. If you sell at £120 including 20% VAT and the product cost £40 ex-VAT, your real revenue is £100 and your margin is 60%. Including VAT inflates the margin figure artificially and gives you a false sense of profitability."
+      ),
+      createFAQ(
+        "Why does the calculator show both margin and markup?",
+        "Because supplier quotes, retail pricing and accounting reports use different conventions and getting them mixed up is the most common pricing error in small businesses. Showing both side by side prevents the trap of being told 'apply a 50% markup' and accidentally pricing for a 50% margin (which would require a 100% markup), giving away half your profit on every sale."
+      ),
+    ],
+    relatedTools: [
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+      { slug: "vat-calculator", label: "VAT Calculator" },
+      { slug: "side-hustle-hourly-rate", label: "Side Hustle Hourly Rate" },
+    ],
+  },
+
+  "meeting-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Meetings Actually Cost Your Business",
+        "Plug five people on £30 to £60 hourly rates into a one-hour meeting and the bill is rarely under £200. A weekly recurring 'standup' with eight people at one hour each runs to roughly £10,000 a year. The figure feels jarring because most of us never see meeting time as a cash line item, but it sits on the salary cost ledger every single week regardless of what gets decided in the room.",
+        "The hourly rate to plug in is not just gross salary divided by working hours. A loaded cost (salary plus employer NI, pension, software licences, office overhead) typically runs 1.3 to 1.5 times base salary. So a £40,000 employee actually costs around £52,000 to £60,000 a year, which means an hourly rate of roughly £28 to £33 for a 37.5-hour week, not £20. Use the loaded figure if you want the meeting bill to reflect reality."
+      ),
+      {
+        heading: "Recurring Meeting Cost Examples (Annualised)",
+        table: {
+          headers: ["Meeting Setup", "Per Session", "52 Sessions/Year"],
+          rows: [
+            ["4 people, £30/hr, 30 min", "£60", "£3,120"],
+            ["6 people, £40/hr, 1 hour", "£240", "£12,480"],
+            ["8 people, £50/hr, 1 hour", "£400", "£20,800"],
+            ["12 people, £45/hr, 1.5 hours", "£810", "£42,120"],
+            ["3 senior people, £80/hr, 2 hours", "£480", "£24,960"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Using the Live Timer to Run Disciplined Meetings",
+        "The live timer mode is the lever this tool exists for. Project the running cost on the screen at the start of a meeting and watch behaviour change inside three minutes. People stop telling stories that are not on the agenda, late arrivals stop apologising at length, and the chair becomes more willing to cut a tangent off because the cost of not cutting it is visible in pounds, not vague feelings.",
+        "A reasonable rule that emerges from this tool: any decision-making meeting should produce a written outcome (a decision, a delegated action, a date) for every £100 of cost. A status meeting that runs to £400 with no documented outcome was a £400 chat. Status updates work better as written notes circulated before the meeting, with the meeting itself reserved for genuine debate."
+      ),
+      createAnswerFirstSection(
+        "Smaller Rooms, Shorter Slots, Async-First",
+        "The cheapest way to cut meeting cost is to invite fewer people. A six-person meeting that becomes four halves the cost. Not every team member needs to be in every meeting; circulate notes afterwards rather than pre-loading the room. Default slots of 30 minutes (rather than the calendar's automatic 60) save half the bill on any meeting that does not need the full hour, and most do not.",
+        "For decisions that do not need real-time discussion, written async kills the meeting entirely. A Loom video plus a comment thread on a shared doc can replace a 45-minute review meeting that costs £300 of salary time. The general framework: real-time meetings for genuine debate or sensitive conversations, written async for status, decisions with clear options, and any update where one person is presenting and others are listening."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What hourly rate should I use for staff in this calculator?",
+        "Use a fully loaded rate that includes employer NI (15% in the UK from April 2026), pension contributions (typically 3 to 5% employer), and a share of overhead. As a shortcut, multiply gross salary by around 1.4 and divide by the annual hours worked (typically 1,950 for a 37.5-hour week). A £40,000 employee comes out to roughly £29 per hour loaded."
+      ),
+      createFAQ(
+        "Does the timer keep running if I close my browser?",
+        "No, the timer is purely client-side and runs only while the tab is open. If you reload the page or close the tab, the timer resets. This is intentional; the tool is meant for live meetings rather than long-term tracking. For longer cost analysis, use the manual minutes input instead of the running timer."
+      ),
+      createFAQ(
+        "Should I include my own time as a manager in the cost?",
+        "Yes, especially if you are running the meeting. A manager on a £70,000 salary costs around £50 per hour loaded; chairing a five-person hour-long meeting where you are also an attendee is a £250 line item that often gets forgotten because it does not show up on a separate timesheet. Include yourself for an honest figure."
+      ),
+      createFAQ(
+        "How do I justify this cost to my team without making it awkward?",
+        "Frame it as respecting people's time, not policing it. Phrases that work: 'so we know what this is worth', 'so we can decide if this needs everyone', 'so we can spot the meetings that have stopped earning their keep'. The aim is fewer better meetings, not constant cost-shaming. Most teams quietly welcome the rigour because their calendars are equally full of meetings they suspect are wasteful."
+      ),
+      createFAQ(
+        "What is a reasonable meeting cost for a one-hour team standup?",
+        "For a six-person standup at average UK rates of around £35 per hour loaded, the meeting costs roughly £210 a week or £10,920 a year. If the standup leads to clearer priorities and prevents two miscommunications a quarter, it pays for itself many times over. If it is purely status updates that could go in a written channel, that £10,000 is buying you very little."
+      ),
+    ],
+    relatedTools: [
+      { slug: "employee-cost-calculator", label: "Employee Cost Calculator" },
+      { slug: "meeting-agenda-generator", label: "Meeting Agenda Generator" },
+      { slug: "salary-to-hourly-converter", label: "Salary to Hourly Converter" },
+    ],
+  },
+
+  "salary-to-hourly-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Why Salary and Hourly Rate Are Not Interchangeable",
+        "On paper a £40,000 salary at a 37.5-hour week converts to £20.51 per hour using 52 weeks. In practice salaried workers usually take 5.6 weeks of paid annual leave plus 8 bank holidays, which means they actually work closer to 1,762 hours, pushing the effective hourly rate to £22.70. Hourly contractors are typically only paid for hours worked, so to match a salaried equivalent including holiday pay they need a higher headline rate.",
+        "When converting your salary to an hourly figure, decide whether you are calculating gross hourly equivalent (assuming all 52 weeks paid) or true hourly working rate (only counting hours actually worked). The calculator defaults to all 52 weeks because that is the most common comparison; toggle the working weeks down to 46.6 if you want to see the figure that includes statutory leave and bank holidays."
+      ),
+      {
+        heading: "Salary to Hourly Conversion Reference (37.5 Hour Week, 52 Weeks)",
+        table: {
+          headers: ["Annual Salary", "Hourly Rate", "Daily (8 hr)", "Weekly"],
+          rows: [
+            ["£25,000", "£12.82", "£102.56", "£480.77"],
+            ["£35,000", "£17.95", "£143.59", "£673.08"],
+            ["£45,000", "£23.08", "£184.62", "£865.38"],
+            ["£60,000", "£30.77", "£246.15", "£1,153.85"],
+            ["£80,000", "£41.03", "£328.21", "£1,538.46"],
+            ["£100,000", "£51.28", "£410.26", "£1,923.08"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Going Freelance: What Multiplier to Apply",
+        "A common shortcut for salaried workers considering freelance is to take their hourly rate and multiply by 2 to 2.5. The doubling is not greed, it accounts for the costs that disappear from your day when you leave employment. As a freelancer you absorb your own pension contributions (around 5 to 8% of income for parity), your own holiday pay (10.7% to match statutory leave), sick pay, training, equipment, accounting fees, and any periods between contracts.",
+        "On a £40,000 salary equivalent (£20.51 per hour), a fair freelance day rate sits between £325 and £410 (8 hours at £41 to £51). Anything below £40 per hour as a UK freelancer is below the loaded cost of an equivalent permanent employee, which means you are quietly subsidising the client's business. The [side-hustle-hourly-rate](/side-hustle-hourly-rate) tool gives a brutal truth check on what your real hourly figure looks like once expenses come out."
+      ),
+      createAnswerFirstSection(
+        "Hourly to Salary: What Job Listings Actually Mean",
+        "When a role is advertised at '£18 per hour, full time', that sits at a £35,100 annual gross at 37.5 hours over 52 weeks, or roughly £33,750 if you back out the unpaid weeks of statutory leave. Job ads are inconsistent; some include leave, some quote what would be paid if you worked every week of the year. Always ask whether quoted hours include paid holidays and bank holidays before accepting; the difference between the two assumptions is around 10% of total pay."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many working hours are in a year in the UK?",
+        "The standard full-time week in the UK is 37.5 hours, which gives 1,950 hours over a 52-week year. After statutory holiday entitlement (28 days including bank holidays for a 5-day worker, equivalent to 5.6 weeks), actual working hours come down to roughly 1,740 to 1,762 hours per year. Use 1,950 for gross conversions and 1,740 for true working-rate comparisons."
+      ),
+      createFAQ(
+        "Should I use 40 or 37.5 hours per week?",
+        "Use 37.5 hours for most UK office and professional roles, which usually count an unpaid lunch break as outside working hours. Use 40 hours for shift work, retail, hospitality and most US-style contracts where the lunch break is included or unpaid breaks are shorter. The calculator lets you set the figure manually so you can match your specific contract."
+      ),
+      createFAQ(
+        "Does this calculator account for tax?",
+        "No, this is a gross conversion only. To see your take-home figure after income tax, National Insurance and pension contributions, use the UK tax calculator. As a quick rule of thumb, take-home in the UK is typically 70 to 75% of gross for salaries between £25,000 and £50,000, falling lower as you cross higher rate tax thresholds."
+      ),
+      createFAQ(
+        "What hourly rate equates to a £50k salary?",
+        "A £50,000 salary equates to approximately £25.64 per hour at a standard 37.5-hour week over 52 weeks. Adjusted for 5.6 weeks of statutory leave plus bank holidays, the true working-rate figure is closer to £28.41 per hour. A freelancer aiming for £50,000 a year billable income with normal expenses should target a day rate of around £400 to £450."
+      ),
+      createFAQ(
+        "Why does the daily rate use 8 hours?",
+        "Eight hours is the standard contracting and freelance day length, which usually maps to a working day with a paid hour for lunch (so a 9 to 5 day). Many salaried roles work a 7.5-hour day. The calculator uses 8 hours for the daily figure because that is the most common comparison when discussing day rates with clients or recruiters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "freelance-rate-calculator", label: "Freelance Rate Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "side-hustle-hourly-rate", label: "Side Hustle Hourly Rate" },
+    ],
+  },
+
+  "roi-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Total ROI vs Annualised Return: The Difference Matters",
+        "Total ROI tells you the headline gain. A £10,000 investment that grew to £12,500 has 25% total ROI. That sounds good until you ask over what period. Earned in one year it is excellent; spread over five years it is a 4.6% annualised return, barely matching a cash ISA in 2026 and lagging inflation. The annualised figure (CAGR, compound annual growth rate) is the only honest way to compare investments of different durations.",
+        "The formula behind annualised return is (final divided by initial)^(1 divided by years) minus 1, multiplied by 100. The calculator runs it both ways: enter a final value to see total and annualised ROI, or enter an annual return rate to project where you end up after a given period. Always lead with the annualised figure when comparing options because it strips out the time variable that makes raw ROI numbers meaningless."
+      ),
+      {
+        heading: "Annualised Return Examples (£10,000 Initial)",
+        table: {
+          headers: ["Final Value", "Years", "Total ROI", "Annualised"],
+          rows: [
+            ["£10,500", "1", "5%", "5.0%"],
+            ["£12,500", "5", "25%", "4.56%"],
+            ["£15,000", "5", "50%", "8.45%"],
+            ["£20,000", "10", "100%", "7.18%"],
+            ["£25,000", "10", "150%", "9.60%"],
+            ["£30,000", "20", "200%", "5.65%"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Benchmarks: When ROI Is Actually Good",
+        "Use these reference points when judging an annualised return. Cash ISA rates in 2026 sit around 4 to 5%, which is the floor; below this you should be holding cash. UK Premium Bonds average around 4.4% but with random distribution. Long-run global stock market returns (FTSE All-World, S&P 500) average roughly 7 to 9% annualised after inflation, with significant short-term volatility. UK residential property has averaged about 5 to 6% annualised over 30 years, before transaction costs.",
+        "Anything pitched at over 15% annualised should trigger immediate scepticism. Either it is short-term and unsustainable, comes with significant risk that has not been disclosed, or is a scam. Genuine 'good' returns sit in the 6 to 12% annualised range over 5+ year holding periods. Use the [compound-interest-calculator](/compound-interest-calculator) to see how those modest-looking percentages compound into substantial sums over decades."
+      ),
+      createAnswerFirstSection(
+        "What ROI Misses: Costs, Tax and Inflation",
+        "A 7% headline return becomes a 4 to 5% real return after a typical UK 2 to 3% inflation rate. If the gain is in a taxable account rather than an ISA, capital gains tax at 18 or 24% takes another bite. Investment platform fees of 0.25% to 1% per year compound over time and quietly eat 10 to 25% of your final pot over a 30-year period.",
+        "The honest comparison is real, post-tax, post-fee return. A £10,000 investment growing 7% per year for 20 years reaches roughly £38,700 nominally, but only about £21,600 in 2026 spending power after 3% inflation, and less again after fees and tax. This is not a reason to avoid investing; it is a reason to use ISAs, low-cost trackers, and time horizons measured in decades rather than years."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a good annual ROI?",
+        "Across diversified equity investments held for 10+ years, 7 to 9% annualised is typical and historically achievable through a global tracker fund. UK residential property averages 5 to 6% annualised before costs. Cash ISAs offer 4 to 5% in 2026. Anything claiming 'guaranteed' returns above 6% should be treated with significant scepticism, as genuine returns of that level always carry meaningful risk."
+      ),
+      createFAQ(
+        "How is annualised return different from average return?",
+        "Average return adds the annual returns and divides by years. Annualised (CAGR) compounds them. If you gain 50% in year one and lose 50% in year two, your average return is 0% but your CAGR is negative because £10,000 becomes £15,000 then £7,500. CAGR always reflects what actually happened to your money; arithmetic averages can flatter volatile investments and should be ignored."
+      ),
+      createFAQ(
+        "Should I use ROI or IRR for evaluating projects?",
+        "ROI is fine for simple buy-and-hold investments where the only cash flows are the initial outlay and a final sale. For projects with multiple cash inflows and outflows over time (such as a rental property with mortgage payments, or a business with ongoing costs and revenue), use Internal Rate of Return (IRR) instead. IRR handles the timing of every cash flow; ROI just looks at the start and end points."
+      ),
+      createFAQ(
+        "Does the calculator account for inflation?",
+        "No, it shows nominal returns. To see real (inflation-adjusted) returns, subtract approximately 2 to 3% from the annualised figure for typical UK inflation. A 7% nominal return is roughly 4 to 5% real. For longer-term planning, the real figure matters more because it tells you what your money will actually buy in the future, not what the bank statement says."
+      ),
+      createFAQ(
+        "How long should I hold an investment to expect average returns?",
+        "Long-run equity averages of 7 to 9% require 10+ year holding periods to reliably show up. Over 1 year, equity returns can range from negative 30% to positive 30%; over 20 years, the historical range narrows substantially and very few rolling 20-year periods have produced negative real returns. Time in the market is the single biggest factor in achieving the headline figures."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "time-to-double-calculator", label: "Time to Double Calculator" },
+      { slug: "business-profit-calculator", label: "Business Profit Calculator" },
+    ],
+  },
+
+  "meeting-agenda-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Why Most Meetings Run Over and What an Agenda Fixes",
+        "Meetings without timed agendas almost always overrun, and the overrun lands on whichever item is unlucky enough to be last. The fix is unglamorous: every agenda item gets a time budget, the chair sticks to it, and items that need more time get parked into a follow-up rather than steamrolling whatever was scheduled next. The generator builds this in by allocating time per item with a 5-minute welcome and 5+ minute wrap baked in.",
+        "A 60-minute meeting with three discussion items typically allocates around 15 minutes per item once the welcome and wrap-up are subtracted, plus a 10-minute buffer for transition and questions. That feels tight on paper but it is realistic; most items genuinely covered in a focused 15-minute discussion would have rambled through 25 minutes in a meeting that was 'just allowed to flow'. The discipline of a written time budget is the difference between finishing on time and overrunning."
+      ),
+      {
+        heading: "Time Allocation by Meeting Length",
+        table: {
+          headers: ["Total Length", "Welcome", "Per Item (3 items)", "Wrap-Up"],
+          rows: [
+            ["30 min", "5 min", "5 min each", "10 min"],
+            ["45 min", "5 min", "10 min each", "10 min"],
+            ["60 min", "5 min", "15 min each", "10 min"],
+            ["90 min", "5 min", "25 min each", "10 min"],
+            ["120 min", "5 min", "35 min each", "10 min"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Items That Belong on an Agenda (and Items That Should Not)",
+        "Good agenda items are decisions, debates, or work that genuinely needs synchronous discussion. 'Approve the Q3 budget', 'Choose between supplier A and B', 'Discuss client feedback on pitch deck' all belong in a meeting because they need real-time back-and-forth. Bad agenda items are status updates, information broadcasts, and reading aloud from documents the team could have read beforehand.",
+        "If you remove all status updates and reading-aloud from a typical weekly team meeting, most of them shorten by 30 to 50%. Status moves to a written channel (Slack thread, weekly Notion update, async video). The meeting becomes shorter but more useful because everyone arrives having read the context, ready to discuss and decide rather than receive information passively. This is the meeting agenda philosophy that genuinely cuts meeting cost."
+      ),
+      createAnswerFirstSection(
+        "Sharing the Agenda Before the Meeting (Not in the Room)",
+        "An agenda generated 10 minutes before the meeting and shared in the meeting room is theatre. To get the value, send the agenda 24 to 48 hours ahead with any pre-read materials linked. People come in having thought about the items, with positions formed and questions ready. This single change typically halves the time needed for genuine debate because the slow process of bringing everyone up to speed has already happened.",
+        "Use the JPG download for visual circulation in chat tools (Slack, Teams), or copy the text version straight into a calendar invite description. For recurring meetings, save the agenda template, swap in the new items each week, and circulate by Friday for the following Monday. The [meeting-cost-calculator](/meeting-cost-calculator) shows what the saved time is actually worth in salary cost."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should each agenda item be?",
+        "Plan around 10 to 15 minutes per substantive item once welcome and wrap are deducted, more for items that need group decision-making and less for quick informational items. The generator divides the remaining time evenly across items, which is a sensible default; manually weight time toward critical items if some clearly need more discussion than others."
+      ),
+      createFAQ(
+        "Should the chair speak first or last on each item?",
+        "Last, where possible. Chairs and senior people who speak first on an item anchor the discussion to their view and quieter voices defer to it. Letting the most junior person on the topic open the discussion, then working up the seniority ladder, surfaces a wider range of views. The chair frames the item, opens the floor, and only adds their own position once others have spoken."
+      ),
+      createFAQ(
+        "What is the ideal agenda for a weekly team meeting?",
+        "5 minutes welcome and quick personal updates, 30 minutes on the top 2 to 3 priorities for the week, 10 minutes on blockers or risks, 10 minutes on actions and ownership confirmation, 5 minutes wrap with deadlines for the next sync. This works for most 1-hour weekly meetings and avoids the trap of letting status updates eat the entire hour."
+      ),
+      createFAQ(
+        "Do I need an agenda for a 1-on-1?",
+        "A light one helps. Five minutes on personal/wellbeing check, 15 minutes on what the report wants to discuss, 10 minutes on what the manager wants to discuss, 5 minutes on actions and follow-ups for next time. The flexibility matters in 1-on-1s because the most useful conversation often emerges spontaneously, but a baseline structure prevents the meeting drifting into pure status."
+      ),
+      createFAQ(
+        "Can I save an agenda template for reuse?",
+        "The generator does not have a save feature, but the JPG download or copied text can be pasted straight into a calendar invite, Notion page, or document template. Most teams find that copying the previous week's agenda and swapping the items is the fastest workflow once the structure works for them."
+      ),
+    ],
+    relatedTools: [
+      { slug: "meeting-cost-calculator", label: "Meeting Cost Calculator" },
+      { slug: "content-calendar-generator", label: "Content Calendar Generator" },
+      { slug: "social-media-post-scheduler", label: "Social Media Post Scheduler" },
+    ],
+  },
+
+  "nda-template-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What an NDA Actually Does (And What It Doesn't)",
+        "A non-disclosure agreement creates a legal obligation on the receiving party to keep specified information confidential and use it only for an agreed purpose. It does not stop someone leaking the information; it gives you the basis to sue for damages or seek an injunction if they do. The deterrent effect of having an NDA on file is usually more valuable than the litigation route, because most well-resourced parties simply will not breach a signed agreement.",
+        "Generated NDA templates like this one cover the basic structural points (parties, purpose, definitions, term, return of materials, governing law) and produce a workable starting document for low-stakes disclosures: chatting to a freelancer about your business idea, or showing a vendor your unreleased product roadmap. For high-value transactions (M&A, licensing deals, IP transfers), have a solicitor review or draft the agreement. This template is reference guidance, not legal advice."
+      ),
+      createAnswerFirstSection(
+        "Mutual vs One-Way: Which Direction Does Confidentiality Flow?",
+        "A one-way (unilateral) NDA protects information disclosed by one party to another. The disclosing party shares; the receiving party keeps it secret. This is the default when you are showing your business to a potential investor, contractor or supplier. A mutual (bilateral) NDA protects information flowing both ways, which is appropriate when both parties expect to share sensitive information, such as in a merger discussion, joint venture or technology partnership.",
+        "The generated template is structured as a one-way NDA between a Disclosing Party and a Receiving Party. To convert to mutual, both parties take on the obligations described under section 2 (Obligations) for any information they receive. If the relationship is genuinely bilateral, ask a solicitor to redraft into mutual format because the obligations and remedies need careful symmetry to be enforceable on both sides."
+      ),
+      {
+        heading: "Common NDA Duration Choices and What They Mean",
+        table: {
+          headers: ["Duration", "Use Case", "Trade-off"],
+          rows: [
+            ["1 year", "Short pitches, brief vendor demos", "Often too short for real IP value"],
+            ["2 years", "Standard early-stage commercial discussion", "Common default; balanced"],
+            ["3 to 5 years", "Detailed roadmaps, proprietary methods", "Industry standard for IP-heavy deals"],
+            ["7 to 10 years", "Trade secrets, formulas, source code", "Some jurisdictions limit enforcement"],
+            ["Indefinite", "True trade secrets (Coca-Cola style)", "May be unenforceable in UK courts"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Things This Template Does Not Cover (And Probably Should In Real Use)",
+        "The generated template is deliberately short to be readable and editable. Real-world NDAs often add: jurisdiction-specific carve-outs (whistleblower protections, GDPR-mandated disclosures), specific named individuals authorised to receive the information, restrictions on residual knowledge (what the receiving party can remember and use after the contract ends), liquidated damages clauses, and assignment restrictions (who can take over the agreement if the company is sold).",
+        "If your situation involves any of: source code, customer data, regulated industries (finance, health, legal), cross-border transfers, or dollar values above the low five figures, do not rely on a generated template. Use it as a conversation starter with a solicitor; the legal cost of getting the agreement right is usually a small fraction of the value being protected. This generator is template guidance, not legal advice."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is a generated NDA legally binding?",
+        "Yes, an NDA is binding as long as it is signed by both parties, identifies the parties clearly, defines what is confidential, and sets reasonable terms. The generated template covers these basics. However, enforceability in court depends on jurisdiction, the reasonableness of the obligations, and whether specific clauses meet local legal requirements. For high-value matters always have a solicitor review before relying on it."
+      ),
+      createFAQ(
+        "How long should the confidentiality period be?",
+        "2 to 5 years is the most common range for commercial NDAs. Shorter periods risk failing to cover the period during which the information has commercial value; longer periods can be challenged as unreasonable restraint of trade. The right number depends on how long the information stays valuable: software roadmaps decay fast, manufacturing processes can hold value for decades."
+      ),
+      createFAQ(
+        "Can I use this NDA outside the UK?",
+        "The generated template specifies English and Welsh law as the governing jurisdiction. For agreements between US, EU, or other parties, the governing law clause should be revised, and you should ensure the substantive obligations work under that jurisdiction. Some EU countries have specific rules around employee NDAs and trade secrets (under the EU Trade Secrets Directive) that may need to be reflected in the wording."
+      ),
+      createFAQ(
+        "Do I need an NDA before pitching to investors?",
+        "Most professional VCs and angel investors refuse to sign NDAs at the pitch stage; they see too many similar ideas and an NDA creates legal exposure if they later back a similar company. The standard practice is to share a high-level pitch without confidential operational detail, and only deeper data (cap table, customer specifics, technical IP) once an investor enters proper diligence. NDAs at the diligence stage are normal and expected."
+      ),
+      createFAQ(
+        "What happens if someone breaches the NDA?",
+        "The remedies are usually monetary damages (compensation for loss caused by the breach) and injunctive relief (a court order requiring them to stop using or disclosing the information). Damages can be hard to quantify because the loss caused by leaked confidential information is often diffuse. In practice, the threat of legal action, and the reputational damage of being known to have breached an NDA, are stronger deterrents than the financial recovery itself."
+      ),
+    ],
+    relatedTools: [
+      { slug: "invoice-generator", label: "Invoice Generator" },
+      { slug: "company-name-checker", label: "Company Name Checker" },
+      { slug: "meeting-agenda-generator", label: "Meeting Agenda Generator" },
+    ],
+  },
+
+  "company-name-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What Companies House Will Accept and What It Won't",
+        "UK Companies House applies four broad rules to company names: they must be unique on the register, they must not be 'too similar' to an existing name, they must not contain restricted words without prior approval, and they must end with the correct suffix for the company type (Ltd, Limited, PLC, LLP, etc). The checker runs your proposed name against these structural rules before you submit, catching most issues that would cause a rejection.",
+        "Restricted words include 'Royal', 'Crown', 'Government', 'NHS', 'Police', 'University', 'Bank', 'Charity', 'Trust', and 'Authority' among others. Using these requires written permission from the relevant body, and Companies House will reject names containing them without proof of approval. Even cleared names like 'British' or 'National' often need supporting justification if they appear too official or quasi-governmental."
+      ),
+      createAnswerFirstSection(
+        "What 'Too Similar' Actually Means",
+        "Companies House uses a same-as test that ignores common word variations. 'Acme Ltd' and 'Acme Limited' are considered identical. 'Acme UK Ltd' and 'Acme Ltd' are considered too similar (the geographic descriptor doesn't differentiate enough). 'Acme Holdings Ltd' and 'Acme Ltd' are usually considered different because 'Holdings' is a substantive descriptor. The line is fuzzy and ultimately decided by Companies House staff during the application review.",
+        "If a name is rejected as too similar to an existing company, you have to choose a different name. There is no appeal mechanism beyond providing evidence that the existing company has explicitly consented to your use of a similar name (which they almost never will). Save yourself the rejected application by checking the live Companies House register at find-and-update.company-information.service.gov.uk before submitting."
+      ),
+      {
+        heading: "Common Naming Mistakes That Cause Rejections",
+        table: {
+          headers: ["Mistake", "Why It Fails", "Fix"],
+          rows: [
+            ["Adding 'UK' to existing name", "Geographic descriptor not unique", "Choose distinctive name"],
+            ["Using 'International' or 'Group'", "Restricted word, needs approval", "Justify with documentation"],
+            ["Plural of existing name", "Same-as test fails", "Substantive change needed"],
+            ["Acronym of restricted phrase", "Treated as the full phrase", "Use distinctive acronym"],
+            ["Special characters at start", "Rejected on syntactic grounds", "Start with letter or digit"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Beyond Companies House: Trade Marks and Domains",
+        "A name passing Companies House checks does not mean the name is yours to use freely. A registered trade mark in your sector blocks your right to trade under that name even if Companies House accepts the registration. The UK IPO trade mark database at ipo.gov.uk should be checked before committing to a name, especially in classes 9, 35, 38, 41 and 42 which cover most modern services.",
+        "Domain availability is a third concern. The .co.uk and .com versions of your chosen name are rarely both free; if both are taken, your marketing options are constrained from day one. Check at a registrar such as Nominet (.uk) or your preferred provider before settling. The [business-name-generator](/business-name-generator) can help if you need fresh ideas after a rejection. This is a basic naming check; always verify final availability on Companies House before registering."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does this tool check the live Companies House register?",
+        "No, the tool checks structural rules (length, restricted words, character set) but does not query the live register. To confirm a name is genuinely available, search at find-and-update.company-information.service.gov.uk. The checker catches most issues that would cause a rejection but cannot replace the live register check, which is the only authoritative source."
+      ),
+      createFAQ(
+        "What words require special approval?",
+        "Companies House publishes a list of sensitive and restricted words. Common ones requiring approval include Royal, Crown, Government, NHS, Police, University, Bank, Charity, Trust, Authority, Insurance, Solicitor, Architect, and several others. Using these without proof of authorisation causes the application to be rejected. Some require written approval from a named body before Companies House will accept them."
+      ),
+      createFAQ(
+        "How long does the company name registration take?",
+        "Online incorporation through Companies House typically takes 24 hours from a successful application. Postal applications can take 8 to 10 working days. If your name is rejected, the application is returned, you fix the issue, and resubmit; this resets the clock. Choosing a name that passes both this checker and the live register search avoids the delay."
+      ),
+      createFAQ(
+        "Can I reserve a company name without registering?",
+        "No, UK Companies House does not offer name reservation; the only way to secure a name is to incorporate the company. Some founders use a 'shelf company' with a placeholder name and rename it later, but this carries fees on both incorporation and the change of name. For most cases the simpler approach is to incorporate when you are ready to use the name."
+      ),
+      createFAQ(
+        "What if my name passes the checker but Companies House rejects it?",
+        "Companies House staff have discretion on edge cases, particularly around 'too similar' and 'misleading' rules. If your name is rejected, the application is returned with a reason code; common fixes are adding a distinctive word, removing a geographic descriptor, or providing supporting documentation for restricted words. The basic structural check this tool performs catches most issues but cannot replace human review."
+      ),
+    ],
+    relatedTools: [
+      { slug: "business-name-generator", label: "Business Name Generator" },
+      { slug: "nda-template-generator", label: "NDA Template Generator" },
+      { slug: "invoice-generator", label: "Invoice Generator" },
+    ],
+  },
+
+  "etsy-fee-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "The Five Fees Etsy Takes from Every Sale",
+        "Etsy fees stack up in a way that catches new sellers off guard. There is the listing fee (£0.16 per item, charged when you list and again every 4 months), the transaction fee (6.5% of the total sale including shipping), payment processing (4% plus £0.20 in the UK), the regulatory operating fee for UK and EU sellers (0.3% of the sale), and offsite ads (15% of the price if Etsy advertises your listing externally and the buyer comes through that ad).",
+        "On a £25 sale with £3 shipping, the total fees come to roughly £3.32 before offsite ads, which is about 11.9% of the sale value. Add offsite ads and the figure rises to £7.07, or 25.2% of the sale. Most new sellers price using a 50% margin assumption against material cost and end up taking home far less than expected because they didn't model the fee stack."
+      ),
+      {
+        heading: "Etsy Fee Stack on a £25 Sale (Plus £3 Shipping)",
+        table: {
+          headers: ["Fee", "Rate", "Amount", "Notes"],
+          rows: [
+            ["Listing fee", "£0.16 flat", "£0.16", "Charged per listing"],
+            ["Transaction fee", "6.5% of £28", "£1.82", "Includes shipping"],
+            ["Payment processing", "4% + £0.20", "£1.32", "UK/EU rate"],
+            ["Regulatory fee (UK)", "0.3% of £28", "£0.08", "UK sellers only"],
+            ["Offsite ads (if applicable)", "15% of £25", "£3.75", "Only on offsite-driven sales"],
+            ["Total without offsite", "11.9%", "£3.38", "Always charged"],
+            ["Total with offsite", "25.2%", "£7.13", "When Etsy ads drove sale"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How Offsite Ads Work and Whether to Opt Out",
+        "Etsy enrolls all sellers in offsite ads automatically. If a buyer clicks an Etsy ad on Google, Facebook or Instagram and then buys your item within 30 days, you pay 15% of the full sale price (including shipping) in addition to all the other fees. Sellers under £8,000 in annual sales can opt out; sellers above that threshold cannot. The 15% fee can convert a profitable sale into a loss-making one if your margin is thin.",
+        "Whether to opt out is genuinely contested among sellers. The case for staying in: Etsy spends real money on driving traffic to your shop, and 85% of an extra sale is more than 100% of no sale. The case for opting out: many of those 'offsite' sales would have come through anyway via direct search, and you are paying 15% on traffic that may have been organic. There is no perfect answer; the calculator lets you toggle the assumption to see your shop's specific economics."
+      ),
+      createAnswerFirstSection(
+        "The Real Margin a Soap Maker (or Anyone) Should Aim For",
+        "Plug yourself in. A handmade soap with £3.50 in materials and £1.20 packaging selling for £8.50 with £3 shipping looks healthy at a glance: gross profit per bar £4. After Etsy fees of around £1.30 (without offsite ads) and assuming you hit minimum wage on the time involved (10 minutes at £11.44 per hour is around £1.90), the true profit per bar is around £0.80. That is 9.4% net margin on the sale, which feels different from the 47% gross margin headline.",
+        "For Etsy sellers, the working rule is to aim for 30% net margin after all fees, materials, and a fair hourly rate for your time. Lower than that and you are running a hobby with extra steps. Use the [side-hustle-hourly-rate](/side-hustle-hourly-rate) tool to see what your real hourly figure looks like once expenses come out, which is often the sobering moment that pushes new sellers to raise their prices."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What percentage does Etsy take per sale in 2026?",
+        "On a typical UK sale without offsite ads, Etsy fees come to around 11 to 13% of the total sale price. With offsite ads, the figure rises to 24 to 27%. The exact figure depends on the price point because the £0.16 listing fee and £0.20 fixed payment fee are flat amounts, so they take a larger percentage on lower-priced items."
+      ),
+      createFAQ(
+        "Why are my Etsy fees higher than the headline 6.5%?",
+        "The 6.5% transaction fee is just one component. On top of it sit the £0.16 listing fee, payment processing (4% plus £0.20 in the UK), the 0.3% regulatory fee, and potentially 15% offsite ads. Adding these up gets you to the real 11 to 13% (or 24%+ with offsite ads). Etsy advertises the 6.5% figure prominently because it is the lowest single component."
+      ),
+      createFAQ(
+        "Should I include shipping in the listing price or charge it separately?",
+        "Either approach has the same fee impact because Etsy charges 6.5% transaction fee plus 0.3% regulatory fee on the total of item plus shipping. The choice is really about buyer psychology: free shipping on a £15 item often converts better than a £12 item plus £3 shipping, even though the buyer pays the same. Etsy's algorithm currently favours listings that offer free shipping, which may also push you toward bundling shipping into the price."
+      ),
+      createFAQ(
+        "Is the £0.16 listing fee charged each time someone views the listing?",
+        "No, it is charged when you list the item and renews every 4 months automatically. If your item sells, the listing is automatically renewed and you are charged £0.16 again to keep it active. Multi-quantity listings (e.g. 10 of the same item) only charge one listing fee until all units sell, so for repeat-stock items the listing cost is well distributed."
+      ),
+      createFAQ(
+        "Can I claim Etsy fees back as business expenses?",
+        "Yes, all Etsy fees are deductible business expenses for self-employed UK sellers when filing self-assessment. Keep your monthly Etsy statements as records (downloadable from Shop Manager > Finances > Monthly Statements). VAT-registered sellers can also reclaim VAT on the fees, but most small UK sellers operate below the £90,000 VAT threshold and don't need to worry about VAT recovery."
+      ),
+    ],
+    relatedTools: [
+      { slug: "shopify-profit-calculator", label: "Shopify Profit Calculator" },
+      { slug: "ebay-fee-calculator", label: "eBay Fee Calculator" },
+      { slug: "business-profit-calculator", label: "Business Profit Calculator" },
+    ],
+  },
+
+  "shopify-profit-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Shopify's Three Plans and Who Each Is For",
+        "Shopify Basic costs $39 per month (or $29 annual) and works for shops doing under roughly $5,000 in monthly revenue. Shopify (Grow) jumps to $105 per month ($79 annual) and pays for itself once you cross around $10,000 monthly revenue thanks to lower payment processing rates. Advanced costs $399 monthly ($299 annual) and only earns its keep above roughly $25,000 monthly revenue. The breakeven points shift with your average order value and payment method.",
+        "The trick is the payment processing rates. Basic is 2.9% plus $0.30 per transaction, Grow is 2.7% plus $0.30, and Advanced is 2.5% plus $0.30. The 0.4% gap between Basic and Advanced is worth $40 per $10,000 of revenue, which compounds quickly. The calculator runs the comparison side by side so you can see exactly which plan is most profitable for your sales volume."
+      ),
+      {
+        heading: "Shopify Plan Breakeven Reference (with Shopify Payments)",
+        table: {
+          headers: ["Monthly Revenue", "Basic Profit", "Grow Profit", "Advanced Profit", "Best Plan"],
+          rows: [
+            ["$3,000", "+$26 vs Grow", "Loss", "Loss", "Basic"],
+            ["$5,000", "+$8 vs Grow", "Equal", "Loss", "Basic/Grow tie"],
+            ["$10,000", "Grow wins by $26", "Best", "Loss vs Grow", "Grow"],
+            ["$25,000", "Loses to Grow", "Grow wins", "Equal to Grow", "Grow/Advanced tie"],
+            ["$50,000", "Loses badly", "Loses to Advanced", "Best", "Advanced"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Third-Party Payment Gateways: The Hidden Tax",
+        "Using Stripe, PayPal or any payment provider other than Shopify Payments triggers a third-party transaction fee on top of the gateway's own fee. Shopify charges 2% of the transaction value on Basic, 1% on Grow, and 0.6% on Advanced for the privilege of routing the payment outside their system. On $10,000 monthly revenue with Stripe, that is an extra $200 a month on Basic, $100 on Grow, $60 on Advanced.",
+        "For most stores, using Shopify Payments natively is the cheaper choice. The exceptions are sellers in regions where Shopify Payments isn't available, sellers needing specific gateway features (recurring billing, advanced fraud rules), or sellers integrated into a wider tech stack that already uses Stripe for other revenue streams. Crunch the third-party fee into the calculator before deciding; the apparent flexibility of using your own gateway often costs more than expected."
+      ),
+      createAnswerFirstSection(
+        "Currency Conversion: 1.5% You Probably Forgot About",
+        "If your shop sells in USD but you accept payment in another currency (a UK customer paying in GBP), Shopify charges a 1.5% currency conversion fee, rising to 2% for international cards. On a $75 order from a UK buyer, that is around $1.13 to $1.50 vanishing into the conversion fee in addition to the standard payment processing. Multi-currency stores sometimes opt to set local prices in each region to avoid the conversion fee, though this requires more pricing maintenance.",
+        "For dropshippers and digital product sellers serving global markets, the currency conversion fee can quietly take a percentage point off your margin that wasn't in the headline plan comparison. The calculator includes this in the per-order calculation. Compare the figure with [etsy-fee-calculator](/etsy-fee-calculator) if you're considering both platforms; Etsy's fee structure is generally simpler but takes a higher cut at the transaction level."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the cheapest Shopify plan for a small business?",
+        "Shopify Basic at $39 monthly ($29 with annual billing) is the cheapest standard plan and works for stores doing under roughly $5,000 in monthly revenue. There is also Shopify Starter at $5 monthly which lets you sell through social media and chat without a full storefront, suitable for very low-volume sellers or those starting out."
+      ),
+      createFAQ(
+        "When should I upgrade from Basic to Grow?",
+        "Around $7,000 to $10,000 monthly revenue is the typical breakeven point with Shopify Payments. The lower 2.7% transaction rate (vs 2.9% on Basic) saves enough to cover the higher monthly subscription cost from that volume upward. The exact figure depends on your average order value: high-AOV stores reach breakeven faster because the 0.2% saving compounds across larger transactions."
+      ),
+      createFAQ(
+        "Does Shopify charge transaction fees if I use Stripe?",
+        "Yes. Using any payment processor other than Shopify Payments triggers an additional fee of 2% on Basic, 1% on Grow, or 0.6% on Advanced. This is on top of whatever Stripe (or your chosen gateway) charges. For most stores this makes Shopify Payments the cheaper choice unless you have specific reasons to use a third-party gateway."
+      ),
+      createFAQ(
+        "What is a profitable margin on a Shopify product?",
+        "Aim for 50 to 70% gross margin on Shopify products before fees, which gives you a 30 to 50% net margin after the typical 8 to 12% in fees, marketing costs and overheads. Dropshippers often work on 20 to 30% gross margin and rely on volume; this is workable but leaves no buffer for ad cost increases or returns. Higher-margin products give resilience against fee changes and platform shifts."
+      ),
+      createFAQ(
+        "Are there hidden costs beyond the monthly plan?",
+        "Yes. Premium themes ($150 to $400 one-off), apps for additional functionality ($10 to $200+ per month each), domain name (~$15 per year), and email marketing services (Klaviyo, Mailchimp) typically add $50 to $300 monthly to the headline plan cost. A realistic full operating cost for a Shopify store doing $10,000 a month is around $300 to $500 in tooling and subscriptions, before paid advertising."
+      ),
+    ],
+    relatedTools: [
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+      { slug: "ebay-fee-calculator", label: "eBay Fee Calculator" },
+      { slug: "business-profit-calculator", label: "Business Profit Calculator" },
+    ],
+  },
+
+  "notice-period-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Statutory Notice in the UK and What 'Reasonable' Means Elsewhere",
+        "UK statutory minimum notice from employee to employer is one week, regardless of how long you have worked there (after the first month). The reverse direction (employer to employee) scales with service: 1 week per year of service up to 12 weeks at 12+ years. Most employment contracts override the statutory minimum upward; a typical UK office contract requires 1 to 3 months of notice from either side, with director-level roles often requiring 6 months.",
+        "The rest of the world varies dramatically. The US has at-will employment with no legal notice requirement, though 2 weeks is conventional. Germany sets statutory dismissal notice at 4 weeks to the 15th or end of the month, scaling up sharply with tenure. Australia uses a sliding scale from 1 week (under 1 year) to 4 weeks (5+ years). Always check both statutory minimum and your contract; the contract usually wins."
+      ),
+      {
+        heading: "Notice Period by Country (Resignation by Employee)",
+        table: {
+          headers: ["Country", "Statutory Minimum", "Common Practice"],
+          rows: [
+            ["United Kingdom", "1 week (after 1 month)", "1-3 months (contract)"],
+            ["United States", "None (at-will)", "2 weeks customary"],
+            ["Australia", "1-4 weeks (by tenure)", "2-4 weeks"],
+            ["Canada", "2 weeks (federal)", "2-4 weeks"],
+            ["Germany", "4 weeks to 15th/end of month", "Often longer for senior roles"],
+            ["France", "2+ weeks (varies)", "1-3 months for cadres"],
+            ["Ireland", "1 week (after 13 weeks)", "1-2 weeks standard"],
+            ["Singapore", "1 week to 1 month", "1 month for permanent"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Pay In Lieu of Notice (PILON) and Garden Leave",
+        "Two clauses commonly appear in UK employment contracts that change how notice works in practice. PILON (Pay In Lieu of Notice) gives the employer the right to terminate the contract immediately and pay you the notice period as a lump sum instead of working it. Garden leave keeps you employed (and paid) but removes you from work duties during the notice period, often used to keep departing employees away from clients and information.",
+        "Both are usually triggered by the employer rather than chosen by the employee. PILON is taxable in the same way as salary; garden leave technically keeps you on payroll. From the employee's perspective: PILON gives you a clean break and lump sum, garden leave delays the start of your next role. Both protect the employer, which is who is mainly worried about a departing employee taking value out of the door."
+      ),
+      createAnswerFirstSection(
+        "Negotiating Down a Long Notice Period",
+        "If you have signed a 3-month notice period and you want out faster, the realistic options are: ask your manager directly (often successful for departing employees the company is not desperate to keep), agree a shorter handover with explicit goodwill, take unpaid leave for part of it, or simply leave and accept the contractual breach (which in practice rarely results in actual legal action for ordinary employees). The first option is by far the easiest path; many employers would rather have an engaged 4-week handover than a checked-out 12-week one.",
+        "If your new employer is pressing for an earlier start, ask them to discuss directly with your current employer. Companies talk to each other about this constantly and a polite call between HR teams often unlocks a 4-week start where the employee was being held to 12. Always check your contract for non-compete and gardening leave clauses before assuming you can walk; senior roles in regulated industries may face stronger restrictions."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the minimum notice period in the UK?",
+        "UK statutory minimum from employee to employer is 1 week after the first month of employment, regardless of service length. Employer to employee starts at 1 week and scales up to 12 weeks at 12+ years of continuous service. However, your contract almost certainly specifies a longer figure (typically 1 to 3 months), and the contractual notice is what binds you in practice."
+      ),
+      createFAQ(
+        "Can my employer make me work my full notice period?",
+        "Yes, unless your contract has a PILON clause that lets them pay you out instead. If you resign and refuse to work the notice period, you are technically in breach of contract. In practice this rarely results in legal action against ordinary employees, but some employers will withhold the final payslip for unpaid time, refuse to give a reference, or pursue contractual breach for senior roles."
+      ),
+      createFAQ(
+        "Does annual leave count as part of the notice period?",
+        "Yes, you can use accrued annual leave during the notice period to effectively shorten the time you actually work. Your employer can usually require you to take outstanding leave during notice rather than be paid for it. Check whether your contract specifies how leave during notice is handled; the default is that any accrued but untaken leave is paid out at termination if not taken."
+      ),
+      createFAQ(
+        "What is gardening leave and is it bad for me?",
+        "Gardening leave keeps you on the payroll and continues benefits during notice but removes you from work duties. The employer keeps you contractually engaged (so you can't start at a competitor) without giving you access to information. From the employee's view it is paid time off, which sounds great but can damage skills currency on a long leave and delays the new role's start. It is most common in finance, sales and senior roles."
+      ),
+      createFAQ(
+        "Can I quit without notice in the US?",
+        "Almost all US employment is at-will, meaning either party can end the relationship at any time without legal notice. Two weeks is conventional and protects your reference; quitting without notice is legal but burns bridges. Some industries (regulated finance, healthcare, government) have specific notice rules through licensing bodies even when employment is technically at-will."
+      ),
+    ],
+    relatedTools: [
+      { slug: "salary-to-hourly-converter", label: "Salary to Hourly Converter" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "us-salary-vs-hourly", label: "US Salary vs Hourly" },
+    ],
+  },
+
+  "side-hustle-hourly-rate": {
+    sections: [
+      createAnswerFirstSection(
+        "The Brutal Honesty Calculation",
+        "Your side hustle's true hourly rate equals (monthly income minus all expenses) divided by hours actually worked. Most makers and resellers stop at the first half of that equation. They see £800 monthly revenue, feel proud, and forget the £150 in materials, £80 in postage, £40 in marketplace fees, £20 in software subscriptions, plus another £30 in tools and equipment depreciation. £800 in becomes £480 net. Spread that across 24 hours per week (the typical weekly side hustle) and you are at £4.62 per hour - well below UK minimum wage of £11.44.",
+        "The point isn't to be discouraging. Plenty of side hustles eventually hit good rates, but only if the maker confronts the numbers and adjusts. The two levers are usually price (most makers underprice their first 12 months by 30 to 50%) and time efficiency (what felt like 15 minutes per item is actually 35 once you include sourcing, photography, listing and packaging). Run the maths honestly once and the next year of decisions get a lot easier."
+      ),
+      {
+        heading: "Hidden Side Hustle Time Categories (Per £100 Sale)",
+        table: {
+          headers: ["Activity", "Typical Time", "Often Forgotten Because"],
+          rows: [
+            ["Making the product", "30-90 min", "This is the visible work"],
+            ["Photography", "15-30 min", "Felt like 'just a few photos'"],
+            ["Listing copy/SEO", "15-30 min", "'Already had the description'"],
+            ["Packing and posting", "10-20 min", "Adds up across multiple sales"],
+            ["Customer messages", "5-15 min", "One question = 10 min reply"],
+            ["Admin and accounts", "10-20 min", "Done weekly, not per sale"],
+            ["Total invisible time", "55-115 min", "Usually doubles the 'making' time"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Why Pricing Up Almost Always Wins",
+        "When a side hustle's hourly rate sits below minimum wage, the instinct is to do more sales. This is almost always the wrong move because the rate per sale is broken; doing more of a broken thing scales the loss. The right move is pricing up, even at the risk of fewer sales. A 25% price increase that loses 15% of customers leaves you with more revenue and significantly less work. Most makers test this by raising prices on their next batch and discover demand was less price-sensitive than feared.",
+        "If pricing up is genuinely impossible (pure commodity products, race-to-bottom marketplaces), the side hustle's economics may be fundamentally broken and shutting it down or pivoting is the rational call. Sentimental attachment to existing products is the biggest reason side hustlers persist with sub-minimum-wage rates for years. The brutal honesty figure exists to make that conversation with yourself easier. The [etsy-fee-calculator](/etsy-fee-calculator) shows exactly what comes off the top before profit if you sell on Etsy."
+      ),
+      createAnswerFirstSection(
+        "When a Sub-Minimum-Wage Rate Is Actually Fine",
+        "There is one case where a low hourly rate is rational: when the side hustle is genuinely a hobby first and income second. If you would be making the products anyway for personal enjoyment and the income simply offsets some of the materials cost, calling it a 'business' and worrying about hourly rates is missing the point. The maths above only matters if the side hustle is being run as a financial enterprise rather than a hobby with revenue.",
+        "Be honest with yourself about which one it is. Hobbyists who insist they are running a business while losing money for years are usually unhappy with the answer to 'how much am I really earning here'. Businesses that would be just as happy reframed as hobbies often relax once the pressure to scale is dropped. Both are valid; mismatched expectations between what you call it and what it actually is cause the friction."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What counts as a side hustle expense?",
+        "Anything you wouldn't spend money on if you stopped the side hustle: materials, postage, packaging, marketplace fees (Etsy, eBay, Amazon), payment processing, software subscriptions used for the business (Canva, accounting software), travel for sourcing or events, marketing and ads, plus a fair share of equipment depreciation if you bought a sewing machine, camera or 3D printer specifically for it."
+      ),
+      createFAQ(
+        "Should I include tax in the calculation?",
+        "For an honest hourly rate you should, but the calculator runs on pre-tax figures because tax depends on your other income and personal circumstances. As a UK basic-rate side hustler doing self-assessment, expect to lose around 20 to 30% of your net side hustle income to tax and NI once you cross the £1,000 trading allowance. Multiply your calculated hourly rate by 0.7 to 0.8 to get a rough post-tax figure."
+      ),
+      createFAQ(
+        "How much should I charge to make minimum wage at my side hustle?",
+        "Take the time per unit (including all the invisible categories above) and multiply by £11.44 (UK minimum wage 2026). Add materials, packaging, and marketplace fees. That is your minimum break-even price. Most side hustlers are surprised at how high this figure is; an item with 90 minutes of total time at £11.44 plus £4 in materials and £2 in fees needs to sell for £23.16 just to make minimum wage."
+      ),
+      createFAQ(
+        "Why does my side hustle take so much time per item?",
+        "Time visible to the maker (the 'making' part) is usually 30 to 60% of the total time per sale. Photography, copywriting, listing, customer messages, packaging and admin make up the rest. Most new sellers radically underestimate the invisible time. Tracking honestly for a fortnight is the standard method; the figure that comes out is almost always higher than expected and explains why the hourly rate feels so low."
+      ),
+      createFAQ(
+        "Can a side hustle become profitable, or am I wasting time?",
+        "Profitable side hustles almost always go through an unprofitable phase first; the question is whether yours is heading toward profit or stuck. Two warning signs that it is stuck: prices haven't risen in 12+ months despite cost increases, and you can't articulate what would change in the next 6 months to lift the hourly rate. A clear improvement plan (price increase, time efficiency change, new product line) is the difference between a side hustle that gets to minimum wage in year two and one that never does."
+      ),
+    ],
+    relatedTools: [
+      { slug: "etsy-fee-calculator", label: "Etsy Fee Calculator" },
+      { slug: "salary-to-hourly-converter", label: "Salary to Hourly Converter" },
+      { slug: "business-profit-calculator", label: "Business Profit Calculator" },
+    ],
+  },
 };
 
 

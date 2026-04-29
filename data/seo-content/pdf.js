@@ -478,4 +478,106 @@ export const pdfSEO = {
       { slug: "merge-pdf", label: "Merge PDF" },
     ],
   },
+
+  "extract-pdf-pages": {
+    sections: [
+      createAnswerFirstSection(
+        "What Extracting PDF Pages Actually Does",
+        "Extracting pulls a chosen subset of pages out of a PDF and saves them as a new, smaller PDF. The original file is unchanged, the pages you did not select stay where they were, and you end up with a clean second file containing only the pages you ticked. This is different from deleting (which modifies the original) and different from splitting (which cuts a PDF into multiple equal pieces).",
+        "Use it when someone sends you a 60-page report and you only need pages 12 to 18 for a meeting. Tick those 7 pages, click extract, download a 7-page PDF named 'report-extracted.pdf'. Total time: 15 seconds, file size drops from 4 MB to around 600 KB, and you can email or print the short version without making the recipient scroll through 53 pages of content they do not need."
+      ),
+      createAnswerFirstSection(
+        "How to Pick Which Pages to Extract",
+        "The tool shows a thumbnail grid of every page in the uploaded PDF. Click a thumbnail to select it; click again to deselect. The selection counter at the bottom updates as you tick (for example '7 pages will be extracted into a new PDF'). A 'Select All' / 'Deselect All' button toggles the whole document if you want to invert your selection. Selections do not need to be contiguous: you can pick pages 1, 5, 12, 13 and 47 from the same document and they will appear in that order in the new file.",
+        "Worked example: a 30-page conference programme. You only care about the talks on day 2, which are pages 8 to 17, plus the venue map on page 30. Tick pages 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, then tick page 30. The output is an 11-page PDF with the talks first, then the venue map at the end - sorted in document order automatically, regardless of which order you ticked them."
+      ),
+      createAnswerFirstSection(
+        "When to Extract Versus Split, Delete, or Merge",
+        "Extract when you need a few pages from one big document. Split when you want to chop a single PDF into evenly-sized chunks (a 50-page document into 5 ten-page files). Delete when you want to remove a few pages and keep the rest of the original (extracting is the inverse: you keep what you select, delete throws away what you select). Merge when you have multiple separate PDFs you want to combine into one.",
+        "Common mistake: people use [delete PDF pages](/delete-pdf-pages) when they actually want extract. If you want to keep 5 pages out of 100, do not delete 95 pages one by one - just extract the 5 you want. The other tools sit alongside this one in the [PDF tools](/categories/pdf) category for the times when extract is the wrong fit."
+      ),
+      createAnswerFirstSection(
+        "File Size, Page Count, and Privacy",
+        "All processing happens in your browser using pdf-lib, which means the file never leaves your device. There is no server upload, no cloud copy, no third-party API in the chain. For documents up to about 200 pages and 50 MB the tool is instant; for very large PDFs (500+ pages, 100+ MB scientific reports or e-books) the thumbnail grid takes 5 to 15 seconds to render, then extraction itself runs in a couple of seconds.",
+        "The output PDF retains the original page sizes, fonts and embedded images of the pages you selected, so a 7-page extract from a graphics-heavy 60-page brochure will still be a few hundred KB rather than tiny. To shrink the result further, run it through [compress PDF](/compress-pdf) afterwards. Pages with form fields will keep the form fields in the extracted version; signed PDFs may show a 'signature invalid' warning in the extracted file because the cryptographic signature was applied to the original document, not your subset."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the original PDF modified?",
+        "No. Extracting always creates a new file and leaves the original untouched. If you want to remove pages from the original instead of saving them separately, use [delete PDF pages](/delete-pdf-pages) which writes a new file containing everything except the pages you selected."
+      ),
+      createFAQ(
+        "Can I extract a single page?",
+        "Yes. Tick one page in the grid, click extract, and you get a 1-page PDF. This is the quickest way to share a single page from a long document - faster than printing to PDF, faster than screenshotting, and the text stays selectable and searchable."
+      ),
+      createFAQ(
+        "What's the maximum file size?",
+        "There is no hard limit, but practical performance depends on your device. PDFs up to 50 MB and 200 pages run smoothly on modest laptops; very large files (200 MB+, 1000+ pages) are limited by available browser memory and may take 30 seconds or more to render thumbnails. If you hit a limit, [split the PDF](/split-pdf) into chunks first, then extract from the chunk you need."
+      ),
+      createFAQ(
+        "Are the extracted pages in the order I clicked them or in document order?",
+        "Document order. If you tick pages 12, 3, then 7, the output PDF contains them as 3, 7, 12. To rearrange the pages into a custom order, extract first, then use [merge PDF](/merge-pdf) to reorder, or look for a dedicated rearrange-pages tool."
+      ),
+      createFAQ(
+        "Does the file ever leave my device?",
+        "No. All processing runs locally in your browser through pdf-lib. There is no upload to a server, no temporary cloud copy, and the file is gone the moment you close the tab. This matters for confidential documents (HR letters, NDAs, signed contracts) where uploading to a third-party service would be a privacy issue."
+      ),
+    ],
+    relatedTools: [
+      { slug: "delete-pdf-pages", label: "Delete PDF Pages" },
+      { slug: "split-pdf", label: "Split PDF" },
+      { slug: "merge-pdf", label: "Merge PDF" },
+      { slug: "rotate-pdf", label: "Rotate PDF" },
+    ],
+  },
+
+  "pdf-reader": {
+    sections: [
+      createAnswerFirstSection(
+        "What an Online PDF Reader Is For",
+        "It opens a PDF in your browser, page by page, with zoom and page navigation, without installing Acrobat, Foxit, or any other desktop app. Drop a PDF into the upload zone, the tool renders the first page, and you can flip through with previous/next buttons or jump to a specific page number. File size and page count appear at the top so you know what you are dealing with before scrolling.",
+        "This is useful in three situations: you are on a borrowed or work computer that does not have a PDF reader installed, you are on a device that opens PDFs in something annoying (downloads them as separate files, or pushes them to a tablet app), or you have a quick PDF you want to read without leaving the browser tab. It is not a replacement for full Acrobat - there is no annotation, signing, or form filling - but for read-only viewing it gets you to the content in 2 seconds."
+      ),
+      createAnswerFirstSection(
+        "Navigation and Zoom Controls",
+        "Page navigation is via Previous/Next buttons or by typing a page number into the input field. Page indicator at the top shows current page out of total (for example '7 / 30'). Zoom uses a scale factor: 100% is fit-to-width, with zoom-in and zoom-out buttons that step by 25% at a time. For very large or text-dense pages, zoom in to around 150% to 200% so the text becomes comfortable to read on a normal laptop screen.",
+        "Worked example: a 30-page council planning document, 8 MB, opened in your browser. Top of the screen shows '30 pages - 7.83 MB'. You jump to page 14 by typing 14 into the page input. The page renders with the rest of the document hidden, so memory usage stays low even for huge files. Zoom in to 150% to read the small print on a planning condition, zoom back out to skim the next two pages."
+      ),
+      createAnswerFirstSection(
+        "When to Use This Versus Adobe Acrobat or a Native App",
+        "Use this for read-only viewing when speed matters: you have just received a PDF, you want to read it now, you do not want to install or open another app. Use Adobe Acrobat (or a native reader) for anything that requires editing, annotation, signing, form filling, or printing complex multi-page layouts. The browser-based reader cannot edit, cannot save changes, cannot leave annotations - it just renders the content.",
+        "On phones and tablets the browser PDF reader is often the fastest option because the alternative (the device sending the PDF to a default app) can be slow and intrusive. On desktop, browsers like Chrome and Edge already have built-in PDF viewers, so the value of an online reader is when those built-in viewers are blocked or stripped down by an admin policy on a work machine. For PDF tasks beyond viewing, see [merge PDF](/merge-pdf), [split PDF](/split-pdf), and [PDF to JPG](/pdf-to-jpg) in the wider PDF toolkit."
+      ),
+      createAnswerFirstSection(
+        "Privacy, File Size, and What the Reader Does Not Do",
+        "All rendering happens in your browser via pdf.js, which means the PDF never leaves your device. There is no upload, no server-side rendering, no cloud copy. For files up to 100 MB the tool runs comfortably; for very large PDFs (500+ MB scientific volumes or scanned books) initial loading can take 10 to 30 seconds while the browser parses the file. Page rendering after that is on-demand, so a 1000-page book that took 20 seconds to load will turn pages instantly once it is ready.",
+        "The reader does not: edit text, add annotations, sign forms, fill in fields, save state when you close the tab, or remember your last page. If you close the browser tab and come back, you start again at page 1. For documents you read repeatedly, use a desktop reader that bookmarks your last position. For one-off reads of a PDF you just received, the browser reader is the fastest path from received-file to read-content."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the maximum PDF size this can handle?",
+        "There is no hard cap, but practical limits depend on your device's RAM. Files under 50 MB load instantly. 50 to 200 MB takes a few seconds. Above 500 MB you may see a 'parsing PDF' delay of 10 to 30 seconds. If a very large PDF stalls, use [split PDF](/split-pdf) to chop it into smaller chunks first, then read the relevant chunk."
+      ),
+      createFAQ(
+        "Can I print the PDF from the reader?",
+        "Yes, by using your browser's print function (Ctrl+P or Cmd+P). The reader renders the page you are currently viewing; for full-document printing, your browser's PDF viewer (Chrome, Edge, Firefox built-ins) or a desktop reader will give you better page-by-page control. The online reader is optimised for screen viewing, not printing."
+      ),
+      createFAQ(
+        "Does the file get uploaded anywhere?",
+        "No. The PDF is parsed and rendered entirely in your browser using pdf.js. Nothing is sent to a server, nothing is stored in the cloud, and the file disappears from memory the moment you close the tab. This makes the reader safe for confidential documents like contracts, medical letters, or financial statements."
+      ),
+      createFAQ(
+        "Why won't my PDF open?",
+        "Most failures fall into three buckets. First, password-protected PDFs - the reader does not currently support encrypted documents; remove the password using [protect PDF](/protect-pdf) (with the original password) first. Second, corrupted PDFs - if the file fails in this reader and in another viewer, the original is damaged and needs to be recreated from source. Third, PDFs above your browser's memory limit, in which case [split PDF](/split-pdf) the file into smaller pieces first."
+      ),
+    ],
+    relatedTools: [
+      { slug: "merge-pdf", label: "Merge PDF" },
+      { slug: "split-pdf", label: "Split PDF" },
+      { slug: "rotate-pdf", label: "Rotate PDF" },
+      { slug: "pdf-to-jpg", label: "PDF to JPG" },
+    ],
+  },
 };

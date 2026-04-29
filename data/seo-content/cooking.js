@@ -848,4 +848,357 @@ export const cookingSEO = {
       { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
     ],
   },
+
+  "recipe-unit-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Why a Cup of Flour Doesn't Weigh the Same as a Cup of Sugar",
+        "A US cup is 236.588ml. That volume holds 125g of all-purpose flour, 200g of granulated sugar, 220g of packed brown sugar, 227g of butter or 340g of honey. So if a recipe says \"1 cup\" the gram weight could be anywhere from 85g (cocoa powder) to 340g (honey) depending on what you're measuring. Volume conversions that ignore the ingredient are the single biggest reason home bakes go wrong.",
+        "Take a basic Victoria sponge that calls for 2 cups of flour and 1 cup of sugar. Convert it as plain volume and you'd weigh out the same amount per cup. Convert it ingredient-aware and you get 250g flour and 200g sugar, the actual ratio the recipe was tested with. The ingredient-aware mode in this tool stores densities in grams per millilitre and applies them when you cross from volume to weight. For straight volume-to-volume (cups to ml) or weight-to-weight (oz to g) the ingredient doesn't matter, so the toggle stays off."
+      ),
+      createAnswerFirstSection(
+        "Working an American Recipe in a UK Kitchen",
+        "Most British kitchens have scales, jugs and tablespoons but no measuring cups. The fastest workflow: enter the cup amount, pick the ingredient, switch the output to grams. The tool returns the weight you can dial straight into your scales. For 1 cup of butter that's 227g; 1 cup of bread flour is 130g; 1 cup of cocoa is 85g. Round to the nearest 5g for everyday baking, the nearest gram for sourdough or macarons.",
+        "American \"sticks\" of butter are a separate quirk. One stick is half a cup, so 113g. Most US recipes will say \"1 stick (½ cup) butter\" but cookbooks from the 1970s sometimes drop the cup figure and assume you know. If you're scaling the recipe at the same time, do the conversion first and the scaling second so you're working in clean rounded numbers. The [recipe scaler](/recipe-scaler) handles ratios once you've translated the units."
+      ),
+      createAnswerFirstSection(
+        "When Volume Beats Weight (and Vice Versa)",
+        "Weight wins for baking. Flour packs differently depending on humidity, how the bag was stored and how heavily you scoop, so two cooks can put the same \"1 cup\" of flour in a bowl and end up with 110g vs 145g - a 30% swing in a recipe where the protein-to-water ratio matters. Weighing eliminates that. For bread, sourdough, macarons, choux and laminated dough, weight is non-negotiable.",
+        "Volume wins for liquids and small spice quantities. Measuring 2 tablespoons of olive oil on scales is more faff than the precision is worth, especially since liquid densities don't vary much. The professional rule of thumb: weigh anything dry, measure anything wet, and use a measuring spoon for anything under 15ml. The [grams to cups converter](/grams-to-cups) covers the reverse direction when a UK recipe lands in a US kitchen."
+      ),
+      createAnswerFirstSection(
+        "Common American-to-Metric Conversions That Trip People Up",
+        "American \"all-purpose flour\" is closest to UK plain flour, not self-raising. American \"powdered sugar\" is UK icing sugar. \"Heavy cream\" is double cream. \"Half-and-half\" is a 50/50 milk-and-cream blend that has no UK equivalent (use single cream or 50/50 milk-and-double-cream). \"Confectioners' sugar\", \"icing sugar\" and \"powdered sugar\" all convert at 120g per cup.",
+        "Oven temperatures are a separate conversion: US Fahrenheit, UK Celsius, plus gas marks for older British recipes. 350°F is 180°C is gas mark 4, the workhorse temperature for most baking. The [oven temperature converter](/oven-temperature-converter) covers that crossover. For tin sizes, an American 9x13 inch baking pan is roughly a UK 23x33cm tin; the [cake tin converter](/cake-tin-converter) handles size adjustments when the pan you have isn't the pan the recipe wants."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is a US cup the same as a UK cup?",
+        "No. A US cup is 236.588ml. The UK historically used the imperial cup (284ml) but it's almost extinct in modern recipes; if a UK recipe specifies cups it's usually borrowing the US 240ml convention. This tool defaults to the US cup. The 4ml difference rarely matters except in extreme baking, where weighing in grams is a better answer anyway."
+      ),
+      createFAQ(
+        "Why does cup weight vary so much between flours?",
+        "Different flours have different particle sizes and pack densities. All-purpose flour is 125g per cup, bread flour is 130g (denser due to higher protein), cake flour is closer to 115g (lighter and finer). Whole wheat is around 120g but varies more by brand. If a recipe doesn't specify which flour it tested with, assume all-purpose at 125g per cup."
+      ),
+      createFAQ(
+        "How do I convert butter from cups to UK grams?",
+        "1 cup of butter is 227g. Half a cup is 113g (one US stick). A quarter cup is 57g. Most UK butter blocks are 250g, so a recipe calling for 1 cup of butter is just over 90% of a standard block - either weigh out 227g or estimate \"a little under a full block\". For tablespoons: 1 tbsp butter is 14g."
+      ),
+      createFAQ(
+        "What about ingredients not in the dropdown?",
+        "Switch off ingredient-aware mode and the tool falls back to plain volume or weight conversions, which work for any liquid or any pre-weighed ingredient. For unusual dry ingredients (almond flour, coconut flour, vital wheat gluten), search the manufacturer's pack: most list the gram weight per cup or per tablespoon. Almond flour is around 100g per cup; coconut flour is around 115g."
+      ),
+      createFAQ(
+        "Why does my brown sugar weigh more than white sugar per cup?",
+        "Brown sugar gets packed when you measure it (the recipe instruction is usually \"1 cup, packed\"), so you're forcing more into the same volume. Granulated white sugar is 200g per cup loose. Brown sugar packed is 220g per cup. If a recipe says \"loosely packed\" treat it like white sugar; if it just says \"packed\" or doesn't specify, use 220g."
+      ),
+    ],
+    relatedTools: [
+      { slug: "grams-to-cups", label: "Grams to Cups" },
+      { slug: "cups-to-grams", label: "Cups to Grams" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+    ],
+  },
+
+  "recipe-scaler": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Scale a Recipe Without It Going Wrong",
+        "Type the recipe's original servings, type the number you actually want, and every ingredient quantity multiplies by the ratio. If a recipe serves 4 and you need 6, the scale factor is 1.5 and 200g of flour becomes 300g, 2 eggs becomes 3, 1 tsp salt becomes 1.5 tsp. The shortcuts for double (×2) and half (×0.5) cover the most common cases. The tool rounds to sensible numbers (no \"2.7 eggs\") and keeps fractions readable.",
+        "The thing that breaks scaling is non-linear ingredients. Salt, leavening agents and strong spices don't scale linearly past about 1.5x. If you're tripling a cake recipe, don't triple the baking powder; use 2.25x. If you're halving a curry, halve the chilli but don't halve the spices below ¼ tsp - you lose the flavour profile entirely. Scaling works best between 0.5x and 2x; outside that range, treat it as guidance and taste as you go."
+      ),
+      createAnswerFirstSection(
+        "Scaling Up for a Crowd",
+        "Cooking for 30 from a recipe that serves 6? The scale factor is 5. Multiply each ingredient: 500g pasta becomes 2.5kg, 6 chicken breasts become 30, 200ml of stock becomes 1 litre. The tool handles the maths instantly so you can focus on whether your largest pot can hold 5x the original volume (it usually can't). Plan to cook in two or three batches once you cross 4x the original quantity.",
+        "Cooking time does NOT scale linearly with quantity. A roast that serves 4 at 1 hour does not need 5 hours for a roast that serves 20. Use the [meat cooking calculator](/meat-cooking-calculator) for the actual cook time at the new weight. Likewise, a cake baked in a bigger tin needs a slightly lower oven temperature and longer time, not 5x the time at the original temperature. The [cake tin converter](/cake-tin-converter) handles tin-size adjustments."
+      ),
+      createAnswerFirstSection(
+        "Scaling Down for a Solo Meal",
+        "Cooking for 1 from a recipe that serves 4 means dividing by 4. Most home recipes scale down cleanly to a quarter for stews, traybakes and pasta sauces. Where it gets fiddly: 1 egg becomes ¼ of an egg, which isn't a thing. Either beat 1 egg, weigh it (about 50g whole, 30g white, 20g yolk) and use a quarter; freeze the rest in an ice cube tray; or accept the recipe doesn't halve below half a serving and cook the full batch.",
+        "Baking is harder to scale down than cooking. A cake recipe scaled to a single ramekin won't cook the same as the full-tin version because the surface-to-volume ratio is different. For mug cakes and individual portions, search for a recipe written at that scale instead of dividing a bigger one. For savoury cooking, scaling down is forgiving: scaled-down stew, curry, soup or chilli all work fine, and leftovers freeze well for the next solo meal."
+      ),
+      createAnswerFirstSection(
+        "What the Tool Does Not Scale",
+        "Pan size, cook time, oven temperature, mixing time, kneading time, proofing time. Those are physical and biological constraints that don't move with ingredient quantity. A doubled bread recipe still proofs for the same time at the same temperature, but it'll fill a bigger tin. A halved cookie batch bakes in the same 12 minutes at 180°C, but you'll only have one tray instead of two.",
+        "Salt, garlic, raw onion and chilli are also worth treating with caution. The first ¼ tsp of salt in a soup is doing most of the lifting; the next ¼ tsp is fine-tuning. If you're scaling a soup down by half, halve the salt; if you're scaling up by 4x, only triple it then taste. The [recipe unit converter](/recipe-unit-converter) handles the cross-system conversions when you're scaling an American recipe at the same time."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I scale a recipe by any factor?",
+        "Mathematically yes, practically between 0.5x and 3x is the sweet spot. Below 0.5x and ingredients like ½ an egg or ¼ tsp baking powder become awkward. Above 3x and equipment becomes the constraint (no domestic mixer copes with 6kg of dough). For commercial-scale batches, professional bakers re-test recipes rather than scale them."
+      ),
+      createFAQ(
+        "How do I scale eggs to a non-whole number?",
+        "Crack the egg into a measuring cup or onto scales and use the proportion you need. A whole egg is roughly 50g (30g white + 20g yolk). For ½ an egg, beat one and use 25g; for 1.5 eggs use one whole plus 25g. Save the rest in a sealed container in the fridge for 24 hours, or freeze in an ice cube tray (one egg per cube, defrost when needed)."
+      ),
+      createFAQ(
+        "Does this work for baking, where ratios matter?",
+        "Yes for the ingredient maths, but you need to use weight (grams), not volume (cups), for any baking ratio more precise than \"a couple of biscuits\". This tool keeps the units you enter, so if you start with grams the scaled output is in grams. For ratio-driven baking like sourdough, see the [sourdough calculator](/sourdough-calculator) which works in baker's percentages instead."
+      ),
+      createFAQ(
+        "Why does my doubled cake take longer than 2x to bake?",
+        "Because heat penetrates from the outside in, and a bigger or thicker cake has more interior to heat. A doubled cake usually needs 1.3-1.5x the original time at the same temperature, sometimes with a 10°C drop to prevent the outside burning before the centre sets. The exact figure depends on tin shape and depth; check with a skewer at the original time, then every 5-10 minutes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "recipe-unit-converter", label: "Recipe Unit Converter" },
+      { slug: "cake-tin-converter", label: "Cake Tin Converter" },
+      { slug: "meat-cooking-calculator", label: "Meat Cooking Calculator" },
+    ],
+  },
+
+  "bbq-planner": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Meat to Buy for a BBQ",
+        "Standard portions per adult: 250g of burgers (one quarter-pounder), 300g of sausages (about 4 large), 300g of chicken (one breast or two thighs), 400g of ribs (a generous half-rack). Pick two protein options for any BBQ over 6 guests so vegetarians, kids and big eaters all have something. For 12 adults choosing burgers and sausages, that's 3kg of burgers and 3.6kg of sausages.",
+        "Add 20% if your guests are mostly men aged 18-35, subtract 20% if there are young children or the BBQ runs only 90 minutes. Charcoal BBQs serve fewer guests per hour than gas; if the grill is small, plan a single protein and rotate it through. The two most common BBQ failures are running out of meat at the 90-minute mark and serving cold sausages because the grill couldn't keep up. Both are solved by buying more than you think and pre-cooking sausages in the oven for 15 minutes before they hit the grill."
+      ),
+      createAnswerFirstSection(
+        "Sides, Drinks and the £4-per-head Rule",
+        "Plan 150g of coleslaw and 1 corn cob per adult, plus a bowl of green salad and a bowl of potato salad to feed the full table. Bread rolls: one per burger plus one per sausage, plus 25% extra. Drinks: 2 cans of beer, 1 soft drink and 500ml of water per adult over a 3-hour BBQ. For families with kids, swap one beer for two soft drinks and add ice lollies for the school-age crowd.",
+        "The default cost guide assumes UK supermarket prices for April 2026: burgers £4 per portion, sausages £3.50, chicken £5, ribs £12, corn £2 per cob, coleslaw £1.50 per portion. A 12-adult BBQ with burgers and sausages, corn and coleslaw lands around £125-£150 in food costs before drinks. Buying premium meat from a butcher roughly doubles that. The [recipe cost calculator](/recipe-cost-calculator) handles per-recipe budgeting if you're making the burgers from scratch."
+      ),
+      createAnswerFirstSection(
+        "Cook Times and Food Safety",
+        "Burgers (1.5cm thick): 4 minutes per side over direct medium heat, then check with a probe thermometer for 71°C internal. Sausages: 15-18 minutes turning every 4 minutes, internal 75°C. Chicken thighs: 25 minutes total, finishing skin-side down for crispness, internal 75°C. Ribs: pre-cook in the oven at 150°C for 90 minutes wrapped in foil with apple juice, then 10 minutes on the grill for the char.",
+        "Never trust visual cues alone for chicken or pork. A digital probe thermometer costs £8 and saves you a stomach upset. Cross-contamination is the second biggest BBQ risk: keep raw meat tongs separate from cooked meat tongs, and never put cooked meat back on the plate the raw meat came off. The [meat cooking calculator](/meat-cooking-calculator) gives oven-and-grill cook times for any cut at any weight."
+      ),
+      createAnswerFirstSection(
+        "What to Do When the Weather Turns",
+        "British BBQs are weather-dependent. If you have a covered patio or gazebo, the BBQ can run in light rain (most BBQs cope; the cook just gets damp). Heavy rain or wind needs a Plan B: pre-cook everything in the oven (chicken at 200°C for 20 minutes, sausages at 200°C for 25 minutes, burgers at 200°C for 12 minutes) then finish under the grill or on a griddle pan for the char.",
+        "Build the menu so it works indoors too. Coleslaw, potato salad, corn (boil instead of grill), bread rolls and burgers all work in any kitchen. Skip the ribs and the whole chicken if rain is forecast - they need real BBQ time. Have the [meal planner](/meal-planner) handy for the weekend either side; whatever's left over from a 12-person BBQ usually feeds the family for two more dinners."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much food per person at a BBQ?",
+        "For adults, plan around 500-600g of mixed protein and sides per person if it's the main meal, or 300g if it's a snack-style afternoon BBQ. Kids under 10 eat about half an adult portion. The default in this tool errs slightly high so you have leftovers, which is what most hosts want."
+      ),
+      createFAQ(
+        "What's the best protein mix for a mixed-age BBQ?",
+        "Burgers and sausages are the workhorse pairing. Burgers please most adults and teens; sausages are kid-friendly. Add a chicken option if you have a few guests who don't eat red meat, and consider halloumi or a black bean burger for vegetarians. Skip ribs unless you've got the BBQ time and the audience for them."
+      ),
+      createFAQ(
+        "How early should I start the BBQ?",
+        "Light a charcoal BBQ 45 minutes before guests arrive. Coals need 30-40 minutes to be at proper cooking temperature (white-grey ash, no flames). Gas BBQs need 10-15 minutes preheat. Pre-cook ribs and slow-cook chicken in the oven before guests arrive so the grill is just for finishing and the quick-cook items."
+      ),
+      createFAQ(
+        "How much beer per person at a BBQ?",
+        "2-3 drinks per adult over the course of a 3-4 hour BBQ. Half should be alcoholic, half soft drinks and water. UK weather usually means 1 hot afternoon followed by a chilly evening, so include hot drinks if the BBQ runs past 7pm. Always have at least 500ml of plain water per adult; people drink less than they think on hot days."
+      ),
+      createFAQ(
+        "What if I have a vegetarian guest?",
+        "Halloumi (200g per veggie guest), portobello mushrooms (1 large each), corn cobs and a black bean or lentil burger (one each) covers most preferences. Cook them on a separate grill section that hasn't had raw meat on it, ideally with a fresh sheet of foil underneath. Kebabs (peppers, courgette, red onion, halloumi) cook in about 10 minutes and look good on the grill."
+      ),
+    ],
+    relatedTools: [
+      { slug: "meat-cooking-calculator", label: "Meat Cooking Calculator" },
+      { slug: "meal-planner", label: "Meal Planner" },
+      { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
+      { slug: "calories-in-recipe", label: "Calories in Recipe" },
+    ],
+  },
+
+  "calories-in-recipe": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Calories a Recipe Actually Contains",
+        "Add each ingredient with its weight and the tool sums total kcal then divides by the number of servings. The built-in food database covers 15 common ingredients with kcal-per-100g values: chicken breast is 165 kcal/100g, olive oil is 884, butter 717, rice 130, pasta 371, cheese 402, almonds 579. So a 4-serving recipe with 600g chicken (990 kcal), 30ml olive oil (265 kcal) and 200g rice (260 kcal) totals 1,515 kcal, or 379 kcal per serving.",
+        "These numbers are estimates, accurate to within about 10% of true values. Real-world variation in cuts of meat, oil quality and how much fat trims off in cooking means a precise count to the calorie isn't possible at home. For ballpark calorie tracking - macros at the meal level, weekly intake budgeting - this is fine. For medical-grade tracking (gestational diabetes, post-bariatric surgery, competitive bodybuilding), use the USDA FoodData Central database directly with a kitchen scale."
+      ),
+      createAnswerFirstSection(
+        "Why Per-Serving Beats Per-Recipe",
+        "Knowing a lasagne contains 4,200 kcal isn't useful. Knowing each of 6 servings is 700 kcal is useful, especially next to your daily intake target (typically 1,800-2,500 for adults depending on size and activity). Always set the servings field to the realistic eating portion, not the technical division. A bolognese that \"serves 4\" usually serves 3 in a hungry household, so set it to 3.",
+        "If you're meal-prepping, divide the recipe by the number of containers you actually portion it into. A pot of chilli portioned into 6 lunch boxes serves 6, even if the recipe says 4. The per-serving figure scales with the divisor, so being honest with the number gives honest calorie counts. The [meal planner](/meal-planner) handles weekly calorie totals across multiple recipes."
+      ),
+      createAnswerFirstSection(
+        "What the Tool Captures and What It Doesn't",
+        "The tool counts the calories in raw ingredients. It does not subtract calories from fat that drains off (a roast loses 5-15% of its starting fat to the pan), and it does not add calories from cooking medium that gets absorbed (chips absorb about 8% of their cook oil). For most home cooking these effects roughly cancel, but for very fatty meats or deep-fried food the actual eaten calories will be lower (drained fat) or higher (absorbed oil) than the calculation.",
+        "Macro tracking (protein, carbs, fat) needs a more detailed database than this tool's 15 staples. If you're tracking macros for fitness, log into a dedicated app like MyFitnessPal or Cronometer, which has hundreds of thousands of foods with full macro splits. For everyday \"is this recipe roughly 500 or 800 kcal per serving\" questions, this tool answers in 30 seconds. Pair it with the [BBQ planner](/bbq-planner) when planning party food where total intake matters."
+      ),
+      createAnswerFirstSection(
+        "Cutting Calories Without Ruining the Dish",
+        "The fastest calorie cuts in most home recipes: replace half the oil with stock or water (saves around 80 kcal per tablespoon), use Greek yoghurt instead of cream in pasta sauces and curries (saves around 250 kcal per 100ml), swap rice for cauliflower rice in stir-fries (saves around 100 kcal per 100g cooked). None of these change the dish enough to notice if you do them quietly.",
+        "The slow calorie additions worth watching: oil in salad dressings, cheese sprinkled at the table, butter on bread alongside soup. These don't show up in the recipe calorie count but easily add 200-400 kcal to a 'healthy' meal. If you're tracking, weigh and log them too. The [substitute ingredient finder](/substitute-ingredient-finder) suggests lower-calorie swaps for specific ingredients if you want to lighten a recipe without rewriting it."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is this calorie estimate?",
+        "Within about 10% for common ingredients. The tool's database uses standard kcal-per-100g values from public nutrition databases. Real variation comes from how lean the meat actually is, how much oil clings vs absorbs, and how heavily a hand of cheese is sprinkled. For day-to-day calorie awareness this is plenty; for clinical accuracy use a verified nutrition database with a 0.1g kitchen scale."
+      ),
+      createFAQ(
+        "Should I count cooking oil that ends up in the pan?",
+        "Yes, count what you put in. Most home cooking uses 1-2 tablespoons of oil (15-30ml, 130-270 kcal), and most of it stays in the food rather than draining off. The exception is searing fatty meat or deep-frying, where significant fat moves. For everyday tracking, count the oil you start with."
+      ),
+      createFAQ(
+        "Why isn't [ingredient] in the dropdown?",
+        "The built-in database covers 15 staples that hit most home recipes. For anything else, look up its kcal-per-100g on the USDA FoodData Central or the British Nutrition Foundation's database, then enter that value manually in the calories field. Common gaps: salmon (208 kcal/100g), beef mince 5% fat (137 kcal/100g), avocado (160 kcal/100g)."
+      ),
+      createFAQ(
+        "Does cooking change the calorie count?",
+        "Slightly, in either direction. Boiling pasta absorbs water (the cooked weight goes up but kcal stays the same as the dry weight), so always log dry pasta weight. Roasting meat loses water and some fat (cooked weight goes down but kcal also drops slightly). Use raw weights for everything, which is what the tool assumes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "meal-planner", label: "Meal Planner" },
+      { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
+      { slug: "substitute-ingredient-finder", label: "Substitute Ingredient Finder" },
+      { slug: "bbq-planner", label: "BBQ Planner" },
+    ],
+  },
+
+  "freezer-storage-guide": {
+    sections: [
+      createAnswerFirstSection(
+        "How Long Common Foods Last in the Freezer",
+        "Beef steaks keep 12 months. Chicken breasts keep 9 months but quality is best at 3 months. Mince keeps 3 months. Fish fillets keep 3 months, fatty fish like salmon only 2 months because the fat oxidises. Cooked rice and pasta keep 4-6 months. Bread keeps 3 months sliced. Cheese keeps 4 months for hard cheeses, less for soft. Berries keep 12 months frozen open then bagged. Cooked soup and stew keep 3 months. Most leftovers keep 3 months.",
+        "These figures assume a freezer running at -18°C or colder and food wrapped well. Domestic freezer drawers fluctuate between -15°C and -20°C as the door opens; chest freezers and upright freezers with separate doors hold temperature more reliably. Quality drops gradually past the recommended time, but food stays SAFE indefinitely if it's been continuously frozen below -18°C. Safety and quality are different questions, and the storage times in this guide are quality limits, not safety limits."
+      ),
+      createAnswerFirstSection(
+        "Wrap Right or Don't Bother",
+        "Freezer burn is what happens when moisture leaves the surface of food and forms ice crystals on the inside of the wrapping. The food is still safe but the texture goes papery and the flavour drops. Prevention: wrap food in cling film first, then a freezer bag, with as much air squeezed out as possible. For meat, wrap individually so you can defrost one portion without thawing the whole pack.",
+        "Label every bag with the food, the freeze date and the number of portions. Sharpie on a freezer bag survives months at -18°C; biro doesn't. Use a system that matches your memory: dated drawer per category (\"meat from March\"), or labelled bags filed front-to-back. Most freezer waste comes from nobody knowing what's in there. The [meat cooking calculator](/meat-cooking-calculator) gives defrost-and-cook times for cuts you've portioned and frozen."
+      ),
+      createAnswerFirstSection(
+        "Defrosting Without Killing Anyone",
+        "Three safe defrost methods. Slowest and best: 24 hours in the fridge (a 1kg chicken breast pack thaws overnight, a whole chicken takes 24 hours per kg). Faster: cold water bath, 30 minutes per 500g, change the water every 30 minutes. Fastest: microwave defrost, then cook immediately. Never defrost meat at room temperature - the surface enters the danger zone (5-60°C) hours before the centre is thawed.",
+        "Cooked food can be reheated from frozen for many recipes (stews, curries, soups). Just transfer frozen blocks to a saucepan with a splash of water and reheat gently with a lid on, stirring as it thaws. The UK Food Standards Agency rule: reheat to 75°C internal, only once. Don't refreeze food that's been thawed once unless it's been cooked between freezes (raw chicken thawed and cooked into a curry can be frozen as curry, but raw chicken thawed and refrozen raw cannot)."
+      ),
+      createAnswerFirstSection(
+        "What Doesn't Freeze Well",
+        "Avoid freezing: raw eggs in shell (they crack), whole boiled eggs (rubbery), milk-heavy sauces (they split, though cooking them again can rescue), salad leaves (turn to mush), fried food (loses crispness), boiled potatoes (go grainy), cucumber (waterlogs), creamy soups before puree (split). Most of these have a workaround: freeze egg whites and yolks separately in ice cube trays, freeze creamy soups before adding the cream, blanch and freeze potato chunks raw rather than boiled.",
+        "Some foods freeze brilliantly that you might not expect: cooked rice (cool fast, freeze in portions, microwave 4 minutes from frozen), grated cheese (use straight from frozen on top of pasta), bananas (peel first, use in smoothies and banana bread), lemon juice in ice cube trays, herbs in olive oil in ice cube trays. The [substitute ingredient finder](/substitute-ingredient-finder) covers swaps when a fresh ingredient isn't available and the frozen version doesn't behave the same way."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can you freeze food in its original packaging?",
+        "For supermarket meat and fish, the original packaging is fine for short-term freezing (1-2 months). For longer storage, double-bag or rewrap in freezer bags - supermarket trays and films are not designed for long-term freezer use and freezer burn sets in faster. Glass jars: only freeze if they're labelled freezer-safe (some Kilner jars are; most pasta sauce jars are not), and leave 2cm of headspace because liquids expand."
+      ),
+      createFAQ(
+        "Is food still safe past the recommended freezer time?",
+        "Yes. Continuously frozen food at -18°C or colder is safe indefinitely - bacteria can't grow at freezer temperatures. The recommended times are about quality (texture, flavour, colour), not safety. A chicken breast that's been frozen 18 months will be safe to eat but may have freezer burn and a flat flavour. If you find a forgotten freezer drawer item, smell and look at it after thawing; it's safe but may not be appetising."
+      ),
+      createFAQ(
+        "How long can I freeze cooked leftovers?",
+        "3 months for most cooked dishes (curry, chilli, stew, lasagne, shepherd's pie, soup). The texture starts to drop past that point, especially for vegetable-heavy dishes. Cool food to room temperature within 2 hours of cooking, then freeze in portion-sized containers - smaller portions freeze faster, which is better for both quality and safety."
+      ),
+      createFAQ(
+        "Can I refreeze food that has thawed?",
+        "Only if it's been cooked between thaws. Thawed raw chicken cooked into a curry can be frozen as curry. Thawed raw chicken cannot be refrozen raw - the freeze-thaw cycle gives bacteria more chance to grow. Fish has the strictest rule because it spoils fastest: never refreeze raw fish, and reheat any fish dish to 75°C if it's been frozen-thawed-cooked-refrozen."
+      ),
+      createFAQ(
+        "Why does my freezer burn so much food?",
+        "Three common causes. The freezer is set warmer than -18°C (check with a freezer thermometer, around £4). The door seal is loose, letting humid air in (clean the seal with warm water, check it grips a piece of paper). Or food is wrapped loosely and air is moving against the surface (rewrap with cling film direct to the food, then a freezer bag with air squeezed out). All three are fixable in under an hour."
+      ),
+    ],
+    relatedTools: [
+      { slug: "meat-cooking-calculator", label: "Meat Cooking Calculator" },
+      { slug: "substitute-ingredient-finder", label: "Substitute Ingredient Finder" },
+      { slug: "meal-planner", label: "Meal Planner" },
+    ],
+  },
+
+  "kitchen-unit-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Quick Conversions Between Tablespoons, Teaspoons, Cups and Millilitres",
+        "The numbers worth remembering: 1 tablespoon is 3 teaspoons; 1 cup is 16 tablespoons or 48 teaspoons; 1 cup is 240ml; 1 tablespoon is 15ml; 1 teaspoon is 5ml. From those five facts you can convert almost any kitchen volume in your head. The presets in this tool cover the most-asked conversions: cup to tbsp, cup to tsp, cup to ml, tbsp to tsp, tbsp to ml. Click one and the calculation runs instantly.",
+        "This is volume-only conversion. The numbers don't depend on what you're measuring - 1 tablespoon is 15ml whether it's water, oil, vanilla extract or honey. That's the difference between this tool and the [recipe unit converter](/recipe-unit-converter): the recipe converter handles ingredient density (1 cup of flour vs 1 cup of sugar weighing differently in grams), this one handles pure volume-to-volume swaps. For everyday \"how many tbsp in a cup\" questions, this is the faster tool."
+      ),
+      createAnswerFirstSection(
+        "When You Need This Conversion",
+        "You're cooking from a recipe written in cups and your kitchen has tablespoons but no measuring cups (the standard British position). Or the recipe says \"3 tbsp\" of olive oil and you only have a 5ml medicine spoon to hand - that's 9 spoonfuls. Or a baking recipe needs \"½ tsp baking powder\" and you grabbed the tablespoon, in which case ½ tsp is one-sixth of a tablespoon, or about 2.5ml.",
+        "The most common confusion: tablespoons in different countries. A US tablespoon is 14.79ml (rounded to 15ml in cooking). An Australian tablespoon is 20ml. A UK tablespoon was historically 17.7ml but modern UK measuring spoons match the US 15ml standard. This tool uses the 15ml convention, which matches UK and US recipe writing in 2026. For Australian recipes, multiply tablespoon counts by 20/15 = 1.33."
+      ),
+      createAnswerFirstSection(
+        "Volume vs Weight - Which to Use",
+        "Use volume (this tool) for liquids, small spice quantities, and rough cooking. Use weight (a kitchen scale) for baking, anything precise, anything ratio-based. Volume measurement is faster and equipment-light; weight measurement is more accurate. For everyday cooking - a stew, a curry, a stir-fry - volume is fine and the small inaccuracy doesn't matter. For bread, cake, pastry and patisserie, volume measurement of dry ingredients can be 20% off and the result fails.",
+        "If you're scaling a recipe at the same time as converting units, the [recipe scaler](/recipe-scaler) handles servings adjustments, then come back here for unit swaps. For temperature conversions (Fahrenheit, Celsius, gas marks), the [oven temperature converter](/oven-temperature-converter) covers those. Most full recipe conversions involve all three steps: temperature, units, sometimes scaling."
+      ),
+      createAnswerFirstSection(
+        "Common Mistakes With Kitchen Volumes",
+        "Reading \"tsp\" as \"tbsp\" or vice versa is the single biggest spoonful mix-up. The lower-case \"tsp\" is teaspoon (5ml), capital-or-lower \"tbsp\" or \"T\" is tablespoon (15ml) - 3x the size. In a recipe that says \"1 tbsp salt\" it's salting for a stew; \"1 tsp salt\" is for a small pasta dish. Triple the salt and you'll throw the pan away. When in doubt, the lowercase letter is smaller in real life too.",
+        "Heaped vs level matters. \"1 tablespoon flour\" usually means level (scrape excess off with a knife edge), unless the recipe specifies \"heaped\" or \"rounded\". A heaped tablespoon of flour can be 50% more than a level one. Old British recipes sometimes assume heaped (gran's apple crumble); modern recipes assume level. If unsure, use level - you can add more, you can't take it out."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many tablespoons in a cup?",
+        "16 tablespoons in 1 US cup. The maths: 1 cup is 240ml, 1 tbsp is 15ml, 240 / 15 = 16. So ½ cup is 8 tbsp, ¼ cup is 4 tbsp, ⅓ cup is 5⅓ tbsp (round to 5 plus 1 tsp). Most US recipe writers use these fractions interchangeably."
+      ),
+      createFAQ(
+        "How many teaspoons in a tablespoon?",
+        "3 teaspoons in 1 tablespoon. So 1 tbsp = 3 tsp = 15ml. If a recipe wants 2 tbsp and you only have a teaspoon, that's 6 tsp. If it wants ½ tsp and you only have a tablespoon, fill the tablespoon one-sixth full (or use a different spoon)."
+      ),
+      createFAQ(
+        "How many ml in a cup?",
+        "240ml in a US cup, 250ml in a metric cup, 284ml in an old UK imperial cup. Modern recipes almost universally use the US 240ml convention (this tool's default). The difference rarely matters for cooking but can throw off baking past 4 cups, where the cumulative drift becomes material."
+      ),
+      createFAQ(
+        "What's the difference between fluid ounces and weight ounces?",
+        "Fluid ounces measure volume (1 fl oz = 29.5ml in US). Weight ounces measure mass (1 oz = 28.35g). A US cup is 8 fluid ounces (volume), but a cup of flour weighs 4.4 oz (weight). The labels look similar but the numbers don't translate without knowing the ingredient. For weight conversions, use the [recipe unit converter](/recipe-unit-converter) which handles ingredient densities."
+      ),
+    ],
+    relatedTools: [
+      { slug: "recipe-unit-converter", label: "Recipe Unit Converter" },
+      { slug: "cups-to-ml", label: "Cups to ml" },
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+    ],
+  },
+
+  "bake-sale-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Items to Bake for a School Bake Sale",
+        "Plan 2 items per attendee as the default. For a school of 200 children with parents picking up at the gate (so roughly 350 buying decisions), that's 700 items. Spread across 3 varieties (brownies, muffins, cookies), each variety needs about 235 items. Brownies bake 24 per batch, so 10 batches; muffins 12 per batch, so 20 batches; cookies 36 per batch, so 7 batches. Total: about 37 batches across 3-4 baker volunteers.",
+        "The 2-per-person figure assumes a typical PTA bake sale where parents buy a couple of things for the kids' lunchboxes plus one for themselves. For an after-school cake sale running only 30 minutes, drop to 1.5 per person. For a community fete running 4 hours, increase to 2.5. Always overcater by 10-15%; the worst outcome at a bake sale is the table looking sparse at hour 3 and shoppers walking past."
+      ),
+      createAnswerFirstSection(
+        "Pricing for Profit",
+        "The standard PTA pricing is 4x ingredient cost. If a batch of 24 brownies costs £4.50 in ingredients, that's 19p per brownie ingredient cost; sell each at 75p-80p (4x markup) and the 24 brownies generate £18 revenue from £4.50 cost, profiting £13.50. The tool runs three pricing scenarios at 3x, 4x and 5x markup so you can see the trade-off between volume and margin. Most school bake sales settle on 4x as the sweet spot.",
+        "Don't price under £1 for items that look premium. Cupcakes with proper buttercream, decorated biscuits and slices of layer cake should sit at £1.50-£2.50 each even if the ingredient cost is low; the perceived value is what people pay for. Plain brownies, basic cookies and rice krispie treats sit at 50p-£1. Bundles work well for the unsold stragglers in the last 30 minutes: \"3 for £2\" clears the table and gets every penny in the float box. The [cake pricing calculator](/cake-pricing-calculator) handles bigger commission cakes if you're selling whole sponges alongside the small items."
+      ),
+      createAnswerFirstSection(
+        "Variety, Allergens and the Practicalities",
+        "Three to four varieties hits the right balance. Two looks sparse on the table; five becomes a logistics nightmare for the volunteers slicing and bagging. A solid line-up: one chocolate item (brownies), one fruity (lemon muffins or berry cupcakes), one biscuity (sugar cookies or shortbread), one safer for kids (rice krispie treats or no-bake cornflake cakes). Vary visual heights too - tall cupcakes next to flat brownies looks better than four flat trays.",
+        "Label every item with its allergens (gluten, dairy, eggs, nuts) on a clear card by the tray. Schools increasingly require an allergen list signed by the baker before items go on the table. If you can offer one gluten-free or dairy-free variety, do - those parents will buy 5 of whatever's safe and tell every other parent at school. The [recipe cost calculator](/recipe-cost-calculator) handles per-recipe ingredient costing if you're scaling up old recipes for a bigger crowd."
+      ),
+      createAnswerFirstSection(
+        "On the Day - Setup, Float and Bagging",
+        "Bring £30 in change as a float: 20 x £1 coins, 10 x 50p, 20 x 20p, 20 x 10p. That covers the first 50-80 transactions. Have a phone with a payment app (SumUp, Zettle, or even just bank transfer with a printed QR) for parents who don't carry cash. Cash-only bake sales lose 30-40% of buyers in 2026; have card or bank transfer ready.",
+        "Pre-bag everything that isn't a whole cake. Greaseproof paper bags from any supermarket (around 4p each) keep crumbs off the table and let buyers carry items home cleanly. Price each item with a sticker, not a chalkboard - parents buying for kids in a hurry don't read the board. Set a 30-minute clear-down: any leftover items get bundled at half price for the last bit of the sale, and any unsold items go home with the volunteer bakers (this matters because volunteers feel taken advantage of if they spend Sunday baking and then bin the leftovers)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much money does a school bake sale typically raise?",
+        "A primary school of 200 pupils with a 30-minute after-school sale typically raises £150-£300, depending on pricing and turnout. A bigger fete-style sale running 3-4 hours can raise £500-£1,500. Profit margin (after ingredient costs) is usually 70-75% at standard 4x markup, so £200 in sales is £140-£150 profit for the school."
+      ),
+      createFAQ(
+        "What's the best-selling item at a bake sale?",
+        "Chocolate brownies, every time. They're a known quantity, kids love them, parents love them, they bag well, they keep well at room temperature. After brownies: cupcakes with buttercream (visual pop sells), shortbread, rice krispie treats. Avoid: anything that needs refrigeration, anything that bleeds (jam-filled doughnuts), anything fragile (meringues, macarons)."
+      ),
+      createFAQ(
+        "How do I price gluten-free or vegan items?",
+        "Same markup, slightly higher absolute price. Gluten-free flour costs roughly 3x regular flour, so the ingredient cost is higher and the standard 4x markup gives a higher final price. Customers expect this; parents with restrictions are used to paying a premium. If GF brownies cost £1 to make per 24 batch (vs 19p for regular), price them at £1.50 each rather than £4."
+      ),
+      createFAQ(
+        "Should I bake the day before or the morning of?",
+        "Most things keep 24-48 hours at room temperature in airtight containers, so baking the day before is fine and reduces day-of stress. Exceptions: anything with fresh cream (bake same day), anything cut and individually wrapped (cut and bag morning of so it doesn't dry out), anything iced (ice that morning so the icing isn't smudged). Brownies, blondies, traybakes and cookies all keep beautifully overnight."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cake-pricing-calculator", label: "Cake Pricing Calculator" },
+      { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
+      { slug: "baking-conversion-calculator", label: "Baking Conversion Calculator" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+    ],
+  },
 };

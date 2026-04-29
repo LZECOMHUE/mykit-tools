@@ -538,4 +538,311 @@ export const educationSEO = {
       { slug: "word-scramble-generator", label: "Word Scramble Generator" },
     ],
   },
+
+  "flashcard-maker": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Build a Flashcard Deck That Actually Sticks",
+        "Aim for 20 to 50 cards per deck and one fact per card. Anything bigger and you'll spend the session shuffling rather than learning; anything multi-fact and the brain anchors the recall to the wrong cue. The maker holds your front (question) and back (answer) pairs, lets you shuffle for randomised review, and tracks which cards you've marked as Known so the deck shrinks as you go.",
+        "Worked example: revising 30 GCSE biology terms. Don't write 'photosynthesis' on the front and a 60-word definition on the back. Write 'What gas do plants release in photosynthesis?' on the front and 'Oxygen' on the back, then a separate card for 'What gas do plants absorb?' with 'Carbon dioxide'. Two atomic cards beat one fat one because each one tests recall in a single direction, which is how flashcards earn their reputation."
+      ),
+      createAnswerFirstSection(
+        "Active Recall and Why Shuffle Matters",
+        "Studying flashcards in the order you wrote them is barely better than re-reading notes. Your brain remembers position, not content, and you start anticipating the next card. Hit Shuffle before every session so each card surfaces cold. The maker re-randomises with one click and the order resets every time you toggle it.",
+        "Pair the shuffle with the Known button. When you flip a card and the answer comes back inside two seconds with no hesitation, mark it Known. The next pass focuses on the smaller pile of weak cards. Tomorrow, reset Known and run the whole deck again, fresh; the cards that were strong yesterday will mostly stay strong, and the truly fragile ones will resurface. Two short sessions of 10 minutes a day beats one 40-minute slog every Sunday."
+      ),
+      createAnswerFirstSection(
+        "What Each Card Should Look Like",
+        "Front: one question, ideally answerable in a single word or short phrase. Back: that one answer, plus a tiny mnemonic or hint if it helps. No paragraphs, no bullet lists, no 'and also'. If you can't fit the answer on a Post-it, split it into two cards.",
+        "For language learners, that means front = English word, back = target-language word with gender or article. For maths, front = formula name, back = formula. For history, front = 'Year of the Battle of Hastings?', back = '1066'. For medical students, front = drug name, back = mechanism in three or four words. Keep the [spelling test generator](/spelling-test-generator) and the [times tables practice](/times-tables-practice) in mind for things flashcards aren't great at, like spelling drills and pure number recall, where typed input beats flipping."
+      ),
+      createAnswerFirstSection(
+        "Spaced Repetition on a Budget",
+        "Proper spaced-repetition apps (Anki, Quizlet) schedule each card based on how confident you were last time. This maker is simpler and faster to set up: it gives you the deck, the shuffle and the Known toggle. That's enough for most school and university revision if you put the spacing in yourself.",
+        "The home-grown system: review the deck the day you build it, again 24 hours later, again 3 days later, again 1 week later, again 2 weeks later. Five sessions across a fortnight will move 80% of the deck into long-term memory. After that, a single review the morning of the exam is usually all you need. Skip a day and the timing slips, but the order matters more than the exact intervals; just keep coming back."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many flashcards should I make for one topic?",
+        "Roughly one card per fact you actually need to recall, capped at about 50 per deck. A typical GCSE topic ends up at 30 to 40 cards. If your topic feels bigger, split it into two decks (e.g. 'Cell biology - structures' and 'Cell biology - processes') rather than building one giant 100-card deck you'll never finish in a sitting."
+      ),
+      createFAQ(
+        "Should the question or the answer go on the front?",
+        "Always the question (or the cue) on the front, the answer on the back. Flashcards work because they force you to retrieve the answer from memory before flipping; if the answer is on the front, you're just re-reading. For pairs you need to know in both directions (English to French AND French to English), make two separate cards, one in each direction."
+      ),
+      createFAQ(
+        "Is it better to write flashcards by hand or use this online?",
+        "Honestly, both work and the writing-by-hand-helps-you-learn evidence is weaker than the studyfluencers say. Online cards win on shuffling, on never losing the deck, and on being studyable on a phone in 10 spare minutes. Paper cards win on being away from screens, which matters if you're trying to break a phone-doomscroll habit. Pick the one you'll actually use daily."
+      ),
+      createFAQ(
+        "Why does shuffling matter so much?",
+        "Because in a fixed order your brain learns the sequence, not the content. After 3 reviews you can predict that 'Mitochondria' comes after 'Ribosome' and the next answer pops up before you've actually retrieved it. Shuffling forces a cold pull on every card. Click Shuffle before every session, even if the deck is short."
+      ),
+      createFAQ(
+        "Can I save my deck and come back to it later?",
+        "This version doesn't save decks between visits, so build the deck and complete the session in one go, or copy your question/answer pairs into a notes app for next time. For longer-term decks (medical school finals, language learning over months), Anki is still the gold standard. For one-off exam revision over a weekend, this is faster to set up."
+      ),
+    ],
+    relatedTools: [
+      { slug: "spelling-test-generator", label: "Spelling Test Generator" },
+      { slug: "times-tables-practice", label: "Times Tables Practice" },
+      { slug: "pomodoro-timer", label: "Pomodoro Timer" },
+    ],
+  },
+
+  "animals-word-search": {
+    sections: [
+      createAnswerFirstSection(
+        "What's in This Animals Word Search",
+        "30 animal words ranging from 3 letters (CAT, DOG, COW, PIG, HEN) up to 8 letters (ELEPHANT, FLAMINGO, KANGAROO). The grid is generated fresh every time you click Generate, so you can print a different layout for every child in a class. Choose easy (forwards only), medium (adds backwards) or hard (adds all eight diagonal directions including upside-down).",
+        "The full word pool covers farm animals, big cats, sea creatures, primates and birds. Younger children will spot the short ones first (CAT, FROG, BEAR), which keeps confidence up while they hunt for the longer giraffe, gorilla and octopus. The puzzle prints clean on A4 with the word list underneath, and the [premium PDF download](/animals-word-search) gives you the answer key on a separate page so the teacher can mark it without revealing the solutions."
+      ),
+      createAnswerFirstSection(
+        "Choosing the Right Difficulty for the Age Group",
+        "Easy (left-to-right and top-to-bottom only) suits 4 to 6 year olds, who are still learning to scan in one direction. Medium adds right-to-left and bottom-to-top, which works for 6 to 8 year olds who can read fluently but find diagonals frustrating. Hard adds all four diagonals, including the up-left direction that even adults find tricky; reserve it for ages 9 and up.",
+        "Class teachers running a mixed-age session can print easy and hard side by side and let kids pick. The animals are the same, but the hard version takes about 4 times as long to solve. Pair the puzzle with a colouring sheet on the back of the page so early finishers have something to do while you wait for the slower solvers."
+      ),
+      createAnswerFirstSection(
+        "Using This in the Classroom or at Home",
+        "For Reception and Year 1 (ages 4 to 6): use the easy grid as a phonics warm-up. The teacher reads each word out, kids find it, then write it underneath. This embeds the spelling at the same time as the visual scan.",
+        "For Year 2 to Year 4 (ages 6 to 9): use the medium grid as an independent activity during literacy hour or at home as a 15-minute calm-down. Pair with the [word scramble generator](/word-scramble-generator) for variety and the [spelling test generator](/spelling-test-generator) when you want a more direct assessment. For supply teachers walking into an unfamiliar classroom, a stack of pre-printed animal word searches is the cheapest cover material on earth, and kids genuinely enjoy them more than worksheets."
+      ),
+      createAnswerFirstSection(
+        "Print, Save or Play on Screen",
+        "Solve directly on screen by clicking and dragging across each word; the puzzle highlights as you go and the word list ticks off as you find them. This version is great for tablets in class or for kids who hate handwriting. Print to paper for traditional puzzle solving with a pencil and a big circle around each word found.",
+        "The free version downloads as a watermarked JPG of a single grid. The premium PDF (£1.99) gives you the cleanly typeset puzzle, an answer key, and is print-ready at 300 DPI so the letters look crisp at any size. Bulk-print 30 copies for a whole-class set and the per-page cost is pence."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What age is this animals word search suitable for?",
+        "Ages 4 to 11, depending on difficulty. Set the difficulty to easy for Reception and KS1 (4 to 7), medium for lower KS2 (7 to 9) and hard for upper KS2 and above (9 to 11). The animal words themselves are familiar to all ages, so the difficulty comes from the direction of the words, not the vocabulary."
+      ),
+      createFAQ(
+        "How many animals are in the puzzle?",
+        "30 animal words in the pool, but the grid won't necessarily fit all of them depending on the size you choose and which words happen to be too long. The tool tries 200 placements per word; any words that won't fit are listed underneath so you know what was dropped. For the full 30, use a 20x20 grid or larger."
+      ),
+      createFAQ(
+        "Can I print this for my whole class?",
+        "Yes, the puzzle is free to print as a watermarked JPG. For class sets, the premium PDF (£1.99) removes the watermark and gives you a high-resolution version that holds up to 30 photocopies without going fuzzy. Each click of Generate produces a different grid, so you can hand out individual variants if you don't want kids copying answers."
+      ),
+      createFAQ(
+        "Where's the answer key?",
+        "The answer key is on a separate page in the premium PDF. The on-screen version reveals answers when you click Show Answers below the grid, so for home use you don't need a printed key at all. For classroom use, the separate page lets the teacher mark without giving the puzzle away in advance."
+      ),
+    ],
+    relatedTools: [
+      { slug: "word-search-generator", label: "Word Search Generator" },
+      { slug: "christmas-word-search", label: "Christmas Word Search" },
+      { slug: "halloween-word-search", label: "Halloween Word Search" },
+      { slug: "word-scramble-generator", label: "Word Scramble Generator" },
+    ],
+  },
+
+  "times-tables-practice": {
+    sections: [
+      createAnswerFirstSection(
+        "Practice Mode vs Worksheet Mode",
+        "Practice Mode runs an interactive 20-question drill: you select the tables (any combination of 2x through 12x), click Start, and the tool fires multiplication questions one at a time. You type the answer, get instant green-tick or red-cross feedback, and a running score in the corner. Worksheet Mode generates a printable PDF with 20, 40 or 60 questions plus an answer key, in 1 or 2 column layouts.",
+        "Practice mode is fastest for 5 to 10 minutes of daily revision; worksheet mode is for the Sunday-night homework session, supply teachers and parents who want to step away while a child works. The drill mixes the selected tables in random order, so picking just 6, 7 and 8 (the three that 90% of children find hardest) is the most effective use of a 10-minute session."
+      ),
+      createAnswerFirstSection(
+        "Which Times Tables Should My Child Practise?",
+        "Year 2 (ages 6 to 7): 2x, 5x and 10x. Year 3 (ages 7 to 8): add 3x, 4x and 8x. Year 4 (ages 8 to 9): all tables up to 12x; the multiplication tables check (MTC) is taken in June of Year 4 and tests 6x, 7x, 8x, 9x, 11x and 12x most heavily. Year 5 and 6: maintenance practice across all tables, plus mixed division facts.",
+        "If your child is in Year 4 and you only have time for one daily drill, set the tool to 6, 7, 8, 9, 11 and 12. Skip 5 and 10 because almost every child has those nailed by Year 3. Skip 2, 3 and 4 because they're easy enough to recompute on the fly. The MTC measures speed, not just accuracy: 6 seconds per question is the threshold, so practice with the on-screen drill is closer to test conditions than written worksheets."
+      ),
+      createAnswerFirstSection(
+        "How the Worksheet PDF Works",
+        "Pick your tables, choose 20, 40 or 60 questions, choose 1 or 2 columns and click Download. The PDF lays out the questions with answer lines, plus a separate answer key page so you can mark without working through it yourself. 20 questions usually takes a Year 3 child 5 to 10 minutes; 60 questions is around 20 to 30 minutes and works well as a Saturday-morning session.",
+        "Two columns fit roughly twice as much on a page but the smaller font is harder for younger children. For Year 2 and 3, stick to 1 column. For Year 4 and up, 2 columns saves paper and looks closer to the layout of the [maths worksheet generator](/maths-worksheet-generator) which handles addition, subtraction and division too."
+      ),
+      createAnswerFirstSection(
+        "Why Drill Practice Beats Memorisation",
+        "Children who can recite the 7 times table from start to finish often can't answer 'what's 7 times 8?' without starting from 7x1 and counting up. That's because they've memorised a sequence, not the individual facts. A randomised drill forces them to retrieve each fact independently, which is what the MTC and most maths exams actually test.",
+        "Set the tool to your weakest table and run 20 questions. If a child gets stuck on 7x8, the answer pops up after the wrong attempt so they see 56 immediately. Within a week of daily 10-minute sessions, that fact moves from 'I have to count' to 'instant recall'. Pair times tables practice with the [flashcard maker](/flashcard-maker) for vocabulary and the [pomodoro timer](/pomodoro-timer) if you're building a longer revision routine."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What age is the multiplication tables check (MTC) taken?",
+        "June of Year 4, when most children are 8 or 9 years old. The MTC is a 25-question on-screen test where each question has 6 seconds. Schools focus heavily on it from Year 3 onward. This practice tool mimics the format with a typed answer and instant feedback, so a child running daily 20-question drills from Easter onward of Year 3 will hit the test in form."
+      ),
+      createFAQ(
+        "How long does the practice drill take?",
+        "About 3 to 5 minutes for 20 questions if your child is fluent, 8 to 10 minutes if they're still learning. The sweet spot is short and frequent: 10 minutes a day, 5 days a week beats a 60-minute Sunday cram session by miles for actually building recall speed."
+      ),
+      createFAQ(
+        "Why is 6 seconds per question so important?",
+        "Because beyond about 6 seconds, the brain is calculating, not recalling. Mental arithmetic in secondary school maths needs the basic times tables to be automatic so the brain has spare capacity for the harder steps. The MTC sets 6 seconds as the threshold; this drill doesn't enforce a timer, but if your child takes 15 seconds per question they need more practice on those tables before moving on."
+      ),
+      createFAQ(
+        "Can I practise mixed division and multiplication?",
+        "This tool is multiplication-only, but the mental link is so close that mastering the times tables makes division mostly free. If you know 8 times 7 is 56, you also know 56 divided by 7 is 8. For dedicated division practice, use the [maths worksheet generator](/maths-worksheet-generator) which can produce mixed-operation worksheets."
+      ),
+      createFAQ(
+        "Does the worksheet include answers?",
+        "Yes - every PDF download includes a separate answer key page at the end. So you can hand the worksheet to your child, walk away, and mark it in 60 seconds when they're done. The answer key shows the question and the correct answer side by side, so wrong answers are easy to spot without re-doing the maths."
+      ),
+    ],
+    relatedTools: [
+      { slug: "maths-worksheet-generator", label: "Maths Worksheet Generator" },
+      { slug: "spelling-test-generator", label: "Spelling Test Generator" },
+      { slug: "flashcard-maker", label: "Flashcard Maker" },
+      { slug: "pomodoro-timer", label: "Pomodoro Timer" },
+    ],
+  },
+
+  "country-comparison-tool": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Tool Compares",
+        "Pick any two countries from the worldwide list and the tool pulls live data from the REST Countries database to compare them side by side. The metrics shown are population, land area in square kilometres, capital city, region (Europe, Asia, Africa, Americas, Oceania), subregion, official languages, currencies and timezones. It's a snapshot view, not a deep economic dive.",
+        "Worked example: comparing the United Kingdom and Japan. The UK has 67 million people in 244,376 km, capital London, currency GBP. Japan has 125 million people in 377,975 km, capital Tokyo, currency JPY. Japan is bigger by area and population, has a denser landmass, and uses a different timezone (UTC+9 vs UTC+0). The tool surfaces these differences instantly without you having to flip between Wikipedia tabs."
+      ),
+      createAnswerFirstSection(
+        "Geography Homework and KS2 Projects",
+        "For Year 5 and Year 6 children doing 'compare two countries' projects, this is the fastest way to get the basic facts on one screen. Pick the home country and the country being studied, take a screenshot of the comparison and paste it into the report. The structured layout means children get used to seeing data in fields rather than buried in prose, which is what the new KS2 geography curriculum expects.",
+        "For older students, treat the data as a starting point, not a finished essay. Population and area give you density (calculate it: population divided by area equals people per km). Comparing a small dense country (Bangladesh, 1,265 per km) with a large sparse one (Mongolia, 2 per km) opens up real questions about agriculture, urbanisation and infrastructure that aren't visible from the raw numbers."
+      ),
+      createAnswerFirstSection(
+        "Travel Planning Use Cases",
+        "Comparing your home country with a holiday destination tells you the practical things at a glance: what currency you'll need, what timezone offset to expect, what language(s) the locals speak, and roughly how long the flight will be (use the [distance calculator](/distance-calculator) for that part).",
+        "Worked example: planning a trip from the UK to Australia. Comparison shows GBP vs AUD (use the [currency converter](/currency-converter) for live rates), UTC+0 vs UTC+10 for Sydney (10-hour difference, jet-lag warning), English official in both, and total area 31 times bigger in Australia (so don't try to see it all in two weeks). Internal flights between Sydney and Perth cover 3,930 km - similar to London to Karachi."
+      ),
+      createAnswerFirstSection(
+        "Where the Data Comes From",
+        "All comparisons pull from the open REST Countries API, which sources from official UN statistics and CIA World Factbook entries. Population figures are typically updated annually and may lag the latest census by 1 to 2 years. Area figures are stable (they don't change). Capital and currency are official government data; some countries have multiple capitals (e.g. South Africa has Pretoria, Cape Town and Bloemfontein) and the tool shows the primary one.",
+        "If a number looks off (population for a small country, area for an island nation), cross-check with the World Bank or UN Population Division. The tool is for quick comparison and homework, not for academic citation; if you're writing a dissertation, use the original source data directly."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many countries can I compare at once?",
+        "Two countries side by side. Comparing three or more on one screen makes the layout cramped and hard to read on a phone. If you need to compare four countries, run the tool twice with different pairs and take screenshots. For aggregate stats across many countries (e.g. all of EU), the World Bank's data portal is better suited."
+      ),
+      createFAQ(
+        "How current is the data?",
+        "Population and economic figures are typically 1 to 2 years out of date because they rely on national statistics offices publishing annual updates. Area, capital and currency are stable and accurate. For up-to-the-minute population estimates, the UN Population Division publishes daily projected figures."
+      ),
+      createFAQ(
+        "Why doesn't the tool show GDP, life expectancy or other stats?",
+        "The REST Countries API focuses on basic identity data (population, area, capital, languages, currencies, timezones). Economic and health indicators come from different datasets (World Bank, WHO, OECD) which need separate API calls and licensing. We may add a premium 'extended comparison' view in the future; for now, use the basic comparison plus the World Bank's free data tools for extras."
+      ),
+      createFAQ(
+        "Can I save or share the comparison?",
+        "The current version doesn't save comparisons between sessions, but you can screenshot the result. For sharing with a class or in a report, the screenshot drops cleanly into Google Docs or Word. For repeated lookups of the same pair, bookmark the page after selecting both countries (the URL captures the state on some browsers)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "currency-converter", label: "Currency Converter" },
+      { slug: "distance-calculator", label: "Distance Calculator" },
+      { slug: "date-format-converter", label: "Date Format Converter" },
+    ],
+  },
+
+  "grade-conversion-tool": {
+    sections: [
+      createAnswerFirstSection(
+        "What Grade Systems This Converts Between",
+        "Six systems, all bidirectional: US GPA (4.0 scale), Canadian GPA (4.0 scale), UK university classifications (First, 2:1, 2:2, Third), Australian (HD, D, C, P), German (1.0 to 5.0, where 1.0 is best), French (0 to 20) and Indian (percentage or CGPA on a 10-point scale, multiply CGPA by 9.5 for percentage). Pick your input system, enter the grade, and the tool shows the equivalent in every other system at once.",
+        "The conversion path is: input grade gets converted to a percentage on a 0 to 100 scale, then that percentage gets mapped onto every other scale. So a US GPA of 3.5 = 87.5%, which maps to a UK 2:1 (60-69% is the band, but 70%+ is First class so 87.5% would be a strong First in UK reckoning), an Australian D (75-84%), a German grade around 2.0, a French 17.5/20 and an Indian percentage of 87.5%."
+      ),
+      createAnswerFirstSection(
+        "Why Grade Conversion Is Always Approximate",
+        "No two grading systems mark the same way. A UK First-class degree (70%+) is genuinely rare (about 28% of graduates in 2023), whereas a US GPA of 3.7+ (the rough equivalent) is held by closer to 40% of US graduates. The percentages match on paper but the underlying difficulty curve doesn't. So a UK 2:1 might be 'better' than a US 3.5 in terms of relative ranking, even though the numbers convert directly.",
+        "Universities know this. When a UK 2:1 graduate applies to a US master's programme, the admissions office will use a conversion table broadly similar to this tool's output but will also weight the institution's reputation, the specific modules taken, and any standardised test scores like the [SAT](/sat-score-calculator) or GRE. Don't treat the converted GPA as definitive; treat it as the starting point for a conversation."
+      ),
+      createAnswerFirstSection(
+        "Common Conversions for Real Applications",
+        "UK 2:1 (60-69%) converts to roughly US GPA 3.0 to 3.5, which is the cut-off most US graduate schools want. UK First (70%+) converts to US GPA 3.6 to 4.0, the range top schools (Harvard, MIT, Stanford) require. UK 2:2 (50-59%) converts to US GPA 2.4 to 2.9, which struggles to clear the GPA threshold at most American graduate programmes.",
+        "Going the other way: a US GPA of 3.0 (the typical 'B average') converts to a UK percentage of 75%, which lands at the top of the 2:1 range. US GPA 3.5 lands at 87.5%, well into First-class territory. The mismatch is mostly because UK degrees apply much harder grading curves at the top end, while US schools have grade-inflated for decades. For UK students applying to US schools, your degree is usually 'better' than the raw GPA conversion suggests; for US students applying to UK schools, the opposite. Use the [US GPA calculator](/us-gpa-calculator) if you need to compute your GPA from raw US course grades first."
+      ),
+      createAnswerFirstSection(
+        "Where the Tool Falls Short and Where It Doesn't",
+        "It doesn't know about the institution. A 2:1 from Oxford and a 2:1 from a less selective university convert identically in this tool, but admissions offices treat them very differently. It also doesn't account for module weighting (a 2:1 with First-class marks in the dissertation reads stronger than a 2:1 with weak honours papers). For a final, signed-off conversion that universities will accept, use WES (World Education Services) which charges around $200 and produces an official document.",
+        "What the tool does well: gives you the ballpark in 10 seconds for free, lets you sense-check what a recruiter or university is asking for, and runs entirely in your browser so your grades don't leave your device. Useful for: writing a CV that needs both the UK and US versions, checking entry requirements before paying application fees, or just understanding what a friend's overseas degree means."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is a UK 2:1 the same as a US GPA of 3.0?",
+        "Roughly, yes - though it depends on which university and which grade band of 2:1 you achieved. A solid mid-2:1 (around 65%) maps to US GPA 3.2; a high 2:1 (68%+) is closer to GPA 3.5. Both clear the typical GPA 3.0 minimum that US graduate programmes require. For competitive programmes (Ivy League, top public universities), aim for an upper 2:1 or First."
+      ),
+      createFAQ(
+        "What is a First-class honours in US GPA?",
+        "Roughly 3.7 to 4.0 on the US 4.0 scale. UK First-class honours (70%+) is genuinely rare and is treated by US admissions offices as equivalent to summa cum laude or magna cum laude (top of the class). If you graduated with a First, list both: 'BSc First-class honours (equivalent to GPA 3.8)' so the US reader doesn't have to convert."
+      ),
+      createFAQ(
+        "How do I convert an Indian percentage to UK or US grade?",
+        "Indian universities mostly use a 0-100 percentage system. 60%+ in India is typically First-class, which converts to UK upper second (2:1) or US GPA around 3.0 to 3.3. 75%+ is Distinction, which converts to UK First (70%+) or US GPA 3.7+. CGPA on a 10-point scale: multiply by 9.5 to get percentage, then convert from there. So CGPA 8.0 becomes 76%, which is a UK First."
+      ),
+      createFAQ(
+        "Will universities accept this conversion?",
+        "Most universities will accept it as a guide only. For formal admissions, you'll usually need an official credential evaluation from WES (World Education Services), ECE (Educational Credential Evaluators) or a similar service, which costs around $200 and produces a document the university will trust. This tool is for self-orientation: figuring out whether you're in the right ballpark before paying for the official version."
+      ),
+      createFAQ(
+        "Why is the German system reversed (1.0 is best)?",
+        "Historical convention. The German Notensystem runs 1.0 (sehr gut, very good) to 5.0 (nicht ausreichend, fail), with 4.0 being the pass threshold. So German 1.5 is excellent (roughly UK First, US GPA 3.8+), German 2.5 is good (UK 2:1, US GPA 3.0 to 3.3), German 3.5 is satisfactory (UK 2:2, US GPA 2.0 to 2.5). The tool flips this automatically, but be aware when reading German transcripts that 'low number = high grade'."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-gpa-calculator", label: "US GPA Calculator" },
+      { slug: "sat-score-calculator", label: "SAT Score Calculator" },
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+    ],
+  },
+
+  "sat-score-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the SAT Composite Score Works",
+        "The SAT is scored out of 1600. Two sections each contribute up to 800: Evidence-Based Reading and Writing (combined into one section as of the 2024 digital SAT redesign) and Math. Enter your section scores from 200 to 800 each and the calculator adds them, returns the composite, and looks up your percentile against the national pool of test-takers. A composite of 1600 is a perfect score; the national average sits around 1050.",
+        "Worked example: Reading and Writing 650, Math 700. Composite is 1350. The percentile lookup returns roughly the 91st percentile, meaning you scored higher than about 91% of all SAT takers that year. That's strong enough for most state universities and for serious consideration at competitive private schools, though Ivy League admissions typically expect 1500+ for a first-look."
+      ),
+      createAnswerFirstSection(
+        "Score Bands and What They Actually Mean for College",
+        "1600 is perfect, achieved by under 1% of test-takers each year. 1500+ (top 1%) puts you in the Ivy League conversation. 1400+ (top 5%) is the cut-off for many selective universities (Tufts, Vanderbilt, Northwestern, Notre Dame). 1300+ (top 15%) opens up many top public flagship universities (UCLA, UVA, Michigan). 1200 is a solid score for most four-year colleges. 1050 is the national average and clears most state university requirements.",
+        "Don't read those bands as guarantees. The SAT is one part of a holistic application that also weighs GPA, course rigor, essays, recommendations and extracurriculars. A 1500 with a weak GPA gets rejected from Harvard; a 1350 with a 4.0 unweighted GPA, a state debate championship and a strong essay can land at Princeton. The score is a hurdle to clear, not a ticket. Use the [US college cost calculator](/us-college-cost-calculator) to plan financially once you have target schools."
+      ),
+      createAnswerFirstSection(
+        "Section Scores: Reading and Writing vs Math",
+        "Each section is graded independently from 200 to 800, in 10-point increments. Get every question right on Reading and Writing and you score 800; the same on Math gets you another 800, for a 1600 composite. The College Board uses an equating curve that adjusts for difficulty, so two test-takers might answer different numbers of questions correctly but get the same scaled score if their tests had different difficulty levels.",
+        "The 800/800 ceiling means you can't compensate for one weak section with a stellar other section if you're aiming for the highest scores. To break 1500, you typically need at least 730 in both sections. If your Math is 800 but Reading and Writing is 600, that's a 1400 composite, which still slips you out of the top tier. Schools like MIT will look at your Math score in isolation; humanities-leaning schools (Yale, Brown) may weight Reading and Writing slightly more, but officially most schools say they look at the composite."
+      ),
+      createAnswerFirstSection(
+        "Practice, Retakes and Superscoring",
+        "The average student improves by 60 to 90 points after one retake, and by 100 to 150 points after structured prep over 3 to 6 months. The College Board's free official practice tests on Khan Academy give you a realistic baseline. Plan to take the SAT once in spring of junior year, then retake in the fall of senior year if you want to push the score up before applications close in early January.",
+        "Most US universities now superscore: they take your highest section score from any sitting and combine them into a personal best composite. So if you got 700 Reading and Writing + 650 Math in March, then 680 Reading and Writing + 720 Math in October, your superscore is 700 + 720 = 1420, even though you never achieved that composite on a single test. Stanford, MIT, Yale and most Ivies superscore. Some, like Caltech (until recently test-optional), don't. Always check the school's specific policy. For grade conversion if you're applying internationally, use the [grade conversion tool](/grade-conversion-tool) to translate your US GPA for non-US universities."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a good SAT score in 2026?",
+        "A good score depends on your target school. The national average is around 1050. 1200 is solid for most four-year colleges. 1400 puts you in the top 5% of test-takers and clears most selective private universities. 1500+ is competitive for the Ivy League. For a top-tier engineering or computer science programme (MIT, Caltech, Stanford), aim for 1550+ with the Math section at 780 or higher."
+      ),
+      createFAQ(
+        "Is the SAT still required for college admissions?",
+        "It depends. After 2020, many universities went test-optional. Some have stayed test-optional permanently (most of the UC system, Wake Forest), some reinstated the requirement (MIT in 2022, Dartmouth and Yale in 2024 for the class of 2029), and some are still flexible. Check each target school's website for the current policy. For test-optional schools, submitting a strong score (1450+) usually helps; submitting a weak one (1100 or below) may hurt versus not submitting at all."
+      ),
+      createFAQ(
+        "How is the SAT percentile calculated?",
+        "The percentile shows what percentage of test-takers scored at or below your score. So a 1300 at the 87th percentile means 87% of people who took the SAT scored 1300 or lower. The College Board publishes percentiles annually based on the most recent three years of test-takers. The percentile drifts slightly each year as the test population changes; this calculator uses representative figures from recent years."
+      ),
+      createFAQ(
+        "Can I send only my best scores to colleges?",
+        "If your school superscores, they'll automatically take your highest section scores across all sittings. Score Choice is a separate College Board feature: it lets you choose which test dates' scores get sent to a school, but each chosen sitting is sent in full (you can't send Math from one date and Reading from another). Some schools (Yale until recently, Georgetown) require all scores from all sittings; check each school's policy before paying score-send fees."
+      ),
+      createFAQ(
+        "How does the SAT compare to the ACT?",
+        "Both are accepted by virtually all US universities. The SAT runs 200-800 per section for a 1600 max; the ACT runs 1-36 per section for a 36 max composite. Roughly, SAT 1500 = ACT 34, SAT 1400 = ACT 31, SAT 1300 = ACT 28, SAT 1200 = ACT 25. Take a practice test of each if you're undecided; some students naturally do better on one than the other based on test format and pacing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-gpa-calculator", label: "US GPA Calculator" },
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+      { slug: "grade-conversion-tool", label: "International Grade Converter" },
+      { slug: "us-school-grade-calculator", label: "US School Grade Calculator" },
+    ],
+  },
 };

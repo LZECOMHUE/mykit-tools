@@ -924,4 +924,448 @@ export const seasonalSEO = {
       { slug: "when-is-christmas", label: "When Is Christmas?" },
     ],
   },
+
+  "halloween-costume-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Costume Generator Picks Ideas",
+        "Pick a style (scary, funny, creative, group, couples, last-minute), pick an age band, and the tool pulls a costume idea from a pre-built database of around 400 entries. Each result includes a one-line description, a materials list of the components you'd need, and a rough budget estimate split into 'mostly from your wardrobe', 'a fiver at a charity shop', or 'proper Amazon order'. Hit generate again for a fresh idea in the same style.",
+        "If a costume needs something specific (a witch hat, a clown wig), it's flagged so you know what you can't fake with bin bags. Couples and group ideas show all roles in one card; last-minute ideas are filtered to costumes that need fewer than four items, all of which most homes already have somewhere."
+      ),
+      createAnswerFirstSection(
+        "When You'd Actually Use This",
+        "Two main moments. First, mid-October when you've remembered a Halloween party is in two weeks and you've used your one good costume idea last year. Second, the night before a school dress-up day when your child has decided 'something Halloween-y' at 8pm. The last-minute filter exists for that second case specifically.",
+        "For school events, stick to the funny or creative styles; scary tends to get vetoed by teachers. For adult parties the group and couples filters are useful if you're attending with a partner or housemates and want a coordinated look without a planning meeting."
+      ),
+      {
+        heading: "Costume Style Quick Reference",
+        table: {
+          headers: ["Style", "Typical Cost", "Setup Time", "Best For"],
+          rows: [
+            ["Scary", "£20-£50", "1-3 hours", "Adult parties, teens"],
+            ["Funny", "£10-£30", "30-60 min", "Office, school staff"],
+            ["Creative", "£15-£40", "1-2 hours", "Costume contests"],
+            ["Group", "£15-£30 each", "2-4 hours", "Mates, families"],
+            ["Couples", "£20-£40 total", "1-2 hours", "Date nights"],
+            ["Last-minute", "£0-£10", "Under 30 min", "Forgot until tonight"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Tips That Save the Costume",
+        "Charity shops are the secret weapon. A black blazer, a clip-on tie, and an old bedsheet cover roughly 60% of the database between them. Check the Halloween aisle of supermarkets for cheap accessories (fangs, fake blood, witch hats) but skip the full pre-packaged costumes; they're typically £25 for thin polyester that rips before midnight.",
+        "If the result feels too costume-shop-generic, swap one element for something specific to you. A scientist who's also wearing your actual band T-shirt becomes 'mad scientist who came from the gig'. The specificity is what gets people asking about it. Pair this with the [Halloween Costume Idea Generator](/halloween-costume-idea-generator) for a second opinion if the first idea doesn't land."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are the costume ideas safe for kids?",
+        "Yes when you select the 3-7 or 8-12 age bands. Kid-band costumes skip fake blood, weapons, sharp accessories, and anything that needs face-paint near the eyes. Witches, ghosts, pumpkins, animals and superheroes dominate the kid filter. The teen and adult bands open up the scary category, including Saw, Pennywise and Michael Myers references that aren't suitable for under-12s."
+      ),
+      createFAQ(
+        "What if I don't have time to shop?",
+        "Use the last-minute filter. Every costume in that filter assumes you have only what's already in your house: black clothes, a white sheet, kitchen foil, a cardboard box, marker pens, and old makeup. Classics like 'ghost in a sheet', 'cereal killer' (cereal box stuck on with a plastic knife), 'identity thief' (sticky labels with random names) all qualify."
+      ),
+      createFAQ(
+        "Can I generate group costumes?",
+        "Yes, switch the style filter to 'group'. The result will list every role in one card so you can decide who plays what. Common templates include the Scooby-Doo gang (5 people), Stranger Things kids (4-6), Wizard of Oz (4), and Mario Kart (any number). Couples is its own filter because two-person costumes work differently from groups of four or more."
+      ),
+      createFAQ(
+        "How accurate are the budget estimates?",
+        "Treat them as a guide. The estimates assume average UK high-street prices for new accessories and Amazon prices for specific props (wigs, contact lenses). If you raid Vinted, eBay or your loft, you'll easily come in under the lowest estimate. If you splurge on professional makeup or a tailored costume from a Halloween shop, you'll exceed the highest. The number is meant to help you set expectations, not give you a quote."
+      ),
+      createFAQ(
+        "Will I get the same costume twice?",
+        "The generator avoids repeating an idea within a session of clicks, so you can mash generate ten times in a row and see ten different ideas. If you reload the page or come back tomorrow, the pool resets. Around 400 entries split across six styles and four age bands gives you enough variety to find something you actually want to wear."
+      ),
+    ],
+    relatedTools: [
+      { slug: "halloween-costume-idea-generator", label: "Halloween Costume Idea Generator" },
+      { slug: "when-is-halloween", label: "When Is Halloween?" },
+      { slug: "halloween-word-search", label: "Halloween Word Search" },
+    ],
+  },
+
+  "when-is-halloween": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Halloween in 2026?",
+        "Halloween 2026 falls on Saturday 31 October. The date never moves: Halloween is always 31 October, every year, in every country that observes it. What changes is the day of the week, which matters because a Halloween that lands on a weekend tends to mean bigger parties, more trick-or-treaters, and supermarkets that run out of pumpkins by mid-afternoon.",
+        "In 2027 Halloween is on Sunday 31 October. In 2028 it's a Tuesday, in 2029 a Wednesday. The next time Halloween falls on a Friday is 2031, and the next Saturday Halloween after 2026 is 2032. The countdown on this page updates live to the second from your local time zone."
+      ),
+      {
+        heading: "Halloween Day-of-the-Week Through 2030",
+        table: {
+          headers: ["Year", "Day", "Notes"],
+          rows: [
+            ["2026", "Saturday", "Best year for adult parties this decade"],
+            ["2027", "Sunday", "Trick-or-treating tends to start earlier"],
+            ["2028", "Tuesday", "Quieter, mid-week, school night"],
+            ["2029", "Wednesday", "School night, parties shift to weekend"],
+            ["2030", "Thursday", "Closer-to-weekend feel, parties Friday/Saturday"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Why It's on 31 October",
+        "Halloween's date traces back to Samhain, the Gaelic festival marking the end of harvest and start of winter, observed on 31 October into 1 November. The Christian church mapped All Saints' Day onto 1 November in the 8th century, making the night before 'All Hallows' Eve' (eventually contracted to Halloween). The date is fixed because it sits exactly halfway between the autumn equinox and the winter solstice, which is what made it astronomically meaningful to the Celtic cultures that started the tradition.",
+        "The modern American version (with costumes, trick-or-treating, jack-o-lanterns, and candy) developed mostly in the late 19th and early 20th centuries from Irish and Scottish immigrant traditions. Pumpkin carving replaced the original turnip-carving because pumpkins were easier to find and bigger to carve in the US. Britain re-imported the American version in the 1990s, which is why older relatives often grumble that Halloween 'wasn't really a thing here' before then."
+      ),
+      createAnswerFirstSection(
+        "Planning Around the Date",
+        "If you're hosting a party and 31 October is mid-week, most people shift the party to the closest Friday or Saturday. In 2026 you've got the easiest year of the decade because the date itself is a Saturday. Decorations and pumpkins are best bought in the last two weeks of October; supermarkets stock up around 15 October and clear out by 1 November.",
+        "Trick-or-treating in the UK typically runs 6pm to 8pm. Houses signal participation by leaving a porch light on and putting a pumpkin out front; no light tends to mean 'we'd rather not'. Schools usually have dress-up days on the closest Friday rather than 31 October itself. Pair this with the [Halloween Costume Generator](/halloween-costume-generator) if you've left the costume planning until October."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many days until Halloween?",
+        "The countdown at the top of the page updates live every second based on your local time. As of late April, that's roughly 6 months and counting down. The countdown rolls over to the next year automatically once 31 October passes, so it always shows the next upcoming Halloween."
+      ),
+      createFAQ(
+        "Is Halloween on the same date every year?",
+        "Yes. 31 October every year, no exceptions. Unlike Easter (which moves with the lunar calendar) or Mother's Day (which is the fourth Sunday of Lent in the UK), Halloween's date is fixed to the Gregorian calendar. Only the day of the week changes year to year."
+      ),
+      createFAQ(
+        "Why does the day of the week matter?",
+        "Practically, weekend Halloweens (Friday-Sunday) mean bigger turnout for parties and trick-or-treating, more decoration on people's houses, and more sold-out costume sizes if you leave it late. Mid-week Halloweens are quieter and often shifted to the weekend before or after. 2026 is a Saturday, which is the most-anticipated configuration."
+      ),
+      createFAQ(
+        "Is Halloween a public holiday?",
+        "Not in the UK, US, Canada, Ireland, Australia, or any other major Halloween-celebrating country. Schools and offices are open as normal. The closest thing to an official observance is the bank holiday status of Reformation Day (31 October) in some German states, which is unrelated."
+      ),
+      createFAQ(
+        "When did Halloween start being celebrated in the UK?",
+        "Halloween has Celtic roots in the British Isles going back over 2,000 years (Samhain), but the modern trick-or-treating, costume-shop, jack-o-lantern version is mostly post-1990. Older generations tend to remember it as a much smaller affair than the current scale. The growth from the 90s onwards is largely down to American TV, films, and supermarket marketing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "halloween-costume-generator", label: "Halloween Costume Generator" },
+      { slug: "halloween-word-search", label: "Halloween Word Search" },
+      { slug: "when-is-christmas", label: "When Is Christmas?" },
+    ],
+  },
+
+  "when-is-ramadan": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Ramadan in 2026?",
+        "Ramadan 2026 is expected to begin at sunset on Tuesday 17 February 2026 and run until the evening of Thursday 19 March 2026, lasting 30 days. Eid al-Fitr, the festival that marks the end of Ramadan, falls on Friday 20 March 2026. These dates are based on astronomical calculation and may shift by a day either side depending on local moon-sighting (the Hilal).",
+        "In 2027 Ramadan is expected to start on Saturday 6 February. Because the Islamic calendar is purely lunar (12 lunar months totalling 354 days), Ramadan moves forward roughly 11 days each year against the Gregorian calendar, gradually rotating through every season over a 33-year cycle. The countdown on this page tracks the next Ramadan from your local time."
+      ),
+      createAnswerFirstSection(
+        "Why the Date Moves Each Year",
+        "The Islamic Hijri calendar is built on lunar months that begin with the sighting of the new crescent moon. A lunar year is about 354 days long, 11 days shorter than the solar year. That difference is why Ramadan slides earlier each year against Gregorian dates, and why a child born in summer Ramadan will, by their thirties, have lived through Ramadan in every season.",
+        "Two methods determine the start: physical moon-sighting (used in Saudi Arabia, the UK Council of Mosques, and most traditional communities) and astronomical calculation (used by the Fiqh Council of North America and some other bodies). The two can disagree by a day. Most UK mosques publish their official start date a day or two beforehand once the moon is sighted, which is why predicted dates are sometimes off by 24 hours."
+      ),
+      {
+        heading: "Ramadan Start Dates 2026 to 2030",
+        table: {
+          headers: ["Year", "Predicted Start", "Eid al-Fitr"],
+          rows: [
+            ["2026", "Tue 17 Feb", "Fri 20 Mar"],
+            ["2027", "Sat 6 Feb", "Mon 8 Mar"],
+            ["2028", "Wed 26 Jan", "Fri 25 Feb"],
+            ["2029", "Sun 14 Jan", "Tue 13 Feb"],
+            ["2030", "Thu 3 Jan", "Sat 2 Feb"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How Ramadan Is Observed",
+        "Adult Muslims fast from dawn (Fajr) to sunset (Maghrib) every day, abstaining from food, drink (including water), smoking, and intimate relations during daylight hours. The fast is broken at sunset with iftar, traditionally with dates and water following the Prophet Muhammad's example, then a full meal. Suhoor is the pre-dawn meal eaten before fasting begins.",
+        "Children, pregnant or nursing women, the sick, elderly, travellers, and menstruating women are exempt and can either make up the days later or pay fidya (a charitable donation) instead. The fast is one of the Five Pillars of Islam and the spiritual focus through the month is on increased prayer, Quran recitation, and charity (zakat is often paid before Eid)."
+      ),
+      createAnswerFirstSection(
+        "What Eid al-Fitr Is",
+        "Eid al-Fitr (the 'Festival of Breaking the Fast') marks the end of Ramadan and falls on the first day of Shawwal, the next Islamic month. The day starts with a special communal Eid prayer at the mosque, often at dawn or shortly after, followed by family visits, gift exchanges (especially for children), and meals shared with friends and extended family. Many UK Muslims take the day off work; some employers grant it as flexible religious leave.",
+        "Eid al-Fitr typically lasts 1 to 3 days depending on the country. It's distinct from Eid al-Adha (the 'Festival of Sacrifice') which falls about two months later and marks the end of the Hajj pilgrimage. Use the [When Is Diwali](/when-is-diwali) tool to check overlapping festival dates."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does Ramadan last?",
+        "Either 29 or 30 days, depending on the lunar cycle. The new month begins with the sighting of the next crescent moon. If the moon is sighted on the 29th evening, Ramadan ends and Eid is the next day; if not sighted, Ramadan runs for a 30th day. In 2026 Ramadan is forecast to last the full 30 days."
+      ),
+      createFAQ(
+        "Why do dates differ between countries?",
+        "Some countries follow Saudi Arabia's official moon-sighting (which uses both naked-eye and astronomical observation from Mecca), others follow local sightings, and some follow pre-calculated astronomical dates. As a result, Ramadan can start on different days in different countries, with shifts of up to a day either way. The UK typically follows the Wifaqul Ulama / Council of Mosques announcement."
+      ),
+      createFAQ(
+        "Do non-Muslims need to do anything during Ramadan?",
+        "No religious obligation, but courtesy goes a long way. If a colleague or friend is fasting, avoid scheduling lunch meetings if possible, don't take offence if they decline coffee, and don't expect the same energy levels late in the working day. Many fasting Muslims appreciate being asked rather than treated as fragile, so a friendly 'how's your fast going' tends to land better than tiptoeing around it."
+      ),
+      createFAQ(
+        "Can you drink water during Ramadan?",
+        "No. The fast covers all food and drink, including water, from dawn to sunset. This is the reason Ramadan is harder during long summer days (UK summer can mean 18+ hours of fasting) and easier during winter Ramadans (8-10 hours). 2026's February Ramadan in the UK falls in the easier seasonal window."
+      ),
+      createFAQ(
+        "What is Laylat al-Qadr?",
+        "The 'Night of Power' is considered the holiest night of the year, traditionally falling on one of the odd-numbered nights of the last 10 days of Ramadan (most commonly the 27th night). It commemorates the night the Quran was first revealed to the Prophet Muhammad. Many Muslims spend the night in extra prayer, and the rewards of worship on this night are believed to be greater than those of a thousand months."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-diwali", label: "When Is Diwali?" },
+      { slug: "when-is-hanukkah", label: "When Is Hanukkah?" },
+      { slug: "when-is-easter", label: "When Is Easter?" },
+    ],
+  },
+
+  "when-is-diwali": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Diwali in 2026?",
+        "Diwali 2026 falls on Sunday 8 November 2026. The five-day festival runs from Friday 6 November (Dhanteras) through to Tuesday 10 November (Bhai Dooj), with the main Diwali night, Lakshmi Puja, on the third day. The exact date shifts each year because Diwali is set by the Hindu lunisolar calendar, not the Gregorian one.",
+        "In 2027 Diwali falls on Friday 29 October. The festival is always on the Amavasya (new moon) of the month of Kartika, which puts it somewhere between mid-October and mid-November. Deepavali (the longer Sanskrit name) is the same festival; Diwali is the contracted, more commonly used Hindi form."
+      ),
+      createAnswerFirstSection(
+        "The Five Days of the Festival",
+        "Day 1 is Dhanteras, when families clean the house and buy something gold or silver as a symbol of prosperity. Day 2 is Naraka Chaturdasi (or 'Choti Diwali'), with smaller-scale lights and the symbolic defeat of the demon Narakasura. Day 3 is the main Diwali night, with elaborate diyas (oil lamps), rangoli patterns at the door, fireworks, family meals, and the Lakshmi Puja prayer to the goddess of wealth.",
+        "Day 4 is Govardhan Puja or Annakut, marking Krishna lifting Mount Govardhan to shelter villagers from rain. Day 5 is Bhai Dooj, when sisters perform a tilak ceremony for their brothers and exchange gifts. Outside South Asia, most diaspora communities focus on Day 3, with the other days observed less elaborately."
+      ),
+      {
+        heading: "Diwali Dates 2026 to 2030",
+        table: {
+          headers: ["Year", "Main Diwali Date", "Day"],
+          rows: [
+            ["2026", "8 November", "Sunday"],
+            ["2027", "29 October", "Friday"],
+            ["2028", "17 November", "Friday"],
+            ["2029", "5 November", "Monday"],
+            ["2030", "26 October", "Saturday"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Why Lights Are Central to Diwali",
+        "The name Diwali comes from the Sanskrit 'Deepavali', meaning 'row of lamps'. The festival celebrates the return of Lord Rama to Ayodhya after defeating the demon king Ravana, symbolised by the city lighting rows of oil lamps to guide him home. The deeper symbolism is the victory of light over darkness, knowledge over ignorance, and good over evil.",
+        "Modern celebrations use a mix of traditional clay diyas, candles, and electric fairy lights. Rangoli patterns (intricate floor designs in coloured rice, sand, or chalk) are drawn at the door to welcome Lakshmi. Fireworks have become an issue in cities like Delhi where air quality crashes after Diwali night; the UK observance is typically quieter, with public displays in cities like Leicester (which hosts one of the largest celebrations outside India)."
+      ),
+      createAnswerFirstSection(
+        "How to Mark Diwali if You're New to It",
+        "If you're invited to a Diwali celebration, bring sweets (mithai) or a small wrapped gift; flowers and chocolates are also fine. Avoid leather items as a gift (Lakshmi is associated with cows). Wear bright colours; black and white are considered inauspicious for the festival. Take your shoes off at the door, as you would for any Hindu home occasion.",
+        "If you want to mark it at home, lighting a few diyas at the front door at sunset is the simplest gesture. Saying 'Happy Diwali' or 'Subh Deepavali' is welcome from anyone. Use the [When Is Ramadan](/when-is-ramadan) tool to check whether Diwali overlaps with Ramadan in any given year (it sometimes does, and many cities run joint multifaith events in those years)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is Diwali a public holiday?",
+        "In India and several states with significant Hindu populations (Mauritius, Trinidad, Suriname, Fiji), yes. In the UK it is not a statutory holiday, but many employers offer flexible religious leave, and a number of state schools in cities like Leicester, Birmingham and Hounslow grant the day off given the size of the local community."
+      ),
+      createFAQ(
+        "Is Diwali only celebrated by Hindus?",
+        "No. Sikhs celebrate Bandi Chhor Divas on the same day, marking Guru Hargobind's release from imprisonment. Jains celebrate the spiritual liberation of Lord Mahavira. Newar Buddhists in Nepal also observe the festival. The shared theme is light, freedom, and renewal, even though the underlying historical reference differs by community."
+      ),
+      createFAQ(
+        "What food is eaten during Diwali?",
+        "Sweets dominate: laddoo, jalebi, barfi, kaju katli, and gulab jamun are festival staples. Savoury snacks like samosas, chakli, and namak pare are also typical. Families exchange large boxes of mixed mithai with friends and neighbours; in the UK, Indian sweet shops queue out the door in the days before Diwali."
+      ),
+      createFAQ(
+        "What's the difference between Diwali and Deepavali?",
+        "Same festival, two names. 'Diwali' is the more common Hindi/Punjabi short form used in North India and most of the UK diaspora. 'Deepavali' is the Sanskrit and Tamil form, more common in South India and Sri Lanka. The dates and observances are identical."
+      ),
+      createFAQ(
+        "Where can I see large Diwali celebrations in the UK?",
+        "Leicester hosts the largest Diwali celebration outside India, with hundreds of thousands attending lights switch-ons on Belgrave Road and a fireworks display. London (Trafalgar Square), Birmingham, Manchester, and Bradford all host significant public events. Most are free and open to all."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-chinese-new-year", label: "When Is Chinese New Year?" },
+      { slug: "when-is-hanukkah", label: "When Is Hanukkah?" },
+      { slug: "when-is-ramadan", label: "When Is Ramadan?" },
+    ],
+  },
+
+  "when-is-mothers-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Mother's Day in the UK and US?",
+        "UK Mother's Day (properly called Mothering Sunday) falls on Sunday 15 March 2026. In 2027 it lands on Sunday 14 March 2027. The UK date is always the fourth Sunday of Lent, which means it moves with Easter and lands somewhere between early March and early April every year.",
+        "US Mother's Day falls on Sunday 10 May 2026. It's always the second Sunday in May, every year, so it doesn't move much: somewhere between 8 and 14 May. Australia, Canada, India, China, Japan and most of the rest of the world follow the May date; the UK and Ireland are the major outliers with the March one."
+      ),
+      createAnswerFirstSection(
+        "Why the UK Date Is Different",
+        "Mothering Sunday is much older than the American invention. It dates back to a 16th-century Christian tradition where servants and apprentices were given the day off to return to their 'mother church' (the cathedral or main parish where they were baptised). Over time it became a day to visit one's actual mother as well, and the religious aspect mostly faded.",
+        "The American version was invented in 1908 by Anna Jarvis as a memorial to her own mother and was federally recognised in 1914. When the holiday spread internationally through the 20th century, most countries adopted the American May date. The UK's March date stuck because Mothering Sunday already existed as a tradition, even if commercial Mother's Day later layered on top of it."
+      ),
+      {
+        heading: "UK Mother's Day Dates 2026 to 2030",
+        table: {
+          headers: ["Year", "UK Date", "US Date"],
+          rows: [
+            ["2026", "Sun 15 Mar", "Sun 10 May"],
+            ["2027", "Sun 14 Mar", "Sun 9 May"],
+            ["2028", "Sun 26 Mar", "Sun 14 May"],
+            ["2029", "Sun 11 Mar", "Sun 13 May"],
+            ["2030", "Sun 31 Mar", "Sun 12 May"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How People Mark It",
+        "In the UK, the most common gestures are flowers (typically delivered the day before to avoid Sunday delivery issues), a card, breakfast in bed, lunch out, or a phone call. Garden centres and florists post their busiest single weekend of the year. Restaurant lunchtime bookings spike enormously; if you want a Sunday roast for Mother's Day, book by mid-February at the latest.",
+        "In the US, brunch is the dominant tradition; second-Sunday-in-May restaurants are the busiest brunch services of the year by a clear margin. Flowers, cards, and chocolates feature on both sides of the Atlantic. Pair this with the [Mother's Day Gift Idea Generator](/mothers-day-gift-idea-generator) if you're stuck for ideas."
+      ),
+      createAnswerFirstSection(
+        "If You Have a Stepmother, Foster Mother, or Lost Your Mother",
+        "There's no single right way to handle these. Many people send a card to a stepmother as a separate gesture, or split flowers between two households. For people whose mother has died, the day can be hard, and it's increasingly common to acknowledge it on social media as a day of remembrance rather than celebration. Charities including Care for the Family and Marie Curie publish guidance on this every year if you're supporting someone through their first Mother's Day after a bereavement."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between Mothering Sunday and Mother's Day?",
+        "Historically, very different. Mothering Sunday is the centuries-old Christian observance tied to the fourth Sunday of Lent. Mother's Day is the secular, American-origin holiday created in 1908. In modern UK usage they're treated as the same thing on the same date, though older churchgoers may use 'Mothering Sunday' specifically."
+      ),
+      createFAQ(
+        "Why does the UK date move every year?",
+        "Because it's tied to Easter, which is itself tied to the lunar calendar (the first Sunday after the first full moon following the spring equinox). Mothering Sunday is exactly three weeks before Easter Sunday. So the UK date can land anywhere between 1 March and 4 April."
+      ),
+      createFAQ(
+        "Do Australia and Canada follow the UK or US date?",
+        "Both follow the US date: second Sunday in May. So do New Zealand, India, China, Japan, and most of Europe (with the major exception of Norway, which goes for the second Sunday in February). The UK and Ireland are the main March-date outliers."
+      ),
+      createFAQ(
+        "Should I send a card to my mother-in-law on UK Mother's Day?",
+        "It's a thoughtful gesture and increasingly common, but not universally expected. If you're not sure how she'd take it, ask your partner; many older mothers-in-law appreciate the acknowledgement, while others would prefer their own children to handle it. A card always lands well; flowers can feel like overstepping if your relationship is more formal."
+      ),
+      createFAQ(
+        "When did Mother's Day become commercial?",
+        "Almost immediately. Anna Jarvis, who founded the US holiday, was so disgusted by the commercialisation of cards and flowers within a decade that she spent the rest of her life campaigning to have it abolished. She lost. By the 1920s the floral and greeting-card industries were treating it as one of their biggest revenue events of the year, which is exactly the situation today."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mothers-day-gift-idea-generator", label: "Mother's Day Gift Idea Generator" },
+      { slug: "when-is-fathers-day", label: "When Is Father's Day?" },
+      { slug: "when-is-easter", label: "When Is Easter?" },
+    ],
+  },
+
+  "when-is-fathers-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Father's Day in 2026?",
+        "UK and US Father's Day 2026 falls on Sunday 21 June 2026. Both countries observe it on the third Sunday of June every year, so it always lands somewhere between 15 and 21 June. Australia and New Zealand, however, observe it on the first Sunday of September; in 2026 that's Sunday 6 September.",
+        "In 2027, UK and US Father's Day is Sunday 20 June; Australian Father's Day is Sunday 5 September. The UK and US dates have stayed in sync since the holiday's adoption in the early 20th century, while Australia, New Zealand and several other Commonwealth countries chose September to keep some daylight separation from US Father's Day in their own calendars."
+      ),
+      createAnswerFirstSection(
+        "Why Father's Day Exists",
+        "Father's Day was created by Sonora Smart Dodd in Spokane, Washington, in 1910, as a deliberate counterpart to the recently established Mother's Day. Unlike Mother's Day, Father's Day took 60 years to gain federal recognition in the US (President Nixon signed it into law in 1972). British observance is largely 20th-century imported and follows the American date.",
+        "Australia's first Sunday of September date emerged in the 1930s, partly because September fits cleanly into the Australian school year (start of spring) without overlapping the heavy May-June run of Mother's Day, Anzac Day, and the King's Birthday weekend. New Zealand and Papua New Guinea followed the same logic."
+      ),
+      {
+        heading: "Father's Day Dates 2026 to 2030",
+        table: {
+          headers: ["Year", "UK & US", "Australia & NZ"],
+          rows: [
+            ["2026", "Sun 21 Jun", "Sun 6 Sep"],
+            ["2027", "Sun 20 Jun", "Sun 5 Sep"],
+            ["2028", "Sun 18 Jun", "Sun 3 Sep"],
+            ["2029", "Sun 17 Jun", "Sun 2 Sep"],
+            ["2030", "Sun 16 Jun", "Sun 1 Sep"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How People Mark It",
+        "Cards, gifts, a phone call, a pub lunch, breakfast in bed; the rituals are similar to Mother's Day but lower-key. UK retail data shows Father's Day spend is consistently about 60-70% of Mother's Day spend per household. Common gifts include socks (the joke that's also accurate), tools, BBQ kit, alcohol, fishing or golf gear, and books.",
+        "If your dad's hard to buy for (the perennial complaint), the experience-gift route tends to work better than another tie: a day at the cricket, a brewery tour, a driving day. Pair this with the [Father's Day Gift Idea Generator](/fathers-day-gift-idea-generator) if you've genuinely run out of ideas."
+      ),
+      createAnswerFirstSection(
+        "If You Don't Have a Relationship with Your Father",
+        "Father's Day is harder than Mother's Day for many people because father absence is more common than mother absence and the day is heavily marketed. There's no obligation to participate in Father's Day at all, and many people use the day to celebrate stepfathers, grandfathers, uncles, mentors, or single mothers who filled the role. Sending an acknowledgement to whichever parental figure shaped you most is more in the spirit of the day than ticking the biological-father box."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why is Australia's Father's Day in September?",
+        "Australia adopted the September date in the 1930s as it fit better with the Australian calendar (early spring, less crowded with other events) and gave separation from the US date. New Zealand, Fiji and Papua New Guinea followed. The UK kept the June date because British observance was filtered directly from American practice."
+      ),
+      createFAQ(
+        "Is Father's Day a public holiday?",
+        "No. Father's Day is not a public holiday in the UK, US, Australia, Canada or any other country that observes it. It always falls on a Sunday, which means it's already a weekend day for most people, removing the need for a separate bank holiday."
+      ),
+      createFAQ(
+        "When did Father's Day become commercial?",
+        "Like Mother's Day, almost immediately on adoption. The greeting card industry began promoting Father's Day in the 1920s and 30s. The current scale (cards, supermarket gift sections, alcohol marketing) is entirely a post-war retail invention; older generations often note that Father's Day 'didn't really happen' in their childhoods."
+      ),
+      createFAQ(
+        "Is Father's Day always on the third Sunday of June?",
+        "In the UK, US, Canada, France, India, Japan and most of Europe and Asia, yes. In Australia, New Zealand, Fiji and PNG it's the first Sunday of September. Spain and Portugal observe it on 19 March (St Joseph's Day), Russia on 23 February, and Germany on Ascension Day (always a Thursday, 39 days after Easter). So 'always third Sunday of June' is mostly true with major exceptions."
+      ),
+      createFAQ(
+        "Does Father's Day fall on the same Sunday as the start of Wimbledon?",
+        "Coincidentally close most years. Wimbledon traditionally starts the Monday before the first full week of July, and Father's Day is the third Sunday of June, so the two often fall within a week of each other. In 2026, Father's Day is Sunday 21 June and Wimbledon starts Monday 29 June; eight days apart."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fathers-day-gift-idea-generator", label: "Father's Day Gift Idea Generator" },
+      { slug: "when-is-mothers-day", label: "When Is Mother's Day?" },
+      { slug: "when-is-christmas", label: "When Is Christmas?" },
+    ],
+  },
+
+  "when-is-black-friday": {
+    sections: [
+      createAnswerFirstSection(
+        "When Is Black Friday in 2026?",
+        "Black Friday 2026 is Friday 27 November 2026. It always falls on the day after US Thanksgiving, which is itself the fourth Thursday of November. Cyber Monday, the online-shopping companion event, falls on Monday 30 November 2026. In 2027 Black Friday is Friday 26 November and Cyber Monday is Monday 29 November.",
+        "Most major retailers in the UK, US and Europe now extend Black Friday into a week-long or fortnight-long event called 'Black Friday Week' or 'Black November', so the 27 November date is more accurately the centrepiece than a one-day-only sale. Amazon's 'Black Friday Sale' typically runs from around 21-22 November through to Cyber Monday."
+      ),
+      createAnswerFirstSection(
+        "Where the Name Comes From",
+        "The 'Black Friday' name has two origin stories. The earliest documented use is Philadelphia police in the 1960s, who used it to describe the chaotic Friday after Thanksgiving when suburban shoppers and football fans flooded into the city. The more popular retail explanation, that it's the day stores moved 'into the black' (profit) for the year, was a 1980s reframing by retailers who wanted to scrub the negative police-chaos meaning.",
+        "Cyber Monday was coined in 2005 by Shop.org to capture the spike in online shopping that occurred when people returned to their work computers (and faster broadband connections) on the Monday after Thanksgiving. With home broadband now universal, the original logic is dead, but the date stuck."
+      ),
+      {
+        heading: "Black Friday Dates 2026 to 2030",
+        table: {
+          headers: ["Year", "Black Friday", "Cyber Monday"],
+          rows: [
+            ["2026", "Fri 27 Nov", "Mon 30 Nov"],
+            ["2027", "Fri 26 Nov", "Mon 29 Nov"],
+            ["2028", "Fri 24 Nov", "Mon 27 Nov"],
+            ["2029", "Fri 23 Nov", "Mon 26 Nov"],
+            ["2030", "Fri 29 Nov", "Mon 2 Dec"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Are the Deals Actually Good?",
+        "Mixed. Which? has run year-on-year price-tracking studies showing that around half of Black Friday 'deals' are at the same or higher price as some point in the previous six months. The genuinely sharp discounts tend to cluster on Amazon's own-brand devices (Echo, Fire, Kindle), specific tech models that are about to be replaced (last-gen iPhones, last-year-flagship TVs), and own-brand fashion lines.",
+        "The honest play is to know the price you'd pay normally before you start. Use price-tracking tools like CamelCamelCamel for Amazon, or Idealo for general UK retail, to confirm a genuine markdown rather than a marketed one. Pair with the [Discount Calculator](/discount-calculator) to work out what a stacked offer (e.g. '50% off plus extra 20%') actually saves you."
+      ),
+      createAnswerFirstSection(
+        "When to Shop What",
+        "Tech and large appliances tend to drop most heavily on Black Friday Friday itself, especially Amazon flagship-device deals and TV manufacturer markdowns. Clothing and beauty often see better discounts in the Cyber Monday and Cyber Week stretch. Toys begin discounting in early November and tend to deepen as Christmas approaches, so Black Friday itself isn't always the toy-buying peak.",
+        "Avoid the in-store frenzy entirely; the days of 5am queues outside Currys are largely over since UK retailers shifted Black Friday almost entirely online. The 'doorbuster' culture that produced the famous American crowd-trampling videos never properly took hold in the UK and is fading even in the US."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is Black Friday a UK thing or imported?",
+        "Imported, recently. Black Friday only properly arrived in the UK in 2010 when Amazon UK ran its first promotion, and it became culturally significant in 2014 when Asda imported the in-store version (briefly). It's now firmly part of the UK retail calendar but the in-store chaos peak has shifted online; the UK never had Thanksgiving as the trigger event the way the US did."
+      ),
+      createFAQ(
+        "What's the difference between Black Friday and Cyber Monday?",
+        "Almost nothing now. Originally Black Friday was an in-store event and Cyber Monday was the online catch-up day. Today both are predominantly online and most retailers run continuous deals through the whole period. Cyber Monday tends to skew slightly more towards electronics, software, and tech accessories; Black Friday Friday itself sees the deepest TV and headline-product markdowns."
+      ),
+      createFAQ(
+        "When do retailers start Black Friday deals?",
+        "Increasingly early. Major UK retailers (Amazon, Currys, John Lewis, Argos) now begin running 'early access' deals from around 1 November, with the deepest discounts traditionally landing on the Friday itself. Amazon's official Black Friday Sale typically runs from a week before through to Cyber Monday."
+      ),
+      createFAQ(
+        "What is Black Friday's busiest year on record?",
+        "Online sales records have been set every year since 2010 in the UK; Adobe Analytics tracks US online spend at over $9 billion on Black Friday alone in recent years, with another $12 billion+ on Cyber Monday. UK figures are smaller but follow the same upward trajectory. The growth has slowed since the post-pandemic peak of 2021."
+      ),
+      createFAQ(
+        "Should I wait for Boxing Day sales instead?",
+        "Often the answer for clothing, homeware, and furniture, where Boxing Day discounts can be deeper than Black Friday. For tech and electronics, Black Friday tends to win. The pragmatic approach: if you've found a genuine 30%+ markdown on a tracked item during Black Friday, take it; if the discount is thin, hold for Boxing Day or January sales."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-thanksgiving", label: "When Is Thanksgiving?" },
+      { slug: "when-is-christmas", label: "When Is Christmas?" },
+      { slug: "discount-calculator", label: "Discount Calculator" },
+    ],
+  },
 };

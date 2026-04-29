@@ -1068,4 +1068,573 @@ export const gameSEO = {
       { slug: "random-number-generator", label: "Random Number Generator" },
     ],
   },
+
+  "dice-roller": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Roll Dice Online",
+        "Pick the die size (d4, d6, d8, d10, d12, d20 or d100), set how many you want, hit Roll. The total and individual rolls show together so you can read off both at once. Default is one d6 because that is what most board games need; tabletop players will usually swap to a d20.",
+        "The seven dice types cover every common tabletop need. d6 for Monopoly, Yahtzee and Settlers. d20 for D&D attack rolls. d100 (a 'percentile' die, usually two d10s) for Call of Cthulhu sanity checks or random encounter tables. d4 for damage on a small weapon, d8 for a longsword. If you are running a campaign and your physical dice bag is at a friend's house, this works as a stand-in for any system."
+      ),
+      createAnswerFirstSection(
+        "Are Online Dice Actually Random?",
+        "They use a pseudo-random number generator seeded by the browser, which is statistically indistinguishable from a fair physical die for game purposes. You will never spot a pattern in 100 rolls of a d20. The cryptographic point that 'true random' requires hardware entropy is real but irrelevant: nobody at your D&D table is doing chi-squared tests on your saving throws.",
+        "If you do want to be paranoid, the maths still favours the digital roll. A real d20 has manufacturing variance, gets dropped, chips, sits unevenly on a sloped table. Casino-grade precision dice cost £15 each and have to be replaced every few months in Vegas. Your browser's RNG was built by people who write banking software."
+      ),
+      createAnswerFirstSection(
+        "Reading Multi-Dice Rolls in TTRPGs",
+        "When a spell says '4d6' it means roll four six-sided dice and add them up. The roller does this in one click. '4d6 drop lowest' is the standard D&D ability score method: roll 4d6, throw away the lowest die, total the remaining three. Average roll using that method is about 12.24, versus 10.5 for a flat 3d6.",
+        "Some systems use 'advantage' (roll twice, take higher) or 'disadvantage' (roll twice, take lower). For an attack roll with advantage on a d20, your effective hit chance against AC 15 jumps from 30% to 51%. That is a much bigger swing than most players realise, which is why D&D 5e uses it as a substitute for granular bonuses. Use the [random number generator](/random-number-generator) for anything outside fixed dice sizes, like 1-37 for a roulette wheel."
+      ),
+      createAnswerFirstSection(
+        "Common Dice Notations Cheat Sheet",
+        "TTRPG notation is XdY+Z. X is the count, Y is the die size, Z is a flat modifier. So 2d6+3 means roll two six-sided dice and add 3 to the total, giving a range of 5 to 15 with an average of 10. The die count goes before the d and the modifier goes after.",
+        "Some systems extend the notation. 3d6kh2 means roll 3d6 and keep the highest 2. 2d20kl1 means roll twice and keep the lowest (D&D disadvantage). For most table use, you only need plain XdY plus a few practiced shortcuts. If you are also running a campaign budget, the [D&D cost calculator](/dnd-cost-calculator) breaks down what books and minis actually cost."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the average roll on a d20?",
+        "10.5. The probability is uniform across all 20 faces, so the expected value is (1+20)/2 = 10.5. Over a long campaign you will roll above and below this in roughly equal measure. Critical hits (20) and critical misses (1) each happen on 5% of rolls."
+      ),
+      createFAQ(
+        "How do I roll percentile dice (d100)?",
+        "Pick d100 in the roller and you get a single 1 to 100 result. With physical dice you would roll two d10s, one as the tens digit and one as the units (00 and 0 reads as 100). The maths is identical, the digital version just skips the step where you have to remember which die is which colour."
+      ),
+      createFAQ(
+        "Can I roll multiple different dice at once?",
+        "Not in a single click on this tool, but you can roll one set then another and add the totals. For something like a fireball spell at 8d6, roll 8 d6s once. For something like 2d8+1d6 (a longsword plus sneak attack), roll 2d8, then roll 1d6, then add the modifier."
+      ),
+      createFAQ(
+        "Why do tabletop systems use so many different dice?",
+        "Different probability curves. A d20 gives a flat distribution, perfect for attack rolls where every outcome should be equally likely. 3d6 gives a bell curve centred on 10-11, which feels more 'realistic' because extreme rolls become rare. d4 limits damage to a tight range; d12 lets a great-axe swing wildly. Each die is a tuning knob for designers."
+      ),
+    ],
+    relatedTools: [
+      { slug: "random-number-generator", label: "Random Number Generator" },
+      { slug: "coin-flip", label: "Coin Flip Simulator" },
+      { slug: "number-picker", label: "Number Picker" },
+    ],
+  },
+
+  "would-you-rather": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Play Would You Rather",
+        "Each round shows two options. Pick the one you would actually choose, then reveal what percentage of other players picked the same thing. The fun is not in the answer, it is in arguing about why your friend would pick wet socks over damp armpits. The best dilemmas have no obvious right answer; both options are slightly bad, or both are slightly great, and the reveal of the split is the punchline.",
+        "Use it as a car-journey game, a dinner-party icebreaker, or a 90-second team meeting opener. Nobody ever loses Would You Rather, which is its main feature. The questions sit roughly 50/50 on average so most arguments are real arguments, not consensus-and-move-on. If you want a sharper version with consequences, switch to [truth or dare](/truth-or-dare) instead."
+      ),
+      createAnswerFirstSection(
+        "Why Some Dilemmas Land and Others Flop",
+        "A great Would You Rather forces a real trade-off where both options have a clear cost. 'Fly like an eagle vs swim like a dolphin' lands because both are appealing, but each excludes the other forever. 'Eat dirt vs eat soap' flops because everyone picks the same and there is nothing to debate.",
+        "The classic structure is a superpower vs a superpower (small but constant vs huge but with a catch), a small annoyance vs a small annoyance (the wet socks family), or a moral coin-flip (save one stranger vs save ten people you do not know). Aim for splits between 35/65 and 50/50; closer to even means more table debate. The percentages on this tool come from a base of player picks, so you will see how your instincts compare to the crowd."
+      ),
+      createAnswerFirstSection(
+        "Using It With Different Groups",
+        "For a kids' party (ages 5 to 10), stick to physical or food-based dilemmas: 'live in a tree house vs live in a submarine', 'eat broccoli for every meal vs eat ice cream for every meal'. For teenagers, slightly bigger stakes work: 'never use social media vs never watch TV'. For adults, the moral grey-zone questions get the longest discussions: 'be famous but hated vs unknown but loved'.",
+        "Drinking-game version: pick the less-popular option and everyone else takes a sip. Roadtrip version: each person makes up the next pair, no Googling allowed. Office icebreaker version: stick to deliberately silly options because no one wants to reveal anything personal in a Monday stand-up. Pair it with [truth or dare](/truth-or-dare) when the group wants to push further than dilemmas allow."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should a round of Would You Rather last?",
+        "Five questions takes about 10 minutes if you actually debate each one. Ten questions fits a 30-minute car journey. Beyond 15 in a row and the format wears thin, so break with a different game and come back later. The ratio of debate to question matters more than the count."
+      ),
+      createFAQ(
+        "Are the answer percentages from real players?",
+        "The percentages reflect typical splits drawn from common pollings of these dilemmas. They are accurate to within a few points for the standard set. A few are intentionally lopsided (72/28 on bad teeth vs bad breath) to show that some 'tough' choices have a clear winner once you actually think about it."
+      ),
+      createFAQ(
+        "Can I make my own Would You Rather questions?",
+        "The strongest homemade ones use specific numbers, named places or named people, and force a sacrifice. 'Live in Bristol forever vs live in Edinburgh forever' beats 'live in a city you like vs a city you don't'. Specificity makes the dilemma stick. Write 10 of them in a notes app for your next group dinner; you'll get more mileage than from any pre-made list."
+      ),
+      createFAQ(
+        "What ages is Would You Rather suitable for?",
+        "Six and up for the family-friendly version. The questions on this tool are PG: no graphic, sexual or harmful content. For a younger crowd, lean on physical or food-based dilemmas. For a teen or adult crowd, the moral and lifestyle questions land harder."
+      ),
+    ],
+    relatedTools: [
+      { slug: "truth-or-dare", label: "Truth or Dare Generator" },
+      { slug: "never-have-i-ever", label: "Never Have I Ever" },
+      { slug: "trivia-quiz", label: "Trivia Quiz" },
+    ],
+  },
+
+  "trivia-quiz": {
+    sections: [
+      createAnswerFirstSection(
+        "How the 10-Question Trivia Quiz Works",
+        "Pick one of five categories (general knowledge, science, history, geography, pop culture), get 10 multiple-choice questions, score yourself out of 10. Each question has four options and one correct answer; you see the result and a percentage at the end. No timer, no penalty for wrong answers. It is the same format used by pub quiz apps and corporate ice-breakers.",
+        "The questions are drawn from a hand-curated set, not generated. That means they are checked against current facts and avoid the trap that AI-generated quizzes fall into where 'who wrote Hamlet' has three plausible-sounding wrong answers. Average score on general knowledge sits around 6 to 7 out of 10; geography tends to score lower because most people guess on questions about countries they have never visited."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Category",
+        "General knowledge is the safest crowd-pleaser - questions span everything from sport to literature, so almost everyone gets a few. Science is the most polarising; people who studied it laugh, people who didn't groan. History rewards readers; geography rewards travellers; pop culture rewards anyone who watches TV. For mixed-age groups, rotate through all five over the course of an evening rather than picking one and grinding it.",
+        "If you are running a real pub quiz with this as your warm-up round, score it in pairs not solo. Pairing strangers together for one round breaks the ice better than any official 'mixer'. For a longer event, build a round of 30 questions yourself by playing the [pub quiz generator](/pub-quiz-generator) three times in a row across different categories. Or add a music section using the [music round generator](/music-round-generator)."
+      ),
+      createAnswerFirstSection(
+        "Why Multiple Choice Beats Open-Ended for Pub Trivia",
+        "Open-ended questions ('What is the capital of Mongolia?') punish silence. Multiple choice ('Is it Beijing, Ulan Bator, Lhasa or Tashkent?') gives 25% chance even if you guess blind, which means even teams who never knew the answer can earn a half-point laugh. That keeps the back of the room engaged. Almost every commercial pub quiz format uses 4-option multiple choice for the warm-up rounds for exactly this reason.",
+        "The trade-off is that good wrong answers (called 'distractors') are hard to write. A bad distractor is too obviously wrong; a great distractor is so plausible the right answer feels uncertain. The questions in this set use distractors drawn from the same category, so on a science question all four options are real terms. That makes it harder to guess by elimination."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a good score on a 10-question trivia quiz?",
+        "On general knowledge, 7 out of 10 is solid, 8 is excellent, 9 to 10 is near-expert. On harder categories like science or history with mixed eras, average scores drop to about 5 to 6. Pure guessing gives 2.5 on average across four-option questions, so anything above 4 is real knowledge."
+      ),
+      createFAQ(
+        "Can I use this for a school classroom?",
+        "Yes. The questions are non-political and age-appropriate from about 11 upward. Younger pupils may struggle with the pop culture and history rounds because references span decades. For primary classes, the [trivia quiz](/trivia-quiz) general knowledge round works as a starter activity but you may want to skip the harder questions in advance."
+      ),
+      createFAQ(
+        "Why does my score change between attempts on the same category?",
+        "The 10 questions you see are randomly drawn from a larger pool for each category. Two attempts will pull different questions, so memorising individual answers does not help much. If you score 6 on the first run and 9 on the second, you got lucky on the second draw."
+      ),
+      createFAQ(
+        "Can I download the quiz to print and use offline?",
+        "This particular tool is screen-only. For printable rounds with answer sheets, the [pub quiz answer sheet printer](/pub-quiz-answer-sheet-printer) generates physical scorecards and the [pub quiz generator](/pub-quiz-generator) gives a host script with answers."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pub-quiz-generator", label: "Pub Quiz Generator" },
+      { slug: "music-round-generator", label: "Music Round Generator" },
+      { slug: "pub-quiz-answer-sheet-printer", label: "Pub Quiz Answer Sheet Printer" },
+    ],
+  },
+
+  "music-round-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Build a Music Round for Your Quiz",
+        "Set the question count (default 10), pick a decade filter or 'mixed', and the tool pulls songs from a 150+ track database. Each question shows the song clue (title hidden, artist or release year visible) and the answer key separately so the host can read out questions without spoilers. You can choose 'song question' (give the artist, ask for the title) or 'artist question' (give a lyric or year, ask for the artist).",
+        "A standard pub quiz music round is 10 songs played for 30 seconds each. With the typical introductions and pauses, that is a 12-minute slot, which is the right length to fit between a general knowledge round and food. If you want a shorter round, drop to 5 questions; for a music-themed evening, run two rounds of 10 with different decades. The [pub quiz generator](/pub-quiz-generator) handles the rest of the night around it."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Decade for Your Crowd",
+        "The decade filter is the single most important setting. A pub quiz audience aged 30 to 50 will laugh at 80s and 90s tracks; an audience over 60 will groan because they only know the 60s and 70s; a student crowd will yawn at anything before 2010. The 'mixed' setting is safest for unknown crowds but means roughly 60% of any room will have at least three songs they do not recognise.",
+        "If you can survey the room (corporate Christmas parties, family birthdays), match the decade to the average birth year minus 15. Someone born in 1985 was 15 in 2000, which is when their music-listening peak started, so 2000s tracks will get the warmest reception. Same logic puts a 1965-born person on 1980s music. The math is rough but consistent."
+      ),
+      createAnswerFirstSection(
+        "Running a Music Round Without Music",
+        "If you cannot play audio (corporate setting, accessibility constraints, no speakers), use 'lyric questions' instead. Read out the second line of a song's chorus and ask the team to name the song. This actually works better than audio for some rooms because everyone hears the same clue at the same volume. Print the answer key for yourself and read each lyric three times, slowly.",
+        "For hybrid rounds, mix five audio clips with five lyric-only questions. That breaks up the pace and stops people zoning out. The premium PDF export from this tool produces a host script with both the question (lyric or song info) and the answer (artist + title + year), formatted so the host can flip pages without losing place. Use the [scattergories list generator](/scattergories-list-generator) to fill the next round if you need 6 minutes between music and break."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long should a music round take in a pub quiz?",
+        "10 to 12 minutes. That is 10 questions at 30 seconds of audio each, plus introductions and pauses. Going over 15 minutes loses the room because music-only rounds slow the energy. If you have more than 10 songs to play, split them into two separate rounds with a different round in between."
+      ),
+      createFAQ(
+        "Where do I get the actual audio for the songs?",
+        "Stream them directly from Spotify, YouTube or Apple Music using the answer key as your playlist. Build the playlist before the night so the next song is one tap away. Most quiz hosts use Spotify's queue feature on a phone, plugged into the venue's speakers via aux or Bluetooth."
+      ),
+      createFAQ(
+        "Can I use songs without a music licence?",
+        "For a private quiz at home or a small office party, no licence needed. For a public pub quiz where money changes hands (entry fee, prizes from venue takings), the venue should have a PRS for Music licence and most established pub-quiz pubs do. Check with the venue manager rather than assuming."
+      ),
+      createFAQ(
+        "What is a good mix of song-question vs artist-question types?",
+        "Roughly 60/40 in favour of song titles, since people are more confident naming a song than an artist when they only know one or two from a band. Throw in two or three artist-questions to reward the diehards. Avoid 'name the album' questions; those are too narrow for a pub crowd."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pub-quiz-generator", label: "Pub Quiz Generator" },
+      { slug: "pub-quiz-answer-sheet-printer", label: "Pub Quiz Answer Sheet Printer" },
+      { slug: "trivia-quiz", label: "Trivia Quiz" },
+    ],
+  },
+
+  "vampire-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Vampire Name Generator Works",
+        "Pick a vampire archetype (aristocratic, savage, seductive, ancient, shadow or psychic), hit generate, and you get a first and last name plus a backstory hook, a dark title and a set of vampire powers. The aristocratic archetype gives you a 'Von Carstein' or 'Von Ravencroft'; the savage gives you a 'Bonecrusher' or 'Wildstrike'. Each archetype has its own surname pool and matching powers (Hypnotic Gaze, Frenzy Rage, Reality Bending, Shadow Stepping).",
+        "Use it for D&D vampire NPCs, Vampire: The Masquerade tabletop characters, gothic fiction first drafts, Halloween costume identities, or just for fun. The structure mirrors what published vampire RPGs actually use: a clan/archetype that determines style, a name in that style, and a power set tied to the clan. This is faster than coming up with one yourself when you need a vampire to walk into the next scene in 90 seconds."
+      ),
+      createAnswerFirstSection(
+        "Why Archetype Drives Everything",
+        "The classic mistake when naming a vampire is reaching for a vaguely 'spooky' word and tacking it on. Real vampire fiction (Anne Rice, Bram Stoker, the World of Darkness games) builds names around clan or archetype because the clan defines voice, history and powers. A Lasombra (shadow vampire) sounds different from a Ventrue (aristocrat) in print, on purpose.",
+        "The aristocratic pool here leans Eastern European because that is where the source mythology comes from (Vlad III, Carmilla, the Carpathian setting). The savage pool leans Anglo-Saxon and harsh-consonant. The seductive pool leans soft-consonant and floral (Velvetthorne, Heartbreaker). The ancient pool implies a name pre-dating modern languages (Firstborn, Timeless). Pick the archetype and the rest writes itself."
+      ),
+      createAnswerFirstSection(
+        "Using the Backstory and Powers in a Story",
+        "The backstory hook is intentionally short and dramatic; it is not a finished origin story, it is a seed. 'Turned during the plague years and never forgave the priests who left him to die' becomes a 200-word origin in a writing session. Take the hook, ask 'who else was there?', 'what did they take?', 'who survived?', and the rest follows.",
+        "The power set is built so two of three abilities work in social scenes (Hypnotic Gaze, Charm Mastery) and one works in combat (Frenzy Rage, Telekinesis). That balance is deliberate; vampire stories live in conversations more than fights, so the character needs tools for both. For a balancing companion in your campaign, generate a [witch name](/witch-name-generator) or pick a fantasy stronghold with the [fantasy tavern name generator](/fantasy-tavern-name-generator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between this and the witch name generator?",
+        "Vampire names lean Gothic and Eastern European with surnames built around blood, shadow and night. Witch names lean nature-based, alphabetic and craft-rooted (Hazel Thornwood, Willow Greenwise). Different sound, different mood, different toolkit. Use [witch name generator](/witch-name-generator) for a coven character and this for an undead one."
+      ),
+      createFAQ(
+        "Are these names safe to use commercially?",
+        "The first names and surnames are common enough that no specific person or copyrighted character has a claim on them. 'Von Carstein' is from the Warhammer Fantasy setting, so avoid that one specifically if you are writing a published novel. The other surname pools are generic-Gothic with no IP attached."
+      ),
+      createFAQ(
+        "Can I generate multiple names and pick the best?",
+        "Yes. Hit generate again as many times as you like; nothing is saved between rolls. Most writers and DMs run it 5 to 10 times for a major character and pick the result that suggests the most story. For a one-scene NPC, the first roll is usually fine."
+      ),
+      createFAQ(
+        "What if I want a vampire that is none of these archetypes?",
+        "Pick the closest, then change one element. The aristocratic surname with the savage powers gives you a fallen noble. The ancient backstory with the seductive surname gives you a Mediterranean pre-Christian vampire. The generator is a starting point; cross-pollinating between archetypes is the fastest way to get something that does not feel templated."
+      ),
+    ],
+    relatedTools: [
+      { slug: "witch-name-generator", label: "Witch Name Generator" },
+      { slug: "zombie-apocalypse-name-generator", label: "Zombie Apocalypse Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+    ],
+  },
+
+  "fantasy-tavern-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Generate a Tavern for Your Campaign",
+        "Pick a tavern style (cosy, rough, mysterious, noble, cursed or wayfarer), generate, and get a full set: the tavern name ('The Rusty Dragon', 'The Hanged Man's Hut'), a signature drink (Dragon's Breath Ale, Wormwood Tears), and a rumour the locals trade ('A lost treasure map is hidden in the cellar'). The name and rumour together give you enough to run a 30-minute scene without prep.",
+        "The six styles map to the six bog-standard fantasy tavern moods. Cosy is your base-of-operations inn for a starting party. Rough is where bar fights and shady contracts happen. Mysterious is where the next plot hook arrives. Noble is for political intrigue. Cursed sets a horror tone. Wayfarer is the trail-stop tavern between locations. If you do not know which one you need, roll cosy and adjust as the session unfolds."
+      ),
+      createAnswerFirstSection(
+        "Why Taverns Need a Name, a Drink and a Rumour",
+        "These three are the absolute minimum for a memorable scene. The name anchors the location ('the party is in The Boar's Tusks'). The drink gives the players something physical to interact with ('I order a Brawler's Black Ale'). The rumour gives the GM a hook to pull on if the scene is dragging ('the bartender mentions arm wrestling contests happen nightly').",
+        "Without the rumour, scenes become 'you walk in, you eat, you leave'. With it, every tavern visit can pivot into the next plot thread. The published Forgotten Realms supplements use this exact three-part structure for every named tavern in the books, because GMs found anything more was rarely used and anything less was forgettable. The [fantasy tavern name generator](/fantasy-tavern-name-generator) makes one in five seconds."
+      ),
+      createAnswerFirstSection(
+        "Tavern Names That Sound Real vs Fantasy",
+        "Real medieval English tavern names follow patterns: 'The [colour] [animal]' (The Red Lion, The White Hart), 'The [object]' (The Bell, The Crown), or '[saint or king]'s [object]' (King's Head, St George's Arms). Pure fantasy taverns extend this with magical or monstrous variants. 'The Shadowed Wyvern' works because it follows 'The Red Lion' grammar but swaps the lion for a wyvern.",
+        "Avoid two adjectives back to back ('The Cursed Bleeding Door') because real signage rarely worked that way. Single-word names ('Hellfire', 'Wormwood') are common in fantasy fiction but rare in actual medieval Britain, where most taverns needed an article. The patterns in the cosy and rough pools here mirror real history; the cursed and mysterious pools take more poetic licence on purpose. For ship names rather than buildings, the [pirate ship name generator](/pirate-ship-name-generator) uses different conventions."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is a good tavern for a level 1 D&D party to start in?",
+        "Cosy. The Rusty Dragon, The Wanderer's Rest or The Cozy Crown. Low-stakes setting, a friendly innkeeper, a noticeboard with a starting quest. The Lost Mine of Phandelver adventure starts in exactly this kind of place; it works because new players need a safe room to roleplay introductions before stakes appear."
+      ),
+      createFAQ(
+        "Can I use these names in a published novel?",
+        "Some are too tied to specific franchises ('The Rusty Dragon' is from the Pathfinder Adventure Path). For original fiction, take the structure ('The Adjective Noun' or 'The Possessive Place') and write your own name in that pattern. The drinks and rumours are generic enough to use freely."
+      ),
+      createFAQ(
+        "How do I make a generated tavern feel unique?",
+        "Add one weird detail. The bartender has a glass eye. There is a stuffed owl behind the bar. The fireplace is always lit. One detail per tavern means players remember each one as 'the place with the owl' or 'the place with the eye', and that is how locations stick across sessions. The generator gives you the bones; you add the wart."
+      ),
+      createFAQ(
+        "What size party works well for a tavern scene?",
+        "Three to five players is the sweet spot. With two, scenes feel lopsided because one player dominates social interactions. With six or more, half the table is silent during the bartender conversation. If you have a big group, split them across two taverns and run parallel scenes for ten minutes each."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pirate-ship-name-generator", label: "Pirate Ship Name Generator" },
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "elf-name-generator", label: "Elf Name Generator" },
+    ],
+  },
+
+  "pirate-ship-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Name a Pirate Ship",
+        "Pick a ship type (warship, ghost ship, merchant raider, privateer, legendary or explorer), and the generator produces a full vessel: ship name ('The Crimson Tide', 'The Phantom's Wake'), captain ('Blackheart Morgan', 'Captain Casper the Damned'), crew specialty, and a feared reputation ('Sank three frigates in one battle', 'Crew reports seeing ghosts aboard'). One click gives you enough to drop the ship into a campaign, novel, or game.",
+        "Real-world historical pirate ships followed naming patterns by purpose. Warships used aggressive nouns (The Revenge, The Fancy, Queen Anne's Revenge). Merchant raiders used names that sounded innocuous to fool customs (Adventure Galley, William). Privateers used patriotic or royal references (HMS Charming Sally, Lord Admiral). The six types here mirror those historical conventions and add ghost ship and legendary categories from fiction."
+      ),
+      createAnswerFirstSection(
+        "Pirate Ship vs Tavern: Different Naming Logic",
+        "Tavern names use 'The [Adjective] [Animal]' or 'The [Object]'. Ship names lean 'The [Adjective] [Natural Force]' (The Crimson Tide, The Black Pearl, The Roaring Wave) or 'The [Captain's Possession]' (Queen Anne's Revenge, Stede Bonnet's Revenge). The article 'The' is almost universal because a ship is treated as one specific named entity, where a tavern is one of many.",
+        "Notice that real pirate captains often renamed captured ships. Blackbeard's flagship started as the French slave ship La Concorde, was renamed Queen Anne's Revenge after capture, and that name signalled both his political affiliation and his thirst for vengeance against the Crown. Your generated ship can have a similar history. Pair it with the [fantasy tavern name generator](/fantasy-tavern-name-generator) for the port the ship calls home."
+      ),
+      createAnswerFirstSection(
+        "Using the Captain and Reputation Together",
+        "The reputation field is the most useful for storytelling. 'Sighted only during storms' tells you when the ship can appear in your plot. 'Steals only valuable cargo' tells you what it ignores. 'Sanctioned by royalty' reveals a political ally. These are not flavour text - they are constraints that shape every scene the ship is in.",
+        "If you are running a campaign with a recurring antagonist captain, generate the ship once and reuse it. Players will remember 'Captain Razor Blackstone of The Iron Vengeance, terror of the Caribbean' across sessions because each appearance reinforces the same name and reputation. For a one-shot encounter, the generator gives you a single-use ship in two seconds."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What was the most famous real pirate ship?",
+        "Queen Anne's Revenge, Blackbeard's flagship from 1717 to 1718. She was a French slave ship called La Concorde, captured and refitted with 40 cannons, and grounded off North Carolina in 1718. The wreck was located in 1996 and is being excavated by archaeologists. After her, the most famous fictional pirate ship is the Black Pearl from the Pirates of the Caribbean films."
+      ),
+      createFAQ(
+        "How big was a typical pirate ship's crew?",
+        "Anywhere from 30 to 200, depending on the ship. A small sloop ran 30 to 50 men. A brigantine carried 60 to 100. Blackbeard's Queen Anne's Revenge had about 300 crew at its peak, which was unusually large. The pirate code specified shares of any prize: the captain got 1.5 to 2 shares, officers got 1.25, regular crew got 1."
+      ),
+      createFAQ(
+        "Can I use a generated pirate ship in a Sea of Thieves or Skull & Bones context?",
+        "Yes. Both games allow custom ship names within a character limit. Generated names tend to fit; the captains and reputations will not transfer because those are NPC-style backstory. Use the ship name and adapt the rest to the game's mechanics. For a tabletop RPG, the entire generator output drops in unchanged."
+      ),
+      createFAQ(
+        "What's the difference between a pirate, a privateer and a buccaneer?",
+        "A pirate attacks any ship for personal gain and is hunted by every navy. A privateer holds a Letter of Marque from a government and only attacks enemy ships in wartime, sharing the take with the Crown. A buccaneer was specifically a 17th-century Caribbean pirate (often French or Dutch) who originally hunted wild pigs on Hispaniola before turning to sea raiding."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pirate-name-generator", label: "Pirate Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+      { slug: "alien-name-generator", label: "Alien Name Generator" },
+    ],
+  },
+
+  "tarot-card-reader": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Pull a Tarot Reading",
+        "Pick a spread - single card, three card (past/present/future), or Celtic Cross 5-card - then draw. The tool shuffles the 78-card deck (22 Major Arcana plus 56 Minor Arcana across four suits) and reveals your cards with their traditional meanings. A single card is for a quick reflection on the day or a yes/no question. Three cards trace a movement through time. The Celtic Cross variant here uses 5 positions for situation, challenge, root, advice and outcome.",
+        "Tarot is best understood as a structured prompt for self-reflection rather than literal prediction. The deck was designed in 15th-century Italy as a card game (tarocchi) and only became associated with divination in the late 1700s. Treat the cards as a vocabulary of human experience: love, loss, change, challenge, hope. The reading is what you make of the symbols, not a prophecy from the universe."
+      ),
+      createAnswerFirstSection(
+        "Why a Three-Card Spread Is the Most Useful",
+        "Single-card draws give you an image but not a story. The five-card Celtic Cross variant gives you too much input to digest in one sitting. Three cards (past/present/future, or situation/action/outcome) hits the sweet spot: enough cards to build a narrative, few enough to read meaning across without losing the thread.",
+        "The three-card pattern also matches how the human brain processes story: setup, conflict, resolution. When you draw The Tower (past), the Three of Cups (present), and the Ace of Wands (future), the card meanings combine into a single arc - a disruption you have already lived through, a celebratory present, and a new creative beginning. That is more useful than either card alone. Compare with the [oracle card reader](/oracle-card-reader) which uses simpler single-card themes."
+      ),
+      createAnswerFirstSection(
+        "Reading the Cards Like a Practitioner",
+        "Tarot readers do not memorise 78 fixed meanings; they look at a card and ask 'what does this image suggest in this position?'. The Death card is the classic example. Almost nobody draws it and dies that week. It traditionally signals an ending and a transformation, the closing of one chapter to allow another to begin. A tarot reader sees Death in 'past' position and asks 'what ended for you recently?'.",
+        "The reversed cards (where the image appears upside down) modify or invert the meaning. The Star upright is hope and renewal; reversed it suggests doubt or loss of faith. Some practitioners ignore reversals; others swear by them. Both approaches are equally traditional. Try a few three-card spreads before deciding which feels useful to you."
+      ),
+      createAnswerFirstSection(
+        "What the Cards Are For",
+        "Tarot readings work as a mirror, not a window. The cards do not tell you the future; they reveal what you already half-suspect about your present. When you sit with a card and try to apply it to your situation, the part of your mind that knows the answer surfaces because you finally have a structured prompt to think against. That is the same mechanism that makes journaling and therapy work.",
+        "Used this way, a daily three-card pull is roughly equivalent to a 5-minute journaling exercise with extra symbolism. Used the other way - 'the cards have decided I will meet a stranger this Tuesday' - it crosses into magical thinking, which research suggests does measurable harm by encouraging passive decision-making. Most working tarot readers explicitly frame readings as reflective tools, not predictions. Pair this with a [rune stone reader](/rune-stone-reader) for a different symbolic system or the [numerology calculator](/numerology-calculator) for a number-based take."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the difference between Major and Minor Arcana?",
+        "The Major Arcana is 22 cards numbered 0 to 21 covering archetypal life themes: The Fool, The Magician, The Lovers, Death, The World. The Minor Arcana is 56 cards across four suits (Wands, Cups, Swords, Pentacles), each with numbered cards 1 to 10 plus four court cards. Majors signal big life themes; Minors cover everyday situations. A reading with mostly Majors is read as a 'big' reading."
+      ),
+      createFAQ(
+        "Should I shuffle the cards myself in a digital reading?",
+        "The tool shuffles for you using a randomiser. In a physical reading you would shuffle while focusing on your question. For the digital version, take 30 seconds to focus on your question before clicking draw, which serves the same psychological purpose. The randomness is mathematically the same either way."
+      ),
+      createFAQ(
+        "Is the Death card actually scary?",
+        "No. It is one of the most misunderstood cards in the deck. Death traditionally represents transformation, the end of a phase, or letting go of something that no longer serves you. Many readers say it is the most positive card to draw at the start of a major life change because it confirms that the change is necessary."
+      ),
+      createFAQ(
+        "Can I do tarot readings for myself or only for others?",
+        "You can do both. Self-reading is harder because you are interpreting cards about your own situation, which makes objectivity tough. Many readers do daily one-card pulls for themselves and only do full spreads for others. If a self-reading feels too biased, write the question down before drawing and stick to the cards' literal meanings."
+      ),
+    ],
+    relatedTools: [
+      { slug: "oracle-card-reader", label: "Oracle Card Reader" },
+      { slug: "rune-stone-reader", label: "Rune Stone Reader" },
+      { slug: "daily-horoscope", label: "Daily Horoscope" },
+    ],
+  },
+
+  "palm-reading-guide": {
+    sections: [
+      createAnswerFirstSection(
+        "How Palm Reading Works",
+        "Palmistry, called chiromancy in academic contexts, reads the lines and mounts on the palm as a guide to personality and life patterns. The four primary lines are the heart line (top of palm, emotion and relationships), head line (across the middle, intellect), life line (curving around the thumb, vitality and life direction) and fate line (vertical down the centre, career and purpose). Most people have all four; some have a fused 'simian line' where heart and head merge.",
+        "This guide walks you through each line with the traditional interpretations. A long, deep heart line that curves up to the index finger suggests a generous and openly affectionate nature. A short, straight head line suggests practical, fact-driven thinking. The life line's length is the most-misunderstood feature: it does not predict lifespan. A short life line traditionally indicates a quieter, simpler life rather than a brief one."
+      ),
+      createAnswerFirstSection(
+        "Reading the Mounts on the Palm",
+        "The mounts are the fleshy pads at the base of each finger, plus the thumb base (Mount of Venus) and the outer edge of the palm (Mount of Luna). Each is associated with a Roman planetary symbol. A prominent Mount of Venus indicates passion and warmth. A flat Mount of Saturn indicates a less serious, more flexible personality. Mounts are read together with the lines, not in isolation; a strong life line and a prominent Mount of Venus reinforce each other.",
+        "Palmistry treats the dominant hand as showing your current life path and the non-dominant hand as showing what you were born with. Differences between the two are interpreted as personal growth or change. If your right hand has a deeper fate line than your left, that traditionally suggests you have built a clearer career direction than you started with. The [tarot card reader](/tarot-card-reader) provides a different reflective framework based on imagery rather than physical markers."
+      ),
+      createAnswerFirstSection(
+        "What Palm Reading Is Useful For",
+        "Palmistry has no scientific basis as a predictive tool. Multiple controlled studies (notably Park & Stewart 1989) found palm-reading interpretations performed at chance level when matched against personality assessments. Treat it the way fortune cookies are treated in good restaurants: as a fun starting point for a conversation rather than a diagnostic.",
+        "It does work, modestly, as a focusing prompt. Holding your hand and considering 'what does my heart line say about my emotional life?' is a structured way of asking yourself that question. The same applies to many traditional divination systems. Use it socially, at parties, or as a conversation opener; do not use it to make medical, financial or relationship decisions. For a date-based reflective tool, try the [numerology calculator](/numerology-calculator)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Which hand should I read?",
+        "The traditional approach reads the dominant hand (the one you write with) for your current path and the non-dominant hand for your inherited tendencies. If you are right-handed, your right palm shows where you are now; your left shows what you were born with. Compare both for a fuller picture."
+      ),
+      createFAQ(
+        "Does a short life line mean a short life?",
+        "No. This is the single most common myth about palm reading. The life line traditionally indicates the quality and direction of your life, not its length. A short, deep life line suggests focused vitality. There is no scientific evidence that palm features correlate with lifespan. Anyone selling that interpretation is either confused or fleecing you."
+      ),
+      createFAQ(
+        "What is a simian line and is it rare?",
+        "A simian line is when the heart line and head line fuse into one horizontal line across the palm. It occurs in roughly 1 to 2% of the general population. Traditionally, it is read as indicating intense focus and strong emotion, with the personality channelling both intellectual and emotional energy through a single channel. It is more common in some genetic conditions, but the line itself is benign."
+      ),
+      createFAQ(
+        "Can palm reading actually predict the future?",
+        "No, not in any sense backed by evidence. Palmistry has been studied since the 19th century with consistently negative results when tested against blind controls. It works as a reflective conversation tool, similar to how horoscopes work as a daily nudge to think about a topic. Approach it as a game or a self-reflection prompt, not as prophecy."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tarot-card-reader", label: "Tarot Card Reader" },
+      { slug: "fortune-teller", label: "Fortune Teller" },
+      { slug: "astrology-birth-chart", label: "Astrology Birth Chart" },
+    ],
+  },
+
+  "daily-horoscope": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Read Your Daily Horoscope",
+        "Pick your sun sign from the 12 zodiac options (Aries through Pisces) and read your day's reading across love, career, health and luck. Each section gives a short reflection plus a daily rating. Refresh tomorrow for a new reading; the deterministic seed is set per sign per date so you and a friend with the same sign see the same horoscope, which is how every newspaper horoscope column works.",
+        "Sun sign astrology is the simplest form. Your sun sign is determined by your birth date alone (Aries: 21 March to 19 April, Taurus: 20 April to 20 May, and so on). For a richer reading, try the [astrology birth chart](/astrology-birth-chart) which adds your moon sign and rising sign. Your sun sign is your core identity; your moon is your emotional inner life; your rising is the version of you the world sees first."
+      ),
+      createAnswerFirstSection(
+        "Where the 12 Signs Came From",
+        "The zodiac is a Babylonian invention from around 600 BCE, dividing the ecliptic (the sun's apparent yearly path) into twelve 30-degree segments named after constellations the sun passes through. The signs were standardised by Greek astronomers (notably Ptolemy in the 2nd century CE) and became the Western tradition we still use. The constellations have actually drifted since then due to the precession of the equinoxes; today's astrological Aries doesn't match the constellation Aries in the sky.",
+        "The 12 signs are grouped into four elements (fire, earth, air, water) and three modes (cardinal, fixed, mutable), giving every sign a distinct personality archetype. Aries is cardinal fire (initiator, action). Taurus is fixed earth (steady, sensual). Gemini is mutable air (adaptable, communicative). The pattern repeats through the year. Even people who do not believe in astrology often recognise their sun-sign archetype, which is the system's most consistent finding."
+      ),
+      createAnswerFirstSection(
+        "What a Daily Horoscope Is Useful For",
+        "The horoscope is best read as a daily prompt to reflect on a topic, not as a forecast. 'Today is good for clear conversations' nudges you to have one. 'Watch your spending' nudges you to check your bank balance. The same generic advice would work for anyone, on any day, but the framing of 'because you are a Capricorn, today...' makes you more likely to act on it. That mechanism is well-studied (the Forer effect) and explains why horoscopes feel personal even when the text is broad.",
+        "Studies have found no evidence that sun signs predict personality, career outcomes or relationship compatibility above chance. The Carlson 1985 double-blind study, published in Nature, asked astrologers to match birth charts to personality profiles and they performed at chance level. So treat the daily horoscope as a fun nudge, the same way you would a fortune cookie or a weather forecast for your mood. The [numerology calculator](/numerology-calculator) and [tarot card reader](/tarot-card-reader) work the same way."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are the daily ratings consistent for everyone with the same sign?",
+        "Yes, on this tool. Every Aries sees the same Aries reading on a given date because the readings are seeded by sign and date together. That mirrors how newspaper horoscopes work; they are written for 'all Geminis on Monday' rather than personalised. For personalised readings, use the [astrology birth chart](/astrology-birth-chart) which factors in birth time and place."
+      ),
+      createFAQ(
+        "Why doesn't astrology work for me?",
+        "Astrology works as a reflective prompt rather than a predictor. If 'today is good for conversations' lands flat for you, the system is doing its job - it is showing you that today is not actually a conversation day. The expectation that astrology should literally predict events is the source of most disappointment with it. Reframe it as a daily nudge and the hit rate is much higher."
+      ),
+      createFAQ(
+        "What is the difference between sun sign, moon sign and rising sign?",
+        "Sun sign is from your birth date; it represents your core identity. Moon sign is from your birth date and birth time; it represents your emotional inner life. Rising sign (also called ascendant) is from your birth date, birth time and birth location; it represents your outward persona. A full birth chart uses all three plus the planetary positions."
+      ),
+      createFAQ(
+        "Can I read my partner's horoscope to check compatibility?",
+        "You can, but the sun-sign compatibility framework is the weakest part of astrology. The classic 'fire signs go with air signs' rule has no statistical backing. For something closer to what astrologers actually use, compare full birth charts (sun, moon, rising and Venus placements) using the [astrology birth chart](/astrology-birth-chart) tool."
+      ),
+    ],
+    relatedTools: [
+      { slug: "astrology-birth-chart", label: "Astrology Birth Chart" },
+      { slug: "numerology-calculator", label: "Numerology Calculator" },
+      { slug: "fortune-teller", label: "Fortune Teller" },
+    ],
+  },
+
+  "rune-stone-reader": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Cast the Runes",
+        "Pick a spread (single rune, three runes for past/present/future, or five runes), focus on your question, and the tool draws from the 24 Elder Futhark runes. Each rune has a name (Fehu, Uruz, Thurisaz, Ansuz...), a symbolic meaning (cattle/wealth, wild ox/strength, giant/conflict, god/communication), and a reading position. The three-rune draw is the most common spread and the easiest to interpret without prior practice.",
+        "The Elder Futhark is the oldest known runic alphabet, used by Germanic peoples from roughly 150 to 800 CE for both writing and divination. The names of the runes come from Old Norse and reflect Iron Age agricultural and warrior life. Modern runic divination as a structured practice is largely a 20th-century reconstruction (notably Ralph Blum's 1982 'Book of Runes'), but the symbolism draws on genuine Norse and Anglo-Saxon poetic sources like the Old English Rune Poem."
+      ),
+      createAnswerFirstSection(
+        "What Each of the Three Aetts Represents",
+        "The 24 Elder Futhark runes are traditionally grouped into three aetts (eight-rune sets). The first aett (Fehu through Wunjo) covers material life: wealth, strength, journeys and joy. The second aett (Hagalaz through Sowilo) covers challenge and transformation: hail, need, ice, harvest, the sun. The third aett (Tiwaz through Dagaz) covers spiritual themes: the gods, family, inheritance, day. A reading that draws heavily from one aett suggests a focus area for the question.",
+        "Some practitioners include a 25th 'blank rune' (often called Wyrd or Odin's rune). This is a modern addition with no historical basis; the original Elder Futhark had exactly 24 staves. Most traditionalist readers and academic Norse scholars do not use the blank rune. The reader on this tool sticks to the historic 24. For a 22-card alternative drawn from a different European tradition, try the [tarot card reader](/tarot-card-reader)."
+      ),
+      createAnswerFirstSection(
+        "Reading the Norse Way Versus the New-Age Way",
+        "Two distinct schools have emerged. The reconstructionist approach treats runes as symbols rooted in the Eddic poems and the Old Norse worldview - Fehu means cattle and the cultural weight of cattle in pastoral Iron Age life. The new-age approach reads them as universal archetypes (Fehu means wealth in any context, including digital cryptocurrency). Both are valid as reflective tools; the reconstructionist version has more historical depth.",
+        "If you are using runes alongside a creative project (a Norse-set RPG, a historical novel, a Viking-themed campaign), lean reconstructionist. If you are using them as a daily reflection prompt, the new-age framing is fine. The runes do not predict the future in either tradition. They focus your thinking against a structured set of 24 prompts, which is a valuable exercise even if the metaphysics are folklore. Pair them with the [oracle card reader](/oracle-card-reader) for a softer style of single-prompt divination."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are runes related to Tolkien's Dwarvish writing?",
+        "Tolkien's Cirth runes (used by Dwarves in The Hobbit and Lord of the Rings) are inspired by Anglo-Saxon and Elder Futhark runes but are a wholly invented script. He was a professional scholar of Old English and knew the real runes intimately, then designed his own alphabet to fit Middle-earth's invented languages. Real Elder Futhark and Tolkien's Cirth share a visual style but are different alphabets."
+      ),
+      createFAQ(
+        "Can I cast my own runes physically?",
+        "Yes. Traditional rune sets are wooden, bone, or stone, often hand-carved by the practitioner because the act of carving is part of the meditation. You can buy a basic Elder Futhark set for around £15 to £30, or carve your own from beach pebbles. The digital reader works the same way mathematically; it just skips the physical bag."
+      ),
+      createFAQ(
+        "What does it mean if I draw a reversed rune?",
+        "Some runes are symmetric and cannot be reversed (Gebo, Hagalaz, Isa, Jera). Reversed-capable runes get an inverted meaning when they appear upside down: Fehu reversed suggests financial loss instead of gain. Practitioners are split on whether to use reversals; the historical Norse tradition does not seem to have used them, while modern decks do. This tool follows the simpler upright-only style."
+      ),
+      createFAQ(
+        "How is rune casting different from tarot?",
+        "Runes use 24 symbolic letters with single-word meanings rooted in Old Norse culture. Tarot uses 78 illustrated cards with rich, multi-layered scenes. A rune reading is faster and more austere; a tarot reading is slower and more cinematic. People who like compact, archetypal symbols tend to prefer runes; people who like narrative imagery prefer the [tarot card reader](/tarot-card-reader)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tarot-card-reader", label: "Tarot Card Reader" },
+      { slug: "oracle-card-reader", label: "Oracle Card Reader" },
+      { slug: "crystal-ball-fortune", label: "Crystal Ball Fortune" },
+    ],
+  },
+
+  "numerology-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Numerology Calculates Your Numbers",
+        "Enter your full birth name and date of birth and the calculator returns three core numbers: Life Path (from the birth date), Expression Number (from the full name), and Soul Urge (from the vowels in the name). Each is reduced to a single digit between 1 and 9 by adding the digits repeatedly, except for master numbers 11, 22 and 33 which traditionally stay un-reduced. So 1985 becomes 1+9+8+5 = 23, then 2+3 = 5.",
+        "The Life Path number is the headline figure: it is meant to describe your fundamental life direction. A Life Path 1 is read as a born leader; a Life Path 7 as an analytical seeker; a Life Path 9 as a humanitarian. The Expression Number describes your natural talents based on the letters in your name (each letter A through Z maps to a digit 1 through 9). The Soul Urge describes your inner motivation."
+      ),
+      createAnswerFirstSection(
+        "Where the System Comes From",
+        "Modern Western numerology was popularised by the American writer L. Dow Balliett in the early 1900s and refined by Dr Juno Jordan in the 1960s. The number-letter mapping is borrowed from Pythagorean tradition, which assigned numerical values to Greek letters in the 6th century BCE. The Pythagoreans believed numbers had inherent qualities (3 was harmony, 4 was justice), and the modern numerology system is a direct descendant of that worldview.",
+        "Numerology has no mainstream scientific support as a predictor of personality or life events. Multiple studies have found that life path numbers do not correlate with measured traits beyond chance. As with [palm reading](/palm-reading-guide) and the [daily horoscope](/daily-horoscope), it works as a reflective framework rather than as a measurement tool. The structure of having three core numbers means three different angles to think about yourself, which is valuable on its own merits even if the metaphysics are folklore."
+      ),
+      createAnswerFirstSection(
+        "Master Numbers and Why They Matter to Practitioners",
+        "When the reduction process hits 11, 22 or 33, traditional numerologists stop reducing because these are 'master numbers'. Life Path 11 is the intuitive teacher. Life Path 22 is the master builder, said to be capable of large-scale practical achievement. Life Path 33 is rare, said to be the master teacher with deep spiritual focus.",
+        "Whether to honour master numbers is a stylistic choice. Some readers reduce everything to single digits for simplicity; others keep the three masters because the symmetric repeated digit is read as carrying special weight. The calculator on this tool stops at master numbers by default. If you want a different sort of structured reflection from your birth date alone, the [astrology birth chart](/astrology-birth-chart) builds a richer profile from time and place as well."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I use my full birth name or my current name?",
+        "Numerologists disagree. The traditional approach uses your full birth name as it appears on your birth certificate, including all middle names. The argument is that this is your 'soul name' fixed at birth. A minority approach uses your current chosen name (post-marriage, post-deed-poll) for an Expression Number reflecting who you are now. Try both and note where they differ."
+      ),
+      createFAQ(
+        "What is the most powerful Life Path number?",
+        "There is no 'most powerful' in any meaningful sense. Each number has traits associated with it. Life Path 1 (leadership), Life Path 8 (material success) and the master numbers 11, 22 and 33 are sometimes treated as 'high-energy' numbers in popular numerology. Treating any number as objectively better than another is the same kind of mistake as treating any horoscope sign as superior."
+      ),
+      createFAQ(
+        "Do hyphenated last names or accented letters affect the calculation?",
+        "Yes. Hyphens and accents are typically ignored, with letters reduced to their nearest plain Latin equivalent. So 'Müller' is treated as 'Muller'. Hyphenated names are calculated as if the hyphen wasn't there. The calculator on this tool follows that convention. Different numerology traditions handle this differently, so two calculators may give two different results for the same name."
+      ),
+      createFAQ(
+        "Is the Soul Urge number the same as the Heart's Desire number?",
+        "Yes. They are the same calculation under different names. Both are derived from the vowels in your full birth name and described as your inner motivation or what your soul wants from this lifetime. Different schools of numerology use different names for it; the underlying math is identical."
+      ),
+    ],
+    relatedTools: [
+      { slug: "astrology-birth-chart", label: "Astrology Birth Chart" },
+      { slug: "daily-horoscope", label: "Daily Horoscope" },
+      { slug: "tarot-card-reader", label: "Tarot Card Reader" },
+    ],
+  },
+
+  "miniatures-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate Your Real Warhammer Cost",
+        "The headline price is rarely the real price. A Warhammer 40K Combat Patrol box costs around £85 and gives you 20 to 30 models, so on paper that is £3 to £4 per model. Add paints (typically 20 pots at £3.50 each = £70), three primer cans (£24), five brushes (£25), basing materials (£10) and clippers/files (£40), and the same starter set climbs to £254 plus your time. This calculator separates the model cost from the supplies cost so you see both the per-box hit and the cost-per-painted-model.",
+        "Default supply estimates here match what most beginner painters actually spend in the first six months: 20 paint pots cover the standard Citadel paints needed for one Space Marine chapter; 5 brushes cover base/layer/detail/dry/large; 2 primer cans handle 60+ models. If you already own paints or brushes, set those to zero. The model row repeater lets you stack multiple boxes (Combat Patrol + Battleforce + a hero) and totals it all in one number."
+      ),
+      createAnswerFirstSection(
+        "Why Painting Time Should Be in Your Budget",
+        "Three hours per model is a reasonable estimate for a tabletop standard paint job by an intermediate painter. A 20-model Combat Patrol is therefore 60 hours of painting. At the UK living wage of £12.21/hour, that is £732 of labour you are giving yourself for free. This is fine if painting is the hobby; it is a problem if you bought the box thinking 'I'll paint it on the weekend' and have not factored in eight to ten weekends.",
+        "Speed-painting techniques (Contrast paints, Slapchop, batch painting) can drop the per-model time to 30 to 60 minutes, which makes 20 models a 10 to 20 hour project. Show-quality painting goes the other way, often 8 to 15 hours per model. Set your hours-per-model honestly based on your actual standard, not your aspirational standard. The [D&D cost calculator](/dnd-cost-calculator) does the same exercise for tabletop RPG outlay."
+      ),
+      createAnswerFirstSection(
+        "The Cost-Per-Model Reality Check",
+        "Once you total models, supplies, primer, brushes and tools, the cost-per-painted-model for a first army usually lands between £8 and £15. That is much higher than the box maths suggests because the supply costs spread thinly across only the first 20 to 50 models. By model 100, the supplies are mostly amortised and the per-model cost drops to roughly the per-model box price plus a few pence of paint.",
+        "This is why veteran hobbyists tell newcomers to plan for two armies, not one. Your first army absorbs all the supply infrastructure costs. Your second army uses the same paints, brushes and tools, so its per-model cost is closer to £4 to £6. If you only buy one army and quit, the per-model spend looks awful. If you buy two or three, the average normalises. Track this over time with the [hobby cost tracker](/hobby-cost-tracker)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much does a starter Warhammer 40K army cost in 2026?",
+        "Combat Patrol: £85. A second box for army size: £85 to £120. Supplies (paints, brushes, primer, tools, basing): £150 to £200. Codex book: £37.50. So expect £350 to £450 for a fully painted, playable starter army. Add £35 to £40 for a hard-cover army case if you want to transport it without breaking your work."
+      ),
+      createFAQ(
+        "Do I really need 20 paint pots to start painting?",
+        "For a colour-flexible starter set, around 12 to 15 is the practical minimum. Black, white, a flesh tone, two metallics, two browns, two greys, two highlights of your faction colour, and a wash. The 20-pot default in this calculator allows for two or three accent colours and a contrast paint or two. If you are painting a single faction in a single colour scheme, you can get by with 12."
+      ),
+      createFAQ(
+        "What is the cheapest way to start the Warhammer hobby?",
+        "Buy a one-off Combat Patrol on sale (occasional 15% discount), use a £30 Vallejo or Army Painter speedpaint set instead of the £70 Citadel range, use Cheap Joe's brushes (£3 each) instead of Citadel artist brushes, prime with a £6 supermarket spray. Total starter outlay drops to around £180. The result is the same painted models on the table; the savings come from skipping name-brand premiums."
+      ),
+      createFAQ(
+        "Should I include the cost of a hobby case or storage?",
+        "If you are tracking total cost honestly, yes. A KR Multicase or hard transport case for a 2,000-point army costs £40 to £80. Add another £20 for foam inserts. Magnetic storage cabinets are £100+ but reusable. The calculator's tools cost field is the right place to add these; treat them as one-off infrastructure costs that distribute across all future models."
+      ),
+    ],
+    relatedTools: [
+      { slug: "dnd-cost-calculator", label: "D&D Cost Calculator" },
+      { slug: "mtg-deck-cost", label: "MTG Deck Cost" },
+      { slug: "hobby-cost-tracker", label: "Hobby Cost Tracker" },
+    ],
+  },
 };

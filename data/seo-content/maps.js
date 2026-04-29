@@ -362,5 +362,190 @@ export const mapsSEO = {
       { slug: "pub-density-map", label: "Pub Density Map" },
     ],
   },
+
+  "distance-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Distance Calculator Works",
+        "Pick two cities from the dropdowns. The calculator looks up each city's latitude and longitude, runs them through the Haversine formula to compute the great-circle distance (the shortest path along the surface of the Earth, which on a sphere is an arc rather than a straight line), and returns the answer in kilometres and miles. It also estimates flight time using a typical commercial cruising speed and shows the time-zone difference.",
+        "The Haversine formula treats the Earth as a sphere with radius 6,371 km. Real distances are typically within 0.5% of the spherical answer for any practical city-to-city distance, so the slight oblateness of the Earth doesn't matter for trip planning. What does matter is that great-circle distance is always less than or equal to the road or rail distance, often substantially less. Driving from London to Edinburgh is about 660 km via M1 and A1, but the great-circle distance is only 530 km."
+      ),
+      createAnswerFirstSection(
+        "Why Flight Distances Look Curved on a Map",
+        "Most flight maps are drawn on a Mercator projection, which stretches high latitudes horizontally and squashes them vertically. The shortest path between two points on a sphere, when drawn on a Mercator map, looks curved (a 'great circle arc') because the underlying flat-paper geometry doesn't match the curved Earth. London to Tokyo is shorter going north over Russia and the Arctic than across India, even though the India route looks shorter on a flat map.",
+        "Pilots fly great-circle routes when winds and airspace allow, because every kilometre saved is fuel saved. North Atlantic flights between Europe and North America commonly pass over Greenland or Iceland for this reason. The estimated flight time in this calculator assumes a 800 km/h average ground speed (cruise speed minus typical headwind allowance) and ignores taxi, takeoff, climb, descent and landing, so real journey times are typically 30-60 minutes longer than the calculator shows."
+      ),
+      {
+        heading: "Distances Between Some Familiar City Pairs",
+        table: {
+          headers: ["From", "To", "Great-circle (km)", "Flight time approx"],
+          rows: [
+            ["London", "New York", "5,570", "7h 0m"],
+            ["London", "Paris", "344", "0h 25m airborne"],
+            ["London", "Tokyo", "9,560", "12h 0m"],
+            ["London", "Sydney", "16,990", "21h 15m"],
+            ["New York", "Los Angeles", "3,940", "4h 55m"],
+            ["Singapore", "Sydney", "6,290", "7h 50m"],
+            ["Cape Town", "Cairo", "7,260", "9h 5m"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "What People Use the Distance Calculator For",
+        "Booking flights and gauging whether a destination is realistic for the time available. Calculating air mileage for frequent-flyer programmes (most use great-circle distance as the basis). Settling pub-quiz arguments about which city is further from somewhere else. Sense-checking quoted travel times: a 4-hour flight time from London suggests roughly 3,200 km of distance, which fits Madrid or Cairo and rules out anything in Asia.",
+        "If you're planning a UK route specifically and want walking time rather than flight time, the [Walking Time Calculator](/walking-time-calculator) uses real OSM road geometry rather than great-circle distances. For cross-timezone scheduling alongside the distance, the [Timezone Converter](/timezone-converter) handles the daylight-saving variations that make 'time difference' a moving target."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why is the distance shorter than driving distance?",
+        "Great-circle distance is the shortest path along the Earth's surface, ignoring roads, mountains and political borders. Driving distance has to follow actual roads, which add detours, switchbacks for hills, and bypasses around lakes or restricted zones. For long flat routes the difference is small (London to Manchester is 263 km flat, 320 km by road). For routes around bodies of water or through mountainous terrain, the difference can be large."
+      ),
+      createFAQ(
+        "How accurate is the flight time estimate?",
+        "Within an hour for typical commercial routes, but always shorter than the published flight time. The calculator uses 800 km/h average ground speed, which accounts for cruise plus typical headwinds. Published flight times include taxi, takeoff, climb, descent, holding, and landing, plus tailwinds or headwinds specific to the route. London to New York is roughly 6h 30m airborne but published as 7h 30m to 8h."
+      ),
+      createFAQ(
+        "What is the Haversine formula?",
+        "It's a trigonometric formula for great-circle distance on a sphere. Given two latitude/longitude pairs, it computes the angular distance between them, then multiplies by the Earth's radius to get a length. It's been the standard for navigation since the 19th century and is accurate to within 0.5% for any real-world distance, which is more than good enough for flight planning at the resolution of an airport runway."
+      ),
+      createFAQ(
+        "Why are some flights between European cities longer than the great-circle distance suggests?",
+        "European airspace is heavily congested, and many flights are routed around restricted military zones or along published airways rather than direct great-circle paths. Short-haul flights (under 1,000 km) also spend a higher proportion of total time on takeoff and landing, so the airborne portion is a smaller share of the total."
+      ),
+      createFAQ(
+        "Can I use this for non-flight distances?",
+        "Yes, the great-circle distance is purely geometric. It applies to any straight-line measurement on the Earth's surface, including ship routes, missile trajectories, and 'as the crow flies' references in everyday speech. For walking or driving distances along actual roads, you'd want a routing service rather than a great-circle calculation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "walking-time-calculator", label: "Walking Time Calculator" },
+      { slug: "timezone-converter", label: "Timezone Converter" },
+      { slug: "pub-density-map", label: "Pub Density Map" },
+    ],
+  },
+
+  "pub-density-map": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Pub Density Map Works",
+        "Enter a postcode or place name and the tool searches OpenStreetMap for everything tagged as a pub within a 2 km radius, plotting them as pins on a Leaflet map. It also counts pubs within 1 km, calculates the density per square kilometre, and gives you a simple verdict on whether the area is well-served, reasonably served, or thin on the ground.",
+        "Pub data comes from the OSM database, which is crowd-edited but has fairly thorough UK coverage thanks to active local mapping communities. Each pub pin shows the name (pulled from the pub's 'name' tag) where the data has it, falling back to the operator or street name when the name field is empty. Newer pubs and recent renamings might not have made it into OSM yet, but the major chains and most independents are present."
+      ),
+      createAnswerFirstSection(
+        "What 'Pub Density' Actually Means",
+        "The number of pubs per square kilometre, computed from the count of pubs within 1 km of your search point divided by the area of that 1 km circle (about 3.14 km²). For context, the UK averages roughly 0.7 pubs per 1,000 residents (down from over 2 per 1,000 in the 1970s, as ONS pub-count data shows), so the density per square kilometre depends heavily on local population density. Central Manchester or Edinburgh hits 5+ pubs per square kilometre. Rural Norfolk might be 0.1.",
+        "The map is most useful for areas you don't know well: a new neighbourhood you're moving to, a town you're visiting for a weekend, or a meeting point you want to be confident has somewhere to retreat to afterwards. It also shows, by absence, which areas have lost their pubs over the years. The 'pub desert' phenomenon (suburbs with no surviving pubs) is visible as expanses of map with no pins."
+      ),
+      {
+        heading: "Pub Density Benchmarks",
+        table: {
+          headers: ["Area type", "Typical pubs per km²", "What it feels like"],
+          rows: [
+            ["City centre (Soho, Edinburgh Old Town)", "8-15", "Pub on every corner"],
+            ["Inner suburb of major city", "2-4", "Three or four within 10 min walk"],
+            ["Outer suburb", "0.5-1.5", "One local within walking distance"],
+            ["Market town", "2-5", "Concentrated around the high street"],
+            ["Village", "0.2-1", "One or two pubs total, often historic"],
+            ["Rural", "Under 0.2", "Drive or walk a mile or more"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Caveats and Limitations",
+        "The 2 km search radius and the OSM data freshness are the main limitations. Pubs that closed during the post-2008 contraction or the COVID-era casualties may still appear on the map until a local mapper deletes them. New micro-pubs and taproom openings often take months to be added. The tool also makes no distinction between a thriving wet-led pub, a gastropub, a Spoons, or a private members' club mistakenly tagged as a pub.",
+        "It can't tell you whether the pubs are any good. For that, sites like CAMRA's WhatPub, Google reviews, or local CAMRA branch newsletters are better sources. This is purely a quantity-and-location tool. If you'd rather know how far you'd have to walk to reach the nearest one, the [Walking Time Calculator](/walking-time-calculator) handles point-to-point routing on real footpaths."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Where does the pub data come from?",
+        "OpenStreetMap, queried via the Overpass API. OSM is a free, crowd-edited geographic database (think Wikipedia for maps). UK pub coverage is generally strong because mapping pubs is a popular pastime among contributors. The data lags real-world changes by weeks to months for popular areas, longer for remote ones."
+      ),
+      createFAQ(
+        "Why does my favourite pub not appear?",
+        "Either it's tagged as something other than amenity=pub in OSM (perhaps as a bar, restaurant, or hotel with bar), it hasn't been added yet, or it's outside the 2 km search radius. You can check whatpub.com or open up openstreetmap.org and search for the pub by name to see how it's tagged. If it's missing entirely, anyone can add it via the OSM editor."
+      ),
+      createFAQ(
+        "What's the best area in the UK for pubs?",
+        "By raw count, central London (Soho, Covent Garden, the City). By pubs per resident, smaller market towns like Norwich, York, Edinburgh's Old Town, or stretches of the Lake District. Glasgow, Manchester and Liverpool all have high inner-city densities. The CAMRA Good Beer Guide's longest entries by city are a reasonable proxy for quality density."
+      ),
+      createFAQ(
+        "Why is the verdict different from my own count?",
+        "The verdict is based on density per square kilometre within a 1 km radius, not the absolute count. A small town with 8 pubs in a tight cluster scores higher than a sprawling suburb with 12 pubs spread across 4 square kilometres. The metric is meant to capture 'pubs you can walk to' rather than 'pubs in this town'."
+      ),
+      createFAQ(
+        "Does the map show closed pubs?",
+        "Not deliberately, but OSM doesn't always get updated when a pub closes. If you spot a pub on the map that's known to have shut, it's worth flagging on OSM directly so the next user gets accurate data. The map does not currently distinguish 'permanently closed' from 'open' venues."
+      ),
+    ],
+    relatedTools: [
+      { slug: "walking-time-calculator", label: "Walking Time Calculator" },
+      { slug: "nearest-park-finder", label: "Nearest Park Finder" },
+      { slug: "school-run-calculator", label: "School Run Calculator" },
+    ],
+  },
+
+  "walking-time-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Walking Time Calculator Works",
+        "Enter a starting address and a destination, and the calculator runs both through OpenStreetMap's geocoder (Nominatim) to find their coordinates, then asks the OSRM foot-routing engine to find the shortest walking route between them along actual paths and pavements. You get the distance in metres or kilometres, an estimated walking time, and a map showing the route in blue.",
+        "Pick a walking pace before you calculate. Slow (3 mph / 4.8 km/h) is comfortable strolling. Normal (3.5 mph / 5.6 km/h) is the OS Naismith's-Rule baseline used by most fitness trackers. Brisk (4 mph / 6.4 km/h) is purposeful walking with a destination in mind. Fast (4.5 mph / 7.2 km/h) is speed walking, the upper end of what most people sustain over distance. Each step up the pace knocks 10-15% off the time."
+      ),
+      createAnswerFirstSection(
+        "Why Walking Times Vary So Much",
+        "The 'normal' 5 km/h figure is an average for a fit adult on flat, uncrowded ground with no breaks. Real walks deviate. Hills slow you down (Naismith's Rule adds about a minute per 10 m of ascent on top of the flat-ground time). Crowded city pavements break your stride. Carrying shopping, pushing a buggy, or walking with a dog all lower pace. The route engine returns the shortest path geometrically, but the time estimate assumes you walk it without stopping.",
+        "For routes you do regularly (the school run, walk to the station, dog loop in the park) you'll quickly learn whether you fall above or below the calculator's prediction. Most people overestimate their walking pace by 10-20%, then under-allocate time and arrive flustered. A useful rule of thumb: if you really need to be somewhere at a specific minute, add 10% to the calculator's estimate."
+      ),
+      {
+        heading: "Walking Times for Common Distances",
+        table: {
+          headers: ["Distance", "Slow (3 mph)", "Normal (3.5 mph)", "Brisk (4 mph)"],
+          rows: [
+            ["500 m", "6 min", "5 min", "4 min"],
+            ["1 km", "12 min", "11 min", "9 min"],
+            ["2 km", "25 min", "21 min", "19 min"],
+            ["3 km", "37 min", "32 min", "28 min"],
+            ["5 km (3.1 miles)", "62 min", "53 min", "47 min"],
+            ["8 km (5 miles)", "100 min", "85 min", "75 min"],
+            ["10 km (6.2 miles)", "124 min", "107 min", "93 min"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Useful Cases Beyond 'How Long Will It Take?'",
+        "Comparing two routes when one looks shorter on the map but goes uphill or through busy areas. Working out whether walking to the next station saves enough on a fare to be worth it. Checking whether a hotel really is '5 minutes from the venue' as advertised (often it isn't). Time-boxing dog walks, school runs, or the nip-to-the-shop journey when you're trying to fit one into a tight slot.",
+        "Walking distance also affects the property market: 'within 10 minutes' walk of a station is a real premium in commuter areas, with research from estate-agent indices regularly putting that at a 5-10% price uplift. For longer-form planning the [Distance Calculator](/distance-calculator) gives you straight-line distances between cities, useful when walking isn't really an option but you want to feel the scale of the journey."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does the calculator account for hills?",
+        "No, not directly. The OSRM foot-routing engine returns flat distance and applies a level-ground pace. If your route has serious hills, add about 1 minute per 10 metres of ascent (Naismith's Rule). For most urban walks the elevation change is small enough not to matter; rural and coastal walks can be quite different."
+      ),
+      createFAQ(
+        "What walking pace should I assume for a child or older adult?",
+        "Children under 8 typically walk at around 2-2.5 mph (3.2-4 km/h). Older adults vary widely: a healthy 70-year-old often holds 3 mph; a less mobile walker might be at 1.5-2 mph. Pick 'slow' or even slower than the slow setting and add a margin. The calculator's pace presets target adults of average fitness."
+      ),
+      createFAQ(
+        "Why does the route follow a strange path?",
+        "The OSRM foot-router follows real OpenStreetMap data on pedestrian paths and rights of way. Sometimes 'the obvious shortcut' isn't actually a public footpath and the router avoids it correctly. Sometimes a path is missing from OSM entirely and the router takes a longer detour. If the route looks wrong, check whether all the relevant footpaths are mapped."
+      ),
+      createFAQ(
+        "Can I use this for non-UK addresses?",
+        "Geocoding is biased to UK addresses (the search adds 'UK' to the query). The OSRM router itself works globally, so non-UK routes do compute, but the address lookup may match the wrong country if you enter a place name shared between the UK and elsewhere. Use full city, country names for non-UK searches."
+      ),
+      createFAQ(
+        "How does this differ from Google Maps walking directions?",
+        "The underlying maths and pace assumptions are similar (Google also uses around 5 km/h for walking), but the data sources differ. Google uses its own road and footpath data, while this tool uses OpenStreetMap. For most UK routes the answers agree to within a couple of minutes; for poorly-mapped paths or recently-built developments, one source may have data the other doesn't."
+      ),
+    ],
+    relatedTools: [
+      { slug: "school-run-calculator", label: "School Run Calculator" },
+      { slug: "distance-calculator", label: "Distance Calculator" },
+      { slug: "pub-density-map", label: "Pub Density Map" },
+    ],
+  },
 };
 

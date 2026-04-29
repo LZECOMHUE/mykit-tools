@@ -527,4 +527,189 @@ export const datetimeSEO = {
       { slug: "online-timer", label: "Online Timer" },
     ],
   },
+
+  "age-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Age Calculator Tells You",
+        "Enter your date of birth and the calculator works out your exact age in years, months and days, plus the running totals you rarely think about: total days alive, total weeks, days until your next birthday, and the day of the week you were born on. It also pins down your zodiac sign, Chinese zodiac animal, and which generation you fall into.",
+        "The maths is straightforward arithmetic against today's date. The interesting parts are the fiddly bits: an age of '34 years and 0 days' means today is your birthday; '34 years and 364 days' means it's the day before. The calculator handles the awkward case where your birthday hasn't happened yet this year by rolling back one year and counting forward through the months."
+      ),
+      createAnswerFirstSection(
+        "How Leap Years Affect the Count",
+        "The total-days figure is computed from the actual elapsed milliseconds between your birthday and now, so leap years are handled automatically. If you are 30 years old, you have lived through 7 or 8 February 29ths depending on when you were born, and those extra days are baked into the total. The Gregorian rule, in place since Pope Gregory XIII's reform in 1582, says a year is a leap year if it's divisible by 4, except century years, except century years divisible by 400. So 2000 was a leap year, 2100 won't be."
+      ),
+      {
+        heading: "What Each Field Means",
+        table: {
+          headers: ["Field", "What it shows", "Useful for"],
+          rows: [
+            ["Years / Months / Days", "Your age broken down properly", "Forms, applications, age verification"],
+            ["Total days alive", "Every single day you've been here", "Birthday milestones, running totals"],
+            ["Total weeks", "Days divided by 7", "Pregnancy and infancy comparisons"],
+            ["Days to next birthday", "Countdown to the next celebration", "Planning gifts, parties, holidays"],
+            ["Day of week born", "Monday, Tuesday, etc.", "The 'Monday's child' nursery rhyme"],
+            ["Zodiac sign", "Western astrology by birth date", "Horoscopes, social conversation"],
+            ["Chinese zodiac", "12-year animal cycle", "Lunar New Year, cultural context"],
+            ["Generation", "Boomer, Gen X, Millennial, Gen Z", "Demographic context"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Common Reasons People Use an Age Calculator",
+        "Filling in forms is the most common one, especially the kind that ask for age in years and months rather than just years. Pension and benefit applications often need this. Parents track baby ages in weeks for the first year and months for the second, then quietly switch to years when nobody's checking. People also use the tool to count 10,000-day milestones (about 27 years and 4 months), or to plan birthday surprises by counting backwards from a target date.",
+        "If you're working out the age of someone else, like a child or a relative, just enter their date of birth instead of yours. For more detailed date arithmetic, the [Date Difference Calculator](/date-difference-calculator) works out the gap between any two dates, including business days only."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How is my exact age calculated?",
+        "Your age in years is the difference between today's year and your birth year, minus one if your birthday hasn't happened yet this year. Months and days are calculated by subtracting components and borrowing from the next column when needed, the same way you'd do long subtraction by hand. Leap years are handled correctly because the calculation uses real calendar dates, not approximations."
+      ),
+      createFAQ(
+        "Is the day-of-week calculation accurate for old dates?",
+        "Yes, for any date after the Gregorian calendar was adopted. JavaScript's Date object uses the proleptic Gregorian calendar, which extends the modern rules backwards. For dates before the cutover (different countries adopted at different times, ranging from 1582 to 1923), the day of week may differ from what historical records show, since those used the older Julian calendar."
+      ),
+      createFAQ(
+        "Why does my age in months seem high?",
+        "Total months is years times 12 plus the remaining months, so a 30-year-old shows 360+ months. People underestimate this because we usually think in years. A useful sanity check: a 30-year-old has lived around 10,950 days, just over 1,560 weeks, and roughly 360 months."
+      ),
+      createFAQ(
+        "Does this work for babies and toddlers?",
+        "Yes. Enter the baby's date of birth and you'll see age in years, months and days plus total weeks alive (the figure most parenting books and milestone charts use during the first 18-24 months). For pregnancy week tracking, you'll need a separate due date calculator since gestational age is counted from the last menstrual period rather than birth."
+      ),
+      createFAQ(
+        "What's the difference between zodiac and Chinese zodiac?",
+        "Western zodiac (Aries, Taurus, etc.) is based on the date you were born, with twelve signs spanning roughly a month each. Chinese zodiac is based on the lunar year, with twelve animals on a rotating cycle, so everyone born in the same lunar year shares an animal. This calculator uses an approximation tied to the Gregorian year, which is correct for most birthdays; for early-year births close to Chinese New Year, the lunar date shift can move you to the previous animal."
+      ),
+    ],
+    relatedTools: [
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "leap-year-checker", label: "Leap Year Checker" },
+      { slug: "time-calculator", label: "Time Calculator" },
+    ],
+  },
+
+  "timezone-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Times Between Timezones",
+        "Pick a source timezone (where the time is now), a target timezone (where you want to know the time), enter the time and date, and the converter does the offset arithmetic. Quick-jump buttons handle the most common business pairings: London to New York, London to Tokyo, Singapore to London, Sydney to New York. The calculation uses the browser's Intl.DateTimeFormat API, so the result reflects the actual local time including any current daylight saving offset.",
+        "All times are anchored to UTC (Coordinated Universal Time) under the hood. UTC has no daylight saving and runs at the same speed everywhere on Earth. Each city or country has an offset from UTC: London is UTC+0 in winter and UTC+1 in summer, New York is UTC-5 in winter and UTC-4 in summer, Tokyo is permanently UTC+9. The converter looks up the offset for both timezones on the date you specify, then shifts the time accordingly."
+      ),
+      createAnswerFirstSection(
+        "Why Time Differences Aren't Constant",
+        "London to New York is usually 5 hours, but for two weeks each year it's 4 hours. This is because the UK and US don't change clocks on the same day. The UK switches to British Summer Time on the last Sunday in March and back to GMT on the last Sunday in October. The US switches on the second Sunday in March and the first Sunday in November. Between those mismatched dates the time difference shifts by an hour.",
+        "Some places skip the dance entirely. Iceland never changes clocks. Most of Asia (Tokyo, Singapore, Hong Kong, Beijing) stays on a fixed offset year-round. India is permanently UTC+5:30 and never observes daylight saving. This is why a 'time difference' question doesn't have a single answer until you specify the date."
+      ),
+      {
+        heading: "Time Difference From London During Different Months",
+        table: {
+          headers: ["City", "Winter (Nov-Mar)", "Summer (Apr-Oct)"],
+          rows: [
+            ["New York", "-5 hours", "-5 hours (briefly -4 in late Mar/early Nov)"],
+            ["Los Angeles", "-8 hours", "-8 hours (briefly -7)"],
+            ["Tokyo", "+9 hours", "+8 hours"],
+            ["Sydney", "+11 hours", "+9 or +10 hours (Australia changes opposite)"],
+            ["Dubai", "+4 hours", "+3 hours"],
+            ["Singapore", "+8 hours", "+7 hours"],
+            ["Mumbai", "+5:30 hours", "+4:30 hours"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "Practical Uses for the Converter",
+        "Scheduling international meetings is the obvious one. Less obvious: working out when a flight lands in local time, checking when a US store opens for an online drop, knowing whether it's a reasonable hour to message family abroad, or converting a webinar start time published in 'Eastern Time' into the time on your wall clock. For travel planning specifically, the [Distance Calculator](/distance-calculator) shows time-zone offset alongside flight time and great-circle distance.",
+        "When co-ordinating across multiple zones, the ISO 8601 format (YYYY-MM-DD HH:MM:SS) plus an offset like '+00:00' is the safest way to write a time without ambiguity. Saying '3pm' is easy to misunderstand; '15:00 UTC+0' is not."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does the converter handle daylight saving time?",
+        "Yes, automatically. The converter looks up each timezone's actual offset on the specific date you enter. So if you convert a 3pm London time on a date in July, it knows London is on BST (+1) and converts accordingly. If you pick a date in January, it uses GMT (+0). You don't need to think about whether the clocks have changed."
+      ),
+      createFAQ(
+        "What's the difference between UTC and GMT?",
+        "In casual use, none, both refer to the time at zero longitude. Strictly, UTC is the modern atomic-clock standard and GMT is the older astronomical version, but they're synchronised to within fractions of a second. The UK uses GMT in winter and switches to BST (British Summer Time, UTC+1) in summer. UTC is used by aviation, shipping, science and computing because it never changes."
+      ),
+      createFAQ(
+        "Why is Australia 9 or 10 or 11 hours ahead of London?",
+        "Three things stack up. First, eastern Australia (Sydney, Melbourne) is naturally UTC+10. Second, those states observe daylight saving in their summer (October to early April), shifting to UTC+11. Third, the UK observes BST in its summer (March to October), shifting London to UTC+1. So the net difference between London and Sydney runs 9 hours (UK summer, AU winter), 10 hours (when offsets line up), or 11 hours (UK winter, AU summer)."
+      ),
+      createFAQ(
+        "Is there a single timezone for the whole of China?",
+        "Yes, China Standard Time (UTC+8) covers the entire country despite spanning what would naturally be five time zones. This means sunrise in Kashgar (far western China) can be as late as 10am local time. The decision was political rather than astronomical, made in 1949."
+      ),
+      createFAQ(
+        "How accurate is the converter?",
+        "Accurate to the minute for any current or future date. Historical conversions before about 1970 may be approximate because daylight saving rules and time-zone boundaries have shifted over the decades, and the IANA timezone database (which JavaScript uses) handles the modern era reliably but has fewer rules for older periods."
+      ),
+    ],
+    relatedTools: [
+      { slug: "world-clock", label: "World Clock" },
+      { slug: "distance-calculator", label: "Distance Calculator" },
+      { slug: "age-calculator", label: "Age Calculator" },
+    ],
+  },
+
+  "time-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Time Calculator Does",
+        "Two modes. Add and subtract handles a list of time entries (hours, minutes, seconds), each with a plus or minus operator, and gives you the running total. Time between takes a start clock time and an end clock time and tells you how long elapsed, with a checkbox for cases where the period crosses midnight.",
+        "Output appears in three formats simultaneously: HH:MM:SS for clock-style display, decimal hours (5h 30m becomes 5.50) for timesheets and billing, and total minutes for sports times and music durations. The result updates as you type, so there's no calculate button to press."
+      ),
+      createAnswerFirstSection(
+        "Why Time Arithmetic Is Awkward",
+        "Time doesn't add cleanly because the units are mixed bases: 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day. Adding 0:45 + 0:35 = 1:20, not 0:80. The calculator does the conversion behind the scenes by translating everything into seconds, doing the arithmetic, then converting back. This avoids the off-by-one errors that creep in when people try to add times in their head.",
+        "Subtraction is where it gets really fiddly. 03:15 - 02:45 isn't '0:30 with a borrow'; you have to convert the hours into minutes first. The 'time between' mode handles this by parsing both times into total seconds since midnight, doing a straight subtraction, and adding 86,400 seconds (one full day) when the end time falls before the start time and the 'crosses midnight' option is ticked."
+      ),
+      {
+        heading: "Common Time-Calculation Scenarios",
+        table: {
+          headers: ["Scenario", "Mode to use", "Tip"],
+          rows: [
+            ["Total hours worked across multiple shifts", "Add/subtract", "One row per shift, all with + operator"],
+            ["Subtract a 30-minute lunch break", "Add/subtract", "Set the operator to - on the break row"],
+            ["Time between clock-in and clock-out", "Time between", "Tick 'crosses midnight' if you finish next day"],
+            ["Cumulative running time of a playlist", "Add/subtract", "Each track length as one row"],
+            ["Race split times to total finish", "Add/subtract", "Use seconds field for sub-minute splits"],
+            ["Total length of a podcast series", "Add/subtract", "Round to nearest minute if helpful"],
+          ],
+        },
+      },
+      createAnswerFirstSection(
+        "How Decimal Hours Work for Timesheets",
+        "Many billing and payroll systems expect time in decimal format rather than HH:MM. The conversion is simple: minutes divided by 60, then added to the hours. So 1 hour 30 minutes is 1.50 hours, 2 hours 15 minutes is 2.25 hours, 7 hours 45 minutes is 7.75 hours. The calculator shows both formats so you can copy whichever your system needs.",
+        "Decimal hours are a hangover from accounting systems that hated mixed-base arithmetic. They've stuck around because spreadsheets handle decimal numbers easily and HH:MM badly. If you're invoicing a client at £75 per hour for 2 hours 24 minutes of work, decimal makes the maths straightforward: 2.40 × £75 = £180. The [Work Hours Calculator](/work-hours-calculator) is built specifically around decimal hours plus break deductions."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How do I add a list of times?",
+        "In Add/Subtract mode, leave each row's operator on the plus sign and fill in the hours and minutes (and seconds if needed). The total at the bottom updates as you type. Use the Add Row button if you need more than two entries. There's no upper limit; the calculator handles long lists fine."
+      ),
+      createFAQ(
+        "Why is my result negative or zero?",
+        "If you've subtracted more time than you added, the calculator clamps the result to zero rather than showing a negative time, since negative durations rarely make practical sense. If you genuinely need a negative result (for example, calculating how much you're under a target time), do the subtraction in the opposite direction and read the result as 'how much short'."
+      ),
+      createFAQ(
+        "What does 'crosses midnight' mean in time-between mode?",
+        "If your start time is, say, 22:00 and your end time is 06:00, the simple difference would be -16 hours. But if you actually mean a night shift that started at 10pm and finished at 6am the next morning, the real elapsed time is 8 hours. Tick the box and the calculator adds 24 hours to the end time before subtracting, giving the correct overnight duration."
+      ),
+      createFAQ(
+        "Can I use this for billing in 6-minute or 15-minute increments?",
+        "Yes, but you'll need to round the decimal-hours result yourself. 6-minute increments correspond to 0.1 of an hour, so round up to the nearest 0.1 (a 14-minute task becomes 0.30 hours, billed). 15-minute increments correspond to 0.25 of an hour. Some legal and consultancy timesheets use either system."
+      ),
+      createFAQ(
+        "How does this differ from the date difference calculator?",
+        "This one handles times within a single day or short totals across multiple sessions. The [Date Difference Calculator](/date-difference-calculator) handles intervals measured in days, months and years between two specific calendar dates. Use this for clocked time, that one for elapsed dates."
+      ),
+    ],
+    relatedTools: [
+      { slug: "work-hours-calculator", label: "Work Hours Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "stopwatch", label: "Online Stopwatch" },
+    ],
+  },
 };

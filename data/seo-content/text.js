@@ -962,4 +962,419 @@ export const textSEO = {
       { slug: "readability-checker", label: "Readability Checker" },
     ],
   },
+
+  "text-diff": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Compare Two Pieces of Text",
+        "Paste your original on the left, the new version on the right, and the tool walks both inputs line by line and marks each line as added, removed, or unchanged. Removed lines highlight red, added lines highlight green, and matching lines stay neutral. The summary above the result tells you exactly how many of each appear, so you can spot at a glance whether an edit changed two lines or twenty.",
+        "The comparison runs on whole lines, not characters or words. That matters when you are diffing prose: rewording a sentence shows as one line removed and one line added, even if 90% of the words match. For paragraph-level edits this is what you want; for tracking individual word changes inside a sentence, copy the two lines into a [find and replace](/find-and-replace) workflow instead. The diff also treats whitespace as significant, so a line with trailing spaces will not match a line without them. Run the text through the [whitespace remover](/whitespace-remover) first if invisible characters are tripping you up."
+      ),
+      createAnswerFirstSection(
+        "When You Actually Need a Diff",
+        "Three situations come up most often. First, comparing two contract drafts a lawyer sent back, where you need to know which clauses moved. Second, checking what a copy editor changed in your article. Third, debugging two configuration files when one works and one does not. In all three the goal is the same: see only the changes, ignore the bulk of the text that did not move.",
+        "A worked example: you sent a 600-word blog post to an editor and got back a version with no track changes. Pasting both into the diff shows 14 lines unchanged, 6 removed, 8 added. You can now read just those 14 lines of edits in 30 seconds instead of re-reading the whole post and trying to remember the original. For longer documents this can save 10 to 20 minutes per review cycle."
+      ),
+      createAnswerFirstSection(
+        "Reading the Summary Stats",
+        "The header above the diff shows three counters: lines unchanged, lines added, lines removed. A small edit might give you 38 unchanged, 2 added, 2 removed. A heavy rewrite of the same source might show 5 unchanged, 35 added, 33 removed. The ratio between unchanged and changed lines is a quick proxy for how much real work happened on the document.",
+        "Watch out for one common gotcha. If the original has Windows line endings (CRLF) and the modified version has Unix line endings (LF), every single line will appear changed because the invisible carriage returns do not match. The fix is to paste both into a plain text editor first, save with consistent line endings, and re-run the comparison. The [whitespace remover](/whitespace-remover) will not fix this on its own; use a text editor's line-ending conversion."
+      ),
+      createAnswerFirstSection(
+        "Privacy and What Happens to Your Text",
+        "Both texts you paste in stay on your device. The diff calculation runs entirely in your browser using JavaScript, so nothing is uploaded to a server, logged, or stored after you close the tab. That makes the tool safe for confidential drafts, contracts, and code that should never leave your machine.",
+        "If you are working on something sensitive, you can run the tool offline by loading the page once with the network on, then disconnecting. The diff will keep working because all the logic is already in your browser. There is no server-side fallback, no telemetry on the text content, and no ad network reading the textareas."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can it diff documents longer than a few thousand words?",
+        "Yes, but the rendering slows down past about 5,000 lines because the browser has to paint every coloured row. For very large files (entire codebases, books) a desktop diff tool like Beyond Compare or Meld will be faster. For most articles, contracts, emails, and configuration files this tool handles them in under a second."
+      ),
+      createFAQ(
+        "Why does it show two lines as different when they look identical?",
+        "Almost always invisible whitespace. Trailing spaces, tabs versus spaces, or different line-ending conventions (CRLF vs LF) make lines unequal even when they look the same. Run both texts through the [whitespace remover](/whitespace-remover) with 'Trim lines' enabled, then compare again."
+      ),
+      createFAQ(
+        "Does it work as a code diff?",
+        "It works for any plain text including code, but it only diffs whole lines, not tokens or syntax. For serious code review use git diff or a code-aware tool like Diffchecker; for quick checks of two pasted snippets this tool is fine. It will not understand that swapping the order of two function arguments is a meaningful change."
+      ),
+      createFAQ(
+        "Can I share the diff with someone else?",
+        "Not as a link. The text never leaves your browser, so there is no server-side state to share. To share results, take a screenshot of the diff or copy both texts and the summary into an email. If you need a shareable link, GitHub Gist is a free option and provides proper diff URLs."
+      ),
+    ],
+    relatedTools: [
+      { slug: "find-and-replace", label: "Find and Replace" },
+      { slug: "whitespace-remover", label: "Whitespace Remover" },
+      { slug: "word-counter", label: "Word Counter" },
+    ],
+  },
+
+  "readability-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Five Scores Actually Mean",
+        "The tool runs five different readability formulas on your text and shows them side by side: Flesch Reading Ease (a 0 to 100 score where 60 to 70 is plain English), Flesch-Kincaid Grade Level (the US school grade needed to read it), Gunning Fog Index (years of formal education needed), SMOG (a polysyllable-based grade for technical writing), and Coleman-Liau (a character-count-based grade that ignores syllables). Below all five the tool averages the four grade-level scores into one number and gives a label: Very Easy, Easy, Fairly Easy, Standard, Fairly Difficult, Difficult, or Very Difficult.",
+        "Five formulas instead of one because each captures something different. Flesch-Kincaid and SMOG penalise long syllable counts; Coleman-Liau cares only about characters and sentence length, so it works on text where syllable detection is unreliable (initialism-heavy technical writing, for example). Gunning Fog is the formula journalists are taught in school. Showing all five together stops you from optimising to one number and missing a problem the others would catch."
+      ),
+      createAnswerFirstSection(
+        "What Score You Should Aim For",
+        "It depends on the audience. For a general consumer blog, news article, or marketing copy aim for Flesch Reading Ease 60 to 70 and grade level 7 to 9. The Sun and the Daily Mirror sit around grade 6; The Guardian sits around grade 9 to 10; The Economist runs grade 14. For a B2B SaaS landing page aim grade 9 to 11. For a legal contract or academic paper grade 14 plus is normal and not a problem.",
+        "Concrete example: paste in a 200-word email to a customer and you might get Flesch Reading Ease 72, Flesch-Kincaid grade 7.2, average sentence length 14 words. That is on target for customer-facing email. If the same email returns Flesch Reading Ease 38 and grade 14, you have written something that reads like a legal disclaimer; the tips panel will tell you to break long sentences and replace polysyllabic words. Re-run after editing and watch the score move."
+      ),
+      createAnswerFirstSection(
+        "Reading Time and What Drives It",
+        "The reading time estimate uses 200 words per minute, which is the average for adults reading English prose silently. A 1,000-word article comes out as 5 minutes; a 250-word product description as roughly 1 minute. Reading aloud is slower (about 130 to 150 wpm); skimming is faster (300 to 400 wpm). The number is a rough planning aid, not a stopwatch.",
+        "If your text reads slowly even though the word count is short, it usually means very long sentences or very dense sentences. The improvement tips at the bottom of the result flag the specific issue: average sentence length over 15 words, average syllables per word over 1.5, complex words above 10% of the total. Fix the flagged item, paste the rewrite, and you will usually see the grade level drop by 1 to 2 levels. The [word counter](/word-counter) will give you a more granular breakdown if you need exact totals."
+      ),
+      createAnswerFirstSection(
+        "Limitations Every Score Has",
+        "Readability formulas measure surface features (sentence length, syllable count, character count) not actual comprehension. A 7th-grade-rated paragraph about quantum entanglement is still incomprehensible to a 7th grader because the concepts are hard, not the syntax. Equally, a Hemingway novel with a Flesch-Kincaid grade of 4 is not literally a children's book; the prose is just unusually clean.",
+        "The formulas were also calibrated on US English text decades ago. They work fine for British English but mishandle some specific things: hyphenated compounds get over-counted as polysyllabic, technical jargon with three or four syllables (kilometre, organisation) inflates Gunning Fog without genuinely making the text harder, and very short texts (under 100 words) give unreliable scores because there is not enough data. Treat the score as a strong hint, not a verdict."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is Flesch Reading Ease or grade level the better number to use?",
+        "Use whichever your audience speaks. American writers and editors mostly cite grade level (Hemingway App, Yoast SEO use it). British and European writers more often cite Flesch Reading Ease. They are essentially the same information on different scales: Flesch Reading Ease 70 and Flesch-Kincaid grade 7 describe the same text. Pick one and stick to it across a team for consistency."
+      ),
+      createFAQ(
+        "What is a 'complex' or polysyllabic word?",
+        "Any word with three or more syllables, like 'organisation' (5), 'particularly' (5), or 'consequently' (4). Two-syllable words like 'happy' or 'morning' do not count. Gunning Fog and SMOG both penalise polysyllabic words because they correlate strongly with reading difficulty in real research."
+      ),
+      createFAQ(
+        "Why do I get different scores from Hemingway App?",
+        "Hemingway uses its own modified Flesch-Kincaid that adds penalties for adverbs, passive voice, and 'hard to read' sentences (subjective rules). This tool uses the original published formulas, unmodified. For a marketing website Hemingway's score will be slightly worse; for a comparison against academic standards the unmodified formulas (here) are the right baseline."
+      ),
+      createFAQ(
+        "Does it work on text under 100 words?",
+        "It runs, but the scores wobble. With three sentences the average sentence length is dominated by whichever sentence is longest, and one polysyllabic word can swing Gunning Fog by 2 grades. For meaningful results paste at least 200 to 300 words. For a single sentence the score is essentially noise."
+      ),
+      createFAQ(
+        "Should I aim for the lowest possible score?",
+        "No. Writing a B2B sales page at grade 5 makes you sound like you think the reader is stupid; writing a children's book at grade 12 fails the audience. Pick the right level for the reader. The exception is web content for a general audience, where grade 7 to 9 is consistently a safe ceiling."
+      ),
+    ],
+    relatedTools: [
+      { slug: "word-counter", label: "Word Counter" },
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "readability-score-checker", label: "Readability Score Checker" },
+    ],
+  },
+
+  "fancy-text-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Unicode Lets You Use 'Fancy' Fonts in Plain Text",
+        "Type into the input and the tool converts your letters into Unicode mathematical and decorative characters that look like different fonts: bold, italic, script, gothic, double-struck, monospace, sans-serif variants, circled letters, squared letters, fullwidth, small caps, upside-down, strikethrough and underline. Click the style you want and the converted text copies to your clipboard ready to paste into Instagram, TikTok bios, Twitter, Discord, or any other plain-text field.",
+        "The trick is that these are not real fonts. They are characters from blocks like Mathematical Alphanumeric Symbols (U+1D400 to U+1D7FF), Enclosed Alphanumerics (U+2460 to U+24FF), and Fullwidth Forms (U+FF00 to U+FFEF). Because they are real Unicode codepoints, every modern app that handles text at all (browser, social network, messaging app) renders them. There is no installation, no font upload, no plugin. The downside: search engines and screen readers cannot read them properly, so do not use them in headlines, link text, or anywhere accessibility matters."
+      ),
+      createAnswerFirstSection(
+        "Where Each Style Actually Renders Properly",
+        "Bold, italic, sans-serif, and monospace styles display correctly almost everywhere because they live in the Mathematical Alphanumeric Symbols block, which is well-supported. Script, fraktur (gothic), and double-struck render fine in most modern browsers and apps but can fall back to plain text on older Android devices. Circled and squared letters work universally. Upside-down text uses real Latin letter forms (ɐqɔp) and works everywhere. Strikethrough and underline use combining diacritics, which most platforms render correctly but a few mobile email clients drop.",
+        "If a style looks broken on a particular platform, the receiving app does not have the right font for that Unicode block and is rendering tofu boxes (□). The fix is to pick a different style. Bold and italic almost always work; if you need maximum compatibility, use those two. For Instagram bios and captions specifically, all 17 styles in this tool render correctly because Instagram uses the system font."
+      ),
+      createAnswerFirstSection(
+        "Using It for Bios, Captions, and Branding",
+        "The most common use is making one or two words stand out in a social media bio that does not let you bold or italicise. For example, an Instagram bio reading 'Photographer based in 𝐒𝐭𝐨𝐜𝐤𝐡𝐨𝐥𝐦' uses bold characters for the city name. A LinkedIn headline reading '𝙎𝙚𝙣𝙞𝙤𝙧 𝘿𝙚𝙨𝙞𝙜𝙣𝙚𝙧 - 𝙀𝙭-𝙂𝙤𝙤𝙜𝙡𝙚' uses bold italic to draw the eye to the seniority and the prior employer. A TikTok caption with 'ⓢⓤⓜⓜⓔⓡ ⓟⓛⓐⓝⓢ' uses circled letters as a quirky visual hook.",
+        "Used sparingly this can lift engagement on bios and captions; used aggressively across every post it reads as gimmicky and accessibility-hostile. A reasonable rule: pick one style, apply it to one or two words per bio or post, never use it for the call-to-action or links. For full posts where line breaks matter on Instagram, pair this with the [Instagram caption formatter](/instagram-caption-formatter) so your spacing survives."
+      ),
+      createAnswerFirstSection(
+        "What It Will Not Do",
+        "It cannot apply bold or italic to text that already uses fancy characters: applying italic to a bold-converted string just gives you back the original input as italic. It cannot bold or italicise numbers in every style (script, double-struck and a couple of others have no number support); the tool falls back to plain digits in those cases. It cannot mix two styles in one word; you would have to convert each portion separately and concatenate.",
+        "Most importantly, do not use this on anything Google indexes. Page titles, meta descriptions, blog post H1s, link anchors, alt text - all of those should be plain Latin characters because search engines treat 𝐡𝐞𝐥𝐥𝐨 and hello as different words and your SEO will suffer. Bios, captions, and chat messages are fine; structured content is not. Use the [case converter](/case-converter) for proper title-casing instead."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Will the fancy text show up correctly on iPhone, Android, and desktop?",
+        "Bold, italic, sans-serif, monospace, fullwidth, small caps, circled and squared all render correctly across iOS, Android, Windows and macOS in modern browsers. Script, fraktur and double-struck work everywhere except some older Android phones (pre-Android 8) where they display as boxes. Upside-down text and strikethrough work on every platform tested in 2026."
+      ),
+      createFAQ(
+        "Can I use fancy text in my email signature?",
+        "Yes for Gmail, Outlook 365, Apple Mail and Yahoo Mail - all four render Unicode mathematical alphanumerics correctly. Older Outlook desktop versions (2013 and earlier) sometimes show boxes for less-common styles like Gothic and Double Struck. Test by sending yourself a draft to whichever client you care about most."
+      ),
+      createFAQ(
+        "Is fancy text legal to use in a username on Instagram or Twitter?",
+        "Yes for Instagram, TikTok, Threads and most platforms - they accept any Unicode in display names. X (Twitter) restricts certain Unicode blocks in usernames (the @handle) but allows them freely in display names and bios. LinkedIn allows them in headlines and About sections but they may flag overly stylised names as suspicious during account review."
+      ),
+      createFAQ(
+        "Why does my converted text not work in Microsoft Word?",
+        "It does, but Word will sometimes auto-correct fancy characters back to plain text on paste, particularly for italic and bold styles. Disable AutoCorrect's 'Replace text as you type' or use Paste Special > Unformatted Text. For a Word document you should genuinely use Word's built-in bold (Ctrl+B) - fancy Unicode is for places that do not have a bold button."
+      ),
+      createFAQ(
+        "Does this hurt my SEO if I use it on a website?",
+        "Yes, badly. Google indexes 𝐡𝐞𝐥𝐥𝐨 (mathematical bold) and hello (plain) as different words. Using fancy text in headlines, meta titles, page H1s, link anchors or body content tanks your rankings for the real keyword. Keep it to social bios and captions only."
+      ),
+    ],
+    relatedTools: [
+      { slug: "instagram-caption-formatter", label: "Instagram Caption Formatter" },
+      { slug: "case-converter", label: "Case Converter" },
+      { slug: "slug-generator", label: "Slug Generator" },
+    ],
+  },
+
+  "email-template-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Pick the Right Template Type for the Situation",
+        "The tool offers seven types: complaint, request, thank you, follow-up, introduction, apology, and resignation. Pick the type that matches your goal, then choose a tone (formal, professional, or friendly), fill in the recipient, the topic, and any specific details, and the email assembles itself with the right opening, structure, and sign-off. The output is plain text ready to paste into Gmail, Outlook, or any email client.",
+        "Choosing well matters. Sending a 'request' template when you should have used 'follow-up' makes you look like you have forgotten the first message. Sending a 'formal' apology to your boss who you speak to daily reads as overcompensating. The default is professional tone with the thank-you template, which is the safest combination if you are not sure - polite, neutral, and unlikely to land badly."
+      ),
+      createAnswerFirstSection(
+        "When Each Tone Fits",
+        "Formal opens with 'Dear [Name],' and closes with 'Best regards' or 'Thank you for your consideration.' Use it for legal correspondence, complaints to large companies, resignation letters, and any first email to a senior person you do not know. Professional opens with 'Hi [Name],' and closes with 'Best' or 'Thanks.' Use it for almost everything else: colleagues, clients you have a relationship with, recruiters, peers in other companies. Friendly opens with 'Hey [Name],' and closes with 'Cheers.' Use it only with people you actually know well; using friendly tone with a stranger reads as unprofessional.",
+        "A common mistake is using formal tone for routine internal email. Writing 'Dear Sarah, I hope this email finds you well' to your direct colleague Sarah, who you spoke to in the kitchen 20 minutes ago, comes across as cold or sarcastic. The professional tone is right for 95% of work email; reserve formal for genuinely formal situations and friendly for actual friends."
+      ),
+      createAnswerFirstSection(
+        "Filling in the Three Detail Fields",
+        "The template uses three placeholders: recipient (the person's name, used in the greeting), details (the topic in a few words), and specifics (the meat of the email, 1-3 sentences of context). For a thank-you to a client, recipient is 'Sarah', details is 'introducing me to your finance team last week', specifics is 'the conversation with Mark led to a six-month engagement starting in May. I really appreciate you making the connection at the right moment.'",
+        "Keep specifics tight. The default templates work because they are short and let your specific words carry the message. Pasting in three paragraphs of explanation makes the email feel templated and sycophantic at the same time. If you need to write a long email with multiple sections, generate the structure here, then edit the result rather than trying to fit everything into one specifics field. The [word counter](/word-counter) is handy for keeping your final draft under 200 words, which is what most professional emails should be."
+      ),
+      createAnswerFirstSection(
+        "When You Should Not Use a Template",
+        "Templates are starting points, not finished emails. For high-stakes messages (negotiating a pay rise, breaking bad news to a client, declining a job offer) the template should anchor the structure but every sentence needs your own wording. Templates that are obviously templated read as low-effort, and the recipient can tell. The 'Hey {recipient}, I wanted to apologize for {details}' pattern is fine for a missed standup; it is not fine for apologising to a customer who lost data.",
+        "Also skip templates for emails where the relationship matters more than the content. A condolence message, a personal recommendation, a goodbye email to a long-term colleague: these need to sound like you, not like a generator. Use the resignation template to remember the structure (date, transition offer, thanks), then rewrite the entire body in your own words. For polished output, run the result through the [Instagram caption formatter](/instagram-caption-formatter) if you also want to share excerpts on social."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I save my own custom templates?",
+        "Not in this tool. The seven types are built in, and the tool generates fresh output each time without storing anything between sessions. If you find yourself rewriting the same template repeatedly, save it as a draft in your email client (Gmail's 'Templates' feature, Outlook's 'Quick Parts') instead."
+      ),
+      createFAQ(
+        "Are these templates appropriate for British or American workplaces?",
+        "The templates use neutral business English that works in both. 'Best regards' and 'Best' work in the UK, US, Canada and Australia. 'Cheers' is more common in UK and Australian friendly email; some American readers parse it as casual but not unprofessional. If in doubt, use 'professional' tone, which uses 'Thanks' and 'Best' - the most platform-neutral combination."
+      ),
+      createFAQ(
+        "What is the difference between a follow-up and a request template?",
+        "A request is a first ask - you have not asked this person about this topic before. A follow-up is a second or third reminder when you have not had a reply. Using request when you should follow up makes the recipient think you have forgotten the original message; using follow-up on a fresh topic reads as passive-aggressive. The wording is meaningfully different."
+      ),
+      createFAQ(
+        "Should I always include a subject line?",
+        "Always, but this tool only generates the body. Your subject should be the topic in 5 to 8 words, ideally with the action you want: 'Quick question about Tuesday's invoice', 'Thanks for the introduction to Sarah', 'Following up: contract review by Friday'. Vague subjects ('Hi', 'Question') get ignored; concrete subjects with a deadline get answered first."
+      ),
+    ],
+    relatedTools: [
+      { slug: "instagram-caption-formatter", label: "Instagram Caption Formatter" },
+      { slug: "fancy-text-generator", label: "Fancy Text Generator" },
+      { slug: "word-counter", label: "Word Counter" },
+    ],
+  },
+
+  "text-reverser": {
+    sections: [
+      createAnswerFirstSection(
+        "Three Ways to Reverse Text",
+        "Pick a mode, paste your text, and the result updates as you type. Character mode reverses every character so 'Hello World' becomes 'dlroW olleH'. Word mode keeps words intact but reverses their order so 'The quick brown fox' becomes 'fox brown quick The'. Line mode keeps each line intact but reverses the order of lines, useful for flipping a top-to-bottom list into bottom-to-top.",
+        "The three modes solve different problems. Character reversal is for palindrome checking, novelty social media posts, and obfuscating answers ('the murderer is reldun' as a quiz spoiler). Word reversal is occasionally useful for testing how a layout handles right-to-left languages without actually translating. Line reversal is the most genuinely useful: flipping a chronological event log into reverse-chronological, or reversing a sorted list without re-sorting."
+      ),
+      createAnswerFirstSection(
+        "Palindromes and How to Spot Them",
+        "A palindrome reads the same backwards as forwards. 'Racecar' reversed is 'racecar'; 'Madam' reversed is 'madam'; 'A man, a plan, a canal: Panama' reversed (ignoring punctuation and spaces) is the same. To check whether a phrase is a palindrome, paste it, switch to character mode, and compare the result to your original. If you want to ignore spaces and punctuation, run the input through the [whitespace remover](/whitespace-remover) with 'Remove all whitespace' enabled first.",
+        "Some famous palindromes to test the tool with: 'Was it a car or a cat I saw?', 'Never odd or even', 'Eva, can I see bees in a cave?'. Each becomes itself when reversed. Pangrams (sentences using every letter) are not palindromes; 'The quick brown fox jumps over the lazy dog' reversed is 'god yzal eht revo spmuj xof nworb kciuq ehT', which is gibberish."
+      ),
+      createAnswerFirstSection(
+        "Reversing Lists and Logs",
+        "Line mode is the option you will actually reach for at work. A worked example: you have a meeting log with 12 entries from oldest at the top to newest at the bottom, and your manager wants the most recent items first. Paste it in, pick line mode, copy the output. Done in five seconds. The same applies to reversing a numbered to-do list to put completed items at the top, or flipping a timeline to read newest-first.",
+        "Word mode is rare but occasionally useful for designers testing whether a UI breaks when text reads right-to-left. It does not actually translate to RTL; for proper bidirectional testing use a Lorem Ipsum tool with Arabic or Hebrew samples instead. For most everyday text manipulation, you will find more value pairing this with the [text sorter](/text-sorter) (sort first, then reverse to flip ascending to descending) or with the [whitespace remover](/whitespace-remover) (clean first, then reverse)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does it reverse emoji and accented characters correctly?",
+        "Mostly yes, but with caveats. Single-character emoji (😀, 🎉) reverse fine. Compound emoji built from multiple codepoints (👨‍👩‍👧 = three faces joined by zero-width joiners) sometimes split apart on character reversal because the tool reverses each codepoint individually. Accented Latin characters (é, ñ, ü) reverse correctly because each is a single codepoint."
+      ),
+      createFAQ(
+        "Can I reverse only part of the text?",
+        "No, the tool reverses everything in the input. To reverse just a section, paste only that section. To preserve some lines and reverse others, split the text into two passes and concatenate the result manually."
+      ),
+      createFAQ(
+        "Is there a way to reverse text live as I type?",
+        "It already does. The output updates the moment you change the input or switch modes - there is no 'Reverse' button to click. Just type or paste into the input field and the result appears below."
+      ),
+      createFAQ(
+        "What is the difference between word mode and line mode for a single sentence?",
+        "On a sentence with no line breaks, line mode does nothing (one line in, one line out, in the same order). Word mode flips the words. Use word mode for sentence-level word order reversal; line mode is for multi-line text where you want to keep each line's content intact but flip their sequence."
+      ),
+    ],
+    relatedTools: [
+      { slug: "text-sorter", label: "Text Sorter" },
+      { slug: "whitespace-remover", label: "Whitespace Remover" },
+      { slug: "word-frequency-counter", label: "Word Frequency Counter" },
+    ],
+  },
+
+  "whitespace-remover": {
+    sections: [
+      createAnswerFirstSection(
+        "Four Cleanup Options You Can Combine",
+        "Toggle any combination of four options: trim lines (removes leading and trailing spaces from each line), remove blank lines (deletes empty lines so the text closes up), collapse spaces (replaces runs of multiple spaces with a single space), and remove all whitespace (the nuclear option, strips every space, tab, and line break). Output updates live as you toggle. The first three are usually combined; the fourth is for special cases like generating a slug or a hash input.",
+        "Real example. Paste this in: '  Hello    World  \\n\\nThis  has   extra   spaces' and turn on 'Trim lines' + 'Collapse spaces' + 'Remove blank lines'. Output: 'Hello World\\nThis has extra spaces'. Two of the original 17 problem characters survive; the rest are gone. This is the single most common cleanup you will run on text copied out of PDFs, scraped websites, or messy email threads."
+      ),
+      createAnswerFirstSection(
+        "What Each Option Actually Does",
+        "Trim lines targets only line beginnings and ends, leaving spaces inside a line untouched - so 'word    word' stays 'word    word' but '   word    word   ' becomes 'word    word'. Collapse spaces targets every run of two or more spaces inside a line, replacing them with one space - 'word    word' becomes 'word word'. Run both together and 'word    word' becomes 'word word' with no leading or trailing space. Remove blank lines acts on whole lines that contain nothing or only whitespace, dropping them entirely.",
+        "'Remove all whitespace' is exactly what it says: every space, tab, and newline disappears. 'Hello World' becomes 'HelloWorld'. Use it for generating clean strings to feed into hash functions, URL slugs (though the [slug generator](/slug-generator) is purpose-built for that), or compact concatenations. Most of the time you do not want this; you want trim + collapse + remove blanks instead."
+      ),
+      createAnswerFirstSection(
+        "Common Cleanup Scenarios",
+        "Pasting text out of a PDF: turn on all three of trim, collapse, and remove blanks. PDFs typically introduce trailing spaces, double-spaces between sentences, and blank lines between paragraphs that you do not want. Cleaning up text scraped from a website: same combination, plus consider running it through the [find and replace](/find-and-replace) tool afterwards to fix curly quotes or non-breaking spaces. Cleaning up code copied from Stack Overflow: just trim lines, since you want to keep blank lines and indentation intact.",
+        "One thing this tool does not handle: invisible Unicode characters like zero-width spaces (U+200B), zero-width joiners (U+200D), or non-breaking spaces (U+00A0). Those are not detected as 'whitespace' by JavaScript's regular whitespace pattern. If a line still looks misaligned after running the tool, copy it into a hex viewer or use the [find and replace](/find-and-replace) with regex mode to target those specific codepoints. The [text diff](/text-diff) tool will also reveal mystery whitespace differences when comparing two versions of the same paragraph."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does 'collapse spaces' affect tabs?",
+        "Yes. Tabs count as whitespace, so a sequence of tabs, mixed tabs and spaces, or runs of either gets collapsed to a single space when 'Collapse spaces' is on. If you need to preserve tab indentation in code, do not enable collapse spaces - use only 'Trim lines' instead."
+      ),
+      createFAQ(
+        "Will it remove non-breaking spaces (U+00A0)?",
+        "Only with 'Remove all whitespace' enabled. The other three options use JavaScript's whitespace pattern which excludes some Unicode space characters. For non-breaking spaces and zero-width spaces specifically, use the [find and replace](/find-and-replace) tool with regex mode and the appropriate codepoint."
+      ),
+      createFAQ(
+        "Is there a way to keep paragraph breaks but remove single line breaks?",
+        "Not directly in this tool. To do it, use [find and replace](/find-and-replace) with regex mode: replace single newlines (not double) with a space. Pattern: (?<!\\n)\\n(?!\\n) replaced with a space. That is a more advanced operation than the four toggles here cover."
+      ),
+      createFAQ(
+        "Can I undo a removal if I clean too aggressively?",
+        "Use Ctrl+Z or Cmd+Z in the input field to undo your paste, or paste again from your clipboard if the original is still there. The tool does not have an undo button because the cleanup runs live - just toggle the options off and the original text reappears in the output."
+      ),
+    ],
+    relatedTools: [
+      { slug: "text-reverser", label: "Text Reverser" },
+      { slug: "text-sorter", label: "Text Sorter" },
+      { slug: "find-and-replace", label: "Find and Replace" },
+    ],
+  },
+
+  "text-to-morse-code": {
+    sections: [
+      createAnswerFirstSection(
+        "How Morse Code Maps Letters to Dots and Dashes",
+        "Type a message and the tool replaces each letter, number, or punctuation mark with its Morse equivalent: dot (.) for short signal, dash (-) for long signal. SOS becomes '... --- ...'. HELLO becomes '.... . .-.. .-.. ---'. Spaces between letters use a single space; spaces between words use a forward slash. The mapping follows the International Morse Code standard adopted in 1865 and still used in amateur radio and aviation today.",
+        "The full set covers A through Z, 0 through 9, and 13 punctuation marks (full stop, comma, question mark, apostrophe, exclamation, slash, parentheses, ampersand, colon, semicolon, equals, plus, hyphen, underscore, quotation marks, dollar sign, at sign). Letters most common in English have the shortest codes - E is one dot, T is one dash - while rare letters like Q (--.-) and J (.---) get longer sequences. This is not a coincidence; Samuel Morse and Alfred Vail designed the codebook by counting letter frequencies in a printer's type case and assigning short codes to common letters."
+      ),
+      createAnswerFirstSection(
+        "When Morse Code Still Gets Used",
+        "Mostly amateur radio (ham radio) operators, who still pass licensing exams that include Morse comprehension in some countries. Aviation beacons broadcast their two- or three-letter station identifiers in Morse so pilots can confirm they are tuned to the right transmitter. Submarines used Morse for emergency communications well into the 2000s. Rarely, the military still uses it for low-bandwidth covert signalling. Outside those niches, Morse is more cultural than practical.",
+        "The most common everyday use today is novelty: tapping out 'I love you' (.. / .-.. --- ...- . / -.-- --- ..-) on someone's hand, hidden Morse messages in birthday cards or escape rooms, and accessibility devices that translate eye-blinks or single-button presses into text via Morse. The Apple Watch and various assistive technologies still use Morse input as an option for people with limited motor control."
+      ),
+      createAnswerFirstSection(
+        "Reading and Decoding by Eye",
+        "If you can recognise the patterns for SOS (... --- ...), CQ ('Calling Anyone' -.-. --.-), and your own initials, you can spot Morse in the wild. The classic learning trick is to memorise five-letter groups: ETIANM (one to five characters of E's pattern, building up), or ETARSL (the most common letters). Once you know those, the rest of the alphabet falls into place because the patterns build logically from the short codes outward.",
+        "For decoding back to plain text, this tool only goes one way (text to Morse). To go the other way, paste the Morse into your favourite Morse decoder, or use a fixed reference table. Morse is more concise than English (about 4 characters of Morse per English letter on average), but reading it visually takes practice. The [text to binary](/text-to-binary) tool is a better choice if you want a similar 'encoded text' look that decodes more easily by eye."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my Morse not include certain symbols I expected?",
+        "International Morse Code is a finite character set. Symbols like the asterisk (*), backslash (\\), tilde (~), pipe (|), and emoji do not have official Morse equivalents and are dropped from the output. If you need to represent them, prosigns like 'AS' (.-...) or 'AR' (.-.-.) are sometimes used as substitutes, but those are conventions inside ham radio rather than universal."
+      ),
+      createFAQ(
+        "How long does it take to learn to read Morse fluently?",
+        "Casual recognition (SOS, your name, common words) takes about an hour. Conversational Morse at 5 words per minute takes 10 to 20 hours of practice spread over a few weeks. Operator-grade Morse at 20 words per minute takes 200+ hours. The Koch method (learning two characters at full speed, then adding more) is the most efficient training approach if you are serious about it."
+      ),
+      createFAQ(
+        "Can Morse code transmit numbers and punctuation?",
+        "Yes. Numbers 0 through 9 each have a five-symbol Morse code (e.g. 5 is ..... and 0 is -----). Punctuation marks have longer codes; full stop is .-.-.- (six symbols) and question mark is ..--.. (six symbols). Both are part of the International Morse Code standard, not extensions, so they are recognised by every Morse-trained operator."
+      ),
+      createFAQ(
+        "What does the slash mean in Morse output?",
+        "It separates words. In handwritten or printed Morse, a single space separates letters within a word and a longer pause (transcribed as / or as a wider space) separates words. Without it, '.... . .-.. .-.. --- .-- --- .-. .-.. -..' could be parsed as one word; with the slash you get 'HELLO / WORLD' which is unambiguous."
+      ),
+    ],
+    relatedTools: [
+      { slug: "text-to-binary", label: "Text to Binary Converter" },
+      { slug: "slug-generator", label: "Slug Generator" },
+      { slug: "password-generator", label: "Password Generator" },
+    ],
+  },
+
+  "readability-score-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "The Four Scores This Tool Calculates",
+        "Paste text and the tool computes Flesch Reading Ease (0 to 100), Flesch-Kincaid Grade Level (US school grade), Gunning Fog Index (years of education), and Coleman-Liau Index (also a grade level, but built from character counts not syllables). Below the scores it shows the underlying stats: word count, sentence count, syllable count, average words per sentence, and average syllables per word. Each score gets a colour-coded label - green for easy, yellow for standard, orange for advanced, red for very advanced.",
+        "Four scores instead of one because each formula weights things differently. Flesch Reading Ease and Flesch-Kincaid are the dominant choices for general writing because they balance sentence length and syllable count. Gunning Fog penalises words of three or more syllables harder, which makes it sensitive to jargon. Coleman-Liau ignores syllables entirely and works only from characters and sentences, which makes it the most reliable score on text where automatic syllable counting fails (acronyms, technical abbreviations, proper nouns)."
+      ),
+      createAnswerFirstSection(
+        "What 'Standard' Means and What to Aim For",
+        "On the Flesch Reading Ease scale, 60 to 70 is 'Standard' - readable by an average 13- to 15-year-old. Below 30 is 'Very Difficult' and is academic-paper territory; above 90 is 'Very Easy' and reads like a children's book. For the grade-level scores (Flesch-Kincaid, Gunning Fog, Coleman-Liau), the colour coding here flags 0 to 6 as easy, 7 to 9 as standard, 10 to 12 as advanced, 13+ as very advanced. Most online writing should target Flesch Reading Ease 60-70 and grade level 7-9.",
+        "If you write for a B2C audience and your scores come back grade 14, your sentences are too long or your words are too polysyllabic. The 'Average words per sentence' stat will tell you which: above 20 means cut your sentences; above 1.7 average syllables per word means swap long words for short ones. A worked example: a paragraph with 92 words, 3 sentences, average 30.7 words per sentence and 1.9 syllables per word will score around grade 18. Break those three sentences into seven, replace 'utilise' with 'use' and 'subsequently' with 'then', and the same content will read at grade 9."
+      ),
+      createAnswerFirstSection(
+        "Differences Between This and the Sister Tool",
+        "This tool focuses on four core formulas with side-by-side stats and colour rating. The [readability checker](/readability-checker) adds a fifth formula (SMOG), an averaged grade level across all four formulas, an estimated reading time at 200 words per minute, and an automatic improvement-tips panel. If you want a quick check with raw numbers and stats, use this one. If you want a full assessment with an automatic verdict and suggestions, use the other.",
+        "Both tools use the same underlying formulas (originals, not modified) so the numbers will match within rounding. The choice is presentation: this tool exposes the inputs (syllable count, character count, average sentence length) so you can see what is driving each score. The other tool focuses on outputs (verdict, reading time, tips) so you can act faster. Pair this with the [word counter](/word-counter) if you also need section-by-section word counts."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why are SMOG scores missing from this tool?",
+        "This tool focuses on the four most-cited formulas: Flesch Reading Ease, Flesch-Kincaid, Gunning Fog, and Coleman-Liau. SMOG is included in the [readability checker](/readability-checker) instead. SMOG is most useful for technical and medical writing where polysyllabic words are common; for general prose the four formulas here cover the same ground."
+      ),
+      createFAQ(
+        "Why might Flesch-Kincaid and Coleman-Liau give different grade levels for the same text?",
+        "Because they measure different things. Flesch-Kincaid uses syllables per word; Coleman-Liau uses characters per word. A text full of long but simple words ('representative', 'organisation', 'environment') reads as harder by Flesch-Kincaid (high syllable count) but only moderately hard by Coleman-Liau (long characters but not unusually so). A 2-grade gap between the two scores is normal; a 5-grade gap usually means automatic syllable detection has failed on some unusual words."
+      ),
+      createFAQ(
+        "Does this work on languages other than English?",
+        "No. All four formulas were calibrated on English text and use English syllable rules and English character frequencies. Running them on French, German, or Spanish gives nonsense scores because syllable structure and average word length differ substantially. Use a language-specific readability tool for non-English text."
+      ),
+      createFAQ(
+        "How long does my text need to be for accurate scores?",
+        "At least 100 words, ideally 300+. Below 100 words a single long sentence or one polysyllabic word can swing the score by 2 to 3 grade levels. Below 30 words the scores are essentially noise. Marketing copy is often shorter than this threshold; in that case judge it by the underlying stats (average sentence length, syllables per word) rather than the composite scores."
+      ),
+    ],
+    relatedTools: [
+      { slug: "readability-checker", label: "Readability Checker" },
+      { slug: "word-counter", label: "Word Counter" },
+      { slug: "line-counter", label: "Line Counter" },
+    ],
+  },
+
+  "text-encryption-tool": {
+    sections: [
+      createAnswerFirstSection(
+        "Two Classical Ciphers, Side by Side",
+        "Pick Vigenere or Caesar, type your plaintext, set a key (a passphrase for Vigenere, a number from 1 to 25 for Caesar), and hit Encrypt. The tool shifts each letter according to the cipher rules and outputs the ciphertext. Hit Decrypt with the same key to recover the original. The default Caesar shift is 3 (the original 'Caesar shift' that Julius Caesar reportedly used for military dispatches around 50 BC); Vigenere has no default and requires you to enter a passphrase.",
+        "Caesar shifts every letter by the same fixed amount. With shift 3, 'HELLO' becomes 'KHOOR' (H→K, E→H, L→O twice, O→R). Vigenere uses a repeating passphrase to vary the shift letter by letter. With key 'KEY', 'HELLO' becomes 'RIJVS' (H+K=R, E+E=I, L+Y=J, then the key repeats: L+K=V, O+E=S). Vigenere is much harder to crack by hand because the same plaintext letter can become different ciphertext letters depending on its position."
+      ),
+      createAnswerFirstSection(
+        "Why You Should Not Use This for Real Secrets",
+        "Both ciphers were broken decades or centuries ago. Caesar with 25 possible shifts can be brute-forced in under a second by trying every shift and looking for English words; the Kasiski examination cracks Vigenere given enough ciphertext (and a computer cracks it instantly with frequency analysis on the most likely key length). Modern attackers do not even bother running these as 'encryption' - they are puzzle-book ciphers, not security primitives.",
+        "If you need actual encryption for sensitive data, use AES-256 via a password manager (1Password, Bitwarden) or PGP for email. For password generation use the [password generator](/password-generator) and store the result in a manager. This tool is for educational purposes (learning how classical ciphers work), for puzzle creation (escape rooms, treasure hunts), and for low-stakes obfuscation (hiding spoilers in a forum post). Anything you would care about a stranger reading deserves real encryption."
+      ),
+      createAnswerFirstSection(
+        "Choosing Between Caesar and Vigenere for Puzzles",
+        "For a children's birthday party treasure hunt, use Caesar with shift 3 or shift 13 (ROT13). Kids can decode it with a paper alphabet wheel in a few minutes. For an adult escape room or a more challenging puzzle, use Vigenere with a 4 to 6 letter passphrase that is itself a clue (the room's theme, a date, a character's name). Decoding requires either knowing the key or doing the cryptanalysis, which takes a sharp adult 5 to 15 minutes with paper.",
+        "A worked example for a puzzle: encode the message 'THE NEXT CLUE IS UNDER THE BLUE BOOK' with Vigenere key 'BISHOP' to get a string of letters that means nothing without the key. Hide a clue elsewhere that points to BISHOP - a chess piece on a desk, a portrait of a bishop on the wall - and the puzzle solves itself. The [password generator](/password-generator) is useful for picking memorable but non-obvious keys when the plot calls for a random-looking password rather than a thematic one."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What happens to numbers, spaces, and punctuation when I encrypt?",
+        "They pass through unchanged. The ciphers in this tool only operate on the 26 Latin letters (A-Z and a-z); digits, spaces, punctuation, and any other character appears in the ciphertext exactly as it does in the plaintext. That is a deliberate choice for puzzle-making but does leak information about the original (sentence boundaries, word lengths). For real encryption you want everything obfuscated."
+      ),
+      createFAQ(
+        "Is the case preserved when I encrypt?",
+        "Yes. Uppercase letters in the plaintext stay uppercase in the ciphertext; lowercase stay lowercase. The shift maths uses the same offset either way, just based on different reference codepoints (65 for uppercase A, 97 for lowercase a). 'Hello' encrypted with Caesar shift 3 is 'Khoor', preserving the capital H."
+      ),
+      createFAQ(
+        "What is ROT13 and is it the same as Caesar?",
+        "ROT13 is Caesar with shift 13. Because the alphabet has 26 letters, shifting by 13 twice brings you back to the original - so encrypting and decrypting are the same operation. ROT13 is the de facto standard for hiding spoilers, jokes, and answers in plain-text forums; this tool will produce ROT13 if you set the Caesar shift to 13."
+      ),
+      createFAQ(
+        "Could a computer crack a Vigenere with a long passphrase?",
+        "Yes, given enough ciphertext. With a 6-letter key and 200+ characters of ciphertext, frequency analysis recovers the key in under a second on a laptop. Even a 12-letter random key falls to a determined attacker if they have a few thousand characters. Vigenere is unbreakable only when the key is at least as long as the message and never reused (the one-time pad), and that is impractical for almost everything."
+      ),
+    ],
+    relatedTools: [
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "base64-converter", label: "Base64 Converter" },
+      { slug: "text-to-binary", label: "Text to Binary Converter" },
+    ],
+  },
 };

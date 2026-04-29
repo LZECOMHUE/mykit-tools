@@ -1124,4 +1124,156 @@ export const parentingSEO = {
       { slug: "advent-calendar-activity-generator", label: "Advent Calendar Activity Generator" },
     ],
   },
+
+  "pass-the-parcel-forfeit-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What a Forfeit Actually Is and Why It Matters",
+        "A forfeit is a tiny silly task hidden inside each layer of pass the parcel, between the wrapping paper and the next sweet. The child who unwraps that layer does the forfeit before the music starts again. Good forfeits keep the energy up and stop the game becoming a slow gift queue; bad forfeits embarrass shy kids or drag the pace.",
+        "Pass the parcel without forfeits runs in 30 seconds per layer (unwrap, take sweet, pass on). With forfeits it runs in 60 to 90 seconds per layer, which is exactly what you want at a 5-year-old's birthday: a 12-minute game instead of a 4-minute one. For an 8-layer parcel that means picking 8 forfeits, one per layer, with the easier ones at the start so the first child is not the one asked to recite the alphabet backwards."
+      ),
+      createAnswerFirstSection(
+        "Match the Forfeit to the Age",
+        "For 3 to 5 year olds keep them physical and silly: hop on one leg, make animal sounds, wiggle your bottom, hug the nearest person. No reading required, no memory test, no performance for an audience. Children this age freeze if asked to 'tell a joke' on the spot. Stick to actions they already know.",
+        "5 to 7 year olds can handle short performances: sing one line of a nursery rhyme, do five jumping jacks, walk like a crab, recite a tongue twister. 7 to 9 year olds are ready for proper challenges: tell a joke to the group, do impressions of three people, sing happy birthday loudly, do a handstand against the wall. 9 to 12 year olds enjoy the embarrassing ones because they know everyone is watching: improvise a comedy routine, do a celebrity impression, perform a 30-second dance with no music."
+      ),
+      createAnswerFirstSection(
+        "How Many Layers and Sweets You Actually Need",
+        "One layer per child is the rule. 10 children means 10 layers, plus a final central prize. Use small sweets (a single Freddo, two Haribo, a chocolate coin) so a child unwrapping layer 1 still feels they got something, and the central prize stays the climax. Do not put a big toy on every layer or the unwrappers in the first half walk away with more than the unwrappers at the end.",
+        "Worked example for an 8-year-old's party with 12 children: 12 wrapping layers, 12 small sweets (one per layer), one chosen forfeit per layer (so 12 forfeits picked from the medium difficulty list), one central prize that everyone sees the winner open. Total wrap time the night before: 25 minutes with the radio on. Total game time on the day: 12 to 15 minutes. Slot it in after the high-energy games and before food. See the [birthday party game planner](/birthday-party-game-planner) for where it fits in the wider party schedule."
+      ),
+      createAnswerFirstSection(
+        "Avoiding the Three Things That Ruin Pass the Parcel",
+        "First, the rigged finish. Modern parents often want every child to unwrap one layer (so they all get a sweet) and the birthday child to win the central prize. That is fine, but watch the music: pause it deliberately on whichever child has not yet had a turn. Veteran party parents do this without the kids realising. Cynical 9-year-olds will spot it though, so for older parties just play it straight.",
+        "Second, the boring forfeit. 'Stand on one leg' twelve times in a row puts the room to sleep by layer 4. Pick 12 different forfeits, not one repeated. Third, the embarrassing forfeit. 'Kiss the next person' or 'tell us your most embarrassing moment' makes shy children miserable and starts arguments with parents. Stick to actions and silly noises. The [pass the parcel forfeit list](/pass-the-parcel-forfeit-generator) draws from age-appropriate lists with this filter already applied."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many layers should pass the parcel have?",
+        "One layer per child. If 10 children are playing, you wrap 10 layers plus the central prize. Wrapping more layers than children is fine for a buffer (in case a child is too shy to unwrap and you want to skip them), but wrapping fewer leaves someone out, which causes tears at age 5 and embarrassment at age 9."
+      ),
+      createFAQ(
+        "Do you have to put a forfeit in every layer?",
+        "No. For very young children (3 to 4 year olds) just a sweet per layer is enough; the unwrapping is the entertainment. From age 5 upwards, forfeits are what makes the game memorable. You can also alternate, so half the layers have forfeits and half just have sweets, which lets shy children get a sweet-only layer and saves the energetic ones for the more confident kids."
+      ),
+      createFAQ(
+        "What sweets work best inside the layers?",
+        "Small, individually wrapped, not too sticky. Freddos, Milky Way Stars, Haribo mini bags, chocolate coins, lollipops, and Love Hearts all work. Avoid anything that melts (chocolate buttons in summer), anything with allergens you have not checked (peanuts), and anything that needs eating immediately (an unwrapped chocolate that gets rubbed into the carpet). Single-portion is the rule."
+      ),
+      createFAQ(
+        "Should the birthday child win the central prize?",
+        "Convention says yes for under-7s, but it is not compulsory. Many parents now skip the rigged finish and let whoever lands on the last layer win. If you do want the birthday child to win, sit them in a position where you can pause the music on them at the end without it being obvious - usually opposite the music controller."
+      ),
+      createFAQ(
+        "Can two children unwrap one layer if they are shy?",
+        "Absolutely, and this is a good fix for parties with younger or less confident children. Pair them up, both pull at the paper together, both share the sweet inside, and they do the forfeit together (this works particularly well for the 'dance like a chicken' or 'do five jumping jacks' type forfeits). The host child usually pairs with whichever friend is keenest to be near them."
+      ),
+    ],
+    relatedTools: [
+      { slug: "birthday-party-game-planner", label: "Birthday Party Game Planner" },
+      { slug: "party-bag-checklist-generator", label: "Party Bag Checklist Generator" },
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+    ],
+  },
+
+  "kids-activity-spinner": {
+    sections: [
+      createAnswerFirstSection(
+        "What This Tool Solves",
+        "It is 4 pm on a wet Tuesday, the children have asked 'what can we do?' for the seventh time, and you cannot face suggesting another option just to have it shot down. The activity spinner removes you from the negotiation. You set the age, indoor or outdoor, and how much time you have, then hit spin. The wheel lands on one activity at random and gives you the supplies and instructions in a single block.",
+        "The point is the randomness, not the suggestion. Children accept 'the wheel chose Build a Fort' in a way they refuse 'why don't you build a fort'. It removes the decision from the parent and turns the activity into the start of the game rather than a negotiation about whether to do it. Most parents we hear from use it 2 or 3 times in a row, then settle on whatever the third spin landed on."
+      ),
+      createAnswerFirstSection(
+        "How the Filters Actually Work",
+        "Three filters: age (3 to 5, 5 to 7, 7 to 9, 9 to 12), location (indoor, outdoor, or both), and time available (15 min, 30 min, 45 min, 90 min). Picking 5 to 7 + indoor + 30 min draws from activities like Build a Fort, Play Dough Fun, Simple Puzzle, Story Time, Sticker Fun, each with a supplies list and a one-line description. Used activities drop out of the pool until you reset, so the wheel will not spin Build a Fort twice in the same afternoon.",
+        "Indoor versus outdoor matters more than time available. A 30-minute indoor activity for a 4-year-old (play dough, sticker fun) needs almost nothing in supplies; the same 30-minute outdoor activity (chalk drawing, water play, scavenger hunt) needs a quick supply check before you start. The supplies list shows you immediately whether you have what you need or whether you have to swap to something else."
+      ),
+      createAnswerFirstSection(
+        "Worked Example: 4-Year-Old, Sunday Afternoon, Garden",
+        "Set ageGroup to 3-5, location to outdoor, time to 30 min. Spin once: Bubble Blowing (15 min, supplies: bubble wand and solution). Quick check, you have a wand from the summer toy box. Hit spin again because you know 15 minutes is not enough: Chalk Drawing (20 min, supplies: chalk and driveway). You have chalk. Done. The whole decision took 25 seconds and your child is on their feet pulling on shoes.",
+        "If neither works (no chalk, no bubbles, both used yesterday), spin again. The pool excludes anything already used in the session, so by the third spin you will land on Sidewalk Chalk Art, Sensory Play, Hide and Seek or Animal Sounds. Most outdoor lists for under-5s have around 10 to 15 activities, which is enough for an entire weekend without repeats. For a longer-form plan, see the [rainy day schedule generator](/rainy-day-schedule-generator)."
+      ),
+      createAnswerFirstSection(
+        "When to Use the Spinner and When to Not",
+        "Use it when energy is flagging, the children are bored, you are out of suggestions, and the answer needs to come from somewhere outside the parent. School holidays, long Sundays, the half-hour before dinner that always seems to crash. It is also useful for grandparents and aunts who do not have a default toolkit of 'what do we do' ideas - hand them the spinner and let it do the work.",
+        "Do not use it when a child has specifically asked for something (give them what they asked for if you can), when energy is already manic and the child needs winding down rather than another high-energy activity, or when you actually have 90 minutes for a single craft project. The spinner is for randomised short activities. For a structured craft sit-down, use the [craft project generator](/craft-project-generator) instead."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What ages does this work for?",
+        "Best results are 3 to 9. Under 3s are too dependent on parent participation for a random suggestion to work (they need you in the activity, not just announcing it). Over 10s tend to push back on a wheel telling them what to do; for tweens, the [craft project generator](/craft-project-generator) and the [science experiment generator](/science-experiment-generator) work better because they offer choice within a category."
+      ),
+      createFAQ(
+        "Does it suggest screen time or quiet activities?",
+        "It includes Movie Night (90 min), Story Time, and Sticker Fun in the indoor pool, but most activities are active or hands-on. The default mix is roughly 70% active, 30% quiet. If you want only quiet activities (after dinner, before bedtime), filter to 30 min indoor and re-spin until you land on a calming one - Story Time, Sticker Fun, Drawing Challenge, Simple Puzzle."
+      ),
+      createFAQ(
+        "Can I get a list of activities instead of just one?",
+        "The spinner deliberately gives one at a time - that is what makes children accept it. If you want a full day plan, the [rainy day schedule generator](/rainy-day-schedule-generator) takes the same age and location filters and outputs a timed schedule with breakfast, two morning activities, lunch, two afternoon activities, snack and a quiet evening activity."
+      ),
+      createFAQ(
+        "What if we don't have the supplies?",
+        "Hit spin again. The supplies list is shown before you commit, so you can rule out anything that needs items you do not have. Most activities for under-7s use very common materials (paper, crayons, blankets, pillows, chalk, water). For ages 7 and up the supplies get slightly more specific - Friendship Bracelet Making needs embroidery thread, Building Challenge needs blocks or cardboard - but you can always re-spin in 2 seconds."
+      ),
+    ],
+    relatedTools: [
+      { slug: "rainy-day-schedule-generator", label: "Rainy Day Schedule Generator" },
+      { slug: "craft-project-generator", label: "Craft Project Generator" },
+      { slug: "science-experiment-generator", label: "Science Experiment Generator" },
+    ],
+  },
+
+  "phonics-treasure-hunt": {
+    sections: [
+      createAnswerFirstSection(
+        "How a Phonics Treasure Hunt Works",
+        "You hide letter cards (or sound cards like 'sh', 'ch', 'th', 'igh') around your house or garden, grouped at stations. The child visits each station, finds the cards for that target sound, then uses the cards they have collected to build words from a given list. A typical hunt has 6 to 10 stations covering 6 to 10 sounds, takes 20 to 40 minutes, and ends with the child reading the words they built aloud as the prize.",
+        "It works because the child is moving (treasure-hunt energy) while practising the same sounds they are doing in school reception or year 1 phonics lessons. A child who is bored stiff by flashcards at the kitchen table will happily read 30 words in a row if those words came from cards they hunted for. Most of the value is getting the practice done; the hunt format is the wrapper that makes them want to do it."
+      ),
+      createAnswerFirstSection(
+        "Picking Sounds for Your Child's Stage",
+        "The 5 to 7 group covers Phase 2 and 3 phonics: single letter sounds (s, a, t, p, i, n, m, d) for reception-age children just starting out. Words built from these cards include 'sun', 'sit', 'pat', 'tin', 'mat', 'dad'. The 7 to 9 group covers Phase 4 and 5 with digraphs and trigraphs (ch, sh, th, ou, oi, ar, or, ur, igh, oa). Words built from these include 'shop', 'chat', 'this', 'house', 'point', 'park', 'high', 'boat'.",
+        "Match the sounds to what the child is doing in school that week. If they brought home a Phase 3 reading book full of 'th' and 'sh' words, set up a hunt with those exact sounds. Teachers will often tell you which sounds the class is working on if you ask at pickup. The hunt then reinforces classroom learning rather than introducing new phonics out of order, which can confuse children who are mid-sequence."
+      ),
+      createAnswerFirstSection(
+        "Worked Example: 6-Year-Old in Reception",
+        "Pick 5 to 7 age group, 8 stations, default sounds (s, a, t, p, i, n, m, d). Print the station list. The hunt assigns one sound per station, with 5 example words per sound. Spend 10 minutes hiding letter cards: under the doormat (s), behind the toaster (a), in the bookshelf (t), under the sofa cushion (p), inside a shoe (i), under the cat bed (n), in a kitchen drawer (m), behind the bathroom door (d).",
+        "Hand the child the station list and let them go. They visit each station, collect the letter cards, then bring everything back to a table and try to build the words from the list. For 'sun' they need s, u, n; if u was not in your hunt, they read the word from the card and you say 'we already had the s and the n, the u is the new sound'. The end goal is reading the words; collecting cards is just the mechanism. See also the [treasure hunt clue generator](/treasure-hunt-clue-generator) for clue-style hunts and the [scavenger hunt generator](/scavenger-hunt-generator) for nature-themed hunts."
+      ),
+      createAnswerFirstSection(
+        "Materials and Setup Time",
+        "Cards: A4 paper cut into 8 squares, one letter or sound per square, written large with a black marker. Print 4 to 6 copies of each card so the child finds multiple instances of each sound at each station. Total card-making time the night before: 15 minutes if you write by hand, 5 minutes if you print from a computer. Hiding time on the day: 10 minutes for an 8-station hunt around a normal-sized house.",
+        "If you want to skip the cardmaking, use existing magnetic letters from the fridge or cut letters from old magazines. The point is recognisable, child-sized printed letters - the exact medium does not matter. For repeat use, laminate the cards (a home laminator costs about £20 and saves you doing this every weekend). The premium PDF includes printable letter cards for every Phase 2 to 5 sound, sized for A4 and ready to cut."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What age is this best for?",
+        "5 to 7 years old (reception and year 1) for the single-letter version; 6 to 8 (year 1 and year 2) for the digraph version. Under 5s usually need parent-led letter recognition rather than independent hunting. Over 8s have moved on from sounding-out words and will find single-letter hunts childish, though the digraph version still works for a year 3 reluctant reader."
+      ),
+      createFAQ(
+        "How long does the hunt take to play?",
+        "20 to 30 minutes for an 8-station hunt with a 6-year-old: 10 minutes finding all the cards, 10 to 15 minutes building and reading the words, 5 minutes celebrating. For a 5-year-old just learning to read, it is closer to 40 minutes because reading the words is slower and they will want praise after every word. Plan for the longer end of the range and finish early if they tire."
+      ),
+      createFAQ(
+        "Do I need to be a teacher to run this?",
+        "No. The hunt comes with the sounds, words, and station setup pre-organised; you just hide the cards and read the words with your child afterwards. If you are not sure how to pronounce a sound (the 'th' in 'this' versus the 'th' in 'thin', for instance), pronounce it however the child's school does - any reception teacher will model it the same way the child has been hearing it."
+      ),
+      createFAQ(
+        "Can I run it for two children at the same time?",
+        "Yes, and it works well with siblings 18 months apart. Either give them the same station list and let them race (older child holds back; younger child gets a head start), or give them different sounds (younger child does s, a, t, p; older child does sh, ch, th, igh) and they meet at the table to build words together. The cooperative version reduces sibling conflict and the older child often ends up teaching the younger one, which is excellent for both."
+      ),
+      createFAQ(
+        "What do I do with the cards after?",
+        "Keep them. Phonics practice is repetition, so you will run this hunt again next month with a different set of sounds. Store the laminated cards in a labelled freezer bag (one bag per phase) and pull them out whenever you have a Saturday morning to fill. Most parents we hear from run a phonics treasure hunt every 2 to 3 weeks during reception year."
+      ),
+    ],
+    relatedTools: [
+      { slug: "treasure-hunt-clue-generator", label: "Treasure Hunt Clue Generator" },
+      { slug: "scavenger-hunt-generator", label: "Scavenger Hunt Generator" },
+      { slug: "science-experiment-generator", label: "Science Experiment Generator" },
+    ],
+  },
 };

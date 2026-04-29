@@ -355,4 +355,476 @@ export const automotiveSEO = {
       { slug: "ev-range-calculator", label: "EV Range Calculator" },
     ],
   },
+
+  "fuel-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Estimate the Fuel Cost of a Drive",
+        "Three numbers do almost all the work: the distance you are driving, your car's MPG (or litres per 100km, or miles per kWh for an EV), and the price you are paying per litre or per kWh. Drop those in and you get total fuel needed plus the cost. With petrol around £1.45 per litre in April 2026 and a typical family car returning 45 mpg, a 200-mile round trip works out at roughly £29 in fuel; the same trip in a 24 mpg SUV is closer to £55.",
+        "The calculator handles both miles and kilometres, both MPG and L/100km, and lets you set up several vehicles side by side so you can see the cost gap before deciding which one to take. The bottom line is simple: you want a low cost per mile, and that depends much more on the car you choose than on whether the trip is long or short."
+      ),
+      createAnswerFirstSection(
+        "Petrol vs Diesel vs EV on the Same Trip",
+        "On a 300-mile run, the differences are clear. A 50 mpg diesel needs about 27 litres of fuel; at £1.50 per litre that is roughly £40. A 35 mpg petrol uses 39 litres at £1.45, which is around £57. A typical EV doing 3.5 miles per kWh uses 86 kWh; at home overnight rates of around 7.5p per kWh that is just £6.50, but at public rapid rates of 80p per kWh it is £69, more than the petrol car.",
+        "The headline lesson is that EV running costs swing wildly based on where you charge. With a home wallbox on an off-peak tariff, an EV is around six times cheaper to fuel per mile than petrol. Without home charging, the picture flattens; using only public rapid chargers, an EV can actually cost more per mile than a frugal diesel on the same trip."
+      ),
+      createAnswerFirstSection(
+        "Where Fuel Costs Get Distorted",
+        "The pump price you see is one of the more variable numbers in personal finance. Motorway services routinely add 15p to 25p per litre over supermarket forecourts, so on a 60-litre tank fill you can pay £15 more for the convenience. Plan a long trip around a single supermarket fill where possible, and your trip cost drops accordingly.",
+        "Real-world MPG is also typically 10 to 20% lower than the official figure. The brochure number is run on a lab cycle that is gentler than real driving. To get a personal MPG figure, reset the trip computer on a 100-mile motorway run and read the average. Or fill the tank, drive a tank, refill, and divide litres used by miles. That figure, fed into the calculator, gives you a cost estimate that will match what your bank statement actually shows."
+      ),
+      {
+        heading: "Common UK Trip Fuel Costs (April 2026 prices)",
+        table: {
+          headers: ["Trip", "Distance", "45 mpg petrol (£1.45/L)", "55 mpg diesel (£1.50/L)", "EV at home (7.5p/kWh)"],
+          rows: [
+            ["London - Manchester (return)", "400 miles", "£58", "£49", "£8.50"],
+            ["Bristol - Edinburgh (one way)", "375 miles", "£55", "£46", "£8"],
+            ["Cardiff - Cornwall holiday", "500 miles", "£73", "£62", "£11"],
+            ["School run, daily for a year", "1,800 miles", "£263", "£221", "£39"],
+            ["Average UK annual mileage", "7,400 miles", "£1,082", "£910", "£159"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What MPG should I use if I don't know my car's real figure?",
+        "As a rough guide: small petrol hatchbacks (Fiesta, Polo, Corsa) average 40 to 50 mpg in real conditions; mid-size petrol saloons (Focus, Astra, Golf) average 35 to 45 mpg; family SUVs (Sportage, Tiguan, CR-V) average 28 to 38 mpg; large diesel SUVs and 4x4s (X5, Discovery) average 30 to 40 mpg. Brochure figures are typically 10 to 20% optimistic compared to mixed real-world driving."
+      ),
+      createFAQ(
+        "How is L/100km different from MPG?",
+        "MPG measures distance per fuel; L/100km measures fuel per distance. Lower L/100km is better, lower MPG is worse. Roughly: 5 L/100km = 56 mpg, 6 L/100km = 47 mpg, 7 L/100km = 40 mpg, 8 L/100km = 35 mpg, 10 L/100km = 28 mpg. The calculator converts automatically; pick whichever number your dashboard shows and it does the rest."
+      ),
+      createFAQ(
+        "Should I include the cost of getting to the petrol station?",
+        "Only if it is a meaningful detour. A 5-mile diversion to save 5p per litre on 50 litres saves £2.50 but costs around 30p in fuel for the detour, so it is still worth it. A 15-mile diversion for the same saving is closer to break-even. Use this calculator to check both routes before committing."
+      ),
+      createFAQ(
+        "Why is my real cost higher than the calculator says?",
+        "The calculator assumes a constant MPG over the whole trip. In real driving, cold starts, traffic, headwinds, and roof boxes all reduce efficiency. A loaded family car with a roof box on a windy motorway can drop 15 to 25% below brochure MPG. For holiday packing, knock 15% off the headline figure for a more honest forecast."
+      ),
+      createFAQ(
+        "Does the calculator work for hybrids?",
+        "Yes; just enter the average MPG your dashboard shows. Most hybrids report a single combined figure that accounts for both petrol and electric portions. Plug-in hybrids are trickier because efficiency depends on whether the battery is charged; for a typical PHEV with a 30-mile electric range used daily, the [petrol vs electric total cost calculator](/petrol-vs-electric-total-cost) gives a more accurate whole-life view."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cost-per-mile-calculator", label: "Cost Per Mile Calculator" },
+      { slug: "road-trip-cost-calculator", label: "Road Trip Cost Calculator" },
+      { slug: "petrol-vs-electric-total-cost", label: "Petrol vs Electric Total Cost" },
+    ],
+  },
+
+  "tyre-size-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Read a Tyre Size",
+        "A tyre marking like 205/55 R16 looks cryptic but breaks down cleanly. The first number (205) is the section width in millimetres. The second (55) is the aspect ratio, the sidewall height as a percentage of the width; here that means the sidewall is 55% of 205, or about 113 mm tall. The R means radial construction (basically every modern tyre), and the 16 is the wheel diameter in inches. The calculator translates all that into millimetres: overall diameter, circumference, and how that compares to your original tyre.",
+        "Why does this matter? If you swap from 205/55 R16 to 225/45 R17, the wheels look better but the rolling diameter changes slightly, and your speedometer reads off because it counts wheel rotations. A 1% diameter difference equals a 1% speedometer error; UK MoT testing allows up to 10% optimistic but no negative reading at all, so most upsizes need careful checking before they are road-legal."
+      ),
+      createAnswerFirstSection(
+        "When Speedometer Error Becomes a Problem",
+        "Speedometers are calibrated to a specific tyre rolling diameter. Fit a tyre 2% larger and the speedometer reads 2% slow: 70 mph indicated is actually 71.4 mph. Fit one 2% smaller and it reads 2% fast, which is illegal in the UK because speedometers must never under-read your true speed. The calculator shows the percentage difference between any two tyres so you can spot the issue before you buy.",
+        "For winter tyres, going one size narrower with a taller sidewall is common; this gives better grip in snow without breaking speedometer accuracy. For low-profile upgrades, going up an inch in wheel size while dropping aspect ratio (the 'plus one' formula) is the standard way to keep rolling diameter constant. The tyre comparison panel shows you whether your chosen swap stays within tolerance."
+      ),
+      createAnswerFirstSection(
+        "What Changes With Tyre Size",
+        "Wider tyres (more grip in the dry, often slightly worse in standing water and at slow parking speeds, more road noise). Lower profile (better steering response, more crashy ride, much easier to kerb the alloy). Taller overall diameter (taxes the gearbox slightly, raises ride height, can hit the wheel arch on full lock). Narrower (better in snow, slightly worse braking on dry roads, lower fuel cost from less rolling resistance). The calculator shows you the geometry so you know what you are signing up for before the new tyres go on the car."
+      ),
+      {
+        heading: "Common UK Tyre Sizes by Vehicle Type",
+        table: {
+          headers: ["Vehicle Type", "Typical Size", "Width (mm)", "Sidewall (mm)", "Diameter (mm)"],
+          rows: [
+            ["City car (Picanto, Aygo)", "175/65 R14", "175", "114", "584"],
+            ["Hatchback (Fiesta, Polo)", "195/65 R15", "195", "127", "635"],
+            ["Family hatch (Focus, Golf)", "205/55 R16", "205", "113", "632"],
+            ["Saloon/Estate (Passat)", "215/55 R17", "215", "118", "668"],
+            ["Mid-SUV (Tiguan, Sportage)", "225/55 R18", "225", "124", "706"],
+            ["Large SUV (X5, Discovery)", "255/50 R19", "255", "128", "738"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Can I fit a different size tyre to my car?",
+        "Within reason, yes. Manufacturers usually approve two or three sizes for a single car (check the tyre placard inside the driver's door). Outside that list, you must keep the rolling diameter within roughly 3% of the original, and the new size must clear suspension and bodywork on full lock. Insurance can be invalidated if you fit non-approved sizes without telling the insurer."
+      ),
+      createFAQ(
+        "What is the 'plus one' rule?",
+        "Plus one means going up one inch in wheel diameter while dropping the aspect ratio enough to keep the overall tyre diameter the same. For example, 205/55 R16 has roughly the same rolling diameter as 215/45 R17. This is the safe way to fit larger alloys without breaking the speedometer or rubbing the arches."
+      ),
+      createFAQ(
+        "How do I find the right size for my car?",
+        "Three reliable sources: the placard inside the driver's door (a small sticker showing approved sizes and pressures), the owner's manual, and the existing tyres on the car. Anything Halfords, Kwik Fit, or your local tyre fitter quotes is also fine; they will refuse to fit an obviously wrong size."
+      ),
+      createFAQ(
+        "Will bigger tyres improve fuel economy?",
+        "Usually no, often the opposite. Wider tyres add rolling resistance and weight; both lower fuel economy. Going to a taller sidewall on the same wheel can help slightly because the overall diameter rises, dropping engine RPM at motorway speed. But the difference is rarely more than 1 to 2 mpg either way, and it is dwarfed by driving style."
+      ),
+      createFAQ(
+        "Is the speedometer reading accurate?",
+        "By UK law, no speedometer may under-read your true speed (so it is always biased optimistic). Most modern cars read about 2 to 4% high straight from the factory, and tyre wear adds another 1 to 2% as the rubber thins. Use this calculator with your current tyre size to confirm; or run a phone GPS speedometer alongside the dashboard to check."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fuel-cost-calculator", label: "Fuel Cost Calculator" },
+      { slug: "cost-per-mile-calculator", label: "Cost Per Mile Calculator" },
+      { slug: "car-tax-checker", label: "Car Tax Checker" },
+    ],
+  },
+
+  "car-loan-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Car Finance Actually Works",
+        "Most UK car finance is a fixed-rate, fixed-term agreement: you borrow the price minus your deposit, pay interest on the balance, and clear it over 36 to 84 months. On a £25,000 car with a £5,000 deposit and 4.5% APR over 60 months, you borrow £20,000, pay roughly £373 a month, and end up paying about £2,388 in interest on top of the principal. The calculator works out monthly payment, total interest, and total cost for any combination of those numbers.",
+        "The single biggest factor is the interest rate. The same £20,000 loan at 8.5% costs £410 a month and £4,580 in interest, almost double. Always check the APR rather than the headline rate; APR includes fees, so it is the only fair like-for-like figure between dealers and manufacturer finance offers."
+      ),
+      createAnswerFirstSection(
+        "PCP vs HP vs Personal Loan",
+        "PCP (Personal Contract Purchase) splits the cost into deposit, monthly payments, and a final balloon payment to own the car outright. Monthly payments are lower because you are only paying off the depreciation, not the whole car. HP (Hire Purchase) is a traditional loan: you pay the whole car off in equal monthly instalments and own it at the end. A personal loan from a bank is similar to HP but the car is yours from day one and the bank is not interested in what the money was for.",
+        "PCP is the cheapest monthly payment but you do not own the car at the end unless you pay the balloon (typically £8,000 to £15,000 on a £25,000 car). HP and personal loan are higher monthly but you own the car when the term ends. The calculator on this page is set up for HP/personal loan style fixed payments. For PCP comparisons, compare the monthly payment plus the final balloon as a separate decision."
+      ),
+      createAnswerFirstSection(
+        "How Big a Deposit Should You Put Down?",
+        "More deposit means lower monthly payment and less total interest, but tying up cash that could earn 4 to 5% in a savings account is also a cost. The sweet spot is usually 10 to 20% of the car price, enough that the loan starts in equity (you owe less than the car is worth) and stays there even after first-year depreciation. A new car loses 15 to 25% of its value in year one, so a 10% deposit on a brand new car still leaves you slightly upside down at month 12.",
+        "If the car is two or three years old, a smaller deposit is fine because depreciation has already slowed. The calculator's deposit percentage shortcut buttons (10%, 20%, 30%) make it easy to see how monthly payment shifts. As a rule of thumb, every 10% increase in deposit drops the monthly payment by roughly 10% on the same term."
+      ),
+      {
+        heading: "£20,000 Loan Monthly Payments by Term and Rate",
+        table: {
+          headers: ["Term", "4.0% APR", "5.5% APR", "7.0% APR", "9.0% APR"],
+          rows: [
+            ["36 months", "£590", "£604", "£617", "£636"],
+            ["48 months", "£451", "£465", "£479", "£497"],
+            ["60 months", "£368", "£382", "£396", "£415"],
+            ["72 months", "£313", "£327", "£341", "£361"],
+            ["84 months", "£273", "£287", "£302", "£322"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What APR should I expect on car finance in 2026?",
+        "Manufacturer 0% deals appear from time to time on slow-selling models, but typical mainstream rates in April 2026 are 6 to 9% APR through dealers, 5 to 7% through banks for personal loans, and 4 to 6% from credit unions if you are a member. Always check personal loan rates against PCP/HP; banks are often cheaper than dealers for buyers with strong credit history."
+      ),
+      createFAQ(
+        "Should I take a longer term to lower my monthly payment?",
+        "Only if the alternative is genuinely unaffordable. Stretching from 60 months to 84 months drops a £20,000 loan from £382 to £287 per month at 5.5% APR, but you pay £1,160 more in total interest. You also keep paying for a car that may be at the end of its useful life by the time you finish. 48 to 60 months is the realistic sweet spot for new cars; 36 months is sometimes possible for used."
+      ),
+      createFAQ(
+        "Can I pay off the loan early?",
+        "Yes, on almost all UK car finance. By law, lenders must accept a full or partial early settlement, though some apply a 1 to 2% early settlement charge to recover some of the lost interest. Always check the early settlement quote rather than just multiplying the remaining payments; the figure is usually lower because you are no longer paying future interest."
+      ),
+      createFAQ(
+        "What is GAP insurance and do I need it?",
+        "GAP (Guaranteed Asset Protection) covers the gap between your insurer's payout if the car is written off and the amount still outstanding on the finance. Useful in the first 18 to 24 months of a new car loan when depreciation outruns the loan balance. After that, the finance balance usually drops below market value and GAP becomes unnecessary. Bank-arranged GAP is typically half the price of dealer-arranged GAP."
+      ),
+      createFAQ(
+        "Does the calculator include road tax and insurance?",
+        "No, only the loan element (principal, monthly payment, total interest, total cost). Road tax (VED), insurance, fuel and maintenance are separate. For total running costs, add those to the loan figure or use the [cost per mile calculator](/cost-per-mile-calculator) to see the all-in number."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lease-vs-buy-car-calculator", label: "Lease vs Buy Car Calculator" },
+      { slug: "cost-per-mile-calculator", label: "Cost Per Mile Calculator" },
+      { slug: "should-i-keep-my-old-car", label: "Should I Keep My Old Car" },
+    ],
+  },
+
+  "ev-vs-petrol-company-car": {
+    sections: [
+      createAnswerFirstSection(
+        "Why EV Company Cars Are So Much Cheaper Right Now",
+        "The Benefit-in-Kind (BiK) tax rate on electric company cars is 2% for 2025/26, rising to 3% in 2026/27 and 4% in 2027/28. A petrol car emitting 140 g/km of CO2 sits at around 33% BiK. On a £35,000 car, that is the difference between £700 of taxable benefit (EV) and £11,550 (petrol). For a 40% taxpayer, that converts to £280 a year in tax for the EV vs £4,620 for the petrol, a £4,340 annual saving before fuel even enters the picture.",
+        "The calculator pulls all this together: BiK tax for both cars at your tax rate, fuel cost across your annual mileage, and the side-by-side annual and 3-year totals. The headline saving is rarely small. For most company car drivers in 2026, an EV beats petrol by £3,000 to £6,000 a year on total cost, which makes the choice straightforward unless your usage genuinely does not work for an EV."
+      ),
+      createAnswerFirstSection(
+        "When the EV Numbers Stop Working",
+        "The model assumes home charging at around 28p per kWh, or off-peak rates of 7p to 10p per kWh. If you cannot charge at home (street parker, flat without a wallbox, no workplace charging), the picture changes. Public rapid charging at 80p per kWh on 12,000 miles a year costs around £2,750, vs £960 at home rates and roughly £1,800 in petrol for a 45 mpg saloon. The EV loses its fuel-cost advantage and you keep only the BiK saving.",
+        "Long-distance work also matters. A 25,000-mile-a-year sales rep doing daily 200-mile trips needs charging stops every 150 to 200 miles, and the cost difference vs a frugal diesel narrows further. The calculator lets you set realistic miles per kWh (typically 3.0 to 4.0 in mixed UK conditions) and electricity cost so you can stress-test the assumption against your actual driving."
+      ),
+      createAnswerFirstSection(
+        "The 3-Year Total Is the Real Number",
+        "Company cars are usually run for 3 to 4 years. Over that horizon, a typical comparison looks like this: an EV at £35,000 P11D, 2% BiK rising over the term, charged mostly at home, returning roughly £4,000 per year of tax + fuel. A petrol at £28,000 P11D, 33% BiK, returning around £8,500 per year. The 3-year totals come out to roughly £12,000 vs £25,500, a £13,500 saving over three years.",
+        "That margin shrinks if BiK rates rise faster than expected (the government has signalled this through 2030), if fuel prices drop sharply, or if your real-world EV efficiency is worse than headline figures. The [salary sacrifice car calculator](/salary-sacrifice-car-calculator) shows how the same EV looks under salary sacrifice rather than traditional company car arrangements; for many employees the salary sacrifice route is even better."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What is the EV BiK rate for 2026/27?",
+        "3% for fully electric vehicles in 2026/27, rising to 4% in 2027/28 and 5% in 2028/29. Even at 5%, an EV is dramatically cheaper as a company car than a petrol equivalent at 25 to 35% BiK. The advantage shrinks but does not disappear, and for company cars taken on now, the rate locks in for the duration of the lease in most cases."
+      ),
+      createFAQ(
+        "How does the calculator estimate EV fuel cost?",
+        "Annual mileage divided by miles per kWh, multiplied by your electricity cost. Default values are 3.5 miles per kWh (mixed driving for a typical mid-size EV) and 28p per kWh (standard UK home rate). Set your real-world figures to get an accurate comparison. Off-peak overnight rates of 7p to 10p make EVs roughly six times cheaper to fuel than a 45 mpg petrol; standard daytime rates make them around three times cheaper."
+      ),
+      createFAQ(
+        "Does the comparison include road tax?",
+        "Not currently. EVs paid no Vehicle Excise Duty until April 2025; from April 2025 they pay the standard rate (£190 in 2025/26) plus a £390 'expensive car supplement' for cars with a list price over £40,000. Add £190 to £580 a year to the petrol car to make the comparison apples-to-apples; it does not change the conclusion much because the BiK saving still dwarfs VED."
+      ),
+      createFAQ(
+        "What if the company pays for fuel?",
+        "If your employer reimburses fuel, the picture changes because petrol fuel benefit is also taxed (using a fixed multiplier based on CO2 emissions). EV electricity reimbursement is not currently classed as a fuel benefit if claimed under HMRC's Approved Mileage Allowance Payments at the special EV rate. This is an area where the calculator's defaults assume you pay your own fuel; if your employer reimburses, the saving is even larger because the petrol fuel benefit tax is removed too."
+      ),
+      createFAQ(
+        "Can I get a salary sacrifice EV?",
+        "Yes, this is a popular route. Through a salary sacrifice scheme, the lease cost comes out of your gross salary (saving income tax and National Insurance) and you only pay the small BiK charge. Effective monthly cost is often 30 to 40% lower than a personal lease. Check whether your employer participates in a scheme like Octopus Electric Vehicles, Tusker, or Loveelectric."
+      ),
+    ],
+    relatedTools: [
+      { slug: "salary-sacrifice-car-calculator", label: "Salary Sacrifice Car Calculator" },
+      { slug: "company-car-tax-calculator", label: "Company Car Tax Calculator" },
+      { slug: "petrol-vs-electric-total-cost", label: "Petrol vs Electric Total Cost" },
+    ],
+  },
+
+  "salary-sacrifice-car-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Salary Sacrifice Cars Work",
+        "Your employer leases the car and the lease payment comes out of your gross salary before income tax and National Insurance are deducted. On a £450 a month lease, a 40% taxpayer effectively pays around £270 a month after tax savings, because the £450 is no longer in their taxable income. You then pay a small Benefit-in-Kind tax charge on the company car, which for an electric vehicle is 2% rising to 5% by 2028/29. For an EV at £35,000 list price, the BiK tax is roughly £30 a month for a 40% taxpayer. So a £450 lease can cost £300 in real money, monthly.",
+        "The catch is that this only works well for low-emission vehicles. Petrol and diesel cars carry BiK rates of 25 to 37%, which destroys the saving. The maths effectively means salary sacrifice in 2026 is an EV scheme; trying to do it with a petrol family car gives you most of the lease cost back as BiK tax and the saving disappears."
+      ),
+      createAnswerFirstSection(
+        "When the Saving Is Biggest",
+        "The higher your tax band, the better salary sacrifice gets. A 20% basic rate taxpayer saves 20% income tax + 8% National Insurance = 28% on each pound sacrificed. A 40% taxpayer saves 40% + 2% NI = 42%. A 45% additional rate taxpayer saves 47%. So on the same £450 lease, a basic rate payer saves £126 a month, a higher rate payer saves £189, and an additional rate payer saves £211.",
+        "The tradeoff is that the sacrifice reduces the salary your pension, mortgage application, and life insurance use as inputs. For most people on a 3 to 4 year lease this is fine, but if you are about to apply for a mortgage, lenders will use the post-sacrifice salary, which can drop the loan amount you qualify for. Plan the timing around big life events accordingly."
+      ),
+      createAnswerFirstSection(
+        "What the Calculator Does",
+        "It takes your gross salary, the car's P11D value, the monthly lease cost, and your tax band, then works out: gross sacrifice (annual lease cost), income tax relief, National Insurance relief, BiK tax cost on the car, and your net monthly cost after all the moving parts. The bottom line is the 'true monthly cost' you actually feel in your bank account, which for an EV salary sacrifice typically lands at 50 to 65% of the headline lease price.",
+        "Compare that to a personal lease where you would pay the full £450 from post-tax salary, which for a 40% taxpayer requires around £775 of pre-tax earnings. That puts the salary sacrifice route at a saving of £475 a month, or £5,700 a year, against the equivalent personal lease. For an EV in particular, this is the most cost-efficient way to drive a new car in the UK in 2026."
+      ),
+      {
+        heading: "Typical Salary Sacrifice EV Examples",
+        table: {
+          headers: ["Car", "Lease/month", "20% taxpayer", "40% taxpayer", "45% taxpayer"],
+          rows: [
+            ["MG4 Standard", "£330", "£250", "£202", "£185"],
+            ["Tesla Model 3", "£450", "£340", "£275", "£253"],
+            ["Polestar 2", "£480", "£362", "£293", "£269"],
+            ["Hyundai Ioniq 5", "£520", "£392", "£317", "£292"],
+            ["BMW i4", "£610", "£460", "£372", "£342"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Will my employer offer this?",
+        "Larger employers often do, particularly NHS Trusts, councils, universities, and any company with 100+ employees. Smaller companies may not, but the setup cost is low if there is enough employee interest. Ask HR; common providers are Octopus Electric Vehicles, Tusker, ElectriX, and Loveelectric."
+      ),
+      createFAQ(
+        "What happens if I leave the company?",
+        "Most schemes have an early termination charge if you leave during the lease (typically 4 to 12 months of payments). Some employers absorb this for redundancy or maternity leave; others pass it on. Check the scheme's early exit terms before signing; this is the biggest risk of salary sacrifice and it has caught out leavers in the past."
+      ),
+      createFAQ(
+        "Is salary sacrifice better than buying outright?",
+        "It depends on cash position and how often you change cars. If you have £30,000+ available and plan to keep the car 7+ years, buying outright is usually cheaper because you skip lease interest and the lease company's profit margin. If you change cars every 2 to 4 years and want predictable monthly costs, salary sacrifice almost always wins on EVs because of the BiK tax break."
+      ),
+      createFAQ(
+        "Does the saving include insurance and maintenance?",
+        "Most salary sacrifice EV schemes bundle in fully comprehensive insurance, maintenance, MoT, breakdown, and tyres. The headline monthly figure is therefore close to the total cost of running the car, fuel aside. Check the scheme details; if any of these are excluded, add £80 to £150 a month for insurance and £30 to £50 a month for tyres and maintenance to get the full picture."
+      ),
+      createFAQ(
+        "How does this compare to a company car?",
+        "Salary sacrifice and traditional company car taxation work the same way for BiK; the difference is who pays. Salary sacrifice = you pay the lease via gross salary deduction. Company car = employer pays the lease and you pay BiK tax. Salary sacrifice gives you tax relief on the lease cost; company car does not. So salary sacrifice is usually better for the employee, while company car is usually better for senior staff who would not personally pay £400 to £600 a month otherwise."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ev-vs-petrol-company-car", label: "EV vs Petrol Company Car" },
+      { slug: "company-car-tax-calculator", label: "Company Car Tax Calculator" },
+      { slug: "lease-vs-buy-car-calculator", label: "Lease vs Buy Car Calculator" },
+    ],
+  },
+
+  "cost-per-mile-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Cost Per Mile Actually Includes",
+        "There is a quick version (fuel only) and a real version (fuel, insurance, road tax, depreciation, tyres, servicing, MoT). This calculator focuses on the fuel-cost-per-mile, which is the figure that reacts to pump price changes and is the easiest to compare across vehicles. At April 2026 prices: a 45 mpg petrol at £1.45 per litre costs around 14.5p per mile in fuel. A 55 mpg diesel at £1.50 per litre is around 12.4p per mile. An EV at 3.5 miles per kWh charging at home (28p) is 8p per mile; at off-peak rates of 8p per kWh it drops to 2.3p per mile.",
+        "For business mileage claimed against tax, HMRC's Approved Mileage Allowance Payment (AMAP) rates are 45p per mile for the first 10,000 business miles and 25p per mile beyond that, regardless of fuel type. Compare that to your actual fuel cost per mile and you can see whether claiming AMAP comes out ahead of having the company reimburse actual fuel."
+      ),
+      createAnswerFirstSection(
+        "The HMRC AMAP Comparison",
+        "If your fuel cost per mile is below 45p (which it almost always is), claiming AMAP rather than billing actual costs gives you free margin against tax. On 8,000 business miles in a 45 mpg petrol, AMAP returns £3,600 in tax-free reimbursement; the actual fuel cost is roughly £1,160. The difference (£2,440) is yours to keep, and is meant to cover the wider running costs (insurance, depreciation, servicing) that the bare fuel figure misses.",
+        "For an EV, the gap is larger still. 8,000 miles at home charging rates of 8p per mile is £640 in fuel; AMAP is £3,600. EVs do have lower wear-and-tear and almost zero servicing, so this difference is real margin. Note the special HMRC EV reimbursement rate (currently 7p per mile for fuel-only reimbursement when an employer pays) is separate from AMAP, and is what employers use to refund EV mileage without a tax cost to the employee."
+      ),
+      createAnswerFirstSection(
+        "Total Cost Per Mile, Not Just Fuel",
+        "For a fuller picture, add: depreciation (£0.10 to £0.20 per mile for new cars in the first 3 years, falling to £0.03 to £0.05 for older used cars); insurance (£300 to £900 a year divided by your annual mileage); road tax (£0 to £580 depending on car age and emissions); maintenance and tyres (£300 to £600 a year for an average family car, less for an EV).",
+        "A typical petrol family car covering 10,000 miles a year ends up around 35 to 45p total cost per mile when everything is included, which is exactly why HMRC's 45p AMAP figure exists. EVs come in lower at around 25 to 35p total cost per mile if you have home charging. The fuel calculator on this page is the starting figure; layer the rest on top to find the all-in number."
+      ),
+      {
+        heading: "Fuel Cost Per Mile by Vehicle Type (April 2026 prices)",
+        table: {
+          headers: ["Vehicle", "Efficiency", "Fuel Price", "Cost per mile"],
+          rows: [
+            ["Diesel saloon", "55 mpg", "£1.50/L", "12.4p"],
+            ["Petrol hatchback", "45 mpg", "£1.45/L", "14.6p"],
+            ["Petrol family SUV", "32 mpg", "£1.45/L", "20.6p"],
+            ["Hybrid (Toyota Prius)", "65 mpg", "£1.45/L", "10.1p"],
+            ["EV at home (28p/kWh)", "3.5 mi/kWh", "£0.28/kWh", "8.0p"],
+            ["EV at off-peak (7.5p/kWh)", "3.5 mi/kWh", "£0.075/kWh", "2.1p"],
+            ["EV at public rapid (80p/kWh)", "3.5 mi/kWh", "£0.80/kWh", "22.9p"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is HMRC's 45p per mile generous or stingy?",
+        "Generous for fuel-only costs (which are typically 10 to 25p per mile depending on car), but realistic when you include insurance, depreciation and servicing. The 45p rate has not changed since 2011/12, so in real terms it has gradually fallen behind inflation and rising fuel prices. For owners of efficient cars driving moderate annual mileage, AMAP is still a useful tax break."
+      ),
+      createFAQ(
+        "Should I claim AMAP or have my employer reimburse fuel?",
+        "AMAP if your actual fuel cost is under 45p per mile, which it nearly always is. If your employer pays a fuel-only rate (typically the HMRC Advisory Fuel Rates of around 13 to 18p per mile depending on engine size), you can still claim the difference up to 45p as Mileage Allowance Relief on your self-assessment tax return."
+      ),
+      createFAQ(
+        "Does the calculator handle electric cars?",
+        "Yes. Set fuel type to Electric, enter your miles per kWh (typical 3.0 to 4.0 for mid-size EVs in mixed UK conditions), and your electricity cost. Home rates of 28p per kWh produce around 8p per mile; off-peak overnight tariffs of 7 to 10p per kWh drop that to 2 to 3p per mile."
+      ),
+      createFAQ(
+        "What is the average UK car's cost per mile?",
+        "Around 14 to 18p per mile for fuel only, on a typical family petrol or diesel car. Including insurance, road tax, depreciation, servicing and tyres, the all-in figure is closer to 35 to 45p per mile. The HMRC AMAP rate of 45p effectively assumes that all-in figure when reimbursing business mileage."
+      ),
+      createFAQ(
+        "Why is rapid-charged EV mileage so expensive?",
+        "Public rapid chargers in 2026 commonly cost 70p to 90p per kWh, three to four times the home rate. At 80p per kWh, an EV at 3.5 miles per kWh costs 22.9p per mile, more than most petrol family cars. Rapid charging is a top-up tool for long trips, not a daily fuelling source; if you cannot charge at home, the EV cost case is much weaker."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fuel-cost-calculator", label: "Fuel Cost Calculator" },
+      { slug: "mileage-reimbursement-calculator", label: "Mileage Reimbursement Calculator" },
+      { slug: "petrol-vs-electric-total-cost", label: "Petrol vs Electric Total Cost" },
+    ],
+  },
+
+  "ev-range-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Why WLTP Range Is Optimistic",
+        "The WLTP figure on the brochure is run on a test cycle at mild temperatures with no accessories on, no roof box, no headwinds, and a gentle acceleration profile. Real driving rarely matches that, especially in UK weather. As a rule of thumb, expect around 85% of WLTP in summer mixed driving, 70% in cold winter motorway driving, and as low as 60% in extreme cold with the heater on full. A 300-mile WLTP car typically delivers 200 to 270 real-world miles depending on conditions.",
+        "The calculator applies derating factors for driving condition (city, mixed, motorway), temperature, accessory use (heating draws around 2 to 3 kW continuously, AC about 1 kW), and vehicle load. Combine these and you get a realistic range figure for your actual journey rather than the lab-test number."
+      ),
+      createAnswerFirstSection(
+        "Cold Weather Is the Biggest Factor",
+        "Lithium-ion battery chemistry simply does not perform as well below 5°C. Internal resistance rises, the heat pump or resistive heater draws cabin warmth from the battery itself, and you lose 25 to 30% of usable range vs the same drive in mild weather. A 250-mile WLTP EV that returns 220 miles in spring may only do 160 to 180 miles on a frosty January motorway run.",
+        "Heat pumps mitigate this significantly. An EV with a heat pump (Tesla Model 3, Polestar 2, Hyundai Ioniq 5, most newer mainstream EVs) loses around 10 to 15% in the cold; one with resistive heating only (older Nissan Leaf, some entry trims of newer cars) loses 25 to 35%. If you are buying an EV for UK winter use, a heat pump is genuinely worth paying extra for."
+      ),
+      createAnswerFirstSection(
+        "Motorway Speed Is the Second Biggest Factor",
+        "Aerodynamic drag scales with the cube of speed. At 70 mph, an EV uses roughly 35 to 40% more energy per mile than at 40 mph in town. The 'motorway' setting in the calculator applies a 30% derating because the energy needed to push through the air rises rapidly above 60 mph.",
+        "This is why EV road trip stops are spaced around 130 to 180 miles in real motorway driving rather than the brochure 250 to 300. Slowing down 5 mph (from 75 to 70) gives back 10 to 15% of range for a small time penalty; on a long trip, that can save a charging stop. Compare against [petrol vs electric total cost calculator](/petrol-vs-electric-total-cost) to see how this affects total trip cost."
+      ),
+      {
+        heading: "Realistic Range from a 60 kWh Battery (300-mile WLTP car)",
+        table: {
+          headers: ["Conditions", "Multiplier", "Realistic Range"],
+          rows: [
+            ["Summer city driving (mild, no AC)", "0.95×", "285 miles"],
+            ["Summer mixed driving", "0.85×", "255 miles"],
+            ["Mild motorway (15°C)", "0.70×", "210 miles"],
+            ["Winter mixed (cold, heater on)", "0.65×", "195 miles"],
+            ["Cold motorway (0°C, heater)", "0.55×", "165 miles"],
+            ["Extreme cold (−5°C, heater, headwind)", "0.45×", "135 miles"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How much does a roof box cost in range?",
+        "A standard roof box typically costs 10 to 20% of range at motorway speed because it disrupts the car's aerodynamics significantly. A bike rack on the roof or back is similar. An EV that does 250 miles unloaded might do 200 to 225 with the box on. The penalty drops sharply at slower speeds; in town driving, the loss is closer to 5%."
+      ),
+      createFAQ(
+        "Does air conditioning use less energy than heating?",
+        "Yes, by a significant margin. AC typically draws 0.5 to 1.5 kW; resistive heating draws 3 to 7 kW. A heat pump cuts heating draw to 1 to 3 kW. In summer with AC, expect around 5% range loss; in winter with resistive heating in cold weather, expect 20 to 30% loss. Pre-conditioning the cabin while still plugged into the wallbox softens this by using grid power instead of battery power."
+      ),
+      createFAQ(
+        "Does the calculator work for any EV?",
+        "Yes. Enter battery capacity in kWh and WLTP range; the tool calculates efficiency (miles per kWh) automatically. From there, the derating factors apply regardless of make. Tesla, Hyundai, MG, Polestar, BMW, Audi all behave similarly under the same conditions. The exception is brand-new ultra-efficient EVs (Hyundai Ioniq 6 long range, Tesla Model 3 Highland), which can outperform older cars by 10 to 15% on the same battery size."
+      ),
+      createFAQ(
+        "What about regenerative braking?",
+        "Regen recovers around 20 to 30% of the energy used to accelerate, which is already baked into the WLTP figure and into real-world miles per kWh. The calculator does not need a separate regen input; it is captured in the underlying efficiency you provide. Regen is most useful in city driving and least useful at constant motorway speed, which is one reason motorway range is shorter even before accounting for aerodynamic drag."
+      ),
+      createFAQ(
+        "Can I rely on the trip computer's predicted range?",
+        "Mostly. Modern EV trip computers learn from your driving style and weather over recent days and produce a fairly accurate prediction. They struggle when conditions change abruptly (sudden cold snap, motorway after a week of city driving, headwind appearing on a long trip). For trip planning, use this calculator with worst-case conditions for your route, then add a 20% buffer; that lands you at the next charger with comfortable margin."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ev-charging-time-calculator", label: "EV Charging Time Calculator" },
+      { slug: "petrol-vs-electric-total-cost", label: "Petrol vs Electric Total Cost" },
+      { slug: "fuel-cost-calculator", label: "Fuel Cost Calculator" },
+    ],
+  },
+
+  "should-i-keep-my-old-car": {
+    sections: [
+      createAnswerFirstSection(
+        "The Maths Behind Keep vs Replace",
+        "An old car has the lowest possible monthly cost: nothing on finance, low road tax (or zero for very old cars), insurance often £20 to £50 cheaper a month than a new equivalent, and depreciation already taken. Repairs and a slightly higher fuel bill are the offsetting costs. A new car has the opposite profile: high monthly finance, fresh depreciation eating £200 to £400 a month, low fuel and maintenance, full warranty cover.",
+        "The break-even is simpler than people think. Add up: annual repairs + annual fuel + annual insurance + annual road tax for the old car. Compare against: annual finance + annual fuel + annual insurance + annual road tax for the new car (depreciation is already inside the finance number for a sensible 36 to 60 month deal). When the old-car total exceeds the new-car total, replacement is cheaper. Most cars cross this line somewhere between 12 and 18 years old, depending on annual mileage and reliability."
+      ),
+      createAnswerFirstSection(
+        "When Repairs Tip the Decision",
+        "A single £1,200 repair on a 14-year-old car feels enormous, but spread across 24 months of avoided £400 finance payments, it is actually £350 a month of saved cost vs new. The number to watch is annual repair spend rather than individual bills. Once your annual repair bill regularly exceeds the annual depreciation of an equivalent new (or newer used) car, the old car is genuinely costing more to keep.",
+        "Use the calculator's break-even repair figure: it shows how high annual repairs would need to climb before replacement becomes cheaper. For a 12-year-old £4,000 car against a £25,000 new replacement at £400 a month, the break-even is typically £3,000 to £4,000 per year in repairs. Below that, keeping the car wins; above that, replacing wins."
+      ),
+      createAnswerFirstSection(
+        "The Hidden Costs People Forget",
+        "Insurance often drops every year on an older car as its value falls; new cars have higher premiums for years. Road tax (VED) on cars registered before April 2017 can be substantially lower than on new cars, particularly for low-displacement engines. ULEZ and clean-air zones are the opposite story: pre-2015 petrol and pre-2016 diesel cars pay £12.50 a day in London ULEZ and similar charges in Birmingham and Bristol Clean Air Zones, which adds up to around £4,500 a year for a London commuter; that alone funds a newer compliant car.",
+        "Reliability risk is harder to quantify but real. A 15-year-old car that has been well-maintained will probably keep going for years; one with a patchy service history can develop expensive problems suddenly. The break-even calculation assumes average repair costs; if your car is on borrowed time, the actual cost can spike unpredictably. The right answer is often to set aside a 'repair reserve' equal to 6 months of new-car finance costs, and replace if a single repair would consume more than that."
+      ),
+      {
+        heading: "Typical UK Old Car vs New Car Annual Cost (£25,000 replacement)",
+        table: {
+          headers: ["Category", "10-year-old £4k car", "New £25k car"],
+          rows: [
+            ["Finance/depreciation", "£0 (depreciation done)", "£4,800 (60-month loan)"],
+            ["Fuel (10k miles, 35 mpg vs 50 mpg)", "£1,860", "£1,300"],
+            ["Insurance", "£480", "£720"],
+            ["Road tax", "£200", "£190"],
+            ["Repairs and servicing", "£1,200", "£200 (in warranty)"],
+            ["MoT", "£55", "£0 (first 3 years)"],
+            ["Annual total", "£3,795", "£7,210"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the average lifespan of a UK car?",
+        "Around 14 years and 150,000 miles on the road, though many well-maintained cars run for 200,000+ miles. Japanese makes (Toyota, Honda, Mazda) and German diesels (BMW 320d, Mercedes E-Class) are the longest-living mainstream choices. American and French cars typically retire 2 to 3 years earlier on average. The brand of the car you currently own is one of the strongest predictors of how long it will keep going at low repair cost."
+      ),
+      createFAQ(
+        "Is it worth fixing an old car or scrapping it?",
+        "If the repair cost is more than 50% of the car's market value, scrapping or selling for parts is usually the cheaper move. A £1,500 repair on a £4,000 car is reasonable; a £2,500 repair on a £3,000 car is almost always not. Get a price for the repair, look up the car's market value on Auto Trader's valuation tool, and apply the 50% rule."
+      ),
+      createFAQ(
+        "Does ULEZ change the maths?",
+        "Yes, dramatically, if you drive in London regularly. A non-compliant car in ULEZ costs £12.50 a day. At 5 days a week of London driving that is £3,250 a year, which on its own funds a 4-year-old compliant car at around £200 a month finance. If you live in a ULEZ-affected area and your car is non-compliant, replacement is almost always financially obvious."
+      ),
+      createFAQ(
+        "Should I trade in or sell privately?",
+        "Selling privately on Auto Trader, eBay or Gumtree typically nets 15 to 25% more than trade-in value, though it takes more effort. For cars worth under £2,000 the difference shrinks because dealers are less aggressive on low-value trade-ins. Webuyanycar and Motorway are middle-ground options: less hassle than private, slightly better prices than dealer trade-in."
+      ),
+      createFAQ(
+        "What about going used instead of new?",
+        "A 2 to 3 year old used car with 20,000 to 30,000 miles is the strongest value proposition in the UK car market. You skip the worst of the depreciation (which the first owner has paid), still get decent reliability and a part-warranty in some cases, and pay 30 to 50% less than new. The calculator compares against any replacement cost, so you can model new vs used vs keep on equal footing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "car-loan-calculator", label: "Car Loan Calculator" },
+      { slug: "lease-vs-buy-car-calculator", label: "Lease vs Buy Car Calculator" },
+      { slug: "cost-per-mile-calculator", label: "Cost Per Mile Calculator" },
+    ],
+  },
 };

@@ -1458,6 +1458,659 @@ export const financeSEO = {
       { slug: "percentage-calculator", label: "Percentage Calculator" },
     ],
   },
+
+  "hourly-to-salary": {
+    sections: [
+      createAnswerFirstSection(
+        "Convert Hourly Rate to Annual Salary (and Back)",
+        "To convert hourly to annual: multiply your hourly rate by your weekly hours, then multiply by the weeks you actually work in a year. £20/hour at 40 hours over 52 weeks = £41,600 annual gross. To convert annual to hourly: divide salary by (weekly hours x weeks worked). The same £41,600 at 40 hours x 52 weeks = £20/hour.",
+        "The number that catches most people out is the weeks-worked figure. Salaried staff are paid for 52 weeks even though they take 5-6 weeks of holiday plus bank holidays; hourly contractors usually only earn during the weeks they work, which is closer to 46-48. If you are quoted £25/hour as a freelancer, that is not the same gross income as £52,000 salaried, even though the simple maths suggests it is. The calculator shows hourly, daily, weekly, fortnightly, monthly and annual side by side so you can spot the right comparison."
+      ),
+      createAnswerFirstSection(
+        "When This Calculator Is Genuinely Useful",
+        "Negotiating a contract role versus a permanent role is the obvious case. A permanent £45,000 with 28 days holiday is roughly equivalent to £24/hour as a contractor only if the contractor works 46 weeks; at 40 weeks the contractor needs about £27.50/hour to match. Use the [UK Tax Calculator](/uk-tax-calculator) afterwards to compare take-home, because employed PAYE and umbrella company contractors pay tax differently from limited-company directors.",
+        "The other big use is comparing job offers with different working patterns. A £30,000 salary at 35 hours a week is a higher hourly rate (£16.48) than £32,000 at 40 hours a week (£15.38), which most candidates do not realise until they run the numbers. Part-time roles, compressed weeks (4 days x 10 hours), and term-time-only contracts all distort the headline salary, and the converter quietly does that comparison for you."
+      ),
+      {
+        heading: "Common Hourly to Salary Conversions (40 hour week, 52 weeks)",
+        table: {
+          headers: ["Hourly Rate", "Weekly", "Monthly", "Annual"],
+          rows: [
+            ["£12.21 (NLW)", "£488.40", "£2,116", "£25,397"],
+            ["£15.00", "£600.00", "£2,600", "£31,200"],
+            ["£20.00", "£800.00", "£3,467", "£41,600"],
+            ["£25.00", "£1,000.00", "£4,333", "£52,000"],
+            ["£35.00", "£1,400.00", "£6,067", "£72,800"],
+            ["£50.00", "£2,000.00", "£8,667", "£104,000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the National Living Wage hourly rate for 2026/27?",
+        "The National Living Wage rose to £12.21 per hour in April 2026 for workers aged 21 and over. At 40 hours a week across 52 weeks that is roughly £25,397 gross, before income tax and National Insurance. Younger workers get less: 18 to 20 year olds are on £10.00, and apprentices on the lowest rate at £7.55."
+      ),
+      createFAQ(
+        "Should I use 52 weeks or fewer when converting?",
+        "Salaried staff use 52 weeks because they are paid year-round including holiday. Self-employed and zero-hours workers should use the weeks they actually expect to bill, typically 46 to 48 once you subtract holidays, sick days and quiet weeks. Using 52 for a contractor overstates annual income; using 48 for a salaried worker understates it."
+      ),
+      createFAQ(
+        "How does this differ from a take-home pay calculator?",
+        "This converter shows gross figures only - the headline pay before any deductions. Income tax, National Insurance, pension contributions and student loan repayments come off the top. Run the figure through the UK Tax Calculator afterwards to see what actually lands in your bank account."
+      ),
+      createFAQ(
+        "Why does my monthly figure look different to my payslip?",
+        "Most UK payslips divide annual salary by 12 to get a flat monthly figure, regardless of how many days are in the month. This converter does the same. Some employers pay weekly or four-weekly instead, which produces 13 paydays a year and slightly lower per-payslip amounts; the annual total is identical."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "salary-breakdown-visualiser", label: "Salary Breakdown Visualiser" },
+      { slug: "pay-rise-calculator", label: "Pay Rise Calculator" },
+    ],
+  },
+
+  "loan-repayment-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Monthly Repayment Formula and What It Tells You",
+        "A standard repayment loan uses M = P x [r(1+r)^n] / [(1+r)^n - 1], where P is the loan amount, r is the monthly interest rate, and n is the number of monthly payments. A £200,000 loan at 5.5% over 25 years works out at about £1,228 a month and £368,392 in total, of which £168,392 is pure interest. The interest figure is the headline most people miss; over a 25-year mortgage you typically pay close to the original loan amount again in interest.",
+        "Interest-only loans work differently: you pay only the monthly interest (£200,000 at 5.5% = £917/month) and owe the entire £200,000 at the end. Total interest over 25 years is £275,000, but you have not reduced the debt at all. This is fine if you have a separate repayment plan (an investment ISA maturing, a property sale), but disastrous if you do not."
+      ),
+      createAnswerFirstSection(
+        "Why Overpayments Punch Above Their Weight",
+        "Overpaying £200 a month on a £200,000, 25-year loan at 5.5% knocks roughly 6 years off the term and saves around £40,000 in interest. The maths feels disproportionate because each pound of overpayment goes 100% to capital, while a normal monthly payment in year 1 is mostly interest. The earlier in the loan the overpayment lands, the larger the saving.",
+        "Most UK lenders allow 10% overpayments per year on fixed-rate mortgages without early repayment charges. Check your specific deal before committing - some loans charge 1% to 5% on overpayments above the allowance, which can wipe out the saving. Use the [Mortgage Overpayment Calculator](/mortgage-overpayment-calculator) for a year-by-year breakdown showing exactly when the savings appear."
+      ),
+      {
+        heading: "Repayment Examples (£200,000 loan, 25 years)",
+        table: {
+          headers: ["Rate", "Monthly Payment", "Total Repaid", "Total Interest"],
+          rows: [
+            ["3.5%", "£1,001", "£300,372", "£100,372"],
+            ["4.5%", "£1,112", "£333,560", "£133,560"],
+            ["5.5%", "£1,228", "£368,392", "£168,392"],
+            ["6.5%", "£1,350", "£404,873", "£204,873"],
+            ["7.5%", "£1,478", "£443,360", "£243,360"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I take a longer term to reduce my monthly payment?",
+        "It works in the short term but costs more in the long term. Stretching a £200,000 loan at 5.5% from 25 years to 35 years drops the monthly payment from £1,228 to £1,094, but total interest jumps from £168,392 to £259,496 - around £91,000 extra. A common compromise is to take the longer term for affordability, then overpay aggressively if the budget allows."
+      ),
+      createFAQ(
+        "What's the difference between a fixed and variable rate?",
+        "A fixed rate locks your monthly payment for a set period (usually 2, 5 or 10 years). A variable rate moves with the lender's standard variable rate (SVR) or Bank of England base rate, so the monthly payment changes when rates change. Fixed gives predictability; variable gives upside if rates fall but pain if they rise."
+      ),
+      createFAQ(
+        "Are interest-only loans still available in the UK?",
+        "Yes, but criteria are stricter than they were pre-2008. You typically need a credible repayment vehicle (a maturing investment, a sale of another property, or a clear plan to switch to repayment), a low loan-to-value ratio (often below 75%), and proof of income comfortably above the lender's threshold. Most retail mortgages are repayment by default."
+      ),
+      createFAQ(
+        "Does the calculator include arrangement fees and other costs?",
+        "No, it shows only the principal and interest. Arrangement fees, valuation fees, broker fees and early repayment charges sit on top. A £999 arrangement fee on a 5-year fix adds about £17 a month if rolled into the loan, and significantly more once interest compounds across the full term. Always compare the APRC (annual percentage rate of charge) rather than the headline rate."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "mortgage-overpayment-calculator", label: "Mortgage Overpayment Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
+
+  "stamp-duty-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Stamp Duty Bands Work",
+        "Stamp Duty Land Tax (SDLT) in England and Northern Ireland is charged in slices, not as a flat rate. For a standard home mover in 2026/27, the first £250,000 is tax-free, the next £675,000 (up to £925k) is at 5%, the next £575,000 (up to £1.5m) is at 10%, and anything above £1.5m is at 12%. A £400,000 home costs £7,500 in stamp duty (5% of the £150,000 above the £250k threshold).",
+        "First-time buyers get a more generous deal: nothing on the first £425,000, then 5% up to £625,000. So a first-time buyer spending £400,000 pays zero SDLT. Step over £625,000 and the relief disappears entirely - a £626,000 purchase by a first-time buyer is taxed under the standard home mover bands, costing £18,800. Watch that cliff edge if you are stretching to a higher-priced flat."
+      ),
+      createAnswerFirstSection(
+        "The 3% Surcharge on Second Homes and Buy-to-Let",
+        "Buy a property as an additional home (a second home, a holiday let, or a buy-to-let) and you pay an extra 3% on every band, including the bottom slice that is normally tax-free. A £400,000 buy-to-let costs £19,500 in SDLT (3% on the first £250k = £7,500, plus 8% on the next £150k = £12,000) versus £7,500 if it were your only home.",
+        "Non-UK residents add another 2% on top of whatever band applies, taking the worst-case rate to 17% on the slice above £1.5m. The surcharge applies to anyone who has not been resident in the UK for at least 183 days during the 12 months before completion. Crossing the threshold mid-purchase can be planned for if you have flexibility on completion dates. Pair this with the [Mortgage Calculator](/mortgage-calculator) to see whether the surcharge changes what you can actually afford."
+      ),
+      {
+        heading: "Stamp Duty by Property Price (Home Mover, 2026/27)",
+        table: {
+          headers: ["Property Price", "SDLT (Home Mover)", "SDLT (First-Time Buyer)", "SDLT (Additional Property)"],
+          rows: [
+            ["£250,000", "£0", "£0", "£7,500"],
+            ["£350,000", "£5,000", "£0", "£15,500"],
+            ["£500,000", "£12,500", "£3,750", "£27,500"],
+            ["£750,000", "£25,000", "Not eligible", "£47,500"],
+            ["£1,000,000", "£41,250", "Not eligible", "£71,250"],
+            ["£1,500,000", "£91,250", "Not eligible", "£136,250"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Do I pay stamp duty in Scotland and Wales?",
+        "No - SDLT only covers England and Northern Ireland. Scotland charges Land and Buildings Transaction Tax (LBTT) with different bands and thresholds. Wales charges Land Transaction Tax (LTT). The principles are similar (tiered bands, surcharges on additional homes, first-time buyer reliefs) but the exact thresholds and rates differ. Check the relevant Revenue website for whichever country your property is in."
+      ),
+      createFAQ(
+        "When do I have to pay stamp duty?",
+        "Within 14 days of completion. Your solicitor or conveyancer normally handles the SDLT return and the payment for you on completion day, taking the funds from the deposit you transferred earlier. Late filing triggers a £100 penalty plus interest, and if the solicitor forgets it lands on you, not them - the buyer is legally liable."
+      ),
+      createFAQ(
+        "Is stamp duty refundable if I sell my old home within 36 months?",
+        "Yes, in the specific case where you bought a new main home before selling your old one and paid the 3% additional-property surcharge. If you sell the old home within 36 months of buying the new one, you can reclaim the surcharge from HMRC. Keep the completion paperwork from both transactions; the refund is not automatic, you have to apply."
+      ),
+      createFAQ(
+        "Can I add stamp duty to the mortgage?",
+        "Some lenders allow it, but most prefer SDLT to come from your deposit savings. Adding £15,000 of stamp duty to a £300,000 loan increases the loan-to-value, may push you into a higher LTV rate band, and costs significantly more over 25 years once interest compounds. If you can find the cash from elsewhere, do."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "rent-vs-buy-calculator", label: "Rent vs Buy Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+    ],
+  },
+
+  "inflation-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Inflation Erodes Purchasing Power Over Time",
+        "Inflation works as compound erosion. £1,000 sitting in a non-interest-paying account during 5% inflation drops to roughly £950 of real spending power after one year, £902 after two, and £783 after five. Run that across 20 years at 3% (the Bank of England's long-term target is 2%, but actual UK CPI has averaged closer to 3% since 2000) and £1,000 today buys what £554 buys now.",
+        "The historical mode of the calculator answers \"what was £X in year Y worth in today's money?\" - useful for understanding house prices, salaries or the price of a pint across decades. The future mode answers \"what will £X be worth in N years?\" - useful for retirement planning. Both run the same compound formula: future value = present value x (1 + rate)^years."
+      ),
+      createAnswerFirstSection(
+        "What This Means for Cash Savings",
+        "If your savings account pays 4.5% AER and inflation runs at 3%, your real return is roughly 1.5% per year, not 4.5%. A £20,000 emergency fund earns £900 in nominal interest but only £300 in real purchasing power after inflation eats its share. That is one reason the [Compound Interest Calculator](/compound-interest-calculator) lets you toggle inflation adjustment on - the nominal-only number is misleading.",
+        "The classic British example is the £85,000 FSCS protection limit. It was set in 2010 and has not moved since. Adjusted for cumulative UK inflation across 16 years, the real protection is now closer to £56,000 in 2010 spending power. Pension thresholds, tax bands and benefit rates work the same way: when they freeze, real value declines silently every year. The personal allowance has been £12,570 since 2021/22; in 2026 money that frozen allowance is worth roughly £10,400 of 2021 spending power."
+      ),
+      {
+        heading: "What £10,000 in 2010 Bought in Each Following Year (3% Annual Inflation)",
+        table: {
+          headers: ["Year", "Equivalent Today", "Cumulative Loss"],
+          rows: [
+            ["2010", "£10,000", "0%"],
+            ["2015", "£11,593", "13.7%"],
+            ["2020", "£13,439", "25.6%"],
+            ["2024", "£15,126", "33.9%"],
+            ["2026", "£16,047", "37.7%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What inflation rate should I use?",
+        "For UK calculations, 2.5% to 3.5% is a reasonable long-run estimate. The Bank of England targets 2% but actual CPI has averaged around 3% across the last 25 years, with sharp spikes (over 11% in late 2022) and quieter periods. Use the lower end for conservative planning and the higher end if you want a stress test. The Office for National Statistics publishes historical CPI back to 1989."
+      ),
+      createFAQ(
+        "Why do inflation calculators give different answers?",
+        "Different rate assumptions and different inflation indices. CPI (Consumer Prices Index) is what the Bank of England targets; RPI (Retail Prices Index) typically runs about 1 percentage point higher because it includes housing costs differently. The ONS no longer publishes RPI as a national statistic, but some legacy products (rail fares, student loans) still index to it. Pick the index that matches your purpose and stay consistent."
+      ),
+      createFAQ(
+        "Does inflation affect my pension?",
+        "Most workplace and personal pensions invest in real assets (equities, bonds, property) which historically beat inflation over decades, but year-to-year volatility is high. The State Pension is uprated by the triple lock (the highest of inflation, earnings growth or 2.5%), which usually keeps it ahead of inflation. Defined-benefit pensions vary - check whether yours uprates by CPI or RPI in payment, because that can change retirement income by tens of thousands over a long retirement."
+      ),
+      createFAQ(
+        "What happened to UK inflation in 2022 to 2023?",
+        "CPI peaked at 11.1% in October 2022, the highest since 1981. The spike was driven primarily by energy prices following the Russia-Ukraine war, food prices, and post-pandemic supply chain issues. By late 2024 it was back near the 2% target, but the cumulative price level is now permanently higher; prices do not fall back when inflation slows, they just rise more slowly. A £100 weekly shop in 2021 still costs about £125 today, and that gap is locked in."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "pension-calculator", label: "Pension Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+    ],
+  },
+
+  "salary-breakdown-visualiser": {
+    sections: [
+      createAnswerFirstSection(
+        "See Where Every Pound of Your Salary Actually Goes",
+        "Type your gross annual salary and the visualiser splits it into four deductions plus take-home: income tax, National Insurance, pension (if you contribute), student loan (if you have one) and what lands in your bank account. On £35,000 with a 5% pension and Plan 2 student loan, you keep about £25,500 of the £35,000 - around 73p in the pound. On £100,000 with the same setup, the share drops closer to 60p in the pound because of the 40% higher rate band and the gradual loss of the personal allowance.",
+        "The expense block is where the visualiser earns its keep. Once you have add rent, bills, food, transport and subscriptions, the leftover figure is what you actually have available to save, invest or spend on choices. Most UK households are surprised by how small that figure is once everything fixed is taken out, and how much the subscriptions row totals - £15 streaming, £8 phone, £30 gym, £12 cloud storage, £20 newspaper digital all stack up to close to £85/month."
+      ),
+      createAnswerFirstSection(
+        "Tax Band Effects You Can Watch in Real Time",
+        "Slide the salary up from £49,000 to £52,000 and watch the income tax line jump disproportionately - that is the 40% higher rate kicking in once you cross £50,270. Similarly, push past £100,000 and an extra slice of tax appears as the personal allowance starts withdrawing at £1 lost per £2 earned, creating an effective marginal rate of 60%. The visualiser shows the pain in pictures rather than HMRC formulas.",
+        "Pension contributions are the single biggest lever for high earners. A 10% salary sacrifice on £105,000 brings the gross down to £94,500, which is below the £100,000 cliff edge - so you keep the full personal allowance and avoid the 60% trap entirely. The [UK Tax Calculator](/uk-tax-calculator) does the same calculation in formula form; the visualiser exists for people who want to see the proportion at a glance before committing to a 30-minute deep-dive."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is this against a real payslip?",
+        "Within a few pounds for standard PAYE employees with tax code 1257L. The visualiser uses 2026/27 thresholds: £12,570 personal allowance, £50,270 higher rate threshold, 8% NI from £12,570 to £50,270, 2% above that. Anything unusual on your tax code (K codes, BR codes, marriage allowance transferred in) will shift the figure by a few hundred pounds a year. Pension via salary sacrifice is handled correctly; pension via relief at source needs a manual adjustment."
+      ),
+      createFAQ(
+        "What student loan plan should I pick?",
+        "Plan 1 covers English/Welsh students who started university before September 2012. Plan 2 covers those who started between September 2012 and July 2023. Plan 4 is for Scottish students. Plan 5 is for those starting from August 2023. Postgraduate loans are separate (6% above £21,000) and many borrowers have Plan 2 plus Postgraduate running at the same time. Your payslip lists the plan code under \"Student Loan\"."
+      ),
+      createFAQ(
+        "Why is the National Insurance figure lower than I expected?",
+        "The main NI rate was reduced to 8% in April 2024. If you remember a 12% figure from older payslips or older tax calculators, that is out of date. The 2% rate above the upper earnings limit (£50,270) has not changed. Self-employed Class 4 NI works differently and is not modelled here."
+      ),
+      createFAQ(
+        "Does this work for Scottish taxpayers?",
+        "Not yet - the visualiser uses the rest-of-UK income tax bands (20%, 40%, 45%). Scottish income tax has six bands ranging from 19% to 48%, so a Scottish 50,000 salary actually has slightly less income tax in the lowest band but more above £43,663. Take the take-home figure as roughly indicative for Scottish residents and use a Scotland-specific calculator for an exact answer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "hourly-to-salary", label: "Hourly to Salary Calculator" },
+      { slug: "pension-calculator", label: "Pension Calculator" },
+    ],
+  },
+
+  "rent-vs-buy-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "The Real Cost of Renting vs Buying Over 25 Years",
+        "Renting is not simply throwing money away, and buying is not simply free property growth. Both have hidden costs that need adding to the obvious monthly figure. For renting: rent rises (typically 3% a year compounded), contents and renters insurance, agency fees on each new tenancy. For buying: stamp duty up front, mortgage interest (which dominates payments in the first 10-15 years), maintenance (figure 1% of property value per year - so £4,000 a year on a £400,000 home), buildings insurance, ground rent if leasehold, and selling costs at the end.",
+        "Run a £400,000 home with a £100,000 deposit at 5.5% over 25 years versus £1,200/month rent rising 3% a year. Buying costs roughly £635,000 across 25 years (mortgage payments, maintenance, insurance, stamp duty, deposit). Renting costs roughly £525,000 across 25 years. Buying looks £110,000 worse - until you factor in that the buyer ends with a paid-off home worth roughly £700,000 if it tracks 2.5% house price growth. The buyer's equity makes them about £590,000 better off in net wealth terms."
+      ),
+      createAnswerFirstSection(
+        "When Renting Genuinely Beats Buying",
+        "Short time horizons are the obvious case. Buying involves £15,000 to £30,000 in transaction costs (stamp duty, legal fees, surveys, mortgage arrangement, removals); selling adds estate agent fees of 1% to 1.5%. If you move within 5 years, those costs swamp any equity built and the buyer ends up worse off than the renter. The 5-year break-even is the rule of thumb most UK financial advisers quote.",
+        "High-mobility careers, areas with rent-to-price ratios under 4% (where rent is much cheaper than buying), and those who would invest the deposit in a Stocks and Shares ISA returning 7% over 25 years can all make renting the better choice. Use the [Stamp Duty Calculator](/stamp-duty-calculator) to see your exact upfront cost, and the [Mortgage Calculator](/mortgage-calculator) to compare monthly burden against your local rental market before committing."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What rent increase rate should I use?",
+        "3% is the long-run UK average since 2010, but the last 3 years have seen renewals routinely at 5% to 8% in major cities. Use 3% for a long-term planning view, or set it higher to stress test. Tenants on rolling assured shorthold tenancies typically see steeper increases than those on long fixed terms, because landlords use renewals as the moment to bring rents to market."
+      ),
+      createFAQ(
+        "How much should I budget for maintenance on a property?",
+        "1% of the property value per year is the standard rule of thumb across UK property circles. So £400 per £40,000 of value - or £4,000 a year on a £400,000 house. New builds skew lower in early years; Victorian terraces with old plumbing, original windows and a roof past its prime can run at 2% to 3%. Leasehold flats have predictable service charges instead, but those have risen 8% to 15% a year recently due to building safety remediation costs."
+      ),
+      createFAQ(
+        "What if house prices fall?",
+        "House prices have fallen meaningfully a few times in living memory (1989-95 dropped about 20% nominal in real money terms; 2007-09 dropped about 16%; 2022-23 saw a small dip then recovery). The break-even comparison is sensitive to growth rate - drop the assumption from 2.5% to 0% and buying often loses across 25 years. Use the calculator to flex the growth rate and see how robust your conclusion is to different scenarios."
+      ),
+      createFAQ(
+        "Should I include the deposit as a cost or an investment?",
+        "Both views are valid. As a renter you would either spend that deposit, save it earning interest, or invest it in a Stocks and Shares ISA. The opportunity cost is real - £100,000 in a 7% return investment becomes £540,000 over 25 years, which is comparable to the equity in the bought home. The calculator treats the deposit as a sunk buying cost; you can mentally add the foregone investment growth on the renting side for a fairer comparison."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "stamp-duty-calculator", label: "Stamp Duty Calculator" },
+      { slug: "mortgage-overpayment-calculator", label: "Mortgage Overpayment Calculator" },
+    ],
+  },
+
+  "uk-council-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Council Tax Bands Work",
+        "Every home in England is placed in one of eight bands (A to H) based on the property's value as it stood on 1 April 1991. Yes, 1991 - the bands have not been revalued in over 30 years. Band A covers homes worth up to £40,000 in 1991 prices; Band D covers £68,001 to £88,000; Band H covers anything above £320,000. A 1991 valuation roughly maps to a 6x to 8x multiple in 2026 money for typical properties.",
+        "Your bill is the band multiplier x your local authority's Band D rate. A typical Band D bill in 2026/27 sits around £2,200 for England. Band A pays 6/9 of that (£1,467); Band H pays 18/9 of that (£4,400). Wales has nine bands (A to I), uses 2003 valuations, and has different multipliers. Scotland has eight bands but multipliers vary at the higher end. The single occupier discount of 25% applies in all three countries when only one adult lives at the property."
+      ),
+      createAnswerFirstSection(
+        "Discounts, Exemptions and Successful Reband Appeals",
+        "Single adult living alone: 25% discount. All adults are full-time students: 100% exemption. The property is unfurnished and empty: discount varies by council, often 100% for the first month then full charge. Severely mentally impaired and the only adult: 100% exemption. A working adult plus a full-time student lodger: 25% discount, because the student is disregarded.",
+        "Reband appeals are worth checking: the Valuation Office Agency estimated in 2017 that around 400,000 English homes are in the wrong band, usually one band too high. If your home and your neighbours' homes have the same 1991 valuation but different bands, you can request a reband. The savings are not trivial - moving from Band E to Band D on a £2,200 Band D rate saves £660 a year, every year, until you sell. Check via the GOV.UK 'check your council tax band' service before you spend any money on professional services."
+      ),
+      {
+        heading: "Council Tax Bands and Typical 2026/27 Annual Cost (England)",
+        table: {
+          headers: ["Band", "1991 Property Value", "Multiplier", "Typical Annual Bill"],
+          rows: [
+            ["A", "Up to £40,000", "6/9", "£1,467"],
+            ["B", "£40,001 to £52,000", "7/9", "£1,711"],
+            ["C", "£52,001 to £68,000", "8/9", "£1,956"],
+            ["D", "£68,001 to £88,000", "9/9", "£2,200"],
+            ["E", "£88,001 to £120,000", "11/9", "£2,689"],
+            ["F", "£120,001 to £160,000", "13/9", "£3,178"],
+            ["G", "£160,001 to £320,000", "15/9", "£3,667"],
+            ["H", "Over £320,000", "18/9", "£4,400"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are council tax rates frozen at 1991 valuations?",
+        "Because revaluation is politically toxic. Wales tried in 2005 (using 2003 prices) and a third of homes moved up bands, which generated massive backlash. Scotland and England have repeatedly considered revaluation since but have shelved it each time. The result is that areas with above-average house price growth since 1991 (London, the South East) are under-paying relative to their current property values, while parts of the North under-paid in 1991 and now over-pay relatively."
+      ),
+      createFAQ(
+        "Can I get a discount if I work from home?",
+        "Generally no. The single occupier discount applies only when there is one adult resident, regardless of whether they work from home. There is a discount for using part of your home as business premises for non-domestic rates purposes, but it is rare in practice for desk-based home workers. If you are running a substantial business from home (dental practice, salon, retail) you may need to pay business rates on that portion."
+      ),
+      createFAQ(
+        "What happens if I do not pay?",
+        "After one missed instalment your council can demand the full year's bill upfront. Continued non-payment leads to a court summons, then a liability order, then enforcement action including bailiffs or attachment of earnings. Council tax debt is one of the most aggressively pursued in the UK because councils have specific statutory powers. If you genuinely cannot pay, contact the council immediately - most will set up a payment plan, and pension-age and low-income residents may qualify for Council Tax Support."
+      ),
+      createFAQ(
+        "Do students pay council tax?",
+        "Full-time students are disregarded for council tax. A property where every adult is a full-time student is fully exempt. A property with one student and one non-student gets the 25% single-occupier discount because the student does not count. Part-time students do count, even if they are studying intensely - the test is full-time enrolled status with the institution."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "mortgage-calculator", label: "Mortgage Calculator" },
+      { slug: "rent-vs-buy-calculator", label: "Rent vs Buy Calculator" },
+    ],
+  },
+
+  "pension-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Your Pension Pot Could Be Worth at Retirement",
+        "The calculator runs compound growth on your current pot plus monthly contributions over the years to retirement. £50,000 today plus £500/month contributions plus a 3% employer match (so £515 effective) at 5% growth across 32 years (age 35 to 67) projects to roughly £710,000 at retirement. Of that, £247,500 is your contributions, £100,500 is employer top-up, and the remaining £362,000 is investment growth.",
+        "The growth rate assumption matters more than people realise. Drop the rate from 5% to 4% and the pot falls to about £580,000 - over £130,000 less for nothing more than one percentage point. UK workplace pensions in default funds typically aim for 4% to 6% real growth, but past returns are not future returns. Stress-test your number using 3%, 5% and 7% to see the range. The [Compound Interest Calculator](/compound-interest-calculator) shows the same maths in non-pension form if you want to see why the growth assumption is so sensitive."
+      ),
+      createAnswerFirstSection(
+        "How Much You Actually Need at Retirement",
+        "The Pensions and Lifetime Savings Association publishes annual estimates: a single person needs about £14,400/year for a Minimum standard, £31,300 for Moderate, and £43,100 for Comfortable retirement (2024 figures). Couples can share costs and need less per person. A common rule of thumb is to multiply your desired annual income by 25 - so a Moderate retirement needs about £780,000 in pot terms, plus the £11,973/year State Pension covering some of the gap.",
+        "Drawdown at the standard 4% safe withdrawal rate from a £710,000 pot gives £28,400/year inflation-adjusted, plus the State Pension on top. That is in the Moderate band but not Comfortable. To hit Comfortable you would need either higher contributions earlier, a longer working life, or genuinely strong investment returns. The single largest lever is starting age: a 25-year-old contributing £200/month with 3% employer match across 42 years often beats a 45-year-old contributing £600/month across 22 years, even though the older saver pays in twice as much money. Compounding does the rest."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the minimum I should contribute?",
+        "Auto-enrolment requires a total of 8% (3% employer, 5% employee) on qualifying earnings between £6,240 and £50,270. For someone earning £35,000 that is roughly £190/month going into the pot. Most retirement modelling shows 8% is too low to hit the PLSA Moderate standard - you need 12% to 15% across a working life to be on track. If your employer matches above 3%, taking the full match is usually the highest-return decision in personal finance."
+      ),
+      createFAQ(
+        "Should I worry about pension lifetime allowance?",
+        "The lifetime allowance was abolished in April 2024. There is no longer a maximum pot you can build up tax-favourably. The annual allowance still exists - £60,000 of contributions per tax year, tapered down for high earners. A new £268,275 cap applies to the 25% tax-free lump sum at retirement, which limits the immediate cash you can take but does not limit the pot growth itself."
+      ),
+      createFAQ(
+        "What growth rate should I assume?",
+        "4% to 5% net of fees and inflation for a default workplace pension fund is reasonable for long-term planning. Higher-risk equity-heavy funds have averaged 6% to 7% over very long periods but with substantial year-to-year swings. Lower-risk lifestyle funds (which de-risk as you approach retirement) often run at 3% to 4%. Check your pension provider's projection tool for fund-specific assumptions."
+      ),
+      createFAQ(
+        "Does the calculator account for inflation?",
+        "The basic calculator shows nominal pot value at retirement. To get the real (inflation-adjusted) value, subtract about 2% to 3% from your growth rate before running the projection. So a 5% nominal growth assumption becomes a 2% real growth assumption - and the £710,000 nominal pot from the example would represent about £370,000 of today's spending power after 32 years of 3% inflation. This is why the gap between contribution amount and pot size is partly an illusion."
+      ),
+    ],
+    relatedTools: [
+      { slug: "isa-calculator", label: "ISA Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+    ],
+  },
+
+  "dividend-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Dividend Tax Works in 2026/27",
+        "Dividends sit on top of your other income and use up tax bands in this order: salary first, then savings interest, then dividends. The first £500 of dividends each year is tax-free under the dividend allowance. After that the rates are 8.75% in the basic rate band (up to £50,270 total income), 33.75% in the higher rate band (up to £125,140), and 39.35% in the additional rate band above. Importantly, dividends are not subject to National Insurance.",
+        "A salary of £40,000 plus £10,000 dividends works out as: £500 tax-free dividend allowance, then £9,500 taxed at 8.75% (because the total income of £50,000 stays within the basic rate band), giving a dividend tax bill of £831.25. Push the dividend up to £20,000 and £10,270 of it falls into the basic rate band (8.75%), £9,230 falls into the higher rate band (33.75%), and the dividend tax bill jumps to £4,013. The cliff edge at £50,270 hits hard."
+      ),
+      createAnswerFirstSection(
+        "The Director's Salary and Dividend Trade-Off",
+        "Many UK company directors take a small salary (often £12,570 to use the personal allowance) and the rest as dividends. The split can save thousands per year compared to taking everything as salary. £12,570 salary plus £37,430 dividends produces a dividend tax bill of £3,231, plus zero NI on the salary, plus corporation tax of 19% on the profits before they become dividends. Total deductions roughly £10,500 on a £50,000 income.",
+        "By contrast, taking the same £50,000 entirely as salary triggers about £7,486 income tax and £2,994 NI, plus employer NI of about £4,800 if the company pays it - total £15,280. The dividend route saves around £4,800 a year. But the maths shifts when corporation tax is at 25% (over £250,000 profits), when you need to take more than the personal allowance as salary for pension contribution purposes, or when you want maximum statutory rights. Always check with an accountant for your specific case. The [UK Tax Calculator](/uk-tax-calculator) covers the salary-only side."
+      ),
+      {
+        heading: "Dividend Tax by Income Band (2026/27)",
+        table: {
+          headers: ["Tax Band", "Income Range (after personal allowance)", "Rate on Dividends Above £500 Allowance"],
+          rows: [
+            ["Basic", "£0 to £37,700", "8.75%"],
+            ["Higher", "£37,701 to £112,570", "33.75%"],
+            ["Additional", "Over £112,570", "39.35%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why has the dividend allowance shrunk so much?",
+        "It was £5,000 when introduced in 2016, dropped to £2,000 in 2018, then £1,000 in 2023, then £500 from April 2024. Successive governments cut it to raise revenue from small business owners and individual investors holding shares outside ISAs. The cumulative effect is significant - a director taking £30,000 of dividends now pays around £400 more per year than they would have under the £5,000 allowance."
+      ),
+      createFAQ(
+        "Are dividends inside an ISA taxable?",
+        "No. Dividends from shares held inside a Stocks and Shares ISA are completely tax-free, regardless of amount. There is no dividend allowance limit for ISA dividends because the ISA wrapper itself shelters the income. This is why most UK private investors hold dividend-paying shares inside ISAs first, only spilling over to a General Investment Account once they have used the £20,000 annual ISA allowance."
+      ),
+      createFAQ(
+        "Do I need to do a self-assessment for dividends?",
+        "If your total dividend income for the year exceeds £10,000, yes. Below £10,000 but above £500, you can either register for self-assessment or ask HMRC to adjust your tax code to collect the dividend tax through PAYE. Below £500 in total dividends and you are within the allowance, so no action is needed."
+      ),
+      createFAQ(
+        "What if I receive overseas dividends?",
+        "Overseas dividends are taxable at the same UK rates, but you may also pay foreign withholding tax (typically 15% to 30%). The UK has double taxation treaties with most major countries that let you claim a credit for foreign tax paid against your UK liability, so you do not pay tax twice on the same income. The mechanics are reported through self-assessment. US dividends are common because of W-8BEN form filing requirements."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "isa-calculator", label: "ISA Calculator" },
+      { slug: "national-insurance-calculator", label: "National Insurance Calculator" },
+    ],
+  },
+
+  "inheritance-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Inheritance Tax Is Calculated",
+        "Inheritance Tax is 40% on the value of your estate above the £325,000 nil-rate band. If you leave your main home to direct descendants (children, grandchildren) you also get the £175,000 residence nil-rate band on top, taking your tax-free allowance to £500,000. A married couple combines both, giving up to £1,000,000 tax-free if both bands are fully used and the home is left to descendants.",
+        "An estate worth £600,000 with the home left to children pays IHT only on £100,000 (the slice above the £500,000 combined allowance), giving a £40,000 tax bill. The same estate with no descendants pays on £275,000 (above the £325,000 plain nil-rate band), giving a £110,000 tax bill - a £70,000 swing for the same money based purely on who inherits. The frozen nil-rate band has been £325,000 since 2009 and is locked at this level until April 2030."
+      ),
+      createAnswerFirstSection(
+        "The 7-Year Rule and Lifetime Gifting",
+        "Gifts made more than 7 years before death are completely outside the estate for IHT. Gifts made between 3 and 7 years before death attract taper relief, reducing the rate from the full 40% on a sliding scale: 32% for 3-4 years, 24% for 4-5 years, 16% for 5-6 years, 8% for 6-7 years. Gifts under 3 years before death are taxed at the full 40%. Crucially, taper relief only applies to gifts above the nil-rate band, so small gifts within the £325,000 threshold get no benefit from the taper.",
+        "Annual exemptions are useful but small: £3,000 per year to anyone (with one year of carry-forward), £250 small gifts to as many people as you like, and unlimited gifts out of normal income provided your standard of living is unaffected. Wedding gifts have higher limits: £5,000 from parents, £2,500 from grandparents, £1,000 from anyone else. The big planning move for substantial estates is to start gifting major sums early - a £200,000 gift made 8 years before death saves £80,000 in IHT compared to the same gift made on the death bed. Always combine this with the [UK Tax Calculator](/uk-tax-calculator) for the income tax impact during your lifetime."
+      ),
+      {
+        heading: "IHT Liability by Estate Value (Single Person, Home to Children)",
+        table: {
+          headers: ["Estate Value", "Allowance", "Taxable", "IHT at 40%"],
+          rows: [
+            ["£300,000", "£500,000", "£0", "£0"],
+            ["£500,000", "£500,000", "£0", "£0"],
+            ["£750,000", "£500,000", "£250,000", "£100,000"],
+            ["£1,000,000", "£500,000", "£500,000", "£200,000"],
+            ["£2,000,000", "£500,000 (full RNRB)", "£1,500,000", "£600,000"],
+            ["£2,500,000", "£325,000 (RNRB tapered out)", "£2,175,000", "£870,000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the residence nil-rate band taper?",
+        "The £175,000 residence nil-rate band reduces by £1 for every £2 the estate exceeds £2 million. So at £2.35 million estate value, the residence nil-rate band has tapered out completely, leaving only the £325,000 standard nil-rate band. Married couples lose both spouse's RNRBs if their combined estate sits above the taper. This creates an effective marginal rate above 60% in the £2m to £2.35m band, so estate planning around this threshold is worth taking seriously."
+      ),
+      createFAQ(
+        "Will my pension be subject to IHT after April 2027?",
+        "Most unused pension pots will be drawn into the IHT estate from April 2027 under government changes announced in late 2024. Currently, defined contribution pensions sit outside the estate; beneficiaries who inherit before age 75 receive the pot tax-free, and those who inherit at 75+ pay only income tax on withdrawals. The 2027 change does not abolish those routes but adds the pot to the IHT calculation, potentially adding 40% on top. Check what your provider's communications say closer to the date."
+      ),
+      createFAQ(
+        "Is life insurance counted in the estate?",
+        "Yes, by default - the payout adds to the estate and may push it above the IHT threshold. Writing the policy in trust is the standard fix. The proceeds then pass directly to beneficiaries without entering the estate, so neither IHT nor probate delays apply. Most providers offer trust forms free of charge; ask your insurer or solicitor when you take out the policy. Existing policies can usually be put into trust retrospectively."
+      ),
+      createFAQ(
+        "Can I avoid IHT by giving my house to my children?",
+        "Not easily. If you continue living in the property rent-free after gifting it, HMRC treats it as a gift with reservation of benefit, and the property stays in your estate for IHT. To genuinely remove it, you would need to pay full market rent to your children (which is taxable income to them) or move out completely. Most attempts to give the house away while staying in it fail this test. The standard advice is to use the residence nil-rate band rather than try to give the house away during life."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "dividend-tax-calculator", label: "Dividend Tax Calculator" },
+      { slug: "pension-calculator", label: "Pension Calculator" },
+    ],
+  },
+
+  "council-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Council Tax Bands A to H Explained",
+        "Council tax in England runs on eight bands based on property values from 1991. The Band D rate is set by each local authority every March; everything else scales off that. Band A pays 6/9 of Band D, Band B pays 7/9, Band C pays 8/9, Band D pays 9/9 (the reference), Band E pays 11/9, Band F pays 13/9, Band G pays 15/9, Band H pays 18/9. That spread means a Band A household pays roughly a third of what a Band H household pays in the same authority.",
+        "A typical 2026/27 Band D bill in England is around £2,200, though the range is wide - some London inner boroughs sit closer to £1,500 while parts of Rutland and Nottingham are above £2,400. Use the calculator to slide between bands and see the proportional change against the typical Band D rate, then check your actual local rate at gov.uk/council-tax for the precise number. Use the [UK Council Tax Calculator](/uk-council-tax-calculator) for a more detailed breakdown including local authority lookup."
+      ),
+      createAnswerFirstSection(
+        "Single Occupancy and Other Discounts",
+        "If only one adult lives at the property, the bill drops by 25%. This is the single most common discount and a household with one working adult plus children under 18 still qualifies. Two adults living together get the full 100% bill, even if one is unemployed or low-income (separate Council Tax Support is available for low-income households).",
+        "Other discounts: 100% exemption when all residents are full-time students, 100% exemption when the only resident is severely mentally impaired, 50% discount when the property is a second home (in some authorities), and varying empty-property discounts that have been tightened in recent years. Some authorities now charge 200% on properties left empty for over 2 years to discourage hoarding of housing stock. Always check your specific council's policy because second-home rules are now set locally."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between Band D and the council tax precept?",
+        "Band D is the council's core property tax. The bill on top usually includes a separate adult social care precept (around 2-3% of the core figure), a police and crime commissioner precept (around £200-£300/year), and a fire authority precept (around £80-£100/year). All four numbers go on one bill but are set by different bodies. The headline 'Band D rate' typically refers to the council's own portion, not the all-in figure."
+      ),
+      createFAQ(
+        "Do students need to pay council tax?",
+        "Full-time students are disregarded. A property where every adult is a full-time student is fully exempt. A house with a student plus a working adult gets a 25% single-occupier discount because the student does not count as an adult for the calculation. Students must apply for the exemption with proof of enrolment - it is not automatic. Part-time students do count, even if their study load is heavy."
+      ),
+      createFAQ(
+        "Can I challenge my council tax band?",
+        "Yes, through the Valuation Office Agency's free challenge process. The grounds need to be substantive: incorrect 1991 valuation, comparable neighbours in lower bands, structural changes that affect the property's value. Some commercial reband companies charge 20-50% of the first year's saving, but the application is free if you do it yourself. Around 30% of challenges historically succeed, but a successful reband saves the difference for as long as you own the property."
+      ),
+      createFAQ(
+        "What happens if I move mid-year?",
+        "Council tax is calculated daily. You pay your old council up to the day you move out, your new council from the day you move in. There is no double charge for moving day itself. Notify both councils when you move (most have online forms); the old council will refund any overpayment automatically, usually within 6 weeks."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-council-tax-calculator", label: "UK Council Tax Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "stamp-duty-calculator", label: "Stamp Duty Calculator" },
+    ],
+  },
+
+  "child-benefit-tax-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the High Income Child Benefit Charge Works",
+        "Child Benefit pays £26.05/week for the first child and £17.25/week per additional child in 2026/27 - around £1,355/year for one child or £2,252/year for two. The catch is the High Income Child Benefit Charge (HICBC). If the higher-earning partner has adjusted net income above £80,000 (raised from £60,000 from April 2026), the benefit is clawed back at 1% per £200 of income above the threshold. By £100,000 income, the entire benefit is clawed back.",
+        "Crucially, the threshold applies to whoever earns more in the household, not combined income. A couple where both earn £55,000 (combined £110,000) keeps the full benefit. A single parent earning £80,001 or a couple where one partner earns £80,001 starts losing it. This produces the perverse outcome of single-earner households on £100,000 paying full HICBC while dual-earner households on £160,000 pay none."
+      ),
+      createAnswerFirstSection(
+        "Why You Should Still Claim, Even If You Lose the Benefit",
+        "If you opt out entirely to avoid HICBC, you lose two things: the cash benefit (which you would lose anyway through HICBC) and National Insurance credits for the parent who is not earning. The NI credits matter for State Pension entitlement. A non-earning parent looking after a child under 12 needs Child Benefit registration to receive automatic NI credits for those years - missing them costs £325/year of State Pension for each missed year, which compounds across decades.",
+        "The right move for high earners is to claim Child Benefit, then either pay the HICBC through self-assessment, or tick the box that says 'I do not want to receive Child Benefit but I do want my NI record protected'. The latter gets the credits without the cash, avoiding the self-assessment hassle. Salary sacrifice into a pension is the other big lever - it reduces adjusted net income, so a £90,000 earner with £15,000 of pension contributions counts as £75,000 for HICBC and keeps the full benefit. Use the [UK Tax Calculator](/uk-tax-calculator) to see the wider tax implication."
+      ),
+      {
+        heading: "Child Benefit After HICBC by Income (2 Children, 2026/27)",
+        table: {
+          headers: ["Higher Earner Income", "Gross Benefit", "HICBC", "Net Benefit"],
+          rows: [
+            ["£75,000", "£2,252", "£0", "£2,252"],
+            ["£85,000", "£2,252", "£563", "£1,689"],
+            ["£90,000", "£2,252", "£1,126", "£1,126"],
+            ["£95,000", "£2,252", "£1,689", "£563"],
+            ["£100,000+", "£2,252", "£2,252", "£0"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What counts as adjusted net income for HICBC?",
+        "Adjusted net income is total taxable income minus pension contributions, gift aid donations and trading losses. Crucially, it includes employer-provided benefits in kind (company car, private medical) that you might not think of as income. The figure is normally close to your P60 total but can differ if you have other income streams. Pension contributions via salary sacrifice reduce the figure most reliably; relief at source contributions reduce it through self-assessment."
+      ),
+      createFAQ(
+        "Did the threshold actually change in April 2026?",
+        "Yes. The HICBC threshold rose from £60,000 to £80,000 from April 2026, and the full clawback completes at £100,000 instead of £80,000. The taper rate is now 1% per £200 (instead of 1% per £100), spreading the clawback across a £20,000 band rather than the previous £10,000 band. Couples earning between £60k and £80k who used to pay HICBC now keep the full benefit."
+      ),
+      createFAQ(
+        "How do I pay the HICBC?",
+        "Through self-assessment. Register for self-assessment by 5 October following the tax year you crossed the threshold. The charge is added to your tax bill and paid by 31 January (with a payment on account by 31 July if your tax bill is over £1,000). Many high earners get caught out the first year because they have not done self-assessment before. Set a reminder for the registration deadline - HMRC fines for late registration are £100 plus interest on unpaid tax."
+      ),
+      createFAQ(
+        "Should I opt out if I will definitely lose the lot?",
+        "Generally no, even if your income is comfortably above £100,000. The non-earning partner's National Insurance credits (worth around £325/year of future State Pension per qualifying year) are worth claiming via the 'no payment, just NI credits' option. The only case for opting out entirely is if both partners are working and accruing NI through employment - then the credits are surplus and the self-assessment hassle outweighs the benefit."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "child-benefit-calculator", label: "Child Benefit Calculator" },
+      { slug: "is-childcare-worth-it", label: "Is Childcare Worth It Calculator" },
+    ],
+  },
+
+  "maternity-pay-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Statutory Maternity Pay Works",
+        "Statutory Maternity Pay (SMP) runs for 39 weeks. The first 6 weeks are paid at 90% of your average weekly earnings with no cap. The remaining 33 weeks are paid at the lower of 90% of your earnings or the statutory rate of £187.18/week (2026/27 rate, up from £184.03 in 2025/26). To qualify, you need to have been employed by the same employer continuously for at least 26 weeks at the 15th week before your due date, and your average weekly earnings must be at least £125 (the Lower Earnings Limit for NI).",
+        "Total SMP for a £500/week earner: 6 weeks at £450 (90%) plus 33 weeks at £187.18 (statutory cap), giving £8,877.94 across the 39 weeks. The same calculation for a £250/week earner: 6 weeks at £225, then 33 weeks at £187.18 (statutory cap kicks in below the 90% figure), totalling £7,527.94. Mothers earning more get more in the first 6 weeks but everyone hits the same statutory rate ceiling thereafter."
+      ),
+      createAnswerFirstSection(
+        "Enhanced Maternity, the Final 13 Weeks, and Common Pitfalls",
+        "Many UK employers offer enhanced maternity above the statutory minimum. Common patterns: full pay for 13 weeks then SMP, or 90% for 26 weeks then SMP. Check your contract - the enhancement is contractual and worth substantially more than the statutory rate. The total leave entitlement is 52 weeks (26 weeks Ordinary Maternity Leave plus 26 weeks Additional Maternity Leave); the final 13 weeks of leave is unpaid unless your employer offers extra.",
+        "The other surprise is that SMP runs from the day your maternity leave starts, not the baby's birth. You can start as early as the 11th week before due date or as late as the day after birth. Most mothers start either 1 week before due date (using Annual Leave to bridge the period after MATB1 form) or on the birth date itself. The [UK Tax Calculator](/uk-tax-calculator) is useful for working out what your reduced household income looks like in tax-paid terms across the year of leave."
+      ),
+      {
+        heading: "SMP Total by Average Weekly Earnings (39 weeks total, 2026/27)",
+        table: {
+          headers: ["Weekly Earnings", "First 6 Weeks (90%)", "Next 33 Weeks", "Total SMP"],
+          rows: [
+            ["£200", "£1,080", "£5,940 (90% rate £180)", "£7,020"],
+            ["£300", "£1,620", "£6,177 (cap £187.18)", "£7,797"],
+            ["£500", "£2,700", "£6,177 (cap £187.18)", "£8,877"],
+            ["£800", "£4,320", "£6,177 (cap £187.18)", "£10,497"],
+            ["£1,200", "£6,480", "£6,177 (cap £187.18)", "£12,657"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What if I don't qualify for SMP?",
+        "If you have not been with the same employer for the 26-week qualifying period or you earn less than £125/week, you may instead qualify for Maternity Allowance through the DWP. Maternity Allowance pays the same flat rate as the SMP statutory cap (£187.18/week in 2026/27) for 39 weeks, with eligibility based on having worked 26 of the 66 weeks before due date, including some self-employed weeks paying Class 2 NI."
+      ),
+      createFAQ(
+        "Is SMP taxed?",
+        "Yes - SMP counts as earned income and is subject to income tax and National Insurance through PAYE. Most employers continue to deduct tax and NI as normal during maternity leave. If your total annual income drops below the personal allowance during the leave year, you may be due a tax refund through HMRC's normal annual reconciliation."
+      ),
+      createFAQ(
+        "Can I take SMP and work part-time?",
+        "Limited yes - up to 10 'Keeping In Touch' (KIT) days during maternity leave without losing SMP for the relevant weeks. KIT days are paid at your normal rate, separate from SMP. Beyond 10 days, working will trigger the loss of SMP for that week. Many employers use KIT days for handover meetings, conferences, or short-term cover."
+      ),
+      createFAQ(
+        "Does my partner get any pay?",
+        "Statutory Paternity Pay covers up to 2 weeks for partners, paid at the same statutory rate (£187.18/week). Some employers enhance this. Shared Parental Leave (SPL) lets parents split the maternity leave entitlement between them, with the same combined 39 weeks of paid leave but more flexibility on who takes which weeks. SPL is underused but worth considering for households where the mother wants an earlier return to work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "child-benefit-tax-calculator", label: "Child Benefit Tax Calculator" },
+      { slug: "is-childcare-worth-it", label: "Is Childcare Worth It Calculator" },
+    ],
+  },
+
+  "is-childcare-worth-it": {
+    sections: [
+      createAnswerFirstSection(
+        "When Returning to Work Is Genuinely Worth It",
+        "The maths often surprises households. A £40,000 salary returning to work full-time with one child in nursery at £1,400/month produces a net gain of roughly £4,500/year in 2026/27, after tax (£5,486), NI (£2,194), childcare costs (£16,800) and assuming no commute. That works out to about £2.30/hour worked - well below minimum wage in real terms.",
+        "The same parent on a £55,000 salary nets closer to £15,000/year, or £7.80/hour. The break-even is heavily sensitive to childcare cost: full-time nursery in London averages £1,800/month (£21,600/year), in the North averages £900/month (£10,800/year). Use the calculator to plug in your actual local cost rather than national averages, because the regional spread is wider than most national articles suggest."
+      ),
+      createAnswerFirstSection(
+        "Government Support That Changes the Maths",
+        "Tax-Free Childcare gives a 20% top-up on contributions up to £2,000 per child per year (£500/quarter), so a £10,000 nursery fee becomes effectively £8,000 if the parent uses the scheme. Fully funded 30 hours/week of childcare for working parents of children aged 9 months to school age (April 2026 expansion) is the biggest game-changer in years - it can wipe £8,000 to £15,000 off annual nursery costs depending on hours used.",
+        "Universal Credit covers up to 85% of childcare costs for low-income working parents, paid in arrears against receipts. Workplace nursery vouchers (closed to new joiners since 2018) still benefit existing users. The key planning point: model the post-April-2026 funded hours scenario as well as the legacy scenario, because the gap between them is often £500/month or more. Pair the result with the [UK Tax Calculator](/uk-tax-calculator) to see your actual take-home, and the [Maternity Pay Calculator](/maternity-pay-calculator) to compare against staying on extended leave."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is going back to work worth it for £20,000 a year?",
+        "On a £20,000 salary with full-time nursery at £1,200/month, after tax, NI and childcare you may net less than £1,500/year, or under £1/hour worked. Many households conclude it is not financially worth it for the lower-earning parent to return full-time at this income level. Part-time hours that fit within the funded childcare entitlement (30 hours/week from April 2026) often produce a much better hourly return."
+      ),
+      createFAQ(
+        "Should I take Tax-Free Childcare or stay on the old vouchers?",
+        "If you are still receiving childcare vouchers via salary sacrifice from before October 2018, run both scenarios. Vouchers offer up to £243/month tax-free for basic-rate taxpayers (worth roughly £933/year saving) or £124/month for higher-rate (worth £478/year). Tax-Free Childcare offers up to £2,000/year per child. Households with multiple children and total childcare costs above £10,000 usually win with TFC; single-child households on basic rate often do better with vouchers if costs are below £4,000."
+      ),
+      createFAQ(
+        "What about long-term career impact?",
+        "The calculator only models the current year's net gain or loss. Career break research (notably the Resolution Foundation's analyses) suggests parents who take 5+ years out lose 15-30% of lifetime earnings compared to those who stay in work part-time. The annual £2,500 'loss' from going back to work might be a £150,000 'gain' across a 25-year career through preserved progression. Hard to model, but worth weighing against the year-one figure."
+      ),
+      createFAQ(
+        "Can I work from home to reduce childcare hours?",
+        "Mostly no for under-3s. Genuinely productive working with a 1-year-old at home is rare and typically only feasible for very short periods. Nursery for 3 days a week plus working from home with a grandparent on the other 2 days is a common compromise that drops childcare costs by 40% while preserving most working hours. The maths shifts noticeably once children are 3+ and at preschool/funded hours, when full-time work-from-home with school pickup becomes practical."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "childcare-cost-calculator", label: "Childcare Cost Calculator" },
+      { slug: "maternity-pay-calculator", label: "Maternity Pay Calculator" },
+    ],
+  },
 };
 
 
