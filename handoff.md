@@ -2,7 +2,7 @@
 
 Updated: 2026-04-30 (second pass)
 
-## Status: Country sprint essentially complete - 107/108 country tools have content
+## Status: Country sprint complete - 108/108 country tools have content
 
 The 887→310 GSC indexing collapse recovery is in maintenance mode. Country tools sprint was the major remaining work; only 1 of 108 tools still pending.
 
@@ -12,17 +12,15 @@ The 887→310 GSC indexing collapse recovery is in maintenance mode. Country too
 - **Country tools sprint round 1**: shipped 2026-04-30. 50 finance country tools (24 US, 12 Canada, 10 Australia, 4 India). finance.js grew 2,116 → 4,570 lines.
 - **Country tools sprint round 2**: 2026-04-30 (in working tree, not yet pushed). 50 more country tools across 11 files. 21 finance + 7 education + 5 home + 4 automotive + 2 travel + 2 datetime + 2 cooking + 2 health + 2 seasonal + 2 parenting + 1 wedding. Total +5,108 lines across all files.
 
-107 of 108 country tools now have SEO content (lib/seo.js will auto-flip them indexable once pushed). Only `us-to-eu-shoe-size` remains pending (deliberately skipped - sister tools already have content, low marginal value).
+**All 108 country tools now have SEO content** (lib/seo.js auto-flips them indexable once pushed). Final entry `us-to-eu-shoe-size` added 2026-04-30 after dev-server DOM verification of 3 sample country pages confirmed correct rendering and `index, follow` robots meta.
 
 GSC validation requested for the original sprint. Push the round 2 changes when ready and the country tools complete the recovery sprint.
 
 ## Open to-do (priority order)
 
-### 1. Country-prefix tools — 1 left (essentially done)
+### 1. Country-prefix tools — DONE (108/108)
 
-Only `us-to-eu-shoe-size` remains. Deliberately skipped because sister tools already have content (uk-to-eu-shoe-size, uk-to-us-shoe-size-mens, uk-to-us-dress-size from Wave B). Adding it requires materially differentiated prose. Low priority - can be done in 5 minutes whenever convenient.
-
-### 1b. (DONE - kept here for reference) Country-prefix tools - 51 pending (now 1)
+Sprint complete 2026-04-30. All 108 country-prefix tools have SEO content. Verified via dev-server DOM inspection that lib/seo.js correctly emits `index, follow` for tools with content (was emitting `noindex, follow` before content existed).
 
 108 country-prefix tools (us-/canada-/australia-/india-) total. As of 2026-04-30: **57 have content (indexable), 51 still pending**.
 

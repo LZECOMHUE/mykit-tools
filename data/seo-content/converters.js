@@ -717,4 +717,53 @@ export const convertersSEO = {
       { slug: "mm-to-cm", label: "Millimetres to Centimetres" },
     ],
   },
+
+  "us-to-eu-shoe-size": {
+    sections: [
+      createAnswerFirstSection(
+        "The Quick US to EU Conversion Rule",
+        "For men: US size + 33 ≈ EU size, roughly. So US 9 = EU 42, US 10 = EU 43, US 11 = EU 44, US 12 = EU 45. For women: US size + 31 ≈ EU size. US 7 = EU 38, US 8 = EU 39, US 9 = EU 40. The math isn't perfectly linear because the underlying scales count differently (US uses 1/3-inch increments per half-size; EU uses Paris Points at 6.67 mm per size).",
+        "These numbers are approximations. Within 0.5 EU sizes is normal variation between brands. Italian brands often run small (size up by half from your US-to-EU conversion). German brands (Birkenstock, Adidas) tend to run true-to-EU. French luxury brands (Hermes, Louboutin) sometimes run big. When buying online from European retailers, check the brand-specific size chart rather than relying on the universal conversion."
+      ),
+      createAnswerFirstSection(
+        "Common Conversions for American Shoppers",
+        "Men's: US 7 = EU 40, US 7.5 = EU 40.5, US 8 = EU 41, US 8.5 = EU 41.5, US 9 = EU 42, US 9.5 = EU 42.5, US 10 = EU 43, US 10.5 = EU 43.5, US 11 = EU 44, US 11.5 = EU 44.5, US 12 = EU 45, US 13 = EU 46, US 14 = EU 47.",
+        "Women's: US 5 = EU 35.5, US 5.5 = EU 36, US 6 = EU 36.5, US 6.5 = EU 37, US 7 = EU 37.5, US 7.5 = EU 38, US 8 = EU 38.5, US 8.5 = EU 39, US 9 = EU 39.5, US 9.5 = EU 40, US 10 = EU 40.5, US 10.5 = EU 41, US 11 = EU 41.5. Kids: harder to convert universally - measure foot length in centimetres for under-12 and consult the brand's chart."
+      ),
+      createAnswerFirstSection(
+        "Why Brand Variation Matters More Than the Conversion",
+        "Same US 10 in Nike, New Balance, and Adidas can fit noticeably differently. Nike running shoes often run small (size up half). New Balance offers width fittings (D, 2E, 4E) which can substitute for going up a size. Adidas European-design models (Sambas, Stan Smiths) genuinely fit EU-sized. Tech sneakers from US brands (Brooks, Saucony, ASICS US) tend to use US sizing primarily.",
+        "Buying European luxury (Gucci, Prada, Saint Laurent): these brands size by EU. Always look up their specific size chart - some run a half-size small, some run true. For high-value purchases, check return policies before ordering. The [Inches to Millimetres](/inches-to-mm) tool helps if you need to measure foot length to compare against EU mm-based brand charts."
+      ),
+      createAnswerFirstSection(
+        "Measure Your Foot for Best Results",
+        "Place foot on paper, trace outline, measure heel to longest toe. Most adults: men 25-30 cm, women 22-26 cm. EU sizes are roughly: foot length × 1.5 ≈ EU size for men, similar for women but slightly offset. So 26 cm foot ≈ EU 41 men's. This direct measurement bypasses the US-EU conversion confusion entirely.",
+        "Brands that publish foot-length charts (most modern brands online): use the cm measurement directly. Brand inconsistency goes away when you size by actual foot length. Useful for first-time buyers of any brand or for kids whose feet grow fast. Better measurement: do it at the end of the day when feet are slightly swollen, similar to how they'll be when wearing shoes."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is the US to EU conversion the same for men and women?",
+        "Different. Men's: US + 33 ≈ EU. Women's: US + 31 ≈ EU. Kids' shoes use different scales again, often more variable. Always check whether a chart is men's, women's, or unisex before applying the conversion."
+      ),
+      createFAQ(
+        "Why do European shoes seem to fit differently?",
+        "Different lasts (the foot-shaped form a shoe is built around). European lasts often have different toe-box widths and heel cup shapes than American lasts. Italian brands tend toward narrow elegant fits; German brands toward roomier orthopaedic-style. Same EU size, different brand, different fit."
+      ),
+      createFAQ(
+        "What about UK shoe sizes?",
+        "UK and US are similar but not identical. Men's US = UK + 1 (US 10 = UK 9). Women's US = UK + 2 (US 8 = UK 6). For UK-to-EU conversions specifically, see the [UK to EU Shoe Size](/uk-to-eu-shoe-size) tool. For US to UK, see [UK to US Shoe Size](/uk-to-us-shoe-size-mens)."
+      ),
+      createFAQ(
+        "How do I handle half sizes?",
+        "EU shoes commonly come in half sizes (40.5, 41.5, etc.) - more than US shoes traditionally do. If a brand offers half sizes, take the half nearer to your true size. Some brands skip half sizes above 45 (men's) or 41 (women's) - in that case round up rather than down."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-to-eu-shoe-size", label: "UK to EU Shoe Size" },
+      { slug: "uk-to-us-shoe-size-mens", label: "UK to US Shoe Size (Men's)" },
+      { slug: "uk-to-us-dress-size", label: "UK to US Dress Size" },
+      { slug: "clothing-size-converter", label: "Clothing Size Converter" },
+    ],
+  },
 };
