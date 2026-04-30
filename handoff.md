@@ -1,8 +1,33 @@
 # MyKit.tools SEO Recovery — Handoff
 
-Updated: 2026-04-30 (final)
+Updated: 2026-04-30 (strategic pivot)
 
-## Status: 🎯 100% SEO CONTENT COVERAGE — 956/956 tools
+## STOP. Read this first.
+
+After audit on 2026-04-30, the recovery strategy has been reversed. **The bulk SEO content sprint was making the indexing collapse worse, not better.** Sister-tool duplicate patterns (kg-to-lbs / lbs-to-kg etc.), industrial-rate Tier 3 production (216 entries/day at ~41 lines each), and slug-bingo relatedTools clusters are the textbook signature Google's HCU classifier demotes site-wide.
+
+### New direction (active):
+
+1. **No more SEO content.** Do not add another entry to `data/seo-content/*.js`. The remaining 51 country-prefix tools without content stay without content.
+2. **Tier 3 catalogue is now noindexed.** All 236 simple converters/single-formula calculators emit `<meta name="robots" content="noindex, follow">` via the updated `shouldNoindex()` in `lib/seo.js`. Pages remain crawlable so internal links still flow PageRank to flagships.
+3. **`hasPremiumExport` flag cleared.** All 80 `true` instances in `lib/tool-registry.js` flipped to `false`. No tool currently has a real paywall (no `DownloadGate.jsx`, no Stripe, no `app/api/`). The flag will be flipped back per-tool only when the gate is actually wired.
+4. **`hasAI` was already 0 across the registry.** The AI gating system described in CLAUDE.md is unimplemented; no flag needed clearing.
+
+### Why
+
+GSC: 887 → ~50 indexed. Adding more thin/duplicate pages would not reverse that — Google was already telling us those page types are unwanted. Shrinking the surface area Google judges us on, and refocusing on the ~20 flagships that have a chance of ranking and earning, is the only realistic path back.
+
+### Next priorities (not yet started)
+
+- Build a real `components/premium/DownloadGate.jsx` + Stripe checkout for the 4 strongest flagships (`wedding-seating-planner`, `pub-quiz-generator`, `uk-tax-calculator`, `meal-planner`). One real paywall beats 80 fake flags.
+- Migrate `lib/tool-registry.js` (12,199 lines, 729KB monolith) to per-category JSON with Zod validation and build-time component-existence checks. Adding a tool currently has no safety net.
+- Add a Playwright smoke suite that loads every tool page and clicks the primary action. No tests exist today.
+
+---
+
+## Below: previous (now-superseded) sprint history
+
+## Status: 100% SEO CONTENT COVERAGE — 956/956 tools
 
 Every tool in the MyKit.tools registry now has SEO content. The recovery sprint is logically complete. All work in working tree, awaiting push.
 
