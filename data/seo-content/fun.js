@@ -955,4 +955,528 @@ export const funSEO = {
       { slug: "bucket-list-generator", label: "Bucket List Generator" },
     ],
   },
+
+  "pop-star-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Pop Star Names Get Made",
+        "Pop star names tend to follow patterns: single word punchy names (Madonna, Beyoncé, Rihanna, Adele), first-name-with-last-initial (Lana Del Rey, Lady Gaga), or alphabet-letter combinations (NAS, M.I.A., SZA). The generator combines first names, mononyms, surname initials, and stylings to produce plausible-sounding pop star names.",
+        "Common patterns: classy first name + dramatic surname (Aurora Vale, Stella Lux), single bold word (Phoenix, Echo, Velvet), mythological references (Athena, Orion), or letter-stylings (KIRA, NEVA). Real pop stars adopt names for branding - Lady Gaga is born Stefani Germanotta; Bruno Mars is born Peter Hernandez. Stage names work better when memorable and easy to spell."
+      ),
+      {
+        heading: "Pop Star Name Generation Patterns",
+        table: {
+          headers: ["Pattern", "Example"],
+          rows: [
+            ["Single mononym", "Aurora, Phoenix, Lyric"],
+            ["Two words bold", "Lana Spark, Velvet Storm"],
+            ["First + last init", "Maya R., Eden L."],
+            ["Stylised letters", "K.A.I., L.U.X.E"],
+            ["Foreign-sounding", "Soleil, Aria, Ivory"],
+            ["Lowercase aesthetic", "billie, olivia, dua"],
+            ["Edgy single word", "Riot, Flux, Halo"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I use this for my actual stage name?",
+        "As a starting point, yes. Test the generator output against social media (is the handle available? - check Instagram, TikTok, X), trademark databases (is it taken?), pronunciation (would fans guess how to say it?). The best stage names are simple, memorable, and unique."
+      ),
+      createFAQ(
+        "What makes a good pop star name?",
+        "Easy to spell, easy to say, distinctive. Avoid names too similar to existing artists (Beyonce, Adele, etc.). Single-word names dominate modern pop. Numbers or special characters work in some genres but hurt search/discovery on streaming platforms."
+      ),
+    ],
+    relatedTools: [
+      { slug: "rapper-name-generator", label: "Rapper Name Generator" },
+      { slug: "band-name-generator", label: "Band Name Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+    ],
+  },
+
+  "rapper-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Rapper Name Patterns",
+        "Rap names typically use: prefix conventions (Lil, Big, Young, Yung, MC, DJ, $) + name/word combos (Lil Wayne, Big Sean, Young Thug, MC Hammer). Or: name + descriptor (Tyler the Creator, Kendrick Lamar - real first/last name combos that sound rap-natural). Modern trap rap uses: stylised punctuation ($uicideboy$, MIKE) and number swaps (T1, Capone-N-Noreaga).",
+        "Conventions vary by era and subgenre. Old-school East Coast rap: aggressive single-syllable names (Nas, Jay-Z, Eminem). Trap/Atlanta: numbers and adlibs (Future, Migos, 21 Savage). Conscious/lyrical: poetic full names (Kendrick Lamar, J. Cole, Common). Drill: punctuation and symbols (Pop Smoke, Sheff G). The generator can target specific subgenre styles."
+      ),
+      {
+        heading: "Rapper Name Patterns",
+        table: {
+          headers: ["Style", "Example"],
+          rows: [
+            ["Lil + word", "Lil Storm, Lil Vegan"],
+            ["MC + word", "MC Phoenix, MC Breeze"],
+            ["DJ + word", "DJ Atlas, DJ Frostbite"],
+            ["Big + word", "Big Roar, Big Mistake"],
+            ["Young + word", "Young Drift, Young Echo"],
+            ["Real-name style", "Marcus Knight, Jay Reign"],
+            ["Single bold word", "Phantom, Reaper, Vex"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are 'Lil' and 'Young' so common?",
+        "Hip-hop tradition - 'Lil' originated as a diminutive among friends (Lil Wayne started as Tunechi's nickname); 'Young' echoes age and energy. Both became signifiers of belonging to the genre. Newer rappers use them ironically or just because the SEO is bad: 'Lil' has saturated the streaming search results."
+      ),
+      createFAQ(
+        "Can I use a rapper name for my actual music?",
+        "Yes - but check it isn't already taken on Spotify/Apple Music. The generator gives candidate ideas; do trademark/availability research before committing. Many independent rappers stake claim with social media handles months before releasing music to lock in their name."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pop-star-name-generator", label: "Pop Star Name Generator" },
+      { slug: "band-name-generator", label: "Band Name Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+    ],
+  },
+
+  "pirate-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Pirate Names Sound",
+        "Pirate names typically combine: descriptive epithet (Black, Red, Bloody, One-Eyed, Mad) + body part or feature (Beard, Hook, Eye) or a profession-style identifier. Famous examples: Blackbeard (Edward Teach), Calico Jack (Jack Rackham), Anne Bonny, Henry 'Long Ben' Avery. The convention dates from real golden-age pirates and was amplified by fictional ones (Long John Silver).",
+        "Modern pirate name generators produce variations: classic 'Black/Red/Bloody [trait]', 'Captain [Adjective]', or first name + colourful surname (Mary the Bold, Tom Five-Tongues). Used for: party themes, role-playing games, Halloween costumes, social handles. Most generators include both 'historical pirate' and 'fictional adventure' style outputs."
+      ),
+      {
+        heading: "Pirate Name Patterns",
+        table: {
+          headers: ["Pattern", "Example"],
+          rows: [
+            ["Black/Red + feature", "Blackbeard, Redeye"],
+            ["One/No + body part", "One-Eyed Jack, No-Hand Pete"],
+            ["Captain + epithet", "Captain Stormcloud, Captain Brimstone"],
+            ["Real-name + label", "Mary the Bold, Anne Coldhand"],
+            ["Mad/Bloody/Foul", "Mad Magnus, Bloody Cobb"],
+            ["Sea creature ref", "Krakenhand, Sharkmaw"],
+            ["Old English style", "Ye Olde Cutthroat Quinn"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Were real pirates as colourful as the names?",
+        "Some were. Blackbeard (Edward Teach) reportedly tied burning fuses in his beard during battle to look terrifying. Calico Jack got his nickname from his calico cotton clothing. Anne Bonny and Mary Read fought in men's clothing. Reality matched the legend in select cases; the romantic image is amplified."
+      ),
+      createFAQ(
+        "Do real pirates still exist?",
+        "Yes - modern piracy is mostly off East Africa, Southeast Asia, and the Gulf of Guinea. Today's pirates use speedboats and AK-47s, not cutlasses. The names aren't colourful (organised crime, not Hollywood). 'Pirate' as a modern term often refers to digital piracy (file sharing) rather than maritime piracy."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "elf-name-generator", label: "Elf Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+    ],
+  },
+
+  "superhero-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Superhero Name Patterns",
+        "Superhero names typically combine: an adjective with an action/object (The Amazing Spider-Man, The Incredible Hulk), Mr/Captain/Wonder + power source (Captain America, Wonder Woman, Mr Fantastic), or single-word power signifiers (Wolverine, Cyclops, Storm). Modern Marvel/DC properties continue these patterns; comic publishing has well-established naming conventions.",
+        "Generator output patterns: combine random colour + power (Crimson Lightning, Indigo Shield), add 'Captain', 'Doctor', 'The' prefix to a punchy noun, or pair an animal/element with a strong verb. Used for: gaming character creation, costume parties, team-building exercises, RPGs. Check for trademark issues before using one as a real persona."
+      ),
+      {
+        heading: "Superhero Name Patterns",
+        table: {
+          headers: ["Pattern", "Example"],
+          rows: [
+            ["The + adjective + power", "The Amazing Phoenix"],
+            ["Captain + nation/cause", "Captain Justice, Captain Earth"],
+            ["Wonder/Marvel + name", "Wonder Knight, Marvel Spark"],
+            ["Single power word", "Cyclone, Vector, Flash"],
+            ["Animal + power", "Hawk-Eye, Wolf-Storm"],
+            ["Colour + element", "Crimson Bolt, Sapphire Strike"],
+            ["Mr/Ms + ability", "Mr Magnetic, Ms Velocity"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do superheroes have alter egos?",
+        "Plot device originally - secret identity protects loved ones. Now also commercial (Bruce Wayne is a brand on his own). Iron Man (Tony Stark), Spider-Man (Peter Parker), etc. The duality lets readers identify with the regular-person side."
+      ),
+      createFAQ(
+        "Can I trademark a superhero name?",
+        "Marvel and DC trademark their characters aggressively. Generic combinations (random adjective + noun) are fine for personal use but generate-then-check is wise. 'Spider-Man' is heavily protected; 'Spider-Star' might or might not collide with a registered mark. Independent comics use unique names to avoid clashes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "band-name-generator", label: "Band Name Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+    ],
+  },
+
+  "band-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Band Name Patterns",
+        "Band names follow recognisable patterns by genre. Indie/alternative: 'The + plural noun' (The Smiths, The Strokes, The National) or 'definite article + abstract concept' (The Cranberries, The Killers). Punk/metal: aggressive single words (Slipknot, Anthrax) or violent compounds (Bullet for My Valentine). Pop: shorter, brighter (Spice Girls, BLACKPINK, BTS).",
+        "Modern band name generators target specific genres. Common patterns: random adjective + noun (Velvet Cathedral, Iron Apricot), preposition + place (Across the Universe, Beneath the Stars), wordplay/pun (Florence + the Machine, Imagine Dragons). Test the band name against social media availability before committing - a band needs Instagram, TikTok, Spotify, and ideally the .com domain."
+      ),
+      {
+        heading: "Band Name Patterns",
+        table: {
+          headers: ["Genre", "Pattern Examples"],
+          rows: [
+            ["Indie", "The + plural (The Strokes, The XX)"],
+            ["Punk", "Aggressive single words (Slipknot, Tool)"],
+            ["Pop", "Bold, simple (Coldplay, Maroon 5)"],
+            ["Metal", "Violent compounds (Cannibal Corpse)"],
+            ["Folk", "Nature words (Mumford & Sons, Bon Iver)"],
+            ["Electronic", "Producer + 'project' (Daft Punk, Disclosure)"],
+            ["Rock", "Vehicle/journey (Greta Van Fleet, Foo Fighters)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I check if a band name is available?",
+        "Search Spotify, Apple Music, YouTube, Bandcamp - if a similar name exists with original music, it's taken. Check Instagram and TikTok handles. US Trademark Office (uspto.gov) for registered marks. The .com domain is often available even when social handles are taken."
+      ),
+      createFAQ(
+        "What makes a good band name?",
+        "Memorable, easy to pronounce, easy to spell, unique. Avoid: common phrases (hard to search), special characters (hurt SEO), mirror existing artists (cease-and-desist letters). Best test: tell 10 friends the name out loud - can they spell it correctly afterwards?"
+      ),
+    ],
+    relatedTools: [
+      { slug: "rapper-name-generator", label: "Rapper Name Generator" },
+      { slug: "pop-star-name-generator", label: "Pop Star Name Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+    ],
+  },
+
+  "wizard-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Wizard Name Conventions",
+        "Wizard names blend mystical sound and weight. Tolkien's Gandalf, Saruman, Radagast use Old English roots. Harry Potter's wizards use British surnames + arcane firsts (Dumbledore, McGonagall, Snape). D&D wizards span cultures (Mordenkainen, Tasha, Bigby). Generator outputs typically combine: ancient-sounding roots (Mor, Thal, Vex) + classical suffixes (-mar, -ius, -orth) for plausible-sounding names.",
+        "Common patterns: doubled consonants (Ravenhall, Stoneveil), titles (Archmage Coriolus, Sage of the Mountain), elemental references (Frostwhisper, Emberflame), age signifiers (Ancient One, Elder Thalion). For RPG character creation, names with 2-3 syllables work best - memorable, pronounceable, distinct from party members."
+      ),
+      {
+        heading: "Wizard Name Patterns",
+        table: {
+          headers: ["Pattern", "Example"],
+          rows: [
+            ["Two-syllable mystic", "Thalion, Caedmar, Voronis"],
+            ["Title + name", "Archmage Voren, Sage Ela"],
+            ["Element + word", "Frostwhisper, Emberhand"],
+            ["Old English style", "Aelfwic, Brytan, Eadgyth"],
+            ["Classical suffix", "Magnus Thalius, Coriolus"],
+            ["Ancient One epithet", "Voracious the Ancient"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are wizard names just made up?",
+        "Mostly, but well-crafted ones echo real linguistic patterns. Old English (Beowulf-era), Greek/Latin, or Welsh consonant clusters all sound 'wizard-y' to English readers because they sound ancient. Generator algorithms blend these phonetic patterns to feel believable."
+      ),
+      createFAQ(
+        "Can I use these for D&D?",
+        "Absolutely - this is exactly the use case. Generated names are unique to your character. For published settings (Forgotten Realms, etc.), some names may already exist in lore - quick search confirms. Most DMs let players use any name they like."
+      ),
+    ],
+    relatedTools: [
+      { slug: "elf-name-generator", label: "Elf Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+      { slug: "pirate-name-generator", label: "Pirate Name Generator" },
+    ],
+  },
+
+  "elf-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Elf Name Conventions",
+        "Elf names in fantasy fiction echo the languages Tolkien created (Sindarin, Quenya). Common features: flowing vowels (often 3+ in a row), soft consonants (no harsh K, B, T at starts), -lë, -ion, -wen, -dir suffixes. Examples: Legolas, Galadriel, Elrond, Arwen, Thranduil. Modern fantasy generators combine these phonemes algorithmically: Aelorian, Lyriendil, Vaelis.",
+        "Different elf cultures have name variations. Wood elves: nature-related (Leaf, Branch, Stream prefixes - Aelfleaf, Streamwhisper). High elves: classical/ethereal (Celestrius, Aerendil). Dark elves: harsher consonants (Drizzt, Vhaeraun). The generator typically lets you choose a culture template; output should match the world you're playing."
+      ),
+      {
+        heading: "Elf Name Patterns",
+        table: {
+          headers: ["Style", "Example"],
+          rows: [
+            ["Wood elf", "Aelfleaf, Riventhil"],
+            ["High elf", "Celestrius, Aerendil"],
+            ["Dark elf", "Vaelis, Drennaen"],
+            ["Half-elf", "Aelora Stoneheart"],
+            ["Sea elf", "Coriana, Tidewhisper"],
+            ["Sun elf", "Solreth, Aurelian"],
+            ["Moon elf", "Lunaria, Dreamweaver"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do elf names sound similar across fantasy?",
+        "Tolkien's influence is foundational. His Sindarin and Quenya elven languages shaped the genre's expectations. Most fantasy authors and game designers borrow phonetic patterns even when not explicitly drawing from Tolkien's work. Common phonemes (flowing vowels, soft consonants) carry the 'elf' genre signal."
+      ),
+      createFAQ(
+        "Can elf names work for non-elf characters?",
+        "Yes - flowing, classical-sounding names suit many fantasy races (high humans, fae, drow surnames). Less suitable for orcs (harsh consonants), dwarves (Norse-like compounds: Stoneforge, Beardgrim), or humans intended to feel grounded. Match the name's feel to the character's culture."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+      { slug: "pirate-name-generator", label: "Pirate Name Generator" },
+    ],
+  },
+
+  "zodiac-compatibility-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "How Zodiac Compatibility Charts Work",
+        "Western astrology divides the 12 zodiac signs into four elements (Fire, Earth, Air, Water) and three modalities (Cardinal, Fixed, Mutable). Compatibility tables typically rate sign pairs based on element compatibility - same element = highly compatible, complementary elements (Fire-Air, Earth-Water) = compatible, opposing elements often clash. Aries (Fire) and Sagittarius (Fire): high compatibility. Aries and Cancer (Water): low compatibility.",
+        "Most popular compatibility systems are simplified for entertainment. Astrologers actually use full birth charts (sun, moon, rising sign, all planets) for serious compatibility readings. Sun-sign-only checks miss most of the picture. Use this kind of tool for fun/icebreaker purposes; don't make actual relationship decisions based on zodiac match - the predictive power is essentially nil."
+      ),
+      {
+        heading: "Element Compatibility Matrix",
+        table: {
+          headers: ["Sign A", "Sign B", "Compatibility"],
+          rows: [
+            ["Aries (Fire)", "Sagittarius (Fire)", "High"],
+            ["Aries (Fire)", "Cancer (Water)", "Challenging"],
+            ["Taurus (Earth)", "Virgo (Earth)", "High"],
+            ["Gemini (Air)", "Libra (Air)", "High"],
+            ["Cancer (Water)", "Pisces (Water)", "High"],
+            ["Leo (Fire)", "Aquarius (Air)", "Mixed"],
+            ["Capricorn (Earth)", "Aries (Fire)", "Challenging"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I take this seriously?",
+        "As a fun conversation starter, sure. As a real basis for relationship decisions, no - astrology has no scientific evidence for predicting compatibility. Studies (Carlson 1985 in Nature) showed astrologers can't match birth charts to personality profiles better than chance."
+      ),
+      createFAQ(
+        "What about moon signs?",
+        "Moon sign is supposedly more important for emotional/relationship compatibility than sun sign in serious astrology. Moon sign requires birth time (often unknown), so most casual compatibility tools use sun sign only. For full accuracy, get a complete birth chart from a astrologer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "chinese-zodiac-calculator", label: "Chinese Zodiac Calculator" },
+      { slug: "daily-horoscope", label: "Daily Horoscope" },
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+    ],
+  },
+
+  "chinese-zodiac-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Chinese Zodiac Animals by Birth Year",
+        "Chinese zodiac uses 12-year cycle of animals: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig. Your animal depends on your birth year, but specifically your year on the lunar calendar (Chinese New Year falls late January or February, so January births might be the 'previous year's animal). 2024: Dragon. 2025: Snake. 2026: Horse. 2027: Goat.",
+        "Each animal has associated personality traits (e.g. 'Dragons are confident, ambitious'). Practiced widely in Chinese, Vietnamese, Korean, and Japanese cultures. Same zodiac year repeats every 12 years - 1968, 1980, 1992, 2004, 2016, 2028 are all Monkey years. The 12-animal cycle interacts with five elements (wood, fire, earth, metal, water) for a 60-year complete cycle."
+      ),
+      {
+        heading: "Chinese Zodiac by Year (Recent)",
+        table: {
+          headers: ["Year", "Animal", "Element"],
+          rows: [
+            ["2020", "Rat", "Metal"],
+            ["2021", "Ox", "Metal"],
+            ["2022", "Tiger", "Water"],
+            ["2023", "Rabbit", "Water"],
+            ["2024", "Dragon", "Wood"],
+            ["2025", "Snake", "Wood"],
+            ["2026", "Horse", "Fire"],
+            ["2027", "Goat", "Fire"],
+            ["2028", "Monkey", "Earth"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What if I was born in early January?",
+        "Chinese New Year falls late January or early/mid February. If you were born BEFORE the New Year date in your birth year, you're the previous year's animal. So someone born 1 January 2024 is actually a Rabbit (2023's animal) until 9 February 2024 when 2024's Dragon year begins."
+      ),
+      createFAQ(
+        "Are zodiac animal predictions taken seriously?",
+        "Cultural significance varies. In Chinese, Vietnamese, and Korean cultures, zodiac shapes wedding date selection, baby naming, business decisions for some. Most modern people see it as cultural tradition, not literal prophecy. Like Western astrology, fun but not predictive."
+      ),
+    ],
+    relatedTools: [
+      { slug: "zodiac-compatibility-checker", label: "Zodiac Compatibility Checker" },
+      { slug: "daily-horoscope", label: "Daily Horoscope" },
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+    ],
+  },
+
+  "lucky-number-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Lucky Numbers Are Generated",
+        "Random number generators output truly random or pseudo-random numbers within a specified range. 'Lucky' is just framing - the math is identical to any random selection. Lottery numbers: typically 1-49 or 1-69 range, drawn 5-7 numbers without replacement. Lucky personal numbers: any range you specify (1-100 most common). Both use the same underlying random process.",
+        "Cultural beliefs about 'lucky' numbers vary widely. Western: 7 is lucky; 13 is unlucky. Chinese: 8 is lucky (sounds like 'wealth' in Cantonese); 4 is unlucky (sounds like 'death'). Italian: 17 is unlucky. Tools generate without consideration of cultural lucky/unlucky associations - if you want to filter based on cultural beliefs, do it yourself after generation."
+      ),
+      {
+        heading: "Lucky Number Common Uses",
+        table: {
+          headers: ["Use case", "Range / Format"],
+          rows: [
+            ["UK National Lottery", "5 numbers from 1-59 + 1 from 1-35"],
+            ["EuroMillions", "5 numbers from 1-50 + 2 from 1-12"],
+            ["US Powerball", "5 numbers from 1-69 + 1 from 1-26"],
+            ["Personal lucky numbers", "Any range, often 1-100"],
+            ["Random pick (any context)", "Custom range and count"],
+            ["Birthday/anniversary date", "Often 1-31 or 1-12"],
+            ["Roulette (American)", "0, 00, 1-36"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are these numbers more 'lucky' than ones I pick?",
+        "Mathematically identical chance of winning. Random selection (RNG-generated) means each number has equal probability. 'Lucky' framing doesn't change the underlying probability. People sometimes feel better about randomly-generated numbers because the choice is removed - psychologically reduces regret if numbers don't win."
+      ),
+      createFAQ(
+        "Is online RNG truly random?",
+        "Mostly pseudo-random - generated from a deterministic algorithm seeded by something hard to predict (current time, system entropy). For lottery purposes, indistinguishable from true random. For cryptography/security, certified hardware random number generators are used (more rigorous standards)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "chinese-zodiac-calculator", label: "Chinese Zodiac Calculator" },
+      { slug: "zodiac-compatibility-checker", label: "Zodiac Compatibility Checker" },
+      { slug: "dice-roller", label: "Dice Roller" },
+    ],
+  },
+
+  "daily-horoscope-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Daily Horoscopes Are Created",
+        "Daily horoscopes typically draw from a pool of generic personality and event statements that loosely match each zodiac sign's reputation. 'Today, Aries, you'll feel a burst of energy' aligns with Aries' fire/cardinal quality. The Forer effect (Barnum effect) explains why people feel horoscopes 'fit' - vague statements that could apply to anyone are interpreted as personally relevant.",
+        "Most newspaper and online horoscopes are written by single authors who craft 12 daily predictions covering common life themes (love, work, health, family). Generators do similar combination of templates + signs. Real astrology uses planetary positions and aspects daily; this is much more specific work but often unavailable in free online formats."
+      ),
+      {
+        heading: "Common Daily Horoscope Themes",
+        table: {
+          headers: ["Theme", "Example"],
+          rows: [
+            ["Love/relationship", "Today's a good day for romance"],
+            ["Career/work", "An opportunity may appear"],
+            ["Money", "Be cautious with finances"],
+            ["Health", "Pay attention to your wellbeing"],
+            ["Family", "Reach out to a family member"],
+            ["Energy", "Your enthusiasm is high today"],
+            ["Travel", "Adventure is calling"],
+            ["Friendship", "An old friend may reach out"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do horoscopes feel accurate?",
+        "Forer effect: people accept vague, generally-positive statements as personally accurate. Studies (Forer 1949) showed people rated identical generic statements as 'highly accurate' descriptions of their personality. Horoscopes work the same way - statements vague enough to feel meaningful for almost anyone."
+      ),
+      createFAQ(
+        "Should I make decisions based on my horoscope?",
+        "No - horoscopes have no scientific predictive power. Carlson 1985 (Nature journal) and many subsequent studies show astrologers can't match natal charts to personality profiles better than chance. Treat as entertainment, not guidance. Real life decisions deserve evidence-based thinking."
+      ),
+    ],
+    relatedTools: [
+      { slug: "daily-horoscope", label: "Daily Horoscope" },
+      { slug: "zodiac-compatibility-checker", label: "Zodiac Compatibility Checker" },
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+    ],
+  },
+
+  "dog-age-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Dog Years Actually Work",
+        "The old '1 dog year = 7 human years' is too simple. Modern research (UCSD 2019 study) suggests a logarithmic relationship: human age = 16 × ln(dog age) + 31. So: 1-year-old dog ≈ 31 human years. 2-year-old ≈ 42. 5-year-old ≈ 57. 10-year-old ≈ 67. 15-year-old ≈ 75. The first 1-2 years are equivalent to 30+ human years (rapid maturation), then aging slows.",
+        "Dog age also depends on size. Small breeds live longer than large: Chihuahua average 14-16 years, Great Dane 7-10 years. So a 7-year-old Great Dane is genuinely 'old' (equivalent ~70 human years), while a 7-year-old Chihuahua is middle-aged. Adjust the calculation by breed size: small dogs aged slower past year 2; large dogs faster."
+      ),
+      {
+        heading: "Dog Age in Human Years (Average)",
+        table: {
+          headers: ["Dog Age", "Small Breed (under 9 kg)", "Medium", "Large (over 22 kg)"],
+          rows: [
+            ["1 year", "15 human", "15 human", "15 human"],
+            ["2 years", "24 human", "24 human", "24 human"],
+            ["5 years", "36 human", "37 human", "40 human"],
+            ["10 years", "56 human", "60 human", "75 human"],
+            ["12 years", "64 human", "69 human", "87 human"],
+            ["15 years", "76 human", "83 human", "115 human (rare)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does breed matter?",
+        "Larger breeds age faster physiologically. The reasons aren't fully understood but appear linked to size-related biological stress. Large breeds also typically die younger from cancers and joint issues. Small breeds (Chihuahuas, terriers) regularly live 14-16 years; large breeds (Great Danes, Mastiffs) often die at 7-10."
+      ),
+      createFAQ(
+        "When is a dog 'old'?",
+        "Senior phase typically starts around 7-10 years, depending on breed. Veterinary 'senior' care recommendations kick in around year 7 for large breeds, year 9-10 for small. Older dogs benefit from twice-yearly checkups, blood panels, joint supplements. Cognitive dysfunction (canine dementia) common past age 10-12."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cat-age-calculator", label: "Cat Age Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "year-progress-tracker", label: "Year Progress Tracker" },
+    ],
+  },
+
+  "cat-age-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Cat Years Convert to Human Years",
+        "Cats mature very fast in their first 2 years, then slow. Year 1 = 15 human years. Year 2 = 24 human years. After year 2, each cat year ≈ 4 human years. So: 5-year-old cat ≈ 36 human years. 10-year-old ≈ 56. 15-year-old ≈ 76. 20-year-old ≈ 96. Cats commonly live 12-18 years; well-cared-for indoor cats can reach 20+.",
+        "Indoor vs outdoor lifespan varies enormously: indoor cats average 12-18 years; outdoor cats often only 2-5 years (predators, traffic, disease). Cats are 'senior' typically from age 11. 'Geriatric' from 15+. Even very old cats often retain alertness and personality - aged better than equivalent dog years in many cases."
+      ),
+      {
+        heading: "Cat Age in Human Years",
+        table: {
+          headers: ["Cat Age", "Human Equivalent"],
+          rows: [
+            ["6 months", "10 human years"],
+            ["1 year", "15 human"],
+            ["2 years", "24 human"],
+            ["5 years", "36 human"],
+            ["8 years", "48 human"],
+            ["10 years", "56 human"],
+            ["12 years", "64 human"],
+            ["15 years", "76 human"],
+            ["18 years", "88 human"],
+            ["20 years", "96 human"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How long do cats live?",
+        "Average indoor cat: 12-18 years. Indoor cats living 20+ years are common and well-documented. Oldest verified cat (Creme Puff, USA): 38 years 3 days (1967-2005). Outdoor or feral cats: typically 2-5 years due to predators, disease, vehicles."
+      ),
+      createFAQ(
+        "When does a cat become 'senior'?",
+        "Around age 11. Veterinary recommendations include: bi-annual checkups, full blood panels, weight monitoring, dental care. Senior-specific food formulations exist (lower calories, joint support, kidney-friendly). Many cats remain active and playful well past senior age."
+      ),
+    ],
+    relatedTools: [
+      { slug: "dog-age-calculator", label: "Dog Age Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "year-progress-tracker", label: "Year Progress Tracker" },
+    ],
+  },
 };

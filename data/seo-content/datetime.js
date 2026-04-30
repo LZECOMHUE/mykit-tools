@@ -1137,4 +1137,293 @@ export const datetimeSEO = {
       { slug: "hex-to-decimal", label: "Hex to Decimal" },
     ],
   },
+
+  "week-number-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Week Number?",
+        "Week number identifies which week of the year a date falls in. ISO 8601 standard: weeks run Monday to Sunday, and Week 1 is the week containing the first Thursday of the year. So 1 January can be in Week 1, 52, or 53 of the previous or current year depending on which day it falls on. Most European calendars use ISO numbering; US calendars often use a different system (Week 1 starts 1 January regardless).",
+        "Used in: industrial scheduling (manufacturing weeks), academic calendars, project planning, financial reporting (52-week years for businesses), agricultural and supply chain planning. A typical year has 52 weeks; some years have 53 (when 1 Jan and 31 Dec fall in the same week). 2024 was a 53-week year; 2025 has 52."
+      ),
+      {
+        heading: "Week Numbers in 2025",
+        table: {
+          headers: ["Date", "ISO Week"],
+          rows: [
+            ["1 Jan 2025 (Wed)", "Week 1"],
+            ["6 Jan 2025 (Mon)", "Week 2"],
+            ["31 Mar 2025 (Mon)", "Week 14"],
+            ["30 Jun 2025 (Mon)", "Week 27"],
+            ["29 Sep 2025 (Mon)", "Week 40"],
+            ["29 Dec 2025 (Mon)", "Week 1 (2026)"],
+            ["31 Dec 2025", "Week 1 (2026)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why doesn't 31 December always end in Week 52?",
+        "ISO 8601 ties week numbering to Mondays and Thursdays, not calendar boundaries. If 31 December falls on Monday-Wednesday, it's in Week 1 of the next year (because that week's Thursday is in next year). It's logical but can confuse people."
+      ),
+      createFAQ(
+        "Do US calendars use ISO numbering?",
+        "Less commonly. US business calendars often use 'Week 1 starts 1 January' (so 1 Jan = Week 1 always). ISO is the global standard but adoption varies. Always confirm which system a date is using."
+      ),
+    ],
+    relatedTools: [
+      { slug: "leap-year-checker", label: "Leap Year Checker" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "working-days-calculator", label: "Working Days Calculator" },
+    ],
+  },
+
+  "leap-year-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Leap Year?",
+        "A year with 366 days instead of 365, with an extra day added to February (29 February). Rules: divisible by 4, EXCEPT not divisible by 100 UNLESS also divisible by 400. So 2024 is leap (÷4), 2025 is not (not ÷4), 2100 is NOT leap (÷100, not ÷400), 2000 was leap (÷400).",
+        "Why? Earth's orbit takes 365.2422 days. The extra day every 4 years compensates for the 0.25, but overcorrects slightly - hence the century rule. Without leap years, the calendar would drift 24 days per century. The Gregorian calendar's leap year system keeps drift to about 1 day per 3,236 years - good enough for ordinary planning."
+      ),
+      {
+        heading: "Recent and Upcoming Leap Years",
+        table: {
+          headers: ["Year", "Leap?"],
+          rows: [
+            ["2020", "Yes"],
+            ["2024", "Yes"],
+            ["2025", "No"],
+            ["2026", "No"],
+            ["2027", "No"],
+            ["2028", "Yes"],
+            ["2032", "Yes"],
+            ["2100", "No (century, not ÷400)"],
+            ["2400", "Yes (÷400)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is 2100 not a leap year?",
+        "Century rule: years divisible by 100 are NOT leap years, unless also divisible by 400. 2100 ÷ 4 = yes (525), but ÷ 100 = yes (21), and ÷ 400 = no (5.25 - not whole). So 2100 is regular. Same for 1700, 1800, 1900. 2000 WAS leap because it IS divisible by 400."
+      ),
+      createFAQ(
+        "What if I'm born on 29 February?",
+        "Most jurisdictions treat 1 March as your birthday in non-leap years (legally for things like driving licences, voting eligibility). Some informal traditions: celebrate on 28 February instead. Born 29 Feb 2024, you 'celebrate' your 1st birthday on either 28 Feb 2025 or 1 Mar 2025."
+      ),
+    ],
+    relatedTools: [
+      { slug: "week-number-calculator", label: "Week Number Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "year-progress-tracker", label: "Year Progress Tracker" },
+    ],
+  },
+
+  "stopwatch": {
+    sections: [
+      createAnswerFirstSection(
+        "Online Stopwatch Basics",
+        "An online stopwatch measures elapsed time in real time. Standard features: start/stop/reset, lap timing (record split times without stopping), millisecond precision (0.01s typical). Works in browser without installation; runs locally so no internet needed once loaded. Useful for: workouts, cooking, work sessions (Pomodoro), sports practice, parents timing children's tasks.",
+        "Different from a timer (which counts down to zero) - a stopwatch counts up from zero. Most online stopwatches handle: pause and resume, reset to zero, record laps (multiple split times), keep running in background tabs (browser-permitting). Some include audio cues at intervals (helpful for interval training). Phone stopwatches work the same way, sometimes with vibration feedback."
+      ),
+      {
+        heading: "Stopwatch Common Uses",
+        table: {
+          headers: ["Use case", "Typical timing"],
+          rows: [
+            ["Workout intervals", "30 sec - 5 min sets"],
+            ["Pomodoro work sessions", "25 minutes"],
+            ["Cooking timer", "Specific recipe times"],
+            ["Sports lap times", "Track running splits"],
+            ["Speech rehearsal", "Aim for time limit"],
+            ["Reading speed", "Words per minute"],
+            ["Meditation", "5-30 min sessions"],
+            ["Shower / bath time", "Reduce water usage"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Will it keep running if I close the tab?",
+        "No - browser tabs stop running when closed. Most stopwatches pause if the tab loses focus. Use phone or dedicated app for backgrounded timing. Some browser tools store time in localStorage so reopening the tab resumes from where you left off."
+      ),
+      createFAQ(
+        "How accurate is browser timing?",
+        "Within milliseconds for short durations (under 1 hour). For longer durations, browser energy-saving features can introduce small inaccuracies (1-2 seconds per hour). Phone stopwatches are more accurate for multi-hour timing because they have OS-level priority."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pomodoro-timer", label: "Pomodoro Timer" },
+      { slug: "hours-to-minutes", label: "Hours to Minutes" },
+      { slug: "minutes-to-hours", label: "Minutes to Hours" },
+    ],
+  },
+
+  "date-format-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Date Format Differences",
+        "Different countries use different date formats. UK: DD/MM/YYYY (15/03/2024). US: MM/DD/YYYY (03/15/2024). ISO 8601: YYYY-MM-DD (2024-03-15) - the international standard, used in computing and increasingly in formal documents globally. Japanese/Chinese: YYYY-MM-DD or YYYY年MM月DD日.",
+        "Confusion arises crossing borders: '03/04/2024' is March 4 in US, April 3 in UK. ISO format eliminates ambiguity. Use ISO when sharing dates internationally or in code. Date-format converters help translate between systems for documentation, legal docs, or system migrations. Most software libraries (Excel, Python's datetime) handle conversions automatically."
+      ),
+      {
+        heading: "Common Date Format Examples",
+        table: {
+          headers: ["Format", "Example for 15 March 2024"],
+          rows: [
+            ["UK / Most of world", "15/03/2024"],
+            ["US", "03/15/2024"],
+            ["ISO 8601", "2024-03-15"],
+            ["German", "15.03.2024"],
+            ["French", "15/03/2024"],
+            ["Japanese", "2024年03月15日 or 2024-03-15"],
+            ["Long UK", "15 March 2024"],
+            ["Long US", "March 15, 2024"],
+            ["Reuters/AP", "March 15, 2024"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does the US use MM/DD/YYYY?",
+        "Historical typography conventions (large-to-small ordering of importance: month is named, then day in month, then year). Most other countries use DD/MM/YYYY (small-to-large: day first, then month, then year). Both are valid; the ISO 8601 large-to-small (YYYY-MM-DD) is the technical standard."
+      ),
+      createFAQ(
+        "How do I avoid format ambiguity?",
+        "Use ISO 8601 (YYYY-MM-DD) when possible - unambiguous globally. When forced to use slashes, write the month as a name ('15 March 2024' or 'March 15, 2024') instead of a number. For data interchange, ISO is mandatory in JSON, CSV, XML data."
+      ),
+    ],
+    relatedTools: [
+      { slug: "week-number-calculator", label: "Week Number Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "leap-year-checker", label: "Leap Year Checker" },
+    ],
+  },
+
+  "bank-holiday-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "UK Bank Holidays",
+        "England and Wales: New Year's Day (1 Jan), Good Friday, Easter Monday, Early May Bank Holiday (1st Mon May), Spring Bank Holiday (last Mon May), Summer Bank Holiday (last Mon Aug), Christmas Day (25 Dec), Boxing Day (26 Dec). Scotland: replaces Easter Monday with 2 January, has different Summer Bank Holiday (1st Mon Aug). Northern Ireland: extras for St Patrick's Day (17 Mar) and Battle of the Boyne (12 Jul).",
+        "If a bank holiday falls on a weekend, a 'substitute day' is observed on the following Monday (or sometimes Tuesday if Boxing Day moves). Banks, public services, and most shops close. Pubs may operate with restricted hours. Post Office closed. Schools usually align with bank holidays for term-time scheduling."
+      ),
+      {
+        heading: "England and Wales Bank Holidays",
+        table: {
+          headers: ["2025 Date", "Holiday"],
+          rows: [
+            ["1 Jan", "New Year's Day"],
+            ["18 Apr", "Good Friday"],
+            ["21 Apr", "Easter Monday"],
+            ["5 May", "Early May Bank Holiday"],
+            ["26 May", "Spring Bank Holiday"],
+            ["25 Aug", "Summer Bank Holiday"],
+            ["25 Dec", "Christmas Day"],
+            ["26 Dec", "Boxing Day"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are bank holidays paid time off?",
+        "Not automatically. Employees only get bank holidays as paid leave if their contract says so or if it's part of their statutory leave entitlement (5.6 weeks/year minimum). Most full-time UK employees do get bank holidays as paid days off, but it's not legally required."
+      ),
+      createFAQ(
+        "Does Scotland have different bank holidays?",
+        "Yes. Scotland has 2 January as a bank holiday (in addition to 1 January) but does not observe Easter Monday. Scotland also has a different Summer Bank Holiday date (1st Monday of August vs last Monday in England). Northern Ireland has additional holidays for St Patrick's Day and 12 July."
+      ),
+    ],
+    relatedTools: [
+      { slug: "working-days-calculator", label: "Working Days Calculator" },
+      { slug: "australia-public-holiday-planner", label: "Australia Public Holidays" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "working-days-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Counting Working Days",
+        "Working days exclude weekends and bank holidays. Standard: Monday-Friday counts (5 days/week). UK: 252 working days in a typical year (365 - 104 weekends - 8 to 9 bank holidays). US: 250 (365 - 104 - 11 federal holidays). Varies by country and year (leap years +1, weekend bank holidays may shift).",
+        "Used in: project management (deliverable timelines), legal deadlines (X working days from notice), payment terms (net 30 working days), employment law (notice periods), HR (annual leave calculations). Different from calendar days - 30 calendar days from Monday is a Wednesday in 4 weeks; 30 working days is 6 weeks."
+      ),
+      {
+        heading: "Working Days Reference",
+        table: {
+          headers: ["Time period", "Working days (UK avg)"],
+          rows: [
+            ["1 week", "5"],
+            ["2 weeks", "10"],
+            ["1 month (avg)", "21"],
+            ["1 quarter", "62-65"],
+            ["6 months", "125-130"],
+            ["1 year", "252"],
+            ["1 year incl statutory leave (28 days)", "224"],
+            ["2 years", "504"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are working days the same as business days?",
+        "Yes - terms are interchangeable. Both mean weekdays excluding public holidays. Some legal/business contexts further distinguish 'court days' (excluding court holidays specifically), but for general purposes 'working days' = 'business days' = Monday-Friday, excluding bank holidays."
+      ),
+      createFAQ(
+        "Does 5 working days from Monday = Friday?",
+        "Depends on counting convention. 'Within 5 working days' usually means starting next day, so 5 working days from Monday = Friday following week. 'On the 5th working day' = Friday same week. Always check what the convention is in the specific context (legal, contractual)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "bank-holiday-checker", label: "Bank Holiday Checker" },
+      { slug: "weeks-to-days", label: "Weeks to Days" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "year-progress-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "How Far Through the Year Are We?",
+        "Year progress = (day of year ÷ days in year) × 100. So 1 March of a non-leap year is day 60, year is 365 days, progress = 16.4%. 1 July is day 182, 50% (technically 49.9%). 1 October is day 274, 75%. 1 December is day 335, 91.8%. Halfway through the year always falls around 2 July (day 183 of 365).",
+        "Why track? Goal-setting, habits, time perception. Many people are surprised at how fast a year passes - tracking progress in percent reveals it. Useful for end-of-year planning ('only 8% of the year left' from late November). Also useful as a writing prompt (essays about year-end reflection at 90%, mid-year check-ins at 50%)."
+      ),
+      {
+        heading: "Year Progress Reference",
+        table: {
+          headers: ["Date", "Day of Year", "Progress"],
+          rows: [
+            ["1 January", "1", "0.3%"],
+            ["1 February", "32", "8.8%"],
+            ["1 March", "60 (61 leap)", "16.4%"],
+            ["1 April", "91", "24.9%"],
+            ["1 May", "121", "33.2%"],
+            ["1 July", "182", "49.9%"],
+            ["1 October", "274", "75.1%"],
+            ["1 December", "335", "91.8%"],
+            ["31 December", "365 (366 leap)", "100%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is the year halfway in early July?",
+        "365 ÷ 2 = 182.5, so day 183 is exactly halfway. That's 2 July in a non-leap year, 1 July in leap years (since the year is 366 days). Most people assume mid-year is mid-July, but it's earlier - which is also why summer break in many cultures peaks late June through early July."
+      ),
+      createFAQ(
+        "What's the formula for any date?",
+        "Day of year ÷ 365 × 100% (or ÷ 366 for leap years). Day of year = (sum of days in completed months) + day of month. So 15 March in non-leap year: 31 (Jan) + 28 (Feb) + 15 = 74. 74 ÷ 365 = 20.3%."
+      ),
+    ],
+    relatedTools: [
+      { slug: "leap-year-checker", label: "Leap Year Checker" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
 };

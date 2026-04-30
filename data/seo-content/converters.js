@@ -4253,4 +4253,1439 @@ export const convertersSEO = {
       { slug: "gradians-to-degrees", label: "Gradians to Degrees" },
     ],
   },
+
+  "knots-to-kph": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Knots to KPH",
+        "1 knot = 1.852 km/h. Multiply knots by 1.852 to get km/h. So 30 knots × 1.852 = 55.56 km/h. The knot equals exactly 1 nautical mile per hour, where 1 nautical mile = 1,852 metres (1 minute of latitude at the equator). The 1.852 conversion is exact, not approximate.",
+        "Used in maritime weather reports and aviation. A 50-knot wind = 92.6 km/h (severe gale). 100 knots = 185 km/h (most aircraft cruise speed). Hurricane minimum wind speed (74 mph = 64 knots) = 119 km/h. Beaufort scale Force 8 (gale): 34-40 knots = 63-74 km/h."
+      ),
+      {
+        heading: "Common Knots to KPH",
+        table: {
+          headers: ["Knots", "KPH"],
+          rows: [
+            ["1 knot", "1.85 km/h"],
+            ["10 knots", "18.52 km/h"],
+            ["20 knots", "37.04 km/h"],
+            ["30 knots", "55.56 km/h"],
+            ["50 knots", "92.60 km/h"],
+            ["75 knots", "138.90 km/h"],
+            ["100 knots", "185.20 km/h"],
+            ["200 knots", "370.40 km/h"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is the conversion exactly 1.852?",
+        "The nautical mile was internationally standardised at 1,852 metres in 1929. So 1 nautical mile per hour = 1.852 km/h exactly. The number isn't arbitrary - it derives from the meridian length of Earth divided by 21,600 (60 minutes × 360 degrees)."
+      ),
+      createFAQ(
+        "Quick mental conversion?",
+        "Knots × 2 ≈ km/h (8% over). Knots × 1.85 = closer. Most marine sailors learn the rough '×2' shortcut. Aviation precision: use exact 1.852."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kph-to-knots", label: "KPH to Knots" },
+      { slug: "knots-to-mph", label: "Knots to MPH" },
+      { slug: "nautical-miles-to-km", label: "Nautical Miles to Km" },
+    ],
+  },
+
+  "kph-to-knots": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert KPH to Knots",
+        "1 km/h = 0.5400 knots. Divide km/h by 1.852 (or multiply by 0.5400) to get knots. So 100 km/h ÷ 1.852 = 53.99 knots. Used for marine/aviation contexts when source data is metric km/h. A 70 km/h car speed = 37.8 knots. A 200 km/h fast train = 107.99 knots.",
+        "Useful for maritime weather forecasts that show wind speed in km/h while sailors think in knots. A 60 km/h gust = 32.4 knots (Force 7-8 on Beaufort). 100 km/h gust = 53.99 knots (Force 9-10 'storm'). Convert metric weather data to nautical-friendly knots when planning sailing or coastal trips."
+      ),
+      {
+        heading: "Common KPH to Knots",
+        table: {
+          headers: ["KPH", "Knots"],
+          rows: [
+            ["10 km/h", "5.40 knots"],
+            ["20 km/h", "10.80 knots"],
+            ["50 km/h", "27.00 knots"],
+            ["75 km/h", "40.50 knots"],
+            ["100 km/h", "53.99 knots"],
+            ["150 km/h", "80.99 knots"],
+            ["200 km/h", "107.99 knots"],
+            ["300 km/h", "161.99 knots"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a hurricane in km/h?",
+        "Hurricane minimum (74 mph = 64 knots) = 119 km/h. Cat 5 (157 mph = 137 knots) = 252 km/h. Higher categories indicate severe risk - structural damage, widespread power loss. Convert weather alerts between systems if you're tracking storms across regions."
+      ),
+      createFAQ(
+        "Why are knots used for boats not km/h?",
+        "Tradition + nautical alignment. The knot (1 nautical mile/hour) aligns with great-circle navigation - 1 minute of latitude = 1 nautical mile. This makes ocean route planning simpler than km/h-based alternatives. Maritime industry hasn't switched to km/h."
+      ),
+    ],
+    relatedTools: [
+      { slug: "knots-to-kph", label: "Knots to KPH" },
+      { slug: "kph-to-mph", label: "KPH to MPH" },
+      { slug: "km-to-nautical-miles", label: "Km to Nautical Miles" },
+    ],
+  },
+
+  "nautical-miles-to-km": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Nautical Miles to Kilometres",
+        "1 nautical mile = 1.852 km exactly. Multiply nautical miles by 1.852. So 100 nm × 1.852 = 185.2 km. The nautical mile is defined as exactly 1,852 metres - chosen to equal 1 minute of latitude (1/60 of a degree) along Earth's meridian, making navigation and chart work elegantly aligned.",
+        "Used for: ocean/sea distance, aviation flight distance, maritime law (12 nautical miles = territorial waters). London to New York: 3,000 nautical miles = 5,556 km = 3,453 statute miles. The nautical mile differs from the statute (regular) mile (1,609 m) - 1 nm = 1.151 statute miles. Don't conflate them in distance estimates."
+      ),
+      {
+        heading: "Common Nautical Miles to Km",
+        table: {
+          headers: ["Nautical Miles", "Kilometres"],
+          rows: [
+            ["1 nm", "1.852 km"],
+            ["12 nm (territorial)", "22.224 km"],
+            ["50 nm", "92.6 km"],
+            ["100 nm", "185.2 km"],
+            ["200 nm (EEZ outer)", "370.4 km"],
+            ["500 nm", "926.0 km"],
+            ["1000 nm", "1852.0 km"],
+            ["3000 nm (transAtlantic)", "5556.0 km"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use nautical miles for sailing?",
+        "Aligns with charts. A standard nautical chart uses 1 minute of latitude as 1 nautical mile - measure distance with dividers along the latitude scale. This direct visual relationship doesn't exist in km/statute mile systems."
+      ),
+      createFAQ(
+        "Are nautical miles used in flight?",
+        "Yes. Aviation uses nautical miles for distance and knots for speed - same maritime convention. Flight plans, navigation, ATC all use nautical miles. Commercial flights typically cruise at 450-490 knots (520-565 mph). Chart distances quoted in nm."
+      ),
+    ],
+    relatedTools: [
+      { slug: "km-to-nautical-miles", label: "Km to Nautical Miles" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "knots-to-kph", label: "Knots to KPH" },
+    ],
+  },
+
+  "km-to-nautical-miles": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilometres to Nautical Miles",
+        "1 km = 0.5400 nautical miles. Divide km by 1.852 (or multiply by 0.5400) to get nautical miles. So 200 km ÷ 1.852 = 108 nm. Used when converting distance data from metric km (typical land distance) to nautical mile-based maritime contexts.",
+        "A 500-km coastal trip = 270 nm. A 1,000-km commercial flight in metric = 540 nm. Charter boat planning: a 50 nm day-sail = 92.6 km. The nautical mile gives meaningful units for ocean and air navigation; converting km equivalents helps tourists understand maritime distances."
+      ),
+      {
+        heading: "Common Km to Nautical Miles",
+        table: {
+          headers: ["Kilometres", "Nautical Miles"],
+          rows: [
+            ["10 km", "5.40 nm"],
+            ["50 km", "27.00 nm"],
+            ["100 km", "53.99 nm"],
+            ["200 km", "107.99 nm"],
+            ["500 km", "269.98 nm"],
+            ["1000 km", "539.96 nm"],
+            ["5556 km (Atlantic)", "3000 nm"],
+            ["10000 km", "5399.57 nm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is the Mediterranean Sea?",
+        "Roughly 4,000 km long east-to-west = 2,159 nm. Crossing widthwise: 800 km = 432 nm. A typical Med cruise holiday: 500-1,500 nm of total sailing = 926-2,778 km."
+      ),
+      createFAQ(
+        "What's the EEZ?",
+        "Exclusive Economic Zone - 200 nautical miles (370.4 km) from a country's coastline where it has resource rights. Beyond EEZ is 'high seas' (international waters). EEZ regulations cover fishing, drilling, environmental protection."
+      ),
+    ],
+    relatedTools: [
+      { slug: "nautical-miles-to-km", label: "Nautical Miles to Km" },
+      { slug: "km-to-miles", label: "Km to Miles" },
+      { slug: "kph-to-knots", label: "KPH to Knots" },
+    ],
+  },
+
+  "square-miles-to-square-km": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Miles to Square Km",
+        "1 sq mile = 2.5900 sq km. Multiply square miles by 2.59 to get square km. So 100 sq mi × 2.59 = 259 sq km. The factor is the square of the linear conversion: (1.609)² = 2.589988... rounded to 2.59 for everyday use.",
+        "Used for country/state areas, large geographical regions. UK total area: 94,058 sq mi = 243,610 sq km. London Greater area: 607 sq mi = 1,572 sq km. New York City: 302 sq mi = 783 sq km. Yellowstone National Park: 3,468 sq mi = 8,983 sq km."
+      ),
+      {
+        heading: "Common Square Miles to Square Km",
+        table: {
+          headers: ["Square Miles", "Square Km"],
+          rows: [
+            ["1 sq mi", "2.59 sq km"],
+            ["10 sq mi", "25.90 sq km"],
+            ["50 sq mi", "129.50 sq km"],
+            ["100 sq mi", "259.00 sq km"],
+            ["500 sq mi", "1295.00 sq km"],
+            ["1000 sq mi", "2590.00 sq km"],
+            ["3793 sq mi (Yellowstone)", "9821.71 sq km"],
+            ["94058 sq mi (UK total)", "243610.55 sq km"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is the UK?",
+        "UK total: 94,058 sq mi = 243,610 sq km. England: 50,302 sq mi. Scotland: 30,090 sq mi. Wales: 8,022 sq mi. Northern Ireland: 5,460 sq mi. France for comparison: 248,573 sq mi - just slightly larger than UK total."
+      ),
+      createFAQ(
+        "What's the largest country by area?",
+        "Russia: 6.6 million sq mi = 17.1 million sq km (twice the size of Canada and the USA combined). Canada: 3.86 million sq mi. USA: 3.79 million sq mi. China: 3.7 million sq mi. Brazil: 3.29 million sq mi. UK ranks 80th in world area."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-km-to-square-miles", label: "Square Km to Square Miles" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "acres-to-hectares", label: "Acres to Hectares" },
+    ],
+  },
+
+  "square-km-to-square-miles": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Km to Square Miles",
+        "1 sq km = 0.3861 sq miles. Multiply sq km by 0.3861 (or divide by 2.59) to get square miles. So 100 sq km × 0.3861 = 38.61 sq mi. The conversion factor is the square of the linear km-to-miles conversion (0.621²).",
+        "Used for converting European/metric area data to imperial areas. France: 643,801 sq km = 248,573 sq mi. Spain: 505,990 sq km = 195,365 sq mi. Germany: 357,386 sq km = 137,988 sq mi. Italy: 301,338 sq km = 116,347 sq mi."
+      ),
+      {
+        heading: "Common Square Km to Square Miles",
+        table: {
+          headers: ["Square Km", "Square Miles"],
+          rows: [
+            ["1 sq km", "0.39 sq mi"],
+            ["10 sq km", "3.86 sq mi"],
+            ["100 sq km", "38.61 sq mi"],
+            ["500 sq km", "193.05 sq mi"],
+            ["1000 sq km", "386.10 sq mi"],
+            ["10000 sq km", "3861.02 sq mi"],
+            ["100000 sq km", "38610.22 sq mi"],
+            ["1000000 sq km", "386102.16 sq mi"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is Greater London?",
+        "1,572 sq km = 607 sq mi. Total London Borough area. London proper (the historic City of London) is about 2.9 sq km = 1.12 sq mi - tiny. The much larger Greater London consists of 32 boroughs covering roughly 1,500 sq km."
+      ),
+      createFAQ(
+        "How does this compare to acres?",
+        "1 sq km = 247.1 acres = 100 hectares. 1 sq mi = 640 acres. Useful for converting agricultural data: a 100-acre farm = 0.405 sq km = 0.156 sq mi."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-miles-to-square-km", label: "Square Miles to Square Km" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "hectares-to-acres", label: "Hectares to Acres" },
+    ],
+  },
+
+  "square-yards-to-square-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Yards to Square Metres",
+        "1 sq yard = 0.8361 sq metres. Multiply sq yards by 0.8361 to get sq metres. So 100 sq yd × 0.8361 = 83.61 sq m. The factor is the square of the yard-to-metre conversion: (0.9144)² = 0.8361.",
+        "Used for: carpet/flooring measurements (US carpets often sold by sq yard, EU by sq metre), garden/lawn area, building plot measurements. A typical UK garden: 80 sq yards = 67 sq m. A US carpet sold at 30 sq yards covers 25.08 sq m."
+      ),
+      {
+        heading: "Common Square Yards to Square Metres",
+        table: {
+          headers: ["Square Yards", "Square Metres"],
+          rows: [
+            ["1 sq yd", "0.84 sq m"],
+            ["10 sq yd", "8.36 sq m"],
+            ["25 sq yd", "20.90 sq m"],
+            ["50 sq yd", "41.81 sq m"],
+            ["100 sq yd", "83.61 sq m"],
+            ["200 sq yd", "167.23 sq m"],
+            ["500 sq yd", "418.06 sq m"],
+            ["1000 sq yd", "836.13 sq m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is a typical UK garden?",
+        "UK average garden: about 87 sq metres (107 sq yards). Smaller in cities (maybe 30-50 sq m), larger in rural areas (250+ sq m). New-build flats often have no garden or just a small balcony."
+      ),
+      createFAQ(
+        "Is sq yard same as 'yard square'?",
+        "No - sq yard is area (1 yard × 1 yard = 9 sq ft = 0.83 sq m). 'Yard square' is colloquial and ambiguous. Always specify 'square yard' or 'sq yd' clearly."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-metres-to-square-yards", label: "Square Metres to Square Yards" },
+      { slug: "yards-to-metres", label: "Yards to Metres" },
+      { slug: "square-feet-to-square-metres", label: "Square Feet to Square Metres" },
+    ],
+  },
+
+  "square-metres-to-square-yards": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Metres to Square Yards",
+        "1 sq metre = 1.196 sq yards. Multiply sq metres by 1.196 to get sq yards. So 100 sq m × 1.196 = 119.6 sq yd. Used for converting European area measurements to American/UK yards-based context.",
+        "A 50 sq m apartment = 59.8 sq yards. A 200 sq m garden = 239.2 sq yards. Helpful for international real estate listings - Paris flat at 60 sq m = 71.7 sq yd. London flat at 100 sq m = 119.6 sq yd. UK new-build minimum: 50 sq m for 2-bed = 59.8 sq yd."
+      ),
+      {
+        heading: "Common Square Metres to Square Yards",
+        table: {
+          headers: ["Square Metres", "Square Yards"],
+          rows: [
+            ["1 sq m", "1.20 sq yd"],
+            ["10 sq m", "11.96 sq yd"],
+            ["25 sq m", "29.90 sq yd"],
+            ["50 sq m", "59.80 sq yd"],
+            ["100 sq m", "119.60 sq yd"],
+            ["200 sq m", "239.20 sq yd"],
+            ["500 sq m", "598.00 sq yd"],
+            ["1000 sq m", "1196.00 sq yd"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a typical European flat size?",
+        "Paris 1-bed: 30-40 sq m (36-48 sq yd). London 1-bed: 35-50 sq m (42-60 sq yd). Berlin 1-bed: 40-55 sq m (48-66 sq yd). New York 1-bed: 40-55 sq m (48-66 sq yd). New-build minimums vary by city; older flats often smaller."
+      ),
+      createFAQ(
+        "Are yards used much in real estate today?",
+        "UK property: square metres now dominate listings (since 2010 metric standardisation). US property: square feet is dominant. Square yards rarely used - they appear mostly in carpet/flooring sales and some agricultural contexts."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-yards-to-square-metres", label: "Square Yards to Square Metres" },
+      { slug: "metres-to-yards", label: "Metres to Yards" },
+      { slug: "square-metres-to-square-feet", label: "Square Metres to Square Feet" },
+    ],
+  },
+
+  "kwh-to-btu": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert kWh to BTU",
+        "1 kWh = 3,412 BTU. Multiply kWh by 3,412 to get BTU (British Thermal Units). So 5 kWh × 3,412 = 17,060 BTU. The kilowatt-hour and BTU both measure energy; kWh is the SI standard, BTU is the imperial unit common in HVAC and US heating contexts.",
+        "Used in heating/cooling: AC capacity often quoted in BTU/hr (e.g. '12,000 BTU air conditioner') = 3.5 kW. Boiler heating output in BTU vs kW. UK gas bills now use kWh; some equipment specs use BTU. A 2-kW electric heater = 6,824 BTU/hr. A 3.5-kW (12,000 BTU) AC unit cools a typical 30 sq m room."
+      ),
+      {
+        heading: "Common kWh to BTU",
+        table: {
+          headers: ["kWh", "BTU"],
+          rows: [
+            ["1 kWh", "3,412"],
+            ["2 kWh", "6,824"],
+            ["3.5 kWh", "11,942"],
+            ["5 kWh", "17,060"],
+            ["10 kWh", "34,120"],
+            ["100 kWh", "341,200"],
+            ["1000 kWh (1 MWh)", "3,412,000"],
+            ["1 BTU", "0.000293 kWh"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a typical AC unit BTU?",
+        "Window AC: 5,000-14,000 BTU (1.5-4 kW). Mini-split: 9,000-36,000 BTU (2.6-10.5 kW). Central AC: 24,000-60,000 BTU (7-17.5 kW). Match BTU to room size: roughly 20 BTU per sq foot of space (or 600 BTU per sq metre) for cooling."
+      ),
+      createFAQ(
+        "Is BTU heating or cooling?",
+        "Both - measures heat energy in either direction. AC units pump heat OUT (cooling); heaters/boilers add heat IN (warming). Same BTU rating describes the absolute amount of energy moved/added."
+      ),
+    ],
+    relatedTools: [
+      { slug: "btu-to-kwh", label: "BTU to kWh" },
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+      { slug: "joules-to-calories", label: "Joules to Calories" },
+    ],
+  },
+
+  "btu-to-kwh": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert BTU to kWh",
+        "1 BTU = 0.000293 kWh. Divide BTU by 3,412 to get kWh. So 12,000 BTU ÷ 3,412 = 3.52 kWh. Used for converting equipment specs (HVAC, boilers, generators) from imperial BTU to metric kWh.",
+        "A 12,000 BTU AC unit = 3.5 kW. A 24,000 BTU central AC = 7 kW. Equipment specifications often appear in BTU; energy bills in kWh. Converting helps you understand annual energy consumption and compare equipment."
+      ),
+      {
+        heading: "Common BTU to kWh",
+        table: {
+          headers: ["BTU", "kWh"],
+          rows: [
+            ["1,000", "0.293"],
+            ["5,000", "1.466"],
+            ["12,000 (typical AC)", "3.52"],
+            ["18,000", "5.28"],
+            ["24,000 (small central)", "7.04"],
+            ["36,000 (medium central)", "10.55"],
+            ["60,000 (large central)", "17.59"],
+            ["100,000", "29.31"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How much does a 12k BTU AC cost to run?",
+        "12,000 BTU = 3.5 kW, but actual electricity drawn depends on efficiency. A unit with EER 12 (Energy Efficiency Ratio) draws 1 kW per 12,000 BTU/hr, so cooling 1 hour costs 1 kWh × electricity rate. At 30 cents/kWh: 30 cents per hour of cooling. 8-hour day = £2.40."
+      ),
+      createFAQ(
+        "What's SEER vs BTU?",
+        "BTU = cooling capacity (energy moved). SEER (Seasonal Energy Efficiency Ratio) = cooling efficiency (output BTU per input watts averaged over a season). Higher SEER = more efficient. Modern AC: SEER 15-25; older units: SEER 8-13."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kwh-to-btu", label: "kWh to BTU" },
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+      { slug: "joules-to-calories", label: "Joules to Calories" },
+    ],
+  },
+
+  "atm-to-psi": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert ATM to PSI",
+        "1 atmosphere = 14.696 psi. Multiply atm by 14.696 to get psi. So 2 atm = 29.39 psi. The 'atmosphere' is the average pressure at sea level - roughly 1.013 bar or 14.696 psi. Different from gauge pressure systems where atmospheric is the zero reference.",
+        "Used in: scuba diving (depth conversions: 1 atm = 10 metres of seawater), industrial pressure ratings, scientific calculations. A scuba diver at 20 metres = 3 atm absolute pressure = 44.1 psi. Vacuum measurements: 0.5 atm = 7.35 psi. Espresso pressure: 9 bar = 8.88 atm = 130.5 psi."
+      ),
+      {
+        heading: "Common ATM to PSI",
+        table: {
+          headers: ["Atmosphere", "PSI"],
+          rows: [
+            ["0.5 atm", "7.35"],
+            ["1 atm (sea level)", "14.70"],
+            ["1.5 atm", "22.04"],
+            ["2 atm (10m underwater)", "29.39"],
+            ["3 atm (20m underwater)", "44.09"],
+            ["5 atm (40m underwater)", "73.48"],
+            ["8.88 atm (espresso)", "130.50"],
+            ["10 atm", "146.96"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does sea level matter?",
+        "1 atmosphere is the reference pressure for sea level on Earth. Above sea level (mountains, aircraft cabins) pressure decreases. Below sea level (underwater, submarines) pressure increases by 1 atm per 10 metres of seawater. Pressure rating systems often use atm as the meaningful zero reference."
+      ),
+      createFAQ(
+        "Is atm same as 'bar'?",
+        "Close but not identical. 1 bar = 0.987 atm = 14.504 psi. 1 atm = 1.013 bar = 14.696 psi. The 1.3% difference rarely matters in casual use; precision contexts (scientific, engineering) use the exact units. Both are common metric pressure units."
+      ),
+    ],
+    relatedTools: [
+      { slug: "psi-to-atm", label: "PSI to Atmosphere" },
+      { slug: "psi-to-bar", label: "PSI to Bar" },
+      { slug: "bar-to-psi", label: "Bar to PSI" },
+    ],
+  },
+
+  "psi-to-atm": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert PSI to Atmosphere",
+        "1 psi = 0.0680 atm. Divide psi by 14.696 to get atm. So 100 psi ÷ 14.696 = 6.80 atm. Useful in scientific contexts and scuba diving where atmosphere units are standard.",
+        "A 50 psi tyre = 3.40 atm. A 150 psi air compressor = 10.21 atm. Automotive and industrial pressure ratings commonly use psi; converting to atm for scientific calculations or international comparisons. Atm is conceptually clearer for absolute pressure (multiples of sea-level atmospheric pressure)."
+      ),
+      {
+        heading: "Common PSI to ATM",
+        table: {
+          headers: ["PSI", "Atmosphere"],
+          rows: [
+            ["1 psi", "0.068 atm"],
+            ["14.7 psi", "1 atm"],
+            ["30 psi", "2.04 atm"],
+            ["50 psi", "3.40 atm"],
+            ["100 psi", "6.80 atm"],
+            ["150 psi", "10.21 atm"],
+            ["200 psi", "13.61 atm"],
+            ["500 psi", "34.02 atm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How does scuba diving use these?",
+        "1 atm of pressure per 10 metres of seawater depth. So 30 metres = 4 atm absolute pressure (1 from atmosphere + 3 from water). Diving tanks typically rated 200-300 bar (2,940-4,410 psi) or 200-300 atm at full charge. Diving computers track depth and translate to pressure for safety."
+      ),
+      createFAQ(
+        "What pressure do car tyres need?",
+        "Typical: 30-35 psi (2.04-2.38 atm). Truck tyres: 50-60 psi (3.40-4.08 atm). Bicycle road bike: 100-130 psi (6.80-8.85 atm). Mountain bike: 30-50 psi (2.04-3.40 atm). Always check the manufacturer's specification on the door jamb or owner's manual."
+      ),
+    ],
+    relatedTools: [
+      { slug: "atm-to-psi", label: "Atmosphere to PSI" },
+      { slug: "bar-to-psi", label: "Bar to PSI" },
+      { slug: "psi-to-bar", label: "PSI to Bar" },
+    ],
+  },
+
+  "radians-to-degrees": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Radians to Degrees",
+        "Multiply radians by 180/π. So π/2 radians × 180/π = 90°. π radians = 180°. 2π radians = 360° (full circle). The conversion factor is approximately 57.296 - so 1 radian ≈ 57.296°.",
+        "Used in: programming (when input is radians but display needs degrees), physics, engineering. A scientific calculator typically has both modes; check which one is active. Common conversions: π/6 = 30°, π/4 = 45°, π/3 = 60°, π/2 = 90°, π = 180°, 2π = 360°."
+      ),
+      {
+        heading: "Common Radians to Degrees",
+        table: {
+          headers: ["Radians", "Degrees"],
+          rows: [
+            ["0", "0°"],
+            ["π/6 ≈ 0.524", "30°"],
+            ["π/4 ≈ 0.785", "45°"],
+            ["π/3 ≈ 1.047", "60°"],
+            ["π/2 ≈ 1.571", "90°"],
+            ["π ≈ 3.142", "180°"],
+            ["3π/2 ≈ 4.712", "270°"],
+            ["2π ≈ 6.283", "360°"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I memorise these conversions?",
+        "Useful values: π/6 = 30°, π/4 = 45°, π/3 = 60°, π/2 = 90°, π = 180°. These come up constantly in trigonometry. The exact decimal values aren't important to memorise - the multiples of π are."
+      ),
+      createFAQ(
+        "Why use radians at all?",
+        "Mathematical naturalness. Calculus formulas are simpler in radians. Trigonometric identities are cleaner. Engineering and scientific applications use radians by default. Geometry textbooks often use degrees for accessibility, but advanced math/science uses radians."
+      ),
+    ],
+    relatedTools: [
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+      { slug: "degrees-to-gradians", label: "Degrees to Gradians" },
+      { slug: "gradians-to-degrees", label: "Gradians to Degrees" },
+    ],
+  },
+
+  "degrees-to-gradians": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Gradian?",
+        "A gradian (also gon, grad, or grade) is a unit of angle: 100 gradians = 90° (right angle). So a full circle = 400 gradians. The decimal-friendly system was proposed during the French Revolution alongside other metric units. Less common than degrees today, used mostly in surveying and some European military contexts.",
+        "Multiply degrees by 10/9 (or 1.111...) to get gradians. So 90° × 10/9 = 100 gradians. 45° × 10/9 = 50 gradians. The decimal alignment makes some calculations cleaner - a quarter circle is exactly 100, not 90 with awkward fractions."
+      ),
+      {
+        heading: "Degrees to Gradians",
+        table: {
+          headers: ["Degrees", "Gradians"],
+          rows: [
+            ["0°", "0 gon"],
+            ["30°", "33.33 gon"],
+            ["45°", "50 gon"],
+            ["60°", "66.67 gon"],
+            ["90° (right angle)", "100 gon"],
+            ["180° (straight)", "200 gon"],
+            ["270°", "300 gon"],
+            ["360° (full circle)", "400 gon"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are gradians not common?",
+        "Degrees won the cultural battle. Gradians were introduced to align with the metric system but never displaced the established 360-degree circle (Babylonian heritage). Some surveying contexts (especially in France, Germany) use gradians; almost all other technical uses prefer degrees or radians."
+      ),
+      createFAQ(
+        "Should I learn gradians?",
+        "Only if your work involves surveying or specific European technical contexts. Most students never encounter them. Some scientific calculators have a 'GRAD' mode alongside DEG/RAD; that's the gradian setting."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gradians-to-degrees", label: "Gradians to Degrees" },
+      { slug: "radians-to-degrees", label: "Radians to Degrees" },
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+    ],
+  },
+
+  "gradians-to-degrees": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Gradians to Degrees",
+        "Multiply gradians by 9/10 (or 0.9) to get degrees. So 100 gradians × 0.9 = 90°. 200 gradians × 0.9 = 180° (straight line). The relationship: 400 gradians = 360°, so degrees = gradians × (360/400) = gradians × 0.9.",
+        "Useful when reading European surveying data or scientific instruments set to gradian mode. A surveyor's bearing of 50 gradians = 45°. A 130 gradian heading = 117°. Converting back lets you visualise gradian readings on familiar degree-based compasses or maps."
+      ),
+      {
+        heading: "Gradians to Degrees",
+        table: {
+          headers: ["Gradians", "Degrees"],
+          rows: [
+            ["10 gon", "9°"],
+            ["25 gon", "22.5°"],
+            ["50 gon", "45°"],
+            ["100 gon (right angle)", "90°"],
+            ["150 gon", "135°"],
+            ["200 gon (straight)", "180°"],
+            ["300 gon", "270°"],
+            ["400 gon (full circle)", "360°"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "When would I see gradian readings?",
+        "European surveying instruments, French/German civil engineering documents, some specialised scientific equipment. Compass readings in some military contexts (particularly artillery, where the 'mil' unit is even smaller). Most everyday angles use degrees or radians."
+      ),
+      createFAQ(
+        "Are 'gradian' and 'gradient' related?",
+        "Different concepts. Gradian is an angle unit. Gradient (in math) is a vector showing rate of change. In civil engineering, 'gradient' (or grade) means slope as a percentage rise/run. Don't confuse them - context tells you which is meant."
+      ),
+    ],
+    relatedTools: [
+      { slug: "degrees-to-gradians", label: "Degrees to Gradians" },
+      { slug: "radians-to-degrees", label: "Radians to Degrees" },
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+    ],
+  },
+
+  "hz-to-khz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Hz to kHz",
+        "1 kHz = 1,000 Hz. Divide Hz by 1,000 (or move decimal three places left) to get kHz. So 5,000 Hz = 5 kHz. The kilohertz prefix means exactly 1,000 hertz. Used in: audio frequencies, radio frequencies, processor clock speeds.",
+        "Common reference frequencies: human hearing range 20 Hz - 20,000 Hz (= 20 kHz). Phone audio 300-3,400 Hz. Music CD sample rate 44.1 kHz. AM radio 535-1,605 kHz. Old computer CPU clocks: 4-200 MHz (4,000-200,000 kHz). Modern CPUs: 1-5 GHz (1,000,000-5,000,000 kHz)."
+      ),
+      {
+        heading: "Common Hz to kHz",
+        table: {
+          headers: ["Hz", "kHz"],
+          rows: [
+            ["100 Hz", "0.1 kHz"],
+            ["1,000 Hz", "1 kHz"],
+            ["5,000 Hz", "5 kHz"],
+            ["20,000 Hz (top hearing)", "20 kHz"],
+            ["44,100 Hz (CD audio)", "44.1 kHz"],
+            ["100,000 Hz", "100 kHz"],
+            ["540,000 Hz (AM radio low)", "540 kHz"],
+            ["1,605,000 Hz (AM radio high)", "1,605 kHz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the highest pitch I can hear?",
+        "Adults: typically up to 16-18 kHz. Children: up to 20 kHz (the standard 'human hearing' upper limit). High-frequency hearing declines with age (presbycusis); above 20 kHz is 'ultrasound' territory used by bats, dolphins, ultrasound medical imaging."
+      ),
+      createFAQ(
+        "Is 'Hz' the same as 'cps'?",
+        "Yes - 'cycles per second' was the older name for hertz (Hz). Renamed in honour of Heinrich Hertz (1857-1894). 'Hertz' is the SI standard unit; 'cps' appears in old technical documents but is obsolete now."
+      ),
+    ],
+    relatedTools: [
+      { slug: "khz-to-hz", label: "kHz to Hz" },
+      { slug: "mhz-to-ghz", label: "MHz to GHz" },
+      { slug: "ghz-to-mhz", label: "GHz to MHz" },
+    ],
+  },
+
+  "khz-to-hz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert kHz to Hz",
+        "1 kHz = 1,000 Hz. Multiply kHz by 1,000 (or move decimal three places right) to get Hz. So 44.1 kHz = 44,100 Hz. The 'kilo' prefix means 1,000.",
+        "Used when source data is in kHz but you need finer Hz resolution. Audio sample rates: CDs 44.1 kHz = 44,100 samples per second. Phone calls (narrow band): 8 kHz = 8,000 samples. Music studios often work at 48 kHz or 96 kHz for higher fidelity."
+      ),
+      {
+        heading: "Common kHz to Hz",
+        table: {
+          headers: ["kHz", "Hz"],
+          rows: [
+            ["0.1 kHz", "100"],
+            ["1 kHz", "1,000"],
+            ["5 kHz", "5,000"],
+            ["20 kHz", "20,000"],
+            ["44.1 kHz (CD)", "44,100"],
+            ["48 kHz (Pro audio)", "48,000"],
+            ["96 kHz (HD audio)", "96,000"],
+            ["192 kHz (highest audio)", "192,000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why 44.1 kHz for CDs?",
+        "Set in 1980 by Sony/Philips. Reasoning: must capture human hearing (up to ~20 kHz) at 2x sampling (Nyquist theorem) plus margin. 44.1 kHz hits 22.05 kHz Nyquist limit cleanly. Choice partly historical accident - it aligned with available video tape technology used to master CDs."
+      ),
+      createFAQ(
+        "Is higher sample rate better?",
+        "For most listening: 44.1 kHz (CD) is sufficient, no audible improvement above. For studio recording: higher rates (48, 96, 192 kHz) give more headroom for processing. Distinguishing 44.1 from 96 kHz in playback is essentially impossible for typical listeners."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hz-to-khz", label: "Hz to kHz" },
+      { slug: "mhz-to-ghz", label: "MHz to GHz" },
+      { slug: "ghz-to-mhz", label: "GHz to MHz" },
+    ],
+  },
+
+  "mhz-to-ghz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MHz to GHz",
+        "1 GHz = 1,000 MHz. Divide MHz by 1,000 (or move decimal three places left) to get GHz. So 3,000 MHz = 3 GHz. Used in computer processor clock speeds, radio frequencies, wireless networks.",
+        "Reference frequencies: AM radio 0.535-1.605 MHz. FM radio 87.5-108 MHz. Wi-Fi: 2.4 GHz (2,400 MHz) and 5 GHz (5,000 MHz). 5G mobile: 600 MHz to 39 GHz. Modern CPUs: 1.5-5.5 GHz (1,500-5,500 MHz). 1990s CPUs: 100-500 MHz (0.1-0.5 GHz)."
+      ),
+      {
+        heading: "Common MHz to GHz",
+        table: {
+          headers: ["MHz", "GHz"],
+          rows: [
+            ["100 MHz", "0.1 GHz"],
+            ["500 MHz", "0.5 GHz"],
+            ["1,000 MHz", "1 GHz"],
+            ["1,500 MHz", "1.5 GHz"],
+            ["2,400 MHz (Wi-Fi 2.4)", "2.4 GHz"],
+            ["3,000 MHz (modern CPU base)", "3 GHz"],
+            ["5,000 MHz (Wi-Fi 5)", "5 GHz"],
+            ["6,000 MHz (Wi-Fi 6E)", "6 GHz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between 2.4 GHz and 5 GHz Wi-Fi?",
+        "2.4 GHz: longer range (penetrates walls better), more crowded (microwaves, baby monitors), slower max speed. 5 GHz: shorter range, less interference, faster (up to 1+ Gbps). Modern routers offer both bands; devices choose automatically. 6 GHz (Wi-Fi 6E) is even faster but very new."
+      ),
+      createFAQ(
+        "Is faster CPU GHz always better?",
+        "Not always. Modern CPUs trade off: more cores at lower GHz often outperform single-core at higher GHz for parallel work. Mobile CPUs: 2.5-3 GHz is typical, optimised for power efficiency. Desktop: 4-5 GHz, prioritising speed. Server: 2-3.5 GHz × many cores, prioritising throughput."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ghz-to-mhz", label: "GHz to MHz" },
+      { slug: "khz-to-hz", label: "kHz to Hz" },
+      { slug: "hz-to-khz", label: "Hz to kHz" },
+    ],
+  },
+
+  "ghz-to-mhz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert GHz to MHz",
+        "1 GHz = 1,000 MHz. Multiply GHz by 1,000 (or move decimal three places right) to get MHz. So 3 GHz = 3,000 MHz. Used when working with sub-GHz precision in CPU spec sheets, radio frequencies, or signal analysis.",
+        "A 3.5 GHz processor base clock = 3,500 MHz. A 5G millimetre-wave band at 28 GHz = 28,000 MHz. Wi-Fi 6E band 6 GHz = 6,000 MHz. Older equipment specifications often show frequencies in MHz; converting from modern GHz makes comparisons easier."
+      ),
+      {
+        heading: "Common GHz to MHz",
+        table: {
+          headers: ["GHz", "MHz"],
+          rows: [
+            ["0.5 GHz", "500"],
+            ["1 GHz", "1,000"],
+            ["1.5 GHz", "1,500"],
+            ["2.4 GHz (Wi-Fi)", "2,400"],
+            ["3 GHz", "3,000"],
+            ["5 GHz (Wi-Fi)", "5,000"],
+            ["10 GHz", "10,000"],
+            ["28 GHz (5G mmW)", "28,000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a typical CPU clock?",
+        "Mobile (phone/laptop): 2.5-3.5 GHz base. Desktop: 3.5-5 GHz. Server: 2.5-3.5 GHz × many cores. 'Boost clock' (turbo) goes higher temporarily; 'base clock' is sustained. Both numbers usually quoted in spec sheets."
+      ),
+      createFAQ(
+        "Is higher MHz/GHz always faster?",
+        "For one core, yes. For multi-core CPUs, more cores at slightly lower clock often outperform fewer cores at higher clock for parallel work. Real-world performance also depends on cache, instruction efficiency, and power management - the GHz number is just one factor."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mhz-to-ghz", label: "MHz to GHz" },
+      { slug: "khz-to-hz", label: "kHz to Hz" },
+      { slug: "hz-to-khz", label: "Hz to kHz" },
+    ],
+  },
+
+  "newtons-to-lbs-force": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Newtons to Pounds-Force",
+        "1 Newton = 0.2248 lbs-force. Multiply newtons by 0.2248 to get lbs-force. So 100 N × 0.2248 = 22.48 lbs-force. The newton is the SI unit of force; pound-force (lbf) is the imperial counterpart. Used in engineering, structural calculations, materials testing.",
+        "Common reference: an apple weighing 0.1 kg has weight ≈ 1 N (gravity acceleration ≈ 9.81 m/s²). The same apple has weight in pounds: 0.22 lbs. A 70 kg person weighs 686 N = 154 lbs (which is the conversion of mass to weight under standard gravity)."
+      ),
+      {
+        heading: "Common Newtons to Lbs-Force",
+        table: {
+          headers: ["Newtons", "Lbs-Force"],
+          rows: [
+            ["1 N", "0.22 lbs"],
+            ["10 N", "2.25 lbs"],
+            ["100 N", "22.48 lbs"],
+            ["500 N", "112.40 lbs"],
+            ["1000 N (1 kN)", "224.81 lbs"],
+            ["5000 N", "1,124.04 lbs"],
+            ["10000 N (10 kN)", "2,248.09 lbs"],
+            ["100000 N (100 kN)", "22,480.89 lbs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between newton and kilogram?",
+        "Newton is force; kilogram is mass. Weight (force) of 1 kg under Earth gravity = 9.81 N. So 1 kg of mass weighs 9.81 N (not 1 N). Imperial confusion: pound-force (lbf) and pound-mass (lbm) have same number under Earth gravity (1 lbm weight = 1 lbf), so they're often used interchangeably in everyday contexts. Engineers must distinguish."
+      ),
+      createFAQ(
+        "Where do these conversions matter?",
+        "Engineering specs: bolt strength (N or lbs), spring constants, machine load ratings. Aerospace: thrust ratings often in newtons (Falcon 9 first stage produces 7,607 kN of thrust; 1.71 million lbs-force). Sports: barbell load ratings sometimes in N for international meets."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lbs-force-to-newtons", label: "Pounds-Force to Newtons" },
+      { slug: "kg-force-to-newtons", label: "Kg-Force to Newtons" },
+      { slug: "newtons-to-kg-force", label: "Newtons to Kg-Force" },
+    ],
+  },
+
+  "lbs-force-to-newtons": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Pounds-Force to Newtons",
+        "1 lbs-force = 4.448 Newtons. Multiply lbf by 4.448 to get N. So 100 lbf × 4.448 = 444.8 N. Used when reading American engineering spec sheets and translating to metric/SI for international or precision work.",
+        "Reference: 154 lbs of body weight = 685 N. An aircraft cable rated at 5,000 lbf can hold 22,240 N. American structural engineering specs often quote in lbf; European in N. Same physical quantity; different units."
+      ),
+      {
+        heading: "Common Lbs-Force to Newtons",
+        table: {
+          headers: ["Lbs-Force", "Newtons"],
+          rows: [
+            ["1 lbf", "4.45 N"],
+            ["10 lbf", "44.48 N"],
+            ["50 lbf", "222.41 N"],
+            ["100 lbf", "444.82 N"],
+            ["500 lbf", "2,224.11 N"],
+            ["1,000 lbf", "4,448.22 N"],
+            ["5,000 lbf", "22,241.10 N"],
+            ["10,000 lbf", "44,482.20 N"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is pound-force same as pound-weight?",
+        "Same numerical value (under Earth gravity), different units conceptually. 1 lbf = the force gravity exerts on 1 lbm of mass at standard Earth gravity (32.174 ft/s²). On the Moon, 1 lbm would have 1/6 lbf of weight. Engineers separate the units to avoid errors in non-Earth contexts."
+      ),
+      createFAQ(
+        "When should I use kgf vs N?",
+        "Newtons (N) are the SI standard - always preferred in scientific work. Kilogram-force (kgf) is older/casual usage, occasionally seen on European mechanical equipment. 1 kgf = 9.81 N. Use N for new specifications; convert kgf when seeing it."
+      ),
+    ],
+    relatedTools: [
+      { slug: "newtons-to-lbs-force", label: "Newtons to Pounds-Force" },
+      { slug: "newtons-to-kg-force", label: "Newtons to Kg-Force" },
+      { slug: "kg-force-to-newtons", label: "Kg-Force to Newtons" },
+    ],
+  },
+
+  "kg-force-to-newtons": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilogram-Force to Newtons",
+        "1 kgf = 9.80665 Newtons. Multiply kgf by 9.81 (or 9.80665 for precision) to get N. So 50 kgf × 9.81 = 490.5 N. Kgf (kilogram-force) is an older non-SI unit; equals the force Earth gravity applies to 1 kg of mass.",
+        "Used in some older European mechanical equipment specifications. A spring rated at 5 kgf needs 49 N to compress. A weight of 75 kg = 75 kgf = 736 N (under Earth gravity). Modern SI prefers N exclusively; kgf appears mostly in legacy equipment manuals."
+      ),
+      {
+        heading: "Common Kg-Force to Newtons",
+        table: {
+          headers: ["Kg-Force", "Newtons"],
+          rows: [
+            ["1 kgf", "9.81 N"],
+            ["5 kgf", "49.03 N"],
+            ["10 kgf", "98.07 N"],
+            ["25 kgf", "245.17 N"],
+            ["50 kgf", "490.33 N"],
+            ["100 kgf", "980.67 N"],
+            ["500 kgf", "4,903.32 N"],
+            ["1000 kgf", "9,806.65 N"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why isn't kgf in SI?",
+        "Because it depends on a value of gravity (9.80665 m/s²) that varies slightly across Earth's surface. SI prefers fundamental units that don't depend on local conditions. The newton (kg·m/s²) is universally constant; kgf is only valid at standard Earth gravity."
+      ),
+      createFAQ(
+        "Is 1 kgf same as 9.81 N?",
+        "Approximately yes, with the precise definition being 1 kgf = 9.80665 N exactly. The 9.81 approximation is usually fine for everyday engineering. Precision applications (aerospace, very precise force measurements) need the exact value."
+      ),
+    ],
+    relatedTools: [
+      { slug: "newtons-to-kg-force", label: "Newtons to Kg-Force" },
+      { slug: "newtons-to-lbs-force", label: "Newtons to Pounds-Force" },
+      { slug: "lbs-force-to-newtons", label: "Pounds-Force to Newtons" },
+    ],
+  },
+
+  "newtons-to-kg-force": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Newtons to Kilogram-Force",
+        "1 N = 0.10197 kgf. Divide newtons by 9.81 (or multiply by 0.10197) to get kgf. So 200 N ÷ 9.81 = 20.39 kgf. Used when reading older European mechanical specs that use kgf and translating to N (SI) for modern work.",
+        "An 80-kg person standing on the floor exerts 785 N of force = 80 kgf. A bicycle stand rated at 50 kgf can hold a 50 kg bike under standard gravity. Modern engineering exclusively uses N; kgf appears mainly in older equipment manuals or specific traditional contexts."
+      ),
+      {
+        heading: "Common Newtons to Kg-Force",
+        table: {
+          headers: ["Newtons", "Kg-Force"],
+          rows: [
+            ["10 N", "1.02 kgf"],
+            ["50 N", "5.10 kgf"],
+            ["100 N", "10.20 kgf"],
+            ["500 N", "50.99 kgf"],
+            ["1000 N", "101.97 kgf"],
+            ["5000 N", "509.86 kgf"],
+            ["10000 N", "1019.72 kgf"],
+            ["100000 N", "10197.16 kgf"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is kgf still used?",
+        "Cultural inertia in some industries. Mechanical engineering in Eastern Europe and parts of Asia retained kgf longer than the SI transition. Some legacy Russian, Chinese, German equipment specs still use kgf. Newer specs migrating to N."
+      ),
+      createFAQ(
+        "What about pond-force or other variants?",
+        "Pond (or 'gram-force') = 1 thousandth of a kilogram-force = 9.81 millinewtons. Niche unit, not in modern SI. Some older specifications mention it. Most modern usage is just 'mN' (millinewtons) for sub-Newton forces."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kg-force-to-newtons", label: "Kg-Force to Newtons" },
+      { slug: "newtons-to-lbs-force", label: "Newtons to Pounds-Force" },
+      { slug: "lbs-force-to-newtons", label: "Pounds-Force to Newtons" },
+    ],
+  },
+
+  "hex-to-rgb": {
+    sections: [
+      createAnswerFirstSection(
+        "Hex Color to RGB",
+        "Web colour codes use 6 hex digits: first 2 = red (00-FF = 0-255), next 2 = green, last 2 = blue. So #FF0000 = RGB(255, 0, 0) = pure red. #00FF00 = pure green. #0000FF = pure blue. Convert each hex pair to decimal: FF = 255, 80 = 128, 00 = 0.",
+        "Common color codes: white #FFFFFF = RGB(255,255,255). Black #000000 = RGB(0,0,0). Grey #808080 = RGB(128,128,128). Bootstrap blue #007BFF = RGB(0,123,255). Many design tools display both formats; HTML/CSS uses both interchangeably (though hex is more compact). Modern CSS supports rgb() function: 'color: rgb(255, 0, 0)'."
+      ),
+      {
+        heading: "Common Hex to RGB Examples",
+        table: {
+          headers: ["Hex", "RGB", "Color"],
+          rows: [
+            ["#FFFFFF", "(255, 255, 255)", "White"],
+            ["#000000", "(0, 0, 0)", "Black"],
+            ["#FF0000", "(255, 0, 0)", "Red"],
+            ["#00FF00", "(0, 255, 0)", "Green"],
+            ["#0000FF", "(0, 0, 255)", "Blue"],
+            ["#FFFF00", "(255, 255, 0)", "Yellow"],
+            ["#FF00FF", "(255, 0, 255)", "Magenta"],
+            ["#808080", "(128, 128, 128)", "Grey"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the # for?",
+        "Just a marker indicating 'hexadecimal color' in CSS. Some contexts allow hex without #; CSS requires it. The digits themselves (FFFFFF) are the hex value; the # is a CSS syntax convention."
+      ),
+      createFAQ(
+        "Is RGB the same as RGBA?",
+        "RGBA adds alpha (transparency): rgba(255, 0, 0, 0.5) = red at 50% opacity. Modern CSS also supports 8-digit hex (#RRGGBBAA) where last 2 hex = alpha. So #FF0000FF = fully opaque red; #FF000080 = 50% transparent red."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+    ],
+  },
+
+  "number-base-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Common Number Bases",
+        "Base 10 (decimal): everyday counting, 0-9 digits. Base 2 (binary): computing, 0-1. Base 8 (octal): legacy computing, 0-7. Base 16 (hexadecimal): web colours, memory addresses, 0-9 + A-F. Convert between any pair: 255 in decimal = 11111111 in binary = 377 in octal = FF in hex.",
+        "Used in computing, networking, electronics. Programmers regularly switch between bases when working with bit-level operations, memory addresses, or hex colours. The mathematical concept is identical - same number, different representation. A scientific calculator typically supports DEC/BIN/OCT/HEX modes for direct conversion."
+      ),
+      {
+        heading: "Common Number Base Conversions",
+        table: {
+          headers: ["Decimal", "Binary", "Octal", "Hex"],
+          rows: [
+            ["0", "0", "0", "0"],
+            ["1", "1", "1", "1"],
+            ["10", "1010", "12", "A"],
+            ["16", "10000", "20", "10"],
+            ["100", "1100100", "144", "64"],
+            ["255", "11111111", "377", "FF"],
+            ["1000", "1111101000", "1750", "3E8"],
+            ["65535", "1111...11111", "177777", "FFFF"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why so many number systems?",
+        "Different uses. Binary suits computer hardware (on/off bits). Hex packs 4 binary digits into 1 hex digit (compact). Decimal suits human counting (10 fingers heritage). Octal was popular when computers had 6-bit or 12-bit words; less used now."
+      ),
+      createFAQ(
+        "How do I convert by hand?",
+        "Decimal-to-binary: divide by 2 repeatedly, remainders read bottom-up. Binary-to-decimal: powers of 2, sum bits with their position weight. Hex-to-binary: each hex digit = 4 bits. Calculator does the work; understanding the process helps debug edge cases."
+      ),
+    ],
+    relatedTools: [
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+    ],
+  },
+
+  "clothing-size-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "International Clothing Size Charts",
+        "Clothing sizes vary wildly by country and brand. Women's dress: UK 8 ≈ US 4 ≈ EU 36 ≈ JP 9. Men's shirt collar: UK 15 ≈ US 15 ≈ EU 38. Shoes: UK 8 men's ≈ US 9 ≈ EU 42. Each manufacturer has slight variation - Italian brands run small, German brands true-to-size, American sometimes generous. Always check brand-specific size charts before ordering online.",
+        "Common conversion contexts: shopping international online stores, ordering uniforms, gift-buying for relatives abroad. UK and US sizes are similar but not identical (especially in women's). Always note which country a size is from. International sites typically display multiple size systems for the same item."
+      ),
+      {
+        heading: "Women's Clothing Size Reference",
+        table: {
+          headers: ["UK", "US", "EU", "JP"],
+          rows: [
+            ["6", "2", "34", "7"],
+            ["8", "4", "36", "9"],
+            ["10", "6", "38", "11"],
+            ["12", "8", "40", "13"],
+            ["14", "10", "42", "15"],
+            ["16", "12", "44", "17"],
+            ["18", "14", "46", "19"],
+            ["20", "16", "48", "21"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are clothes sizes so inconsistent?",
+        "No global standard exists. Each country developed its own system; brands tweak based on target demographic ('vanity sizing' - rebadging size 12 as 10 to flatter customers). Italian designer brands tend to run small; American mass-market often generous. Always check the brand's own size chart, not the country's general standard."
+      ),
+      createFAQ(
+        "What's vanity sizing?",
+        "Brands progressively make their size labels smaller while actual measurements stay the same or get larger. So a 'size 8' today is roughly equivalent to a 'size 12' from the 1980s. Confuses comparisons between brands and across decades. Different brands have different vanity-sizing positions."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-to-us-shoe-size-mens", label: "UK to US Shoe Size" },
+      { slug: "uk-to-eu-shoe-size", label: "UK to EU Shoe Size" },
+      { slug: "uk-to-us-dress-size", label: "UK to US Dress Size" },
+    ],
+  },
+
+  "paper-size-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "International Paper Sizes",
+        "Two main systems: ISO 216 (used globally outside North America) - A0, A1, A2, A3, A4, A5, etc. with each size being half of the previous. American/Canadian uses Letter (8.5 × 11 in), Legal (8.5 × 14 in), Tabloid (11 × 17 in), etc. - sizes have no direct ratio relationship.",
+        "Common conversions: A4 (210 × 297 mm) ≈ Letter (216 × 279 mm) - very close, but A4 is slightly narrower and taller. A3 ≈ Tabloid. A5 ≈ Half-Letter. The square-root-of-2 ratio in ISO sizes means folding any A-size in half gives the next smaller size with the same proportions."
+      ),
+      {
+        heading: "Common Paper Sizes",
+        table: {
+          headers: ["ISO", "Size (mm)", "Size (in)", "US Equivalent"],
+          rows: [
+            ["A0", "841 × 1189", "33.1 × 46.8", "n/a"],
+            ["A1", "594 × 841", "23.4 × 33.1", "n/a"],
+            ["A2", "420 × 594", "16.5 × 23.4", "Tabloid Extra"],
+            ["A3", "297 × 420", "11.7 × 16.5", "Tabloid"],
+            ["A4", "210 × 297", "8.3 × 11.7", "Letter"],
+            ["A5", "148 × 210", "5.8 × 8.3", "Half Letter"],
+            ["A6", "105 × 148", "4.1 × 5.8", "Index card"],
+            ["A7", "74 × 105", "2.9 × 4.1", "Postcard"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why doesn't the US use A4?",
+        "Historical accident. The Lincoln-era US standardised on 8.5 × 11 inch paper before ISO sizes were established (1922). Switching cost would be substantial - all forms, file folders, printers, copiers built for Letter. Hardware in the US still optimised for 8.5 × 11."
+      ),
+      createFAQ(
+        "Are A4 and Letter the same?",
+        "Close but not identical. A4: 210 × 297 mm. Letter: 216 × 279 mm. A4 is slightly narrower (6 mm) and taller (18 mm). Most printers handle both; Excel/Word default page setup defaults to A4 or Letter based on locale."
+      ),
+    ],
+    relatedTools: [
+      { slug: "a4-to-letter-dimensions", label: "A4 to Letter" },
+      { slug: "a3-to-tabloid-dimensions", label: "A3 to Tabloid" },
+      { slug: "a5-to-half-letter-dimensions", label: "A5 to Half Letter" },
+    ],
+  },
+
+  "data-storage-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Data Storage Units",
+        "Standard hierarchy: bit < byte (8 bits) < KB (1024 B) < MB (1024 KB) < GB (1024 MB) < TB (1024 GB) < PB (1024 TB). Two systems exist: binary (1 KB = 1,024 bytes, used by OS) and decimal (1 KB = 1,000 bytes, used by drive marketing). The 1.024x mismatch creates the 'missing storage' confusion when buying drives.",
+        "Reference: a typical book (text only) = 1-2 MB. Photo = 2-5 MB. Movie 1080p = 4-8 GB. Game install = 50-150 GB. Personal cloud storage purchases: typically 1-5 TB. Modern phones: 64-256 GB. Modern PCs: 256 GB - 4 TB. Cloud companies measure in PB and EB internally."
+      ),
+      {
+        heading: "Data Storage Reference",
+        table: {
+          headers: ["Unit", "Bytes (binary)", "Common Use"],
+          rows: [
+            ["Byte", "1", "Single character"],
+            ["KB", "1,024", "Text files"],
+            ["MB", "1,048,576", "Photos, music"],
+            ["GB", "1,073,741,824", "Videos, OS install"],
+            ["TB", "~1.1 × 10^12", "External drives"],
+            ["PB", "~1.1 × 10^15", "Enterprise storage"],
+            ["EB", "~1.15 × 10^18", "Internet annual traffic"],
+            ["ZB", "~1.18 × 10^21", "Global data total"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is my new TB drive showing 931 GB?",
+        "Drive manufacturer used decimal (1 TB = 10^12 bytes = 1,000,000,000,000 bytes). OS uses binary (1 TiB = 2^40 bytes = 1,099,511,627,776 bytes). 1 × 10^12 ÷ 2^40 = 0.909 TiB ≈ 931 GiB. The 'missing' 69 GB is real to marketing definition; OS is reporting the binary equivalent."
+      ),
+      createFAQ(
+        "What's the difference between MB and MiB?",
+        "MB = decimal megabyte = 1,000,000 bytes. MiB = binary mebibyte = 1,048,576 bytes. The 4.86% difference matters for technical work. Most consumer use casually treats them as equivalent. Strictly, file managers usually report MiB but label it 'MB'."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mb-to-gb", label: "MB to GB" },
+      { slug: "gb-to-tb", label: "GB to TB" },
+      { slug: "bits-to-bytes", label: "Bits to Bytes" },
+    ],
+  },
+
+  "cooking-measurement-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Cooking Measurement Conversions",
+        "Cooking spans many measurement systems: volume (cups, tablespoons, teaspoons, ml), weight (grams, ounces, pounds), temperature (°F, °C, gas mark). Different countries default to different systems: US = cups + °F, UK = grams + °C, EU = grams + °C. Most recipes work cross-system once converted, with two big exceptions: ingredient density (cup of flour ≠ cup of sugar in weight) and oven temperature differences.",
+        "Common cooking conversions: 1 cup = 240 ml = 16 tbsp = 8 fl oz. 1 tbsp = 15 ml. 1 tsp = 5 ml. 1 oz weight = 28 g. 1 lb = 454 g. 350°F = 175°C. Recipe scaling: doubling needs care with seasonings (salt, leavening) - 2x recipe doesn't always need exactly 2x salt; baking is more sensitive than savory cooking."
+      ),
+      {
+        heading: "Common Cooking Conversions",
+        table: {
+          headers: ["From", "To"],
+          rows: [
+            ["1 cup (US)", "240 ml"],
+            ["1 tablespoon", "15 ml"],
+            ["1 teaspoon", "5 ml"],
+            ["1 oz (weight)", "28 g"],
+            ["1 lb", "454 g"],
+            ["1 stick butter", "113 g (1/2 cup)"],
+            ["350°F (oven)", "175°C / Gas Mark 4"],
+            ["1 fluid ounce", "30 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is volume measurement unreliable?",
+        "Density varies by ingredient. 1 cup of flour ≈ 125 g; 1 cup of sugar ≈ 200 g. Same volume, very different weights. Professional bakers use weight; volume measurement causes inconsistency in baking (where small differences matter)."
+      ),
+      createFAQ(
+        "Should I convert recipes by doubling?",
+        "Mostly yes, with caveats. Standard ingredients (flour, sugar, butter) double exactly. Spices, salt, leavening (baking powder, baking soda): typically 1.5x not 2x for double recipes. Baking time: stays similar (depends on container size, not recipe size). Test scaling on small portions first."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "cups-to-grams", label: "Cups to Grams" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+    ],
+  },
+
+  "speed-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Common Speed Units",
+        "Different contexts use different speed units: car driving (mph, km/h), maritime (knots), aviation (knots, Mach), athletics (m/s, km/h, mph), space (km/s). Convert between any pair: 1 mph = 1.609 km/h = 0.869 knots = 0.447 m/s. 1 km/h = 0.621 mph = 0.540 knots = 0.278 m/s.",
+        "Reference speeds: walking pace = 3 mph = 4.83 km/h = 1.34 m/s. Running pace = 6-12 mph. Highway driving = 60-80 mph = 96-129 km/h. Commercial jet cruise = 540 mph = 870 km/h = 469 knots = 240 m/s = Mach 0.78. Speed of sound at sea level = 767 mph = 1,235 km/h = 343 m/s = Mach 1."
+      ),
+      {
+        heading: "Common Speed Conversions",
+        table: {
+          headers: ["mph", "km/h", "knots", "m/s"],
+          rows: [
+            ["1", "1.61", "0.87", "0.45"],
+            ["10", "16.09", "8.69", "4.47"],
+            ["30", "48.28", "26.07", "13.41"],
+            ["60", "96.56", "52.14", "26.82"],
+            ["80", "128.75", "69.52", "35.76"],
+            ["100", "160.93", "86.90", "44.70"],
+            ["200", "321.87", "173.79", "89.41"],
+            ["500", "804.67", "434.49", "223.52"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why so many speed units?",
+        "Different industries developed independently. Maritime and aviation share knots tradition. Cars/road use mph (US/UK) or km/h (rest of world). Physics uses m/s. Space speed in km/s. Each unit suits its domain - converting is mostly a cross-context need."
+      ),
+      createFAQ(
+        "Is mph or km/h faster?",
+        "Same speed in different units. The number on a US speedometer (mph) is smaller than the same speed in km/h (UK/EU). 60 mph = 97 km/h. So 60 'feels' slower in mph - same actual speed, different displayed number."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mph-to-kph", label: "MPH to KPH" },
+      { slug: "kph-to-mph", label: "KPH to MPH" },
+      { slug: "knots-to-mph", label: "Knots to MPH" },
+    ],
+  },
+
+  "pressure-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Common Pressure Units",
+        "Pressure (force per area) in many units: psi (pounds per square inch), bar, Pa (Pascal, SI base), atm (atmosphere), Torr/mmHg. Convert: 1 atm = 1.013 bar = 14.696 psi = 101,325 Pa = 760 Torr. Each unit suits a context - tyres in psi (US) or bar (EU), barometers in mb/Pa, scuba in atm, blood pressure in mmHg.",
+        "Reference: atmospheric at sea level = 1 atm = 1.013 bar = 14.7 psi. Car tyre = 30 psi = 2.07 bar. Bicycle road = 100 psi = 6.9 bar. Espresso = 9 bar = 130 psi. Blood pressure = 120/80 mmHg. Tornado pressure drop = -0.1 bar = -1.5 psi (suction effect)."
+      ),
+      {
+        heading: "Common Pressure Conversions",
+        table: {
+          headers: ["psi", "bar", "atm", "Pa"],
+          rows: [
+            ["1", "0.069", "0.068", "6,895"],
+            ["14.7", "1.013", "1", "101,325"],
+            ["30", "2.07", "2.04", "206,843"],
+            ["50", "3.45", "3.40", "344,738"],
+            ["100", "6.89", "6.80", "689,476"],
+            ["200", "13.79", "13.61", "1,378,951"],
+            ["500", "34.47", "34.02", "3,447,378"],
+            ["1000", "68.95", "68.05", "6,894,757"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a Pascal?",
+        "SI unit of pressure: 1 Pa = 1 N/m² (force per area). Very small unit - atmospheric pressure is 101,325 Pa. Often used as kPa (kilopascals): 101 kPa for atmospheric. Hectopascal (hPa) used in weather: 1013 hPa for sea level (same as 1013 mb)."
+      ),
+      createFAQ(
+        "Why is tyre pressure in different units?",
+        "Cultural/regulatory: US uses psi, UK varies (psi or bar), EU bar. Tyre pressure gauges sold for one market may not show both. International equipment usually has both scales. Always check before reading."
+      ),
+    ],
+    relatedTools: [
+      { slug: "psi-to-bar", label: "PSI to Bar" },
+      { slug: "bar-to-psi", label: "Bar to PSI" },
+      { slug: "atm-to-psi", label: "Atmosphere to PSI" },
+    ],
+  },
+
+  "energy-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Energy Units",
+        "Energy (work, heat) in many units: joule (J, SI base), calorie (cal), kilocalorie (kcal, food calories), British Thermal Unit (BTU), kilowatt-hour (kWh), electronvolt (eV). Convert: 1 kcal = 4,184 J = 3.97 BTU. 1 kWh = 3,600,000 J = 3,412 BTU = 860 kcal.",
+        "Reference values: human daily food intake = 2,000-2,500 kcal = 8.4-10.5 MJ. Light bulb hour = 60 Wh = 216,000 J = 51.6 kcal. Petrol energy = 9.7 kWh per litre = 35 MJ/L. UK household annual electricity = 2,900 kWh average. Lithium battery: ~265 Wh/kg energy density."
+      ),
+      {
+        heading: "Common Energy Conversions",
+        table: {
+          headers: ["From", "To"],
+          rows: [
+            ["1 J", "0.000239 cal"],
+            ["1 kcal (food)", "4,184 J"],
+            ["1 BTU", "1,055 J"],
+            ["1 kWh", "3,600,000 J"],
+            ["1 kWh", "3,412 BTU"],
+            ["1 kWh", "860 kcal"],
+            ["100 kcal (banana)", "418 kJ"],
+            ["1 MJ", "0.278 kWh"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between energy and power?",
+        "Power is rate of energy use (W, kW). Energy is total work done (J, kWh). A 1 kW heater running 1 hour uses 1 kWh of energy. A 100 W bulb running 10 hours = same 1 kWh. Watt is rate; kWh is amount."
+      ),
+      createFAQ(
+        "How is this useful in real life?",
+        "Comparing food labels (UK kcal vs Australian kJ). Energy bills (kWh = unit charged for electricity). Heating cost calculations. Electric vehicle range (kWh battery × Wh/km efficiency). Investment in solar (kWh/year output relative to consumption)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kwh-to-btu", label: "kWh to BTU" },
+      { slug: "btu-to-kwh", label: "BTU to kWh" },
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+    ],
+  },
+
+  "angle-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Angle Measurement Units",
+        "Three main units: degrees (°, 360 in a circle), radians (rad, 2π in a circle), gradians (gon, 400 in a circle). Conversions: degrees × π/180 = radians. Degrees × 10/9 = gradians. So 90° = π/2 rad = 100 gon. Used in: geometry, trigonometry, surveying, navigation, astronomy.",
+        "Most everyday work uses degrees - intuitive and what calculators default to. Mathematics (especially calculus) uses radians for cleaner formulas. Engineering surveying sometimes uses gradians (especially in France/Germany). Astronomy uses degrees, arc minutes (1° = 60'), arc seconds (1' = 60\")."
+      ),
+      {
+        heading: "Common Angle Conversions",
+        table: {
+          headers: ["Degrees", "Radians", "Gradians"],
+          rows: [
+            ["0°", "0", "0 gon"],
+            ["30°", "π/6 ≈ 0.524", "33.33 gon"],
+            ["45°", "π/4 ≈ 0.785", "50 gon"],
+            ["60°", "π/3 ≈ 1.047", "66.67 gon"],
+            ["90°", "π/2 ≈ 1.571", "100 gon"],
+            ["180°", "π ≈ 3.142", "200 gon"],
+            ["270°", "3π/2 ≈ 4.712", "300 gon"],
+            ["360°", "2π ≈ 6.283", "400 gon"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are circles 360°?",
+        "Inherited from Babylonian mathematics (~3000 BC). 360 has many divisors (1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360), making it convenient for fraction-based geometry. Pre-decimal era preferred convenient fractions."
+      ),
+      createFAQ(
+        "Should I learn radians?",
+        "If you do calculus, physics, engineering, or programming with trig functions: yes, radians become natural. If you only do everyday geometry: degrees are fine. Both are correct; mathematical work prefers radians for cleaner derivatives and integrals."
+      ),
+    ],
+    relatedTools: [
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+      { slug: "radians-to-degrees", label: "Radians to Degrees" },
+      { slug: "degrees-to-gradians", label: "Degrees to Gradians" },
+    ],
+  },
+
+  "fuel-consumption-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Fuel Consumption Units",
+        "Two main systems: distance per fuel (mpg, km/L - higher = more efficient) or fuel per distance (L/100km, gallons per 100 mi - lower = more efficient). Different countries default differently: US = mpg, UK = mpg, EU = L/100km, Australia = L/100km. UK MPG and US MPG differ because gallons differ by 20% in size.",
+        "Reference: small efficient car = 50 UK mpg = 41 US mpg = 5.65 L/100km. Average modern car = 35-40 UK mpg = 6-7 L/100km. SUV/truck = 25-30 UK mpg = 9.4-11.3 L/100km. Hybrid car = 60-70 UK mpg = 4-4.7 L/100km. EV equivalent (MPGe) = 90-130 UK mpge = 2-3 L/100km equivalent."
+      ),
+      {
+        heading: "Fuel Consumption Reference",
+        table: {
+          headers: ["UK MPG", "US MPG", "L/100km", "km/L"],
+          rows: [
+            ["20", "16.7", "14.12", "7.08"],
+            ["30", "25.0", "9.42", "10.62"],
+            ["40", "33.3", "7.06", "14.16"],
+            ["50", "41.7", "5.65", "17.70"],
+            ["60", "50.0", "4.71", "21.24"],
+            ["70", "58.3", "4.03", "24.78"],
+            ["80", "66.7", "3.53", "28.32"],
+            ["100", "83.3", "2.82", "35.40"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are UK and US MPG different?",
+        "UK gallon = 4.546 L; US gallon = 3.785 L. So UK MPG numbers are about 20% higher than US MPG for the same vehicle. Always check which system is being quoted - confused readers can think US cars are less efficient than they actually are."
+      ),
+      createFAQ(
+        "Is L/100km easier than MPG?",
+        "Some find it more intuitive - the smaller the number, the more efficient. Comparing options: 5 L/100km vs 8 L/100km is clearly 'better' (less fuel). MPG comparison can be misleading - going from 15 mpg to 25 mpg saves more fuel than going from 30 mpg to 40 mpg over the same distance."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mpg-to-litres-per-100km", label: "MPG to L/100km" },
+      { slug: "litres-per-100km-to-mpg", label: "L/100km to MPG" },
+      { slug: "mpg-uk-to-mpg-us", label: "UK MPG to US MPG" },
+    ],
+  },
+
+  "speed-limit-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "International Speed Limits",
+        "Country speed limits in different units: UK uses mph; most of Europe uses km/h. Common UK limits: 30 mph urban (48 km/h), 60 mph rural single carriageway (97 km/h), 70 mph motorway (113 km/h). Common EU: 50 km/h urban (31 mph), 90 km/h rural (56 mph), 130 km/h motorway (81 mph). Germany Autobahn: no limit on most stretches (advisory 130 km/h).",
+        "Critical to know when driving abroad. Speed cameras enforce in local units; misreading the gauge causes fines. UK rental cars in EU have mph speedometers - convert mentally to km/h. EU rental cars in UK have km/h speedometers - convert to mph. Modern cars often display both; always check before driving."
+      ),
+      {
+        heading: "Common Speed Limits",
+        table: {
+          headers: ["MPH", "KPH", "Where"],
+          rows: [
+            ["20 mph", "32 km/h", "UK schools, residential"],
+            ["30 mph", "48 km/h", "UK urban"],
+            ["50 km/h", "31 mph", "EU urban"],
+            ["60 mph", "97 km/h", "UK rural single"],
+            ["70 mph", "113 km/h", "UK motorway"],
+            ["80 km/h", "50 mph", "EU rural"],
+            ["100 km/h", "62 mph", "Some EU motorways"],
+            ["130 km/h", "81 mph", "Most EU motorways"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are speed limits enforced strictly abroad?",
+        "Many EU countries enforce more strictly than UK - automated cameras, lower tolerances (often 5-10% over before fine), heavy fines (€500+ for serious violations). Speed enforcement abroad can result in fines later (linked to license plate, mailed to driver's home country)."
+      ),
+      createFAQ(
+        "What's the German Autobahn?",
+        "Most stretches have no posted speed limit - 'recommended' (advisory) speed is 130 km/h (81 mph). Many German drivers exceed this, with regular cruising 150-200 km/h. Other German Autobahn sections have posted limits 100-130 km/h. Other EU countries have firm limits."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mph-to-kph", label: "MPH to KPH" },
+      { slug: "kph-to-mph", label: "KPH to MPH" },
+      { slug: "speed-converter", label: "Speed Converter" },
+    ],
+  },
 };

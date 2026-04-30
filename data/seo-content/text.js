@@ -1623,4 +1623,208 @@ export const textSEO = {
       { slug: "text-to-slug", label: "Text to Slug" },
     ],
   },
+
+  "string-repeater": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a String Repeater?",
+        "A string repeater takes input text and repeats it a specified number of times, with optional separator (newline, comma, space, etc.). Useful for creating test data, padding, repeated patterns, or simply duplicating phrases without manual copy-paste. Type 'hello' × 5 with newline separator: hello / hello / hello / hello / hello on five separate lines.",
+        "Programmers use repeaters to generate test inputs, fill placeholder content, or create structured data quickly. Writers use them for formatted output (5 bullet points with the same intro). Designers use them for creating filler text patterns. The repeated string can be a single character (like '.' for dotted lines) or a full sentence."
+      ),
+      {
+        heading: "Common Uses",
+        table: {
+          headers: ["Use case", "Example"],
+          rows: [
+            ["Test data", "'apple, ' × 100 = 100 commas"],
+            ["Visual padding", "'-' × 40 = horizontal line"],
+            ["Mock content", "'Lorem ipsum...' × 5 paragraphs"],
+            ["Form filling", "'test' × 50 = stress test inputs"],
+            ["Indentation", "' ' × 4 = 4-space tab"],
+            ["Asterisk borders", "'*' × 80 = 80-char border"],
+            ["Repeated CSV header", "'name,age,city' × 3 lines"],
+            ["Numerical patterns", "'12345' × 100 = test number"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Can I add separators?",
+        "Yes - typical options: newline (\\n), comma, space, semicolon, custom string. Newline separator gives multiple lines. Comma separator gives a CSV-like single line. Custom separators allow specific formats."
+      ),
+      createFAQ(
+        "What's the maximum repetition?",
+        "Browser-based tools usually handle thousands of repetitions without issue. Tens of thousands may slow down rendering or copying to clipboard. For massive volume (millions), use programming languages directly (Python's `'x' * 1000000` is instant)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "remove-duplicate-lines", label: "Remove Duplicate Lines" },
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "random-text-generator", label: "Random Text Generator" },
+    ],
+  },
+
+  "remove-duplicate-lines": {
+    sections: [
+      createAnswerFirstSection(
+        "How Duplicate Removal Works",
+        "Compares each line of text against others and keeps only unique lines. Output preserves the order of first occurrence by default. Most tools also offer: case-insensitive matching (treat 'APPLE' and 'apple' as the same), trim whitespace before comparison, sort the unique results alphabetically, count occurrences before deduplicating.",
+        "Common scenarios: cleaning up email lists (each address only once), processing log files (unique error messages), data preparation (unique IDs from a CSV column), text editing (collapsing repeated lines from concatenation). Programming languages have built-in deduplication: Python set(), JavaScript [...new Set(arr)], SQL DISTINCT. Online tools save the trouble for ad-hoc text manipulation."
+      ),
+      {
+        heading: "Common Deduplication Options",
+        table: {
+          headers: ["Option", "Effect"],
+          rows: [
+            ["Case-sensitive", "'Apple' ≠ 'apple'"],
+            ["Case-insensitive", "'Apple' = 'apple'"],
+            ["Trim whitespace", "' apple ' = 'apple'"],
+            ["Preserve order", "First occurrence wins"],
+            ["Sort A-Z", "Alphabetical order"],
+            ["Sort frequency", "Most common first"],
+            ["Count duplicates", "Show how many duplicates removed"],
+            ["Ignore blank lines", "Skip empty lines entirely"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I sort before or after dedup?",
+        "Order matters for some workflows. If you want alphabetical unique list: sort then dedup. If you want unique items in original order: dedup only (preserves first occurrence). Most tools offer both - 'sort and dedup' or 'dedup, preserve order'."
+      ),
+      createFAQ(
+        "How does this differ from 'remove duplicates' in Excel?",
+        "Excel removes duplicate rows considering all selected columns. Text duplicate removal works on each line as a unit. Same concept, different scope. Use Excel for spreadsheet work; text tools for plain-text work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "string-repeater", label: "String Repeater" },
+      { slug: "line-counter", label: "Line Counter" },
+      { slug: "whitespace-cleaner", label: "Whitespace Cleaner" },
+    ],
+  },
+
+  "random-text-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Random Text Generation",
+        "Most random text generators use either Lorem Ipsum (placeholder Latin used since the 1500s) or Markov-chain-generated nonsense based on real text patterns. Lorem Ipsum is the standard for design mockups - readable-looking text without specific meaning. Random English text is useful for testing input handling, filling forms, or creating visual noise.",
+        "Common configurations: number of words/paragraphs/characters, language preset (Lorem, English, technical jargon, fairy-tale style). Some generators include 'realistic-looking' text with natural punctuation and capitalisation. Used in: web design mockups (50%), form testing (20%), creative writing prompts (15%), filler content (15%)."
+      ),
+      {
+        heading: "Common Random Text Variants",
+        table: {
+          headers: ["Type", "Use case"],
+          rows: [
+            ["Lorem Ipsum", "Design mockups, layout testing"],
+            ["English random", "Form input testing"],
+            ["Technical jargon", "Tech mockups, fake reports"],
+            ["Hipster Ipsum", "Trendy/lifestyle mockups"],
+            ["Cat Ipsum", "Pet sites, fun copy"],
+            ["Bacon Ipsum", "Food blogs, casual mockups"],
+            ["Customisable length", "5 words to 50 paragraphs"],
+            ["Realistic punctuation", "Mock human-readable text"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is Lorem Ipsum so common?",
+        "Tradition - it's been used by typesetters since the 1500s. The Latin words have natural English-looking letter frequencies. Designers can show layout without distracting clients with readable English text. The phrase 'Lorem ipsum dolor sit amet...' is the canonical opening."
+      ),
+      createFAQ(
+        "Can I get truly random characters?",
+        "Yes - pure character randomness (jumbled letters, no words). Useful for password testing, encryption work. Less common in design contexts (looks too 'noisy'). Most random text tools offer both 'word-based' (real-looking) and 'pure random characters' options."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lorem-ipsum-generator", label: "Lorem Ipsum Generator" },
+      { slug: "string-repeater", label: "String Repeater" },
+      { slug: "password-generator", label: "Password Generator" },
+    ],
+  },
+
+  "text-to-csv-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Converting Plain Text to CSV",
+        "CSV (Comma-Separated Values) is the universal format for tabular data. Conversion takes structured plain text (one record per line, fields separated by tabs/commas/spaces/etc.) and outputs proper CSV with quote-escaping for special characters. So 'Alice 30 Engineer\\nBob 25 Designer' becomes 'Alice,30,Engineer\\nBob,25,Designer'.",
+        "Common scenarios: pasted spreadsheet data needs CSV format, log files with consistent structure to spreadsheet, scraped table data to CSV. Most converters handle: tab-separated input (TSV), space-separated, custom delimiters, quoted fields, escape characters. Output works in Excel, Google Sheets, databases, and any CSV-aware tool."
+      ),
+      {
+        heading: "Common Conversions",
+        table: {
+          headers: ["Input format", "Output (CSV)"],
+          rows: [
+            ["Tab-separated", "Replace tabs with commas"],
+            ["Space-separated", "Detect field boundaries"],
+            ["Pipe-separated", "Replace pipes with commas"],
+            ["Fixed-width", "Detect column positions"],
+            ["JSON arrays", "Flatten to CSV rows"],
+            ["XML data", "Extract values to columns"],
+            ["Plain text lists", "One field per line"],
+            ["Markdown tables", "Strip formatting to CSV"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What if my text has commas in it?",
+        "Quote-escape: surround the field with double quotes. So 'Hello, world' becomes \"Hello, world\". This is the CSV standard - commas inside quoted fields don't break parsing. Quotes themselves get escaped as \\\" within quoted fields."
+      ),
+      createFAQ(
+        "Will Excel open my CSV correctly?",
+        "Usually yes if the structure is clean. Excel's auto-detection handles most CSV variations. If issues: open Excel first, then File → Import → Text/CSV with explicit delimiter setting. UTF-8 BOM helps Excel recognise non-ASCII characters correctly."
+      ),
+    ],
+    relatedTools: [
+      { slug: "remove-duplicate-lines", label: "Remove Duplicate Lines" },
+      { slug: "case-converter", label: "Case Converter" },
+      { slug: "whitespace-cleaner", label: "Whitespace Cleaner" },
+    ],
+  },
+
+  "email-extractor": {
+    sections: [
+      createAnswerFirstSection(
+        "Extracting Emails from Text",
+        "Pattern matching finds strings matching email format: word characters + @ + domain + dot + TLD. Standard regex: \\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b. Most extractors handle: plain text input, output as comma-separated list, deduplication of repeated emails, simple validation of format.",
+        "Useful for: cleaning up scraped data (web pages with mixed text and emails), processing email exports, contact list extraction from documents. Caveat: extracted emails are addresses found in the text - whether they're valid working addresses requires sending email or using verification services. Format-valid doesn't mean active."
+      ),
+      {
+        heading: "Common Email Patterns Extracted",
+        table: {
+          headers: ["Pattern", "Match"],
+          rows: [
+            ["alice@example.com", "Standard"],
+            ["john.smith@company.co.uk", "Multi-dot domain"],
+            ["user+tag@gmail.com", "Plus addressing"],
+            ["test_123@subdomain.example.org", "Underscore"],
+            ["info@münchen.de", "International domain"],
+            ["weird.format@email.xn--p1ai", "Punycode TLD"],
+            ["MIXED.case@Example.COM", "Case preserved"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Will it find emails in PDFs?",
+        "If you copy the PDF text and paste it - yes. The extractor works on plain text input. Direct PDF reading would require OCR or PDF parsing libraries (most online text extractors don't handle PDFs natively)."
+      ),
+      createFAQ(
+        "Can I verify the emails work?",
+        "The extractor finds format-valid addresses. Verification (whether they actually receive mail) requires services like Mailgun, NeverBounce, ZeroBounce. They check domain MX records and sometimes attempt SMTP handshakes without sending mail."
+      ),
+    ],
+    relatedTools: [
+      { slug: "text-to-csv-converter", label: "Text to CSV Converter" },
+      { slug: "remove-duplicate-lines", label: "Remove Duplicate Lines" },
+      { slug: "url-encoder", label: "URL Encoder" },
+    ],
+  },
 };

@@ -1631,4 +1631,248 @@ export const developerSEO = {
       { slug: "css-minifier", label: "CSS Minifier" },
     ],
   },
+
+  "base64-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "What's Base64?",
+        "Base64 encoding transforms binary or special-character data into a 64-character ASCII string (A-Z, a-z, 0-9, +, /, with = padding). So 'Hello' becomes 'SGVsbG8='. The encoding produces output 33% longer than the input but ensures the data survives transport through systems that only handle plain text - HTTP headers, email bodies, URLs, JSON values.",
+        "Common uses: embedding images in CSS/HTML (data:image/png;base64,...), encoding binary in JSON/XML, HTTP Basic Auth headers, JWT tokens (header and payload sections are base64-url-encoded). Not encryption - it's encoding. Anyone who sees base64 can decode it instantly. Use cryptography for actual security."
+      ),
+      {
+        heading: "Common Base64 Examples",
+        table: {
+          headers: ["Plain Text", "Base64"],
+          rows: [
+            ["A", "QQ=="],
+            ["AB", "QUI="],
+            ["Hello", "SGVsbG8="],
+            ["Hello, World!", "SGVsbG8sIFdvcmxkIQ=="],
+            ["user:password", "dXNlcjpwYXNzd29yZA=="],
+            ["JSON {\"a\":1}", "anNvbiB7ImEiOjF9"],
+            ["1 byte (0xFF)", "/w=="],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does it have padding (= signs)?",
+        "Base64 works in groups of 3 input bytes → 4 output characters. When the input isn't a multiple of 3 bytes, padding fills the gap. 1 byte input = 2 output + '=='. 2 bytes input = 3 output + '='. 3 bytes = 4 output, no padding needed."
+      ),
+      createFAQ(
+        "Is base64 secure?",
+        "No - it's encoding, not encryption. Anyone with the base64 string can decode it instantly to original. For actual security, use real cryptography (AES, RSA). Base64 is only useful for data transport across systems that don't handle binary."
+      ),
+    ],
+    relatedTools: [
+      { slug: "url-encoder", label: "URL Encoder" },
+      { slug: "html-entity-encoder", label: "HTML Entity Encoder" },
+      { slug: "hash-generator", label: "Hash Generator" },
+    ],
+  },
+
+  "url-encoder": {
+    sections: [
+      createAnswerFirstSection(
+        "How URL Encoding Works",
+        "URL encoding (also called 'percent-encoding') replaces special characters with %XX where XX is the hex code of the character. So a space becomes %20, & becomes %26, # becomes %23. RFC 3986 defines which characters need encoding. Letters, digits, and -_.~ are 'unreserved' and pass through unchanged.",
+        "Used everywhere URLs include user input. Search queries: 'hello world' becomes 'hello%20world' (or 'hello+world' in form data). Special characters in URLs: 'café' becomes 'caf%C3%A9' (UTF-8 bytes percent-encoded). Always encode untrusted input before placing it in a URL - failure to encode causes broken links and is a common source of XSS vulnerabilities."
+      ),
+      {
+        heading: "Common URL Encodings",
+        table: {
+          headers: ["Character", "Encoded"],
+          rows: [
+            ["space", "%20 (or + in forms)"],
+            ["#", "%23"],
+            ["&", "%26"],
+            ["?", "%3F"],
+            ["/", "%2F"],
+            [":", "%3A"],
+            ["=", "%3D"],
+            ["@", "%40"],
+            ["café (UTF-8)", "caf%C3%A9"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are some characters encoded and others not?",
+        "Reserved characters (?, &, =, /, etc.) have special meaning in URLs - encoding preserves their literal value when used in data. Unreserved (letters, digits, -_.~) have no special URL meaning and stay as-is. The line is set by RFC 3986 spec; modern systems follow it strictly."
+      ),
+      createFAQ(
+        "Is + the same as %20?",
+        "In query strings (form data after ?): yes, + represents space. In path components (before ?): no, + is literal +. Use %20 if you want a space in a path component. Most URL encoders default to + for query strings, %20 for paths."
+      ),
+    ],
+    relatedTools: [
+      { slug: "base64-converter", label: "Base64 Converter" },
+      { slug: "html-entity-encoder", label: "HTML Entity Encoder" },
+      { slug: "slug-generator", label: "Slug Generator" },
+    ],
+  },
+
+  "uuid-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a UUID?",
+        "Universally Unique Identifier - a 128-bit ID with a standard format: 8-4-4-4-12 hex digits separated by hyphens. Example: 550e8400-e29b-41d4-a716-446655440000. Designed so that any system can generate UUIDs independently and the chance of collision is essentially zero (~10^-18 collision probability per generation, less likely than a particular star colliding with Earth).",
+        "Common uses: database primary keys (especially in distributed systems), API identifiers, session tokens, file names. Most languages have built-in UUID generation: JavaScript crypto.randomUUID(), Python uuid.uuid4(), Java UUID.randomUUID(). Different versions of UUID exist - v4 (random) is most common, v7 (time-ordered random) is increasingly popular for database keys."
+      ),
+      {
+        heading: "UUID Versions",
+        table: {
+          headers: ["Version", "Description"],
+          rows: [
+            ["v1", "Time + MAC address (privacy concern)"],
+            ["v3", "MD5 hash of namespace + name"],
+            ["v4", "Random (most common)"],
+            ["v5", "SHA-1 hash of namespace + name"],
+            ["v6", "Time-ordered (better for indexes)"],
+            ["v7", "Unix timestamp + random (newest)"],
+            ["NIL", "All zeros: 00000000-0000-0000-0000-000000000000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use UUID instead of incrementing IDs?",
+        "Distributed systems can generate IDs independently without coordinating with a central counter. Better for microservices, sharded databases, mobile apps generating IDs offline. Trade-off: UUIDs are larger (16 bytes vs 4 for integer), and v4 random UUIDs hurt database index performance vs sequential IDs."
+      ),
+      createFAQ(
+        "Should I use v4 or v7?",
+        "v7 is newer (RFC 9562, 2024) and ordered by time, which keeps database indexes fast. v4 is well-supported everywhere but causes random insertion in indexes. New projects in databases supporting v7 (most modern ones) should consider v7 for better performance."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hash-generator", label: "Hash Generator" },
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "base64-converter", label: "Base64 Converter" },
+    ],
+  },
+
+  "hash-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Hash?",
+        "A hash function takes any input (text, file, anything) and produces a fixed-size string output. Same input always produces the same hash; different inputs produce different hashes. Common hash sizes: MD5 (128 bits, 32 hex chars), SHA-1 (160 bits, 40 hex chars), SHA-256 (256 bits, 64 hex chars), SHA-512 (512 bits, 128 hex chars).",
+        "Uses: file integrity checking (hash of downloaded file should match published hash), password storage (hash with salt, never the actual password), data deduplication (same content = same hash), cryptographic signatures, blockchain. SHA-256 is the modern standard for general use; SHA-1 and MD5 are deprecated for security purposes (collisions can be engineered)."
+      ),
+      {
+        heading: "Common Hash Algorithms",
+        table: {
+          headers: ["Algorithm", "Output Size", "Status"],
+          rows: [
+            ["MD5", "128 bit (32 hex)", "Broken, file checksums only"],
+            ["SHA-1", "160 bit (40 hex)", "Deprecated for security"],
+            ["SHA-256", "256 bit (64 hex)", "Standard, recommended"],
+            ["SHA-512", "512 bit (128 hex)", "Highest security"],
+            ["SHA-3", "Variable", "Modern alternative"],
+            ["BLAKE2", "Variable", "Faster than SHA, secure"],
+            ["Argon2", "Variable", "Password hashing winner"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Can I reverse a hash to get the input?",
+        "No - hash functions are one-way. Reversing requires either the input itself or brute-forcing all possible inputs. For weak inputs (short passwords, common phrases), rainbow tables or dictionary attacks find the input quickly. For random/long inputs, reversal is computationally infeasible."
+      ),
+      createFAQ(
+        "Should I use MD5 for passwords?",
+        "No - MD5 is broken for cryptographic purposes. Use Argon2 (preferred), bcrypt, or scrypt for password hashing. These are slow by design, making brute force impractical. SHA-256 is fine for non-password integrity checking."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uuid-generator", label: "UUID Generator" },
+      { slug: "password-generator", label: "Password Generator" },
+      { slug: "base64-converter", label: "Base64 Converter" },
+    ],
+  },
+
+  "lorem-ipsum-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's Lorem Ipsum?",
+        "Lorem Ipsum is the standard placeholder text used in design, publishing, and printing since the 1500s. The text comes from Cicero's 'de Finibus Bonorum et Malorum' (45 BC), with words scrambled and partially mutated. The famous opening: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'",
+        "Why this specific Latin? Letter frequencies match natural English well, making layouts look realistic without distracting clients with readable English. Designers can show typography, spacing, and structure without people reading actual content. Modern alternatives exist (Bacon Ipsum, Hipster Ipsum, Cat Ipsum) but Lorem Ipsum remains the standard."
+      ),
+      {
+        heading: "Lorem Ipsum Variations",
+        table: {
+          headers: ["Type", "Length", "Use case"],
+          rows: [
+            ["Words (10-50)", "Short labels, button text", "Tooltips, captions"],
+            ["Sentences (1-3)", "Headlines, descriptions", "Section titles"],
+            ["Paragraphs (1-5)", "Article body, mockups", "Blog/article layout"],
+            ["Long form (10+ paragraphs)", "Full-page mockups", "Layout testing"],
+            ["Bytes (specific size)", "Exact-length filling", "Cell content fitting"],
+            ["List items (5-20)", "Bullet content", "Mock lists, menus"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why not just use English random text?",
+        "Lorem Ipsum looks intentionally placeholder-ish - clients understand it's not real content. English-looking random text might cause clients to read it and complain about quality. Lorem signals 'this is a layout draft', avoiding wasted feedback on content."
+      ),
+      createFAQ(
+        "Are alternatives better than classic Lorem?",
+        "For specific industries: Bacon Ipsum (food), Cat Ipsum (pet sites), Hipster Ipsum (lifestyle), Corporate Ipsum (B2B SaaS). Classic Lorem is the safest default. Themed Ipsums add personality but might be too distracting in formal client meetings."
+      ),
+    ],
+    relatedTools: [
+      { slug: "random-text-generator", label: "Random Text Generator" },
+      { slug: "string-repeater", label: "String Repeater" },
+      { slug: "character-counter", label: "Character Counter" },
+    ],
+  },
+
+  "html-entity-encoder": {
+    sections: [
+      createAnswerFirstSection(
+        "What HTML Entity Encoding Does",
+        "Replaces special HTML characters with their entity equivalents to prevent them from being interpreted as HTML. So < becomes &lt;, > becomes &gt;, & becomes &amp;, \" becomes &quot;, ' becomes &#39; or &apos;. Essential for displaying HTML/code examples on web pages without the browser rendering them as actual HTML.",
+        "Critical for security: any user-submitted content displayed on a page must be entity-encoded to prevent XSS (cross-site scripting) attacks. A user posting '<script>alert(1)</script>' should display as text, not execute. All major frameworks (React, Vue, Angular) auto-encode by default. Manual encoding via this tool when working in raw HTML or testing security."
+      ),
+      {
+        heading: "Common HTML Entities",
+        table: {
+          headers: ["Character", "Entity"],
+          rows: [
+            ["<", "&lt;"],
+            [">", "&gt;"],
+            ["&", "&amp;"],
+            ["\"", "&quot;"],
+            ["'", "&#39; or &apos;"],
+            ["non-breaking space", "&nbsp;"],
+            ["©", "&copy;"],
+            ["£", "&pound;"],
+            ["€", "&euro;"],
+            ["✓", "&check; or &#10003;"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use entities instead of UTF-8?",
+        "Both work in modern browsers. Entities are explicit (always render correctly even with encoding mishaps). UTF-8 is more compact and natural to read in source. For < > & specifically, you MUST entity-encode in HTML even with UTF-8 - those characters have HTML structural meaning."
+      ),
+      createFAQ(
+        "Should I encode user input on display?",
+        "Yes - always. Modern frameworks auto-encode. For raw HTML/template work, run user content through entity encoding before inserting. Failure to encode is the #1 cause of XSS vulnerabilities. The OWASP Top 10 has covered XSS for years for this reason."
+      ),
+    ],
+    relatedTools: [
+      { slug: "url-encoder", label: "URL Encoder" },
+      { slug: "base64-converter", label: "Base64 Converter" },
+      { slug: "case-converter", label: "Case Converter" },
+    ],
+  },
 };

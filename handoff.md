@@ -68,22 +68,17 @@ Tax/finance writer notes:
 - Australia: ATO income tax (Stage 3 from July 2024: 16%/30%/37%/45%), Medicare levy 2%, super 11.5% rising to 12% July 2025
 - India: income tax slabs (new regime default from 2024-25), GST 5/12/18/28%, sec 80C cap ₹1.5 lakh
 
-### 2. Tier 3 sprint — 169/236 done (72%)
+### 2. Tier 3 sprint — COMPLETE (236/236)
 
-150 entries added across three rounds 2026-04-30. Light-touch shape: ~41 lines per entry (1 paragraph + table + 1 paragraph + 2 FAQs + 3 relatedTools). All in working tree.
+**All Tier 3 tools have SEO content as of 2026-04-30.** 216 entries added across four rounds today (50 + 50 + 50 + 66). Light-touch shape: ~41 lines per entry (1 paragraph + table + 1 paragraph + 2 FAQs + 3 relatedTools). All in working tree.
 
-**Rounds 1-2 (100):** Converters (mostly cleared), cooking, datetime, maths.
+**Round 4 (66):** text (5), developer (6), datetime (7 unique - one duplicate slug), fun (13 - all name generators + zodiac + pet age), converters (35 - completing niche specialty conversions including square-area, force, frequency, pressure, energy, angle, fuel consumption + 10 named umbrella converters).
 
-**Round 3 (50):** Cleared 8 small categories (business, music, home niche, creative niche, sports, cooking remainder, health, automotive) + 5 finance + 5 maths + 6 text + 17 seasonal. Spans 12 files. Highest variety round so far.
+**Catalogue-wide status: 923/956 tools have SEO content (96.5%).** Only 26 pending:
+- **3 Tier 1:** baby-due-date-countdown (parenting), big-five-personality-test (quiz), colour-palette-generator (creative)
+- **23 Tier 2:** bmi-calculator (health), truth-or-dare/spin-the-wheel/who-knows-me-best/witch-name-generator/superhero-alter-ego-generator/zombie-apocalypse-name-generator (games), reading-level-checker (education), holiday-countdown (travel), set-for-life-number-picker/powerball-number-picker (betting), craft-project-generator/elf-on-the-shelf-idea-generator (parenting), when-is-easter (seasonal), break-even-calculator (business), image-file-size-calculator/screen-ppi-calculator/yarn-weight-converter/stitch-counter/quilt-calculator/wax-melt-calculator/ring-size-converter (creative), car-tax-checker (automotive)
 
-**Tier 3 status: 169/236 done, 67 pending.**
-- converters (35) — niche specialty: square-yards/km, frequency (hz/khz/mhz/ghz), force (newtons), atm/psi inverse, gradians, named tools (clothing-size-converter, paper-size-converter, fuel-consumption-converter, speed-limit-converter, etc.)
-- fun (13) — name generators (pirate, wizard, rapper, superhero, band, elf, pop-star, fantasy-tavern, vampire-name patterns)
-- datetime (8) — remaining: months-to-days, years-to-days, milliseconds, etc.
-- developer (6) — base64-converter, url-encoder, uuid-generator, hash-generator, lorem-ipsum-generator, html-entity-encoder
-- text (5) — string-repeater, remove-duplicate-lines, random-text-generator, text-to-csv-converter, email-extractor
-
-Estimated 1-2 sessions to clear remaining 67. Same direct-in-context approach.
+These 26 are likely newer registry additions made after the original sprints. Easy mop-up session whenever; not blocking the SEO recovery.
 
 ## Files of interest
 
