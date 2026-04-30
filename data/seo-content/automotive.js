@@ -1187,4 +1187,53 @@ export const automotiveSEO = {
       { slug: "litres-per-100km-to-mpg", label: "L/100km to MPG" },
     ],
   },
+
+  "car-tax-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "How UK Car Tax Works",
+        "Vehicle Excise Duty (VED, commonly 'car tax' or 'road tax') is set by DVLA based on car's CO2 emissions, fuel type, and registration date. Vehicles registered after April 2017: first-year rate based on CO2 (£0-£2,605), then standard £190/year for petrol/diesel, £180/year for hybrids, £0 for electrics (until April 2025 when EVs start paying). Vehicles registered before April 2017: rate based on CO2 only.",
+        "Cars priced over £40,000 new face an additional £390/year supplement for years 2-6 (so £580/year total for petrol, £570 hybrid). Electric vehicles registered after April 2025 will also pay this if priced over £40k. The supplement applies based on list price including options and optional extras - exceeding £40k by £100 triggers the full surcharge."
+      ),
+      createAnswerFirstSection(
+        "Tax Bands by CO2",
+        "Pre-April 2017 cars use CO2-based bands A-M: Band A (up to 100 g/km): £0/year. Band B (101-110): £20. Band C (111-120): £35. Band D (121-130): £150. Band E-M progressively higher up to £675/year for Band M (over 255 g/km). Diesels often pay an extra £15-30 per band due to NOx pollution.",
+        "Post-April 2017 cars: first-year rates range £10 (1-50 g/km) to £2,605 (over 255 g/km). After year 1, standard rates apply regardless of CO2: £190/year petrol/diesel, £180 hybrid, £0 EVs (until 2025). The first-year hit is significant for high-CO2 cars - a 2024 Range Rover at 220 g/km pays £1,490 in year 1 alone."
+      ),
+      createAnswerFirstSection(
+        "Other Tax Considerations",
+        "London ULEZ (Ultra Low Emission Zone): £12.50/day for non-compliant vehicles entering inner London. Most diesels older than September 2015 and petrols older than 2005 are non-compliant. Most newer cars meet ULEZ standards automatically. Daily charges add up - £12.50 × 250 working days = £3,125/year for daily commuters in London.",
+        "Company car tax (BIK - Benefit in Kind): a separate tax for employees with company cars based on car's CO2 and P11D value. Electric company cars: 2-3% BIK rate (very low). Petrol/diesel: 25-37% rates depending on emissions. Hybrid plug-ins: 5-12% depending on electric range. The choice between company car and car allowance often hinges on these BIK calculations."
+      ),
+      createAnswerFirstSection(
+        "Checking and Paying",
+        "Check your car's tax status at gov.uk/check-vehicle-tax (free, instant, requires reg number only). Pay/renew via direct debit (annual or monthly), at Post Office, online via gov.uk, or by phone. SORN (Statutory Off Road Notification) is needed if you stop using the car on public roads - skip the tax but you can't drive it.",
+        "Late payment penalties: £80 fine plus tax owed, reduced to £40 if paid within 28 days. Untaxed vehicle on road: £1,000 fine, vehicle clamped/seized. The DVLA has automatic number plate recognition and checks every car automatically - 'forgetting' to tax doesn't work for long. Always set up direct debit for hassle-free renewal."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are EVs going to be taxed?",
+        "Yes - from April 2025, EVs pay VED. Standard rate £190/year (same as petrol/diesel). EVs registered between 2017-2025 pay £10 for the first year and standard rate after. EVs over £40k face the £390 supplement years 2-6. The 'free EV' tax break is ending."
+      ),
+      createFAQ(
+        "What's the difference between road tax and VED?",
+        "Same thing. 'Road tax' is the colloquial term; 'VED' (Vehicle Excise Duty) is the official name. The money goes to the general government budget, not specifically road maintenance - despite the colloquial name. UK roads are funded from general taxation, not the VED."
+      ),
+      createFAQ(
+        "Can I avoid the £40k+ supplement?",
+        "Buy a car priced just under £40,000 new. The trigger is list price including options - so a £39,500 base + £600 of options = £40,100 = supplement applies. Buyers actively negotiate options/specs to stay under the threshold. Used cars sold under £40k that were originally over still pay the supplement (it follows the car for 5 years from registration)."
+      ),
+      createFAQ(
+        "What if I'm buying a used car?",
+        "Tax doesn't transfer with the car since 2014 - the seller's tax is voided when ownership transfers. New owner must tax the car before driving. Use gov.uk/vehicle-tax with the V5C document reference number. Tax is calculated based on the original registration date and CO2."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-car-loan-calculator", label: "US Car Loan Calculator" },
+      { slug: "us-gas-cost-calculator", label: "US Gas Cost Calculator" },
+      { slug: "us-ev-tax-credit-checker", label: "US EV Tax Credit Checker" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+    ],
+  },
 };

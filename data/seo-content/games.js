@@ -1637,4 +1637,298 @@ export const gameSEO = {
       { slug: "hobby-cost-tracker", label: "Hobby Cost Tracker" },
     ],
   },
+
+  "truth-or-dare": {
+    sections: [
+      createAnswerFirstSection(
+        "How Truth or Dare Works",
+        "Players take turns choosing 'truth' (answer a personal question honestly) or 'dare' (perform a challenge). Refusing to do either typically forfeits the round (loses points or pays a forfeit). The format scales: kid-friendly versions for sleepovers (mild questions, harmless dares), party versions for adults (more revealing or daring), couples versions, work team versions.",
+        "Origins date back centuries - the game appears in different forms across cultures (Greek 'kottabos', medieval European drinking games). Modern format crystallised in the 20th century. Used as: ice-breaker at gatherings, deepening friend conversations, party entertainment, team-building exercises (with tame variants). Most online generators offer category presets: family-friendly, teen, adult, couples, etc."
+      ),
+      createAnswerFirstSection(
+        "Picking the Right Category",
+        "Family-friendly (mild): 'What's your most embarrassing food memory?', 'Try to do 10 jumping jacks while singing'. Teen/sleepover: 'Who's your secret crush?', 'Call your crush and read a poem'. Adult party: more personal questions and bolder dares. Couples: relationship-deepening questions. Work team: 'Share an unusual skill', 'Tell us about a workplace fail you laugh about now'.",
+        "Match category to the group. Misjudging categories causes awkward silences (questions too personal for the group's comfort) or boredom (questions too tame for the energy). Most generators let you select intensity. Always allow players to pass on a particular question/dare without losing the game - voluntary play maintains the fun."
+      ),
+      createAnswerFirstSection(
+        "Best Truth Questions",
+        "Reveal-the-person: 'What's a guilty pleasure you'd never admit?', 'What's the strangest thing you've eaten?', 'What was your most embarrassing moment in school?'. Curiosity-driven: 'If you could have any superpower, what would you choose and why?', 'What's a movie everyone loves that you secretly hate?'. Future-looking: 'Where do you see yourself in 10 years?', 'What's your bucket list top item?'.",
+        "Avoid: questions that reveal serious traumas (not appropriate for casual play), questions about other people (gossip), questions that pressure private information (sex life, finances) unless the group has explicitly opted into adult-themed play. Good Truth questions reveal personality without harm."
+      ),
+      createAnswerFirstSection(
+        "Best Dare Challenges",
+        "Performance: 'Sing the chorus of [random song]', 'Do an impression of [celebrity]', 'Do a 30-second commercial for [random object]'. Physical (mild): 'Do 10 push-ups', 'Hop on one leg for 30 seconds', 'Touch your tongue to your nose'. Social: 'Send a meme to the third person in your contacts', 'Post a silly selfie on your story'. Ridiculous: 'Speak in a French accent for the next 5 minutes'.",
+        "Avoid: dares that risk injury, embarrass beyond consent, encourage destructive behaviour, force the player into uncomfortable physical contact with others. Drinking-related dares should be optional and never coercive. Use the [Would You Rather](/would-you-rather) for a different conversational format."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is Truth or Dare appropriate for kids?",
+        "Yes with the right category. Kid-friendly versions exist with mild questions and harmless dares. Sleepover stalwart for ages 8-15. The game develops social skills (asking questions, performing in front of others). Avoid adult content versions for children."
+      ),
+      createFAQ(
+        "How do I keep it fair?",
+        "Random ordering (rotate clockwise, or use a name picker). Time limits per turn (30-60 seconds for thinking). Equal turns - everyone gets the same number of plays. The game gets unbalanced if one player keeps choosing truth (looks 'safe') while others pick risk-taking dares - sometimes a coin flip removes player choice."
+      ),
+      createFAQ(
+        "What if someone refuses?",
+        "Standard rule: pass costs a small forfeit (loses a point, takes a sip of drink, completes a fallback challenge). But more importantly - voluntary participation is essential. Pressuring a player to do something they're uncomfortable with ruins the game and the friendships. Always allow opt-out without judgement."
+      ),
+      createFAQ(
+        "Are these online games?",
+        "Generators provide question/dare prompts; the game is played in person. For remote/Zoom variants, dares should be performable on camera (silly faces, charades) and truths can be more personal since you can mute if needed. Many generator websites have a 'Truth or Dare for Zoom' category specifically."
+      ),
+    ],
+    relatedTools: [
+      { slug: "would-you-rather", label: "Would You Rather" },
+      { slug: "spin-the-wheel", label: "Spin the Wheel" },
+      { slug: "this-or-that-decider", label: "This or That Decider" },
+      { slug: "dice-roller", label: "Dice Roller" },
+    ],
+  },
+
+  "spin-the-wheel": {
+    sections: [
+      createAnswerFirstSection(
+        "What Spin-the-Wheel Tools Do",
+        "Online wheel spinners let you input options, then animate a wheel rotating with the cursor landing on a random selection. Unlike a simple random number generator, the visual spin adds drama and engagement - making the random result feel earned. Used for: classroom activities (random student selection), party games (truth or dare prompts, dare types), restaurant decisions (where to eat tonight), team retros (random discussion topics).",
+        "Most modern spinners offer customisation: number of slices (5-50 typical), colour patterns, sound effects, weighted outcomes (some options more likely than others), removing winners (each option only used once). Educational classroom versions often have 'fair' mode where every option must be picked once before any repeats. Party versions often have 'spicy' mode with extra dramatic animation."
+      ),
+      createAnswerFirstSection(
+        "Common Spin-the-Wheel Uses",
+        "Decision making (small): pick a dinner, pick a movie, pick a weekend activity. Educational: random student call, random group assignment, random topic for presentation. Party games: prompt selection (Truth or Dare?, Charades category, Pictionary topic). Team activities: ice-breakers, retrospective topics, random meeting recap topics. Hobbies: random workout exercise, random recipe to try, random book from your TBR list.",
+        "The visual element makes random selection feel different from typing 'pick one of these'. Children especially engage with the spinning. Adults often use spinners to bypass decision fatigue ('I genuinely don't care which restaurant - let the wheel decide'). Game shows have used spinning wheels for a century (Wheel of Fortune is the obvious example) - they tap into something psychologically satisfying about visible random selection."
+      ),
+      createAnswerFirstSection(
+        "Customisation Options",
+        "Number of slices: practical limit 30-50 before slices become too narrow to read. Colour: alternating colours help visually distinguish slices; some tools use rainbow gradients. Sound: tick-tick-tick during spin builds anticipation. Speed: longer animations (3-5 seconds) feel more dramatic than instant 1-second spins. Removing winners: each option chosen disappears, useful for ordering team presentations or distributing prizes uniquely.",
+        "Save and reuse: most tools store custom wheels via URL parameters or accounts. Useful for recurring decisions (weekly meal plans, monthly book club picks). Share: send wheel URL to friends/colleagues for collaborative decisions. Most wheels are completely free; advanced features (logo branding, large group features) sometimes paid."
+      ),
+      createAnswerFirstSection(
+        "Are Wheels Truly Random?",
+        "Yes, when implemented correctly. Modern web-based wheel spinners use JavaScript's Math.random() which is pseudorandom - sufficient for entertainment purposes (mathematically indistinguishable from true random in practical cases). Each spin is independent of previous spins - 'lucky' outcomes don't 'use up' luck for next spins.",
+        "Some spinners can be biased intentionally (more 'desirable' outcomes more likely) - usually disclosed but worth checking. Truly fair spinners give equal probability to each slice regardless of size; some 'fair' implementations use slice angles relative to the full circle, so adjusting slice sizes changes probability. Read the tool's documentation if outcomes seem suspicious. Use the [Lucky Number Generator](/lucky-number-generator) for direct random number selection without the wheel."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I weight some options more likely?",
+        "Yes - many spinners offer 'weighted' mode where you assign each option a likelihood. Useful for: unfair distributions (small prize highly likely, big prize unlikely - lottery style), reflecting actual preferences (favourite restaurant 30%, disliked one 5%). Default is equal probability; explicit weighting is a feature, not bias."
+      ),
+      createFAQ(
+        "What if everyone wants the same thing?",
+        "The wheel still gives random outcomes regardless of preferences. If everyone wants pizza but the wheel lands on Thai food, decision is made. Useful for breaking ties or eliminating decision-by-most-vocal. The 'I'll go with whatever' approach often falls into hierarchy traps; randomness sidesteps them."
+      ),
+      createFAQ(
+        "Are spinning wheel apps better than the website?",
+        "Apps add features (offline use, multiple saved wheels, sound effects, account sync). Websites are free, no install, work everywhere. For occasional use, websites suffice. For frequent use (daily classroom random selection, team standup picker), apps are worth the £2-5 cost."
+      ),
+      createFAQ(
+        "Can I use this for raffles?",
+        "For small informal raffles: yes, perfectly random. For official prize draws (where legal compliance matters): use certified random services. Some jurisdictions require auditable randomness with verification - a casual web spinner may not satisfy the legal threshold. Check requirements before using for any official prize allocation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+      { slug: "truth-or-dare", label: "Truth or Dare" },
+      { slug: "dice-roller", label: "Dice Roller" },
+      { slug: "this-or-that-decider", label: "This or That Decider" },
+    ],
+  },
+
+  "who-knows-me-best": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Game Works",
+        "Players answer questions about a chosen 'host' (friend, family member, partner). The host has answered the same questions privately; players are scored against the host's answers. Highest score = 'knows you best'. Used for: birthday parties, anniversaries, friendship celebrations, hen/stag dos, virtual hangouts.",
+        "Question categories: factual (what's their birthday, favourite food), preference (would they rather camp or hotel), historical (where did they go to primary school), opinion (what's their dealbreaker in friendship). Mix categories for full picture. Most online tools generate 10-30 questions, with players scoring 1 point per match. Tie-breakers: bonus questions or 'time taken to answer' as second criterion."
+      ),
+      createAnswerFirstSection(
+        "Setting Up the Game",
+        "Host privately answers all questions first (questionnaire format works well). Players then take same questions, comparing answers to host's privately at scoring time. Variants: live - players answer one question at a time, score after each; bulk - players write all answers, compare at end. Both work; live is more dramatic, bulk is more efficient with large groups.",
+        "Group size: 3-30 players. With 30+, group into teams (3-5 each) and let teams answer collectively - faster and reduces complete strangers from being put on the spot. Time: 15-45 minutes typical. With drinks/snacks, can extend to an hour. Popular for hen parties, milestone birthdays, anniversaries."
+      ),
+      createAnswerFirstSection(
+        "Best Question Types",
+        "Personality reveals: 'What's their guilty pleasure?', 'What's their most-watched movie?', 'What's their favourite Sunday morning routine?'. Trivia/facts: 'What's their middle name?', 'What was their first job?'. Preferences: 'Would they rather a beach holiday or a city break?'. Predictive: 'If they won £10,000, what would they buy first?'. The mix tests both 'do you know the basics' and 'do you understand them deeply'.",
+        "Avoid: questions everyone knows (too easy), questions only the host's parents know (unfair), questions that reveal sensitive information unwanted in public. Best questions are 60-80% knowable - challenging but achievable. Reveal interesting things about the host that the group laughs at together."
+      ),
+      createAnswerFirstSection(
+        "Variants and Adaptations",
+        "Couple version: each partner makes a quiz about themselves; partner takes both quizzes; high accuracy = relationship win. Anniversary edition: questions about shared memories, key dates. Workplace version: employee takes a 'how well does the team know you?' quiz; team-building exercise. Birthday party: birthday person is the host, all guests compete.",
+        "Online versions: most popular as printable PDF questionnaires (BuzzFeed-style), Google Forms quizzes, Kahoot tournaments, Zoom-friendly screen-sharing variants. Mobile apps exist that handle the scoring automatically. Generators produce question lists; the host customises and the players play. Use the [Truth or Dare](/truth-or-dare) for a different intimacy game format."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many questions are best?",
+        "10-15 for short sessions; 20-30 for full party games. Below 10 doesn't differentiate well; above 30 gets tedious. Match number of questions to time available - 1-2 minutes per question typical for fully discussed answers."
+      ),
+      createFAQ(
+        "What if someone gets too few right?",
+        "Light embarrassment is part of the game. The 'who knows me least' result is often a punchline - it's lighthearted, not actually a critique. Some hosts give the lowest scorer a 'nicely matched' explanation: 'They got 2/15 because they only know me for 6 weeks!'."
+      ),
+      createFAQ(
+        "Can I prepare the host?",
+        "Sometimes the host doesn't see the questions until the game time - keeps it spontaneous. Other times the host writes their answers in advance. Both work; prepared answers are slightly more reliable, spontaneous answers are slightly more fun. Either is fine."
+      ),
+      createFAQ(
+        "What about awkward answers?",
+        "If a question reveals something the host doesn't want shared: skip it. The host should pre-screen questions and remove sensitive ones. The game is for fun, not embarrassment. Some adult versions include skippable 'awkward category' rounds (relationship-related, body-related) for groups comfortable with that."
+      ),
+    ],
+    relatedTools: [
+      { slug: "truth-or-dare", label: "Truth or Dare" },
+      { slug: "would-you-rather", label: "Would You Rather" },
+      { slug: "this-or-that-decider", label: "This or That Decider" },
+      { slug: "trivia-quiz", label: "Trivia Quiz" },
+    ],
+  },
+
+  "witch-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Witch Name Patterns",
+        "Witch names typically blend mystical, herbal, and ancient sources. Common patterns: feminine first name + nature/element surname (Sage Briar, Willa Ravenwood, Luna Stormcloud). Old English/Welsh/Celtic roots (Morgana, Cerridwen, Brigid). Single dramatic word (Hex, Spell, Coven). Pop culture witches: Hermione Granger, Sabrina Spellman, Bellatrix Lestrange, Glinda the Good - all follow recognisable name patterns.",
+        "Different witch styles need different name feels. Spooky/horror witch: Morrigan Blackthorn, Hecate Voss. Cottage/herbal witch: Rosemary Greenleaf, Sage Hazelwood. Dark academia witch: Adelaide Whitmore. Whimsical/Disney-style witch: Periwinkle Starshine. Halloween costume name: Grimhilda, Witcheling. Generator typically lets you pick the style preset."
+      ),
+      createAnswerFirstSection(
+        "Common Witch Name Components",
+        "First names: nature words (Sage, Willow, Iris, Holly, Flora), gemstones (Onyx, Pearl), mystical concepts (Luna, Stella, Aurora), Old World names (Hazel, Maeve, Branwen). Last names: nature compounds (Stormcloud, Ravenwood, Briarheart), mystical professions (Spellweaver, Cauldron, Witchwise), herbs (Sage, Vervain, Wormwood), atmospheric words (Whisper, Twilight, Mist).",
+        "Combinations work well: Hazel Briarwood, Luna Ravenheart, Sage Witchwood, Iris Stormveil. The pattern of feminine first + nature/mystical compound surname carries 'witch' signal across most fantasy traditions. Some traditions add titles: 'The Witch of [place]', 'Witcher of [tradition]', 'High Priestess [name]'."
+      ),
+      createAnswerFirstSection(
+        "Cultural Witch Traditions",
+        "Different cultures, different names. English/Western European: nature compounds (Briarwood, Hawthorne). Slavic Baba Yaga lineage: harsher consonants (Vassilisa, Marya, Yelena). African Yoruba traditions: Iyalode, Olokun-influenced names. Latin American curandera/bruja: Rosa, Maria + spiritual surnames. Japanese yokai-inspired: Yuuko, Kiyo + elemental components. Modern Wicca / Neopagan: chosen names often draw from multiple traditions.",
+        "Choosing a tradition for fictional or roleplay purposes: research one specific cultural source rather than mixing. Mixing witch names across traditions can feel disrespectful or confused. Generated names from a 'mixed' generator can be fun but lack the depth of names rooted in specific lore."
+      ),
+      createAnswerFirstSection(
+        "When to Use a Witch Name",
+        "Halloween costumes: pair name with witch costume for full character. RPG/gaming: D&D witch class, World of Warcraft mage, Skyrim witch character. Fiction writing: novels, short stories, screenplays. Burlesque/performance art: stage name. Pen name for occult/magic-related writing. Halloween parties: introduce yourself with the witch name for the night.",
+        "Some practitioners of modern witchcraft (Wiccans, Pagans) adopt 'magickal names' separate from their legal name. The witch name is for ritual and community use, not legal identity. Generated names are starting points; many practitioners refine over years to find one that resonates personally. Use the [Wizard Name Generator](/wizard-name-generator) for more masculine equivalents; [Elf Name Generator](/elf-name-generator) for fantasy elf names."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are witch names culturally appropriative?",
+        "Depends. Generic English-language witch names (Sage Briar, Willow Stormcloud) are typically harmless. Names drawing from specific living religious or cultural traditions (Yoruba Orisha names, Indigenous American medicine traditions) deserve respect for their context - using them casually for Halloween costumes can be insensitive."
+      ),
+      createFAQ(
+        "Should I pick something memorable?",
+        "Yes for any usage. Easy to spell, easy to pronounce, distinctive. 'Hazel Stormcloud' is more memorable than 'Witcheresta Vexarius' for casual use. For RPG characters where you'll say the name often, simpler is better."
+      ),
+      createFAQ(
+        "Are witch names in popular media accurate?",
+        "Mixed. Hermione Granger, Bellatrix Lestrange (Harry Potter): authentically 'magical' English-style names. Sabrina Spellman: pop culture pun (spell + man). Practical Magic's Sally Owens: deliberately mundane (the witch hidden in plain sight). Real witchcraft traditions don't have a single naming convention; popular media draws from various sources."
+      ),
+      createFAQ(
+        "Can I use these for kids' books?",
+        "Yes - children's witches often have whimsical-sounding names (Mildred Hubble in The Worst Witch, Winifred Sanderson in Hocus Pocus). Family-friendly witch names lean toward sweet (Hazel, Pip, Cinder) rather than dark (Morrigan, Hecate). Match name to audience age."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "elf-name-generator", label: "Elf Name Generator" },
+      { slug: "fantasy-tavern-name-generator", label: "Fantasy Tavern Name Generator" },
+      { slug: "vampire-name-generator", label: "Vampire Name Generator" },
+    ],
+  },
+
+  "superhero-alter-ego-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's an Alter Ego?",
+        "A superhero's secret identity - the regular human name they use when not in costume. Bruce Wayne (Batman), Peter Parker (Spider-Man), Clark Kent (Superman), Diana Prince (Wonder Woman). The alter ego is supposed to be ordinary, distinct from the dramatic superhero name. Comic book convention since the 1930s; modern characters increasingly skip alter egos (e.g. Tony Stark = Iron Man publicly).",
+        "Generator output combines: ordinary first name + ordinary surname (Marcus Adams, Sarah Kennedy). Optionally: profession that fits the hero archetype (journalist for thoughtful heroes, scientist for tech heroes, athlete for physical heroes). Background tied to backstory (orphaned for tragic heroes, military for action heroes)."
+      ),
+      createAnswerFirstSection(
+        "Naming Conventions",
+        "Alliteration is common: Peter Parker, Bruce Banner, Reed Richards, Stephen Strange, Lex Luthor, Lois Lane, Pepper Potts. Stan Lee particularly liked alliteration - made names memorable for young comic readers. Modern characters often break this: Steve Rogers (Captain America), Tony Stark (Iron Man), Wanda Maximoff (Scarlet Witch).",
+        "Style mismatches add character. The flashy hero with a boring alter ego (Bruce Wayne is essentially 'Generic Rich Guy' in name): emphasises the contrast between costume and civilian life. The hero whose alter ego sounds impressive (Reed Richards, plastic surgeon Dr Stephen Strange): identity barely separated, often a deliberate plot point. Generators often offer style presets (alliterative, mismatched, professional)."
+      ),
+      createAnswerFirstSection(
+        "Alter Ego in Modern Storytelling",
+        "Classic alter ego: maintained throughout series; only inner circle knows. Modern shift: many heroes have public identities. Iron Man: Tony Stark publicly admits 'I am Iron Man' in 2008 film. X-Men: many members never had alter egos - Logan, Charles Xavier, Magneto are their actual names. The DC Multiverse experiments with both.",
+        "When alter ego matters: protect family (Spider-Man hides identity to keep Aunt May safe), protect job (Clark Kent's reporter career), protect privacy (Daredevil = blind lawyer Matt Murdock). When alter ego is dropped: when the hero is a public figure already (Tony Stark, Bruce Wayne), when the hero accepts persona over identity (Wonder Woman, Captain America)."
+      ),
+      createAnswerFirstSection(
+        "Using Alter Egos in Roleplay/Fiction",
+        "RPG character creation: alter ego provides backstory (job, family, where they live, who knows their secret). D&D and similar games occasionally feature secret-identity superheroes. Action-adventure tabletop games (City of Mist, Mutants & Masterminds) build entire mechanics around the dual identity tension.",
+        "Fiction writers crafting heroes: alter ego informs character voice. Spider-Man banters during fights because Peter Parker is a wisecracking teen. Batman is intimidating because Bruce Wayne is methodical and obsessive. The alter ego shapes the hero's personality, not the reverse. Use the [Superhero Name Generator](/superhero-name-generator) for the costumed identity, this tool for the secret civilian one."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why do superheroes need secret identities?",
+        "Plot device originally - protects loved ones from supervillain retaliation. Also dramatic tension - the audience knows the secret, supporting characters don't. Provides 'normal life' interludes between action scenes. Modern stories increasingly experiment with public-identity heroes for fresh narrative angles."
+      ),
+      createFAQ(
+        "Are alter egos always boring?",
+        "Often deliberately so - emphasises the contrast with the hero. Bruce Wayne's billionaire-playboy alter ego is interesting in its own right but boring vs Batman. Some heroes have lively alter egos: Reed Richards is genuinely fascinating as a scientist; Tony Stark's alter ego is the 'main' character with Iron Man as the costumed alter ego."
+      ),
+      createFAQ(
+        "Should my hero have a public or secret identity?",
+        "Depends on story tone. Secret identity: classic, more dramatic tension, more soap opera. Public identity: modern, more straightforward, focus shifts to action and consequence. Both work; pick what fits your hero's psychology."
+      ),
+      createFAQ(
+        "Are these names trademarkable?",
+        "Marvel and DC trademark major character names aggressively. Generic combinations (random first + last) are fine for personal/RPG use. For published comics or commercial use, trademark search first. Independent comics often choose unique combinations to avoid issues."
+      ),
+    ],
+    relatedTools: [
+      { slug: "superhero-name-generator", label: "Superhero Name Generator" },
+      { slug: "rapper-name-generator", label: "Rapper Name Generator" },
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "nickname-generator", label: "Nickname Generator" },
+    ],
+  },
+
+  "zombie-apocalypse-name-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Zombie Apocalypse Identity",
+        "Zombie apocalypse fiction needs character names that signal: survival, grit, skill set. Patterns: real ordinary names + survival nickname (Tyler 'Wolf' Reynolds, Maria 'Echo' Nakamura), military-style designations (Sergeant Ripper, Commander Frost), descriptive monikers (Crow, Spike, Razor), full ordinary names without nicknames (Rick Grimes from Walking Dead - the everyday name carries the post-apocalyptic weight).",
+        "Generators typically offer: 'survivor' (regular ordinary names), 'leader' (military/authority feel), 'rogue' (lone-wolf characters), 'group' (faction names like 'The Ferals', 'Salvation Camp'). The Walking Dead shows: most main characters keep regular names (Rick, Daryl, Carol, Maggie); group leaders adopt titles (Negan, Alpha). Different flavours work for different stories."
+      ),
+      createAnswerFirstSection(
+        "Survivor Name Patterns",
+        "The everyday-name survivor: Rick Grimes, Maggie Greene, Glenn Rhee. Their ordinariness contrasts with the post-apocalyptic setting - emphasises the stripped-back human element. The descriptive nickname survivor: 'Crow', 'Spike', 'Hawk' - earned during the apocalypse, suggests they did something memorable. The military-formal survivor: Sergeant Davies, Captain Stone - hierarchy preserved despite collapse.",
+        "Some characters carry pre-apocalypse identity: 'Dr Greene', 'Mayor Wilson' - their old role still defines them. Others completely re-identify: 'The Whisperer', 'Negan'. Generator output should match the character's narrative arc. Most main protagonists keep ordinary names; antagonists or extreme survivors adopt new identities."
+      ),
+      createAnswerFirstSection(
+        "Group/Faction Names",
+        "Common patterns: hopeful (Salvation, Sanctuary, Refuge, Haven). Threatening (The Ferals, The Reapers, The Whisperers, The Wolves). Geographic (Atlanta Survivors, Hilltop Colony, Alexandria Safe Zone). Faction leaders often have chosen names matching the group identity (Negan leads the Saviors with sardonic darkness; Alpha leads the Whisperers with literal lower-case bestial communication).",
+        "Naming groups for fiction or RPG: think about how the group sees themselves vs how outsiders see them. The Saviors believe they're saving; their victims call them tyrants. The contrast creates story tension. The Walking Dead, World War Z, Z Nation, Train to Busan all use this dual-naming dynamic."
+      ),
+      createAnswerFirstSection(
+        "Adapting Names for Story Tone",
+        "Realistic/grim (Walking Dead style): ordinary first/last names + occasional descriptive nicknames. World War Z, The Last of Us. Pulpy/action (Resident Evil, Z Nation): bigger nicknames, codenames, faction names. Comedic (Shaun of the Dead, Zombieland): self-aware ordinary names with humour. Cyberpunk-zombie hybrid: tech-influenced names alongside survival ones.",
+        "Match name complexity to overall story tone. A grim survival narrative with characters named 'Lord Devastator' feels off. A pulpy zombie shoot-em-up with characters named 'Tom Smith' loses energy. Generators typically offer style presets to match the tone. Use the [Pirate Name Generator](/pirate-name-generator) and [Wizard Name Generator](/wizard-name-generator) for fantasy alternatives, but zombie apocalypse specifically benefits from the survivor / faction / leader name structures."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should my survivor have a nickname?",
+        "Optional. The Walking Dead's main characters mostly use ordinary names; nicknames typically signal a character has 'become' something post-apocalypse (Daryl earns nothing, but other characters develop reputations like Daryl). Use nicknames for characters who've crossed lines, served in combat, or distinguished themselves dramatically."
+      ),
+      createFAQ(
+        "Where do faction names come from?",
+        "Often from internal myth - what they believe about themselves. Sometimes mocking - what enemies call them that sticks. Sometimes geographic - the Hilltop Colony lives on a hill. The faction name should signal something about their identity or origin in the story."
+      ),
+      createFAQ(
+        "Are survivalist names different from zombie ones?",
+        "Survivalist (general apocalypse): military-leaning, prepper terminology. Zombie-specific: more suspicion of others (zombies aren't the only threat), 'Walker' nomenclature, sometimes colloquial coining. Real survivalist communities exist; zombie communities are fictional but draw on similar real-world preparedness vocabulary."
+      ),
+      createFAQ(
+        "What about character archetypes?",
+        "Common: leader (Sheriff Rick), warrior (Daryl, Michonne), strategist (Carol), young hopeful (Carl, then Judith), antagonist (Shane, Negan, Alpha). Each archetype suits certain name styles. Leaders often keep formal names; warriors get nicknames; strategists keep ordinary identities to seem unthreatening."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pirate-name-generator", label: "Pirate Name Generator" },
+      { slug: "wizard-name-generator", label: "Wizard Name Generator" },
+      { slug: "witch-name-generator", label: "Witch Name Generator" },
+      { slug: "superhero-alter-ego-generator", label: "Superhero Alter Ego Generator" },
+    ],
+  },
 };

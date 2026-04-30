@@ -944,4 +944,53 @@ export const travelSEO = {
       { slug: "currency-converter", label: "Currency Converter" },
     ],
   },
+
+  "holiday-countdown": {
+    sections: [
+      createAnswerFirstSection(
+        "Counting Down to Your Trip",
+        "A holiday countdown counts the days, hours, minutes (and sometimes seconds) until a chosen departure date. Type in the trip name and date, get a live ticking display. Whether psychologically that's helpful varies by person - some travellers love the anticipation, others find it makes the wait feel longer. Research on anticipation suggests most people enjoy the lead-up to a holiday almost as much as the trip itself.",
+        "Most online countdown tools require nothing - no login, no app install. The page bookmarks easily and continues counting accurately each time you reload. Useful for: family trips with kids who want to count sleeps, work trips where you're motivating yourself through a hard quarter, retirement countdowns, milestone events (cruise, honeymoon, gap year start)."
+      ),
+      createAnswerFirstSection(
+        "Pre-Trip Planning Timeline",
+        "Use the countdown as a planning trigger. 12+ weeks out: book flights, accommodation, travel insurance. Check passport validity (most destinations need 6+ months). 8 weeks: visa applications if needed. 6 weeks: book major activities/restaurants requiring reservations. 4 weeks: ensure no medical issues, get any required vaccinations. 2 weeks: order travel money, sort phone roaming, set out-of-office. 1 week: download offline maps, charge devices, do laundry. Day before: print boarding passes as backup, water plants.",
+        "Setting milestones on the countdown ('100 days to Bali!') triggers the right preparation at the right time. Many countdown tools include milestone messages or week-by-week tips. The [Travel Visa Checker](/travel-visa-checker) and [Packing List Generator](/packing-list-generator) help with the specific tasks; the countdown is the meta-timer."
+      ),
+      createAnswerFirstSection(
+        "Sharing Holiday Excitement",
+        "Some countdown tools generate shareable URLs. Useful for family trips - everyone bookmarks the same countdown page and feels the build-up together. Office colleagues sharing a holiday announcement sometimes use countdowns as a fun visual. Public ones (school holidays, cruise departure days) get shared on social media for kid excitement.",
+        "Some couples, friend groups, family WhatsApp threads share countdown screenshots weekly as the trip approaches. The 'getting closer' visual makes the planning real. For multi-destination trips (3-week European tour with 5 cities), individual city countdowns can build anticipation through each leg of the journey."
+      ),
+      createAnswerFirstSection(
+        "When the Countdown Ends",
+        "The day arrives! Some tools transition to 'we're at your destination' mode or just hit zero. Most modern apps suggest related content - travel checklist, currency conversion, restaurant booking. The countdown's job is done.",
+        "Post-trip: a 'days since the holiday ended' counter is the bittersweet reverse. Useful psychologically - after 30+ days, most people benefit from re-engagement with regular life. The [Days Until Calculator](/days-until-calculator) handles arbitrary date math; this tool focuses on the holiday-specific celebration of the wait."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Does it keep ticking when I close the tab?",
+        "No - browser tabs stop running when closed. Reopening recalculates from current date and target. Bookmark the URL with your specific date encoded, and reload anytime to resume. Phone apps run in background and provide notifications; web tools don't."
+      ),
+      createFAQ(
+        "Can I countdown to multiple holidays?",
+        "Most tools allow only one countdown at a time. Workarounds: bookmark separate countdown URLs for each trip. Some advanced tools allow logged-in users to manage multiple countdowns simultaneously."
+      ),
+      createFAQ(
+        "What if my dates change?",
+        "Just update the target date. No history of changes saved by most tools - the countdown adjusts instantly to the new target. If your trip moves earlier, you may now be at zero (today) which most tools handle by transitioning to 'today' message."
+      ),
+      createFAQ(
+        "Is anticipation actually enjoyable?",
+        "Research suggests yes for most people. Studies show people rate the anticipation phase nearly as enjoyable as the trip itself, sometimes more. The catch: only if anticipation includes positive expectations. Anxiety-laden anticipation (work travel, complicated logistics) is often less enjoyable. Make sure your countdown carries excitement, not dread."
+      ),
+    ],
+    relatedTools: [
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "packing-list-generator", label: "Packing List Generator" },
+      { slug: "travel-visa-checker", label: "Travel Visa Checker" },
+      { slug: "travel-budget-calculator", label: "Travel Budget Calculator" },
+    ],
+  },
 };

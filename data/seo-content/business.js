@@ -1636,6 +1636,55 @@ export const businessSEO = {
       { slug: "us-self-employment-tax-calculator", label: "Self-Employment Tax Calculator" },
     ],
   },
+
+  "break-even-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Break-Even Actually Tells You",
+        "Break-even is the sales volume where revenue exactly equals total costs - the point of zero profit and zero loss. Formula: break-even units = fixed costs ÷ (price per unit - variable cost per unit). So if fixed costs are £10,000/month, you sell at £20 per unit, and variable cost is £5 per unit: break-even = 10,000 ÷ (20-5) = 667 units per month. Below 667 = loss. Above 667 = profit.",
+        "The contribution margin (price minus variable cost) is what each sale 'contributes' toward covering fixed costs. £15 contribution per unit × 667 units = £10,000 covering all fixed costs. The 668th unit is your first profitable sale. Useful for: pricing decisions, validating new product viability, understanding minimum sales targets, evaluating whether a business is sustainable."
+      ),
+      createAnswerFirstSection(
+        "Fixed vs Variable Costs",
+        "Fixed costs don't change with sales volume: rent, insurance, salaries, software subscriptions, equipment depreciation. They're paid whether you sell zero or 10,000 units. Variable costs scale with each sale: raw materials, packaging, payment processing fees, shipping. Some costs are 'semi-variable' (utilities go up with usage but have a base charge) - approximate them as fixed for break-even purposes.",
+        "Misclassifying costs is the most common break-even mistake. If you treat an overtime wage as fixed, you understate variable costs and overstate margin. If you treat marketing as variable when it's actually a fixed monthly retainer, you overstate margin per unit. Be honest about which costs scale with sales and which are baseline overhead. The [Profit Margin Calculator](/profit-margin-calculator) helps with the underlying margin math."
+      ),
+      createAnswerFirstSection(
+        "Worked Example",
+        "Coffee shop scenario. Fixed monthly costs: £4,500 rent, £3,000 manager salary, £500 utilities, £200 insurance, £300 software/POS = £8,500/month. Variable cost per coffee: £0.70 (beans, milk, cup, lid, sleeve). Sale price: £4. Contribution margin: £3.30. Break-even: 8,500 ÷ 3.30 = 2,576 coffees per month, about 86/day or 11/hour during 8 working hours.",
+        "Sanity check: is 86 coffees/day achievable for the location and demographic? If footfall and conversion suggest 50/day, the business won't break even at this price. Options: raise prices (4 → 5 = 4,000 needed at break-even, but reduces 100 customers/day to 80 - similar revenue), reduce fixed costs (smaller space?), or expand product mix (sell £8 lunch alongside £4 coffee). Break-even tells you the size of the gap between revenue and viability."
+      ),
+      createAnswerFirstSection(
+        "Limitations and Adjustments",
+        "Break-even assumes constant costs and prices. Real businesses have: bulk discounts on inputs (variable cost drops at higher volume), price elasticity (demand falls if prices rise), seasonal demand, competition responses, and economies of scale. Static break-even is a useful start but must be revisited regularly as conditions change.",
+        "For service businesses, 'units' might be billable hours rather than products. For SaaS, monthly recurring revenue (MRR) replaces one-time unit sales. The framework is identical: fixed costs ÷ contribution per unit/hour/customer = break-even count. Use the [Markup Calculator](/markup-calculator) and [Profit Margin Calculator](/profit-margin-calculator) to set the unit economics that feed break-even."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I aim for break-even or profit?",
+        "Profit, eventually. Break-even is a milestone, not a target. Most businesses aim for break-even in the early years (validate viability) and profitability after that. Sustained operation at exactly break-even means no buffer for emergencies, no growth investment, no return for owner risk."
+      ),
+      createFAQ(
+        "How long should it take to break even?",
+        "Highly variable. Service businesses with low fixed costs: weeks to months. Restaurants/retail: typically 18-24 months. Software/SaaS: 2-5 years. Hardware/manufacturing: 3-7 years. Long break-even points need substantial funding and patience; short ones suggest viable model but possibly limited scale."
+      ),
+      createFAQ(
+        "What's a 'safety margin' over break-even?",
+        "Margin of safety = (current sales - break-even) ÷ current sales. So 1,000 units at break-even 700 = 30% margin of safety. Higher = safer (sales can drop 30% before losses). Most healthy small businesses aim for 30-50% margin of safety; below 10% is precarious."
+      ),
+      createFAQ(
+        "Does this work for online businesses?",
+        "Yes - same framework. Fixed costs (hosting, software, salaries) and variable costs (payment processing, support per customer, shipping for physical goods) work the same way. SaaS businesses sometimes track 'CAC payback' (months to recover customer acquisition cost) alongside break-even on operations."
+      ),
+    ],
+    relatedTools: [
+      { slug: "markup-calculator", label: "Markup Calculator" },
+      { slug: "profit-margin-calculator", label: "Profit Margin Calculator" },
+      { slug: "invoice-number-generator", label: "Invoice Number Generator" },
+      { slug: "us-self-employment-tax-calculator", label: "Self-Employment Tax Calculator" },
+    ],
+  },
 };
 
 

@@ -3338,4 +3338,396 @@ export const creativeSEO = {
       { slug: "wax-melt-calculator", label: "Wax Melt Calculator" },
     ],
   },
+
+  "colour-palette-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Colour Palette Generators Work",
+        "Generators output sets of 3-7 colours that work together visually. Algorithms typically pick a base colour, then apply colour theory rules: complementary (opposite on colour wheel), analogous (adjacent), triadic (evenly spaced 3 colours), tetradic (rectangular 4 colours), monochromatic (variations of one hue). Each rule produces palettes with different feels - complementary is high-contrast and bold; monochromatic is harmonious and subtle.",
+        "Modern tools often add: AI-driven palettes from image extraction (upload a photo, get its colour palette), trending palette presets (warm earthy, retro neon, soft pastel), accessibility-first palettes (sufficient contrast for WCAG compliance), brand-style palettes (corporate blue + neutral support colours). Output formats: hex codes (#FF6B6B), RGB (255, 107, 107), CSS variables ready to copy."
+      ),
+      createAnswerFirstSection(
+        "Picking a Palette for Your Project",
+        "Brand identity: 1 primary + 1-2 supporting + 2-3 neutrals. Logo and primary CTA in primary; sub-brand elements in supporting; backgrounds and text in neutrals. Web design: 60-30-10 rule (60% dominant background, 30% secondary, 10% accent for CTAs). Editorial/print: often more colours allowed (4-7) for variety across pages. Photography/illustration: extract palette from a key image to ensure full piece feels cohesive.",
+        "Mood targeting: warm reds/oranges = energy, urgency, hunger (food brands). Cool blues = trust, calm, professionalism (tech, banking, healthcare). Greens = growth, nature, wellness. Pinks/purples = creativity, luxury, femininity (cosmetics, fashion). Neutrals (greys, beiges) = sophistication, minimalism. Most successful brand palettes balance dominant emotional colour with strategic accents."
+      ),
+      createAnswerFirstSection(
+        "Accessibility and Contrast",
+        "WCAG (Web Content Accessibility Guidelines) requires 4.5:1 contrast ratio for normal text, 3:1 for large text. So pure pale yellow (#FFFF00) on white background is illegible (1.07:1 contrast); pure black on white is excellent (21:1). Tools like WebAIM contrast checker verify compliance. Many palette generators flag inaccessible combinations or auto-suggest replacements.",
+        "Colour blindness affects ~8% of men, ~0.5% of women. Most common: red-green confusion. Don't rely solely on red/green to indicate state (errors, success) - use icons, text, or position too. Tools simulate colour blindness on your design preview - useful sanity check before launch. Some palette generators have 'colour blind safe' presets that avoid problematic combinations."
+      ),
+      createAnswerFirstSection(
+        "Tools and Workflow",
+        "Coolors.co: free, fast random palette generation, lock specific colours and regenerate others. Adobe Color: full colour theory tools, save to creative cloud. Paletton: classic colour wheel-based picker. Khroma: AI-generated palettes from your preferences. Image extraction: Adobe Capture, Coolors photo upload, Tailwind color extractor. Most professionals use 2-3 tools combined - generators for inspiration, Photoshop or Figma for application.",
+        "Workflow: 1) Pick reference (image, mood board, brand brief). 2) Generate 5-10 candidate palettes. 3) Test in real context (mockup, sample page). 4) Adjust accessibility and contrast. 5) Document final palette with hex codes and use cases. The palette generator is just the start - real selection happens in actual design context. Use the [Hex to RGB](/hex-to-rgb) tool for converting hex outputs to RGB for design tools."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How many colours should a palette have?",
+        "Brand palette: 4-6 typical (1 primary, 1-2 supporting, 2-3 neutrals). Web design: 5-7 (background, secondary, accent, text, error/success indicators). Print/editorial: 6-10 sometimes used. More colours = more flexibility but harder to use cohesively. Famous brand palettes (Apple, Google) use 3-5 strict colours."
+      ),
+      createFAQ(
+        "What's the difference between hex and RGB?",
+        "Same colour, different representations. Hex (#FF0000) is compact, common in web/CSS. RGB (255, 0, 0) is also web/CSS friendly, sometimes preferred for transparency notation (rgba). Use hex for compact storage; RGB when you need to manipulate values programmatically."
+      ),
+      createFAQ(
+        "Can I copyright a palette?",
+        "Generally no - colour combinations alone aren't copyrightable. Specific applications (logos using specific colours in specific patterns) can be trademarked. Pantone colours have their own naming/numbering system but the specific shades aren't 'owned'. Use any colours freely; just don't replicate trademarked logos."
+      ),
+      createFAQ(
+        "Should I trust AI palette generators?",
+        "AI is great for inspiration, less reliable for brand-specific work. AI-generated palettes can be visually pleasant but may not match your brand's emotional positioning. Use as starting point, refine manually. Hand-curated palettes by professional designers (like in style guides) typically outperform pure-AI outputs for brand work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hex-to-rgb", label: "Hex to RGB" },
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "contrast-checker", label: "Contrast Checker" },
+    ],
+  },
+
+  "image-file-size-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Determines Image File Size",
+        "Three main factors: dimensions (width × height in pixels), bit depth (colour information per pixel - typically 8-bit RGB = 24 bits per pixel), and compression. A raw uncompressed 1920×1080 image = 6.2 MB (1920 × 1080 × 3 bytes). Same image as JPEG at 80% quality: 200-400 KB. Same as WebP: 150-250 KB. Same as PNG: 1-3 MB (lossless).",
+        "Compression ratios vary hugely by image content. Photos (lots of complex detail) compress less efficiently - JPEG might achieve 10-20x compression. Simple graphics with flat colours compress better - 50-100x compression in PNG-8 or JPEG. Animation (GIF or animated WebP) multiplies size by frame count. Plan for typical 5-15x compression in JPEG and 8-15x in WebP for photos."
+      ),
+      createAnswerFirstSection(
+        "Common File Sizes by Use Case",
+        "Web hero image (1920×1080): 100-300 KB JPEG, 80-200 KB WebP. Email signature: 5-20 KB optimised. Social media post (1080×1080): 100-200 KB. Logo (transparent PNG): 50-200 KB depending on complexity. Product photography (high quality): 500 KB - 2 MB. Print-quality photo (300 DPI for A4): 5-15 MB raw or PNG; 1-3 MB JPEG.",
+        "Mobile considerations: keep web images under 200 KB total. Lazy-loading helps with image-heavy pages but doesn't help on first paint. Modern formats (WebP, AVIF) save 25-50% over JPEG with similar quality - use them where browser support exists. Always provide fallback for older browsers via the picture element."
+      ),
+      createAnswerFirstSection(
+        "Reducing File Sizes",
+        "Quality reduction: drop JPEG quality from 100% to 75-85% - typically saves 50-70% file size with minimal visible quality loss. Resize to actual display dimensions: don't serve 4K images for 800px display. Format conversion: PNG to JPEG for photos (WebP if supported); GIF to MP4/WebP for animations. Tools: TinyPNG/TinyJPG (free, browser-based), Squoosh.app (Google, advanced), ImageOptim (Mac), Squoosh CLI for batch processing.",
+        "Aspect ratio choice: square (1:1) ideal for product/profile. 16:9 for hero/video. 4:3 for traditional portrait. Avoid arbitrary aspect ratios - hard to fit responsive layouts. Modern responsive images (srcset attribute) serve different sizes to different devices, dramatically reducing data for mobile. Use the [Screen PPI Calculator](/screen-ppi-calculator) for understanding device pixel densities."
+      ),
+      createAnswerFirstSection(
+        "Format Comparison",
+        "JPEG: lossy, great for photos, no transparency, universal support. WebP: lossy or lossless, smaller than JPEG, supports transparency, all modern browsers (90%+ market share). AVIF: even smaller than WebP, newer (2020+), 70%+ browser support. PNG: lossless, supports transparency, larger than JPEG/WebP. SVG: vector, infinitely scalable, perfect for logos/icons. GIF: animated, limited colours, replaced by MP4/WebP for modern uses.",
+        "Recommendation by use: photos = JPEG (compatibility) or WebP (size). Logos/icons = SVG or PNG. Detailed graphics = PNG. Animation = MP4 or WebP. Modern web standards: serve WebP/AVIF where supported with PNG/JPEG fallback. Modern frameworks (Next.js, Astro, Nuxt) handle format selection automatically based on browser capabilities."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's a good file size for web?",
+        "Under 200 KB per image typically; under 100 KB ideal for above-the-fold images on pages. Lazy-loading lets below-the-fold images be larger (300-500 KB) without affecting initial page load. Mobile-first: prioritise small images for slow connections."
+      ),
+      createFAQ(
+        "How do I reduce JPEG without losing quality?",
+        "Quality 80-85% retains visual quality with major file size reduction. Below 75% becomes visibly degraded. Use mozjpeg or jpeg-archive for advanced encoding (smaller files at same quality). Most online tools (TinyJPG, Squoosh) achieve excellent compression for free."
+      ),
+      createFAQ(
+        "Is WebP universally supported now?",
+        "90%+ browser support including all modern Chrome, Firefox, Edge, Safari. Older Safari (iOS <14) and IE11 don't support WebP - use picture element with fallback. AVIF has growing support (~75%) but requires more careful fallback strategy."
+      ),
+      createFAQ(
+        "Should I use PNG or JPEG?",
+        "Photos: JPEG (smaller). Graphics/text/transparency needed: PNG. Logos: SVG (best). Decision: complex multi-colour photos = JPEG. Anything with transparency, sharp edges, simple colour = PNG. Modern alternative: WebP supports both lossy and lossless modes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "screen-ppi-calculator", label: "Screen PPI Calculator" },
+      { slug: "data-storage-converter", label: "Data Storage Converter" },
+      { slug: "mb-to-kb", label: "MB to KB" },
+      { slug: "kb-to-mb", label: "KB to MB" },
+    ],
+  },
+
+  "screen-ppi-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's PPI?",
+        "Pixels Per Inch - the density of pixels on a display. Formula: PPI = √(width² + height²) / diagonal_inches. So a 1920×1080 24-inch monitor: √(3686400+1166400) = √4852800 = 2202 / 24 = 91.78 PPI. Higher PPI = sharper image, more detail, smaller perceptible pixel size. iPhone displays: typically 460+ PPI (Retina). Standard desktop monitors: 90-110 PPI. 4K monitors at 27 inches: 163 PPI.",
+        "Why does PPI matter? Determines how large display elements appear at native resolution. A 24px font on 100 PPI = 0.24 inches tall. Same 24px on 200 PPI = 0.12 inches. Operating systems compensate via scaling (Windows display scaling, macOS Retina scaling) so apps remain readable across PPI ranges. Designers must consider PPI when designing for specific displays."
+      ),
+      createAnswerFirstSection(
+        "PPI by Common Devices",
+        "iPhone 15 Pro: 460 PPI (Retina). Samsung Galaxy S24: 416 PPI. iPad Pro: 264 PPI. MacBook Pro 14-inch: 254 PPI (Liquid Retina XDR). 27-inch 4K monitor: 163 PPI. 27-inch 1440p monitor: 109 PPI. 24-inch 1080p monitor: 92 PPI. Old-school 1024×768 17-inch CRT: 75 PPI. Modern phones average 4-5x desktop PPI density.",
+        "The 'Retina' threshold (where individual pixels become invisible at typical viewing distance) varies by device class. Phones held 30 cm from face: 300+ PPI is Retina. Tablets at 50 cm: 250+ PPI. Laptops at 60 cm: 200+ PPI. Desktop monitors at 80 cm: 110+ PPI. Beyond Retina threshold, more PPI is invisible to most users (some can detect up to 600+ PPI in high-detail scenes)."
+      ),
+      createAnswerFirstSection(
+        "Why PPI Matters for Design",
+        "Design at native pixel dimensions for primary target. Rasterised graphics (logos, photos) look pixelated when scaled up - so design at the highest PPI you'll target. Modern best practice: design at 1x and 2x (Retina) or rely on responsive design with vector (SVG) graphics that scale infinitely. Don't design at 1080p only and hope it scales - it'll look blurry on 4K.",
+        "CSS handles PPI translation: 1 CSS pixel = ~96 PPI baseline. Browsers scale CSS pixels to actual device pixels (a CSS 24px font might use 48 actual device pixels on Retina displays). The 'device-pixel-ratio' lets developers detect and respond to high-DPI screens. Modern responsive design assumes Retina/high-DPI by default."
+      ),
+      createAnswerFirstSection(
+        "Calculating Your Screen's PPI",
+        "1) Note your screen's native resolution (e.g. 2560×1440). 2) Note diagonal screen size in inches (e.g. 27 inches). 3) Calculate diagonal pixels: √(width² + height²). 4) Divide by diagonal inches to get PPI. So 2560×1440 27-inch: √(6553600+2073600) = √8627200 = 2937 / 27 = 108.79 PPI.",
+        "Online PPI calculators (this tool) handle the math. Useful for: comparing monitors before buying, understanding why your design looks different on different screens, sizing design assets correctly for target devices, troubleshooting visual issues across devices. Use the [Image File Size Calculator](/image-file-size-calculator) for image sizing decisions; PPI affects required image dimensions."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the highest PPI display?",
+        "Top consumer phones (iPhone 15 Pro, Samsung Galaxy S24): 460-500 PPI. VR headsets: 1000+ PPI for individual eye displays. Some specialised medical/research displays: 1500+ PPI. Diminishing returns past 500 PPI for typical viewing - the human eye can't distinguish more pixels at typical distance."
+      ),
+      createFAQ(
+        "Does higher PPI hurt battery?",
+        "Yes - more pixels = more processing. High-PPI displays consume 20-40% more battery for graphics-heavy tasks. Most modern devices implement smart scaling: render at lower internal resolution then upscale for display, balancing visual quality with battery life."
+      ),
+      createFAQ(
+        "Is 4K worth it on small screens?",
+        "Diminishing returns past Retina threshold. A 27-inch 4K monitor (163 PPI) shows visible improvement over 1440p (109 PPI). A 13-inch 4K laptop (340 PPI) hits Retina easily; visual improvement over 1440p (227 PPI) is minimal. Battery impact and software scaling issues sometimes outweigh visual gain."
+      ),
+      createFAQ(
+        "What about DPI vs PPI?",
+        "Often used interchangeably but technically different. DPI = Dots Per Inch, used for printing (ink dots). PPI = Pixels Per Inch, used for digital displays. Same math but different physical concept. Image files stored with metadata DPI value (300 DPI for print, 72 PPI traditional web)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "image-file-size-calculator", label: "Image File Size Calculator" },
+      { slug: "inches-to-cm", label: "Inches to Centimetres" },
+      { slug: "mm-to-inches", label: "Millimetres to Inches" },
+      { slug: "data-storage-converter", label: "Data Storage Converter" },
+    ],
+  },
+
+  "yarn-weight-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Yarn Weight Categories",
+        "Standard yarn weight categories (CYC - Craft Yarn Council numbering): 0 Lace, 1 Super Fine (Fingering), 2 Fine (Sport), 3 Light (DK), 4 Medium (Worsted/Aran), 5 Bulky (Chunky), 6 Super Bulky, 7 Jumbo. Each category has typical needle/hook sizes and gauge (stitches per inch). UK and US use different terminology - UK 'Aran' = US 'Worsted'; UK 'Chunky' = US 'Bulky'.",
+        "Wraps Per Inch (WPI) is another measure - wrap yarn loosely around a ruler and count wraps per inch. Lace = 18+ WPI. Fingering = 14-16 WPI. Sport = 12-14 WPI. DK = 11-12 WPI. Worsted = 9-11 WPI. Bulky = 6-9 WPI. Super Bulky = 5-6 WPI. Different yarns within the same category vary; WPI gives a more precise classification than category alone."
+      ),
+      createAnswerFirstSection(
+        "UK to US Translation",
+        "UK 4ply ≈ US Fingering/Sport. UK DK = US DK (consistent). UK Aran = US Worsted (about 8-9 stitches per inch on US7/4.5mm). UK Chunky = US Bulky (about 5-6 stitches per inch on US10/6mm). UK Super Chunky = US Super Bulky. The DK category is the most consistent globally; other categories shift between systems.",
+        "Pattern ambiguity: a 'DK' pattern works similarly in UK and US. An 'Aran' pattern from UK source = Worsted yarn in US, NOT 'Aran weight' (which doesn't exist in US system). When buying yarn for a UK pattern, look for 'Aran' or 'Worsted' label - either works. UK Patons Diploma DK and US Knit Picks Brava DK should produce similar gauge."
+      ),
+      createAnswerFirstSection(
+        "Picking Yarn for a Project",
+        "Match yarn weight to recommended on pattern. Substitution within same weight category usually works (different yarn brand, same Worsted weight). Fibre matters too: cotton drapes differently from wool, acrylic from silk. Weight is the gauge anchor; fibre changes drape, warmth, and care. Check pattern's recommended yarn for both weight AND fibre.",
+        "Common project weights: socks = Fingering or Sport. Baby blanket = DK or Worsted. Adult sweater = Worsted or Aran. Throw blanket = Aran or Bulky. Quick scarf = Bulky or Super Bulky. Lace shawl = Lace or Fingering. Mixing weights in a single project creates uneven drape - usually avoided unless intentional design choice. Use the [Stitch Counter](/stitch-counter) for tracking project progress."
+      ),
+      createAnswerFirstSection(
+        "Substituting Yarn",
+        "Same weight category = usually safe substitution. Adjust needle size if necessary to hit the pattern's gauge. Always make a gauge swatch (4×4 inches in pattern stitch) before starting. Different from pattern gauge by 1-2 stitches per 4 inches = noticeable size difference in finished project. Adjust needle size up/down by 0.5-1mm to fix gauge.",
+        "Yardage calculation: pattern says '500 yards Worsted' - your substitute yarn lists yards per ball. Buy enough balls to hit 500 yards plus 10-20% buffer for seam allowances and unexpected mistakes. Solid colours are usually replaceable; multi-colour or speciality yarns (variegated, gradient) can be harder to substitute exactly. Match colour and texture as well as weight."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's gauge?",
+        "Number of stitches and rows per inch (or 4 inches/10cm) you produce with specific yarn and needle/hook. Pattern gauge is what the designer used; matching it ensures correct sizing. Make a 'gauge swatch' before starting - 5+ inches square, in the pattern stitch."
+      ),
+      createFAQ(
+        "Can I always substitute one yarn for another?",
+        "Within same weight category, yes for most projects. Different fibres affect drape, warmth, washability. Different colourways affect striping/speckling. Always make a gauge swatch even with similar yarns - tension varies between brands and individuals."
+      ),
+      createFAQ(
+        "What about UK 'double knitting' vs DK?",
+        "Same thing. 'Double knitting' is the full UK term; 'DK' is shorthand. Confusion sometimes arises with 'double knit' (a knit-fabric structure technique, not a yarn weight). Check context."
+      ),
+      createFAQ(
+        "What's lace weight for?",
+        "Very fine yarn (similar to embroidery thread). Used for delicate shawls, doilies, lacework. Knit on small needles (US 1-3 / 2.25-3.25mm). Final fabric is light, airy, drapey. Not suited to warm garments; often blocked aggressively to open up lace patterns."
+      ),
+    ],
+    relatedTools: [
+      { slug: "stitch-counter", label: "Stitch Counter" },
+      { slug: "quilt-calculator", label: "Quilt Calculator" },
+      { slug: "fabric-cost-calculator", label: "Fabric Cost Calculator" },
+      { slug: "knitting-gauge-calculator", label: "Knitting Gauge Calculator" },
+    ],
+  },
+
+  "stitch-counter": {
+    sections: [
+      createAnswerFirstSection(
+        "Tracking Stitches Across Long Projects",
+        "Knitting and crochet patterns require precise stitch counts - drop one and the pattern misshapes. A simple counter (mechanical or digital) lets you tap once per stitch row or repeat. Used for: row tracking in long projects (afghans, shawls), pattern repeat tracking (count to 12, then increase), tracking complex stitch counts in lace/cable patterns where mistakes compound visibly.",
+        "Physical counters: small mechanical clickers, ring counters that fit on your needle. Digital: phone apps (Knit Counter, Stitch Counter), online tools. Most knitters use multiple counters at once - one for rows, one for pattern repeats, one for stitch sequences within a row. The setup feels excessive but prevents mistakes that take hours to undo."
+      ),
+      createAnswerFirstSection(
+        "When You Need Exact Counts",
+        "Lace patterns: each row's stitch count is precise. Drop one and the next row's pattern shifts. Cables: cables decrease and increase predictably; missing one breaks the cable. Increases/decreases at sleeve caps: must match across the row. Colour changes: stripe widths must match exactly. Steeking and grafting: requires exact count for clean joins.",
+        "Less critical: simple stockinette in solid colour (mistakes blend in), garter stitch (doesn't visually shift much), long stockinette body sections (size variations of 1-2 stitches don't matter). Match counter usage to project complexity. Lace shawl: count obsessively. Plain DK pullover body: count loosely."
+      ),
+      createAnswerFirstSection(
+        "Common Counter Setups",
+        "Single project, simple pattern: 1 counter for row count. Single project, repeat pattern: 2 counters - rows + repeats. Complex pattern: 3+ counters - rows, repeats, special increases/decreases. Multi-colour project: counter per colour or per row sequence. Knitting in the round: row counter pinned to fabric or live-stitch holder.",
+        "Phone apps offer multi-counter setups, project-specific saving, undo functionality, audible confirmation. Some have voice control ('count') for hands-free use. Mechanical clickers don't undo - if you double-click, you're now off-count and unsure where. Digital counters fix this with revertible state. Use the [Yarn Weight Converter](/yarn-weight-converter) for project planning, [Quilt Calculator](/quilt-calculator) for fabric-based projects."
+      ),
+      createAnswerFirstSection(
+        "Beyond Basic Counting",
+        "Project notes app: combine counter + project log. Track yarn yardage used, time spent, modifications. Helps next project planning: 'this scarf used 380 yards over 25 hours; my next one will be similar'. Photo journal: snap progress every few inches; helps if you put project down for weeks and forget where you were.",
+        "Pattern annotation: if a pattern is challenging, mark each completed row directly on the printed pattern. Crossing off ensures you don't lose place when interrupted. Dedicated pattern apps (Ravelry, KnitCompanion) sync notes and counts across devices. Some knitters use both digital (counter) and analogue (paper checklist) - belt and braces."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I count every row?",
+        "For complex patterns, yes. For simple stockinette body sections of a sweater, just measure with a ruler (every X inches). Counters are useful for variable-density work where row count matters more than physical length."
+      ),
+      createFAQ(
+        "What if I lose count?",
+        "Re-count from a recent landmark (last increase row, last colour change). For lace: recount stitches in current row to verify. For complex patterns: rip back to last known good point. Avoiding count loss is the reason for using counters in the first place."
+      ),
+      createFAQ(
+        "Do I need an app or is paper enough?",
+        "Paper works for simple projects (tally marks on a sticky note). Apps win for complex multi-counter setups, undo functionality, project saving across multiple WIPs (works in progress). Most knitters use both - paper for simple, app for complex projects."
+      ),
+      createFAQ(
+        "Are mechanical clickers reliable?",
+        "Mostly yes, but: easy to accidentally double-click, can't undo, batteries don't apply (mechanical), can fall off project mid-row. Digital alternatives address all these issues but cost slightly more. Backup mechanical clicker is wise even if you primarily use an app."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yarn-weight-converter", label: "Yarn Weight Converter" },
+      { slug: "quilt-calculator", label: "Quilt Calculator" },
+      { slug: "knitting-gauge-calculator", label: "Knitting Gauge Calculator" },
+      { slug: "fabric-cost-calculator", label: "Fabric Cost Calculator" },
+    ],
+  },
+
+  "quilt-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Quilt Sizing Basics",
+        "Standard quilt sizes (UK/US): Cot/Crib 90×120cm (35×47in). Throw 130×170cm (50×60in). Twin/Single 175×230cm (66×88in). Full/Double 200×220cm (78×88in). Queen 230×230cm (90×90in). King 270×245cm (108×98in). Add 6-12 inches to bed dimensions for proper drape. Custom sizes: measure mattress depth × 2 + bed surface area + drape allowance.",
+        "Block-based quilts: divide finished size by block dimensions (e.g. Twin 66×88 inches with 12-inch blocks = 5.5×7.3 blocks → 6×7 = 42 blocks). Trim or design extras as needed. Whole-cloth quilts: 1-piece backing fabric, no block math. Hybrid (panels + borders): more complex calculation, requires planning each section's fabric requirements separately."
+      ),
+      createAnswerFirstSection(
+        "Fabric Yardage Math",
+        "For each block, calculate: pieces needed × pattern repeat. A 12×12 inch block with 4 squares of fabric A: each square is 4×4 finished (need ~4.5×4.5 cut for seam allowance). 4 squares × 4.5 = 18 inches per row of fabric A; with 42 blocks needing fabric A: 18 × 42 / 44 (typical fabric width) = ~17 yards.",
+        "Quick rule of thumb: 1 yard fabric (44 inches wide) ≈ 12 12-inch squares (with seam allowance). For a 42-block quilt: roughly 3.5 yards per major fabric. Add 20% for cutting waste, mistakes, fixing errors. Most patterns specify exact yardage; calculators help when designing custom or substituting fabrics. Backing: full quilt back = quilt size + 4-6 inches all sides for binding/binding allowance."
+      ),
+      createAnswerFirstSection(
+        "Layered Construction",
+        "Quilt layers: Top (decorative pieced fabric) + Batting (insulating layer) + Backing (single piece or pieced underside). Each layer: same dimensions as finished top + 4-6 inches each side for quilting movement. Batting types: cotton (warm, dense), wool (very warm, breathable), bamboo (cool, eco), polyester (cheap, lightweight, machine wash), blends (most practical for everyday use).",
+        "Binding: edge-finish strip around all 4 sides. Calculate: total perimeter + 10-15 inches for corners and joining. Standard 2.5-inch wide bias strip cut from fabric. A 50×60-inch throw: 220-inch perimeter + 12 = 232 inches. From 44-inch fabric: 232 / 44 = 6 strips. Yardage: 6 × 2.5 = 15 inches = ~half yard. Use the [Yarn Weight Converter](/yarn-weight-converter) for knitted alternatives, [Fabric Cost Calculator](/fabric-cost-calculator) for budget planning."
+      ),
+      createAnswerFirstSection(
+        "Time and Difficulty",
+        "Beginner quilt (simple block patterns, throw size): 20-40 hours hand-pieced + 10-20 hours machine-quilting + 5-10 hours binding. Total: 35-70 hours. Intermediate (more complex blocks, queen size): 40-80 hours pieced + 20-40 hours quilted + 10 hours bound. Advanced (curved piecing, applique, original design): 100-200+ hours.",
+        "Long-arm quilters charge £100-400+ for professional machine-quilting. Many quilters do simple stippling at home (faster, less precise) and reserve long-arm services for elaborate quilting. Hand-piecing is purely traditional: 4-6x slower than machine but yields heirloom quality. Most modern quilters use machines for piecing and either home machine or long-arm for quilting."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between piecing and quilting?",
+        "Piecing: sewing fabric squares/shapes together to form quilt top. Quilting: stitching through all 3 layers (top, batting, backing) to bind them together and add texture. Some quilts emphasise piecing (intricate top patterns, simple straight-line quilting). Others emphasise quilting (simple top, elaborate quilted texture)."
+      ),
+      createFAQ(
+        "Can I quilt without batting?",
+        "Yes - 'quilt as you go' methods use foundation fabric instead of batting. Result: less warmth, more drape, lighter weight. Some traditional quilts (whole cloth, vintage cotton-cotton-cotton) skip batting entirely. Batting choice significantly affects final weight, warmth, and washability."
+      ),
+      createFAQ(
+        "How long does a queen quilt take?",
+        "Beginner: 100+ hours start to finish (could be a year of weekend work). Experienced: 60-80 hours. Long-arm finishing service: 30-50 hours of your time + 6-8 weeks waiting for the long-armer + £200-400 service fee. Quilt-along communities (like in Modern Quilt Guild) accelerate beginner learning."
+      ),
+      createFAQ(
+        "What's a 'fat quarter'?",
+        "Quilting fabric cut at 18×22 inches - half of a half yard. Common pre-cut size sold in fabric stores. 'Bundle' = multiple fat quarters (often 12-25) in coordinated colours. Useful for projects requiring small amounts of many fabrics. Fat quarters are slightly more expensive per yard than buying yardage but the variety convenience usually wins for quilters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yarn-weight-converter", label: "Yarn Weight Converter" },
+      { slug: "fabric-cost-calculator", label: "Fabric Cost Calculator" },
+      { slug: "stitch-counter", label: "Stitch Counter" },
+      { slug: "seam-allowance-calculator", label: "Seam Allowance Calculator" },
+    ],
+  },
+
+  "wax-melt-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Wax Melt Recipe Basics",
+        "Standard wax melt: soy wax (8-10% fragrance load) or paraffin wax (8% load). For a typical 6-cavity silicone mold (each cavity ~14g): 100g wax + 8-10g fragrance oil = 108-110g batch. Multiply by number of batches needed. Soy wax is most popular for at-home melt makers - clean burn, eco-friendly, easier cleanup. Paraffin gives stronger scent throw but petroleum-based.",
+        "Equipment: double boiler or melting pot (£10-30), thermometer (essential for wax temperature), 6-cavity silicone moulds (£3-8 each), measuring scales (gram precision), fragrance oils (£5-15 per bottle, hundreds of scents available). Total startup: £30-80 to begin home wax melt making. Ongoing: ~£0.50-1 per finished melt cube depending on materials."
+      ),
+      createAnswerFirstSection(
+        "Calculating Per-Batch Materials",
+        "Total wax weight: count cavity volumes × number of moulds (each cavity ~14g for standard pots). Add 5-10% buffer for spillage and rim. Fragrance: 8-10% of wax weight (10% for soy, 8% for paraffin). So 100g wax × 10% = 10g fragrance per batch. For 12 standard cavities (about 168g wax + 17g fragrance), you'll fill 12 melts.",
+        "Recipe scaling: 5x batch = 500g wax + 50g fragrance for soy. 10x batch = 1000g wax + 100g fragrance. Check fragrance oil supplier's max load - some cap at 6-8% rather than 10%. Going over recommended load can cause separation, sweating, cracking. Use the supplier's specs as your maximum, not aspirational target."
+      ),
+      createAnswerFirstSection(
+        "Process and Timing",
+        "Melt wax to 80°C (175°F). Add fragrance oil, stir gently 30-60 seconds (don't whip in air). Allow temperature to drop to 60°C (140°F) - this is when fragrance binds best to wax. Pour into moulds. Let set 30-60 minutes at room temperature. Trim/clean any rough edges. Total active time: 15-30 minutes per batch. Total elapsed: 60-90 minutes before melts ready.",
+        "Cure time matters. Fresh-poured melts smell faint - they need 1-2 weeks of curing for fragrance to bind throughout. Cured melts have stronger scent throw. Many makers sell only after 14+ day cure. Some popular fragrances need 4-8 weeks cure to peak strength. Patience pays - rushed sales of fresh melts get poor scent reviews."
+      ),
+      createAnswerFirstSection(
+        "Scaling Production",
+        "Hobby scale: 1-2 batches per session, dozen melts per month. Markets/Etsy small business: 5-10 batches per week, hundreds of melts per month. Wax pourers used: tabletop pour pot (good to 500g/batch) or commercial melting tank (up to 5kg/batch). Production efficiency improves dramatically at higher volumes - one experienced maker can produce 100+ melts per hour at peak.",
+        "Pricing: small handmade wax melts retail at £2-4 per pack of 6 (smaller cavities) or £3-5 for 6-melt large packs. Higher-end designer melts: £5-10. Cost of goods: £0.50-1.50 per pack. Margin appears generous but consider time, packaging (£0.30-1), shipping prep, marketing, platform fees. Profitable at scale; barely break-even at very small scale. Use the [Candle Cost Calculator](/candle-cost-calculator) for related cost analysis."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between candle and melt wax?",
+        "Candle wax has a wick to hold the flame; needs structural integrity. Melt wax is shaped into chunks placed in warmer (no wick); needs cleaner pour and good fragrance throw. Different blends: 'pillar wax' for candles, 'container wax' for jar candles, 'melt wax' designed for warmer use. Soy wax is the most universal - works for all three with different additives."
+      ),
+      createFAQ(
+        "How long do wax melts last?",
+        "Standard 14g cube in warmer: 5-8 hours of fragrance throw before scent fades. Bigger cubes (20g+): 8-12 hours. Cheaper paraffin melts often longer than premium soy (paraffin holds scent longer). After fading, the wax can be removed (it doesn't 'burn off' like candles - just deactivates) and replaced with a fresh cube."
+      ),
+      createFAQ(
+        "Can I sell wax melts online?",
+        "Yes, with regulatory compliance. UK: CLP (Classification, Labelling, Packaging) regulations require fragrance oil safety datasheets and ingredient labels on packaging. Etsy and Amazon Handmade enforce these. Some fragrance oils require prop65 warnings for California sales. Insurance recommended (handmade craft insurance £100-200/year covers small-scale sellers)."
+      ),
+      createFAQ(
+        "Why do my melts have white spots?",
+        "Frosting - cosmetic only, doesn't affect performance. Soy wax is prone to it. Reduces with: pouring at lower temperature (60-65°C instead of higher), faster cooling, using wax labelled 'low frosting'. Doesn't appear in paraffin or coconut blends. Some makers embrace frosting as 'natural soy aesthetic'."
+      ),
+    ],
+    relatedTools: [
+      { slug: "candle-cost-calculator", label: "Candle Cost Calculator" },
+      { slug: "soap-calculator", label: "Soap Calculator" },
+      { slug: "fragrance-load-calculator", label: "Fragrance Load Calculator" },
+      { slug: "art-pricing-calculator", label: "Art Pricing Calculator" },
+    ],
+  },
+
+  "ring-size-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "International Ring Size Systems",
+        "UK ring sizes use letters (A-Z, plus half sizes A½, B½, etc.). US ring sizes use numbers (3-13+). EU/ISO uses circumference in millimetres directly (44-65mm typical adult). Japanese sizes use numbers but different from US. Conversion: UK 'L' ≈ US 5.5 ≈ 51mm circumference. UK 'P' ≈ US 7.5 ≈ 56mm. UK 'T' ≈ US 9.5 ≈ 60mm.",
+        "The systems aren't perfectly synchronised - half sizes don't always map cleanly between UK and US (UK uses half-letter sizes; US uses .5 increments). Most international jewellers can convert; some web shops use only one system. UK/Australia commonly share letter sizes; Europe uses circumference directly; Asia (Japan, Korea, China) uses different numbering."
+      ),
+      createAnswerFirstSection(
+        "Measuring Your Ring Size",
+        "Three methods: Ring sizer (from jewellery store - most accurate). Print-and-measure (online ring size charts you print, place existing ring on circles to find match). String/paper method: wrap thin strip around finger, mark where it overlaps, measure length in millimetres = circumference. Convert circumference to ring size via lookup table. Average accuracy: store-fitted (best), string method (within 0.5 size).",
+        "Best practice: measure at end of day (fingers swell). Take the largest knuckle into account - ring must slide over knuckle. Measure 3-4 times for consistency. Cold weather makes fingers smaller; hot/exercising makes them larger. Ring should be snug enough not to slide off, loose enough to come off without struggling."
+      ),
+      createAnswerFirstSection(
+        "Buying Online",
+        "Major online retailers: convert UK to other sizes automatically based on your country. Smaller boutiques: list one size system, may need email to check. Always verify the specific shop's sizing charts before ordering. Returns for size issues: most retailers allow within 30 days but custom-engraved rings often non-returnable.",
+        "Custom rings (engagement, wedding): never order without trying or having a sizer. Engraved or custom-set rings often can't be resized. Standard plain bands: most jewellers can resize within a couple of sizes (£20-50 typical service). White gold and platinum more expensive to resize than yellow gold. Use the [Clothing Size Converter](/clothing-size-converter) for general international sizing approach."
+      ),
+      createAnswerFirstSection(
+        "Special Considerations",
+        "Wide bands fit smaller. A 6mm wide band feels tighter than a 2mm thin band of same size. Many people order half size larger for wide bands. Knuckle size: if knuckle is wider than finger base, must size for knuckle (uncomfortable but practical). Some custom rings include 'knuckle adjustment' inserts.",
+        "Engagement rings often sized as a guess by the partner; intended recipient often resized later. Common practice: order standard 6 or 6.5 for adult women, 9 or 10 for adult men, then resize after engagement once the size can be measured directly. Wedding band: same finger as engagement so usually matched. Don't engrave until size confirmed."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Do men's and women's rings use the same sizes?",
+        "Yes - same alphabet/number scale, different typical ranges. Average women: UK L-N (US 5-7). Average men: UK Q-T (US 8-10). Bands of either gender use same sizing system but typical sizes differ. Wedding bands matched to engagement ring size for the recipient."
+      ),
+      createFAQ(
+        "How much does resizing cost?",
+        "Yellow gold: £20-40. White gold/platinum: £40-80. Up or down 1-2 sizes typical for plain bands. Larger resizes (3+) may not be possible without remaking. Engraved or stone-set rings: £40-100+ depending on complexity. Reputable jewellers offer free resizing within 30 days on rings purchased there."
+      ),
+      createFAQ(
+        "Are 'half sizes' real?",
+        "Yes - most ring sizing systems include half sizes. UK uses half-letter (L½, M½). US uses 0.5 increments (5.5, 6, 6.5). EU directly measures circumference in mm so any size is possible. Half sizes matter - between full sizes, the ring is either too tight or too loose; half size hits comfortably."
+      ),
+      createFAQ(
+        "Can I trust online ring size calculators?",
+        "For first-pass estimate, yes. For final purchase decision, no - get a physical sizer or visit a jeweller. Online tools' accuracy varies; print-and-measure works if printed at exactly 100% scale (calibration issues common). For expensive rings (engagement), always physical sizing."
+      ),
+    ],
+    relatedTools: [
+      { slug: "clothing-size-converter", label: "Clothing Size Converter" },
+      { slug: "uk-to-eu-shoe-size", label: "UK to EU Shoe Size" },
+      { slug: "uk-to-us-shoe-size-mens", label: "UK to US Shoe Size Mens" },
+      { slug: "jewellery-pricing-calculator", label: "Jewellery Pricing Calculator" },
+    ],
+  },
 };

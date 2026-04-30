@@ -2146,4 +2146,53 @@ export const seasonalSEO = {
       { slug: "australia-public-holiday-planner", label: "Australia Public Holidays" },
     ],
   },
+
+  "when-is-easter": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Easter Sunday?",
+        "Easter Sunday is the first Sunday after the first full moon on or after the spring equinox (21 March). The date varies year to year, falling between 22 March (rarely) and 25 April. 2025: 20 April. 2026: 5 April. 2027: 28 March. 2028: 16 April. 2029: 1 April. The earliest possible Easter is 22 March (last occurred 1818, next will be 2285); latest is 25 April (1943, next 2038).",
+        "Why so movable? The Christian calculation dates from the First Council of Nicaea (325 AD) which set the formula. Western (Catholic, Protestant, Anglican) Easter uses the Gregorian calendar; Eastern Orthodox Easter uses the Julian calendar and lands 1-5 weeks later. 2025: Western Easter 20 April; Orthodox Easter same day (rare alignment). 2026: Western 5 April; Orthodox 12 April. Public holidays for Good Friday and Easter Monday in the UK and most Christian-tradition countries follow the Western date."
+      ),
+      createAnswerFirstSection(
+        "What Easter Influences in the Calendar",
+        "Easter sets the dates for many other observances. Mardi Gras (Shrove Tuesday) is 47 days before Easter. Ash Wednesday: 46 days before. Lent: 40 days from Ash Wednesday to the Saturday before Easter. Mothering Sunday in the UK: 3 weeks before Easter. Palm Sunday: the Sunday before Easter. Maundy Thursday: 3 days before Easter Sunday. Good Friday: 2 days before. Easter Monday: day after Easter Sunday.",
+        "School holidays are usually structured around Easter. UK 'Easter Holiday' is typically the 2 weeks bracketing Easter weekend - exact dates vary by school but include Good Friday and Easter Monday. Universities follow similar patterns. Christian, Jewish, and Muslim observances sometimes overlap with Easter season - Passover often falls near Easter (the religious connection is intentional - Easter commemorates events that happened during Passover)."
+      ),
+      createAnswerFirstSection(
+        "Easter Future Dates",
+        "Looking ahead: 2025: 20 April. 2026: 5 April. 2027: 28 March. 2028: 16 April. 2029: 1 April. 2030: 21 April. 2031: 13 April. 2032: 28 March. 2033: 17 April. 2034: 9 April. 2035: 25 March. The pattern is irregular but cycles - similar dates recur in non-obvious patterns over centuries.",
+        "Eastern Orthodox Easter (different calculation): 2025: 20 April. 2026: 12 April. 2027: 2 May. 2028: 16 April. 2029: 8 April. Orthodox dates fall 1-5 weeks after Western Easter except in alignment years. Russia, Greece, Ukraine, Serbia, Romania, Bulgaria use Orthodox dating. Same Christian holiday, different calendar systems."
+      ),
+      createAnswerFirstSection(
+        "Why So Movable?",
+        "The Council of Nicaea (325 AD) wanted Easter to align with the lunar timing of the original Passover events while staying separate from Jewish calendar. The compromise: 'first Sunday after the first full moon after spring equinox' lets Easter remain in spring without being identical to Passover. Modern proposals to fix Easter's date (e.g. always second Sunday in April) have circulated for decades but require ecumenical agreement that hasn't materialised.",
+        "The current system creates planning complexity for schools, businesses, and travel industry. Holiday cottages, hotels, train operators all see major demand spikes that move 4-5 weeks year-to-year. The economic case for fixing Easter exists but the religious traditionalist case has held. UK Parliament passed the Easter Act 1928 setting Easter as the Sunday after the second Saturday in April - never enacted (requires church consultation that hasn't completed)."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why isn't Easter on a fixed date like Christmas?",
+        "Christmas commemorates a fixed nominal date (25 December) chosen by early church to align with existing winter festivals. Easter commemorates events that occurred during Passover, which is set by the Jewish lunar calendar. The Christian compromise (first Sunday after first full moon after equinox) keeps Easter linked to the lunar timing without copying the Jewish calculation directly."
+      ),
+      createFAQ(
+        "When was the earliest Easter?",
+        "22 March - last occurred 1818. Next earliest: 2285. Latest possible date: 25 April - last 1943, next 2038. The actual range each year is constrained by the lunar/solar cycle interaction, with most years falling in early-to-mid April."
+      ),
+      createFAQ(
+        "Why are Western and Orthodox Easter different?",
+        "Different calendars. Western churches use the Gregorian calendar (1582 onwards in most of Europe). Eastern Orthodox churches use the Julian calendar (older, 13 days behind in current era). Same fundamental formula but applied to different calendar systems. Occasionally the dates align (2025 is one such year)."
+      ),
+      createFAQ(
+        "How does Easter affect UK school holidays?",
+        "UK Easter holiday is typically 2 weeks bracketing Easter weekend - the Friday before Good Friday through the Friday after Easter Monday is the most common pattern. Specific dates set by individual schools/local authorities. When Easter is very early (March), the holiday clashes with end of spring term; when very late (April), the holiday clashes with start of summer term."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-pancake-day", label: "When Is Pancake Day" },
+      { slug: "when-is-mothers-day-uk", label: "When Is UK Mother's Day" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
 };

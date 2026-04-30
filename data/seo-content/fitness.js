@@ -1242,4 +1242,53 @@ export const fitnessSEO = {
       { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
     ],
   },
+
+  "bmi-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What BMI Actually Measures",
+        "Body Mass Index = weight (kg) / height² (m²). For a 70 kg person at 1.75 m: BMI = 70 / (1.75 × 1.75) = 22.86. Using imperial: weight (lbs) × 703 / height² (inches²). The formula is simple, fast, and free - which is why doctors, insurers, and researchers use it as a screening tool despite its known limitations.",
+        "Standard categories (WHO): under 18.5 = underweight, 18.5-24.9 = healthy weight, 25-29.9 = overweight, 30+ = obese (Class I 30-34.9, Class II 35-39.9, Class III 40+). The boundaries are clinical conventions, not biological cliffs - someone at 24.5 BMI isn't meaningfully different from 25.5. Use BMI as one data point among several, not as a definitive verdict on your health."
+      ),
+      createAnswerFirstSection(
+        "Why BMI Sometimes Misleads",
+        "BMI doesn't distinguish muscle from fat. A bodybuilder at 30 BMI might be 8% body fat (very lean); a sedentary person at the same BMI might be 35% body fat (high risk). Athletes, weightlifters, and rugby players regularly land in 'overweight' or 'obese' categories despite being unambiguously healthier than average sedentary peers.",
+        "BMI also varies in clinical relevance by ethnicity. South Asian populations have higher cardiovascular risk at lower BMI - WHO recommends Asian-specific cutoffs (overweight from 23, obese from 27.5). Older adults with a slightly higher BMI sometimes have better outcomes than 'normal' BMI peers. Body composition (waist circumference, body fat %, fitness level) often matters more than BMI alone."
+      ),
+      createAnswerFirstSection(
+        "What to Use Alongside BMI",
+        "Waist circumference is the easy add-on. Risk increases above 94 cm (37 in) for men, 80 cm (31.5 in) for women. Waist-to-hip ratio is similar - over 0.9 for men or 0.85 for women suggests increased risk. Body fat percentage gives the clearest picture but requires DEXA scan, BIA scale, or calliper measurements - more accurate than BMI but harder to obtain.",
+        "Functional measures matter too: how easily you walk up stairs, your resting heart rate, your blood pressure, your blood sugar. Many 'overweight' BMI people are metabolically healthy; some 'normal' BMI people are not. Use the [TDEE Calculator](/tdee-calculator) for daily energy needs and pair it with realistic strength/cardio training for actual health change rather than chasing a BMI number."
+      ),
+      createAnswerFirstSection(
+        "Using BMI for Children and Adolescents",
+        "Adult BMI categories don't apply to children. Paediatric BMI uses percentiles relative to age and sex - a 10-year-old at the 95th percentile is in the 'obese' range for their age group. The same absolute BMI value would be normal for an adult. Always use age-and-sex-specific charts (CDC, WHO) for children under 18.",
+        "Children's body composition shifts dramatically through growth. A pre-pubertal slim child often becomes a stockier adolescent due to natural muscle gain. BMI percentile tracking over time matters more than a single reading. Sustained drift across percentiles (rising from 50th to 90th over 2-3 years) is the warning sign; small fluctuations are normal."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is BMI accurate for athletes?",
+        "Often misleading. Strength athletes, rugby players, sprinters carry significant muscle mass that pushes BMI into 'overweight' or 'obese' ranges despite low body fat. For these people, body fat percentage or waist circumference is more meaningful than BMI."
+      ),
+      createFAQ(
+        "Should I aim for the middle of the healthy range?",
+        "Not necessarily - the entire 18.5-24.9 range is associated with similar health outcomes for most adults. Forcing yourself to 22 BMI when you naturally settle at 24 doesn't add health benefit. Focus on fitness, body composition, and metabolic markers instead of chasing a specific BMI number."
+      ),
+      createFAQ(
+        "How often should I check my BMI?",
+        "Monthly at most, more usefully quarterly. Daily fluctuations of 1-2 kg from food/water shifts make daily checks misleading. For weight management, consistent direction over months matters more than precise weekly values. Combine with waist measurement, photos, or fitness tests for a fuller picture."
+      ),
+      createFAQ(
+        "What's a 'healthy' weight if not BMI-defined?",
+        "A weight where you have energy, sleep well, lift what you need to, and lab markers (cholesterol, blood sugar, blood pressure) are good. This can be at any BMI. Some people thrive at 22 BMI; others at 27. Long-term sustainability and quality of life matter more than hitting a 'healthy' label."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "heart-rate-zone-calculator", label: "Heart Rate Zone Calculator" },
+      { slug: "water-intake-calculator", label: "Water Intake Calculator" },
+      { slug: "steps-to-miles", label: "Steps to Miles" },
+    ],
+  },
 };

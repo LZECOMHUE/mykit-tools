@@ -702,4 +702,102 @@ export const bettingSEO = {
       { slug: "odds-converter", label: "Odds Converter" },
     ],
   },
+
+  "set-for-life-number-picker": {
+    sections: [
+      createAnswerFirstSection(
+        "Set For Life Format",
+        "UK National Lottery's Set For Life requires picking 5 main numbers from 1-47 plus 1 'Life Ball' from 1-10. Match all 6 to win £10,000 every month for 30 years (the top prize). Match 5 + 0 = £10,000/month for 1 year. Lower matches give cash prizes. Draws happen Mondays and Thursdays. Tickets cost £1.50 each.",
+        "The 'random pick' (Lucky Dip) generates numbers automatically - same odds as picking yourself but removes effort. Common picking strategies: avoid heavily-played number patterns (1-2-3-4-5), use birthdays (limits to 1-31 only - missing 32-47), random pure-chance picks. Mathematically all combinations have equal probability of being drawn; the advantage of random picks is avoiding shared jackpots if your numbers happen to be popular."
+      ),
+      createAnswerFirstSection(
+        "Odds and Realistic Expectations",
+        "Top prize odds: 1 in 15.34 million. To put that in context: more likely to be struck by lightning (1 in 1.2 million in your lifetime) than to win Set For Life. The expected return per £1.50 ticket is roughly 50-55p - so £1 of every £2 spent ends up as profit/funding for the Lottery, not back to players. Treat as entertainment expense, not investment.",
+        "Better odds: match 5 numbers without Life Ball (1 in 1.7 million), match 4+1 (1 in 250,000), match 3+1 (1 in 5,300). Lower-tier prizes (£5-£250) are achievable but small. The expected loss is about 47p per £1.50 ticket. Lottery players sometimes joke 'if you don't play, you can't win' - mathematically true but the same logic applies to any near-zero probability event."
+      ),
+      createAnswerFirstSection(
+        "How the Number Picker Works",
+        "Generates random numbers using browser's Math.random() or similar pseudo-random. Same statistical odds as buying a Lucky Dip ticket. Some pickers add filters: avoid consecutive numbers (1-2-3 patterns), exclude certain birthdays-only ranges, ensure spread across high/low/odd/even. None of these filters change actual probability - they just feel different.",
+        "Cultural beliefs about lucky numbers (7, 8, 11, 13) vary by player. Some players use date-of-birth digits, anniversaries, sports jersey numbers. Mathematically identical chances regardless of method. The picker is a tool for generating random combinations without bias toward your personal favourites - sometimes that's exactly what you want."
+      ),
+      createAnswerFirstSection(
+        "Responsible Play",
+        "Lottery is gambling - National Lottery's GambleAware messaging is mandatory for a reason. Set yourself a monthly budget (e.g. £10/month = 6-7 plays). Don't chase losses by buying more tickets after a loss. Don't use lottery as a 'plan' - the math is a tax on people who don't understand probability. If you find yourself spending more than budgeted, GamCare, BeGambleAware, and Citizens Advice offer free support.",
+        "The Lottery does fund good causes - about 30p of every £1.50 ticket goes to Heritage, Sport, Arts, Community, Health, and other charitable distributions. From that perspective, lottery spending is partly a charitable contribution. Use the [Powerball Number Picker](/powerball-number-picker) for the US lottery comparison, [Lucky Number Generator](/lucky-number-generator) for general number picks."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are random picks better than choosing my own?",
+        "Mathematically identical odds. Statistically, random Lucky Dips are slightly less likely to result in shared jackpots (you avoid the heavily-played patterns that cluster around birthdays and common 'lucky' numbers). For maximum payout per win, pure random spreads risk."
+      ),
+      createFAQ(
+        "What's the smallest prize?",
+        "£5 for matching 3 numbers. Bigger if you also match the Life Ball: £10 for 3+1, £20 for 4+0, £250 for 4+1, £10,000 for 5+0 (1 year of monthly payments), £10,000/month for 30 years for 5+1 (the jackpot)."
+      ),
+      createFAQ(
+        "Can I play from outside the UK?",
+        "Officially you must be a UK resident and 18+ to buy tickets. Some online services claim to facilitate international play but this is technically against National Lottery rules. Stick to direct purchase from official channels (Camelot/National Lottery website or Allwyn from 2024)."
+      ),
+      createFAQ(
+        "What if multiple winners hit the jackpot?",
+        "The jackpot prize (£10,000/month for 30 years) is shared between all jackpot-winning tickets. So if 2 people match all 6, each gets £5,000/month. The £10k/month figure is per-ticket assuming sole winner; multiple winners reduce per-person payout proportionally."
+      ),
+    ],
+    relatedTools: [
+      { slug: "powerball-number-picker", label: "Powerball Number Picker" },
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+      { slug: "odds-converter", label: "Odds Converter" },
+      { slug: "betting-odds-calculator", label: "Betting Odds Calculator" },
+    ],
+  },
+
+  "powerball-number-picker": {
+    sections: [
+      createAnswerFirstSection(
+        "Powerball Format",
+        "US Powerball requires 5 main numbers from 1-69 plus 1 Powerball from 1-26. Match all 6 to win the jackpot (varies, often £100M+ at start, building to billions in record-setting rolls). Tickets cost $2 each (£1.50). Draws Monday, Wednesday, Saturday at 10:59 PM Eastern. Available in 45 US states + DC + Puerto Rico + US Virgin Islands.",
+        "The current record Powerball jackpot: $2.04 billion (November 2022, single ticket in California). Powerball is the largest US lottery game by jackpot. UK residents cannot legally buy Powerball tickets directly - some 'lottery messenger' services exist but operate in a legal grey area. The huge jackpot prizes drive massive ticket sales, especially when rolling for weeks without a winner."
+      ),
+      createAnswerFirstSection(
+        "Odds and Math",
+        "Top prize odds: 1 in 292.2 million. Lower than UK Set For Life (15M) - American lotteries typically have worse odds because of the larger number range. To compare: more likely to be killed by a vending machine (~1 in 112 million) than to win Powerball. The expected return per $2 ticket is about $0.95 - half the ticket cost goes to administration, taxes, and prizes for lower tiers.",
+        "Match 5 without Powerball: 1 in 11.7 million for $1 million. Match 4+1: 1 in 913,129 for $50,000. Match 4: 1 in 36,525 for $100. Match 3+1: 1 in 14,494 for $100. Lower-tier prizes ($4-100) are more frequent but small. Power Play option (extra $1) multiplies non-jackpot wins 2x-10x; it's optional and changes the expected return profile."
+      ),
+      createAnswerFirstSection(
+        "Number Picking Strategy",
+        "Quick Pick (random) is the most common - 70%+ of tickets sold are Quick Picks. Same odds as picking yourself. Birthdays-based picking is common but limits main numbers to 1-31 (missing 32-69 = lower likely jackpot). Sports jersey numbers, addresses, anniversaries are popular. The advantage of full-random picks is reducing chance of shared jackpot if your specific numbers are widely played.",
+        "The 'wheel system' or 'frequency analysis' (picking numbers that haven't been drawn recently) - has zero statistical basis. Each draw is independent; previous draws don't affect future probability. Some people enjoy these strategies for the structure they provide; mathematically they don't improve your odds. Use the picker for unbiased random picks if that's what you want."
+      ),
+      createAnswerFirstSection(
+        "Tax and Real Take-Home",
+        "If you win the US lottery jackpot, expect roughly 40-50% to disappear to taxes. US federal lottery winnings: 24% withheld immediately, plus up to 13.3% in state tax (CA, NY) or 0% (Texas, Florida). Lump sum option: typically 50-60% of advertised jackpot pre-tax. Annuity option: full advertised amount paid over 30 years (more total but in instalments).",
+        "Most jackpot winners take the lump sum despite getting less, because: investment of lump sum can outperform the annuity payments, life is uncertain, taxes might rise during annuity period. Financial advisers strongly recommend immediate professional financial planning post-win - dramatic lifestyle changes after lottery wins often correlate with negative outcomes for unprepared winners. Use the [Set For Life Number Picker](/set-for-life-number-picker) for the UK equivalent."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I play Powerball from the UK?",
+        "Not legally direct. Official Powerball is restricted to US ticket purchases. Some 'lottery concierge' or 'lottery messenger' services claim to buy tickets on your behalf, but legal status is unclear. Most UK players stick to UK lotteries (National Lottery, Set For Life, EuroMillions) which are widely available and legitimate."
+      ),
+      createFAQ(
+        "Are repeat winners suspicious?",
+        "Modern US lottery audits investigate any seller selling many winning tickets. Most repeat 'wins' from one person/address are scrutinised. Lottery wins are random, so a single person winning twice is statistically possible but rare enough to merit investigation."
+      ),
+      createFAQ(
+        "What about the $2.04B winner?",
+        "California 2022 winner Edwin Castro took the lump sum: $997.6 million pre-tax. After federal and California state tax: roughly $628 million net. Has remained largely private since. Subsequent investigation found procedural issues but ticket was confirmed legitimate."
+      ),
+      createFAQ(
+        "Is Power Play worth the extra dollar?",
+        "Mathematical expected value usually slightly positive, but small. Power Play multiplies non-jackpot wins 2-10x. Most often results in modest ($4 → $8 with 2x multiplier) increases. Won't change a low-tier loss into a big win. For most players, the extra dollar is better spent on a second ticket (doubles your chance) than Power Play."
+      ),
+    ],
+    relatedTools: [
+      { slug: "set-for-life-number-picker", label: "Set For Life Number Picker" },
+      { slug: "lucky-number-generator", label: "Lucky Number Generator" },
+      { slug: "odds-converter", label: "Odds Converter" },
+      { slug: "betting-odds-calculator", label: "Betting Odds Calculator" },
+    ],
+  },
 };

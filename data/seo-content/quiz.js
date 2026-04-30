@@ -991,4 +991,53 @@ export const quizSEO = {
       { slug: "which-decade-do-you-belong-in", label: "Which Decade Do You Belong In?" },
     ],
   },
+
+  "big-five-personality-test": {
+    sections: [
+      createAnswerFirstSection(
+        "What the Big Five Actually Measures",
+        "The Big Five (also called OCEAN or CANOE) measures personality across five broad dimensions: Openness (curiosity, creativity, willingness to try new things), Conscientiousness (organisation, discipline, goal-directed behaviour), Extraversion (sociability, energy from being around people), Agreeableness (cooperative, trusting, considerate of others), Neuroticism (tendency toward anxiety, mood swings, emotional instability).",
+        "Unlike Myers-Briggs (MBTI), the Big Five is the dominant personality model in academic psychology and has substantial peer-reviewed research backing. It's been validated across cultures, ages, and contexts. Each dimension is a continuous spectrum (you score 0-100 on each), not a binary type. Most people are mixed - high in some traits, low in others, with the combination producing your unique profile."
+      ),
+      createAnswerFirstSection(
+        "What Scores Mean",
+        "Each trait scores you on a percentile relative to the population. Scores aren't 'good' or 'bad' - high Conscientiousness suits structured work; low Conscientiousness suits creative/flexible roles. High Agreeableness makes for better team players but can struggle with negotiation. Some research suggests outliers in any direction (extreme high or extreme low on any trait) face challenges, while moderate scores on most traits adapt well to varied situations.",
+        "Trait correlations: high Conscientiousness predicts career success, life expectancy, and relationship stability. Low Neuroticism predicts subjective wellbeing and lower mental health risk. Openness predicts creativity but also predicts liberal political views in research samples. Extraversion predicts active social life. Each trait has measurable real-world implications, but no trait alone determines life outcomes."
+      ),
+      createAnswerFirstSection(
+        "How the Test Works",
+        "Standard tests use 30-300 self-report statements (longer = more accurate). You rate your agreement (e.g. 'I am the life of the party' on a 1-5 scale). The full IPIP-NEO test (300 items) is the gold standard. Shorter versions (50-item, 100-item) trade some precision for usability. Most online tests use 50-100 items.",
+        "Reliability: high. Big Five scores correlate strongly across re-tests (0.7-0.85 typical) over months and years. The traits are relatively stable in adulthood - your 25-year-old Big Five profile will be largely similar at 65, with mild drift toward higher Conscientiousness and Agreeableness over decades. Self-report has limitations (people overestimate desirable traits) but Big Five is more reliable than most personality tools."
+      ),
+      createAnswerFirstSection(
+        "Big Five vs Other Personality Tests",
+        "MBTI (Myers-Briggs): popular but lacks scientific support. Categorises people into 16 types based on binary traits. Test-retest reliability is poor (people often get different types). Big Five outperforms MBTI in scientific contexts. MBTI persists in HR/coaching due to brand recognition and simplicity, not validity.",
+        "Enneagram: 9-type system, popular in spiritual/coaching contexts. Limited academic validation. DISC: workplace personality assessment with weaker scientific backing than Big Five. Hogan Assessments: Big Five-based but proprietary. For self-understanding, Big Five gives the most evidence-backed personality picture. The [Hogwarts House Quiz](/hogwarts-house-quiz) and [Mental Age Quiz](/mental-age-quiz) are pure entertainment; Big Five aspires to genuine measurement."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does the test take?",
+        "Short versions (50 questions): 5-10 minutes. Mid-length (100 questions): 15-20 minutes. Full version (300 IPIP-NEO): 45-60 minutes. Longer = more accurate, especially for the 30 sub-facets. Most online quick tests are 50-100 items - sufficient for the 5 broad traits but less reliable on sub-facets."
+      ),
+      createFAQ(
+        "Can my Big Five scores change?",
+        "Slightly, slowly. Adult personality is fairly stable - 80%+ correlation between scores at 25 and at 60 years old. The biggest changes happen in late teens and early 20s. Conscientiousness tends to rise gradually with age; Neuroticism tends to decrease. Big life changes (parenthood, career shifts, therapy) can produce shifts of 5-10 percentile points over years."
+      ),
+      createFAQ(
+        "Should I take this for a job?",
+        "Some employers (especially large UK firms, US corporations) use Big Five-based assessments in hiring. Job-specific assessments are usually proprietary tweaks of the Big Five model. Authenticity matters - inflating Conscientiousness on a test for a job that genuinely requires it can lead to a poor fit (and some companies catch faking)."
+      ),
+      createFAQ(
+        "Is high Neuroticism bad?",
+        "Not 'bad' - just associated with more frequent negative emotions, anxiety, mood instability. Many highly creative, sensitive, empathetic people score high on Neuroticism. Low Neuroticism (high emotional stability) correlates with happier life satisfaction; high Neuroticism with creative output. Like all traits, context matters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hogwarts-house-quiz", label: "Hogwarts House Quiz" },
+      { slug: "what-dog-breed-are-you", label: "What Dog Breed Are You?" },
+      { slug: "mental-age-quiz", label: "Mental Age Quiz" },
+      { slug: "which-decade-do-you-belong-in", label: "Which Decade Do You Belong In?" },
+    ],
+  },
 };

@@ -1188,4 +1188,53 @@ export const educationSEO = {
       { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
     ],
   },
+
+  "reading-level-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "How Reading Level Tools Score Text",
+        "Most use one or more readability formulas: Flesch Reading Ease (higher score = easier, 60-70 is typical for general public writing), Flesch-Kincaid Grade Level (gives a US school grade equivalent - 8 means 'understandable by a 13-14-year-old'), SMOG Index, Gunning Fog Index, Automated Readability Index, Coleman-Liau Index. Each uses different combinations of sentence length, syllable count, and word complexity.",
+        "Why so many formulas? Each has slightly different weighting. Flesch-Kincaid is the most widely cited (US government documents, military manuals require certain grade levels). Newer formulas like Dale-Chall focus on specific 'familiar word' lists. None is perfect - all approximate readability through proxies like word and sentence length, which doesn't capture genuine comprehension difficulty."
+      ),
+      createAnswerFirstSection(
+        "What Reading Levels Mean",
+        "Grade 1-3 (ages 6-9): very simple, short sentences, basic vocabulary. Children's early readers. Grade 6-8 (ages 11-13): plain English. Newspaper articles, most blog posts, popular non-fiction aim here. Grade 9-12 (ages 14-18): high school level. Most professional writing, journalism. Grade 13+ (university/college): academic writing, technical documents, legal/medical material.",
+        "Most readers prefer text 1-2 grades below their actual reading level (less effort = more enjoyable). Aim writing for the audience's mid-range, not their maximum. The Plain English Campaign recommends grade 8-10 for most consumer content. Journal articles aimed at specialists can go grade 14+, but only because the audience self-selects for that level."
+      ),
+      createAnswerFirstSection(
+        "Improving Readability",
+        "Top three changes that lower grade level: shorter sentences (under 20 words), simpler words (replace 'utilise' with 'use', 'commence' with 'start'), active voice ('the team won' not 'the game was won'). Each change shifts the score by 1-2 grades. Combine all three for substantial improvement.",
+        "Tools and tactics: Hemingway Editor highlights long sentences and adverbs. Microsoft Word has built-in readability statistics. Read aloud - if you stumble, the sentence is too long. The 'one idea per sentence' rule eliminates most readability problems. Don't sacrifice precision for readability though - technical accuracy matters more than hitting a grade level."
+      ),
+      createAnswerFirstSection(
+        "When Higher Reading Levels Make Sense",
+        "Academic publishing, legal documents, medical research, technical manuals - audiences expect precise terminology and complex sentence structures. Forcing these to grade 8 strips meaning. Internal corporate communications can be at the level of the audience (engineers can handle engineering vocabulary).",
+        "Marketing and consumer-facing content should target the audience's general reading level. UK national newspapers: Sun grade 6-7, Daily Mail 8-9, Telegraph 10-11, Guardian 11-12, Times 11-13. Picking your reading level reflects your audience choice. The [Word Counter](/word-counter) and tools like [Character Counter](/character-counter) help with the surface-level metrics that drive readability."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why do different formulas give different scores?",
+        "Each weights word and sentence complexity differently. Flesch-Kincaid emphasises sentence length; SMOG emphasises 3+ syllable words; Gunning Fog penalises difficult vocabulary specifically. For most text, all formulas agree within 1-2 grade levels. Big disagreements signal unusual writing patterns."
+      ),
+      createFAQ(
+        "What grade level should my blog post be?",
+        "Most successful blog content hits grade 6-9. Higher levels are fine for technical or academic audiences who self-selected. Below grade 6 starts feeling condescending to adult readers. The sweet spot for general audience is grade 8 - readable, not babied."
+      ),
+      createFAQ(
+        "Is Hemingway grade 5 ideal?",
+        "Hemingway's app aims for grade 5-6 because it's designed for journalism/blogging. For academic or technical writing, grade 5 strips too much precision. Match grade level to context - news writing yes; legal contracts no."
+      ),
+      createFAQ(
+        "Can readability scores be gamed?",
+        "Easily - shorter sentences and simpler words drop scores without improving real comprehension. AI 'readability optimisation' that splits every sentence into 5 words may score grade 4 but reads like a children's book. Use scores as a sanity check, not a hard target."
+      ),
+    ],
+    relatedTools: [
+      { slug: "word-counter", label: "Word Counter" },
+      { slug: "readability-checker", label: "Readability Checker" },
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "case-converter", label: "Case Converter" },
+    ],
+  },
 };

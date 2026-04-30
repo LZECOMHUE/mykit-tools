@@ -1375,4 +1375,151 @@ export const parentingSEO = {
       { slug: "canada-child-care-cost-by-province", label: "Canada Child Care Cost" },
     ],
   },
+
+  "baby-due-date-countdown": {
+    sections: [
+      createAnswerFirstSection(
+        "How Pregnancy Due Dates Work",
+        "Standard pregnancy is 280 days (40 weeks) from the first day of last menstrual period (LMP) - or about 38 weeks from actual conception. Naegele's rule: due date = LMP date + 9 months + 7 days, or LMP + 280 days. So an LMP of 1 January gives a due date of approximately 8 October. Most due date calculators use this method.",
+        "Only about 4-5% of babies arrive on the actual due date. Most arrive within 2 weeks either way - 'term' pregnancy is 37-42 weeks. First-time mothers tend to deliver slightly later (averaging 8 days past LMP-based due date). Repeat mothers tend to be closer to or slightly before. Healthcare professionals use LMP for the original due date but adjust based on early ultrasound (6-13 weeks) which is generally more accurate than LMP for women with irregular cycles."
+      ),
+      createAnswerFirstSection(
+        "Trimesters and Major Milestones",
+        "First trimester (1-13 weeks): morning sickness, fatigue, very early development. 12-week scan confirms viability and dating. Second trimester (14-27 weeks): often called the 'easy' trimester - energy returns, baby movements felt around 18-20 weeks. 20-week scan checks anatomy. Third trimester (28-40 weeks): rapid growth, more discomfort, preparation. Birth typically between 37-42 weeks.",
+        "Key NHS milestones: 12-week dating scan (free, confirms LMP-based date or adjusts it), 20-week anomaly scan (free, checks development), GTT around 26 weeks if at risk for gestational diabetes, midwife appointments throughout. Working out due date matters for: maternity leave eligibility, antenatal class scheduling, hospital booking, paternity leave timing for partner."
+      ),
+      createAnswerFirstSection(
+        "What Affects the Due Date",
+        "Cycle length: Naegele's rule assumes 28-day cycles. Longer cycles (32+ days) push the due date forward; shorter cycles pull it back. Conception date if known: more accurate than LMP for irregular cycles - add 266 days (38 weeks). Early ultrasound: most accurate when done at 6-13 weeks; later ultrasounds become less precise as variation among babies increases.",
+        "First-time pregnancy: tendency for slightly later delivery (average +5-8 days past due date). Subsequent pregnancies: slightly earlier average. Multiple pregnancy (twins): often delivered earlier (37 weeks instead of 40). High BMI, gestational diabetes, hypertension may all affect timing. Talk to midwife if cycle was abnormal or you're uncertain about LMP - they can adjust based on early scan and cycle history."
+      ),
+      createAnswerFirstSection(
+        "Pre-Birth Preparation Timeline",
+        "20+ weeks ahead: book antenatal classes (NCT, NHS, hypnobirthing, etc.), discuss leave with employer, write birth plan. 12 weeks ahead: hospital bag preparation, baby essentials shopping, meal prep planning. 6 weeks ahead: install car seat, prepare nursery, finalise birth plan. 2 weeks ahead: hospital bag at door, important contacts on phone, charger packed.",
+        "First-baby parents often over-buy preparation. Essential first-month items: car seat (legal requirement to leave hospital), 5-7 sleep suits, 5-7 vests, nappies (newborn size for first 2-3 weeks then size 1), changing mat, lots of muslin cloths, basic toiletries, breast/bottle supplies. Most baby gear bought in first month gets used; most bought past first 6 months goes unused. Use the [Days Until Calculator](/days-until-calculator) for general countdown; this tool is pregnancy-specific."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is the LMP method?",
+        "Approximate. Naegele's rule (LMP + 280 days) assumes 28-day cycles - works well for women with regular cycles. For irregular cycles or those who don't track LMP, early ultrasound (8-12 weeks) is more accurate. Late ultrasound (after 20 weeks) is less reliable for dating because babies vary more in size."
+      ),
+      createFAQ(
+        "What if my cycle isn't 28 days?",
+        "Adjust by half the cycle length difference. If your cycle is typically 32 days, your due date is roughly 4 days later than Naegele's rule suggests. If 24 days, 4 days earlier. The 12-week scan will confirm or adjust the official due date - usually the most accurate measurement available."
+      ),
+      createFAQ(
+        "Can I induce labour before due date?",
+        "Medical induction is offered around 41-42 weeks for healthy pregnancies (NICE guidelines: induction at 41+5 to 42 weeks). Earlier induction only with medical indication (high blood pressure, gestational diabetes, suspected growth restriction). Self-induced methods (walking, sex, spicy food) have no proven effect."
+      ),
+      createFAQ(
+        "When does maternity leave start?",
+        "UK statutory maternity leave: can start any time from 11 weeks before due date. Most women start 1-4 weeks before due date or wait for baby to arrive. Employer notice required: 28 weeks before due date for SMP eligibility. The [Canada Maternity Leave Calculator](/canada-maternity-leave-calculator) covers Canadian rules; UK uses different SMP system."
+      ),
+    ],
+    relatedTools: [
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "conception-date-calculator", label: "Conception Date Calculator" },
+      { slug: "fertile-window-calculator", label: "Fertile Window Calculator" },
+      { slug: "implantation-calculator", label: "Implantation Calculator" },
+    ],
+  },
+
+  "craft-project-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "Picking Crafts by Age",
+        "Toddler crafts (2-4): finger painting, sticker collages, large-piece collage with safety scissors. 5-7: paper plate masks, salt dough creations, tissue paper flowers, simple weaving. 8-11: friendship bracelets, decoupage boxes, perler bead designs, basic origami. 12+: more complex: stitch-and-stuff plushies, polymer clay sculpting, tie-dye, miniature dioramas, basic woodworking with supervision.",
+        "Match craft difficulty to attention span. 4-6 year olds typically focus 15-25 minutes; 7-9 manage 30-45 minutes; 10+ can handle 45-90 minute projects. Crafts that take longer than the available attention span result in unfinished projects and frustrated children. The generator typically asks: child's age, time available, and materials at home, then suggests appropriate crafts within those constraints."
+      ),
+      createAnswerFirstSection(
+        "Common Craft Project Categories",
+        "Paper crafts: cut, fold, glue, decorate. Cheapest, lowest mess, most options - origami, paper aeroplanes, pop-up cards, paper flowers, collage. Painting/drawing: watercolours, oil pastels, marker drawings, finger painting (toddlers). Mixed media: combine paper, paint, fabric. Recycled materials: cereal boxes, toilet rolls, jars, bottles - eco-friendly and unlimited supply.",
+        "Fabric/sewing: simple felt creatures (no sewing needed with fabric glue), embroidery hoops with running stitches (8+), sock puppets. Modelling: salt dough, polymer clay (10+), playdough (toddlers). Jewellery: friendship bracelets, perler beads, polymer clay charms, melted plastic beads. Outdoor: nature collages from leaves/flowers, painted rocks, bird feeders. Mix and match - a single craft session often combines categories."
+      ),
+      createAnswerFirstSection(
+        "Materials You Probably Have",
+        "Common household materials that work for crafts: cereal boxes (turn into masks, dioramas), toilet rolls (binoculars, stamps, rocket ships), egg cartons (caterpillars, treasure boxes), paper plates (masks, faces, weaving frames), buttons (collages, jewellery), old magazines (collage), fabric scraps (rag dolls, wrapped wreaths). Often a richer 'craft cupboard' than a children's pre-bought kit at half the price.",
+        "Buy in bulk for popular materials: pipe cleaners, googly eyes, glitter, felt, multicoloured paper, washable PVA glue. £10 of basic supplies = months of craft sessions. Avoid: complicated kits with many specific parts (you'll lose pieces), 'character' kits (limited use), single-use crafts (finished within 10 minutes). Reusable open-ended supplies last longest."
+      ),
+      createAnswerFirstSection(
+        "What to Do with Finished Crafts",
+        "Display: rotating gallery on a wall, fridge magnets, scrapbook of best pieces. Photo first, store/discard later (children rarely revisit specific finished crafts but value being shown they were valued). Gift: handmade cards/decorations are loved by grandparents, aunts, uncles. Sell at school fete, NCT events. Give to charity (paint kindness rocks for hospitals, knit for premature babies).",
+        "Don't keep everything. The 'one in, one out' rule helps manage volume. After 2-3 weeks of display, photograph the keeper-status pieces and recycle the rest. Children's relationship with their craft is the moment of making, not subsequent ownership. Use the [Kids Activity Spinner](/kids-activity-spinner) for mixed activity ideas; this tool is craft-specific."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What if my child doesn't want to do crafts?",
+        "Force is counterproductive. Some children prefer building (LEGO), small worlds (figurines), physical play, video games. That's fine. Try crafts occasionally; don't push if disinterested. Often pre-school children love crafts; school-age children sometimes lose interest until adolescence reawakens it. Match activities to the actual child."
+      ),
+      createFAQ(
+        "How much should I help vs let them figure out?",
+        "Toddlers (2-4): full assistance with cutting, gluing, structure - they're not capable yet. 5-7: demonstrate the technique, then let them do it themselves. 8+: let them attempt, help only if asked. Hovering parents reduce children's confidence; absent parents leave struggles unresolved. The middle - showing, then stepping back - is usually right."
+      ),
+      createFAQ(
+        "Are arts and crafts good for development?",
+        "Yes - documented benefits include fine motor skills, problem-solving, creativity, patience, attention span. Pen-and-paper crafts particularly support pre-writing skills. Sequenced crafts (folding, gluing in order) develop following directions. Open-ended crafts (collage, free painting) develop imagination. Mix both types."
+      ),
+      createFAQ(
+        "Should I save all their work?",
+        "No - manageable selection works better. Photograph special pieces, keep favourites in a portfolio, recycle most. Children rarely revisit specific old crafts; they remember the process and the time spent making. Mountains of saved crafts often become regret in 5-10 years when storage runs out."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+      { slug: "science-experiment-generator", label: "Science Experiment Generator" },
+      { slug: "rainy-day-schedule-generator", label: "Rainy Day Schedule Generator" },
+      { slug: "phonics-treasure-hunt", label: "Phonics Treasure Hunt" },
+    ],
+  },
+
+  "elf-on-the-shelf-idea-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Elf on the Shelf Actually Is",
+        "Elf on the Shelf (Carol Aebersold and Chanda Bell, 2005) is a Christmas tradition where a 'scout elf' sent by Santa watches children during December and reports back nightly. Parents move the elf each night while children sleep, creating new amusing scenes for kids to find each morning from 1 December to Christmas Eve. Different elf each family - kids name them and never touch (to avoid losing their magic).",
+        "The tradition has exploded into a multi-million dollar phenomenon. Original kit is hardback book + elf doll for £25-35; many families buy multiple elves over years. Daily 'idea generation' is the parent's main task. Generators help with the creative burden of 24+ unique scenes - elf making snow angels in flour, elf tucked into a teacup, elf rappelling down the stairs with toilet paper, elf 'fishing' in the toilet."
+      ),
+      createAnswerFirstSection(
+        "Easy vs Elaborate Scenes",
+        "Beginner ideas (5 minutes setup): elf reading a book, elf in a Christmas hat, elf hanging from a Christmas ornament, elf playing with kids' toys. Mid-level (15 minutes): elf making snow angels in cocoa powder, elf 'baking' (cookie ingredients spread out), elf hosting a tea party with stuffed animals. Advanced (30+ minutes): elf zip-lining across the room, elf in elaborate dioramas, elf pulling pranks (toothpaste smile drawn on face).",
+        "Match elaborateness to your energy and time. December evenings are tired-parent time. Many families alternate easy/medium nights to avoid setup fatigue. Some lean entirely into easy ideas every night - children rarely notice and the magic isn't diminished. The point is consistency (elf moves every night) more than elaborateness."
+      ),
+      createAnswerFirstSection(
+        "Common Beginner Mistakes",
+        "Forgetting to move the elf. Children notice. Cover stories: 'elf must have been tired', 'magic gets weaker if you've been good'. Setting an evening alarm helps. Touching the elf - kids 'shouldn't' touch it (loses magic per the lore). If accidentally touched: write a note from elf saying 'magic returns with cinnamon' and sprinkle some.",
+        "Buying too elaborate scene-makers. Mini props (tiny ladders, toy cars, doll furniture) help but aren't essential. Most viral 'elf scenes' on Pinterest take 30+ minutes - sustainable for highlight nights, not 24 nights running. Plan 3-4 'big' nights spread across the month, easy nights between. The viral content sets unrealistic standards for daily execution."
+      ),
+      createAnswerFirstSection(
+        "When to Stop or Start",
+        "Most children believe in elf magic ages 4-8. Younger children may not engage with the concept; older children may have figured out the trick but play along for younger siblings. Signs to wind down: child catches you moving the elf, asks pointed questions, indifference to the daily reveal. Some families transition to 'elf left for college' or 'elf passed to younger sibling' rather than abrupt ending.",
+        "First-year families: start small. 5-minute scenes daily. Build complexity if you enjoy it. Many parents quietly retire from the tradition after 3-5 years; some continue through high school as family tradition (children appreciate the effort even when knowing the trick). Use the [Christmas Treasure Hunt](/christmas-treasure-hunt) for additional festive activities."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is Elf on the Shelf dangerous?",
+        "Some psychologists raise concerns about constant surveillance message to young children. Most families find it harmless fun. The 'always being watched' aspect is similar to traditional 'Santa knows if you're being good' - a long-standing childhood Christmas trope, not unique to Elf on the Shelf."
+      ),
+      createFAQ(
+        "Can I take a night off?",
+        "Yes - cover stories like 'elf went back to North Pole for a special meeting' work well. Or position the elf in the same place with a note saying he was extra tired. Don't sweat missing nights; rare missed nights don't break the tradition."
+      ),
+      createFAQ(
+        "What if my child stops believing?",
+        "Many families continue through belief stages. Older child may quietly 'help' parents move the elf - turning the tradition into family bonding. Younger sibling often keeps belief alive for years past the older child. The transition from belief to participation can be a sweet milestone."
+      ),
+      createFAQ(
+        "Do I have to use the official Elf doll?",
+        "No - generic 'sitting' elves are sold cheaply at Christmas markets. The official version comes with a book setting up the lore (parent reads it aloud). DIY families just use any small stuffed elf and write their own backstory. The tradition matters more than brand."
+      ),
+    ],
+    relatedTools: [
+      { slug: "christmas-treasure-hunt", label: "Christmas Treasure Hunt" },
+      { slug: "advent-calendar-activities", label: "Advent Calendar Activities" },
+      { slug: "kids-activity-spinner", label: "Kids Activity Spinner" },
+      { slug: "craft-project-generator", label: "Craft Project Generator" },
+    ],
+  },
 };
