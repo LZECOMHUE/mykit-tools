@@ -688,4 +688,53 @@ export const weddingSEO = {
       { slug: "wedding-catering-calculator", label: "Wedding Catering Calculator" },
     ],
   },
+
+  "india-wedding-budget-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Indian Wedding Spending Reality",
+        "Average Indian wedding budgets vary enormously by region, religion, and social tier. Modest weddings: ₹5-15 lakh total. Middle-class weddings: ₹20-50 lakh. Upper-middle: ₹50 lakh - 1 crore. Premium destination/celebrity weddings: ₹2-50 crore+. Big-fat-Indian-wedding spending averages ₹35-50 lakh in metros and ₹15-25 lakh in tier-2 cities for upper-middle households.",
+        "The wedding industry in India is estimated at ₹4 lakh crore annually - second only to the wedding industry in the US in absolute size. Multiple ceremonies (sangeet, mehndi, haldi, wedding, reception) compound costs. North Indian weddings often span 3-5 days; South Indian weddings can be more compact but with elaborate single-day events."
+      ),
+      createAnswerFirstSection(
+        "Major Cost Categories",
+        "Venue: 20-25% of budget for major ceremonies, more for premium hotels (Taj, Leela, ITC). Food and catering: 30-40% (often largest single category). Decoration and floral: 10-15%. Outfits (multiple per ceremony): 8-12%. Jewellery: 8-15% (often more for traditional families). Photography/videography: 5-10%. Music/DJ: 3-5%. Logistics, gifts, transport: balance.",
+        "Catering is where budgets stretch most. Pricing per plate typically ₹800-2,500 for standard catering, ₹3,000-5,000 for premium menus, ₹5,000-10,000+ for luxury. With 500-1,500 guests typical for Indian weddings, food alone can be ₹4-30 lakh. Many families negotiate bulk pricing or work with multiple caterers across events."
+      ),
+      createAnswerFirstSection(
+        "Tier-1 vs Tier-2 vs Smaller City",
+        "Mumbai/Delhi/Bangalore wedding (300 guests): typical budget ₹35-60 lakh. Kolkata/Hyderabad/Pune (300 guests): ₹25-40 lakh. Tier-2 city wedding (Lucknow, Indore, Kochi): ₹15-25 lakh. Tier-3 cities and rural weddings: ₹5-15 lakh.",
+        "Urban families often consider destination weddings (Goa, Udaipur, Jaipur) which can be cheaper than Mumbai venues despite travel costs - and offer Instagram-worthy aesthetics. Rural Indian weddings often have larger guest lists (1,500-3,000) but lower per-plate costs, balancing total budget."
+      ),
+      createAnswerFirstSection(
+        "Saving Without Compromising",
+        "Top savings strategies: book venue 9-12 months in advance for early-bird rates. Negotiate combined packages with venue (food + decoration + accommodation). Limit guest list (each guest costs ₹1,500-3,000+ in food, drink, and amenities). Choose off-season dates (April-June or September if not festival period - significantly cheaper than November-February peak).",
+        "Consider weekday weddings - Tuesday/Wednesday weddings can save 15-30% on venue and vendor costs. Buy gold during low-rate periods or use family heirlooms. Choose local florists over national brands. Skip extravagant gifting culture (silk sari hampers for relatives) which often runs ₹50,000-3 lakh additional. Use the [India Income Tax Calculator](/india-income-tax-calculator) for tax planning around large family gifts."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Who pays for the wedding traditionally?",
+        "Traditionally bride's family pays the bulk in many North Indian and South Indian communities. This has been shifting toward 50/50 splits in modern urban families, especially when both families are middle-class. Some families fully share costs; some still observe traditional patterns. Discuss explicitly before planning."
+      ),
+      createFAQ(
+        "How much should I save?",
+        "Plan 6-12 months in advance for medium-budget weddings; 12-18 months for large. Open a dedicated savings account or short-term FD. Don't deplete emergency fund or borrow heavily. The wedding lasts days; debt lasts years. SIP-based wedding savings work well for 12-24 month horizons."
+      ),
+      createFAQ(
+        "Are wedding loans worth it?",
+        "Personal loans for weddings are popular but expensive (10-18% interest) and can lock young couples into 3-5 years of debt repayment. Better alternatives: family contributions, wedding-specific savings, smaller weddings within affordable budget. Avoid lifestyle inflation that traps couples in long-term obligations."
+      ),
+      createFAQ(
+        "Can I have an Indian wedding abroad?",
+        "Yes - destination weddings to Bali, Phuket, Maldives, Mauritius, Sri Lanka, Dubai are increasingly popular. Total cost can be similar or even lower than premium Mumbai/Delhi venue when factoring smaller guest counts (50-100 typical). Visa, travel logistics, and importing food/specialised items add complexity."
+      ),
+    ],
+    relatedTools: [
+      { slug: "wedding-budget-calculator", label: "Wedding Budget Calculator" },
+      { slug: "india-income-tax-calculator", label: "India Income Tax Calculator" },
+      { slug: "india-sip-calculator", label: "India SIP Calculator" },
+      { slug: "india-fd-calculator", label: "India FD Calculator" },
+    ],
+  },
 };

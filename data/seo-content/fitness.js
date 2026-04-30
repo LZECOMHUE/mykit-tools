@@ -1064,4 +1064,102 @@ export const fitnessSEO = {
       { slug: "road-trip-cost-calculator", label: "Road Trip Cost Calculator" },
     ],
   },
+
+  "us-health-insurance-cost-estimator": {
+    sections: [
+      createAnswerFirstSection(
+        "Why US Health Insurance Costs So Much",
+        "Average US individual premium for employer-sponsored coverage 2024: $8,400/year ($700/month), with employees typically paying 17-25% ($1,400-2,100/year). Family coverage averages $25,000/year, employees paying $6,500. ACA marketplace plans without employer subsidy: $7,000-15,000/year for individual depending on age, location, and plan tier.",
+        "Premiums are only part of the cost. Deductibles ($1,500-7,500/year typical), copays ($20-50 per primary care visit, $30-80 for specialists), coinsurance (20% typical after deductible), and out-of-pocket maximums ($9,450 individual, $18,900 family in 2024) all add up. Total annual healthcare spending including premiums often $5,000-15,000 even for healthy people."
+      ),
+      createAnswerFirstSection(
+        "Reading the Plan Tiers",
+        "ACA marketplace plans use 'metal tiers': Bronze (60% of medical costs covered, lowest premium, highest deductible), Silver (70%), Gold (80%), Platinum (90%, highest premium, lowest deductible). Bronze plans suit healthy people who rarely use healthcare. Gold/Platinum suit chronic conditions or expected high use. Silver is the only tier eligible for cost-sharing reductions if you qualify for ACA subsidies.",
+        "HMO plans require referrals from primary care for specialists. PPO plans let you see specialists directly. EPO plans (Exclusive Provider Organisation) similar to HMO but no referral needed. POS (Point of Service) hybrid - referral required but out-of-network covered partly. Network restrictions are the biggest source of unexpected bills."
+      ),
+      createAnswerFirstSection(
+        "Subsidies Make ACA Affordable",
+        "Premium tax credits (PTCs): subsidies based on income relative to federal poverty level. Through 2025, expanded subsidies eliminate the 'subsidy cliff' so anyone above 400% FPL still gets help if premiums exceed 8.5% of income. A family of 4 earning $80k can typically get $400-800/month in PTCs, dramatically reducing premium costs.",
+        "Cost-sharing reductions (CSRs): only on Silver plans for households under 250% FPL. Reduces deductibles, copays, and OOP max significantly. A family at 200% FPL on Silver might have $1,500 deductible vs $7,500 unsubsidised. Combined PTCs and CSRs make Silver plans much cheaper than they appear in the marketplace listing."
+      ),
+      createAnswerFirstSection(
+        "Choosing Wisely",
+        "Strategy depends on health usage. Healthy with minimal expected medical use: Bronze with HSA (low premium, save for future expenses). Chronic condition or expected major medical event: Gold/Platinum with predictable cost-sharing. Pregnancy planning: ensure maternity coverage adequate, factor in $5-8k typical OOP for delivery.",
+        "Out-of-network risk: any care outside network can add $1,000s in 'balance billing'. Emergency care has some No Surprises Act protections (since 2022) but ambulance services and air ambulance often excluded. Always verify in-network status of every provider in any procedure. The [US 401(k) Calculator](/us-401k-calculator) and [US HSA Calculator](/us-hsa-calculator) work alongside health insurance for tax-advantaged saving."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When can I sign up?",
+        "Annual open enrollment is November 1 - January 15 in most states. Outside that window, you need a 'qualifying life event' - marriage, divorce, birth, job loss, job change, moving across state lines, aging out of a parent's plan at 26. Without an event, wait until next open enrollment."
+      ),
+      createFAQ(
+        "What's a deductible vs out-of-pocket maximum?",
+        "Deductible: amount you pay before insurance starts contributing. Then you pay coinsurance (typically 20%) until OOP max. OOP max: total amount you pay in a year, after which insurance covers 100% of in-network care. 2024 OOP max limits: $9,450 individual / $18,900 family for ACA plans."
+      ),
+      createFAQ(
+        "Can I keep my plan when I switch jobs?",
+        "Generally no - employer plans end when you leave. Options: COBRA (continue old plan, you pay full premium ~$700/month individual), spouse's employer plan (qualifying event allows mid-year enrollment), ACA marketplace, short-term plans (cheaper but limited coverage). Short gaps between jobs can leave you uninsured if not planned."
+      ),
+      createFAQ(
+        "Are mental health visits covered?",
+        "Mental health parity law requires same coverage as medical. In-network therapy ($20-50 copay typical), psychiatry covered. Network availability is the bigger issue - many therapists don't accept insurance and require self-pay $150-300/session. Some plans cover out-of-network therapy at 60-80% reimbursement."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-health-insurance-estimator", label: "US Health Insurance Estimator" },
+      { slug: "us-hsa-calculator", label: "US HSA Calculator" },
+      { slug: "us-401k-calculator", label: "US 401(k) Calculator" },
+      { slug: "us-paycheck-calculator", label: "US Paycheck Calculator" },
+    ],
+  },
+
+  "australia-skin-cancer-check-reminder": {
+    sections: [
+      createAnswerFirstSection(
+        "Australia's Skin Cancer Reality",
+        "Australia has the highest skin cancer rates in the world. 2 in 3 Australians will be diagnosed with skin cancer by age 70. Melanoma is the third most common cancer in Australian men and women. The good news: when detected early, melanoma has a 90%+ 5-year survival rate. The bad news: late detection drops that to 30-50%.",
+        "Cancer Council Australia recommends self-checks every 3 months and professional skin checks annually for adults, especially after age 40. People with risk factors (fair skin, red hair, blue eyes, history of sunburn, family history of melanoma, multiple moles, immunosuppression) should consider 6-monthly professional checks."
+      ),
+      createAnswerFirstSection(
+        "Self-Check Method (ABCDE)",
+        "Asymmetry: one half doesn't match the other. Border: irregular, ragged, blurred edges. Colour: varied within the same spot - tans, blacks, blues, whites. Diameter: larger than 6mm (pencil eraser). Evolving: changing in size, shape, colour, or symptoms. Any spot meeting one or more ABCDE criteria warrants professional review.",
+        "Beyond ABCDE: 'ugly duckling' moles that look different from your other moles. New moles appearing after age 40. Spots that itch, bleed, or don't heal. Photos every 3-6 months help track changes you might not notice gradually. Apps like Skinvision, Molescope use AI-assisted analysis but should supplement, not replace, professional examination."
+      ),
+      createAnswerFirstSection(
+        "Professional Skin Checks",
+        "Bulk-billed GP skin check: free at GPs offering bulk-billing, but quick (5-10 min) and usually only spots they look at. Full body skin check at a skin cancer clinic: $150-300, typically 30-45 min including dermoscopy of suspicious spots. Skin cancer specialist or dermatologist: $200-400, more thorough but Medicare rebate covers some costs.",
+        "Medicare rebates apply to most skin checks at GPs (Medicare item 36). Specialist dermatologist visits typically need GP referral (though direct booking allowed). Mole mapping (full-body photographic survey for tracking) costs $300-600 - worthwhile for high-risk patients (multiple moles, family history)."
+      ),
+      createAnswerFirstSection(
+        "Prevention",
+        "Slip on a shirt, slop on sunscreen (SPF 30+ broad spectrum, applied every 2 hours), slap on a hat, seek shade, slide on sunglasses. UV is most intense 10am-3pm in Australian summer; even 'cool' days have high UV. Daily SPF 30+ moisturiser for face and hands is now common practice for many Australians.",
+        "Sunburn is cumulative damage. Each childhood sunburn doubles the lifetime melanoma risk. Outdoor workers, athletes, beach lovers should consider higher SPF (50+) and physical sun-protective clothing. The SunSmart UV alert on weather apps shows when UV exceeds 3 (when sunburn becomes easy). Use the [Australia Income Tax Calculator](/australia-income-tax-calculator) for broader Australian context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How often should I get checked?",
+        "Annual professional check minimum for adults. 6-monthly if you have moderate risk factors (fair skin, history of sunburn). 3-monthly if high risk (previous skin cancer, family history, immunosuppression, many atypical moles). Self-checks every 3 months between professional appointments."
+      ),
+      createFAQ(
+        "What does a skin check actually involve?",
+        "Doctor examines all skin (head to toe) including scalp (parted hair), behind ears, soles of feet, between toes, fingernails. Dermoscope (handheld magnifier with light) used on suspicious spots. Photos taken of suspicious or changing moles for comparison at next visit. Suspicious spots biopsied (usually shave biopsy) sent for pathology."
+      ),
+      createFAQ(
+        "What if a spot is removed?",
+        "Biopsy or excision under local anaesthetic at the clinic visit, typically takes 5-15 minutes. Stitches in for 7-10 days, scar permanent but usually small. Pathology results in 1-2 weeks. If positive, more extensive surgery (wide excision) may be needed to ensure clear margins."
+      ),
+      createFAQ(
+        "Is solarium use legal in Australia?",
+        "Commercial solariums (sunbeds) banned in Australia since 2014 due to skin cancer risk. UK solariums still legal but heavily regulated. Australian regulations also ban tanning of under-18s. Solarium use, even briefly, dramatically increases melanoma risk - dose-response relationship is well-established in research."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-income-tax-calculator", label: "Australia Income Tax Calculator" },
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "uv-index-checker", label: "UV Index Checker" },
+    ],
+  },
 };

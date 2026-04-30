@@ -1601,4 +1601,249 @@ export const homeSEO = {
       { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
     ],
   },
+
+  "canada-heating-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Heats Canadian Homes",
+        "About 41% of Canadian homes use natural gas as primary heat (Alberta, Ontario, BC, Quebec lower-density), 32% electric (mostly Quebec, Manitoba, Atlantic), 16% oil (mostly Atlantic Canada), the rest wood, propane, or heat pumps. Each fuel has different per-unit cost: natural gas typically cheapest at $0.30-0.50/cubic metre, electricity $0.08-0.20/kWh, oil $1.20-1.80/litre, propane $0.50-1.20/litre.",
+        "Annual heating cost for a typical 2,000 sqft Canadian home: $1,500-2,500 with natural gas, $2,000-4,000 with electric baseboards, $2,500-5,000 with oil or propane. The variation depends heavily on insulation quality, age of the home, and regional climate severity. Atlantic and Prairie homes often face winter heating that doubles their summer utility bills."
+      ),
+      createAnswerFirstSection(
+        "Comparing Fuels",
+        "Natural gas is the cheapest in regions where it's available. The infrastructure is the limiting factor - rural Atlantic Canada often lacks gas service, leaving oil or propane as defaults. Heat pumps (air-source or ground-source) have become competitive even in cold climates, with modern units rated to -30°C and producing 2-4x more heat than they consume in electricity.",
+        "Electric resistance heating (baseboards) is the most expensive per BTU but the simplest to install. Quebec's low electricity rates (around $0.073/kWh from Hydro-Québec) make electric baseboards reasonably economical. In other provinces with $0.12-0.20/kWh rates, electric heat is much more expensive than natural gas alternatives."
+      ),
+      createAnswerFirstSection(
+        "Cost-Cutting Investments",
+        "Insulation upgrades typically pay back in 5-10 years through heating savings. Attic insulation upgrades from R-20 to R-50: $1,500-3,000 cost, $200-500/year savings. Wall insulation: $3,000-8,000 cost, $300-700/year savings. Air sealing (caulking, weatherstripping, foam): $500-1,500 cost, $150-300/year savings - highest ROI per dollar spent.",
+        "Programmable thermostats save 10-15% on heating costs through scheduled setbacks (lower temp at night, when away). Smart thermostats (Nest, Ecobee) add learning algorithms - effective for $200-300 device cost. Federal Canada Greener Homes Grant offers up to $5,000 for efficiency upgrades. Many provinces have additional rebates."
+      ),
+      createAnswerFirstSection(
+        "Heat Pumps vs Traditional Heating",
+        "Heat pumps have improved dramatically. Modern cold-climate heat pumps work efficiently to -25 or -30°C. Operating costs typically half of natural gas in regions with electric rates under $0.12/kWh. Hybrid systems (heat pump + gas backup) handle the coldest snaps efficiently while running on heat pump for most of the heating season.",
+        "Capital cost is real - a full heat pump installation runs $8,000-20,000 vs $4,000-8,000 for a natural gas furnace replacement. Federal grant programs and provincial rebates often cover $5,000-10,000 of the difference. Payback periods of 5-12 years are common. Use the [Canada Income Tax Calculator](/canada-income-tax-calculator) for any tax-credit aspects."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When is the best time to upgrade heating?",
+        "Spring or summer when contractors are less busy and prices are lower. Avoid emergency winter replacements - desperate homeowners often pay 20-40% more than off-season pricing. Many manufacturers offer rebates running March-May to drive shoulder-season sales."
+      ),
+      createFAQ(
+        "Should I switch from oil to natural gas?",
+        "If natural gas is available in your area: usually yes. Oil is typically 50-100% more expensive per BTU and prone to price spikes. Conversion cost: $5,000-10,000 plus removing the oil tank. Payback is 5-8 years for most households. Some provinces offer specific oil-to-gas conversion grants."
+      ),
+      createFAQ(
+        "What's the cheapest temperature to set?",
+        "Energy Star recommends 20°C when home and awake, 18°C when sleeping or away. Each 1°C reduction saves about 2-3% on heating. Setting back 5°C overnight saves 10-15% over keeping a constant 20°C. Diminishing returns below 17°C as comfort and pipe-freezing risks rise."
+      ),
+      createFAQ(
+        "Are wood stoves still cost-effective?",
+        "If you have access to inexpensive firewood: yes, often the cheapest fuel per BTU. Without easy wood access (delivered cordwood at $400-600/cord), the math is more like natural gas. Modern EPA-certified wood stoves are 80%+ efficient vs older units at 50-60%. Particulate emissions are environmentally significant."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "canada-mortgage-calculator", label: "Canada Mortgage Calculator" },
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+      { slug: "canada-salary-comparison-by-province", label: "Canada Salary Comparison" },
+    ],
+  },
+
+  "india-electricity-bill-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Indian Electricity Tariffs Work",
+        "Indian electricity bills use slab-based tariffs that vary by state. Most states use ascending slabs: 0-100 units at low rate, 101-200 at higher, 201-300 higher still, 301-500 highest, 500+ peak rate. For example, Tamil Nadu (TANGEDCO): 0-100 free, 101-200 ₹2.25/unit, 201-500 ₹4.50, 500+ ₹6.30/unit. Maharashtra (MSEDCL) similar structure with different boundaries.",
+        "Beyond energy charges, monthly bills include: fixed charges (₹50-200/month based on connection size), fuel adjustment cost (varies quarterly), electricity duty (5-15% of energy charge in most states), GST 18% on entire bill in some states. So a household at ₹2,000 of energy charges typically pays ₹2,400-2,600 final bill."
+      ),
+      createAnswerFirstSection(
+        "Calculating Bill from Meter Reading",
+        "Bill = (units consumed × applicable slab rate) + fixed charge + fuel adjustment + duties + GST. A household using 350 units in Tamil Nadu: first 100 free, next 100 at ₹2.25 = ₹225, next 150 at ₹4.50 = ₹675. Energy charge ₹900 + fixed ₹100 + duty ₹90 + GST = ₹1,200-1,300 monthly bill.",
+        "Most state utilities (TANGEDCO, MSEDCL, BSES, Adani Electricity, etc.) bill bi-monthly (every 2 months) so the per-bill amounts double. Many homes use 300-600 units monthly in summer with AC; 100-200 units in winter. Annual electricity costs for a 3-BHK family in metro cities typically run ₹15,000-40,000."
+      ),
+      createAnswerFirstSection(
+        "Reducing Your Bill",
+        "5-star rated appliances use 30-50% less electricity than 1-star equivalents. AC at 24-26°C saves 20-30% vs 18-20°C. Geyser timer (1-2 hours daily instead of always on) saves significantly. LED lights use 80% less than incandescent, 50% less than CFL. Inverter ACs save 30-40% over regular ACs in cooling mode.",
+        "Solar rooftop systems are increasingly affordable. 3 kW residential rooftop installation: ₹1.5-2.5 lakh after government subsidy (Rooftop Solar Programme provides 40% subsidy on first 3 kW). Generates roughly 12-15 units/day, often offsetting most household consumption. Payback period 4-7 years; warranty 25 years."
+      ),
+      createAnswerFirstSection(
+        "Subsidies and Free Units",
+        "Many states offer free or subsidised units for low-consumption households. Tamil Nadu: first 100 units free for all (above), bigger free quota (200 units) for low-income households. Delhi: 200 units free monthly to most households. Punjab: free to farmers (heavily subsidised). Andhra Pradesh, Telangana have similar programmes.",
+        "These subsidies are politically sensitive and change with state government policy. Always check your latest bill and the utility's website for current schemes. Income-based subsidies typically require Aadhaar linking and annual income proof. Use the [India Income Tax Calculator](/india-income-tax-calculator) for tax-related queries."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How is one 'unit' measured?",
+        "One unit = 1 kilowatt-hour (kWh) = 1,000 watts of power consumed for 1 hour. A 100W light bulb running for 10 hours = 1 unit. A 1.5 ton AC running for 1 hour ≈ 1.5 units. Track high-power appliances to estimate consumption."
+      ),
+      createFAQ(
+        "Why does my bill vary so much month to month?",
+        "AC and water heater are the biggest variables. Summer AC use can quadruple electricity consumption vs winter. Holiday months with people home more also increase usage. Bi-monthly billing creates apparent volatility - same monthly average looks more dramatic when bunched."
+      ),
+      createFAQ(
+        "What's the load demand?",
+        "Maximum power your connection can deliver simultaneously, in kVA. Standard residential: 3-5 kVA. Larger homes with multiple ACs: 8-15 kVA. Commercial: higher. Higher load = higher fixed charges. Right-size your connection to your actual peak demand."
+      ),
+      createFAQ(
+        "Should I install a smart meter?",
+        "Many states are rolling out smart meters that show real-time consumption. They can help identify high-usage periods and appliances. Some states charge a small fee; others install free as part of grid modernisation. Smart meter data via apps helps optimise consumption."
+      ),
+    ],
+    relatedTools: [
+      { slug: "india-income-tax-calculator", label: "India Income Tax Calculator" },
+      { slug: "india-home-loan-emi-calculator", label: "India Home Loan EMI Calculator" },
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+      { slug: "india-sip-calculator", label: "India SIP Calculator" },
+    ],
+  },
+
+  "australia-water-usage-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Australian Water Bills Work",
+        "Most Australian water bills include: fixed service charge ($150-400/quarter depending on locality), usage charge (per kilolitre, where 1 kL = 1,000 litres), wastewater charge (for sewage treatment), and sometimes a stormwater charge. Average Australian household uses 150-200 kL/year (410-550 litres/day for a family of 4). Annual bills range $800-1,500 for a typical household.",
+        "Usage tariffs often have tiered pricing. Sydney Water (NSW): 0-200kL at $2.55/kL, above 200 at $4.81. Melbourne Water rates similar but capped at lower tiers. Brisbane (Urban Utilities): tiered with summer drought premiums. Tasmania uses flat rate. WA has different metropolitan and regional pricing."
+      ),
+      createAnswerFirstSection(
+        "Where the Water Goes",
+        "Indoor: showers (35-40% of household use), toilets (20-25%), laundry (15-20%), kitchen (8-15%), bathroom basin (5%). Outdoor: irrigation (varies hugely - 0% for apartments, 30%+ for large lawns), pool (if applicable, 20-50% of annual outdoor). Daily per-person consumption averages 200-280 litres in Australian capital cities.",
+        "Showers are the easiest target for reduction. A 9-litre/minute showerhead (standard) used 8 minutes/day = 72 litres/person. A 6-litre/minute water-efficient showerhead = 48 litres/person, saving 9,000+ litres/year per person. Front-loading washing machines use 50% less water than top-loaders."
+      ),
+      createAnswerFirstSection(
+        "Restrictions and Drought Pricing",
+        "Many Australian capitals have permanent water restrictions: no daytime watering of gardens, hand-held hoses only (not sprinklers), no hosing down driveways or paths. Drought conditions trigger stricter restrictions - level 2-4 in major dry periods, prohibiting all garden watering or filling pools.",
+        "Drought also pushes up tariffs. Sydney's 'level 2' restrictions in 2019-2020 came with 14% tariff increases. Dam levels under 50% typically trigger pricing changes. Long-term dry trends in southern and western Australia make water pricing structurally tighter than 20 years ago."
+      ),
+      createAnswerFirstSection(
+        "Rebates and Efficiency Programs",
+        "Most state water utilities offer rebates for: water-efficient showerheads ($30-50), dual-flush toilets ($50-200), water-efficient washing machines ($100-500), rainwater tanks ($500-1,500), greywater systems ($500-2,500). Combined rebates can reduce upgrade costs by 30-60%.",
+        "Rainwater tanks: 3,000-5,000L tank typical for residential, $1,500-3,000 installed before rebates. Reduces mains water consumption by 30-60% for households using tank water for toilets, laundry, and garden. Combined with water-efficient fixtures, annual savings of $300-500. Use the [Australia Pay Calculator](/australia-pay-calculator) for household budgeting context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How can I reduce water usage quickly?",
+        "Three highest-impact changes: 4-minute timer in shower (saves 30-40 litres per shower), front-load washer if you have a top-loader, hand-water garden in early morning instead of evening or daytime. Combined easily save 100-200 litres/day for a 4-person household."
+      ),
+      createFAQ(
+        "Why is my water bill suddenly high?",
+        "Common causes: silent toilet leak (50+ litres/day undetected), leaking irrigation system, dripping outdoor tap, recent guests, new pool, hot summer driving outdoor use. Read your meter at the start and end of a 24-hour period with no usage to detect leaks."
+      ),
+      createFAQ(
+        "Are water tanks worth it in cities?",
+        "Yes for most households with garden or laundry use. Payback 5-12 years depending on location. Newer homes in some states (NSW, Victoria) require rainwater tanks for new builds. Not worthwhile for apartment dwellers without garden access."
+      ),
+      createFAQ(
+        "What if I have a leak?",
+        "Most utilities offer leak allowance - if you can prove a hidden leak (concealed plumbing) was repaired, they may credit excess usage. Won't apply to obvious leaks (dripping taps you should have fixed). Keep repair invoices and submit promptly when bill arrives."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-electricity-plan-comparison", label: "Australia Electricity Plan Comparison" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "australia-mortgage-calculator", label: "Australia Mortgage Calculator" },
+    ],
+  },
+
+  "australia-electricity-plan-comparison": {
+    sections: [
+      createAnswerFirstSection(
+        "Australian Electricity Market Basics",
+        "Most Australian states have deregulated electricity retail - you can choose from multiple retailers (Origin, AGL, EnergyAustralia, Red Energy, Alinta, Powershop, Lumo, etc.). WA and Tasmania are still mostly regulated. Rates vary by region within deregulated states based on network costs. Switching retailers is straightforward and free; new retailers handle the transition.",
+        "Bill components: usage charge (cents/kWh), supply charge (daily fixed, $1-1.50/day), feed-in tariff if you have solar (5-15 cents/kWh credit). Average annual cost for a 4-person household using 5,500 kWh: $1,800-2,500 in Eastern states, $1,500-2,200 in WA/Tas. Rates have risen significantly since 2022 due to global energy market volatility."
+      ),
+      createAnswerFirstSection(
+        "What Affects the Rate You See",
+        "Network costs (poles, wires, transformers) make up 40-50% of the bill in most states - these are regulated and pass through to all retailers. Wholesale energy is 25-35%, regulated. Retail margin is 10-15% - this is where retailer competition happens. So switching retailers typically saves 5-15% on the bill, not 30-50%.",
+        "Discounts off 'standing offer' rates were popular before 2019 when reforms moved everyone to 'reference price' benchmarking. Now compare actual rates and supply charges directly. The Australian Government's Energy Made Easy website and Victorian Energy Compare are official comparison tools that aggregate offers."
+      ),
+      createAnswerFirstSection(
+        "Solar Feed-in Tariffs",
+        "Solar feed-in tariffs (FiT) - what retailers pay you for excess solar exported to the grid - have collapsed from $0.30-0.60/kWh historical high to $0.05-0.10/kWh in 2024-25. The economics of new solar still work, but mostly through self-consumption (avoided usage cost) rather than feed-in revenue.",
+        "Time-of-use tariffs increasingly common. Off-peak (overnight) rates 20-35 cents/kWh, peak (4-9pm) 40-65 cents/kWh, shoulder rates between. Solar households benefit from shifting consumption to mid-day (cheap) and avoiding peak. Battery storage is approaching financial viability for solar households who want to use stored solar during evening peak."
+      ),
+      createAnswerFirstSection(
+        "Switching Plans",
+        "Average savings from active retailer switching: $200-400/year. Bigger savings if you've been with the same retailer for 3+ years (acquisition discounts often expire). Ten minutes on Energy Made Easy plus a phone call usually completes the switch. New retailer handles all transitions; no power interruption.",
+        "Contract terms: most are no-lock-in (free to switch any time). Some 'fixed price' plans lock for 12-24 months but offer rate certainty. Watch for early termination fees on locked plans. Hardship plans available if you fall behind on payments - utilities are required to offer payment plans rather than disconnect quickly."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When should I compare plans?",
+        "Annually at minimum. Each year, your retailer typically increases rates while the most competitive offers in the market may have dropped. Setting a calendar reminder for your billing anniversary is the simplest discipline."
+      ),
+      createFAQ(
+        "Are 'green' plans more expensive?",
+        "Slightly - 5-15% premium for 100% renewable plans. Some are 'GreenPower' certified (matching consumption with renewable generation), others use carbon offsets. The premium has shrunk as renewable generation has scaled up."
+      ),
+      createFAQ(
+        "What about gas?",
+        "Many homes have separate electricity and gas accounts. Dual-fuel plans (single bill from one retailer) often have small discounts. Gas market dynamics are different from electricity - mostly East Coast supply pressure, prices volatile through 2022-2024."
+      ),
+      createFAQ(
+        "What's a controlled load?",
+        "Off-peak hot water and pool pumps that the retailer can switch on only during low-demand periods (typically overnight). Significantly cheaper rate (8-15 cents/kWh) than main supply. Most homes with electric storage hot water systems have controlled load tariffs."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-water-usage-calculator", label: "Australia Water Usage Calculator" },
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "energy-cost-calculator", label: "Energy Cost Calculator" },
+    ],
+  },
+
+  "australia-pet-registration-cost": {
+    sections: [
+      createAnswerFirstSection(
+        "Pet Registration Is Council-Based",
+        "In Australia, pet registration (mostly dogs and cats) is administered by local councils, not states. Annual fees vary widely: $30-100 for a desexed dog, $100-250 for an undesexed dog, $20-60 for desexed cat, $60-200 for undesexed cat. Working dogs (registered breeds for farm work) get reduced rates. Greyhound owners may have separate categorisation.",
+        "Registration is mandatory in all states. Penalties for unregistered pets can be $500-1,000 per offence. Microchipping is also mandatory before registration in most states - typically $50-80 done at a vet. Combined microchip + registration ensures lost pets can be reunited with owners."
+      ),
+      createAnswerFirstSection(
+        "What the Fee Covers",
+        "Council pet fees fund: animal control services, dog parks and exercise areas, lost pet recovery, pound facilities, education programs, ranger patrols. Larger councils with more services tend to have higher fees. Rural councils sometimes offer lower fees but limited services to match.",
+        "Concessions are common. Pensioner discount (50% off typical), guide dog and assistance dog (free or heavily reduced), council voucher schemes for low-income households. Multi-pet discount (slight reduction on second/third pet). Always check your specific council's website for available concessions."
+      ),
+      createAnswerFirstSection(
+        "Desexing Reduces Fees Substantially",
+        "Most councils charge undesexed pets 2-3x the desexed fee, partly as an incentive for population control, partly because undesexed animals are more likely to roam, fight, or breed unwanted litters. The cost saving over a 10-year pet lifetime is substantial: $50-150/year × 10 years = $500-1,500 in registration savings alone.",
+        "Plus desexing has health benefits for the pet. RSPCA, Animal Welfare League, and council schemes offer subsidised desexing for low-income owners. Many adoption shelters desex before rehoming. Initial desexing cost: $200-500 for cats, $300-800 for dogs depending on size."
+      ),
+      createAnswerFirstSection(
+        "When and How to Register",
+        "Registration deadlines vary by council - typically annually, often April-June. New pet owners must register within 14-28 days of acquisition. Online registration via council websites is now standard. Renewals usually emailed 4-8 weeks before due date.",
+        "Required documents: proof of microchip (registration certificate from chip supplier), desexing certificate if applicable, vaccination certificate (some councils), proof of address. Concession applications need pension card or relevant documentation. Use the [Australia Cost of Living by City](/australia-cost-of-living-by-city) for broader pet-ownership cost context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Do I need to register my cat?",
+        "In most Australian states yes. NSW, Victoria, ACT, SA - all require cat registration. Queensland varies by council. WA mandatory only in some councils. Fees lower than dogs typically. Microchipping is mandatory before registration in most states."
+      ),
+      createFAQ(
+        "What about other pets?",
+        "Generally no registration needed for caged birds, fish, reptiles (with state-specific reptile licence requirements), small mammals (rabbits, guinea pigs). Dangerous breed dogs (American Pit Bull Terrier, certain others by state) face additional registration, restrictions, and insurance requirements."
+      ),
+      createFAQ(
+        "Can I register online?",
+        "Most councils offer online registration through their website. Some require initial in-person registration (verification of microchip and pet identity) with online renewals afterward. Look up 'pet registration' on your local council website."
+      ),
+      createFAQ(
+        "What if I move to a new council area?",
+        "You usually need to register with the new council within 14-30 days of moving. Refunds from your previous council vary - some allow pro-rata refunds, others don't. Update your microchip details with the chip registry to ensure lost pet recovery still works at the new address."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-mortgage-calculator", label: "Australia Mortgage Calculator" },
+      { slug: "australia-stamp-duty-calculator", label: "Australia Stamp Duty Calculator" },
+    ],
+  },
 };

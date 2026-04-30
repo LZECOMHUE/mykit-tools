@@ -827,4 +827,200 @@ export const automotiveSEO = {
       { slug: "cost-per-mile-calculator", label: "Cost Per Mile Calculator" },
     ],
   },
+
+  "us-ev-tax-credit-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "Federal EV Tax Credit Basics",
+        "The Inflation Reduction Act (IRA) expanded the federal EV tax credit to up to $7,500 for new vehicles and $4,000 for used. Eligibility for new vehicles requires: vehicle assembled in North America, MSRP under $80k for SUVs/trucks/$55k for cars, buyer income under $300k MFJ/$150k single, AND meeting battery sourcing requirements (raw materials, critical minerals).",
+        "The full $7,500 credit splits into two components: $3,750 for meeting critical minerals requirement (40-80% of battery minerals from US or trade-partner countries) and $3,750 for battery component requirement (50-100% of battery components manufactured/assembled in North America). Many EVs only qualify for half because they meet one but not both."
+      ),
+      createAnswerFirstSection(
+        "Vehicles That Currently Qualify",
+        "Full $7,500 (qualifying year-end 2024): Tesla Model 3 (most trims), Model Y, Cybertruck (some), Chevrolet Bolt EV/EUV, Ford F-150 Lightning, GM Equinox EV, Cadillac Lyriq, Honda Prologue. Half credit ($3,750): Tesla Model X, some Volkswagen ID.4 trims, certain Hyundai/Kia models built in US.",
+        "The qualifying list updates frequently as battery sourcing changes. fueleconomy.gov/feg/tax2023.shtml has the official up-to-date list. Many popular EVs (Hyundai Ioniq 5, Kia EV6, Polestar) lost eligibility when assembly moved or sourcing requirements weren't met. Buyers should verify the specific VIN's eligibility before purchase."
+      ),
+      createAnswerFirstSection(
+        "Used EV Tax Credit",
+        "Used EV credit: 30% of sale price up to $4,000, on vehicles sold for $25,000 or less. Buyer must purchase from a dealer (private party sales don't qualify), the vehicle must be at least 2 model years old, and the buyer's income must be under $150k MFJ/$75k single. Each used EV is only eligible for the credit once in its life - if a previous owner already claimed it, no credit available.",
+        "Used credit can transfer to dealer at point of sale (since 2024) for immediate price reduction rather than waiting for tax filing. This makes the savings tangible at purchase. Many used EVs in the $15-25k range now qualify - 2019-2022 Bolts, Leafs, Model 3s often hitting the criteria."
+      ),
+      createAnswerFirstSection(
+        "State Incentives Stack on Top",
+        "Many states offer additional EV incentives on top of the federal credit. California: $2,000-7,500 Clean Vehicle Rebate (income-restricted). Colorado: $5,000 state credit. New Jersey: sales tax exemption on EVs (~6.625% saved on purchase). New York: $500-2,000 Drive Clean rebate. Massachusetts: $3,500 MOR-EV rebate.",
+        "Combined federal + state incentives can knock $10,000-15,000 off an EV purchase in some states. Charging incentives also help: federal 30% credit on home charger installation up to $1,000, plus state utility rebates that can add $500-2,000 more. The [US Income Tax Calculator](/us-income-tax-calculator) covers the federal credit's interaction with overall tax liability."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I get the credit if I have low tax liability?",
+        "Since 2024, yes - the credit can be transferred to the dealer at sale, who applies it as a price reduction regardless of your tax liability. Pre-2024, the credit was non-refundable, so people with low tax bills couldn't use the full amount. The transfer option fixed this."
+      ),
+      createFAQ(
+        "What about leasing?",
+        "Leasing typically routes the credit through the leasing company (which buys the vehicle as a 'commercial' purchase) and bypasses the income/MSRP/sourcing restrictions. The leasing company often passes the credit to the consumer as a lease cost reduction. Leasing currently captures more EVs and more buyers than buying."
+      ),
+      createFAQ(
+        "Do plug-in hybrids qualify?",
+        "Yes, with restrictions. The vehicle must have at least 7 kWh of battery and be primarily electric-driven. Many PHEVs (Toyota Prius Prime, Volvo plug-ins) qualify for partial credits. Pure hybrids (Toyota Prius non-plug-in) don't qualify."
+      ),
+      createFAQ(
+        "What happens after 2032?",
+        "The IRA EV credit framework runs through 2032 currently. Future credits depend on Congressional action. Most policy analysts expect some form of EV credit to continue but the specifics could change with administration shifts. Don't bank on 2030+ tax credits when planning purchases this decade."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-income-tax-calculator", label: "US Income Tax Calculator" },
+      { slug: "us-car-loan-calculator", label: "US Car Loan Calculator" },
+      { slug: "us-gas-cost-calculator", label: "US Gas Cost Calculator" },
+      { slug: "us-car-payment-calculator", label: "US Car Payment Calculator" },
+    ],
+  },
+
+  "us-gas-price-tracker": {
+    sections: [
+      createAnswerFirstSection(
+        "How US Gas Prices Are Set",
+        "Retail gas price = crude oil cost (typically 50-60% of price) + refining cost (15-20%) + distribution and marketing (10-15%) + taxes (15-25%). Federal tax: 18.4 cents/gallon (24.4 cents on diesel). State taxes range from 9 cents (Alaska) to 60+ cents (California). Local taxes add a few cents in some cities.",
+        "Crude oil prices (Brent or West Texas Intermediate) drive most weekly variation. A $10/barrel move in oil typically translates to a 25 cent change in retail gas. Refining capacity issues (Gulf hurricanes, planned maintenance) can spike regional prices independently. Memorial Day weekend through Labor Day usually has summer-driving-season premium."
+      ),
+      createAnswerFirstSection(
+        "State and Regional Variation",
+        "California consistently has the highest US gas prices: $4.50-5.50/gallon typically due to high state taxes plus a unique low-volatility fuel formulation that limits supply options. Hawaii also high due to import logistics. Lowest: Texas, Oklahoma, Mississippi, Louisiana - typically $2.80-3.30/gallon. Most US states sit in the $3.00-3.80 range.",
+        "City-to-city variation within a state: typically 20-50 cents. Rural areas often pay 10-30 cents more than nearby cities (less competition, longer supply chains). Major airports often charge 50 cents+ more for convenience. Apps like GasBuddy show real-time prices and let you find the cheapest within driving distance."
+      ),
+      createAnswerFirstSection(
+        "When to Fill Up",
+        "Tuesday and Wednesday mornings typically have the lowest gas prices in any week (data from GasBuddy, AAA). Weekend evenings have the highest. Monthly: prices typically lowest in early to mid-month, with end-of-month sometimes higher when stations clear inventory. Annually: November through January often the lowest, May through August the highest.",
+        "Discount programs: Costco, Sam's Club, BJ's club gas typically 10-25 cents below regular stations. Grocery store fuel rewards (Kroger, Safeway, Giant) often 20-30 cents off based on grocery purchases. Credit card cash back on gas (Costco Anywhere card 4%, others 3-5%) adds another 10-20 cents/gallon savings."
+      ),
+      createAnswerFirstSection(
+        "Predicting Price Movements",
+        "Crude oil futures (CL on commodity exchanges) provide some forward-looking signal. WTI crude moving from $80 to $90 typically pushes retail gas up 25-30 cents over the following 2-4 weeks. Hurricane season disruptions to Gulf refineries (June-November) can cause regional spikes within days.",
+        "Geopolitical events (OPEC decisions, Middle East conflicts, sanctions) affect crude oil prices and thus retail gas. The 2022 spike to over $5/gallon nationally was driven by the Russia-Ukraine war. Long-term price pressure: declining US conventional reserves balanced by shale and import alternatives. The [US Gas Cost Calculator](/us-gas-cost-calculator) handles per-mile and trip cost math."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Why does the price change daily?",
+        "Wholesale gasoline prices (the price stations pay for delivered fuel) move with crude oil markets daily. Stations typically update retail prices once per day, sometimes more during volatile periods. Competitive pressure within a city forces stations to track each other closely."
+      ),
+      createFAQ(
+        "Are gas station prices regulated?",
+        "Mostly no. Stations set their own prices based on wholesale cost plus margin. Some states have minimum-markup laws to prevent predatory pricing. Maximum prices generally not regulated except during declared emergencies (hurricanes), when anti-gouging laws kick in."
+      ),
+      createFAQ(
+        "What's behind a sudden 30-cent jump?",
+        "Common causes: refinery outage (planned or emergency), pipeline shutdown, hurricane in the Gulf, geopolitical event, OPEC production cut announcement. Local single-station spikes can also reflect a station running out of fuel and waiting for delivery. Check 2-3 stations to see if it's a station-specific or regional issue."
+      ),
+      createFAQ(
+        "Will gas ever go back to $2/gallon?",
+        "Possible but unlikely in the next 5-10 years. The US average was around $2 from 2015-2020 but inflation-adjusted, that's about $2.50-2.70 today. Significant crude oil price declines (under $50/barrel) or major demand destruction could push prices below $3, but $2.00 nominally would require an oil price crash."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-gas-cost-calculator", label: "US Gas Cost Calculator" },
+      { slug: "us-car-loan-calculator", label: "US Car Loan Calculator" },
+      { slug: "us-cost-of-living-comparison", label: "US Cost of Living Comparison" },
+      { slug: "us-ev-tax-credit-checker", label: "US EV Tax Credit Checker" },
+    ],
+  },
+
+  "canada-winter-tyre-date-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "Provinces with Winter Tyre Laws",
+        "Quebec is the only province that mandates winter tyres for all passenger vehicles. Required from 1 December to 15 March (was 15 December to 15 March before 2019). Vehicles without winter tyres face fines of $200-300. The law applies to all licensed vehicles including those visiting from other provinces.",
+        "British Columbia requires winter tyres on designated highways from 1 October to 30 April (some routes through 31 March). Roads include most of the Trans-Canada Highway, mountain passes (Coquihalla, Rogers, Allison), and many rural routes. Signage on affected roads. Fines for non-compliance: $109."
+      ),
+      createAnswerFirstSection(
+        "Other Provinces - Recommended but Not Required",
+        "Ontario: not legally required but strongly recommended. Insurance discounts available (5-10% for using winter tyres). Some Ontario municipalities have considered local mandates but none implemented at provincial level. The MTO publishes winter driving guidelines.",
+        "Alberta, Saskatchewan, Manitoba: not legally required despite harsh winters. Voluntary compliance is high - many drivers switch in October and back in April. Atlantic provinces (NB, NS, PEI, NL): not required but commonly used. Yukon, NWT, Nunavut: not legally required despite extreme conditions."
+      ),
+      createAnswerFirstSection(
+        "What Counts as Winter Tyres",
+        "Three-peak mountain snowflake (3PMSF) symbol indicates legitimate winter tyres meeting traction performance standards. M+S (Mud and Snow) markings alone don't qualify in Quebec - must have 3PMSF. All-weather tyres with 3PMSF symbol qualify in Quebec and BC.",
+        "Studs are legal in most provinces during winter months but may have specific date restrictions. Studded tyres should be removed by April 30 in most provinces (causes road damage in warm conditions). Manitoba allows year-round studs; Quebec and Ontario have date-specific restrictions."
+      ),
+      createAnswerFirstSection(
+        "Cost vs Benefit",
+        "Set of 4 winter tyres: $400-1,200 depending on size and brand. Mounting/balancing: $80-150. Storage off-season: $50-100/year if you don't have garage space. Total ongoing cost: $400-700/year amortised over 3-5 year tyre life. Insurance discount sometimes covers half of that.",
+        "Safety benefits: 25-50% better stopping distance on snow/ice, better acceleration grip, better cornering. Real research shows winter tyres reduce winter accidents by 30-50% compared to all-season in cold climates. The [Canada Income Tax Calculator](/canada-income-tax-calculator) covers Canadian financial planning context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Are all-season tyres okay for Canadian winter?",
+        "All-season tyres lose significant grip below 7°C - they harden and become essentially summer-only effective. Quebec and BC laws recognise this. Even in non-mandate provinces, all-seasons in Canadian winter are a real safety compromise vs proper winter tyres."
+      ),
+      createFAQ(
+        "When should I install winter tyres?",
+        "Generally when nighttime temperatures drop consistently below 7°C, typically late October to early November. Quebec law makes it legal compliance not driver judgment. BC: by October 1 on designated routes."
+      ),
+      createFAQ(
+        "Do I need 4 winter tyres or just 2?",
+        "Always 4 for safety. Mixed sets (winter front, all-season rear, or vice versa) cause unpredictable handling - the end with worse grip slides during turns or braking. Most insurance discounts require 4 winter tyres."
+      ),
+      createFAQ(
+        "What about visiting Quebec from another province?",
+        "If your visit covers December 1 to March 15, Quebec law applies regardless of where your vehicle is registered. Compliance is enforced; rental companies in Quebec automatically equip vehicles with winter tyres during the mandate period."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "canada-car-loan-calculator", label: "Canada Car Loan Calculator" },
+      { slug: "canada-mortgage-calculator", label: "Canada Mortgage Calculator" },
+      { slug: "canada-paycheck-calculator", label: "Canada Paycheck Calculator" },
+    ],
+  },
+
+  "australia-school-zone-speed-reminder": {
+    sections: [
+      createAnswerFirstSection(
+        "How School Zones Work in Australia",
+        "School zones in Australia have reduced speed limits during specified times when children are likely to be present. Standard limit is 40 km/h in NSW, Victoria, and Queensland; 25 km/h in South Australia (down from 30 some years ago); 30 km/h in Tasmania. Times typically 8-9:30 AM and 2:30-4 PM on school days, with variations.",
+        "Signs with flashing lights or 'when children are present' wording indicate active zones. Some states have zones with 24/7 reduced limits near specific schools or in built-up areas. Zone boundaries are clearly marked with start and end signs. The zone covers all marked traffic in both directions."
+      ),
+      createAnswerFirstSection(
+        "Penalties Are Severe",
+        "Speeding in school zones carries higher penalties than equivalent breaches elsewhere. NSW: 11-20 km/h over - $475 fine and 4 demerit points. 30+ km/h over - $2,400 fine and 6 demerit points plus 3-month licence suspension. Victoria similar tiered structure. Queensland: $341 for less than 13 km/h over, scaling to $1,706+ for serious breaches.",
+        "Camera enforcement is intensive in school zones - both fixed and mobile cameras. Fines apply during the active zone hours; outside those hours the regular limit applies. School zones during school holidays: zone signs are usually still posted but the active hours don't apply on holiday days. Always check signs."
+      ),
+      createAnswerFirstSection(
+        "Where Zones Apply",
+        "Around all primary schools, secondary schools, special schools, and many child-care centres. Some shopping precincts near schools also have extended zones. Universities and tertiary institutions are typically NOT in school zones - they don't have scheduled child arrivals.",
+        "Zone size varies by school. Small primary schools: 200-400 metres of zone. Large schools or schools with widespread bus drop-off zones: up to 1 km of zone. School zones often include nearby intersections to manage children crossing busy roads to reach the school."
+      ),
+      createAnswerFirstSection(
+        "School Holiday Periods",
+        "Australian school holiday periods vary by state but generally include: 6 weeks late December to late January (summer break), 2 weeks Easter, 2 weeks early July (winter break), 2 weeks late September (spring break). During these periods, school zone signs remain but the time-limited zones aren't active.",
+        "Pupil-free days (also called staff development days) - students are not at school but signs may still be active depending on signage. Always assume the zone is active during posted hours unless you can confirm otherwise. Speed cameras in school zones are calibrated to active hours - they typically don't issue tickets outside the published zone times. Use the [Australia Pay Calculator](/australia-pay-calculator) for broader Australian context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What if I'm just driving past, not visiting the school?",
+        "Speed limits apply to all vehicles regardless of destination. School zones are about protecting children, not requiring you to be involved with the school. Drive at 40 km/h (or applicable limit) until clear of the zone."
+      ),
+      createFAQ(
+        "Are there cameras everywhere?",
+        "Increasingly yes. NSW, Victoria, and Queensland have aggressive school zone enforcement programs. Mobile cameras can be set up at any school zone. Even unmarked patrol cars use radar in school zones during active hours. The fine is the same regardless of detection method."
+      ),
+      createFAQ(
+        "What if there's no signage but it's a school zone time?",
+        "Speed limits require signs. If a zone isn't signposted, the regular street limit applies. However, school crossing supervisors with handheld signs operate at unmarked crossings; you must stop for them."
+      ),
+      createFAQ(
+        "Do school zones apply on weekends?",
+        "Generally no - school zones operate on weekdays during school terms. Saturday and Sunday have regular speed limits. Check signage; some 24/7 reduced zones exist near specific schools."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-mortgage-calculator", label: "Australia Mortgage Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "australia-pet-registration-cost", label: "Australia Pet Registration Cost" },
+    ],
+  },
 };

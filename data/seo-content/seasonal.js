@@ -1368,4 +1368,102 @@ export const seasonalSEO = {
       { slug: "discount-calculator", label: "Discount Calculator" },
     ],
   },
+
+  "canada-snow-day-probability": {
+    sections: [
+      createAnswerFirstSection(
+        "What Triggers a Snow Day in Canada",
+        "Schools close (or shift to remote learning) when bus services cancel due to weather. Bus cancellations typically happen for: heavy snowfall (15+ cm overnight), high winds with blowing snow reducing visibility, extreme cold (-30 to -40°C with windchill, varying by region), freezing rain creating dangerous road conditions, or combined conditions. The threshold varies by school board and weather norms.",
+        "Atlantic Canada and Northern Ontario expect more snow days than urban Toronto or Montreal due to harsher winter conditions. Some boards have automatic remote learning protocols for severe weather; others give a full day off. Toronto District School Board's threshold is typically 15+ cm by 6 AM or significant freezing rain warning."
+      ),
+      createAnswerFirstSection(
+        "Probability by Region",
+        "Average snow days per year (school closures): St. John's NL 4-8, Halifax 3-7, Quebec City 2-5, Toronto 1-3, Vancouver 1-2 (despite low snow, the rare occurrence + lack of snow infrastructure causes shutdowns), Calgary/Edmonton 1-3, Winnipeg 2-4 (extreme cold rather than snow), Iqaluit 5-10 (combination of snow and visibility).",
+        "Climate change has shifted patterns - more freezing rain events, more extreme single-day snowfalls, fewer prolonged cold snaps. Annual variability is high - some winters have zero snow days in Toronto; others have 5-6. Long-term forecast skill for school-day-specific weather is poor more than 3-5 days out."
+      ),
+      createAnswerFirstSection(
+        "When Decisions Get Made",
+        "School boards typically announce closures by 6 AM. Listen for local radio (CBC, Talk Radio AM stations), check school board website, sign up for board's text/email alert system. Bus services cancel first - sometimes buses cancel but schools remain open for parents who can drive their kids in.",
+        "If schools are open but you don't feel safe driving, parents can keep their child home with a note. Most boards mark this as 'inclement weather' rather than absence. After-school activities (sports, clubs) often cancel for same-day weather even if school is open."
+      ),
+      createAnswerFirstSection(
+        "Working from Home Workarounds",
+        "Most Canadian employers expect working parents to handle school closure days - either taking a sick/personal day, working from home with kids underfoot, or arranging emergency childcare. Some employers offer 'family leave' days specifically for this. Provincial labour laws (Ontario Bill 88) allow 3-5 unpaid family responsibility days; specifics vary.",
+        "Snow day plans for working parents: have a backup childcare list (grandparents, neighbours, friends) who could supervise short-term. Pre-arranged sitters who stay home anyway. Some children can be left home alone safely depending on age (varies by province; Ontario at 10+, Manitoba 12+). Use the [Canada Income Tax Calculator](/canada-income-tax-calculator) for context on family-related tax credits."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How early do schools announce closures?",
+        "Most boards announce by 6 AM. Some make decisions the night before for very clear forecasts. Atlantic Canada often closes the night before for predicted heavy weather; central provinces tend to announce morning of. Track your specific board's communication channels."
+      ),
+      createFAQ(
+        "What about teachers - do they still go to work?",
+        "Usually yes, even on snow days. Teachers report to the school for prep work, professional development, or remote learning supervision (depending on the board's policy). Recent shifts toward 'asynchronous remote learning' on snow days have changed teacher expectations in some boards."
+      ),
+      createFAQ(
+        "Can I sue if school cancellation creates childcare issues?",
+        "No - schools have authority to close for safety. Childcare disruption is a known parental responsibility. Some provincial labour codes provide for emergency family leave (paid or unpaid) but the school itself has no liability. Plan childcare contingencies in advance."
+      ),
+      createFAQ(
+        "Are snow days the same as remote learning days?",
+        "Increasingly the same in some boards - snow day means no in-person but online learning continues. Other boards still treat snow days as traditional 'no school' days with no academic work. Check your specific board's policy. The pandemic accelerated remote learning capability for snow days."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "canada-heating-cost-calculator", label: "Canada Heating Cost Calculator" },
+      { slug: "canada-paycheck-calculator", label: "Canada Paycheck Calculator" },
+      { slug: "canada-child-care-cost-by-province", label: "Canada Child Care Cost" },
+    ],
+  },
+
+  "australia-bushfire-risk-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "Australia's Fire Danger Rating System",
+        "The Australian Fire Danger Rating System (AFDRS) introduced 2022 simplifies fire warnings to 4 levels: Moderate (orange), High (yellow), Extreme (red), Catastrophic (red with black). 'Catastrophic' (formerly 'Code Red') indicates conditions where fire cannot be controlled - residents in fire-prone areas should leave the night before forecast. 'Extreme' means major fires likely; properties at risk.",
+        "Daily fire danger ratings published by state fire authorities (RFS in NSW, CFA in Victoria, QFES in Queensland, etc.) and weather media. Modern ratings consider weather, fuel load, drought, recent rainfall - not just temperature/wind. Catastrophic days are rare - typically 1-3 per year in fire-prone areas during peak season."
+      ),
+      createAnswerFirstSection(
+        "Total Fire Bans",
+        "Local councils or state fire authorities declare Total Fire Bans (TFB) on high-risk days. During TFB: no fires of any kind outdoors, no welding or angle grinding outdoors, no slashing/mowing in dry vegetation, no incinerators. Penalties for breaching TFB: $5,000+ for individuals, much more for businesses. Ignorance is no defence.",
+        "Bushfire season runs typically October-March in NSW/Victoria, year-round in Queensland and northern Australia. Fire restrictions vary across season - early season often 'permit required'; peak season often 'TFB'; late season 'permit required'. Stay aware of local fire authority's daily declarations."
+      ),
+      createAnswerFirstSection(
+        "Bushfire Survival Plan",
+        "Every household in fire-prone areas should have a written bushfire survival plan covering: 1) When to leave (early on Catastrophic days, or when first warnings issued), 2) Where to go (relatives, designated relief centres, town centre), 3) What to take (Fire Action Plan emergency kit, important documents, photos, medication), 4) How to communicate (charged phones, agreed meet-up points if separated).",
+        "The 'leave early' philosophy has been emphasised since the 2009 Black Saturday bushfires. Staying and defending requires extensive preparation, training, and physical capability - not advisable for most households. CFA Victoria's 'Leaving Early' guide provides detailed planning templates. Update the plan annually before bushfire season."
+      ),
+      createAnswerFirstSection(
+        "Property Preparation",
+        "Year-round measures: maintain 20m clear zone around the house (no vegetation closer), gutters cleared of leaves, smoke alarms tested, fire-resistant paint/cladding where possible. Pre-season checks (September-October): water tanks full, sprinkler systems tested, fuel/oil/gas containers stored properly, garden hoses connected and accessible.",
+        "BAL (Bushfire Attack Level) ratings classify properties from BAL-LOW to BAL-FZ (Flame Zone). New constructions in fire-prone areas must meet BAL standards. Existing properties can be upgraded for fire resistance - shutters, ember screens, replacing flammable roofing. Insurance premiums correlate with BAL ratings - higher rating = higher premium. Use the [Australia Pay Calculator](/australia-pay-calculator) for insurance budget context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How do I know if my area is at risk?",
+        "State emergency services have bushfire risk maps online. Properties in or near bushland, on hillsides, or in semi-rural areas have higher risk than urban suburban properties. Check your council's planning maps for BAL ratings. Insurance providers also use these maps in pricing."
+      ),
+      createFAQ(
+        "What's the difference between bushfire and grassfire?",
+        "Bushfire: forest/bushland fires, typically slower-spreading but very destructive due to fuel load. Grassfire: open paddock/grassland fires, fast-spreading (60+ km/h possible) but less intense per metre. Both threaten homes; grassfires often surround properties before they can be defended."
+      ),
+      createFAQ(
+        "Can I burn off my property?",
+        "During permit periods, yes with a council/CFA permit. Outside permit periods, varying rules. During TFB, no. Always check local rules and notify neighbours before any burning. Escaped private burns cause many bushfires - personal liability for damage can be substantial."
+      ),
+      createFAQ(
+        "What's the fire app I should download?",
+        "VicEmergency (Victoria), Fires Near Me NSW (NSW), QLDAlert (Queensland), Emergency+ (national). All free, all push notifications for nearby fires. Australia-wide bushfire information at hazards.org.au and ABC Emergency Broadcaster on radio."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "australia-mortgage-calculator", label: "Australia Mortgage Calculator" },
+      { slug: "australia-water-usage-calculator", label: "Australia Water Usage Calculator" },
+    ],
+  },
 };

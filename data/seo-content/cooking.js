@@ -1201,4 +1201,102 @@ export const cookingSEO = {
       { slug: "recipe-scaler", label: "Recipe Scaler" },
     ],
   },
+
+  "us-cooking-measurement-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "US Cups vs Other Measurements",
+        "US cups are 240 ml (vs UK 250 ml, Australian 250 ml). 1 US cup = 16 US tablespoons = 48 US teaspoons. 1 US tablespoon = 14.8 ml; 1 US teaspoon = 4.93 ml. The US tablespoon is slightly smaller than UK/AU (15 ml/20 ml respectively), creating subtle issues when adapting recipes between regions. Most recipes survive the difference, but precise baking can feel off.",
+        "Volume vs weight: US recipes traditionally use cups; European and Australian recipes increasingly use grams. A US cup of all-purpose flour weighs 120-128 grams (depending on whether it's sifted or scooped). A US cup of granulated sugar weighs 200 grams. The 'flour cup' problem - vague packing density - is why professional bakers prefer weight."
+      ),
+      createAnswerFirstSection(
+        "Common Conversion Pairs",
+        "1 US cup = 16 US tbsp = 8 US fl oz = 240 ml. 1 quart = 4 cups = 32 oz = 946 ml. 1 gallon = 4 quarts = 16 cups = 3.785 L. 1 pint = 2 cups = 16 fl oz = 473 ml. Note that US fluid ounces are slightly smaller than UK fluid ounces (29.57 ml vs 28.41 ml) - bizarrely the US fl oz is bigger.",
+        "Stick of butter: 1 stick = 1/2 cup = 8 tbsp = 113 grams. American butter packaging shows tablespoon markings on the wrapper. UK/EU butter typically sold in 250-gram blocks without easy 'stick' equivalents - you weigh the amount you need."
+      ),
+      createAnswerFirstSection(
+        "Adapting US to UK and Vice Versa",
+        "If converting a US recipe to UK kitchen: 1 US cup ≈ 240 ml (use a 250 ml measuring jug as close approximation). 1 US tbsp ≈ 1 UK tbsp (15 ml is close enough; 14.8 vs 15 ml difference is negligible). 1 US tsp = 1 UK tsp (5 ml standard).",
+        "If a US recipe says '2 cups of flour' use 240 grams (or 480 ml volume by sift-and-scoop). UK 'pints' are 568 ml; US pints are 473 ml - that's an 18% difference, big enough to ruin recipes. Always check whether 'pint' means UK or US in the original recipe. Use the [Recipe Unit Converter](/recipe-unit-converter) for ingredient-density-aware conversions."
+      ),
+      createAnswerFirstSection(
+        "Temperature Conversions",
+        "US recipes use Fahrenheit; most of the world uses Celsius. Conversion: °C = (°F - 32) × 5/9. Common cooking temps: 350°F = 175°C (most baking baseline), 375°F = 190°C, 400°F = 200°C, 450°F = 230°C. Roasting meats: 325°F = 165°C (low and slow), 425°F = 220°C (quick high heat).",
+        "Gas marks (UK ovens): Gas mark 4 = 350°F = 175°C. Each gas mark up adds 25°F. Modern UK ovens usually show °C; older ovens still show gas marks. Convection (fan) ovens typically need 25°F (15°C) reduction from conventional - or 1 gas mark down."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Do US measuring cups work in other countries?",
+        "Yes, with the volume understanding noted (US cup = 240 ml). UK/AU measuring cups are 250 ml. The 4% difference rarely affects savory cooking. Baking is more sensitive, especially in chemistry-driven recipes (custards, soufflés)."
+      ),
+      createFAQ(
+        "Is liquid vs dry measurement different?",
+        "In US: dry measuring cups for dry ingredients (level off with knife edge), liquid measuring cups for liquids (spouted, marked at side). Same volume but the tools differ for accuracy. UK kitchens often use a single set of cups for both, rounded numbers don't match precisely as a result."
+      ),
+      createFAQ(
+        "How do I convert imperial to metric in recipes?",
+        "Volume: cups × 240 = ml, ounces × 30 = ml (close approximation). Weight: ounces × 28.35 = grams, pounds × 454 = grams. Temperature: °F to °C = (F-32)×5/9. For weights of common ingredients, weight measurement (kitchen scale) is more reliable than volume conversion."
+      ),
+      createFAQ(
+        "Why don't all recipes use grams?",
+        "American baking culture historically uses cups - tradition and cookbook conventions. Grams are objectively more accurate (no packing/scooping ambiguity), and professional bakers and growing home-baking culture in US is shifting toward weight measurement. Older cookbooks use cups; newer ones often provide both."
+      ),
+    ],
+    relatedTools: [
+      { slug: "recipe-unit-converter", label: "Recipe Unit Converter" },
+      { slug: "kitchen-unit-converter", label: "Kitchen Unit Converter" },
+      { slug: "baking-conversion-calculator", label: "Baking Conversion Calculator" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+    ],
+  },
+
+  "canada-turkey-size-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Turkey Per Person",
+        "Standard guideline: 1 to 1.5 pounds (450-680 grams) of raw turkey per person for a typical Canadian Thanksgiving or Christmas dinner. The bone-in turkey weight includes about 30% bone and 10% drying loss, leaving roughly 60% edible meat. So 1 pound of turkey ≈ 0.6 pounds of meat, ≈ enough for one good adult portion plus some leftovers.",
+        "Adjust upward for: heavy eaters, kids who love turkey, lots of leftovers desired (sandwiches for days). Adjust downward for: light eaters, lots of side dishes, kids who don't really like turkey. A 14-pound turkey feeds 10-12 adults adequately. A 20-pound turkey feeds 14-18 adequately or 10-12 with substantial leftovers."
+      ),
+      createAnswerFirstSection(
+        "Choosing Turkey Size",
+        "10-12 lb turkey: 8-10 people, fits standard ovens easily, cooks 3-4 hours. 14-16 lb: 12-14 people, large family dinner standard, 4-4.5 hours. 18-20 lb: 16-20 people, large gathering, 4.5-5 hours, may need extra rack or roasting setup. 22+ lb: very large gatherings or people wanting massive leftovers, 5-6 hours.",
+        "Two smaller turkeys often beat one giant turkey - more breast meat per person, faster cooking, less risk of dry meat. Two 10-lb turkeys for 18 people works better than one 20-lb. Allow oven space and prep time for two birds. Brining or dry-brining works well at any size."
+      ),
+      createAnswerFirstSection(
+        "Cooking Times",
+        "Unstuffed: 13-15 minutes per pound at 325°F (165°C). Stuffed: 15-17 minutes per pound. Internal temperature: 165°F (74°C) at thigh, breast registers 160°F is acceptable. A 14-lb unstuffed turkey: about 3-3.5 hours. 18-lb stuffed: about 4.5-5 hours.",
+        "Resting time after roasting: 30 minutes minimum, 45-60 minutes ideal. Tent loosely with foil. Carving immediately means juices run out and meat dries. Plan the meal so turkey finishes cooking 45-60 minutes before serving time."
+      ),
+      createAnswerFirstSection(
+        "Beyond the Turkey",
+        "Side dishes typically take 50-60% of the budget and serving capacity. Mashed potatoes (1.5-2 lb potatoes per 4 people), stuffing (1 cup per person), gravy (1/4 cup per person), cranberry sauce (1/4 cup per person), one or two vegetable sides (1/2 cup each per person).",
+        "Plates ≠ portions. Some guests load up; others just want a small amount of everything. Plan for 1.25-1.5 servings per person on shared dishes to ensure no one runs out. Leftovers are typically planned for days following Thanksgiving - 'turkey sandwich season' is a Canadian tradition. Use the [Recipe Scaler](/recipe-scaler) for adjusting side dish recipes."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Should I get a frozen or fresh turkey?",
+        "Frozen: cheaper, more readily available, requires 1-3 days thawing in fridge per 4 lbs. Fresh: more flavour for some palates, more expensive (often 50-100% more), more limited availability. Frozen is more common in Canadian households. Thawing-time planning is the only real downside."
+      ),
+      createFAQ(
+        "How long can leftovers be kept?",
+        "In refrigerator: 3-4 days for cooked turkey, gravy. In freezer: 2-3 months for best quality (can keep longer technically but quality degrades). Reheat to internal 165°F (74°C). Don't refreeze turkey that has been thawed in the refrigerator and then cooked - safety risk."
+      ),
+      createFAQ(
+        "Can I cook a turkey day before?",
+        "Yes - many cooks roast Thursday morning for Thursday evening dinner, with rest period in between. Or roast a day ahead, slice, and reheat in pan with broth on dinner day. Reheating sliced turkey is risky for dryness - serve room temperature or warmed in pan with broth."
+      ),
+      createFAQ(
+        "What about turkey alternatives?",
+        "Turkey breast (boneless, bone-in): cooks faster, no bone hassles, less meat per pound. Turkey roulade (rolled, stuffed boneless turkey): elegant presentation, easy carving. Turkey breast plus thighs: get both light and dark meat without whole bird hassle. All work for 8-10 people."
+      ),
+    ],
+    relatedTools: [
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+      { slug: "recipe-cost-calculator", label: "Recipe Cost Calculator" },
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "calories-in-recipe", label: "Calories in Recipe" },
+    ],
+  },
 };

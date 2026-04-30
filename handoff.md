@@ -1,51 +1,74 @@
 # MyKit.tools SEO Recovery — Handoff
 
-Updated: 2026-04-29
+Updated: 2026-04-30 (second pass)
 
-## Status: Wave B complete
+## Status: Country sprint essentially complete - 107/108 country tools have content
 
-The 887→310 GSC indexing collapse recovery is now in maintenance mode. Everything from the original recovery plan is shipped:
+The 887→310 GSC indexing collapse recovery is in maintenance mode. Country tools sprint was the major remaining work; only 1 of 108 tools still pending.
 
-- **Track A** (technical fixes): vercel.json www→non-www redirect, robots.js Googlebot/Bingbot fix, category page canonicals, tag page filter, country-prefix noindex flag in lib/seo.js, removed conflicting global X-Robots-Tag header. Pushed 2026-04-28.
-- **Track B content sprint**: 24 Tier 1 flagships + 277 Tier 2 (April 27 GSC list) + 20 at-risk currently-indexed Tier 1 + 167 at-risk currently-indexed Tier 2. All pushed 2026-04-29.
-- **travel.js duplicate-key cleanup**: 8 dead duplicate entries removed (1,268 → 849 lines), 0 behaviour change. Done 2026-04-29.
+- **Track A** (technical fixes): all shipped 2026-04-28. Vercel.json, robots.js, category canonicals, tag page filter, country-prefix noindex regex, X-Robots-Tag header.
+- **Track B content sprint**: shipped 2026-04-29. 24 Tier 1 + 277 Tier 2 + 20 at-risk Tier 1 + 167 at-risk Tier 2.
+- **travel.js duplicate-key cleanup**: shipped 2026-04-29. 1,268 → 849 lines.
+- **Country tools sprint round 1**: shipped 2026-04-30. 50 finance country tools (24 US, 12 Canada, 10 Australia, 4 India). finance.js grew 2,116 → 4,570 lines.
+- **Country tools sprint round 2**: 2026-04-30 (in working tree, not yet pushed). 50 more country tools across 11 files. 21 finance + 7 education + 5 home + 4 automotive + 2 travel + 2 datetime + 2 cooking + 2 health + 2 seasonal + 2 parenting + 1 wedding. Total +5,108 lines across all files.
 
-GSC validation requested. Now waiting for Google to re-index. Monitor the GSC Coverage and Performance reports weekly.
+107 of 108 country tools now have SEO content (lib/seo.js will auto-flip them indexable once pushed). Only `us-to-eu-shoe-size` remains pending (deliberately skipped - sister tools already have content, low marginal value).
+
+GSC validation requested for the original sprint. Push the round 2 changes when ready and the country tools complete the recovery sprint.
 
 ## Open to-do (priority order)
 
-### 1. Country-prefix tools — write content for all 93 (Path A chosen)
+### 1. Country-prefix tools — 1 left (essentially done)
 
-108 country-prefix tools (us-/canada-/australia-/india-) exist; 93 are auto-noindexed because they have no SEO content. User chose **Path A**: write content for all 93 rather than deleting.
+Only `us-to-eu-shoe-size` remains. Deliberately skipped because sister tools already have content (uk-to-eu-shoe-size, uk-to-us-shoe-size-mens, uk-to-us-dress-size from Wave B). Adding it requires materially differentiated prose. Low priority - can be done in 5 minutes whenever convenient.
 
-Breakdown:
-- 43 `us-` tools, 25 `canada-`, 26 `australia-`, 14 `india-`
-- 76 of 108 are finance (income tax, GST/HST, mortgage/EMI, payroll, super, etc)
-- The other 32 scatter across education, automotive, home, health, datetime, travel
+### 1b. (DONE - kept here for reference) Country-prefix tools - 51 pending (now 1)
+
+108 country-prefix tools (us-/canada-/australia-/india-) total. As of 2026-04-30: **57 have content (indexable), 51 still pending**.
+
+Pending breakdown (in `tmp-seo/country_pending.json`):
+- finance (21): the lower-intent tier of finance country tools - us-cooking-measurement-converter, us-gas-cost-calculator, us-hsa-calculator, us-w2-vs-1099-comparison, us-closing-costs-calculator, canada-tipping-calculator, canada-maternity-leave-calculator, india-emi-calculator, india-gold-rate-calculator, india-gratuity-calculator, india-fd-calculator, india-ppf-calculator, india-gst-calculator, australia-pension-age-calculator, australia-fuel-cost-calculator, australia-cost-of-living-by-city, australia-contractor-vs-employee, plus a few stragglers
+- education (7): us-gpa-calculator, us-back-to-school-calculator, canada-immigration-points-calculator, india-school-admission-age-calculator, us-college-cost-calculator, us-school-grade-calculator, canada-university-tuition-estimator
+- home (5): canada-heating-cost-calculator, india-electricity-bill-calculator, australia-water-usage-calculator, australia-electricity-plan-comparison, australia-pet-registration-cost
+- automotive (4): us-ev-tax-credit-checker, us-gas-price-tracker, canada-winter-tyre-date-checker, australia-school-zone-speed-reminder
+- travel (2), datetime (2), cooking (2), health (2), seasonal (2), parenting (2), converters (1), wedding (1)
 
 How it works:
 - Once an SEO entry exists in `data/seo-content/<category>.js`, `lib/seo.js` auto-flips that slug from `noindex` to indexable. No registry change needed.
-- Suggested batching: by country prefix first (us → canada → australia → india), then by category within each. Finance is the bulk; tackle that first.
-- 5-10 slugs per agent, follow the same Wave B pattern (mykit-copywrite skill + build verify between rounds).
-- Estimated effort: 7.5-15 hours of copy in batches.
+- The first 50 sprint added entries directly without using agents - significantly more token-efficient than the Wave B agent pattern. Recommended approach for the next batch too.
+- Estimated remaining effort: 4-7 hours of copy if done in-context (without agents).
 
-To regenerate the pending list:
+To regenerate the pending list (already saved to `tmp-seo/country_pending.json`):
 ```bash
 node -e "
-const { tools } = require('./lib/tool-registry.js');
-const { getSEOContent } = require('./data/seo-content/index.js');
-const pending = tools.filter(t => /^(us|canada|australia|india)-/.test(t.slug) && !getSEOContent(t.slug));
-console.log(JSON.stringify(pending.map(t => t.slug).sort(), null, 2));
+const fs = require('fs');
+const path = require('path');
+const reg = fs.readFileSync('lib/tool-registry.js', 'utf8');
+const re = /slug:\s*[\"']([^\"']+)[\"'][\s\S]*?category:\s*[\"']([^\"']+)[\"']/g;
+const entries = [];
+let m;
+while ((m = re.exec(reg)) !== null) entries.push({ slug: m[1], category: m[2] });
+const cp = entries.filter(e => /^(us|canada|australia|india)-/.test(e.slug));
+const present = new Set();
+for (const f of fs.readdirSync('data/seo-content').filter(f => f.endsWith('.js') && f !== 'index.js')) {
+  const c = fs.readFileSync(path.join('data/seo-content', f), 'utf8');
+  const sr = /^\s\s\"([a-z0-9-]+)\":\s*\{/gm; let s;
+  while ((s = sr.exec(c)) !== null) present.add(s[1]);
+}
+const pending = cp.filter(e => !present.has(e.slug));
+const grouped = {};
+for (const e of pending) (grouped[e.category] ||= []).push(e.slug);
+fs.writeFileSync('tmp-seo/country_pending.json', JSON.stringify(grouped, null, 2));
+console.log('Pending:', pending.length);
 "
 ```
-(or write to `tmp-seo/country_pending.json` for the next session to consume.)
 
 Tax/finance writer notes:
 - Check actual rate constants in tool components before writing the prose (don't make up numbers)
-- US: federal + state income tax, FICA, 401k limits — values change by year
+- US: federal + state income tax, FICA, 401k limits - values change by year
 - Canada: federal + provincial, CPP/EI, TFSA/RRSP limits
-- Australia: ATO income tax, Medicare levy, super (currently 11.5%, rising to 12% July 2025)
-- India: income tax slabs (new vs old regime), GST 5/12/18/28%, sec 80C cap
+- Australia: ATO income tax (Stage 3 from July 2024: 16%/30%/37%/45%), Medicare levy 2%, super 11.5% rising to 12% July 2025
+- India: income tax slabs (new regime default from 2024-25), GST 5/12/18/28%, sec 80C cap ₹1.5 lakh
 
 ### 2. Tier 3 sprint — small-copy converters
 

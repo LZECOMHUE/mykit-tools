@@ -1276,4 +1276,103 @@ export const parentingSEO = {
       { slug: "science-experiment-generator", label: "Science Experiment Generator" },
     ],
   },
+
+  "canada-child-care-cost-by-province": {
+    sections: [
+      createAnswerFirstSection(
+        "The $10/Day Goal vs Reality",
+        "The federal government's 2021 commitment to $10/day childcare nationwide is being phased in through provincial agreements. Quebec has had $8.95/day subsidised childcare since 1997. Other provinces are at varying stages: Newfoundland and Labrador hit $10/day in 2023, BC is partway, Ontario rolling out reductions. Where the $10/day applies, it's transformative for working parents.",
+        "Where you don't have access to subsidised spots (long waitlists are common): typical full-time daycare costs $1,200-2,200/month per child. Toronto and Vancouver private daycare can hit $2,500/month. Family daycare (home-based) typically $900-1,500/month. Nanny shares: $20-35/hour. Au pairs: $1,000-1,500/month plus room and board."
+      ),
+      createAnswerFirstSection(
+        "Child Care Tax Credits",
+        "Federal Child Care Expense Deduction (Form T778): up to $8,000/year per child under 7, $5,000 for ages 7-15. Lower-income parent must claim. This is a deduction (reducing taxable income), not a credit. Combined with provincial childcare credits in Ontario, Quebec, BC, Manitoba, can reduce effective childcare cost by 25-40% for many families.",
+        "Quebec has the most generous structure - $0.20-0.50 per dollar of childcare expenses returned via the Tax Credit for Childcare Expenses, plus the provincial childcare cost cap. Ontario CARE tax credit returns 25-75% of childcare costs based on family income. Each province's specific rules differ - check your provincial tax forms carefully."
+      ),
+      createAnswerFirstSection(
+        "Subsidised Spots and Waitlists",
+        "Provincial childcare subsidies are means-tested. Lower-income families get higher subsidies, often covering full childcare cost. Application typically through municipal or regional agency. Waitlists for subsidised spots range from 6 months in some areas to 2+ years in major cities. Many parents apply when pregnant.",
+        "Centre-based vs home-based: centres often have priority for subsidised spots and longer hours but smaller staff-to-child ratios are seen as advantage. Home-based (licensed family daycare): typically smaller groups (max 5-7 kids), often more flexible hours, can be cheaper. Both options eligible for subsidy and tax credits where licensed."
+      ),
+      createAnswerFirstSection(
+        "Strategies for Parents",
+        "Many parents stagger return-to-work (one parent returns while other on parental leave) to avoid double childcare costs in the first year. Combining EI parental benefits with strategic timing reduces childcare bills. Some employers offer on-site or subsidised childcare as benefit - common in larger workplaces and government.",
+        "Family support: grandparents, in-laws, extended family providing care - common in Canadian immigrant communities and rural areas. Trade-offs: free or subsidised but might not be available 5 days/week, long-term reliability varies. The [Canada Maternity Leave Calculator](/canada-maternity-leave-calculator) helps with parental leave planning context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How do I find $10/day spots?",
+        "Apply through your provincial childcare registry (varies by province). In Ontario it's the central waitlist OneList. In BC, ChildCareBC. Quebec's universal access works through the regular daycare network. Application timing matters - apply when pregnant, not when about to return to work."
+      ),
+      createFAQ(
+        "Are nannies tax-deductible?",
+        "Nanny costs are deductible under the Child Care Expense Deduction same as daycare. You become an employer for the nanny - withhold CPP, EI, income tax, issue T4 at year-end. This makes nannies more administrative but for some families the personalised care justifies it."
+      ),
+      createFAQ(
+        "What about before/after-school care?",
+        "Before/after-school programs typically run $200-600/month per child during school year, more during summer (full-day care). Eligible for Child Care Expense Deduction. Many municipalities run subsidised after-school programs at lower cost than private alternatives."
+      ),
+      createFAQ(
+        "How does this affect my career path?",
+        "Many Canadian parents (mostly mothers) experience reduced workforce participation due to childcare costs and availability. Universal $10/day childcare addresses this; full implementation expected by 2026. Until then, parents in high-cost provinces often need to evaluate whether second income covers childcare net of taxes."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-maternity-leave-calculator", label: "Canada Maternity Leave Calculator" },
+      { slug: "canada-child-benefit-calculator", label: "Canada Child Benefit Calculator" },
+      { slug: "canada-paycheck-calculator", label: "Canada Paycheck Calculator" },
+      { slug: "canada-parental-leave-splitter", label: "Canada Parental Leave Splitter" },
+    ],
+  },
+
+  "canada-parental-leave-splitter": {
+    sections: [
+      createAnswerFirstSection(
+        "Standard vs Extended Parental Benefits",
+        "Canadian parents choose between standard parental leave (35 weeks at 55% of insurable earnings, max $668/week in 2024) or extended parental leave (61 weeks at 33% of insurable earnings, max $401/week). Same total dollar amount but spread across different durations. Choose at the start of leave; cannot switch once parental benefits begin.",
+        "Maternity benefits (15 weeks for birth parent only) are separate and always paid at 55%. So a birth parent might combine 15 maternity + 35 parental standard = 50 weeks total at 55%; or 15 maternity + 61 parental extended = 76 weeks total. Adoptive parents skip maternity and start with parental directly."
+      ),
+      createAnswerFirstSection(
+        "The Parental Sharing Benefit",
+        "Both parents taking parental leave triggers the Parental Sharing Benefit: 5 extra weeks (standard) or 8 extra weeks (extended). Same family, more total weeks. Significant incentive to split leave between parents rather than one parent taking everything.",
+        "How splitting works: birth parent takes maternity (15 weeks) plus some parental, then non-birth parent takes the remaining parental weeks. Or birth parent stops parental at week 30 (still paid), non-birth parent picks up week 30 onwards. Specific splitting strategies depend on family circumstances and incomes."
+      ),
+      createAnswerFirstSection(
+        "Practical Splitting Strategies",
+        "Strategy A - Birth parent takes most: Birth parent uses 15 maternity + 30 parental, non-birth takes 5 parental. Total 50 weeks (gets sharing benefit). Common for breastfeeding-heavy first months.",
+        "Strategy B - Equal split: Birth parent uses 15 maternity + 15 parental, non-birth takes 20 parental. Total 50 weeks. Common when both parents want significant leave time.",
+        "Strategy C - Sequential: Birth parent uses 15 maternity + 35 parental (full standard), non-birth takes 5 parental afterwards. Total 55 weeks (gets sharing benefit). Useful when non-birth parent wants short bonding period after birth parent returns to work."
+      ),
+      createAnswerFirstSection(
+        "Considerations Beyond Math",
+        "Career impact: longer leave can affect career trajectory; many parents balance bonding time against return-to-work timing. Higher earner often takes shorter leave (more career impact) and lower earner takes longer leave. Some workplaces offer top-up benefits supplementing EI - check both employers' policies before splitting.",
+        "Quebec is different: QPIP (Quebec Parental Insurance Plan) replaces EI parental benefits with more generous rates. Up to 75% of insurable income with higher caps. Quebec's 5-week paternity benefit is non-shareable - exclusive to non-birth parent only. Often results in much more equal-sharing patterns than other provinces. Use the [Canada Maternity Leave Calculator](/canada-maternity-leave-calculator) for full leave planning."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Do both parents need to qualify for EI?",
+        "Yes - each parent claims separately. Both need 600 hours of insurable employment in past 52 weeks. Self-employed parents need to opt into EI 12+ months before claiming. Quebec residents claim through QPIP separately."
+      ),
+      createFAQ(
+        "Can we both be on leave at the same time?",
+        "Yes - parental leave can overlap. Both parents can be home together for some weeks if you have enough total weeks budgeted. Only the maternity period is exclusively for the birth parent."
+      ),
+      createFAQ(
+        "What if one parent doesn't qualify?",
+        "If only one parent qualifies for EI, that parent takes the leave alone (no sharing benefit applies). Common when one parent is self-employed without EI opt-in or hasn't worked enough recently. Adjust expectations accordingly."
+      ),
+      createFAQ(
+        "Should we extend leave by going unpaid after EI runs out?",
+        "Some parents take additional unpaid time after their EI weeks finish. Job protection (return to your job) typically applies for the leave duration covered by EI plus any extension allowed by provincial labour law. Beyond that, employer doesn't have to hold the position."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-maternity-leave-calculator", label: "Canada Maternity Leave Calculator" },
+      { slug: "canada-child-benefit-calculator", label: "Canada Child Benefit Calculator" },
+      { slug: "canada-ei-benefits-calculator", label: "Canada EI Benefits Calculator" },
+      { slug: "canada-child-care-cost-by-province", label: "Canada Child Care Cost" },
+    ],
+  },
 };

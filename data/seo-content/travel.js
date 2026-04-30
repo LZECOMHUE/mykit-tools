@@ -846,4 +846,102 @@ export const travelSEO = {
       { slug: "currency-converter", label: "Currency Converter" },
     ],
   },
+
+  "australia-visa-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Major Australian Visa Categories",
+        "Tourist visas (subclass 600/601/651): $190 for short Visitor visa, ETA $20 (online), eVisitor free. Most travellers from UK, Ireland, EU, NZ use eVisitor or ETA. Working Holiday visas (subclass 417/462) for 18-30 year olds: $650 application fee, valid 12 months. Student visas (subclass 500): $710 base fee plus subclass-specific add-ons.",
+        "Skilled migration visas: 189 (Skilled Independent) $4,640 base, 190 (state-nominated) $4,640, 491 (regional) $4,640. Partner visas: $9,095 (offshore) or $9,095 (onshore), with second-stage fee $1,710 if granted temporary first. Most expensive routes are family/spouse migration which can total $10-15k including health checks, English tests, and police clearances."
+      ),
+      createAnswerFirstSection(
+        "Hidden Costs Beyond the Application Fee",
+        "Health checks: $300-500 per applicant (mandatory for permanent visa applicants). English tests: $300-450 (IELTS, PTE) - often required for skilled and partner visas. Police checks: $50-300 per country lived in for more than 12 months as adult. Skills assessments (for skilled visa applicants): $300-1,500 depending on profession.",
+        "Migration agent fees: $3,000-8,000 typical for complex applications (skilled migration, partner visas). Not strictly required but most applicants use them for partner and skilled visas due to documentation complexity. Total cost for a permanent migration application often $8,000-20,000 inclusive of all fees and professional services."
+      ),
+      createAnswerFirstSection(
+        "Processing Times",
+        "Tourist visas: usually 1-30 days for ETA/eVisitor; 14-50 days for full Visitor. Working Holiday: 1-30 days. Student visas: typically 1-3 months, sometimes faster for compliant applications. Skilled visas: 6-18 months for offshore, 1-3 years for some onshore. Partner visas: 12-30 months in 2024-25.",
+        "Processing time queues vary with departmental capacity and policy priorities. Skilled occupation list updates can shift priorities mid-process. Track application status via your ImmiAccount login. Don't make travel plans dependent on visa grants until visa is officially granted - delays are common."
+      ),
+      createAnswerFirstSection(
+        "After the First Visa",
+        "Onshore visa changes (extending or switching) often have separate fee schedules. Bridging visa fees vary. Citizenship application: $530 fee plus $300 ceremony fee. Permanent residency converts to citizenship eligibility after 4 years residency (with at least 12 months as PR), with English proficiency and citizenship test required.",
+        "Future fee changes: Australian visa fees increase nearly every July (start of fiscal year). Year-on-year increases of 5-10% are common. Plan applications knowing the fee may rise mid-process if delays occur. The [Australia Centrelink Estimator](/australia-centrelink-estimator) covers post-arrival income support eligibility."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I apply for any visa myself?",
+        "Yes - you can apply for any visa without a migration agent. Department of Home Affairs publishes detailed guides. Simple visas (visitor, working holiday) most people self-lodge. Complex visas (skilled, partner) where small mistakes cause years of delay - many people use migration agents."
+      ),
+      createFAQ(
+        "Are migration agents worth it?",
+        "For straightforward applications, no. For partner visas, complex skilled migration, or any case with previous visa refusals, yes. A skilled MARA-registered agent can prevent costly mistakes. Cost $3-8k typical; saves much more if it prevents refusal and reapplication."
+      ),
+      createFAQ(
+        "What if my visa application is refused?",
+        "You can appeal to the Administrative Review Tribunal (ART, formerly AAT). Application fee around $3,000. Decision often takes 18-36 months. Some refusals can be addressed by reapplication with corrected information; others need formal appeal. Refusals on character grounds are particularly difficult to overcome."
+      ),
+      createFAQ(
+        "Do visas come with work rights?",
+        "Tourist visas: no work rights typically. Working Holiday: full work rights for 12 months. Student: 24 hours/week during study, full-time during scheduled breaks. Skilled visas (189, 190, 491): full work rights. Bridging visas: condition-specific - check the grant notice."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-income-tax-calculator", label: "Australia Income Tax Calculator" },
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "australia-centrelink-estimator", label: "Australia Centrelink Estimator" },
+    ],
+  },
+
+  "india-train-fare-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Indian Railways Fare Structure",
+        "Indian Railways fares depend on distance, class of travel, and train type. Major classes from cheapest to most expensive: Sleeper (SL) for unreserved and basic reserved, Third AC (3A), Second AC (2A), First AC (1A) for AC sleeping classes, Chair Car (CC) and Executive (EC) for daytime AC trains, plus Vande Bharat and Rajdhani premium pricing.",
+        "Approximate per-kilometre fare: SL 30-50 paise, 3A ₹1.50-2.50, 2A ₹2.50-3.50, 1A ₹4-5. So Mumbai-Delhi (1,400 km): SL ₹450-600, 3A ₹2,000-2,500, 2A ₹3,000-3,500, 1A ₹5,500-6,500 base fare. Tatkal (last-minute booking) adds 10-30% to base fare. Rajdhani/Vande Bharat add catering and premium pricing."
+      ),
+      createAnswerFirstSection(
+        "Booking Charges and Reservations",
+        "Reservation fee: ₹15-60 per ticket depending on class. Tatkal fee: 10% of base fare for SL, 30% for AC classes. Premium Tatkal can cost 50-100% above base fare during high demand. Service charge for online booking: ₹15-30 per ticket. Convenience fee for IRCTC payment gateway: 1-2% of fare value typically.",
+        "Concessions are extensive: senior citizens (suspended in 2020 but partially restored 2024), women (small discount on long-distance), Press correspondents, military personnel, students (limited). Children: free up to age 5; 25-50% discount age 5-12; full fare 12+. Concessions usually require ID verification at the time of travel."
+      ),
+      createAnswerFirstSection(
+        "Booking Strategies",
+        "Book 60-120 days in advance for popular routes - prices and availability are best when reservation window opens. Tatkal opens 1 day before travel for AC classes (10:00 AM) and SL (11:00 AM) - extremely competitive on popular routes. RAC (Reservation Against Cancellation) is partial confirmation; you get a seat to share until full berth is allocated.",
+        "IRCTC website and app are the primary booking platforms. Third-party apps (MakeMyTrip, ConfirmTkt) offer the same inventory with their own service fees. Booking opens at 8 AM IST (general quota), 10 AM (Tatkal AC), 11 AM (Tatkal SL). Speed of booking matters - popular trains fill in seconds."
+      ),
+      createAnswerFirstSection(
+        "Premium Trains and Special Cases",
+        "Vande Bharat: India's flagship semi-high-speed trains. Mumbai-Pune, Delhi-Varanasi, Chennai-Coimbatore, etc. Fares 2-3x equivalent regular AC fares but include catering and faster journey. Rajdhani Express: traditional premium overnight trains. Shatabdi: daytime fast inter-city. Duronto: long-distance non-stop.",
+        "Foreigners face special pricing for some quota tickets but generally pay regular fares. Tourism trains (Maharaja's, Palace on Wheels): premium luxury at ₹2-15 lakh per head for week-long itineraries. Suburban trains in Mumbai/Chennai/Kolkata operate on token-based ticketing without reservations needed. Use the [India Income Tax Calculator](/india-income-tax-calculator) for broader Indian context."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How early should I book?",
+        "60-120 days for popular routes. Reservation opens 120 days before travel for most trains. Within 60 days, Tatkal becomes the practical option. For festival travel (Diwali, Holi, Christmas), book the moment the window opens."
+      ),
+      createFAQ(
+        "What's the difference between sleeper and third AC?",
+        "Sleeper (SL): non-AC, fan ventilation, open windows, wood/leather berths. Less expensive but less comfortable in summer (heat) and winter (cold). Third AC (3A): air-conditioned, sealed compartments, blanket and pillow provided, better lighting. About 4-5x the price of sleeper."
+      ),
+      createFAQ(
+        "Can I cancel and get a refund?",
+        "Yes, with cancellation charges varying by class and timing. Cancellation 48+ hours before: 25% deduction on base fare. 12-48 hours: 50%. Less than 4 hours before departure: full forfeit (no refund). Some lower-class fares have higher cancellation thresholds."
+      ),
+      createFAQ(
+        "What about waitlisted tickets?",
+        "Waitlist (WL) tickets get confirmed if other passengers cancel before departure. RAC (Reservation Against Cancellation) tickets give you a partial berth (sharing). On day of travel, check status via SMS to 139 or IRCTC. Auto-refund happens for unconfirmed waitlist tickets that don't clear."
+      ),
+    ],
+    relatedTools: [
+      { slug: "india-income-tax-calculator", label: "India Income Tax Calculator" },
+      { slug: "india-home-loan-emi-calculator", label: "India Home Loan EMI Calculator" },
+      { slug: "india-sip-calculator", label: "India SIP Calculator" },
+      { slug: "currency-converter", label: "Currency Converter" },
+    ],
+  },
 };

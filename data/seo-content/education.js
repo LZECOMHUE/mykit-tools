@@ -845,4 +845,347 @@ export const educationSEO = {
       { slug: "us-school-grade-calculator", label: "US School Grade Calculator" },
     ],
   },
+
+  "us-gpa-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the US 4.0 GPA Scale Works",
+        "Standard US unweighted GPA: A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0. Multiply each course grade by credit hours, sum, then divide by total credit hours. A student with 16 credits earning grades of 3.7, 4.0, 3.3, and 4.0 (each 4-credit course): GPA = (3.7+4.0+3.3+4.0)/4 = 3.75. Plus/minus refinements (A- = 3.7, B+ = 3.3) add precision but the principle is the same.",
+        "Weighted GPA adds extra points for honors (+0.5) and AP/IB courses (+1.0). So an A in AP Calculus = 5.0, vs 4.0 for an A in regular Calculus. Weighted GPAs can exceed 4.0 - a student with all AP classes and straight As ends up around 4.5-5.0. Most US high schools report both weighted (for class rank/honors) and unweighted (for college admissions, where they recalculate)."
+      ),
+      createAnswerFirstSection(
+        "What College Admissions Actually Look At",
+        "Most colleges recalculate GPA on their own scale, often unweighted, sometimes only including 'core' academic courses (English, math, science, social studies, foreign language) and excluding electives, gym, etc. Your reported high school GPA is just an input; the admissions GPA is what matters for selectivity decisions.",
+        "Top-tier colleges (MIT, Stanford, Ivies) typically have admitted-student average GPAs of 3.9+ (unweighted), 4.4+ (weighted with rigor). Strong state schools (UCLA, Michigan, UNC) tend to be 3.7+ unweighted. Non-selective schools accept much wider GPA ranges. Use the [US College Cost Calculator](/us-college-cost-calculator) to model affordability once you have a school list."
+      ),
+      createAnswerFirstSection(
+        "GPA in College vs High School",
+        "College GPA uses the same 4.0 scale but typically without weighting. Major-specific honors (Latin honors: cum laude 3.5+, magna cum laude 3.7+, summa cum laude 3.9+) recognize sustained high performance. Some pre-professional tracks (med school, law school) require careful GPA management - med school applicants typically need 3.7+ and a strong MCAT.",
+        "Grad school admissions weight recent GPA more than early college courses. Strong upward trajectory (improving each year) is well-regarded; declining GPA is a red flag. Pass/fail courses don't affect GPA but heavy use of pass/fail can also be a flag for strategic course-shielding."
+      ),
+      createAnswerFirstSection(
+        "Common GPA Calculation Variations",
+        "Some schools use 100-point scales (90-100 = A, 80-89 = B, etc) which translate to 4.0 conversions for transcripts. Others use 5.0 weighted scales by default. International transcripts (UK A-levels, IB, German Abitur) need conversion services for US college admission - WES (World Education Services) is the most-used.",
+        "Major GPA vs cumulative GPA: many programs care about both. A 3.9 cumulative with a 3.5 in your major doesn't impress as much as a 3.7 cumulative with 3.9 in your major. Focus matters. The [US School Grade Calculator](/us-school-grade-calculator) handles single-class grade calculations during the semester."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Can I improve my GPA after high school?",
+        "Not directly - high school GPA is locked once you graduate. But college admissions look at trajectory, recommendations, essays, test scores, and extracurriculars too. A strong upward trend in junior/senior year matters more than freshman struggles. Test scores and unique achievements can compensate for moderate GPA at some schools."
+      ),
+      createFAQ(
+        "Are pluses and minuses standard?",
+        "Most US high schools and colleges use them now. A- = 3.7, B+ = 3.3, B- = 2.7, etc. A few schools still use letter-only grading without modifiers. Check your transcript to see which system applies. Some colleges recalculate omitting the plus/minus distinctions."
+      ),
+      createFAQ(
+        "Do colleges see my middle school GPA?",
+        "Generally no. High school transcript starts in 9th grade. Middle school grades may appear if you took high-school-level courses (Algebra I, foreign language) for high school credit - in that case those grades count toward GPA. Otherwise middle school is invisible to college admissions."
+      ),
+      createFAQ(
+        "What's a good GPA?",
+        "Depends entirely on the school you're applying to. Top-50 universities: 3.7+ unweighted is competitive, 3.9+ for top-20. State flagships: 3.5+ usually safe. Community colleges and less-selective four-years: 2.5+ generally adequate. The 'good' GPA is the one that gets you into your goal school."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+      { slug: "us-school-grade-calculator", label: "US School Grade Calculator" },
+      { slug: "sat-score-calculator", label: "SAT Score Calculator" },
+      { slug: "grade-conversion-tool", label: "International Grade Converter" },
+    ],
+  },
+
+  "us-back-to-school-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Back-to-School Actually Costs",
+        "Average US back-to-school spending in 2024: $874/family for K-12 students according to the National Retail Federation. Breaks down roughly: clothes/shoes 30-35% ($265-300), supplies (pens, notebooks, backpacks) 20-25% ($175-220), electronics (laptop, calculator, headphones) 25-35% (varies hugely), and lunch/transport (annual costs) the remainder.",
+        "Costs scale by grade level. Elementary: $400-700 typical, mostly basic supplies and clothes. Middle school: $600-900, more clothes-conscious, sometimes laptop sharing. High school: $800-1,500, including some electronics and AP/SAT prep materials. College back-to-school often $1,500-3,000+ once you add dorm furnishings and laptop."
+      ),
+      createAnswerFirstSection(
+        "Where the Money Goes",
+        "Backpacks: $30-80 (Pottery Barn Teen and L.L. Bean dominate the durable end). Lunch boxes: $20-40. Clothes: huge variation, $150-400 at the elementary level. Sneakers: $40-150 per pair, often two pairs needed. Calculators (high school): TI-84 about $90-130 (TI-Nspire $130-180). Laptops (high school+ if needed): $300-1,200 depending on use case.",
+        "Sales tax holidays in 17 states cover school supplies, clothing under price caps, and sometimes computers. Major holidays: Florida (early August, multi-day), Texas (mid-August), Tennessee, Ohio, Mississippi. Stack these with retailer back-to-school sales for genuine compound discounts."
+      ),
+      createAnswerFirstSection(
+        "Saving Strategies",
+        "Reuse last year's backpack and lunch box if still functional - save $50-100. Buy clothes 1-2 sizes ahead at end-of-season clearance. Hand-me-downs from older siblings. Generic store brands for notebooks/folders. Buy office supplies in bulk at Costco or Sam's Club. Avoid character-themed supplies that cost 30-50% more for the same item.",
+        "Walmart, Target, and Office Depot's loss-leader weekly ads in late July/early August often have $0.50 notebook deals, $1 pencils, and similar deep discounts on lower-margin staples. Buy these in bulk for the whole school year, not just the first week. The [US Cost of Living Comparison](/us-cost-of-living-comparison) helps with broader family budgeting context."
+      ),
+      createAnswerFirstSection(
+        "School-Specific Items",
+        "Many schools provide supply lists. Check before shopping - elementary often requires specific brands or quantities (12 #2 pencils, 24 crayons specifically Crayola, 1-inch 3-ring binder). High schools often require specific calculators for math classes. AP courses sometimes have textbook fees beyond standard tuition.",
+        "Sports and activities have separate costs. Athletic fees ($50-200/sport), uniforms ($100-300), club fees ($25-150 per club). Marching band, robotics, and travel teams can add $1,000-3,000 a year. These typically don't show in back-to-school estimates but hit the family budget similarly."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When should I start back-to-school shopping?",
+        "Mid-July typically has the deepest discounts on staples (notebooks, pencils, basic clothes). Mid-August has the best selection but higher prices. Late August onwards is for last-minute fills. Sales tax holidays vary by state - check your state's date and shop that weekend."
+      ),
+      createFAQ(
+        "Do schools have lists of what to buy?",
+        "Yes, almost all K-12 schools publish supply lists by grade. Available on the school website, often emailed to enrolled parents in July. Some schools sell pre-packaged supply boxes through 1stDayShool or similar - convenient but typically $20-40 more than buying yourself."
+      ),
+      createFAQ(
+        "What about uniforms?",
+        "Public school uniforms (where required): $200-400 for the school year of basic items. Private school uniforms: often $400-800 per year for required full kit including blazers and ties. Resale options through PTA-run uniform exchanges or Facebook groups can cut costs by 50-70%."
+      ),
+      createFAQ(
+        "Are school supplies tax-deductible?",
+        "Generally no for K-12 personal supplies. Teachers can deduct up to $300/year in classroom supplies. Some states (Indiana, Iowa, Minnesota, Illinois) offer state-level tax credits or deductions for K-12 education expenses. College textbooks can be deductible via the American Opportunity Tax Credit."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-cost-of-living-comparison", label: "US Cost of Living Comparison" },
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+      { slug: "us-paycheck-calculator", label: "US Paycheck Calculator" },
+      { slug: "us-sales-tax-calculator", label: "US Sales Tax Calculator" },
+    ],
+  },
+
+  "canada-immigration-points-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Express Entry and the CRS",
+        "Canada's main economic immigration system uses the Comprehensive Ranking System (CRS) - a points-based score out of 1,200. Eligible candidates create profiles in Express Entry; the highest-scoring candidates receive Invitations to Apply (ITAs) in regular draws. Recent draws have ranged from 470 to 530 CRS points for general all-program draws, with category-based draws (healthcare, STEM, French speakers) sometimes lower.",
+        "The CRS scores you on: age (max 110-100 points), education (150 max), language (English/French combined 160 max), Canadian work experience (80 max), foreign work experience (50 max with language), spouse factors, and additional factors like provincial nomination (+600), arranged employment (+50-200), Canadian education credentials, French language skills."
+      ),
+      createAnswerFirstSection(
+        "Where Most Points Come From",
+        "Age: maximum at 20-29 (110 single, 100 with spouse), declining 5/year after 29. Education: bachelor's = 120-128 points, master's = 135-150, doctorate = 150. Language: CLB 9 (IELTS 7+ each band) = 124 points base, more with strong second language. Canadian work experience: 35-80 points based on years.",
+        "The structural challenge: most candidates max out around 480-520 baseline. To cross higher score thresholds, you typically need provincial nomination (+600 instantly puts you above 1,000) or a job offer. Without those boosts, the CRS competition is fierce - many highly qualified candidates wait months or years for their score to hit a draw cutoff."
+      ),
+      createAnswerFirstSection(
+        "Provincial Nominee Programs",
+        "Each province (except Quebec which has its own system) runs PNP streams matching their labor needs. Express Entry-aligned PNP streams provide the +600 CRS boost; non-Express Entry streams nominate directly. Common high-demand occupations: healthcare workers, tech professionals, skilled trades, agriculture, logistics.",
+        "Provinces with active PNP streams as of 2024-25: Ontario, BC, Alberta, Saskatchewan, Manitoba, Atlantic provinces, Yukon, Northwest Territories, PEI, Nova Scotia. Each has different requirements and priority occupations. Targeting a specific province's needs can dramatically shorten timeline vs general Express Entry pool."
+      ),
+      createAnswerFirstSection(
+        "Beyond Express Entry",
+        "Other immigration routes: Family sponsorship (spouse, parents - separate point system), Atlantic Immigration Program (specific to Atlantic provinces), Rural and Northern Immigration Pilot, Caregiver programs, Refugee/Asylum, study permits with PR pathways post-graduation.",
+        "Quebec has its own selection system entirely separate from federal Express Entry. Quebec Skilled Worker Program (QSWP) uses its own points system focusing heavily on French language, Quebec connections, and adaptability. Quebec also issues most of its skilled worker invitations through Arrima (its expression of interest system) since 2018."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How long does Express Entry take?",
+        "From profile creation to invitation: depends on score vs draws, often 6-18 months. After invitation, application processing 6-8 months. Total: 12-24 months typical from start to permanent residence. Provincial nomination can shorten or lengthen the timeline depending on the specific PNP."
+      ),
+      createFAQ(
+        "Do I need a job offer?",
+        "Not required for Express Entry, but a valid job offer adds 50-200 CRS points. Many successful applicants don't have a job offer - they qualify on age, education, and language alone. PNP streams sometimes require a job offer; some don't."
+      ),
+      createFAQ(
+        "What language tests are accepted?",
+        "English: IELTS General Training, CELPIP General. French: TEF Canada, TCF Canada. Tests must be less than 2 years old at submission. Higher scores (CLB 9+) significantly boost CRS. Many applicants retake tests multiple times to improve language scores."
+      ),
+      createFAQ(
+        "Is studying in Canada a path to PR?",
+        "Yes - one of the strongest. International students gain Canadian education credentials, Canadian work experience (via Post-Graduation Work Permit), and language proficiency - all CRS boosters. Many international graduates qualify for Express Entry within 1-2 years of finishing studies."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "canada-paycheck-calculator", label: "Canada Paycheck Calculator" },
+      { slug: "canada-university-tuition-estimator", label: "Canada University Tuition Estimator" },
+      { slug: "canada-salary-comparison-by-province", label: "Canada Salary Comparison" },
+    ],
+  },
+
+  "india-school-admission-age-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Age Cutoffs Vary by Board and State",
+        "Indian school admission age depends on the board (CBSE, ICSE, State, IB) and grade level. NCERT and CBSE prescribe Class 1 admission age as 6 years completed by April 1 (start of academic year). Pre-primary admissions: nursery/playgroup at 2.5-3 years, KG/LKG at 3-4 years, UKG at 4-5 years.",
+        "State boards vary: Maharashtra requires 6 by 31 December for Class 1; Kerala flexible up to 6 months; Karnataka and Tamil Nadu typically require 6 years by 1 June. The National Education Policy 2020 standardised this to 6+ by April 1 across India, but implementation has been gradual and inconsistent."
+      ),
+      createAnswerFirstSection(
+        "What Counts as 'Completed' Age",
+        "Most schools require the child to have completed the specified age by the cutoff date - so 'age 6 by April 1' means the 6th birthday must be on or before March 31. A child born April 5 misses the cutoff for the upcoming year and waits a full year for next admission. Some schools allow birthdays in April-May with relaxation; most don't.",
+        "RTE (Right to Education Act) admissions for economically weaker sections have age relaxations - children up to age 14 can be admitted to age-appropriate grade. Schools must follow this for the 25% RTE quota seats. Documentation required is birth certificate (not just school records or affidavit) - government-issued birth certificate from registrar."
+      ),
+      createAnswerFirstSection(
+        "Border-Line Birthdays",
+        "Children born April-July face the most ambiguity. Some schools admit them based on April 1 cutoff, others stick to a stricter timeline. Many parents start school admission process 12-18 months before target year to navigate cutoffs. April-born children generally start school at the standard age; later birthdays may be admitted to one grade higher in some schools or wait an extra year.",
+        "The decision to push forward or hold back has long-term implications - older students in the class often outperform academically and athletically (relative age effect). Some parents intentionally delay 6-year-old July-September birthdays into the next admission cycle. Others prefer earlier admission for academic and social momentum."
+      ),
+      createAnswerFirstSection(
+        "Documentation and Process",
+        "Required for admission: birth certificate (originals + 2 photocopies), Aadhaar (child's), passport-sized photos, transfer certificate from previous school (if applicable), parents' Aadhaar/PAN, residence proof, photographs.",
+        "Application timing: top schools open applications November-January for the next academic year (April start in most boards, June in Maharashtra/Kerala). Top schools have entrance assessments for nursery (parental interview, child observation) - controversial but common in metros. Government schools follow RTE allocations with random lottery for the 25% quota. The [India Income Tax Calculator](/india-income-tax-calculator) covers tax planning around education expenses."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When is the academic year in Indian schools?",
+        "Most Indian schools follow April to March academic year. Some southern states (Kerala, Karnataka in some districts) follow June to April. International schools often use August/September starts to align with global calendars. Always check the specific school's calendar."
+      ),
+      createFAQ(
+        "Can I admit my child early or late?",
+        "Most schools strictly follow age cutoffs. Some schools allow 3-6 months relaxation for early admission with documentation; others not. Late admission (older than the standard age) is usually accepted unless there's a 2+ year gap that requires bridging."
+      ),
+      createFAQ(
+        "What about home-schooled children entering regular school?",
+        "Schools typically require an admission test plus age verification. Children are placed in age-appropriate grade based on assessment, not necessarily the highest grade their academic level supports. Smooth transition to age-grade match is usually preferred over advancement."
+      ),
+      createFAQ(
+        "What if my child's birth certificate has an error?",
+        "Get it corrected via the registrar (process varies by state, takes 2-6 weeks). Some schools accept an affidavit + corrected document. Don't try to manipulate birth certificate to match school cutoff - schools check during admission and discrepancies cause rejection or worse."
+      ),
+    ],
+    relatedTools: [
+      { slug: "india-income-tax-calculator", label: "India Income Tax Calculator" },
+      { slug: "india-hra-calculator", label: "India HRA Calculator" },
+      { slug: "india-sip-calculator", label: "India SIP Calculator" },
+      { slug: "india-home-loan-emi-calculator", label: "India Home Loan EMI Calculator" },
+    ],
+  },
+
+  "us-college-cost-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Sticker vs Net Price",
+        "US college sticker prices have soared - private universities now average $60-85k/year for tuition + room and board, public universities $30-50k for in-state, $50-70k for out-of-state. Most students don't pay sticker. Need-based financial aid, merit scholarships, and federal grants reduce the actual cost ('net price') for many students by 30-70%.",
+        "The net price calculator on each college's website estimates what your family would actually pay based on income, savings, and dependents. Run this before applying - sticker price often hides the real picture. Top-tier private universities (Harvard, Stanford, MIT, Princeton) often have lower net prices for middle-class families than state schools, due to large endowments funding aid."
+      ),
+      createAnswerFirstSection(
+        "Public In-State vs Out-of-State vs Private",
+        "Public in-state: $20-35k/year for tuition + room and board, by far the cheapest. Public out-of-state: $40-65k. Private: $60-85k+. The 'flagship state university' (UCLA, Michigan, Wisconsin, UNC, Berkeley, Texas) is the value sweet spot for most students if they're in-state.",
+        "Out-of-state public is often more expensive than private after merit aid - many private universities offer merit scholarships of $20-30k/year that reduce their cost below out-of-state public for strong students. Run real numbers on each school's net price calculator before assuming public is automatically cheaper."
+      ),
+      createAnswerFirstSection(
+        "Hidden Costs Beyond Tuition",
+        "Books and supplies: $1,200-1,800/year. Personal expenses: $1,500-3,000/year. Travel home (especially for out-of-state): $500-2,500/year. Greek life if applicable: $800-2,000/year. Study abroad opportunities: $5-15k extra. Unpaid summer internships: lost income $3-8k.",
+        "Many families budget for tuition + room/board but underestimate the rest. Real total cost of attendance often runs 10-25% above the sticker numbers schools advertise. Use the [US Income Tax Calculator](/us-income-tax-calculator) for tax-credit planning - American Opportunity Tax Credit is worth up to $2,500/year and Lifetime Learning Credit up to $2,000."
+      ),
+      createAnswerFirstSection(
+        "Funding the Gap",
+        "529 plans: tax-advantaged college savings accounts. Contributions grow tax-free, withdrawals tax-free for qualified education expenses. Most states offer a state income tax deduction on contributions ($10-30k/year typically). Best to start when child is born for maximum compounding.",
+        "Federal student loans: Subsidised ($5,500/year freshman, $7,500 senior), Unsubsidised (similar amounts), PLUS for parents (up to cost of attendance minus other aid). Private student loans usually higher interest, less consumer protection - last resort. Work-study programs provide $1,500-3,000/year in school employment."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "Is community college a good option?",
+        "Yes - 2 years of community college followed by transfer to a 4-year saves $30-100k typically. Most state public universities have transfer-friendly relationships with community colleges. The credits transfer; the degree comes from the 4-year. Major universities (UCLA, Berkeley, Wisconsin) admit thousands of community college transfers each year."
+      ),
+      createFAQ(
+        "Are scholarships taxable?",
+        "Scholarships used for tuition, fees, books, and required supplies are tax-free. Scholarships covering room and board are taxable as income. Most students don't pay tax on scholarships because the tuition portion uses up the full scholarship. Track this carefully if you have a large scholarship covering more than tuition."
+      ),
+      createFAQ(
+        "How does FAFSA factor in?",
+        "FAFSA (Free Application for Federal Student Aid) determines eligibility for federal grants, federal student loans, work-study, and many state and institutional aid programs. Required for any need-based aid at most schools. New simplified FAFSA from 2024 onwards. Submit each year - aid eligibility recalculates."
+      ),
+      createFAQ(
+        "What's the average student loan debt?",
+        "Recent graduates average $28,000-37,000 in federal loan debt. Add private loans and the figure rises. Some professional schools (med, law, MBA) graduate with $150-300k debt. Income-driven repayment plans cap monthly payments at 10-20% of discretionary income, with forgiveness after 20-25 years."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-income-tax-calculator", label: "US Income Tax Calculator" },
+      { slug: "us-gpa-calculator", label: "US GPA Calculator" },
+      { slug: "sat-score-calculator", label: "SAT Score Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
+
+  "us-school-grade-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Letter Grades and Percentages",
+        "Most US schools use letter grades from percentages: A = 90-100%, B = 80-89%, C = 70-79%, D = 60-69%, F = below 60%. Some schools use stricter scales (A = 93+, B = 85-92, etc.) or include pluses and minuses (A- = 90-92, A = 93-96, A+ = 97-100). Always check your specific school's grading scale - the boundaries vary.",
+        "When calculating final semester grades, weight by category: tests 40%, homework 25%, projects 20%, participation 15% (typical example - varies by class). Each student's overall grade is the weighted average. Final exam often counts 15-25% of semester grade in many high schools and colleges."
+      ),
+      createAnswerFirstSection(
+        "How Weighted Categories Work",
+        "Weighted average = (Test avg × test weight) + (Homework avg × homework weight) + (Project avg × project weight) + (Participation avg × participation weight). A student with 88% test average, 95% homework, 82% projects, 100% participation in 40/25/20/15 split: (88×0.4) + (95×0.25) + (82×0.2) + (100×0.15) = 35.2 + 23.75 + 16.4 + 15 = 90.35% = A.",
+        "The weighting matters enormously. The same scores under different weighting can produce different final grades. Some students struggling on tests can compensate with high homework grades only if homework is heavily weighted; if tests dominate (60-70% weight), they cannot."
+      ),
+      createAnswerFirstSection(
+        "What I Need to Pass",
+        "If you have 75% going into the final and the final is worth 25%, what do you need? Required final = (Target - (current × (1-weight))) / weight = (70 - 75×0.75) / 0.25 = (70 - 56.25)/0.25 = 55%. So scoring 55% on the final keeps you at 70% (a C) overall.",
+        "Many students don't realise how much (or little) the final affects them. With 90% going in and a 20% final, you need only 50% to keep an A. With 80% going in and a 30% final, you need 73% to keep a B. The specific math sometimes makes test stress unnecessary."
+      ),
+      createAnswerFirstSection(
+        "Plus/Minus and GPA Conversion",
+        "Plus/minus grading: A+ and A both 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, etc. Some colleges and grad schools include the +/- in GPA calculation; high schools usually do for unweighted. Weighted GPAs add 0.5 for honors classes and 1.0 for AP/IB classes - so a B (3.0) in AP becomes 4.0, an A (4.0) becomes 5.0.",
+        "Final letter grade vs GPA point value: an 89.4% might be a B+ at one school, B at another. Round-up policies vary. Some teachers manually adjust borderline grades - a 89.6% might become an A- with strong participation, a 89.4% might stay a B+. The [US GPA Calculator](/us-gpa-calculator) handles cumulative GPA calculation."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "What if my school uses a different grading scale?",
+        "Common variations: 7-point scale (A = 93+, B = 85-92, C = 77-84), 10-point (90/80/70/60 cutoffs - most common), or percentage with no letter conversion (some standards-based schools). Always use your school's scale. International grading (UK A*-G, IB 1-7) converts via WES or other services."
+      ),
+      createFAQ(
+        "How do I calculate a weighted grade?",
+        "Multiply each category's average by its weight (as a decimal), sum them. So if tests are 40% and you have an 85% test average, that contributes 85 × 0.40 = 34. Add similar calculations for each category. The total is your weighted final grade."
+      ),
+      createFAQ(
+        "Can I find out my grade before the final?",
+        "Most teachers post current weighted grades through the semester via PowerSchool, Schoology, Canvas, or similar gradebook systems. Calculating yourself: weighted average of completed work, ignoring the final exam category that hasn't happened yet."
+      ),
+      createFAQ(
+        "What's the difference between weighted and unweighted GPA?",
+        "Weighted: adds extra points (0.5-1.0) for honors and AP/IB classes. Unweighted: pure 4.0 scale, A = 4.0 in any class. Most colleges recalculate to unweighted for admission consistency, though they consider class rigor separately. Some colleges look at both."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-gpa-calculator", label: "US GPA Calculator" },
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+      { slug: "sat-score-calculator", label: "SAT Score Calculator" },
+      { slug: "grade-conversion-tool", label: "International Grade Converter" },
+    ],
+  },
+
+  "canada-university-tuition-estimator": {
+    sections: [
+      createAnswerFirstSection(
+        "Tuition Varies by Province and Program",
+        "Canadian undergraduate domestic tuition averages $7,000-9,000 CAD/year, with significant variation. Quebec charges Quebec residents the lowest ($3,000-4,000/year); out-of-province students pay double. Ontario averages $7,500-12,000. BC $5,500-8,000. Atlantic provinces $7,000-9,500. Alberta $5,500-8,500. Newfoundland and Labrador around $3,300 (lowest in Canada for domestic).",
+        "Program differences: arts and sciences are typically baseline ($7-9k). Engineering, business, pharmacy: $10-18k typically. Medicine and dentistry: $20-50k+ (varies massively). Some programs (Queen's commerce, Western HBA, McGill engineering) command premium fees beyond standard university tuition due to selective program structures."
+      ),
+      createAnswerFirstSection(
+        "International Student Tuition",
+        "International tuition is 3-6x domestic rates. Average international undergraduate tuition: $25,000-45,000/year for arts/sciences. Engineering and business international: $40,000-70,000/year. Top programs (MBA, professional degrees) can hit $80-120k/year for international students. Canadian universities depend heavily on international fee revenue.",
+        "Some provinces (Ontario, Quebec) have introduced caps on international student admissions in 2024-25 due to housing pressures. This may affect availability and tuition trajectories. Several universities offer 'in-province' rates to permanent residents and some refugee categories - check eligibility carefully."
+      ),
+      createAnswerFirstSection(
+        "Beyond Tuition",
+        "Living costs vary dramatically. Vancouver and Toronto: $20,000-25,000/year for housing + food + transport for a student. Montreal: $13,000-18,000. Halifax, Winnipeg, Saskatoon: $10,000-14,000. Regional university towns (Kingston, Waterloo, Guelph, Sherbrooke): $8,000-12,000 typically.",
+        "Books and materials: $1,500-2,500/year for most programs. Health insurance (mandatory for international students, optional supplements for domestic): $500-2,500/year. Recreation/club fees: $200-800/year. Total cost of attendance for domestic Canadian students: $20,000-35,000/year (4 years total $80-140k); international: $40-70k/year ($160-280k for 4 years)."
+      ),
+      createAnswerFirstSection(
+        "Funding and Aid",
+        "OSAP (Ontario Student Assistance Program), Alberta Student Aid, BC Student Aid - each province runs financial aid for its residents at provincial schools. Federal Canada Student Grants and Loans available regardless of province. Combined federal + provincial student loan packages can cover most tuition for low/middle-income families.",
+        "Scholarships: most universities offer entrance scholarships ($1,000-10,000) for high school marks. Merit scholarships at top universities can be substantial - University of Toronto Pearson Scholarship covers full tuition + housing for top international students; similar at McGill, UBC, Waterloo. Apply broadly - small scholarships compound."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "How much will my degree cost in total?",
+        "4-year Bachelor's domestic: $80,000-150,000 total cost of attendance (tuition + living + books). International: $160,000-300,000+. Quebec domestic: $50,000-90,000. Specific programs (med, law) can reach $200,000-400,000 lifetime. Many graduates have $20-40k in student loan debt after."
+      ),
+      createFAQ(
+        "Are scholarships taxable in Canada?",
+        "No - bursaries and scholarships are tax-free in Canada (since 2006). This is a notable difference from US treatment. The full scholarship amount goes toward education without tax obligations. Income from teaching assistantships and research positions is taxable."
+      ),
+      createFAQ(
+        "Can international students work?",
+        "Yes - up to 24 hours/week off-campus during classes (this changed in 2024 from 20). Full-time during scheduled breaks. Work permit conditions and program requirements may have additional restrictions. The Post-Graduation Work Permit (1-3 years after graduation) is a major draw for international students."
+      ),
+      createFAQ(
+        "Is graduate school cheaper than undergrad?",
+        "Often yes for domestic students - many master's programs have funding packages (TA/RA work + scholarships) that cover tuition + provide stipend. PhD programs typically fully funded for 4-5 years. International graduate students typically face higher fees but often higher funding too."
+      ),
+    ],
+    relatedTools: [
+      { slug: "canada-immigration-points-calculator", label: "Canada Immigration Points" },
+      { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
+      { slug: "us-college-cost-calculator", label: "US College Cost Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
 };

@@ -712,4 +712,102 @@ export const datetimeSEO = {
       { slug: "stopwatch", label: "Online Stopwatch" },
     ],
   },
+
+  "australia-public-holiday-planner": {
+    sections: [
+      createAnswerFirstSection(
+        "Australian Public Holidays Vary by State",
+        "Australia has eight federal public holidays (New Year's Day, Australia Day, Good Friday, Easter Monday, ANZAC Day, Christmas Day, Boxing Day, plus Easter Saturday in some states), but states add their own. WA has Western Australia Day. Victoria has Melbourne Cup Day and AFL Grand Final Eve. NSW has Bank Holiday. Queensland has Labour Day on a different date than other states.",
+        "Approximately 11 public holidays per year in most states - one of the higher counts in OECD countries. Plus state-specific show days (Brisbane Ekka, Sydney Royal Easter Show, Adelaide Show) recognised regionally as public holidays in their hosting cities only. Always check your specific state's holiday calendar."
+      ),
+      createAnswerFirstSection(
+        "Long Weekend Strategy",
+        "Strategic annual leave can multiply each public holiday into 4-day weekends. Easter (Good Friday + Easter Monday) automatically creates a 4-day break. ANZAC Day (April 25) often near Easter, allowing combined breaks. Queens Birthday (June, varies by state) combined with leave creates 9-day breaks.",
+        "Pattern for Australian workers: 20 annual leave days per year, often used in 2-week summer block plus 4-5 long weekends. Strategic mid-week public holidays (when bridging with annual leave) get the most stretch. The 'Christmas-New Year shutdown' between 25 December and Australia Day (26 January) often consumes 3-4 weeks of company-wide closure."
+      ),
+      createAnswerFirstSection(
+        "Working on Public Holidays",
+        "Most Australian award rates pay penalty rates for working public holidays - typically 200-250% of regular hourly rate (double-time-and-a-half). Many awards specify mandatory time-off-in-lieu plus penalty rates as alternatives. Specific rates depend on the industry award - retail, hospitality, healthcare all have detailed rules.",
+        "Some industries are exempt from penalty rates (highly paid salaried positions, some professionals). Christmas Day and Easter Sunday have stricter trading hours in many states - many shops close completely. ANZAC Day morning (until noon) has limited trading in most states out of respect."
+      ),
+      createAnswerFirstSection(
+        "Planning Around Holidays",
+        "Holiday rosters in retail, hospitality, healthcare are typically requested 6-8 weeks in advance. Bookings: hotels, restaurants, attractions all surge for long weekends - book 4-8 weeks ahead for popular destinations. Air travel: domestic flights spike 30-50% during long weekend periods.",
+        "School holidays don't always align with public holidays in Australia (4 separate state-based school calendars). The 'right' school holiday week to travel varies by state - check before booking. Use the [Australia Pay Calculator](/australia-pay-calculator) for budget context including penalty rate income calculations."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When is Australia Day?",
+        "January 26 every year. Date is fixed regardless of day of week. Many states observe a 'public holiday in lieu' on the following Monday if the 26th falls on weekend, with the actual celebration on the 26th itself."
+      ),
+      createFAQ(
+        "Are public holidays paid?",
+        "For permanent employees: yes, paid at ordinary rate as if you worked. For casuals: only paid if you work the holiday (at penalty rates). Part-timers: paid for hours they would normally work that day. Award conditions matter - check specific award."
+      ),
+      createFAQ(
+        "What if a public holiday falls on a weekend?",
+        "Typically a 'public holiday in lieu' observed on the following Monday. NSW, Victoria, Queensland generally observe this. Some holidays (Anzac Day) fall on a Saturday and don't always trigger a Monday observance. Check the specific year's published holidays."
+      ),
+      createFAQ(
+        "Do banks open on public holidays?",
+        "No, banks close on all federal and state public holidays. Online banking and ATMs work normally. Major holidays around Christmas/New Year see banks closed for multiple consecutive days. Plan ahead for any in-person banking needs."
+      ),
+    ],
+    relatedTools: [
+      { slug: "australia-pay-calculator", label: "Australia Pay Calculator" },
+      { slug: "australia-income-tax-calculator", label: "Australia Income Tax Calculator" },
+      { slug: "australia-cost-of-living-by-city", label: "Australia Cost of Living" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "us-election-countdown": {
+    sections: [
+      createAnswerFirstSection(
+        "Presidential Election Cycle",
+        "US presidential elections occur every 4 years on the Tuesday after the first Monday of November. Most recent: November 5, 2024 (Trump vs Harris). Next: November 7, 2028. The 2024 election was the 60th US presidential election. Inauguration follows on January 20 of the year after the election.",
+        "Beyond presidential, midterm elections occur every 2 years (next: November 3, 2026). All 435 House seats, one-third of Senate seats (Class 2 in 2026), most state governorships, and countless state and local races appear on the ballot. Off-year elections (in years not divisible by 2) handle municipal, judicial, and special elections."
+      ),
+      createAnswerFirstSection(
+        "Key Dates Leading Up",
+        "Primary elections begin in January-February of election year (Iowa caucuses traditionally first, though party rules have changed). Most primaries complete by June. Party conventions in July-August select official nominees. General election campaigning intensifies September-November. Early voting starts as early as September in some states.",
+        "Election Day itself: November 5, 2024 was the most recent. The Tuesday-after-first-Monday formula: November 3, 2026 (midterms), November 7, 2028 (presidential), November 2, 2030 (midterms), November 4, 2032 (presidential). Date never falls earlier than November 2 or later than November 8."
+      ),
+      createAnswerFirstSection(
+        "Early and Absentee Voting",
+        "All 50 states offer some form of absentee voting. 47 states + DC offer in-person early voting (varying length, from a few days to 50+ days). Pennsylvania, New Hampshire, and Mississippi don't have traditional in-person early voting. About 70% of voters voted by mail or early in-person in 2020 (covid-era spike); 50% in 2024 (post-pandemic normalisation).",
+        "Mail ballot deadlines vary by state. Some states require ballots received by Election Day; others count ballots postmarked by Election Day even if received later. State Secretary of State websites publish exact rules. Ballot tracking apps available in most states - track your ballot from mailing through receipt and verification."
+      ),
+      createAnswerFirstSection(
+        "Why the Date Matters",
+        "Presidential election results affect federal policy, Supreme Court appointments, regulatory direction, and US foreign policy. Markets react to expected election outcomes - currency, equities, and bonds all show election-cycle patterns. The Inauguration on January 20 (post-1933) is when policy shifts begin formally.",
+        "Midterm elections often result in Congressional shifts that constrain or enable presidential policy. The 'midterm penalty' (incumbent president's party usually loses seats) has held in most cycles. State governorships are increasingly tied to abortion access, voting rules, and other policy areas where state action matters most. Use the [Date Difference Calculator](/date-difference-calculator) for general date math."
+      ),
+    ],
+    faqs: [
+      createFAQ(
+        "When is the next presidential election?",
+        "November 7, 2028. Standard 4-year cycle. Inauguration would be January 20, 2029. Midterm elections are November 3, 2026."
+      ),
+      createFAQ(
+        "Why is Election Day always on a Tuesday?",
+        "1845 federal law set the date. Reasoning: gave farmers travel time after Sunday worship before Wednesday market days. Tuesday after first Monday avoids November 1 (All Saints' Day) and November 2 (All Souls' Day) coinciding with Election Day."
+      ),
+      createFAQ(
+        "Can I vote on the day if I haven't registered?",
+        "Depends on state. 22 states + DC offer Election Day voter registration (same-day registration). Most other states require pre-registration 15-30 days before. Some states allow exceptional same-day registration with documentation. Check your state's Secretary of State website."
+      ),
+      createFAQ(
+        "What about the Electoral College?",
+        "Presidential elections use the Electoral College - 538 electors, 270 to win. Each state's electors equal Senators (2) + Representatives (varies by population). Electors meet in mid-December to officially vote. Their votes are counted by Congress on January 6 of the following year."
+      ),
+    ],
+    relatedTools: [
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "us-income-tax-calculator", label: "US Income Tax Calculator" },
+      { slug: "us-cost-of-living-comparison", label: "US Cost of Living Comparison" },
+      { slug: "us-state-tax-comparison", label: "US State Tax Comparison" },
+    ],
+  },
 };
