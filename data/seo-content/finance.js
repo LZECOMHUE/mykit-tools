@@ -5598,6 +5598,206 @@ export const financeSEO = {
       { slug: "canada-income-tax-calculator", label: "Canada Income Tax Calculator" },
     ],
   },
+
+  "markup-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Markup vs Margin",
+        "Markup is the percentage added to cost to set the selling price. Margin is the profit as a percentage of selling price. Markup = (Selling Price - Cost) / Cost × 100. Margin = (Selling Price - Cost) / Selling Price × 100. So an item bought for £40 and sold for £60: markup = 50%, margin = 33.3%. Same dollars, different percentages.",
+        "Retail typically uses markup; finance and accounting use margin. A 100% markup = 50% margin (double the cost = profit equals selling price). Common retail markup ranges: groceries 20-50%, clothing 100-300%, jewellery 200-500%, restaurants 200-400% on food, software near-100% (low marginal cost). Pricing strategy depends on cost structure and market positioning."
+      ),
+      {
+        heading: "Markup vs Margin Reference",
+        table: {
+          headers: ["Markup %", "Margin %", "Cost £40 → Sell"],
+          rows: [
+            ["10%", "9.1%", "£44"],
+            ["25%", "20%", "£50"],
+            ["50%", "33.3%", "£60"],
+            ["75%", "42.9%", "£70"],
+            ["100%", "50%", "£80"],
+            ["150%", "60%", "£100"],
+            ["200%", "66.7%", "£120"],
+            ["300%", "75%", "£160"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use markup over margin?",
+        "Markup is easier for pricing decisions ('add 50% to my cost to find selling price'). Margin is easier for profitability analysis ('what's my profit on this revenue'). Both tools work; different business contexts prefer one over the other."
+      ),
+      createFAQ(
+        "What's a healthy retail markup?",
+        "Depends on industry. Groceries 20-30%; clothing 100-300%; jewellery 200-500%. The 'keystone' (100% markup) is a long-standing retail rule of thumb but increasingly squeezed by online competition. Niche/specialty retail can sustain higher markups; mass-market retail compresses to lower."
+      ),
+    ],
+    relatedTools: [
+      { slug: "profit-margin-calculator", label: "Profit Margin Calculator" },
+      { slug: "discount-calculator", label: "Discount Calculator" },
+      { slug: "vat-calculator", label: "VAT Calculator" },
+    ],
+  },
+
+  "profit-margin-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Three Types of Profit Margin",
+        "Gross margin: (Revenue - COGS) / Revenue × 100. Operating margin: (Revenue - COGS - Operating Expenses) / Revenue × 100. Net margin: (Revenue - All Costs) / Revenue × 100. Net margin is the bottom line - the profit you actually keep after everything. Each step accounts for more costs.",
+        "Healthy margin ranges by industry: software/SaaS 70-85% gross, 20-30% net. Retail 20-50% gross, 2-5% net. Restaurants 60-70% gross on food, 3-5% net. Manufacturing 25-40% gross, 8-15% net. Net margin under 5% is tight; over 15% is excellent. These are rough industry averages; individual companies vary widely."
+      ),
+      {
+        heading: "Profit Margin Reference",
+        table: {
+          headers: ["Industry", "Typical Gross", "Typical Net"],
+          rows: [
+            ["Software/SaaS", "70-85%", "20-30%"],
+            ["Pharmaceutical", "70-90%", "15-25%"],
+            ["Manufacturing", "25-40%", "8-15%"],
+            ["Restaurants", "60-70%", "3-5%"],
+            ["Grocery retail", "20-30%", "1-3%"],
+            ["E-commerce", "30-50%", "5-10%"],
+            ["Construction", "15-25%", "3-7%"],
+            ["Professional services", "50-70%", "10-20%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a 'good' profit margin?",
+        "Depends on industry. Software 25%+ net is good. Retail 5%+ net is good. Construction 7%+ net is good. Compare to industry benchmarks, not absolute thresholds. A 5% net margin in software might signal trouble; a 5% net margin in groceries is genuinely competitive."
+      ),
+      createFAQ(
+        "Why isn't margin = markup?",
+        "Mathematical: markup uses cost as base; margin uses selling price as base. Same dollars, different denominator. 100% markup = 50% margin. Always check which one a business is quoting before comparing across companies."
+      ),
+    ],
+    relatedTools: [
+      { slug: "markup-calculator", label: "Markup Calculator" },
+      { slug: "us-self-employment-tax-calculator", label: "Self-Employment Tax Calculator" },
+      { slug: "vat-calculator", label: "VAT Calculator" },
+    ],
+  },
+
+  "state-pension-age-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "When Will I Get the UK State Pension?",
+        "Currently 66 for men and women alike. Rising to 67 between 6 April 2026 and 5 March 2028 for those born from April 1960 onwards. Then to 68 (currently legislated for 2044-2046; under review for earlier increase). The exact date depends on your date of birth, with detailed cohort-by-cohort transition tables on the gov.uk State Pension age calculator.",
+        "Once you hit pension age, you can claim the New State Pension. Maximum 2024-25 rate: £221.20/week (£11,502/year) if you have 35+ years of National Insurance contributions. Lower for those with fewer NI years. Claim via gov.uk; payment monthly to your nominated bank. Pension does not start automatically - you must claim within 4 months of qualifying."
+      ),
+      {
+        heading: "State Pension Age Timeline",
+        table: {
+          headers: ["Date of Birth", "State Pension Age"],
+          rows: [
+            ["Before April 1953", "65"],
+            ["1953-1959", "66 (gradual transition)"],
+            ["April 1959 - April 1960", "66"],
+            ["April 1960 - March 1961", "66 + months"],
+            ["April 1961 - April 1977", "67"],
+            ["April 1977 onwards", "68 (legislated, may be earlier)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Can I delay (defer) my pension?",
+        "Yes - deferring increases your weekly amount. From 2016: deferral adds 1% for every 9 weeks deferred (about 5.8% per year). Worth doing if you don't need the pension immediately - the increase compounds for life. Pre-2016 rules were more generous."
+      ),
+      createFAQ(
+        "What if I have less than 35 years of NI?",
+        "You get a reduced pension proportional to your years. 30 years = 30/35 × £221.20 = £189.60/week. Below 10 years, no pension at all (unless contributing voluntary NI to top up). Many people fill gaps with voluntary Class 3 NI contributions before retirement to reach the maximum."
+      ),
+    ],
+    relatedTools: [
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+      { slug: "australia-pension-age-calculator", label: "Australia Pension Age Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+    ],
+  },
+
+  "emergency-fund-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Big Should Your Emergency Fund Be?",
+        "Standard advice: 3-6 months of essential monthly expenses. So if you spend £2,500/month on essentials (housing, food, utilities, transport, insurance, minimum debt payments), your emergency fund target is £7,500-15,000. Single earners need more (no income redundancy from spouse). Self-employed need more (irregular income, no sick pay). High earners with stable jobs: 3 months might be enough.",
+        "Emergency fund should cover sudden unemployment, major medical expenses, car/home emergencies, family crises. NOT for vacations, planned home improvements, or expected large bills (those should be saved separately). Keep in a high-yield savings account where you can access immediately - speed matters more than yield. UK Premium Bonds OK for partial allocation; not US savings bonds (lock-up periods)."
+      ),
+      {
+        heading: "Emergency Fund by Situation",
+        table: {
+          headers: ["Situation", "Months to Cover"],
+          rows: [
+            ["Dual-income household, stable jobs", "3 months"],
+            ["Single income, stable job", "4-6 months"],
+            ["Self-employed/contractor", "6-12 months"],
+            ["Single, freelance/seasonal", "6-12 months"],
+            ["Pre-retirement (50+)", "6-12 months"],
+            ["High income but volatile", "6-9 months"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I prioritise emergency fund or paying off debt?",
+        "Build a 'starter' £1,000-2,000 emergency fund first. Then attack high-interest debt (credit cards, payday loans, anything over 8%). After high-interest debt is gone, build full 3-6 month emergency fund while paying lower-interest debt simultaneously."
+      ),
+      createFAQ(
+        "Where should I keep emergency fund?",
+        "Easy-access savings accounts at competitive rates (currently 4-5% APY at challengers like Chase, Marcus, Atom). NOT investments (stocks can fall 30%+ when you most need them). Premium bonds OK for part of fund (instant withdrawal, prize-fund returns). Easy access account separate from your main bank to avoid spending temptation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "us-net-worth-calculator", label: "US Net Worth Calculator" },
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "uk-tax-calculator", label: "UK Tax Calculator" },
+    ],
+  },
+
+  "buy-vs-subscribe-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "When Buying Beats Subscribing (and Vice Versa)",
+        "Compare: total cost over your usage period. A streaming service at £10/month for 5 years = £600. Buying digital movies at £8 each: how many would you actually watch over 5 years? Software subscriptions vs perpetual licences: a £20/month SaaS = £240/year vs a £400 one-time purchase that 'pays back' after 20 months.",
+        "The math depends on usage and longevity. Subscriptions win for: high-volume use, software needing regular updates, services with rapidly changing libraries (Netflix, music streaming). Buying wins for: low-volume use, legacy software you'll keep for years, products that retain value (books, physical games), digital goods you'll re-watch many times."
+      ),
+      {
+        heading: "Subscribe vs Buy Examples",
+        table: {
+          headers: ["Service", "Subscribe", "Buy", "Break-even"],
+          rows: [
+            ["Movie watching", "£10/mo Netflix", "£8/movie", "1+ movie/month"],
+            ["Music", "£10/mo Spotify", "£10/album", "1+ album/month"],
+            ["Office software", "£10/mo M365", "£140 one-time", "14 months"],
+            ["Adobe Creative", "£60/mo", "Discontinued", "n/a"],
+            ["VPN", "£5/mo", "Buy router", "Years to break-even"],
+            ["Gym", "£40/mo", "Home equipment", "10-20 months"],
+            ["Newspaper", "£15/mo digital", "£3/print issue", "1-2 issues/month"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do companies push subscriptions?",
+        "Predictable recurring revenue, valued more highly by investors than one-time purchases. Subscriptions also lock in customers (switching cost). Most consumer software has shifted to subscription over the last decade. Some products (Adobe) eliminated buy-outright entirely."
+      ),
+      createFAQ(
+        "What about hardware-as-a-service?",
+        "Apple iPhone Upgrade Program, peloton equipment with subscription, BMW heated seat subscription - all push hardware into subscription models. Math: depends on how long you keep the hardware. Long ownership = buy outright wins; frequent upgrades = subscription wins."
+      ),
+    ],
+    relatedTools: [
+      { slug: "compound-interest-calculator", label: "Compound Interest Calculator" },
+      { slug: "discount-calculator", label: "Discount Calculator" },
+      { slug: "us-net-worth-calculator", label: "US Net Worth Calculator" },
+    ],
+  },
 };
 
 

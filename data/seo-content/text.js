@@ -1377,4 +1377,250 @@ export const textSEO = {
       { slug: "text-to-binary", label: "Text to Binary Converter" },
     ],
   },
+
+  "case-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Common Text Case Conversions",
+        "UPPERCASE: ALL CAPITALS. lowercase: all small. Title Case: First Letter Of Each Word Capitalised. Sentence case: first letter of sentence capitalised, rest lowercase. camelCase: noSpaces, firstWordLowerThenCapsForRest. PascalCase: SameButFirstLetterAlsoCapital. snake_case: words_separated_by_underscores. kebab-case: words-separated-by-hyphens.",
+        "Case conventions matter for: programming variable names (camelCase or snake_case depending on language), URL slugs (lowercase-kebab-case), professional headings (Title Case), formal communication (proper sentence case, no SHOUTING). Adopting consistent case in writing improves readability; mixing cases inconsistently looks unprofessional."
+      ),
+      {
+        heading: "Case Conversion Examples",
+        table: {
+          headers: ["Style", "Example"],
+          rows: [
+            ["UPPERCASE", "HELLO WORLD"],
+            ["lowercase", "hello world"],
+            ["Title Case", "Hello World"],
+            ["Sentence case", "Hello world"],
+            ["camelCase", "helloWorld"],
+            ["PascalCase", "HelloWorld"],
+            ["snake_case", "hello_world"],
+            ["kebab-case", "hello-world"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "When should I use Title Case?",
+        "Headings, book titles, song titles, formal documents. Style guides differ on which words to capitalise (articles 'a', 'the' are often kept lowercase except when first word). Consistent application matters more than the specific style chosen."
+      ),
+      createFAQ(
+        "What's the difference between camelCase and PascalCase?",
+        "camelCase: first letter lowercase (helloWorld). PascalCase: first letter uppercase (HelloWorld). Different programming languages have different conventions: JavaScript uses camelCase for variables; C# uses PascalCase. Both readable; pick by language convention."
+      ),
+    ],
+    relatedTools: [
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "slug-generator", label: "Slug Generator" },
+      { slug: "word-counter", label: "Word Counter" },
+    ],
+  },
+
+  "character-counter": {
+    sections: [
+      createAnswerFirstSection(
+        "When Character Counts Matter",
+        "Twitter (now X): 280 character limit (long-form Premium goes to 25,000). SMS: 160 characters per message (concatenated SMS chains for longer). Email subject lines: best at 41-50 chars (mobile preview). Title tags (HTML SEO): 60 chars (Google's display limit). Meta descriptions: 155-160 chars. SMS short codes: typically 4-6 chars.",
+        "Most modern character counters distinguish between characters (including spaces) and characters-without-spaces. They may also count words, sentences, and paragraphs. For platform-specific limits, count carefully - emoji count as 2-4 characters in most systems, certain accented characters count as 2 in SMS. The counter handles these encoding subtleties automatically."
+      ),
+      {
+        heading: "Common Character Limits",
+        table: {
+          headers: ["Platform", "Char Limit"],
+          rows: [
+            ["Twitter (X)", "280"],
+            ["LinkedIn post", "3,000"],
+            ["Instagram caption", "2,200"],
+            ["YouTube description", "5,000"],
+            ["SMS (single message)", "160"],
+            ["Email subject", "60-78 (mobile cuts shorter)"],
+            ["Page title (SEO)", "60"],
+            ["Meta description", "155-160"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does Twitter sometimes count tweets as more characters?",
+        "Some Unicode characters count as 2-4 in Twitter's encoding (CJK characters, certain emojis, special symbols). The displayed character count adjusts; Twitter's API returns the 'weighted' character count. Plain ASCII counts as 1 each."
+      ),
+      createFAQ(
+        "Are spaces counted?",
+        "Usually yes. Most character counters include spaces by default. Some show 'characters' and 'characters without spaces' as separate counts. The platform you're targeting determines which matters - SMS counts spaces; Twitter counts spaces."
+      ),
+    ],
+    relatedTools: [
+      { slug: "word-counter", label: "Word Counter" },
+      { slug: "case-converter", label: "Case Converter" },
+      { slug: "line-counter", label: "Line Counter" },
+    ],
+  },
+
+  "slug-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a URL Slug?",
+        "A slug is the URL-friendly version of a page title. Example: 'How to Make Bread' becomes 'how-to-make-bread' in the URL. Conversion rules: lowercase only, replace spaces with hyphens, remove punctuation, encode special characters. Avoid: stop words ('the', 'a', 'an'), redundant words, very long slugs (over 5 words rarely beneficial).",
+        "Slugs matter for SEO, sharing, and user experience. A clean slug like 'best-coffee-shops-london' tells users (and search engines) the page topic instantly. Compare to '/post/12345' which is opaque. Modern CMS systems auto-generate slugs from titles but allow editing - take the time to craft a focused slug for important pages."
+      ),
+      {
+        heading: "Title to Slug Examples",
+        table: {
+          headers: ["Title", "Slug"],
+          rows: [
+            ["How to Make Pasta", "how-to-make-pasta"],
+            ["Best Coffee Shops in London", "best-coffee-shops-london"],
+            ["The Ultimate Guide to SEO", "ultimate-guide-seo"],
+            ["What's the Difference?", "whats-the-difference"],
+            ["10 Tips for Better Sleep", "10-tips-better-sleep"],
+            ["Café & Bistro Reviews", "cafe-bistro-reviews"],
+            ["£10 Wines for Christmas", "10-wines-for-christmas"],
+            ["Python vs JavaScript", "python-vs-javascript"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I include stop words?",
+        "Mostly remove for cleaner slugs ('the-best-recipes' → 'best-recipes'). Keep when they change meaning ('how-to-cook' is fine; 'how' is integral). SEO impact of stop word removal is minor; readability impact is positive."
+      ),
+      createFAQ(
+        "How long should a slug be?",
+        "5 words or fewer typically. Some SEO experts recommend 3-5 words. Longer slugs work but provide diminishing returns and clutter URLs. The page title can be longer than the slug; the slug is a clean, focused URL identifier."
+      ),
+    ],
+    relatedTools: [
+      { slug: "case-converter", label: "Case Converter" },
+      { slug: "text-to-slug", label: "Text to Slug" },
+      { slug: "character-counter", label: "Character Counter" },
+    ],
+  },
+
+  "text-to-slug": {
+    sections: [
+      createAnswerFirstSection(
+        "How Text Becomes a URL Slug",
+        "Conversion process: 1) Convert to lowercase. 2) Replace spaces with hyphens. 3) Remove or replace punctuation (apostrophes removed; ampersands → 'and' or removed). 4) Decode accented characters to ASCII (café → cafe). 5) Optionally remove stop words ('the', 'a'). 6) Trim to a reasonable length. The result is a clean, lowercase, hyphen-separated string that's URL-safe and readable.",
+        "Different from slug-generator: text-to-slug emphasises the algorithmic conversion (any text in, slug out). Slug-generator might offer more configuration. Both produce the same fundamental output - a URL-friendly string. Used in CMS systems, blogging platforms, e-commerce category URLs, and personal blog post URLs."
+      ),
+      {
+        heading: "Conversion Examples",
+        table: {
+          headers: ["Input Text", "Output Slug"],
+          rows: [
+            ["Hello World!", "hello-world"],
+            ["My First Blog Post (2024)", "my-first-blog-post-2024"],
+            ["Café & Croissants", "cafe-croissants"],
+            ["What's New?", "whats-new"],
+            ["Spaces, Commas, and Periods.", "spaces-commas-and-periods"],
+            ["MULTIPLE   SPACES", "multiple-spaces"],
+            ["100% Organic Coffee", "100-organic-coffee"],
+            ["Émile Zola's Germinal", "emile-zolas-germinal"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are accents kept in slugs?",
+        "Usually decoded to ASCII for compatibility. café → cafe, naïve → naive, résumé → resume. Some systems support Unicode slugs (café stays café in the URL) but ASCII is universally compatible. Older systems and many programming frameworks default to ASCII slugs."
+      ),
+      createFAQ(
+        "What about uppercase characters?",
+        "Almost always converted to lowercase. URLs are technically case-sensitive, but search engines and users expect lowercase. Mixed-case slugs work but break user expectations and SEO best practice. Stick to lowercase always."
+      ),
+    ],
+    relatedTools: [
+      { slug: "slug-generator", label: "Slug Generator" },
+      { slug: "case-converter", label: "Case Converter" },
+      { slug: "whitespace-cleaner", label: "Whitespace Cleaner" },
+    ],
+  },
+
+  "line-counter": {
+    sections: [
+      createAnswerFirstSection(
+        "When You Need Line Counts",
+        "Code reviews and version control: file size in lines often used to estimate complexity. Programming style guides: limit functions to 50-100 lines for readability. Configuration files: keep under 500 lines for maintainability. Log files: line count helps gauge volume - a 10,000-line log indicates significant activity. Translation jobs are often quoted per line (along with per-word).",
+        "Line counters typically count: total lines (every newline character), non-empty lines (excluding blank lines), and sometimes 'logical' lines (excluding comments). Some count physical lines; others wrap-aware. Most code editors show the line count in the status bar. Use line counts as one indicator alongside word count and character count for content sizing."
+      ),
+      {
+        heading: "Line Count Reference",
+        table: {
+          headers: ["Content Type", "Typical Lines"],
+          rows: [
+            ["Tweet", "1-3"],
+            ["Email", "5-30"],
+            ["Blog post", "100-300"],
+            ["Short story", "200-1000"],
+            ["Programming function", "10-50"],
+            ["Class file", "100-500"],
+            ["Configuration file", "50-300"],
+            ["Log file (1 day)", "1000-100000+"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are blank lines counted?",
+        "Depends on the tool. Most counters offer both options: 'all lines' (including blank) and 'non-empty lines'. For word count purposes, non-empty lines are more meaningful. For storage/file size, all lines matter."
+      ),
+      createFAQ(
+        "What if my text wraps in the editor?",
+        "Wrapping is display-only; the underlying line count is based on actual newline characters. A long paragraph that wraps to 5 visible lines is still 1 line technically. Line counters use the underlying newlines, not display wrapping."
+      ),
+    ],
+    relatedTools: [
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "word-counter", label: "Word Counter" },
+      { slug: "remove-duplicate-lines", label: "Remove Duplicate Lines" },
+    ],
+  },
+
+  "whitespace-cleaner": {
+    sections: [
+      createAnswerFirstSection(
+        "Cleaning Whitespace from Text",
+        "Common whitespace cleanup operations: remove leading/trailing spaces, replace multiple consecutive spaces with single space, strip blank lines, remove tabs, normalise line endings (CRLF vs LF). Pasting text from PDFs or copies between programs often introduces messy whitespace - cleanup makes the text searchable, comparable, and consistent.",
+        "Programming and data work especially benefit. CSV files with extra spaces around values cause comparison failures. JSON with random whitespace can be unparseable. Code with mixed tabs and spaces breaks Python indentation. Regular text writing benefits too - copying text from web pages often picks up odd Unicode whitespace characters that look like normal spaces but don't behave like them."
+      ),
+      {
+        heading: "Common Whitespace Issues",
+        table: {
+          headers: ["Issue", "Cleanup Action"],
+          rows: [
+            ["Multiple spaces", "Replace with single space"],
+            ["Tabs vs spaces", "Convert to consistent type"],
+            ["Trailing spaces", "Remove from line endings"],
+            ["Blank lines", "Remove or limit to 1"],
+            ["Mixed line endings (CRLF/LF)", "Normalise to one style"],
+            ["Non-breaking space (U+00A0)", "Replace with regular space"],
+            ["Zero-width characters", "Remove (invisible)"],
+            ["Em/en spaces", "Replace with regular space"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a non-breaking space?",
+        "Unicode character U+00A0 - looks identical to a regular space but doesn't allow word breaks. Common in PDFs, Word documents, web content. Causes problems when comparing strings or word counting. Visible only with whitespace-aware editors."
+      ),
+      createFAQ(
+        "Should I remove all blank lines?",
+        "Depends on context. For storage/database: yes, often. For human-readable text: no, blank lines separate paragraphs. Programming: variable conventions exist. Modern tools usually allow 'remove all' or 'collapse consecutive' as separate options."
+      ),
+    ],
+    relatedTools: [
+      { slug: "character-counter", label: "Character Counter" },
+      { slug: "remove-duplicate-lines", label: "Remove Duplicate Lines" },
+      { slug: "text-to-slug", label: "Text to Slug" },
+    ],
+  },
 };

@@ -3257,4 +3257,85 @@ export const creativeSEO = {
       { slug: "print-shrinkage-calculator", label: "3D Print Shrinkage Calculator" },
     ],
   },
+
+  "seam-allowance-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Standard Seam Allowances",
+        "Most commercial sewing patterns use 5/8 inch (15 mm) seam allowance for woven fabrics. UK and EU patterns often default to 1.5 cm (15 mm). Knits and stretch fabrics: 1/4 to 3/8 inch (6-10 mm). Quilting: 1/4 inch (6 mm) precisely. Industrial/garment trade: 1 cm (10 mm) common.",
+        "When converting between pattern systems, always check the pattern's stated seam allowance - some print 'seam allowance included' (you cut along the line); others 'add seam allowance' (you cut outside the line). Mistaking which can make finished garments 1-2 inches too small. The first piece you cut is the easiest to test and verify before committing the whole pattern."
+      ),
+      {
+        heading: "Seam Allowance by Project Type",
+        table: {
+          headers: ["Project", "Allowance"],
+          rows: [
+            ["Quilting", "1/4 in (6 mm)"],
+            ["Knit garments", "3/8 in (10 mm)"],
+            ["Children's wear", "3/8 in (10 mm)"],
+            ["Most adult wear", "5/8 in (15 mm)"],
+            ["Tailored/coats", "1 in (25 mm)"],
+            ["Curtains/upholstery", "1 in (25 mm)"],
+            ["Hems", "1-3 in (25-75 mm)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why so much variation?",
+        "Different fabrics fray and stretch differently. Knit fabrics need less allowance because they don't fray. Quilting needs precise 1/4 inch for piecing accuracy. Heavy fabrics (wool, denim) need more allowance to handle the bulk of bound seams. Match allowance to project."
+      ),
+      createFAQ(
+        "What if my pattern doesn't say?",
+        "Most commercial patterns include the allowance and label it ('5/8 in SA included'). DIY/digital patterns vary - check the pattern's instructions or front cover. When ambiguous, assume 5/8 in / 15 mm and adjust the first muslin/sample if it doesn't fit."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fabric-cost-calculator", label: "Fabric Cost Calculator" },
+      { slug: "inches-to-cm", label: "Inches to Centimetres" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+    ],
+  },
+
+  "fragrance-load-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Fragrance to Add",
+        "Standard fragrance loads vary by product: candles 6-12% by weight (10% sweet spot for soy wax), wax melts 8-12%, soap 1-3% (depending on essential vs fragrance oil), bath bombs 1-5%, lotions 0.5-3%, room sprays 5-10%. Always check the supplier's recommended max load - fragrance oils have IFRA-tested maximums for safety.",
+        "Worked example: 500 g of soy wax at 10% fragrance load = 50 g of fragrance oil. Calculate by weight, not volume - fragrance oils have different densities (typically 0.8-1.1 g/ml). For melt-and-pour soap: 100 g soap × 3% max = 3 g essential oil (about 60-90 drops, depending on oil). Underloading produces weak scent; overloading can cause separation, sweating (in candles), or skin irritation (in skincare)."
+      ),
+      {
+        heading: "Fragrance Load by Product",
+        table: {
+          headers: ["Product", "Typical %", "Notes"],
+          rows: [
+            ["Soy wax candle", "8-10%", "Higher = stronger throw"],
+            ["Paraffin candle", "5-8%", "Lower than soy"],
+            ["Beeswax candle", "3-6%", "Beeswax holds less"],
+            ["Wax melts", "10-12%", "Higher than candles"],
+            ["Cold-process soap", "1-3%", "Skin-safe limits"],
+            ["Bath bombs", "1-5%", "Skin contact"],
+            ["Body lotion", "0.5-2%", "Daily skin contact"],
+            ["Room spray", "5-10%", "Volatile, no skin contact"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's IFRA?",
+        "International Fragrance Association sets safety standards for fragrance ingredients across product categories. Each fragrance has IFRA category limits (1-11 categories from lip products to candles). Suppliers usually provide IFRA certificates with maximum safe load percentages."
+      ),
+      createFAQ(
+        "Can I add more fragrance for stronger scent?",
+        "Up to the supplier's max only. Beyond max IFRA limits, products may sweat (candles), separate (lotions), or irritate skin. Stronger scent comes from quality fragrance choice and proper curing/cooling - not from exceeding load limits."
+      ),
+    ],
+    relatedTools: [
+      { slug: "candle-cost-calculator", label: "Candle Cost Calculator" },
+      { slug: "soap-calculator", label: "Soap Recipe Calculator" },
+      { slug: "wax-melt-calculator", label: "Wax Melt Calculator" },
+    ],
+  },
 };

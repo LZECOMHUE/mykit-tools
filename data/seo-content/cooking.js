@@ -1299,4 +1299,251 @@ export const cookingSEO = {
       { slug: "calories-in-recipe", label: "Calories in Recipe" },
     ],
   },
+
+  "cups-to-grams-flour": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Does a Cup of Flour Weigh?",
+        "1 US cup of all-purpose flour = 125 grams (sifted) or 130-140 g (scooped, more packed). Bread flour is similar at 130 g. Whole wheat: 120 g. Cake flour: 115 g. The variation comes from how the flour was measured - sifted flour is less dense than scooped flour, by 10-15%. For consistent baking, use weight measurements when possible.",
+        "King Arthur Flour (US) standardises on 120 g/cup; Joy of Cooking uses 125 g; many UK sources use 150 g/cup based on the slightly larger 250 ml metric cup. Use the recipe's source country for which cup standard applies. American recipes assume the 240 ml US cup with 120-130 g of flour."
+      ),
+      {
+        heading: "Cups of Flour to Grams",
+        table: {
+          headers: ["Cups", "Grams (sifted)", "Grams (scooped)"],
+          rows: [
+            ["1/4 cup", "31 g", "33 g"],
+            ["1/2 cup", "62 g", "65 g"],
+            ["3/4 cup", "94 g", "98 g"],
+            ["1 cup", "125 g", "130 g"],
+            ["1.5 cups", "188 g", "195 g"],
+            ["2 cups", "250 g", "260 g"],
+            ["3 cups", "375 g", "390 g"],
+            ["4 cups (1 lb)", "500 g", "520 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why so much variation in 'a cup of flour'?",
+        "Flour packs differently. Scooping with the cup compresses flour 10-15% denser than spooning into the cup loosely. Even 'levelling off' produces variation. This is why professional bakers use weight, not volume - even precise volume measurements have ±10% variance."
+      ),
+      createFAQ(
+        "Should I sift flour before measuring?",
+        "Depends on the recipe. 'Sifted flour, then measured' = less flour per cup (115-120 g). 'Measured, then sifted' = full flour amount (125-140 g/cup). Recipe writers often unclear about which order; weight measurement avoids the question entirely."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-grams", label: "Cups to Grams (general)" },
+      { slug: "cups-to-grams-sugar", label: "Cups of Sugar to Grams" },
+      { slug: "baking-conversion-calculator", label: "Baking Conversion Calculator" },
+    ],
+  },
+
+  "cups-to-grams-sugar": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Does a Cup of Sugar Weigh?",
+        "1 US cup of granulated sugar = 200 g. Powdered/icing sugar = 110-120 g (lighter). Brown sugar (packed) = 215-220 g (compressed). Caster sugar (UK) = 200 g. The granulated sugar value is the most common in recipes - 'cup of sugar' almost always means granulated unless specified otherwise.",
+        "Cups of sugar convert more reliably than cups of flour because sugar particles pack uniformly. The 200 g/cup figure is consistent across most US baking sources. UK metric cups (250 ml) hold ~210 g. Always pack brown sugar into the cup for accurate weight - sugar cookies and cake recipes assume packed brown sugar."
+      ),
+      {
+        heading: "Cups of Sugar to Grams",
+        table: {
+          headers: ["Cups", "Granulated", "Brown (packed)", "Powdered"],
+          rows: [
+            ["1/4 cup", "50 g", "54 g", "30 g"],
+            ["1/2 cup", "100 g", "108 g", "55 g"],
+            ["3/4 cup", "150 g", "161 g", "85 g"],
+            ["1 cup", "200 g", "215 g", "115 g"],
+            ["1.5 cups", "300 g", "323 g", "170 g"],
+            ["2 cups", "400 g", "430 g", "230 g"],
+            ["3 cups", "600 g", "645 g", "345 g"],
+            ["4 cups", "800 g", "860 g", "460 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is brown sugar always packed?",
+        "Almost always in baking recipes. 'Packed brown sugar' is the default - press it firmly into the measuring cup so it holds the cup shape when turned out. Loose brown sugar measures about 165 g/cup vs 215 g packed."
+      ),
+      createFAQ(
+        "Are caster sugar and granulated sugar interchangeable?",
+        "Mostly yes for measuring purposes (similar weight per cup). The texture difference matters in some applications - caster sugar's finer grains dissolve faster (better for meringues, syrups). Granulated works fine in most recipes despite slightly slower dissolving."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-grams", label: "Cups to Grams (general)" },
+      { slug: "cups-to-grams-flour", label: "Cups of Flour to Grams" },
+      { slug: "baking-conversion-calculator", label: "Baking Conversion Calculator" },
+    ],
+  },
+
+  "cups-to-grams-rice": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Does a Cup of Rice Weigh?",
+        "1 US cup of uncooked rice = 200 g (long grain like basmati or jasmine), 195 g (short grain like sushi rice), 215 g (arborio risotto rice). Once cooked, rice triples to about 600 g (cooked weight) per cup of dry rice (with water absorbed). Cooked rice from 1 cup dry produces about 3 cups cooked.",
+        "Useful for converting American rice recipes to gram-based UK/EU measurements. A typical dinner serving is 60-75 g uncooked rice (per person) - so a recipe for 4 needs 1 cup uncooked. Restaurant Asian rice servings: 100 g cooked typically (about 33 g dry rice). Sushi rice for rolls: aim for 80 g cooked per roll."
+      ),
+      {
+        heading: "Cups of Rice to Grams",
+        table: {
+          headers: ["Cups", "Long Grain", "Short Grain", "Arborio"],
+          rows: [
+            ["1/4 cup", "50 g", "49 g", "54 g"],
+            ["1/2 cup", "100 g", "98 g", "108 g"],
+            ["3/4 cup", "150 g", "146 g", "161 g"],
+            ["1 cup", "200 g", "195 g", "215 g"],
+            ["1.5 cups", "300 g", "293 g", "323 g"],
+            ["2 cups", "400 g", "390 g", "430 g"],
+            ["3 cups", "600 g", "585 g", "645 g"],
+            ["4 cups", "800 g", "780 g", "860 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How much water for 1 cup of rice?",
+        "Long grain: 1 cup rice + 2 cups water = perfect cooked. Short grain: 1 cup + 1.25 cups water. Brown rice: 1 cup + 2.5 cups water (longer cook time). Risotto: 1 cup + 4-5 cups stock added gradually."
+      ),
+      createFAQ(
+        "How does cooking change rice weight?",
+        "Rice triples in volume (and weight) when cooked because it absorbs water. 200 g uncooked rice + 400 g water → ~600 g cooked rice. The 200 g uncooked weight is what nutrition calculations should use; cooked weight depends on water content."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-grams", label: "Cups to Grams (general)" },
+      { slug: "cups-to-grams-flour", label: "Cups of Flour to Grams" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+    ],
+  },
+
+  "oven-temperature-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "Oven Temperature Across Systems",
+        "Three oven temperature systems: °F (American), °C (most international), and Gas Mark (older British). Conversion formulas: °C = (°F - 32) × 5/9. Gas Mark to °C: each Mark step is roughly 10-25 °C. Most modern UK ovens display °C; older models still show Gas Marks. American ovens display °F.",
+        "Common cooking ranges: 'low' = 130-150 °C / 250-300 °F / Gas 1-2; 'moderate' = 160-180 °C / 325-350 °F / Gas 3-4; 'moderately hot' = 190-200 °C / 375-400 °F / Gas 5-6; 'hot' = 220-230 °C / 425-450 °F / Gas 7-8; 'very hot' = 240+ °C / 475+ °F / Gas 9+. Bread baking: typically 220-230 °C / 425-450 °F / Gas 7-8."
+      ),
+      {
+        heading: "Oven Temperature Reference",
+        table: {
+          headers: ["°F", "°C", "Gas Mark", "Description"],
+          rows: [
+            ["225 °F", "110 °C", "1/4", "Slow"],
+            ["275 °F", "140 °C", "1", "Cool"],
+            ["325 °F", "170 °C", "3", "Moderate"],
+            ["350 °F", "180 °C", "4", "Moderate"],
+            ["375 °F", "190 °C", "5", "Moderately hot"],
+            ["400 °F", "200 °C", "6", "Hot"],
+            ["425 °F", "220 °C", "7", "Very hot"],
+            ["450 °F", "230 °C", "8", "Very hot"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I reduce temperature for fan oven?",
+        "Yes - reduce by 20 °C (or 1 Gas Mark) from the recipe's stated temperature. A recipe for 200 °C in a conventional oven becomes 180 °C in a fan/convection oven. Fan ovens cook faster too - reduce time by 5-10 minutes for longer recipes."
+      ),
+      createFAQ(
+        "Why doesn't my baking turn out at the recipe temperature?",
+        "Oven calibration drift. Many home ovens are 10-30 °F off from their displayed temperature. Get an oven thermometer (£10) to check. Recalibrate by adjusting recipe temperature up or down by the offset, or have the oven's thermostat re-tuned by a service technician."
+      ),
+    ],
+    relatedTools: [
+      { slug: "celsius-to-fahrenheit", label: "Celsius to Fahrenheit" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+      { slug: "gas-mark-to-celsius", label: "Gas Mark to Celsius" },
+    ],
+  },
+
+  "cups-to-grams-oats": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Does a Cup of Oats Weigh?",
+        "1 US cup of rolled oats (old-fashioned) = 80-90 grams. Quick oats: 80 g. Steel-cut oats: 175 g (denser, finer cut). Instant oats: 75 g. The variation comes from oat processing - rolled oats are flattened and lighter; steel-cut are dense whole groats. Most baking and porridge recipes assume rolled oats unless specified.",
+        "For breakfast porridge, 40-50 g oats per person is typical. So a US cup of rolled oats = roughly 2 servings. Bircher muesli and overnight oats: 30-40 g per portion. Granola recipes often call for 3-4 cups oats = 240-360 g, producing about 6-8 cups of finished granola."
+      ),
+      {
+        heading: "Cups of Oats to Grams",
+        table: {
+          headers: ["Cups", "Rolled (old-fash.)", "Quick", "Steel-cut"],
+          rows: [
+            ["1/4 cup", "20 g", "20 g", "44 g"],
+            ["1/2 cup", "40 g", "40 g", "88 g"],
+            ["3/4 cup", "60 g", "60 g", "131 g"],
+            ["1 cup", "80 g", "80 g", "175 g"],
+            ["1.5 cups", "120 g", "120 g", "263 g"],
+            ["2 cups", "160 g", "160 g", "350 g"],
+            ["3 cups", "240 g", "240 g", "525 g"],
+            ["4 cups", "320 g", "320 g", "700 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do steel-cut oats weigh more?",
+        "Steel-cut oats are whole groats chopped into pieces - they pack more densely than the flattened, hollow rolled oats. So 1 cup of steel-cut weighs about 2x as much as 1 cup of rolled. Cooking time differs too - steel-cut takes 20-30 minutes vs 5 minutes for rolled."
+      ),
+      createFAQ(
+        "Can I substitute one for another?",
+        "By weight, mostly yes. By volume, no. Rolled oats and quick oats are interchangeable in most recipes (quick oats absorb liquid faster). Steel-cut requires significantly different cooking time and water ratio - not a simple swap."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-grams", label: "Cups to Grams (general)" },
+      { slug: "cups-to-grams-flour", label: "Cups of Flour to Grams" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+    ],
+  },
+
+  "egg-timer": {
+    sections: [
+      createAnswerFirstSection(
+        "How Long to Boil an Egg",
+        "Soft-boiled (runny yolk): 4-5 minutes. Medium (set white, just-set yolk): 6-7 minutes. Hard-boiled (fully set yolk): 9-12 minutes. Times start when water returns to boil after eggs are added. For very hard yolks (suitable for egg salads or curries), 12-14 minutes. Let cool in cold water immediately to stop cooking and make peeling easier.",
+        "Egg size matters: medium eggs cook 30 seconds faster than large; jumbo eggs 30-60 seconds slower. Refrigerator-cold eggs need 30-60 extra seconds. For poached eggs: 3-4 minutes in barely-simmering water. For scrambled: 30-90 seconds in a pan over low heat with constant stirring. Frittatas/omelettes: 5-7 minutes in a pan."
+      ),
+      {
+        heading: "Egg Cooking Times",
+        table: {
+          headers: ["Method", "Time"],
+          rows: [
+            ["Soft-boiled (large)", "4-5 min"],
+            ["Medium-boiled", "6-7 min"],
+            ["Hard-boiled", "9-12 min"],
+            ["Very hard", "12-14 min"],
+            ["Poached", "3-4 min"],
+            ["Soft scramble", "1-2 min"],
+            ["Hard scramble", "3-4 min"],
+            ["Fried (sunny side)", "2-3 min"],
+            ["Fried (over easy)", "3-4 min"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How can I tell if an egg is fresh?",
+        "Float test: place egg in glass of water. Fresh eggs sink and lie flat. Older eggs (2-3 weeks) sink but stand up. Bad eggs float entirely - the air pocket has expanded enough to lift them. Fresh eggs are also harder to peel than week-old eggs."
+      ),
+      createFAQ(
+        "Why does my egg break in boiling water?",
+        "Sudden temperature shock or fragile shell. Tips: room-temperature eggs are less likely to crack than cold; gentle lowering vs dropping; pinprick at the broad end releases air pocket pressure. Older eggs (1+ week) crack less than very fresh eggs."
+      ),
+    ],
+    relatedTools: [
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+      { slug: "recipe-scaler", label: "Recipe Scaler" },
+      { slug: "calories-in-recipe", label: "Calories in Recipe" },
+    ],
+  },
 };

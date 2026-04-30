@@ -799,4 +799,332 @@ export const mathsSEO = {
       { slug: "prime-number-checker", label: "Prime Number Checker" },
     ],
   },
+
+  "percentage-increase-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate Percentage Increase",
+        "Formula: ((New - Original) / Original) × 100. So if a price went from £20 to £25, the increase is ((25-20)/20) × 100 = 25%. The result is always positive when the new value is higher than the original; if it's lower, you have a percentage decrease (negative increase).",
+        "Used to express growth rates: salary increases, stock returns, sales growth, population changes, inflation rates. A salary going from £40,000 to £44,000 is a 10% increase. House prices rising from £300k to £360k = 20% increase. Note: percentage increases compound when applied repeatedly - 2 consecutive 10% increases produce 21% total, not 20%."
+      ),
+      {
+        heading: "Common Percentage Increases",
+        table: {
+          headers: ["From", "To", "% Increase"],
+          rows: [
+            ["100", "110", "10%"],
+            ["100", "125", "25%"],
+            ["100", "150", "50%"],
+            ["100", "200", "100%"],
+            ["50", "60", "20%"],
+            ["80", "100", "25%"],
+            ["£40,000", "£44,000", "10%"],
+            ["£300,000", "£360,000", "20%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I express going from 50 to 75?",
+        "((75-50)/50) × 100 = 50%. So 75 is 50% more than 50. Common confusion: 'is 75 50% more than 50, or 150% of 50?' Both true - 75 IS 150% of 50, AND it's 50% MORE than 50. The 'increase' framing always uses the difference relative to the starting value."
+      ),
+      createFAQ(
+        "Are 100% increase and doubling the same?",
+        "Yes - 100% increase = doubling. £100 + 100% increase = £200. £100 + 200% increase = £300 (tripled). The terminology can confuse newcomers; 'double' (×2) and 'triple' (×3) avoid the percentage ambiguity."
+      ),
+    ],
+    relatedTools: [
+      { slug: "percentage-decrease-calculator", label: "Percentage Decrease Calculator" },
+      { slug: "percent-change-calculator", label: "Percent Change Calculator" },
+      { slug: "percentage-difference-calculator", label: "Percentage Difference Calculator" },
+    ],
+  },
+
+  "percentage-decrease-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate Percentage Decrease",
+        "Formula: ((Original - New) / Original) × 100. So if a price drops from £80 to £60, the decrease is ((80-60)/80) × 100 = 25%. The result is always positive (representing the magnitude of decrease); the direction is implied by 'decrease'.",
+        "Used for sales discounts, weight loss, profit margins shrinking, market downturns. A 25% decrease in stock value from £40 to £30 = same as a 'sale' of 25% off £40. Important: percentage decreases don't compound the same way as increases - a 50% decrease followed by a 50% increase doesn't return to original (£100 → £50 → £75, not £100)."
+      ),
+      {
+        heading: "Common Percentage Decreases",
+        table: {
+          headers: ["From", "To", "% Decrease"],
+          rows: [
+            ["100", "90", "10%"],
+            ["100", "75", "25%"],
+            ["100", "50", "50%"],
+            ["100", "25", "75%"],
+            ["80", "60", "25%"],
+            ["60", "45", "25%"],
+            ["£200", "£170", "15%"],
+            ["£500", "£350", "30%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why doesn't 50% decrease then 50% increase return to original?",
+        "Math: £100 - 50% = £50. £50 + 50% = £75. The base changed - the second percentage applies to £50, not £100. To return to £100 from £50, you need a 100% increase. This 'percentage of what?' issue causes lots of confusion in finance discussions."
+      ),
+      createFAQ(
+        "Can decrease be more than 100%?",
+        "No - a 100% decrease leaves you with zero. You can't decrease below zero with percentages. If something drops from £100 to -£50, the formula technically gives 150% decrease, but this rarely appears in practice. Typical decreases stop at 100% (the value reaches zero)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "percentage-increase-calculator", label: "Percentage Increase Calculator" },
+      { slug: "percent-change-calculator", label: "Percent Change Calculator" },
+      { slug: "discount-calculator", label: "Discount Calculator" },
+    ],
+  },
+
+  "percent-change-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Calculate Percent Change",
+        "Formula: ((New - Original) / Original) × 100. Same formula as percentage increase, but the result can be positive (increase) or negative (decrease). So going from £100 to £150 is +50% change; going from £100 to £80 is -20% change.",
+        "Used for any directional comparison: stock price changes, year-on-year growth, weight changes, score improvements, traffic spikes/drops. Financial markets quote daily changes as +/- percentages (FTSE 100 +0.5% today, NASDAQ -1.2%). Use percent change rather than percent increase/decrease when the direction isn't predetermined."
+      ),
+      {
+        heading: "Common Percent Changes",
+        table: {
+          headers: ["From", "To", "Change"],
+          rows: [
+            ["100", "120", "+20%"],
+            ["100", "110", "+10%"],
+            ["100", "100", "0% (unchanged)"],
+            ["100", "90", "-10%"],
+            ["100", "75", "-25%"],
+            ["50", "75", "+50%"],
+            ["50", "25", "-50%"],
+            ["FTSE 7500", "FTSE 7575", "+1%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the difference between percent change and percentage point change?",
+        "Percent change is relative; percentage point is absolute. Going from 5% to 7% is a 2 percentage point change but a 40% percent change ((7-5)/5 × 100). Polls and economic statistics often confuse these - 'unemployment rose 2 points' vs 'unemployment rose 40%' can describe the same data differently."
+      ),
+      createFAQ(
+        "How do I show negative changes?",
+        "Use a minus sign or the word 'decrease': '-15%' or '15% decrease'. Stock and market reports use the minus convention; news articles often use 'decrease' or 'fell by'. Both unambiguous; the minus sign is more compact."
+      ),
+    ],
+    relatedTools: [
+      { slug: "percentage-increase-calculator", label: "Percentage Increase Calculator" },
+      { slug: "percentage-decrease-calculator", label: "Percentage Decrease Calculator" },
+      { slug: "percentage-difference-calculator", label: "Percentage Difference Calculator" },
+    ],
+  },
+
+  "pythagorean-theorem-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How the Pythagorean Theorem Works",
+        "For a right-angled triangle: a² + b² = c², where c is the hypotenuse (longest side, opposite the right angle) and a, b are the other two sides. Given any two sides, you can find the third. So for legs of 3 and 4: c² = 9 + 16 = 25, c = 5. The classic 3-4-5 triangle is the smallest integer right triangle.",
+        "Used everywhere in geometry, construction, navigation, computer graphics. To find the diagonal of a rectangular room: a = length, b = width, c = diagonal. A 3m × 4m room has a 5m diagonal. To check if a corner is square (90°): measure 3 ft from corner along one wall, 4 ft along the other - the distance between those points should be exactly 5 ft if the corner is square."
+      ),
+      {
+        heading: "Common Pythagorean Triples",
+        table: {
+          headers: ["a", "b", "c (hypotenuse)"],
+          rows: [
+            ["3", "4", "5"],
+            ["5", "12", "13"],
+            ["6", "8", "10"],
+            ["7", "24", "25"],
+            ["8", "15", "17"],
+            ["9", "40", "41"],
+            ["12", "16", "20"],
+            ["20", "21", "29"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are these called 'triples'?",
+        "Sets of three integers (a, b, c) where a² + b² = c². The smallest is (3, 4, 5). Multiples of any triple are also triples (6, 8, 10 = 2 × the 3-4-5 triple). 'Primitive triples' are the simplest forms - (3,4,5), (5,12,13), (8,15,17) - that aren't multiples of smaller triples."
+      ),
+      createFAQ(
+        "How do I find the third side?",
+        "If you know c and a: b² = c² - a², so b = √(c² - a²). If you know a and b: c = √(a² + b²). Always remember c is the longest side (hypotenuse). Square root is the operation; result is the side length."
+      ),
+    ],
+    relatedTools: [
+      { slug: "scientific-notation-converter", label: "Scientific Notation Converter" },
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "prime-number-checker": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Prime Number?",
+        "A prime is a number greater than 1 that has only two divisors: 1 and itself. So 7 is prime (only 1 and 7 divide it). 8 is not (1, 2, 4, 8 divide it). The first primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29... 2 is the only even prime; all other primes are odd.",
+        "Primes are foundational in cryptography, number theory, and computer science. RSA encryption (used for HTTPS, banking) relies on the difficulty of factoring large numbers into their prime components. The largest known prime as of 2024: 2^82,589,933 - 1, which has 24.8 million digits. New primes are discovered occasionally by distributed computing projects (GIMPS)."
+      ),
+      {
+        heading: "First Primes by Range",
+        table: {
+          headers: ["Range", "Primes"],
+          rows: [
+            ["1-10", "2, 3, 5, 7"],
+            ["11-20", "11, 13, 17, 19"],
+            ["21-30", "23, 29"],
+            ["31-50", "31, 37, 41, 43, 47"],
+            ["51-100", "53, 59, 61, 67, 71, 73, 79, 83, 89, 97"],
+            ["100s", "25 primes (101-199)"],
+            ["1000s", "143 primes"],
+            ["100000s", "10,000+ primes"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I quickly check if a number is prime?",
+        "For small numbers, divide by primes up to √n. So for 91: check 2, 3, 5, 7. 91 ÷ 7 = 13. So 91 = 7 × 13, NOT prime. For numbers under 100, you only need to check division by 2, 3, 5, 7 (primes up to √100 = 10)."
+      ),
+      createFAQ(
+        "Why is 1 not prime?",
+        "By definition - primes need exactly two divisors (1 and themselves). 1 has only one divisor (itself). The exclusion makes prime factorisation work cleanly: every number has a unique prime factorisation if 1 is excluded. Including 1 would break that uniqueness."
+      ),
+    ],
+    relatedTools: [
+      { slug: "greatest-common-factor-calculator", label: "Greatest Common Factor" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+      { slug: "scientific-notation-converter", label: "Scientific Notation Converter" },
+    ],
+  },
+
+  "greatest-common-factor-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Finding the GCF of Two or More Numbers",
+        "GCF (Greatest Common Factor, or GCD) is the largest number that divides each of the given numbers without remainder. For 12 and 18: divisors of 12 are 1, 2, 3, 4, 6, 12; divisors of 18 are 1, 2, 3, 6, 9, 18. Common: 1, 2, 3, 6. Greatest: 6. So GCF(12, 18) = 6.",
+        "Used to simplify fractions: 12/18 reduces to 2/3 by dividing both top and bottom by GCF 6. Used in algebra to factor expressions, in number theory, and in algorithms (Euclid's algorithm efficiently finds GCF). Practical applications: dividing materials evenly, scaling recipes proportionally, simplifying gear ratios."
+      ),
+      {
+        heading: "GCF Examples",
+        table: {
+          headers: ["Numbers", "GCF"],
+          rows: [
+            ["8, 12", "4"],
+            ["12, 18", "6"],
+            ["15, 25", "5"],
+            ["24, 36", "12"],
+            ["30, 45", "15"],
+            ["48, 60", "12"],
+            ["100, 75", "25"],
+            ["7, 11 (coprime)", "1"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's Euclid's algorithm?",
+        "Efficient method for finding GCF without listing all divisors. Repeatedly divide larger by smaller, take remainder, replace larger with smaller and smaller with remainder. Stop when remainder is 0; last divisor is GCF. Example: GCF(48, 36): 48÷36 = 1 rem 12. 36÷12 = 3 rem 0. GCF = 12."
+      ),
+      createFAQ(
+        "What if the GCF is 1?",
+        "Numbers are 'coprime' or 'relatively prime'. Their only common divisor is 1. Examples: any two distinct primes (like 7 and 11), or any number paired with 1. Coprime numbers can't be simplified as fractions further."
+      ),
+    ],
+    relatedTools: [
+      { slug: "prime-number-checker", label: "Prime Number Checker" },
+      { slug: "percentage-difference-calculator", label: "Percentage Difference Calculator" },
+      { slug: "scientific-notation-converter", label: "Scientific Notation Converter" },
+    ],
+  },
+
+  "scientific-notation-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "How Scientific Notation Works",
+        "Scientific notation expresses numbers as a × 10^n, where 1 ≤ a < 10 and n is an integer. So 1,234 = 1.234 × 10^3. 0.000567 = 5.67 × 10^-4. Useful for very large numbers (avogadro's number = 6.022 × 10^23) or very small (the mass of an electron = 9.109 × 10^-31 kg).",
+        "Engineering and science use this constantly. Large quantities (atoms, distances in space, file sizes) and tiny quantities (chemical concentrations, microscopic measurements) compress to readable values. A scientific calculator typically displays in scientific notation when results exceed normal precision (usually past 10^9 or below 10^-9)."
+      ),
+      {
+        heading: "Scientific Notation Examples",
+        table: {
+          headers: ["Number", "Scientific Notation"],
+          rows: [
+            ["1,000", "1 × 10^3"],
+            ["1,500,000", "1.5 × 10^6"],
+            ["1,000,000,000", "1 × 10^9"],
+            ["0.001", "1 × 10^-3"],
+            ["0.0000567", "5.67 × 10^-5"],
+            ["6,022 × 10^23 (Avogadro)", "6.022 × 10^23"],
+            ["Speed of light (m/s)", "3 × 10^8"],
+            ["Mass of Earth (kg)", "5.972 × 10^24"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I convert by hand?",
+        "Move decimal point until you have one non-zero digit before it. Count moves: positive exponent if you moved left (large numbers), negative if you moved right (small numbers). 4567 → 4.567 × 10^3. 0.0023 → 2.3 × 10^-3."
+      ),
+      createFAQ(
+        "What's 'engineering notation'?",
+        "Like scientific notation but exponent must be a multiple of 3 (3, 6, 9, etc.). So 4,567 in engineering notation = 4.567 × 10^3, but 12,345 = 12.345 × 10^3 (not 1.2345 × 10^4). Aligns with SI prefixes: kilo (10^3), mega (10^6), giga (10^9). Engineers prefer this for readability with units."
+      ),
+    ],
+    relatedTools: [
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "pythagorean-theorem-calculator", label: "Pythagorean Theorem" },
+    ],
+  },
+
+  "percentage-difference-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Percentage Difference vs Percentage Change",
+        "Percentage difference is for comparing two values without a reference 'starting' value: |a - b| / ((a + b) / 2) × 100. So comparing 10 vs 20: |10-20| / 15 = 66.7% difference. Symmetric - same answer regardless of which value comes first. Used when neither value is the 'original' or 'new'.",
+        "Percentage change uses one as a baseline: (New - Original) / Original × 100. Going from 10 to 20: 100% change (doubled). Going from 20 to 10: -50% change (halved). NOT symmetric. Use percentage change for time-series comparisons (this year vs last); use percentage difference for parallel comparisons (London prices vs Paris prices)."
+      ),
+      {
+        heading: "Percentage Difference Examples",
+        table: {
+          headers: ["Value A", "Value B", "% Difference"],
+          rows: [
+            ["10", "12", "18.2%"],
+            ["10", "20", "66.7%"],
+            ["50", "55", "9.5%"],
+            ["100", "120", "18.2%"],
+            ["100", "200", "66.7%"],
+            ["50", "100", "66.7%"],
+            ["£10", "£12.50", "22.2%"],
+            ["72 kg", "75 kg", "4.1%"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "When should I use difference vs change?",
+        "Use difference for symmetric comparisons (Comparing two products' prices when neither is the 'original'). Use change for time-series (this year's revenue vs last year's). Use change when there's a clear 'before' and 'after'."
+      ),
+      createFAQ(
+        "Why does percentage difference feel different from percentage change?",
+        "Difference uses the average of both values as denominator (giving symmetric, smaller numbers). Change uses one specific value (giving asymmetric results that depend on direction). 100 vs 200: change is 100% (one direction) or 50% (other). Difference is always 66.7%."
+      ),
+    ],
+    relatedTools: [
+      { slug: "percent-change-calculator", label: "Percent Change Calculator" },
+      { slug: "percentage-increase-calculator", label: "Percentage Increase Calculator" },
+      { slug: "percentage-decrease-calculator", label: "Percentage Decrease Calculator" },
+    ],
+  },
 };

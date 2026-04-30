@@ -68,14 +68,22 @@ Tax/finance writer notes:
 - Australia: ATO income tax (Stage 3 from July 2024: 16%/30%/37%/45%), Medicare levy 2%, super 11.5% rising to 12% July 2025
 - India: income tax slabs (new regime default from 2024-25), GST 5/12/18/28%, sec 80C cap ₹1.5 lakh
 
-### 2. Tier 3 sprint — small-copy converters
+### 2. Tier 3 sprint — 169/236 done (72%)
 
-~225 simple converters/calculators without SEO content. Lower priority because Google's quality bar is lower for converters.
+150 entries added across three rounds 2026-04-30. Light-touch shape: ~41 lines per entry (1 paragraph + table + 1 paragraph + 2 FAQs + 3 relatedTools). All in working tree.
 
-- 150-250 words per entry (vs 350-700 for Tier 2)
-- Can be batched in larger chunks (15-25 per agent)
-- Many are cross-converter pairs (kg→lbs and lbs→kg) — the prose can mostly mirror with units swapped
-- User said this happens "in batches" — no urgency
+**Rounds 1-2 (100):** Converters (mostly cleared), cooking, datetime, maths.
+
+**Round 3 (50):** Cleared 8 small categories (business, music, home niche, creative niche, sports, cooking remainder, health, automotive) + 5 finance + 5 maths + 6 text + 17 seasonal. Spans 12 files. Highest variety round so far.
+
+**Tier 3 status: 169/236 done, 67 pending.**
+- converters (35) — niche specialty: square-yards/km, frequency (hz/khz/mhz/ghz), force (newtons), atm/psi inverse, gradians, named tools (clothing-size-converter, paper-size-converter, fuel-consumption-converter, speed-limit-converter, etc.)
+- fun (13) — name generators (pirate, wizard, rapper, superhero, band, elf, pop-star, fantasy-tavern, vampire-name patterns)
+- datetime (8) — remaining: months-to-days, years-to-days, milliseconds, etc.
+- developer (6) — base64-converter, url-encoder, uuid-generator, hash-generator, lorem-ipsum-generator, html-entity-encoder
+- text (5) — string-repeater, remove-duplicate-lines, random-text-generator, text-to-csv-converter, email-extractor
+
+Estimated 1-2 sessions to clear remaining 67. Same direct-in-context approach.
 
 ## Files of interest
 

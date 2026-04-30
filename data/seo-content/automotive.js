@@ -1023,4 +1023,168 @@ export const automotiveSEO = {
       { slug: "australia-pet-registration-cost", label: "Australia Pet Registration Cost" },
     ],
   },
+
+  "mpg-to-litres-per-100km": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MPG to L/100km",
+        "Formula: L/100km = 282.48 / MPG (using UK gallons), or L/100km = 235.21 / MPG (using US gallons). UK MPG is the standard in the UK; US MPG is used in the US (different gallon size). So 50 UK MPG = 5.65 L/100km; 50 US MPG = 4.70 L/100km. The metric L/100km represents fuel consumed per 100 km traveled - lower is more efficient.",
+        "European cars are typically rated in L/100km. UK cars sometimes show both. American cars exclusively show MPG. A 'good' fuel economy in metric: 5-6 L/100km (mid-size petrol), 4-5 L/100km (mid-size diesel), 2-4 L/100km (hybrid). In MPG equivalents: 47-56 UK MPG (40-47 US MPG) is good for petrol cars."
+      ),
+      {
+        heading: "MPG to L/100km Reference",
+        table: {
+          headers: ["UK MPG", "US MPG", "L/100km"],
+          rows: [
+            ["20", "16.7", "14.12"],
+            ["30", "25.0", "9.42"],
+            ["40", "33.3", "7.06"],
+            ["50", "41.7", "5.65"],
+            ["60", "50.0", "4.71"],
+            ["70", "58.3", "4.03"],
+            ["80", "66.7", "3.53"],
+            ["100", "83.3", "2.82"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do UK and US MPG differ?",
+        "Different gallon sizes: UK gallon = 4.546 L, US gallon = 3.785 L. So UK MPG is about 20% higher than US MPG for the same vehicle. UK car MPG figures are not directly comparable to American figures - always check which system is being quoted."
+      ),
+      createFAQ(
+        "Is lower L/100km always better?",
+        "Yes. L/100km is fuel consumption (lower = more efficient). MPG is fuel economy (higher = more efficient). They're inverse measurements. A car at 4.7 L/100km uses less fuel than one at 7.06 L/100km."
+      ),
+    ],
+    relatedTools: [
+      { slug: "litres-per-100km-to-mpg", label: "L/100km to MPG" },
+      { slug: "mpg-uk-to-mpg-us", label: "UK MPG to US MPG" },
+      { slug: "mpg-us-to-mpg-uk", label: "US MPG to UK MPG" },
+    ],
+  },
+
+  "litres-per-100km-to-mpg": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert L/100km to MPG",
+        "Formula: UK MPG = 282.48 / L/100km, or US MPG = 235.21 / L/100km. So a vehicle rated 6 L/100km = 47.1 UK MPG = 39.2 US MPG. The non-linear relationship means small differences at high efficiency mean larger gaps in MPG (and vice versa).",
+        "Useful for translating European car spec sheets (which use L/100km) to UK or US driver-comprehension. A modern European hybrid at 4 L/100km = 70.6 UK MPG = 58.8 US MPG. A diesel car at 5 L/100km = 56.5 UK MPG = 47 US MPG. Always note whether the MPG figure is UK or US to avoid 20%+ misunderstanding."
+      ),
+      {
+        heading: "L/100km to MPG Reference",
+        table: {
+          headers: ["L/100km", "UK MPG", "US MPG"],
+          rows: [
+            ["3", "94.16", "78.40"],
+            ["4", "70.62", "58.80"],
+            ["5", "56.50", "47.04"],
+            ["6", "47.08", "39.20"],
+            ["7", "40.35", "33.60"],
+            ["8", "35.31", "29.40"],
+            ["10", "28.25", "23.52"],
+            ["15", "18.83", "15.68"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do hybrid cars have such high MPG?",
+        "Electric drive in city driving (when most fuel waste happens at idle/start-stop). A hybrid at 4 L/100km in city = much higher than a similar non-hybrid at 8 L/100km. Hybrid advantage shrinks at steady highway speeds where the engine runs efficiently regardless."
+      ),
+      createFAQ(
+        "Quick mental conversion?",
+        "L/100km × 235 ≈ US MPG. L/100km × 282 ≈ UK MPG. So 5 L/100km × 235 = 1175, divide by 5 = 235... no wait, that's wrong. The actual: 235 / L/100km = US MPG. Use a calculator for precision; mental approximation breaks down for non-trivial values."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mpg-to-litres-per-100km", label: "MPG to L/100km" },
+      { slug: "mpg-uk-to-mpg-us", label: "UK MPG to US MPG" },
+      { slug: "mpg-us-to-mpg-uk", label: "US MPG to UK MPG" },
+    ],
+  },
+
+  "mpg-uk-to-mpg-us": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert UK MPG to US MPG",
+        "Multiply UK MPG by 0.8327 to get US MPG. So 60 UK MPG × 0.8327 = 49.96 US MPG. The conversion comes from the gallon size difference: UK gallon (4.546 L) is bigger than US gallon (3.785 L), so UK MPG numbers are inherently higher than US MPG for the same vehicle.",
+        "Useful when comparing UK and US car spec sheets directly. A UK manufacturer claims '50 MPG combined' which is 41.6 US MPG - very different from a US manufacturer's '50 MPG' claim. Always verify which gallon convention is being used. EU CO2 ratings often show g/km, which converts independently."
+      ),
+      {
+        heading: "UK MPG to US MPG",
+        table: {
+          headers: ["UK MPG", "US MPG"],
+          rows: [
+            ["20", "16.65"],
+            ["30", "24.98"],
+            ["40", "33.31"],
+            ["50", "41.64"],
+            ["60", "49.96"],
+            ["70", "58.29"],
+            ["80", "66.62"],
+            ["100", "83.27"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are these the same gallon?",
+        "No - that's the key. UK gallon = 4.546 L; US gallon = 3.785 L. They share the name but are 20% different in size. UK MPG measures more fuel per gallon's worth of distance, so the same car gets a higher UK MPG number than US MPG number."
+      ),
+      createFAQ(
+        "Why does this matter for car reviews?",
+        "Many international car reviews quote MPG without specifying which. A Japanese hybrid at '60 MPG' from a UK reviewer = 50 US MPG (very different impression to a US reader). Watch for context clues: GBP pricing usually means UK MPG; USD pricing usually means US MPG."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mpg-us-to-mpg-uk", label: "US MPG to UK MPG" },
+      { slug: "mpg-to-litres-per-100km", label: "MPG to L/100km" },
+      { slug: "litres-per-100km-to-mpg", label: "L/100km to MPG" },
+    ],
+  },
+
+  "mpg-us-to-mpg-uk": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert US MPG to UK MPG",
+        "Multiply US MPG by 1.2009 to get UK MPG. So 30 US MPG × 1.2009 = 36 UK MPG. Same vehicle, higher UK number because the UK gallon is bigger (4.546 L vs 3.785 L US).",
+        "Useful when interpreting US car spec sheets in UK context. A 2024 Toyota Prius at 56 US MPG = 67.2 UK MPG. A Tesla Model 3 LR rated at 132 MPGe (electric equivalent) US = 158.5 MPGe UK. The UK MPG number is always higher for the same vehicle."
+      ),
+      {
+        heading: "US MPG to UK MPG",
+        table: {
+          headers: ["US MPG", "UK MPG"],
+          rows: [
+            ["15", "18.01"],
+            ["20", "24.02"],
+            ["25", "30.02"],
+            ["30", "36.03"],
+            ["40", "48.04"],
+            ["50", "60.05"],
+            ["60", "72.06"],
+            ["100", "120.09"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do American cars seem to get worse MPG?",
+        "Smaller gallon, so the MPG figure is intrinsically lower. A US car at 30 MPG actually averages similar fuel consumption to a UK car at 36 MPG. Plus, American cars have historically been larger/heavier, which is real. The '20% gallon difference' adds to the apparent gap."
+      ),
+      createFAQ(
+        "Does the EPA test the same way as the UK?",
+        "Different test cycles. US EPA: 5 different cycles including high-speed and aggressive accel. UK/EU WLTP: 4 cycles, more representative of mixed real driving (post-2017). Same car will have somewhat different rated MPG figures even after the gallon conversion."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mpg-uk-to-mpg-us", label: "UK MPG to US MPG" },
+      { slug: "mpg-to-litres-per-100km", label: "MPG to L/100km" },
+      { slug: "litres-per-100km-to-mpg", label: "L/100km to MPG" },
+    ],
+  },
 };

@@ -1466,4 +1466,684 @@ export const seasonalSEO = {
       { slug: "australia-water-usage-calculator", label: "Australia Water Usage Calculator" },
     ],
   },
+
+  "when-is-eid-al-fitr": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Eid al-Fitr?",
+        "Eid al-Fitr (the 'Festival of Breaking the Fast') falls on the 1st day of Shawwal in the Islamic lunar calendar. The lunar calendar is about 11 days shorter than the Gregorian, so Eid moves earlier each Western year. 2025: around 30 March. 2026: around 19 March. 2027: around 9 March. 2028: around 26 February. Exact date depends on the official moon sighting, which can shift by a day or two between countries.",
+        "The festival marks the end of Ramadan, the month of fasting. Celebrations typically last 3 days, with the first day being the main celebration. Practices include: special Eid prayer at sunrise, new clothes, family gatherings, gift-giving (especially to children, called 'Eidi'), feasting (sweet dishes traditional - sheer khurma in South Asia, kahk biscuits in Egypt). UK and US Muslim communities follow Saudi Arabia's official date most often."
+      ),
+      {
+        heading: "Eid al-Fitr Future Dates (Approximate)",
+        table: {
+          headers: ["Year", "Likely Date", "Notes"],
+          rows: [
+            ["2025", "30 March", "Approximate"],
+            ["2026", "19 March", "Approximate"],
+            ["2027", "9 March", "Approximate"],
+            ["2028", "26 February", "Approximate"],
+            ["2029", "14 February", "Approximate"],
+            ["2030", "4 February", "Approximate"],
+            ["2031", "24 January", "Approximate"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does Eid move earlier each year?",
+        "The Islamic calendar is purely lunar (12 months × ~29.5 days = 354 days/year). The Gregorian calendar is solar (365.25 days). The 11-day difference means Eid shifts earlier in the Gregorian year by 11 days annually, completing a full cycle every ~33 years."
+      ),
+      createFAQ(
+        "Why might dates differ between countries?",
+        "Moon sighting methods differ. Saudi Arabia and most Gulf states follow official sightings; some communities follow astronomical calculation. Result: Eid can land on different days in different countries by 1-2 days. Muslims in the UK typically follow Saudi or local mosque announcements."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-eid-al-adha", label: "When Is Eid al-Adha" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "when-is-eid-al-adha": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Eid al-Adha?",
+        "Eid al-Adha (the 'Festival of Sacrifice') falls on the 10th day of Dhu al-Hijjah, the last month of the Islamic lunar calendar. Approximate dates: 2025: around 6 June. 2026: around 26 May. 2027: around 16 May. 2028: around 5 May. The lunar calendar shifts the festival earlier by about 11 days each Gregorian year. Exact date depends on the moon sighting in the holy city of Mecca.",
+        "Marks the climax of the Hajj pilgrimage. Traditions: special Eid prayers, sacrifice of livestock (sheep, goat, cow) with meat shared between family, neighbours, and the poor. Family gatherings, feasting, exchange of gifts. UK Muslim families often coordinate with their local mosque for the official date. Many UK employers offer flexible time off for Eid; not a UK public holiday."
+      ),
+      {
+        heading: "Eid al-Adha Future Dates (Approximate)",
+        table: {
+          headers: ["Year", "Likely Date"],
+          rows: [
+            ["2025", "6 June"],
+            ["2026", "26 May"],
+            ["2027", "16 May"],
+            ["2028", "5 May"],
+            ["2029", "24 April"],
+            ["2030", "14 April"],
+            ["2031", "3 April"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How does Eid al-Adha differ from Eid al-Fitr?",
+        "Eid al-Fitr ends Ramadan (fasting month). Eid al-Adha celebrates the sacrifice tradition, coinciding with Hajj pilgrimage to Mecca. Different festivals, different dates, both important. Adha is sometimes called 'big Eid' or 'greater Eid'; Fitr is sometimes 'small Eid'."
+      ),
+      createFAQ(
+        "Is Eid a UK public holiday?",
+        "Not federally - only Christmas Day, Boxing Day, New Year's Day are religious holidays in the UK. Some local councils, schools, and employers offer Eid as paid leave for Muslim workers. Equality Act 2010 allows for reasonable religious accommodation; many UK workplaces are flexible."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-eid-al-fitr", label: "When Is Eid al-Fitr" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "when-is-st-patricks-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is St Patrick's Day?",
+        "17 March every year. Always falls on the same Gregorian date. If 17 March falls on a weekend, parades and major events typically happen the closest Saturday for maximum attendance. The date commemorates St Patrick, patron saint of Ireland, who died on this date in 461 AD.",
+        "St Patrick's Day is a public holiday in the Republic of Ireland and a recognised celebration globally - particularly large in countries with Irish diaspora (US, UK, Canada, Australia). Common traditions: wearing green, parades (NYC's parade is the world's largest), Irish music and dance, Guinness consumption (often green-dyed beer). UK pubs and Irish-themed bars are typically packed."
+      ),
+      {
+        heading: "St Patrick's Day Reference",
+        table: {
+          headers: ["Year", "Date", "Day of Week"],
+          rows: [
+            ["2024", "17 March", "Sunday"],
+            ["2025", "17 March", "Monday"],
+            ["2026", "17 March", "Tuesday"],
+            ["2027", "17 March", "Wednesday"],
+            ["2028", "17 March", "Friday"],
+            ["2029", "17 March", "Saturday"],
+            ["2030", "17 March", "Sunday"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is St Patrick's Day a UK holiday?",
+        "Public holiday in Northern Ireland (banks close, public sector off). Not a holiday in England, Scotland, or Wales - regular working day. Despite this, English and Welsh pubs heavily promote St Patrick's Day for commercial reasons; UK office workers often don green casually."
+      ),
+      createFAQ(
+        "Why is St Patrick's associated with green?",
+        "Green is Ireland's national colour, linked to the 'Emerald Isle' nickname for Ireland's landscape. Originally St Patrick was associated with blue (visible in older imagery). The shift to green happened in the 17th-18th centuries, partly through political symbolism (green as Irish nationalist colour vs the British orange/red)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-st-georges-day", label: "When Is St George's Day" },
+      { slug: "when-is-burns-night", label: "When Is Burns Night" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+    ],
+  },
+
+  "when-is-st-georges-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is St George's Day?",
+        "23 April every year. Commemorates St George, patron saint of England, who died on this date in 303 AD according to legend. The date is fixed in the Gregorian calendar; if it falls during Easter week, some Anglican churches transfer the religious observance to a different date.",
+        "Not a UK public holiday despite St George being patron saint of England. Some advocate for it to become one, but no formal change. Compared to St Patrick's Day in Ireland or Burns Night in Scotland, English celebrations are relatively muted - more pubs and English Heritage events than national fervour. Common observances: flag flying (St George's Cross), patriotic events at landmarks, Morris dancing, English produce promotions."
+      ),
+      {
+        heading: "St George's Day Reference",
+        table: {
+          headers: ["Year", "Date", "Day of Week"],
+          rows: [
+            ["2024", "23 April", "Tuesday"],
+            ["2025", "23 April", "Wednesday"],
+            ["2026", "23 April", "Thursday"],
+            ["2027", "23 April", "Friday"],
+            ["2028", "23 April", "Sunday"],
+            ["2029", "23 April", "Monday"],
+            ["2030", "23 April", "Tuesday"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why isn't St George's Day a public holiday?",
+        "Historical and political factors. Public holiday status would require Act of Parliament; previous attempts haven't succeeded. England has fewer national/religious holidays than Scotland, Wales, or Northern Ireland - a long-standing imbalance. Some campaign groups (St George's Day Campaign) lobby for change."
+      ),
+      createFAQ(
+        "Is it the same as Shakespeare's birthday?",
+        "Yes - 23 April is also widely accepted as both Shakespeare's birthday and his death date (1564 birth, 1616 death). The double significance (St George + Shakespeare) makes the date a particularly English cultural anchor, often tied to literary and patriotic celebrations together."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-st-patricks-day", label: "When Is St Patrick's Day" },
+      { slug: "when-is-burns-night", label: "When Is Burns Night" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+    ],
+  },
+
+  "when-is-mothers-day-uk": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Mother's Day in the UK?",
+        "UK Mother's Day (Mothering Sunday) falls on the fourth Sunday of Lent - three weeks before Easter Sunday. The date varies year to year because Easter is movable. 2024: 10 March. 2025: 30 March. 2026: 15 March. 2027: 7 March. 2028: 26 March. Always between early March and early April depending on Easter's date.",
+        "Different from US Mother's Day (second Sunday of May - around 5 weeks later). UK Mother's Day has religious origins (Mothering Sunday in the Christian calendar) but has become a secular day for honouring mothers - cards, flowers, gifts, family meals, breakfast in bed. UK retail spends £1+ billion on Mother's Day annually. Bookings for Sunday lunch surge dramatically."
+      ),
+      {
+        heading: "UK Mother's Day Future Dates",
+        table: {
+          headers: ["Year", "Date"],
+          rows: [
+            ["2024", "10 March"],
+            ["2025", "30 March"],
+            ["2026", "15 March"],
+            ["2027", "7 March"],
+            ["2028", "26 March"],
+            ["2029", "11 March"],
+            ["2030", "31 March"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is UK Mother's Day different from US?",
+        "Different historical origins. UK Mothering Sunday dates from medieval Christian tradition (servants returning to their 'mother church'). US Mother's Day was established in 1914 (Anna Jarvis campaign) - secular, fixed on second Sunday of May. The two coincidentally celebrate similar themes from different traditions."
+      ),
+      createFAQ(
+        "Is Mother's Day a UK public holiday?",
+        "No - not a public holiday. Always falls on a Sunday so most people are off work anyway. Private businesses (restaurants, retail) often have busiest day of year; public services run normally. No specific time-off entitlement beyond regular Sunday status."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-pancake-day", label: "When Is Pancake Day" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "when-is-pancake-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Pancake Day?",
+        "Shrove Tuesday (Pancake Day) is the day before Ash Wednesday in the Christian calendar. Always 47 days before Easter Sunday. Date varies by year as Easter moves: 2025: 4 March. 2026: 17 February. 2027: 9 February. 2028: 29 February. 2029: 13 February. 2030: 5 March. Always falls between early February and mid-March.",
+        "Tradition: use up rich foods (eggs, butter, sugar, milk) before the 40-day Lenten fast. Pancakes are the practical solution. UK celebrations: pancake races (Olney's race dates from 1445 - the oldest), pancake tossing, family pancake meals. Modern celebrations are mostly secular - few people fast for Lent now, but the pancake tradition remains. Tesco and other supermarkets sell record amounts of pancake mix in the week before."
+      ),
+      {
+        heading: "Pancake Day Future Dates",
+        table: {
+          headers: ["Year", "Date"],
+          rows: [
+            ["2025", "4 March"],
+            ["2026", "17 February"],
+            ["2027", "9 February"],
+            ["2028", "29 February"],
+            ["2029", "13 February"],
+            ["2030", "5 March"],
+            ["2031", "25 February"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why pancakes specifically?",
+        "The 'using up' tradition: Lent forbade eggs, fat, and rich foods for 40 days. A simple pancake batter consumed exactly the foods to be avoided. Other Christian countries developed similar 'fat day' traditions: French Mardi Gras (literally 'Fat Tuesday'), Polish doughnuts, Mediterranean fritters."
+      ),
+      createFAQ(
+        "Is it the same as Mardi Gras?",
+        "Same day. 'Mardi Gras' is the French term for Shrove Tuesday. Different cultural traditions: Anglo-Saxon countries make pancakes (UK, Ireland, parts of Australia/NZ); French/American Gulf Coast cultures hold parades (New Orleans famous). The religious basis is identical."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-mothers-day-uk", label: "When Is UK Mother's Day" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "when-is-world-book-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is World Book Day?",
+        "UK World Book Day: first Thursday of March. 2025: 6 March. 2026: 5 March. 2027: 4 March. 2028: 2 March. The date moves with the day-of-week structure rather than being fixed. Note: UNESCO World Book Day is 23 April internationally - the UK chose a different date to avoid clashing with the school Easter holidays.",
+        "UK schools celebrate by encouraging children to dress up as book characters, with most schools allocating £1 book tokens funded by World Book Day Limited (£1 = approximate price of a children's paperback in the 1990s when scheme launched). Marks the largest book-buying day of the year for UK children's books. Costume sales at major retailers (Asda, Sainsbury's, Tesco) spike dramatically in the preceding 2 weeks."
+      ),
+      {
+        heading: "UK World Book Day Future Dates",
+        table: {
+          headers: ["Year", "Date"],
+          rows: [
+            ["2024", "7 March"],
+            ["2025", "6 March"],
+            ["2026", "5 March"],
+            ["2027", "4 March"],
+            ["2028", "2 March"],
+            ["2029", "1 March"],
+            ["2030", "7 March"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is UK World Book Day different from international?",
+        "UNESCO designated 23 April globally (Cervantes' and Shakespeare's death dates). UK shifted to first Thursday of March to align with school terms - April often falls during Easter break. This local adaptation has stuck since 1998. Many other countries follow UNESCO; UK follows the school-friendly version."
+      ),
+      createFAQ(
+        "How do I find a costume on short notice?",
+        "Common easy options: pyjamas with a teddy = 'Where the Wild Things Are'. Black eye-patch + striped shirt = pirate (multiple book characters). White shirt + black tie = various. Schools usually accept 'something book-themed' rather than expensive specific costumes. Online shops (Amazon, Asda) deliver in 24-48 hours during the season."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-mothers-day-uk", label: "When Is UK Mother's Day" },
+      { slug: "when-is-pancake-day", label: "When Is Pancake Day" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+    ],
+  },
+
+  "when-is-burns-night": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Burns Night?",
+        "25 January every year. Commemorates Robert Burns, Scottish poet, born on this date in 1759. The date is fixed in the Gregorian calendar - always 25 January regardless of day of the week. If it falls midweek, many Burns suppers move to the closest Friday or Saturday for celebration convenience.",
+        "Burns Night is essentially Scotland's national poet celebration. Traditional Burns supper menu: cock-a-leekie soup, haggis (with neeps and tatties), Scotch whisky. The 'Address to a Haggis' (Burns' poem) is recited as the haggis is presented; toast 'To the Lassies' and the response are traditional. Scottish societies worldwide host events, with London, Edinburgh, and Glasgow having the largest. Not a UK public holiday."
+      ),
+      {
+        heading: "Burns Night Reference",
+        table: {
+          headers: ["Year", "Date", "Day of Week"],
+          rows: [
+            ["2024", "25 January", "Thursday"],
+            ["2025", "25 January", "Saturday"],
+            ["2026", "25 January", "Sunday"],
+            ["2027", "25 January", "Monday"],
+            ["2028", "25 January", "Tuesday"],
+            ["2029", "25 January", "Thursday"],
+            ["2030", "25 January", "Friday"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is haggis vegetarian-friendly?",
+        "Traditional haggis contains sheep heart, liver, lungs - not vegetarian. Vegetarian haggis (typically using grains, mushrooms, onions, oats) is widely available in UK supermarkets. Most modern Burns suppers offer both options; many guests prefer the vegetarian version even when not strictly vegetarian."
+      ),
+      createFAQ(
+        "Why is Burns important to Scotland?",
+        "Scotland's most celebrated poet (1759-1796). Wrote in vernacular Scots, preserving cultural identity during integration with England. 'Auld Lang Syne' is his work. Symbolic of Scottish national identity. Burns Suppers across the world are a Scottish diaspora celebration, with strong attendance everywhere there are Scottish communities."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-st-patricks-day", label: "When Is St Patrick's Day" },
+      { slug: "when-is-st-georges-day", label: "When Is St George's Day" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+    ],
+  },
+
+  "when-does-spring-start": {
+    sections: [
+      createAnswerFirstSection(
+        "When Does Spring Start?",
+        "Astronomical spring begins at the spring equinox: usually 20 or 21 March in the Northern Hemisphere. Meteorological spring (used by Met Office) begins 1 March. Calendar spring (some folk traditions): 1 March or sometimes 21 March. UK most commonly uses 1 March (meteorological) or 20-21 March (astronomical) depending on context.",
+        "Astronomical spring shifts slightly each year due to leap years. 2025: 20 March. 2026: 20 March. 2027: 20 March. 2028: 20 March (a leap year shifts patterns slightly). Climate-wise, 'spring' can begin earlier in southern UK (February daffodils) and later in northern UK (April or May for proper warming). The astronomical date marks roughly equal day/night length."
+      ),
+      {
+        heading: "Spring Start Dates (Northern Hemisphere)",
+        table: {
+          headers: ["Year", "Astronomical (Equinox)", "Meteorological"],
+          rows: [
+            ["2024", "20 March", "1 March"],
+            ["2025", "20 March", "1 March"],
+            ["2026", "20 March", "1 March"],
+            ["2027", "20 March", "1 March"],
+            ["2028", "20 March", "1 March"],
+            ["2029", "20 March", "1 March"],
+            ["2030", "20 March", "1 March"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why two different spring start dates?",
+        "Astronomical spring is set by Earth's orbit (when sun crosses celestial equator). Meteorological spring uses calendar months (March-April-May) for statistical record-keeping. Both legitimate; astronomical is more 'when day and night equal'; meteorological is more 'whole month chunks for analysis'."
+      ),
+      createFAQ(
+        "When is spring in the Southern Hemisphere?",
+        "September-November (astronomical: 22-23 September equinox, meteorological: 1 September). Australia and Southern Africa experience our autumn at the same time. New Zealand spring runs September-November parallel to Australia."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-summer-start", label: "When Does Summer Start" },
+      { slug: "when-does-autumn-start", label: "When Does Autumn Start" },
+      { slug: "when-does-winter-start", label: "When Does Winter Start" },
+    ],
+  },
+
+  "when-does-summer-start": {
+    sections: [
+      createAnswerFirstSection(
+        "When Does Summer Start?",
+        "Astronomical summer begins at the summer solstice: usually 20 or 21 June in the Northern Hemisphere. Meteorological summer begins 1 June. Many British people recognise Whit Sunday or May Day as 'summer's start' culturally. The astronomical solstice is the longest day of the year.",
+        "Astronomical summer dates: 2025: 21 June. 2026: 21 June. 2027: 21 June. 2028: 20 June. UK's hottest weather typically occurs late July to mid August - well after the astronomical solstice. The lag (summer warmth peaks 6-8 weeks after maximum solar input) is due to ocean and ground thermal mass storing heat. Most UK schools break up for summer in mid-late July."
+      ),
+      {
+        heading: "Summer Start Dates (Northern Hemisphere)",
+        table: {
+          headers: ["Year", "Solstice (Astronomical)", "Meteorological"],
+          rows: [
+            ["2024", "20 June", "1 June"],
+            ["2025", "21 June", "1 June"],
+            ["2026", "21 June", "1 June"],
+            ["2027", "21 June", "1 June"],
+            ["2028", "20 June", "1 June"],
+            ["2029", "20 June", "1 June"],
+            ["2030", "21 June", "1 June"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is the longest day not the warmest?",
+        "Thermal lag. Maximum solar input is at the solstice, but the Earth's surface and oceans take 6-8 weeks to fully warm in response. Peak warmth usually arrives late July or August - the famous 'dog days of summer'."
+      ),
+      createFAQ(
+        "When does summer end?",
+        "Astronomically at the autumn equinox (around 22-23 September). Meteorologically at the end of August (1 September starts autumn). Practically in the UK, summer 'ends' when school resumes early September and the weather breaks - usually by mid-September."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-spring-start", label: "When Does Spring Start" },
+      { slug: "when-does-autumn-start", label: "When Does Autumn Start" },
+      { slug: "when-is-the-longest-day", label: "When Is The Longest Day" },
+    ],
+  },
+
+  "when-does-autumn-start": {
+    sections: [
+      createAnswerFirstSection(
+        "When Does Autumn Start?",
+        "Astronomical autumn begins at the autumn equinox: 22 or 23 September in the Northern Hemisphere. Meteorological autumn begins 1 September. UK schools return early-mid September, marking 'practical' autumn for many families. The astronomical equinox marks roughly equal day/night length again.",
+        "Autumn dates: 2025: 22 September. 2026: 23 September. 2027: 23 September. 2028: 22 September. Climate: leaves typically start changing colour late September; peak colour mid-October. Average daily temperatures drop 2-4°C per month from August through November in the UK. Daylight hours reduce dramatically - by 4 hours from peak summer to autumn equinox in southern UK."
+      ),
+      {
+        heading: "Autumn Start Dates (Northern Hemisphere)",
+        table: {
+          headers: ["Year", "Equinox (Astronomical)", "Meteorological"],
+          rows: [
+            ["2024", "22 September", "1 September"],
+            ["2025", "22 September", "1 September"],
+            ["2026", "23 September", "1 September"],
+            ["2027", "23 September", "1 September"],
+            ["2028", "22 September", "1 September"],
+            ["2029", "22 September", "1 September"],
+            ["2030", "23 September", "1 September"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does the date shift between 22 and 23 September?",
+        "Earth's orbit isn't perfectly aligned with the calendar year. The equinox can shift by hours from year to year, occasionally crossing midnight to land on a different date in different time zones. Average over decades: roughly half on 22nd, half on 23rd."
+      ),
+      createFAQ(
+        "Is autumn called 'fall' anywhere in the UK?",
+        "Rarely. 'Fall' is the American term; British usage is overwhelmingly 'autumn'. Both terms originated in the UK ('fall of leaf' phrase, 16th century) but 'fall' was preferred in early American colonies, while UK English settled on 'autumn'. Both technically valid."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-spring-start", label: "When Does Spring Start" },
+      { slug: "when-does-summer-start", label: "When Does Summer Start" },
+      { slug: "when-does-winter-start", label: "When Does Winter Start" },
+    ],
+  },
+
+  "when-does-winter-start": {
+    sections: [
+      createAnswerFirstSection(
+        "When Does Winter Start?",
+        "Astronomical winter begins at the winter solstice: usually 21 or 22 December in the Northern Hemisphere. Meteorological winter begins 1 December. The solstice is the shortest day of the year - in southern UK, about 7 hours 50 minutes of daylight; in northern UK (Inverness), about 6 hours 30 minutes.",
+        "Winter dates: 2025: 21 December. 2026: 21 December. 2027: 22 December. 2028: 21 December. Coldest UK weather typically January-February (about 6 weeks after solstice due to thermal lag). UK winters are mild compared to continental Europe due to the Gulf Stream warming effect. Snow more common in northern UK and Scotland; rare in southern coastal England."
+      ),
+      {
+        heading: "Winter Start Dates (Northern Hemisphere)",
+        table: {
+          headers: ["Year", "Solstice (Astronomical)", "Meteorological"],
+          rows: [
+            ["2024", "21 December", "1 December"],
+            ["2025", "21 December", "1 December"],
+            ["2026", "21 December", "1 December"],
+            ["2027", "22 December", "1 December"],
+            ["2028", "21 December", "1 December"],
+            ["2029", "21 December", "1 December"],
+            ["2030", "21 December", "1 December"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is the winter solstice the coldest day?",
+        "No - it's the day with least sunlight. Coldest weather lags by about 6 weeks due to thermal lag. UK's coldest weeks typically late January to mid February. The solstice marks the start of days getting longer again, even though average temperatures continue dropping."
+      ),
+      createFAQ(
+        "Why are winters mild in the UK?",
+        "Gulf Stream (technically the North Atlantic Current). Warm water from the Caribbean flows across the Atlantic and along UK coasts, keeping winter temperatures 5-10°C warmer than equivalent latitudes in continental Europe or Canada. Without the Gulf Stream, the UK would have winters similar to Newfoundland or northern Russia."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-autumn-start", label: "When Does Autumn Start" },
+      { slug: "when-is-the-shortest-day", label: "When Is The Shortest Day" },
+      { slug: "when-is-christmas", label: "When Is Christmas" },
+    ],
+  },
+
+  "when-is-the-longest-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is the Longest Day?",
+        "The summer solstice - usually 20 or 21 June in the Northern Hemisphere. Astronomically it's the day when the sun reaches its highest point in the sky and the day with the most daylight hours. London on solstice: about 16 hours 38 minutes of daylight. Inverness: about 18 hours. Reykjavik (Iceland): about 21 hours.",
+        "The exact moment of solstice (when Earth's tilt is most directly toward the sun) varies by year, sometimes occurring on 20th, sometimes 21st June. Stonehenge attracts tens of thousands annually for sunrise on solstice day - the structure aligns with the solstice sunrise. After this date, days get progressively shorter until winter solstice."
+      ),
+      {
+        heading: "Summer Solstice Reference",
+        table: {
+          headers: ["Year", "Date", "Daylight (London)"],
+          rows: [
+            ["2024", "20 June", "16h 38min"],
+            ["2025", "21 June", "16h 38min"],
+            ["2026", "21 June", "16h 38min"],
+            ["2027", "21 June", "16h 38min"],
+            ["2028", "20 June", "16h 38min"],
+            ["2029", "20 June", "16h 38min"],
+            ["2030", "21 June", "16h 38min"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why isn't the longest day on a fixed date?",
+        "Because Earth's orbit isn't exactly 365 days - it's 365.24 days. The solstice moment moves about 6 hours later each year, then leap years correct it back. Result: solstice falls on 20th or 21st June depending on year."
+      ),
+      createFAQ(
+        "How long is the longest day in northern Scotland?",
+        "Inverness: about 18 hours of daylight. Shetland (further north): 19+ hours, with prolonged twilight - the sun barely sets and twilight persists almost continuously. Above the Arctic Circle, the 'midnight sun' means the sun doesn't set at all on the solstice."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-summer-start", label: "When Does Summer Start" },
+      { slug: "when-is-the-shortest-day", label: "When Is The Shortest Day" },
+      { slug: "sunrise-sunset-calculator", label: "Sunrise Sunset Calculator" },
+    ],
+  },
+
+  "when-is-the-shortest-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is the Shortest Day?",
+        "The winter solstice - usually 21 or 22 December in the Northern Hemisphere. Astronomically the day with the least daylight. London: about 7 hours 49 minutes of daylight. Inverness (northern Scotland): about 6 hours 30 minutes. Reykjavik (Iceland): about 4 hours 7 minutes. Above the Arctic Circle, the 'polar night' means no sunrise at all.",
+        "After this date, days slowly get longer again. The change is barely noticeable for the first few weeks (just minutes per day in late December and early January) but accelerates - by February you can clearly tell evenings are lighter. By June, daylight peaks again at the summer solstice."
+      ),
+      {
+        heading: "Winter Solstice Reference",
+        table: {
+          headers: ["Year", "Date", "Daylight (London)"],
+          rows: [
+            ["2024", "21 December", "7h 49min"],
+            ["2025", "21 December", "7h 49min"],
+            ["2026", "21 December", "7h 49min"],
+            ["2027", "22 December", "7h 49min"],
+            ["2028", "21 December", "7h 49min"],
+            ["2029", "21 December", "7h 49min"],
+            ["2030", "21 December", "7h 49min"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "When does it start getting lighter?",
+        "Days start getting longer the day after winter solstice. Initial growth is slow (1-2 minutes per day) but accelerates. By mid-February the difference is noticeable (an hour more daylight than December). By March equinox, days equal length with night."
+      ),
+      createFAQ(
+        "Why do we have Christmas near the solstice?",
+        "Probably co-opted from earlier pagan winter solstice celebrations. Roman Saturnalia, Norse Yule, Germanic midwinter feasts all centred on the solstice or its aftermath. Christianity placed Christmas (originally celebrated in spring) at this time to align with existing winter celebrations during conversion. The literal date of Jesus's birth is unknown."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-does-winter-start", label: "When Does Winter Start" },
+      { slug: "when-is-the-longest-day", label: "When Is The Longest Day" },
+      { slug: "when-is-christmas", label: "When Is Christmas" },
+    ],
+  },
+
+  "when-is-super-bowl": {
+    sections: [
+      createAnswerFirstSection(
+        "When is the Super Bowl?",
+        "First Sunday in February. The NFL's championship game ends the season that began the previous September. 2025: Super Bowl LIX (59), 9 February. 2026: Super Bowl LX (60), 8 February. 2027: Super Bowl LXI (61), 14 February. The date varies slightly with calendar but always falls on the first or second Sunday of February.",
+        "Super Bowl Sunday is unofficially America's biggest sports day. Average viewership: 100+ million Americans, the highest-rated TV broadcast of the year. UK terrestrial coverage limited (BBC and ITV haven't aired since 2017); Sky Sports and DAZN typically carry it. UK kickoff time: 11:30 PM-midnight Sunday, running into Monday's small hours - tough on workdays."
+      ),
+      {
+        heading: "Super Bowl Future Dates",
+        table: {
+          headers: ["Year", "Date", "Game"],
+          rows: [
+            ["2025", "9 February", "Super Bowl LIX (59)"],
+            ["2026", "8 February", "Super Bowl LX (60)"],
+            ["2027", "14 February", "Super Bowl LXI (61)"],
+            ["2028", "13 February", "Super Bowl LXII (62)"],
+            ["2029", "11 February", "Super Bowl LXIII (63)"],
+            ["2030", "10 February", "Super Bowl LXIV (64)"],
+            ["2031", "9 February", "Super Bowl LXV (65)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why first Sunday in February?",
+        "NFL season expanded over the decades - the Super Bowl has moved gradually later. The current 'first Sunday in February' has been standard since 2003. Before that, late January was common. The shift accommodates an expanded regular season + extended playoffs structure."
+      ),
+      createFAQ(
+        "Where does Super Bowl take place?",
+        "Different stadium each year, selected years in advance. Recent venues: 2024 Las Vegas (Allegiant Stadium), 2025 New Orleans (Caesars Superdome), 2026 Santa Clara CA (Levi's Stadium), 2027 Inglewood CA (SoFi Stadium). Almost always warm-climate or domed venues - cold-weather Super Bowls are rare exceptions."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-memorial-day", label: "When Is Memorial Day" },
+      { slug: "when-is-labor-day", label: "When Is Labor Day" },
+      { slug: "us-election-countdown", label: "US Election Countdown" },
+    ],
+  },
+
+  "when-is-memorial-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Memorial Day?",
+        "Last Monday in May. American federal holiday honouring fallen US military personnel. 2025: 26 May. 2026: 25 May. 2027: 31 May. The date is fixed as the last Monday rather than a fixed calendar date, ensuring a 3-day weekend. Historically known as 'Decoration Day' from the late 1860s; renamed Memorial Day in 1967 and given fixed-Monday status by the Uniform Monday Holiday Act 1971.",
+        "Memorial Day weekend marks the unofficial start of US summer. Common observances: military and veterans' ceremonies, visits to military cemeteries, BBQs and family gatherings, beach trips, sales weekends (mattress, car, furniture sales). Federal employees and most schools have the day off. UK has no equivalent observance."
+      ),
+      {
+        heading: "Memorial Day Future Dates",
+        table: {
+          headers: ["Year", "Date"],
+          rows: [
+            ["2024", "27 May"],
+            ["2025", "26 May"],
+            ["2026", "25 May"],
+            ["2027", "31 May"],
+            ["2028", "29 May"],
+            ["2029", "28 May"],
+            ["2030", "27 May"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Memorial Day vs Veterans Day - what's the difference?",
+        "Memorial Day (last Monday in May) honours fallen military. Veterans Day (11 November, fixed) honours all veterans living and dead. Different focus, different date, different meaning. Both federal holidays in the US."
+      ),
+      createFAQ(
+        "Why is Memorial Day weekend such a big shopping event?",
+        "Combined factors: 3-day weekend gives time to shop, retailers position spring/summer transition (mattresses, BBQ supplies, summer clothing), and the deal mentality has built up over decades of marketing campaigns. Memorial Day weekend is the third-biggest US retail weekend behind Black Friday and Christmas."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-labor-day", label: "When Is Labor Day" },
+      { slug: "when-is-super-bowl", label: "When Is Super Bowl" },
+      { slug: "us-election-countdown", label: "US Election Countdown" },
+    ],
+  },
+
+  "when-is-labor-day": {
+    sections: [
+      createAnswerFirstSection(
+        "When is Labor Day?",
+        "First Monday in September (US). Federal holiday honouring American workers. 2025: 1 September. 2026: 7 September. 2027: 6 September. Established as a federal holiday in 1894 after the Pullman strike. Traditionally marks the unofficial end of US summer - school resumes the week after, beaches close down, and white shoes/clothes go away (per the old fashion rule).",
+        "Different from May Day / International Workers' Day (1 May) used in most of the rest of the world. The September date was deliberately chosen by US labour movement leaders to distance from the Communist-associated May Day. Common observances: parades, BBQs, family gatherings, retail sales (smaller than Memorial Day but still significant). UK has no Labor Day - Bank Holiday Monday is the closest equivalent."
+      ),
+      {
+        heading: "Labor Day Future Dates",
+        table: {
+          headers: ["Year", "Date"],
+          rows: [
+            ["2024", "2 September"],
+            ["2025", "1 September"],
+            ["2026", "7 September"],
+            ["2027", "6 September"],
+            ["2028", "4 September"],
+            ["2029", "3 September"],
+            ["2030", "2 September"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is US Labor Day in September not May?",
+        "Political distancing from May Day's socialist/communist associations in the late 19th and early 20th centuries. American labour leaders (Samuel Gompers, AFL) chose September to celebrate American workers without linking to international socialism. The September date stuck."
+      ),
+      createFAQ(
+        "Is Labor Day a UK holiday?",
+        "No - the UK has Bank Holidays. The closest equivalents: May Day Bank Holiday (first Monday in May) and Late May Bank Holiday (last Monday in May). Both are workers' rights holidays in spirit but use different dates and traditions."
+      ),
+    ],
+    relatedTools: [
+      { slug: "when-is-memorial-day", label: "When Is Memorial Day" },
+      { slug: "when-is-super-bowl", label: "When Is Super Bowl" },
+      { slug: "australia-public-holiday-planner", label: "Australia Public Holidays" },
+    ],
+  },
 };

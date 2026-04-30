@@ -1162,4 +1162,84 @@ export const fitnessSEO = {
       { slug: "uv-index-checker", label: "UV Index Checker" },
     ],
   },
+
+  "steps-to-miles": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Steps in a Mile?",
+        "Approximately 2,000 steps per mile for the average adult walking pace (3 mph, 30-inch stride). Variation by stride length: shorter stride (5'2\" person, 25-inch stride): ~2,400 steps/mile. Longer stride (6'2\" person, 35-inch stride): ~1,800 steps/mile. Running uses longer strides: roughly 1,500-1,700 steps/mile depending on speed.",
+        "The 10,000 steps/day target (popularised by 1965 Japanese pedometer marketing) equals roughly 5 miles. Modern research suggests 7,000-8,000 steps/day captures most health benefits; 10,000 is a useful aspirational target. UK Active Lives Survey: average UK adult walks ~5,000-6,000 steps daily."
+      ),
+      {
+        heading: "Steps to Miles Conversion",
+        table: {
+          headers: ["Steps", "Miles (avg)"],
+          rows: [
+            ["1,000 steps", "0.5 mi"],
+            ["2,000 steps", "1 mi"],
+            ["5,000 steps", "2.5 mi"],
+            ["7,500 steps", "3.75 mi"],
+            ["10,000 steps", "5 mi"],
+            ["12,500 steps", "6.25 mi"],
+            ["15,000 steps", "7.5 mi"],
+            ["20,000 steps", "10 mi"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How can I measure my actual stride length?",
+        "Walk 100 steps along a measured course (track, sports field). Distance ÷ 100 = average stride length. Stride length tends to be 0.4 × your height in metres for walking, 0.5 × height for running. Use this as starting estimate; measure your actual for personalised conversion."
+      ),
+      createFAQ(
+        "Are 10,000 steps the right target?",
+        "Originally a 1960s Japanese marketing slogan for the 'manpo-kei' pedometer. Recent research finds 7,000-8,000 steps/day captures most cardiovascular benefits; 10,000 isn't more harmful but isn't significantly better. For weight loss, focus on duration and intensity, not just step count."
+      ),
+    ],
+    relatedTools: [
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "cycling-calorie-calculator", label: "Cycling Calorie Calculator" },
+    ],
+  },
+
+  "water-intake-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Much Water Do You Actually Need?",
+        "The 'eight 8-oz glasses' (8x8) rule = 64 oz = 1.9 L. NHS recommendation: 6-8 cups of fluids daily, mostly water. EFSA: 2.0 L/day women, 2.5 L/day men - including ALL fluid sources (food contains 20% of daily water need, beverages 80%). Activity, climate, and body size shift these baselines significantly.",
+        "Multiply by activity: sedentary office work in temperate climate = baseline. Add 0.5-1 L for moderate exercise. Add 1-2 L for heavy exercise or hot climate. Body weight: roughly 30-40 ml/kg body weight gives a personalised baseline. So a 70 kg person needs about 2.1-2.8 L/day. Heavy training, hot weather, or pregnancy increase needs."
+      ),
+      {
+        heading: "Daily Water Intake by Body Weight",
+        table: {
+          headers: ["Weight", "Sedentary", "Moderately active", "Heavy training"],
+          rows: [
+            ["50 kg (110 lb)", "1.5 L", "2.0 L", "3.0 L"],
+            ["60 kg (132 lb)", "1.8 L", "2.4 L", "3.5 L"],
+            ["70 kg (154 lb)", "2.1 L", "2.8 L", "4.0 L"],
+            ["80 kg (176 lb)", "2.4 L", "3.2 L", "4.5 L"],
+            ["90 kg (198 lb)", "2.7 L", "3.6 L", "5.0 L"],
+            ["100 kg (220 lb)", "3.0 L", "4.0 L", "5.5 L"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Does coffee count toward water intake?",
+        "Yes. Despite caffeine's mild diuretic effect, coffee and tea contribute net positive to hydration. The diuretic effect is overstated - most studies show only modest urine increase with normal caffeine intake. Treat 1 cup of coffee as roughly 1 cup of water for hydration purposes."
+      ),
+      createFAQ(
+        "Can you drink too much water?",
+        "Yes - hyponatremia (low blood sodium) from drinking 4-5 L+ in a short period without electrolyte replacement. Most common in marathon runners and military trainees. For sedentary or moderate activity, drinking to thirst is sufficient. Forcing 'extra' water beyond thirst rarely helps."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+    ],
+  },
 };

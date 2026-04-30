@@ -766,4 +766,3491 @@ export const convertersSEO = {
       { slug: "clothing-size-converter", label: "Clothing Size Converter" },
     ],
   },
+
+  "kg-to-lbs": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilograms to Pounds",
+        "1 kg = 2.20462 lbs. Multiply weight in kg by 2.20462 to get pounds. So 70 kg × 2.20462 = 154.32 lbs. The international avoirdupois pound has been defined as exactly 0.45359237 kg since 1959, so this conversion is identical in the UK, US and elsewhere.",
+        "For quick mental conversions, multiply by 2.2: 50 kg ≈ 110 lbs, 80 kg ≈ 176 lbs. Accurate to within 0.2% for everyday weights, which is well within the precision you need for travel, fitness or cooking. Use the full 2.20462 only when accuracy under 0.1% matters."
+      ),
+      {
+        heading: "Common Kilograms to Pounds Conversions",
+        table: {
+          headers: ["Kilograms", "Pounds"],
+          rows: [
+            ["1 kg", "2.20 lbs"],
+            ["5 kg", "11.02 lbs"],
+            ["10 kg", "22.05 lbs"],
+            ["25 kg", "55.12 lbs"],
+            ["50 kg", "110.23 lbs"],
+            ["75 kg", "165.35 lbs"],
+            ["80 kg", "176.37 lbs"],
+            ["100 kg", "220.46 lbs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What is the exact conversion factor?",
+        "1 kg = 2.20462262 lbs. The international agreement defines 1 pound as exactly 0.45359237 kg, so the reverse is exact too. For practical use, 2.205 is more than precise enough."
+      ),
+      createFAQ(
+        "Are UK and US pounds the same weight?",
+        "Yes for everyday weight (avoirdupois pound = 0.45359237 kg in both). Only differs in specialised contexts like troy pounds for precious metals (0.3732 kg). Standard 'pounds' is identical UK and US."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lbs-to-kg", label: "Pounds to Kilograms" },
+      { slug: "stone-to-kg", label: "Stone to Kilograms" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "lbs-to-kg": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Pounds to Kilograms",
+        "1 lb = 0.45359 kg. Divide pounds by 2.20462 (or multiply by 0.45359) to get kilograms. So 150 lbs ÷ 2.20462 = 68.04 kg. The pound has been defined as exactly 0.45359237 kg since the international agreement of 1959, identical in the UK, US and Canada.",
+        "Quick mental method: divide pounds by 2.2. 150 lbs ÷ 2.2 ≈ 68 kg, 200 lbs ÷ 2.2 ≈ 91 kg. Accurate within 0.2%, fine for body weight, luggage allowances and shipping. Use the full 0.45359 only when sub-0.1% accuracy is needed."
+      ),
+      {
+        heading: "Common Pounds to Kilograms Conversions",
+        table: {
+          headers: ["Pounds", "Kilograms"],
+          rows: [
+            ["1 lb", "0.45 kg"],
+            ["10 lbs", "4.54 kg"],
+            ["50 lbs", "22.68 kg"],
+            ["100 lbs", "45.36 kg"],
+            ["150 lbs", "68.04 kg"],
+            ["180 lbs", "81.65 kg"],
+            ["200 lbs", "90.72 kg"],
+            ["250 lbs", "113.40 kg"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is dividing by 2.2?",
+        "Within about 0.2% for most weights. 150 lbs gives 68.18 kg by dividing by 2.2 vs 68.04 kg exact. Close enough for body weight and luggage; not for precision lab work."
+      ),
+      createFAQ(
+        "Do airline luggage limits use kg or lbs?",
+        "Most non-US carriers use kg (23 kg standard checked), US carriers usually use lbs (50 lbs). The numbers are roughly equivalent. 50 lbs ≈ 22.68 kg, so a 50 lb US allowance is slightly under the typical 23 kg international standard."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "lbs-to-stone", label: "Pounds to Stone" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "oz-to-grams": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Ounces to Grams",
+        "1 oz = 28.3495 grams. Multiply ounces by 28.35 (close enough for cooking and most everyday use) to get grams. So 4 oz × 28.35 = 113 grams. The avoirdupois ounce is 1/16 of a pound, defined exactly as 28.349523125 grams since the 1959 international agreement.",
+        "Most kitchen scales offer both units already. The conversion mainly comes up for American recipes in non-US kitchens, where weight ingredients (chocolate, butter, cheese) are listed in ounces and need conversion to grams for European-style scales. Use the lookup table for quick reference."
+      ),
+      {
+        heading: "Common Ounces to Grams Conversions",
+        table: {
+          headers: ["Ounces", "Grams"],
+          rows: [
+            ["1 oz", "28 g"],
+            ["2 oz", "57 g"],
+            ["3 oz", "85 g"],
+            ["4 oz", "113 g"],
+            ["8 oz (1/2 lb)", "227 g"],
+            ["12 oz", "340 g"],
+            ["16 oz (1 lb)", "454 g"],
+            ["32 oz (2 lb)", "907 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is 'oz' the same as 'fluid oz'?",
+        "No - oz (avoirdupois ounce) is weight, fl oz (fluid ounce) is volume. 1 cup of water happens to weigh roughly 8 oz AND measure 8 fl oz, which causes confusion, but they're different units. For cooking, weight oz and fl oz only match for water and similar-density liquids."
+      ),
+      createFAQ(
+        "Is 1 oz exactly 28 g?",
+        "Close - 28.35 g is more precise. The exact value is 28.3495 g per ounce. Most cooking applications round to 28 g without issue. Precision baking should use 28.35 or the full conversion."
+      ),
+    ],
+    relatedTools: [
+      { slug: "grams-to-oz", label: "Grams to Ounces" },
+      { slug: "lbs-to-kg", label: "Pounds to Kilograms" },
+      { slug: "fl-oz-to-ml", label: "Fluid Ounces to Millilitres" },
+    ],
+  },
+
+  "grams-to-oz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Grams to Ounces",
+        "1 gram = 0.03527 oz. Divide grams by 28.35 (or multiply by 0.0353) to get ounces. So 100 g ÷ 28.35 = 3.53 oz. Most accurate at higher weights - small gram values (under 5 g) round awkwardly because the conversion factor isn't a clean integer.",
+        "The conversion is most useful for adapting European recipes to American kitchens where ingredient weights need to be in ounces. A 250 g block of European butter equals roughly 8.8 oz, so an American recipe specifying '8 oz butter' is effectively asking for the standard European 250 g block."
+      ),
+      {
+        heading: "Common Grams to Ounces Conversions",
+        table: {
+          headers: ["Grams", "Ounces"],
+          rows: [
+            ["10 g", "0.35 oz"],
+            ["25 g", "0.88 oz"],
+            ["50 g", "1.76 oz"],
+            ["100 g", "3.53 oz"],
+            ["250 g", "8.82 oz"],
+            ["500 g", "17.64 oz"],
+            ["750 g", "26.46 oz"],
+            ["1000 g (1 kg)", "35.27 oz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many grams in an ounce?",
+        "28.35 g per ounce. So 1 oz ≈ 28 g, 2 oz ≈ 57 g, 4 oz ≈ 113 g. Useful to memorise the 28 g approximation for quick mental conversions."
+      ),
+      createFAQ(
+        "Can I convert dry weight to volume?",
+        "Only with the ingredient density. 100 g of flour is not the same volume as 100 g of sugar. Use the [Recipe Unit Converter](/recipe-unit-converter) for ingredient-specific conversions, or weight is more reliable than volume conversions for baking precision."
+      ),
+    ],
+    relatedTools: [
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+    ],
+  },
+
+  "stone-to-kg": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Stone to Kilograms",
+        "1 stone = 6.35 kg. Multiply stone by 6.35 to get kilograms. So 12 stone × 6.35 = 76.2 kg. The stone has been defined as exactly 14 lbs since 1835, and 14 lbs = 6.35029318 kg under the modern international pound. Stone is still standard for body weight in the UK and Ireland but obsolete in most other countries.",
+        "Stone-and-pounds (e.g. '12 stone 4 pounds') is a hybrid unit used commonly in the UK. To convert stone-and-pounds to kg: multiply stones by 6.35, multiply remaining pounds by 0.4536, add together. So 12 st 4 lb = (12 × 6.35) + (4 × 0.4536) = 76.2 + 1.81 = 78.01 kg."
+      ),
+      {
+        heading: "Common Stone to Kilograms Conversions",
+        table: {
+          headers: ["Stone", "Kilograms"],
+          rows: [
+            ["8 st", "50.80 kg"],
+            ["9 st", "57.15 kg"],
+            ["10 st", "63.50 kg"],
+            ["11 st", "69.85 kg"],
+            ["12 st", "76.20 kg"],
+            ["13 st", "82.55 kg"],
+            ["14 st", "88.90 kg"],
+            ["15 st", "95.25 kg"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does the UK use stone for body weight?",
+        "Tradition more than logic. Stone was historically used across Europe for weighing produce; the UK retained it for body weight after metrification in the 1970s. Most UK gym equipment now shows kg too, but stone remains the conversational norm."
+      ),
+      createFAQ(
+        "Do other countries use stone?",
+        "Mostly just the UK and Ireland for body weight. Australia, Canada, the US and most of Europe use kg or lbs. American doctors universally use lbs; UK doctors often record both stone and kg."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kg-to-stone", label: "Kilograms to Stone" },
+      { slug: "stone-to-lbs", label: "Stone to Pounds" },
+      { slug: "lbs-to-kg", label: "Pounds to Kilograms" },
+    ],
+  },
+
+  "stone-to-lbs": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Stone to Pounds",
+        "1 stone = 14 lbs exactly. Multiply stone by 14 to get pounds. So 11 stone × 14 = 154 lbs. Unlike most weight conversions which involve decimal factors, stone-to-pounds is a clean whole-number relationship - 1 stone is defined as 14 lbs by international agreement.",
+        "For stone-and-pounds notation common in the UK (12 st 4 lb), the conversion to total pounds is straightforward: multiply stone by 14 and add the leftover pounds. 12 st 4 lb = (12 × 14) + 4 = 172 lbs. This direct conversion makes stone the simplest unit to translate to lbs."
+      ),
+      {
+        heading: "Common Stone to Pounds Conversions",
+        table: {
+          headers: ["Stone", "Pounds"],
+          rows: [
+            ["8 st", "112 lbs"],
+            ["9 st", "126 lbs"],
+            ["10 st", "140 lbs"],
+            ["11 st", "154 lbs"],
+            ["12 st", "168 lbs"],
+            ["13 st", "182 lbs"],
+            ["14 st", "196 lbs"],
+            ["15 st", "210 lbs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are 14 lbs always 1 stone?",
+        "Yes, by definition. The stone has been defined as 14 avoirdupois pounds since 1835. This is consistent worldwide where stone is used. Other historical 'stones' (like the smaller 'stone' for some commodities) are obsolete."
+      ),
+      createFAQ(
+        "Can a person be over 30 stone?",
+        "Yes - 30 stone = 420 lbs = 190 kg. Severely obese individuals can weigh more, with weight loss surgery candidates often in the 25-40 stone range. Most adult weight scales used at home are calibrated up to about 25-30 stone (160-190 kg)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lbs-to-stone", label: "Pounds to Stone" },
+      { slug: "stone-to-kg", label: "Stone to Kilograms" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+    ],
+  },
+
+  "lbs-to-stone": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Pounds to Stone",
+        "1 lb = 1/14 stone. Divide pounds by 14 to get stone. So 154 lbs ÷ 14 = 11 stone. For values that don't divide evenly, the remainder gives you stone-and-pounds: 156 lbs ÷ 14 = 11 stone with 2 lbs left over, written as 11 st 2 lb. This is the standard UK format.",
+        "The notation makes the conversion intuitive once you're used to it. Adults typically weigh 8-15 stone (112-210 lbs); body weight charts in the UK universally show stone-and-pounds because the granularity is comfortable for everyday use - one pound is a small, meaningful weight change, but a stone is a notable milestone."
+      ),
+      {
+        heading: "Common Pounds to Stone Conversions",
+        table: {
+          headers: ["Pounds", "Stone (and lbs)"],
+          rows: [
+            ["100 lbs", "7 st 2 lb"],
+            ["120 lbs", "8 st 8 lb"],
+            ["140 lbs", "10 st 0 lb"],
+            ["150 lbs", "10 st 10 lb"],
+            ["160 lbs", "11 st 6 lb"],
+            ["180 lbs", "12 st 12 lb"],
+            ["200 lbs", "14 st 4 lb"],
+            ["220 lbs", "15 st 10 lb"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is body weight given in stone in the UK?",
+        "Cultural convention dating back to pre-metric weighing. UK people commonly think about body weight in stone-and-pounds despite metric being official since 1965. American body weight is exclusively in lbs; metric countries use kg."
+      ),
+      createFAQ(
+        "Should I record body weight in stone or lbs?",
+        "Either works for tracking. Stone-and-pounds is more readable for UK readers (12 st 4 lb is easier to remember than 172 lbs). Lbs is more conversation-friendly for American audiences. Pick whichever suits your context."
+      ),
+    ],
+    relatedTools: [
+      { slug: "stone-to-lbs", label: "Stone to Pounds" },
+      { slug: "lbs-to-kg", label: "Pounds to Kilograms" },
+      { slug: "stone-to-kg", label: "Stone to Kilograms" },
+    ],
+  },
+
+  "lbs-to-oz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Pounds to Ounces",
+        "1 lb = 16 oz exactly. Multiply pounds by 16 to get ounces. So 3 lbs × 16 = 48 oz. This is a clean integer conversion because the avoirdupois pound is defined as exactly 16 ounces. No decimals or rounding involved.",
+        "Useful for American recipes calling for ingredients in fractional pounds (e.g. '1.5 lbs ground beef' = 24 oz) or for converting bulk-pack weights to per-portion amounts. A 5 lb bag of flour is 80 oz - useful when meal-planning with per-recipe ounce requirements."
+      ),
+      {
+        heading: "Common Pounds to Ounces Conversions",
+        table: {
+          headers: ["Pounds", "Ounces"],
+          rows: [
+            ["1/4 lb", "4 oz"],
+            ["1/2 lb", "8 oz"],
+            ["1 lb", "16 oz"],
+            ["1.5 lbs", "24 oz"],
+            ["2 lbs", "32 oz"],
+            ["3 lbs", "48 oz"],
+            ["5 lbs", "80 oz"],
+            ["10 lbs", "160 oz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is a pound 16 ounces?",
+        "Tradition from medieval merchant weighing. The avoirdupois system (literally 'goods of weight' from Old French) was standardised by King Edward I in 1303 with 16 oz to a pound. The relationship has been continuous since."
+      ),
+      createFAQ(
+        "Are recipe ounces always weight ounces?",
+        "Usually yes for dry/solid ingredients. Liquids in American recipes use fluid ounces (fl oz) which is a volume measurement. 1 cup = 8 fl oz of any liquid (or 8 oz of water by happenstance because water has density 1 g/ml)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "oz-to-lbs", label: "Ounces to Pounds" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "oz-to-lbs": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Ounces to Pounds",
+        "1 oz = 1/16 lb = 0.0625 lbs. Divide ounces by 16 to get pounds. So 48 oz ÷ 16 = 3 lbs. For values not divisible by 16, the remainder gives ounces left over: 50 oz ÷ 16 = 3 lbs 2 oz.",
+        "The conversion comes up in American grocery shopping where bulk packages might be labelled in ounces (e.g. '32 oz tub' = 2 lbs of yoghurt). It's a clean integer conversion since 16 oz = 1 lb by definition."
+      ),
+      {
+        heading: "Common Ounces to Pounds Conversions",
+        table: {
+          headers: ["Ounces", "Pounds"],
+          rows: [
+            ["8 oz", "0.5 lb"],
+            ["12 oz", "0.75 lb"],
+            ["16 oz", "1 lb"],
+            ["24 oz", "1.5 lbs"],
+            ["32 oz", "2 lbs"],
+            ["48 oz", "3 lbs"],
+            ["64 oz", "4 lbs"],
+            ["80 oz", "5 lbs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many ounces in a quarter pound?",
+        "1/4 lb = 4 oz. Common in burger sizing - a 'quarter-pounder' burger has 4 oz of beef before cooking. Half-pound burger = 8 oz. Third-pound = 5.33 oz."
+      ),
+      createFAQ(
+        "Are 'oz' on packaging always weight?",
+        "Almost always for solids. For liquids, 'fl oz' (fluid ounce) is volume, not weight. Some packaging shows both ('NET WT 16 oz / 1 lb' for solids; 'CONTENTS 16 fl oz / 473 ml' for liquids). The 'fl' before 'oz' is the giveaway for volume."
+      ),
+    ],
+    relatedTools: [
+      { slug: "lbs-to-oz", label: "Pounds to Ounces" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+    ],
+  },
+
+  "grams-to-kg": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Grams to Kilograms",
+        "1000 grams = 1 kilogram. Divide grams by 1000 (or move the decimal point three places left) to get kg. So 2,500 g = 2.5 kg. The cleanest possible conversion - just powers of ten, no decimal factors to remember.",
+        "This conversion is more about unit preference than calculation. Most recipes and shopping show one or the other based on quantity: under 1 kg usually shown in grams (250 g flour, 500 g mince), over 1 kg usually in kg (2 kg potatoes, 5 kg dog food). Both are SI-compliant and equivalent."
+      ),
+      {
+        heading: "Common Grams to Kilograms Conversions",
+        table: {
+          headers: ["Grams", "Kilograms"],
+          rows: [
+            ["100 g", "0.1 kg"],
+            ["250 g", "0.25 kg"],
+            ["500 g", "0.5 kg"],
+            ["750 g", "0.75 kg"],
+            ["1000 g", "1 kg"],
+            ["1500 g", "1.5 kg"],
+            ["2500 g", "2.5 kg"],
+            ["5000 g", "5 kg"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are some weights in grams and others in kg?",
+        "Convenience. Sub-1000 weights are cleaner in grams (250 g vs 0.25 kg). Above 1000, kg is cleaner (2.5 kg vs 2,500 g). Both are correct; the choice is just readability for the typical use case."
+      ),
+      createFAQ(
+        "Can I have decimal grams?",
+        "Yes - lab measurements, jewellery (0.5 g of gold) and pharmaceutical doses use decimal grams or smaller units (milligrams, where 1 g = 1000 mg). Everyday cooking and shopping rarely needs sub-gram precision."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kg-to-grams", label: "Kilograms to Grams" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "kg-to-grams": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilograms to Grams",
+        "1 kilogram = 1000 grams. Multiply kilograms by 1000 (or move the decimal point three places right) to get grams. So 2.5 kg = 2,500 g. The simplest metric conversion, since 'kilo' literally means 1,000.",
+        "Useful when scaling recipes, calculating per-100-gram nutrition values, or working with large bags of flour where the ingredient list is in grams. A 5 kg bag = 5,000 g, divided by typical 250 g recipe portions = 20 batches."
+      ),
+      {
+        heading: "Common Kilograms to Grams Conversions",
+        table: {
+          headers: ["Kilograms", "Grams"],
+          rows: [
+            ["0.1 kg", "100 g"],
+            ["0.25 kg", "250 g"],
+            ["0.5 kg", "500 g"],
+            ["1 kg", "1000 g"],
+            ["1.5 kg", "1500 g"],
+            ["2.5 kg", "2500 g"],
+            ["5 kg", "5000 g"],
+            ["10 kg", "10000 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the prefix system?",
+        "SI prefixes: kilo = 1,000, mega = 1,000,000, giga = 1,000,000,000. Below 1: milli = 1/1,000, micro = 1/1,000,000. So 1 kg = 1,000 g = 1,000,000 mg = 1,000,000,000 µg. Each step is a factor of 1,000."
+      ),
+      createFAQ(
+        "Why do scales show kg and grams?",
+        "Most digital scales auto-switch units based on weight - sub-1 kg shows in grams (more precision), over 1 kg shows in kg (more readable). Toggle button forces specific unit. Same physical weight, different display."
+      ),
+    ],
+    relatedTools: [
+      { slug: "grams-to-kg", label: "Grams to Kilograms" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "grams-to-oz", label: "Grams to Ounces" },
+    ],
+  },
+
+  "kg-to-ounces": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilograms to Ounces",
+        "1 kg = 35.274 oz. Multiply kg by 35.274 to get ounces. So 2 kg × 35.274 = 70.55 oz. This combines two conversions in one step (1 kg = 1000 g, 1 oz = 28.35 g), useful when going directly between metric weight and American avoirdupois ounces.",
+        "Common when converting bulk metric purchases to recipe-friendly ounce measurements. A 1 kg bag of flour is 35.27 oz, so an American recipe needing '8 oz flour' uses 8/35.27 = 22.7% of the bag, or roughly 227 g."
+      ),
+      {
+        heading: "Common Kilograms to Ounces Conversions",
+        table: {
+          headers: ["Kilograms", "Ounces"],
+          rows: [
+            ["0.25 kg", "8.82 oz"],
+            ["0.5 kg", "17.64 oz"],
+            ["1 kg", "35.27 oz"],
+            ["1.5 kg", "52.91 oz"],
+            ["2 kg", "70.55 oz"],
+            ["3 kg", "105.82 oz"],
+            ["5 kg", "176.37 oz"],
+            ["10 kg", "352.74 oz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does this have so many decimals?",
+        "Because the conversion factor isn't a clean integer (1 kg = 35.274 oz). Smaller weights round more awkwardly. For practical use, going via grams (kg → grams → oz) is sometimes mentally easier."
+      ),
+      createFAQ(
+        "Should I use kg-to-oz or kg-to-lbs?",
+        "Lbs for body weight and shipping; oz mainly for cooking ingredients. American recipes default to ounces for ingredients under a pound, lbs for larger quantities. Going kg-to-lbs first then lbs-to-oz can be faster mentally if you're comfortable with both."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ounces-to-kg", label: "Ounces to Kilograms" },
+      { slug: "kg-to-lbs", label: "Kilograms to Pounds" },
+      { slug: "grams-to-oz", label: "Grams to Ounces" },
+    ],
+  },
+
+  "cm-to-inches": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Centimetres to Inches",
+        "1 cm = 0.3937 inches. Divide centimetres by 2.54 (or multiply by 0.3937) to get inches. So 30 cm ÷ 2.54 = 11.81 in. The inch is defined as exactly 2.54 cm by international agreement (1959), so the conversion is precise.",
+        "Quick mental method: divide by 2.5. 30 cm ÷ 2.5 = 12 in (exact value 11.81 - within 1.6%). 100 cm ÷ 2.5 = 40 in (exact 39.37). Useful for height comparisons - 180 cm = 70.87 in = 5'10\", a typical adult male height."
+      ),
+      {
+        heading: "Common Centimetres to Inches Conversions",
+        table: {
+          headers: ["Centimetres", "Inches"],
+          rows: [
+            ["1 cm", "0.39 in"],
+            ["10 cm", "3.94 in"],
+            ["30 cm", "11.81 in"],
+            ["50 cm", "19.69 in"],
+            ["100 cm (1 m)", "39.37 in"],
+            ["152 cm (5 ft)", "59.84 in"],
+            ["180 cm", "70.87 in"],
+            ["200 cm", "78.74 in"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is 2.54 cm exactly 1 inch?",
+        "Yes, by international agreement since 1959. The international yard and pound agreement defines the inch as exactly 2.54 cm. So the conversion is mathematically exact, not approximate."
+      ),
+      createFAQ(
+        "What is 5'10\" in centimetres?",
+        "5 feet 10 inches = 70 inches = 177.8 cm. Common adult male height. 5'5\" (typical adult female) = 165.1 cm. 6 ft = 182.88 cm."
+      ),
+    ],
+    relatedTools: [
+      { slug: "inches-to-cm", label: "Inches to Centimetres" },
+      { slug: "mm-to-inches", label: "Millimetres to Inches" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "inches-to-cm": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Inches to Centimetres",
+        "1 inch = 2.54 cm exactly. Multiply inches by 2.54 to get centimetres. So 12 in × 2.54 = 30.48 cm. The exact factor of 2.54 has been the international definition since 1959, making this a precise conversion with no rounding error.",
+        "Most common for converting American measurements to metric: TV sizes (55-inch TV = 139.7 cm diagonal), height (5'10\" = 178 cm), shoe lengths. American DIY measurements default to inches; converting to cm/mm helps when buying European materials."
+      ),
+      {
+        heading: "Common Inches to Centimetres Conversions",
+        table: {
+          headers: ["Inches", "Centimetres"],
+          rows: [
+            ["1 in", "2.54 cm"],
+            ["6 in", "15.24 cm"],
+            ["12 in (1 ft)", "30.48 cm"],
+            ["24 in", "60.96 cm"],
+            ["36 in (1 yd)", "91.44 cm"],
+            ["48 in", "121.92 cm"],
+            ["60 in (5 ft)", "152.4 cm"],
+            ["72 in (6 ft)", "182.88 cm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is a 65-inch TV?",
+        "65 inches measured diagonally = 165.1 cm. The actual width is roughly 56 in (142 cm) and height 32 in (81 cm) for a 16:9 widescreen. Always check the published dimensions before buying for fit."
+      ),
+      createFAQ(
+        "What's the difference between 'inch' and 'in'?",
+        "Same thing. 'in' is the abbreviation for 'inch'. Plural is 'inches' (or 'in' still in technical writing). The double-prime mark (\") is also used: 5'10\" means 5 feet 10 inches."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+      { slug: "inches-to-mm", label: "Inches to Millimetres" },
+    ],
+  },
+
+  "feet-to-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Feet to Metres",
+        "1 foot = 0.3048 metres exactly. Multiply feet by 0.3048 to get metres. So 6 ft × 0.3048 = 1.83 m. The international foot has been defined as exactly 0.3048 m since the 1959 agreement, identical in the UK, US, Canada and elsewhere where feet are still used.",
+        "Most useful for height conversions (6 ft = 1.83 m, 5 ft 8 in = 1.73 m), construction measurements, and aviation altitudes (10,000 ft = 3,048 m). Common adult heights: 5 ft = 1.52 m, 5'6\" = 1.68 m, 6 ft = 1.83 m, 6'4\" = 1.93 m."
+      ),
+      {
+        heading: "Common Feet to Metres Conversions",
+        table: {
+          headers: ["Feet", "Metres"],
+          rows: [
+            ["1 ft", "0.30 m"],
+            ["3 ft", "0.91 m"],
+            ["5 ft", "1.52 m"],
+            ["6 ft", "1.83 m"],
+            ["10 ft", "3.05 m"],
+            ["20 ft", "6.10 m"],
+            ["50 ft", "15.24 m"],
+            ["100 ft", "30.48 m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How tall is 6 ft in metres?",
+        "6 ft = 1.83 m (rounded to 2 decimal places, exact value 1.8288 m). 6'2\" = 1.88 m. Standard doorways are usually around 2.0 m to clear most adults plus headroom."
+      ),
+      createFAQ(
+        "Why is the conversion exactly 0.3048?",
+        "Defined by international agreement in 1959 to standardise the inch (and therefore the foot, yard, etc.) across English-speaking countries. Before 1959, the US and UK had slightly different feet - the difference was tiny but mattered for surveying."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+      { slug: "feet-to-inches", label: "Feet to Inches" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+    ],
+  },
+
+  "metres-to-feet": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Metres to Feet",
+        "1 metre = 3.2808 feet. Multiply metres by 3.2808 (or divide by 0.3048) to get feet. So 1.8 m × 3.2808 = 5.91 ft. For values where the answer should be a clean number of feet plus inches, multiply the decimal portion by 12 to get the leftover inches.",
+        "Useful when reading European technical specs in metric and translating to American/UK feet for everyday context. A 1.83 m person is 6 ft, a 2.4 m ceiling is 7'10\". A 100 m sprint is 328 ft, equivalent to a city block in many North American cities."
+      ),
+      {
+        heading: "Common Metres to Feet Conversions",
+        table: {
+          headers: ["Metres", "Feet"],
+          rows: [
+            ["1 m", "3.28 ft"],
+            ["1.5 m", "4.92 ft"],
+            ["1.8 m", "5.91 ft"],
+            ["2 m", "6.56 ft"],
+            ["2.5 m", "8.20 ft"],
+            ["5 m", "16.40 ft"],
+            ["10 m", "32.81 ft"],
+            ["100 m", "328.08 ft"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How tall is 1.75 m in feet?",
+        "1.75 m = 5.74 ft. To express as feet-inches: 5.74 ft is 5 ft + (0.74 × 12) = 5 ft 8.9 in, often written as 5'9\" rounded. A common adult woman's height."
+      ),
+      createFAQ(
+        "Are 'metre' and 'meter' different?",
+        "Same unit, different spellings. 'Metre' is British/Commonwealth English; 'meter' is American English. Both refer to the SI base unit of length. The same measurement either way."
+      ),
+    ],
+    relatedTools: [
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+      { slug: "metres-to-yards", label: "Metres to Yards" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+    ],
+  },
+
+  "mm-to-inches": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millimetres to Inches",
+        "1 mm = 0.03937 inches. Divide millimetres by 25.4 (or multiply by 0.03937) to get inches. So 100 mm ÷ 25.4 = 3.94 in. The exact factor: 1 inch = 25.4 mm by international agreement, so the inverse is 1/25.4 = 0.039370...",
+        "Most common for engineering and DIY work where European materials use mm and American specifications use fractional inches. A 12 mm drill bit ≈ 15/32 in (0.469 vs 0.472 - very close). Construction drawings, screw sizes, and pipe diameters are the typical contexts."
+      ),
+      {
+        heading: "Common Millimetres to Inches Conversions",
+        table: {
+          headers: ["Millimetres", "Inches"],
+          rows: [
+            ["1 mm", "0.04 in"],
+            ["5 mm", "0.20 in"],
+            ["10 mm", "0.39 in"],
+            ["25 mm", "0.98 in"],
+            ["50 mm", "1.97 in"],
+            ["100 mm", "3.94 in"],
+            ["200 mm", "7.87 in"],
+            ["500 mm", "19.69 in"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does engineering use mm not cm?",
+        "mm gives whole-number precision for typical part sizes (M6 bolt = 6 mm diameter). cm would mean decimal values for the same parts (0.6 cm). Whole numbers are easier to specify and avoid decimal-place errors in technical drawings."
+      ),
+      createFAQ(
+        "What's a common screw size in inches?",
+        "A 3 mm screw ≈ 1/8 in, 6 mm ≈ 1/4 in, 12 mm ≈ 1/2 in. Some fasteners are sold in either standard - look for 'metric' or 'imperial' on packaging. Don't mix the two in a single project; threads don't match between systems."
+      ),
+    ],
+    relatedTools: [
+      { slug: "inches-to-mm", label: "Inches to Millimetres" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+      { slug: "mm-to-cm", label: "Millimetres to Centimetres" },
+    ],
+  },
+
+  "inches-to-mm": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Inches to Millimetres",
+        "1 inch = 25.4 mm exactly. Multiply inches by 25.4 to get millimetres. So 4 in × 25.4 = 101.6 mm. The exact factor of 25.4 makes this a precise conversion - useful for engineering work where dimensional accuracy matters.",
+        "Common DIY application: converting US lumber sizes to mm. A '2x4' US lumber actually measures 38 mm × 89 mm finished (the nominal '2x4' is rough-sawn dimension before planing). Similarly, screw sizes: 1/4 inch = 6.35 mm, 1/2 inch = 12.7 mm, 1 inch = 25.4 mm."
+      ),
+      {
+        heading: "Common Inches to Millimetres Conversions",
+        table: {
+          headers: ["Inches", "Millimetres"],
+          rows: [
+            ["1/8 in", "3.18 mm"],
+            ["1/4 in", "6.35 mm"],
+            ["1/2 in", "12.7 mm"],
+            ["3/4 in", "19.05 mm"],
+            ["1 in", "25.4 mm"],
+            ["2 in", "50.8 mm"],
+            ["6 in", "152.4 mm"],
+            ["12 in (1 ft)", "304.8 mm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What are common fractional inch conversions?",
+        "1/16 in = 1.59 mm, 1/8 in = 3.18 mm, 1/4 in = 6.35 mm, 1/2 in = 12.7 mm, 3/4 in = 19.05 mm, 1 in = 25.4 mm. These show up in lumber, fasteners, and pipe sizes."
+      ),
+      createFAQ(
+        "Is 1 inch always 25.4 mm?",
+        "Yes, by international agreement since 1959. Before that, the US and UK had slightly different inches (the difference was tiny - about 1/100,000th). The 1959 agreement standardised exact conversion factors for all imperial-to-metric units."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mm-to-inches", label: "Millimetres to Inches" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "mm-to-cm": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millimetres to Centimetres",
+        "10 mm = 1 cm. Divide millimetres by 10 (or move the decimal point one place left) to get centimetres. So 250 mm = 25 cm. The cleanest possible metric conversion - just powers of ten.",
+        "Used when switching between fine-precision measurements (mm, common in engineering) and everyday measurements (cm, common in clothing and household). A 250 mm cake tin is a 25 cm tin - same thing, different scale of unit."
+      ),
+      {
+        heading: "Common Millimetres to Centimetres Conversions",
+        table: {
+          headers: ["Millimetres", "Centimetres"],
+          rows: [
+            ["1 mm", "0.1 cm"],
+            ["10 mm", "1 cm"],
+            ["50 mm", "5 cm"],
+            ["100 mm", "10 cm"],
+            ["250 mm", "25 cm"],
+            ["500 mm", "50 cm"],
+            ["1000 mm (1 m)", "100 cm"],
+            ["1500 mm", "150 cm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use mm vs cm?",
+        "mm for precision and small dimensions (electronics, fastener sizes, paper thickness). cm for everyday objects (paper sizes, clothing measurements, height in metric countries). Both are SI; pick the unit where typical values are whole numbers."
+      ),
+      createFAQ(
+        "Are mm and cm interchangeable?",
+        "Mathematically yes (just a factor of 10). Conventionally, contexts pick one over the other for readability. A 'mm' precision measurement (3 mm) reads more naturally than '0.3 cm', though both are correct."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cm-to-mm", label: "Centimetres to Millimetres" },
+      { slug: "mm-to-inches", label: "Millimetres to Inches" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+    ],
+  },
+
+  "cm-to-mm": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Centimetres to Millimetres",
+        "1 cm = 10 mm. Multiply centimetres by 10 (or move the decimal point one place right) to get millimetres. So 25 cm = 250 mm. The simplest possible conversion - just multiply by 10.",
+        "Useful when scaling up from everyday metric measurements (cm, used for clothing, body dimensions) to engineering-precision metric (mm, used for fastener sizes, machined parts). A 30 cm ruler is 300 mm; a 12.5 cm cake tin is 125 mm."
+      ),
+      {
+        heading: "Common Centimetres to Millimetres Conversions",
+        table: {
+          headers: ["Centimetres", "Millimetres"],
+          rows: [
+            ["0.5 cm", "5 mm"],
+            ["1 cm", "10 mm"],
+            ["2.5 cm", "25 mm"],
+            ["5 cm", "50 mm"],
+            ["10 cm", "100 mm"],
+            ["25 cm", "250 mm"],
+            ["50 cm", "500 mm"],
+            ["100 cm (1 m)", "1000 mm"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are mm marks on a ruler the same as cm marks?",
+        "No - mm marks are 10 times denser. A ruler marked in cm has 10 mm marks between each cm. The big numbered marks are usually cm; the smaller subdivisions are mm."
+      ),
+      createFAQ(
+        "What's a common precision measurement in mm?",
+        "Fastener thickness (M6 = 6 mm), wire gauge, paper thickness (80 gsm paper is about 0.1 mm), and pen tip width (medium pen ≈ 0.7 mm). mm is the unit of choice for sub-cm dimensions in technical work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mm-to-cm", label: "Millimetres to Centimetres" },
+      { slug: "cm-to-inches", label: "Centimetres to Inches" },
+      { slug: "mm-to-inches", label: "Millimetres to Inches" },
+    ],
+  },
+
+  "metres-to-yards": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Metres to Yards",
+        "1 metre = 1.0936 yards. Multiply metres by 1.0936 to get yards. So 100 m × 1.0936 = 109.36 yd. The yard has been defined as exactly 0.9144 metres since 1959, so 1 metre is 1/0.9144 = 1.0936... yards exactly.",
+        "Useful when converting metric athletics distances to American yard-based contexts (American football, golf). A 100 m sprint is 109 yards. A 1500 m run (Olympic distance) is 1640 yd. American football fields are 100 yards = 91.44 metres long, so a soccer pitch (100-110 m) is roughly the same length plus end zones."
+      ),
+      {
+        heading: "Common Metres to Yards Conversions",
+        table: {
+          headers: ["Metres", "Yards"],
+          rows: [
+            ["1 m", "1.09 yd"],
+            ["10 m", "10.94 yd"],
+            ["50 m", "54.68 yd"],
+            ["91.44 m", "100 yd (US football field)"],
+            ["100 m", "109.36 yd"],
+            ["400 m", "437.45 yd"],
+            ["1000 m (1 km)", "1093.61 yd"],
+            ["1500 m", "1640.42 yd"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are 'yard' and 'metre' similar lengths?",
+        "Yes - 1 m = 1.09 yd, so they're within 10% of each other. This makes mental conversion easy: round metres to yards by adding 10%, or vice versa. Useful for quick estimates."
+      ),
+      createFAQ(
+        "Is yard still used officially?",
+        "Yes in the US (highway distances, sports, fabric measurements). Less in the UK, where metric is now standard for most purposes but yard persists in everyday speech ('a yard or two'). Most other countries use exclusively metric."
+      ),
+    ],
+    relatedTools: [
+      { slug: "yards-to-metres", label: "Yards to Metres" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+    ],
+  },
+
+  "yards-to-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Yards to Metres",
+        "1 yard = 0.9144 metres exactly. Multiply yards by 0.9144 to get metres. So 100 yd × 0.9144 = 91.44 m. The exact factor of 0.9144 has been the international definition since 1959.",
+        "Mainly used in American sports (football, baseball, golf) where yards are the primary unit. 100-yard football field = 91.44 m. Tiger Woods' typical drive of 300+ yards = 274+ m. A 1-yard touchdown attempt = 0.91 m. Fabric and textile measurements in the UK often use yards still (1 yard fabric = 0.9 m)."
+      ),
+      {
+        heading: "Common Yards to Metres Conversions",
+        table: {
+          headers: ["Yards", "Metres"],
+          rows: [
+            ["1 yd", "0.91 m"],
+            ["10 yd", "9.14 m"],
+            ["25 yd", "22.86 m"],
+            ["50 yd", "45.72 m"],
+            ["100 yd (US football)", "91.44 m"],
+            ["220 yd", "201.17 m"],
+            ["440 yd", "402.34 m"],
+            ["1000 yd", "914.4 m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many metres in a US football field?",
+        "100 yards (the playing field) = 91.44 m. Including end zones (10 yd each), total length is 120 yd = 109.73 m. Width is 53.33 yd = 48.77 m. About the same length as a soccer pitch (100-105 m FIFA standard)."
+      ),
+      createFAQ(
+        "Is the UK yard the same as the US yard?",
+        "Identical since 1959. Both define yard as exactly 0.9144 m. Before 1959, the US and UK had tiny differences (about 1 part in a million); the international yard agreement standardised them."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metres-to-yards", label: "Metres to Yards" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+    ],
+  },
+
+  "feet-to-inches": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Feet to Inches",
+        "1 foot = 12 inches exactly. Multiply feet by 12 to get inches. So 5 ft × 12 = 60 in. This is a clean integer relationship - 1 foot is defined as 12 inches by definition, no decimal conversion factor.",
+        "Most common when expressing height in pure inches (5 ft 10 in = 70 in total) for medical records or measurement systems that prefer single units. American shoe sizes are based on inches; American doorways and ceilings are typically described in feet but technical specifications use inches."
+      ),
+      {
+        heading: "Common Feet to Inches Conversions",
+        table: {
+          headers: ["Feet", "Inches"],
+          rows: [
+            ["1 ft", "12 in"],
+            ["2 ft", "24 in"],
+            ["3 ft", "36 in"],
+            ["4 ft", "48 in"],
+            ["5 ft", "60 in"],
+            ["6 ft", "72 in"],
+            ["8 ft", "96 in"],
+            ["10 ft", "120 in"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why 12 inches in a foot?",
+        "Historical convention from medieval English measurement. Twelve was a useful base for practical fractions (halves, thirds, quarters, sixths) before decimal calculations were common. The 12-inch foot has been standardised in the imperial system since the 14th century."
+      ),
+      createFAQ(
+        "How tall is 5 ft 10 in in inches?",
+        "70 inches (5 × 12 = 60, plus 10 = 70). Multiply feet by 12 and add the leftover inches. 5'5\" = 65 in, 6 ft = 72 in, 6'4\" = 76 in."
+      ),
+    ],
+    relatedTools: [
+      { slug: "inches-to-feet", label: "Inches to Feet" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+      { slug: "inches-to-cm", label: "Inches to Centimetres" },
+    ],
+  },
+
+  "inches-to-feet": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Inches to Feet",
+        "1 inch = 1/12 foot. Divide inches by 12 to get feet. So 60 in ÷ 12 = 5 ft. For values not divisible by 12, the remainder gives leftover inches: 70 in ÷ 12 = 5 ft 10 in. This is the standard way to express US heights and dimensions.",
+        "Most useful when reading total-inch measurements (medical charts, technical drawings) and translating to the more common feet-and-inches format. A 76-inch person is 6'4\". A 96-inch ceiling height is 8 ft. A 24-inch monitor is 2 ft wide diagonally."
+      ),
+      {
+        heading: "Common Inches to Feet Conversions",
+        table: {
+          headers: ["Inches", "Feet (and inches)"],
+          rows: [
+            ["12 in", "1 ft"],
+            ["24 in", "2 ft"],
+            ["48 in", "4 ft"],
+            ["60 in", "5 ft"],
+            ["66 in", "5 ft 6 in"],
+            ["72 in", "6 ft"],
+            ["78 in", "6 ft 6 in"],
+            ["96 in", "8 ft"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How tall is 70 inches?",
+        "70 in ÷ 12 = 5.83 ft = 5 ft 10 in. Average adult male height in the US. To convert decimal feet back to inches: take the decimal portion and multiply by 12 (0.83 × 12 ≈ 10 in)."
+      ),
+      createFAQ(
+        "What's a typical doorway height?",
+        "Standard US interior doorway is 80 inches (6'8\") tall. UK standard is similar. Commercial buildings often have taller doors (84-96 inches = 7-8 ft). Always measure your doorway before buying tall furniture or appliances."
+      ),
+    ],
+    relatedTools: [
+      { slug: "feet-to-inches", label: "Feet to Inches" },
+      { slug: "inches-to-cm", label: "Inches to Centimetres" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+    ],
+  },
+
+  "miles-to-km": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Miles to Kilometres",
+        "1 mile = 1.60934 km. Multiply miles by 1.60934 (or 1.6 for quick mental math) to get kilometres. So 60 miles × 1.6 = 96 km (exact value 96.56 km - within 0.5%). The international mile has been defined as exactly 1609.344 metres since 1959.",
+        "Most common context: driving directions and speed limits when crossing borders. A 70 mph US/UK speed limit is 113 km/h. A 60 mile commute is 97 km. Marathon distance: 26.2 miles = 42.2 km. Useful for travel planning when route distances are quoted in the other country's unit."
+      ),
+      {
+        heading: "Common Miles to Kilometres Conversions",
+        table: {
+          headers: ["Miles", "Kilometres"],
+          rows: [
+            ["1 mile", "1.61 km"],
+            ["5 miles", "8.05 km"],
+            ["10 miles", "16.09 km"],
+            ["26.2 miles (marathon)", "42.20 km"],
+            ["50 miles", "80.47 km"],
+            ["60 miles", "96.56 km"],
+            ["100 miles", "160.93 km"],
+            ["500 miles", "804.67 km"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Quick mental conversion?",
+        "Multiply miles by 1.6 (or add half + tenth: 60 + 30 + 6 = 96). For higher precision, multiply by 8 then divide by 5 (60 × 8 = 480, ÷5 = 96). Both within 0.5% of exact value."
+      ),
+      createFAQ(
+        "How long is a marathon in km?",
+        "26.2 miles = 42.2 km exactly (by historical convention). The official marathon distance was set at 26 miles 385 yards in 1908 (London) and adopted globally in 1921. In km, it rounds to 42.195 km, often shown as 42.2."
+      ),
+    ],
+    relatedTools: [
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "mph-to-kph", label: "MPH to KPH" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+    ],
+  },
+
+  "km-to-miles": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilometres to Miles",
+        "1 km = 0.62137 miles. Divide kilometres by 1.60934 (or multiply by 0.62137) to get miles. So 100 km × 0.62 = 62 miles. Quick mental approximation: divide by 1.6 (or multiply by 0.625, which is 5/8). 80 km × 5/8 = 50 miles, accurate to within 0.5%.",
+        "The conversion comes up most often when interpreting European driving distances or speed limits in American/UK terms. A 100 km/h Autobahn limit is 62 mph. A 200 km route is 124 miles. Olympic 5000 m run = 5 km = 3.1 miles. The 5/8 mental shortcut works well for road-trip planning."
+      ),
+      {
+        heading: "Common Kilometres to Miles Conversions",
+        table: {
+          headers: ["Kilometres", "Miles"],
+          rows: [
+            ["1 km", "0.62 mi"],
+            ["5 km", "3.11 mi"],
+            ["10 km", "6.21 mi"],
+            ["50 km", "31.07 mi"],
+            ["100 km", "62.14 mi"],
+            ["160 km", "99.42 mi"],
+            ["200 km", "124.27 mi"],
+            ["500 km", "310.69 mi"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is 1 km = 0.62 miles?",
+        "Because 1 mile = 1.60934 km, the inverse is 1/1.60934 ≈ 0.62137. The relationship dates back to Roman 'mille passus' (thousand paces) standardised at 1,000 paces of about 1.6 m each, which became 1 mile = 1,609 m approximately."
+      ),
+      createFAQ(
+        "What's 5K and 10K in miles?",
+        "5K = 5 km = 3.11 miles. 10K = 10 km = 6.21 miles. Half marathon = 21.1 km = 13.1 miles. Marathon = 42.2 km = 26.2 miles. These are the standard race distances globally."
+      ),
+    ],
+    relatedTools: [
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "kph-to-mph", label: "KPH to MPH" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+    ],
+  },
+
+  "metres-to-km": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Metres to Kilometres",
+        "1000 metres = 1 kilometre. Divide metres by 1000 (or move the decimal three places left) to get km. So 5,000 m = 5 km. The simplest possible metric conversion.",
+        "Used when scaling up running and cycling distances from metres (used for track athletics) to kilometres (used for road races and longer distances). 800 m and 1500 m are track events; 5 km, 10 km, half marathon, marathon are all road races."
+      ),
+      {
+        heading: "Common Metres to Kilometres Conversions",
+        table: {
+          headers: ["Metres", "Kilometres"],
+          rows: [
+            ["100 m", "0.1 km"],
+            ["400 m", "0.4 km"],
+            ["1000 m", "1 km"],
+            ["1500 m", "1.5 km"],
+            ["5000 m", "5 km"],
+            ["10000 m", "10 km"],
+            ["21097 m", "21.1 km (half mar.)"],
+            ["42195 m", "42.2 km (marathon)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's an Olympic 800 m in km?",
+        "0.8 km. The Olympic distance for middle-distance running is 800 metres on the track. Converted to km it's 0.8 - rarely expressed that way because '800 m' is the established competition distance name."
+      ),
+      createFAQ(
+        "How long is a 1500 m run?",
+        "1.5 km, slightly under 1 mile (1.61 km). Olympic middle-distance event roughly equivalent to the imperial mile. The mile is sometimes still raced separately at meets, especially in the US."
+      ),
+    ],
+    relatedTools: [
+      { slug: "km-to-metres", label: "Kilometres to Metres" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+    ],
+  },
+
+  "km-to-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kilometres to Metres",
+        "1 kilometre = 1000 metres. Multiply km by 1000 (or move the decimal three places right). So 2.5 km = 2,500 m. The 'kilo' prefix means exactly 1,000 in all SI units, so this is a definition not a calculation.",
+        "Useful when working with running and cycling pace calculations. A 5 km run = 5,000 m. Pace per 100 m × 50 = pace per 5 km. Useful for splitting longer training runs into measurable segments by metres on a track."
+      ),
+      {
+        heading: "Common Kilometres to Metres Conversions",
+        table: {
+          headers: ["Kilometres", "Metres"],
+          rows: [
+            ["0.1 km", "100 m"],
+            ["0.5 km", "500 m"],
+            ["1 km", "1000 m"],
+            ["2.5 km", "2500 m"],
+            ["5 km", "5000 m"],
+            ["10 km", "10000 m"],
+            ["21.1 km", "21100 m"],
+            ["42.2 km", "42200 m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many laps of a track is 5 km?",
+        "12.5 laps of a standard 400 m track. A 5 km road race usually equals 12.5 track laps in distance. Other common: 1500 m = 3.75 laps, 10 km = 25 laps."
+      ),
+      createFAQ(
+        "What's the metre defined as today?",
+        "Since 1983, the metre is defined as the distance light travels in a vacuum in 1/299,792,458 seconds. Earlier definitions used a platinum-iridium bar in Paris (1889-1960) and the Earth's circumference (1791-1889)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metres-to-km", label: "Metres to Kilometres" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "celsius-to-fahrenheit": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Celsius to Fahrenheit",
+        "Multiply Celsius by 9/5 (or 1.8) and add 32. Formula: °F = °C × 1.8 + 32. So 25 °C × 1.8 + 32 = 77 °F. The two scales meet at -40 (it's the same in both), and 0 °C (water freezing) corresponds to 32 °F.",
+        "Most useful for following American recipes (oven temperatures), interpreting US weather forecasts, or describing UK temperatures to American audiences. Comfortable indoor temperature of 20 °C = 68 °F. Hot summer day at 30 °C = 86 °F. Bread baking 200 °C = 392 °F."
+      ),
+      {
+        heading: "Common Celsius to Fahrenheit Conversions",
+        table: {
+          headers: ["Celsius", "Fahrenheit"],
+          rows: [
+            ["-10 °C", "14 °F"],
+            ["0 °C (freezing)", "32 °F"],
+            ["10 °C", "50 °F"],
+            ["20 °C", "68 °F"],
+            ["25 °C", "77 °F"],
+            ["30 °C", "86 °F"],
+            ["37 °C (body temp)", "98.6 °F"],
+            ["100 °C (boiling)", "212 °F"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Quick mental method?",
+        "Double the Celsius value, subtract 10%, add 32. So 20 °C: 20×2 = 40, -4 = 36, +32 = 68 °F. Accurate to within 1 °F for most temperatures. The exact formula is ×1.8+32; the '×2 minus 10%' shortcut approximates the 1.8 factor."
+      ),
+      createFAQ(
+        "Why does the US use Fahrenheit?",
+        "Historical inertia. Fahrenheit was the dominant English-speaking scientific scale from 1724 until the late 1800s. Most countries shifted to Celsius (formally adopted by the General Conference on Weights and Measures in 1948) but the US has not formally switched to metric/Celsius."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+      { slug: "celsius-to-kelvin", label: "Celsius to Kelvin" },
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+    ],
+  },
+
+  "fahrenheit-to-celsius": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Fahrenheit to Celsius",
+        "Subtract 32 from Fahrenheit, then multiply by 5/9 (or 0.5556). Formula: °C = (°F - 32) × 5/9. So 86 °F: (86-32) × 5/9 = 54 × 5/9 = 30 °C. The 32 offset accounts for the different zero points (Fahrenheit's 32 °F = water freezing).",
+        "Useful for converting American weather forecasts and recipes to Celsius. 70 °F (typical room temperature in US) = 21 °C. 100 °F (hot summer day) = 38 °C. 350 °F oven (American baking standard) = 177 °C, often expressed as 180 °C in metric recipes."
+      ),
+      {
+        heading: "Common Fahrenheit to Celsius Conversions",
+        table: {
+          headers: ["Fahrenheit", "Celsius"],
+          rows: [
+            ["32 °F (freezing)", "0 °C"],
+            ["50 °F", "10 °C"],
+            ["68 °F (room temp)", "20 °C"],
+            ["77 °F", "25 °C"],
+            ["86 °F", "30 °C"],
+            ["98.6 °F (body)", "37 °C"],
+            ["100 °F", "37.8 °C"],
+            ["350 °F (oven)", "177 °C"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Quick mental method?",
+        "Subtract 32, divide by 2, add 10%. So 86 °F: 86-32=54, ÷2=27, +10%=29.7 °C (close to exact 30 °C). The '÷2 plus 10%' approximates the 5/9 multiplier. Within 1 °C for most everyday temperatures."
+      ),
+      createFAQ(
+        "Why is body temperature 98.6 °F not a round number?",
+        "Original 1851 measurement gave 37 °C (round in Celsius). Converting 37 °C to Fahrenheit gives 98.6 - the precision is from the metric original, not the Fahrenheit. Modern research suggests average body temperature is closer to 36.6 °C (97.9 °F), with significant variation between individuals."
+      ),
+    ],
+    relatedTools: [
+      { slug: "celsius-to-fahrenheit", label: "Celsius to Fahrenheit" },
+      { slug: "kelvin-to-celsius", label: "Kelvin to Celsius" },
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+    ],
+  },
+
+  "celsius-to-kelvin": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Celsius to Kelvin",
+        "Add 273.15 to Celsius. Formula: K = °C + 273.15. So 25 °C = 298.15 K. Kelvin uses absolute zero (-273.15 °C, the theoretical lowest possible temperature) as 0 K, but uses the same degree size as Celsius.",
+        "Kelvin is the SI base unit for temperature, used in scientific contexts where absolute temperature matters (thermodynamics, gas law calculations, astronomy). Notice no '°' symbol - kelvin is just 'K'. Common reference points: 0 K (absolute zero, -273.15 °C), 273.15 K (water freezing, 0 °C), 373.15 K (water boiling, 100 °C)."
+      ),
+      {
+        heading: "Common Celsius to Kelvin Conversions",
+        table: {
+          headers: ["Celsius", "Kelvin"],
+          rows: [
+            ["-273.15 °C (abs zero)", "0 K"],
+            ["-100 °C", "173.15 K"],
+            ["0 °C (freezing)", "273.15 K"],
+            ["20 °C (room)", "293.15 K"],
+            ["25 °C", "298.15 K"],
+            ["100 °C (boiling)", "373.15 K"],
+            ["1000 °C", "1273.15 K"],
+            ["5500 °C (sun surface)", "5773.15 K"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is Kelvin the SI temperature unit?",
+        "Because it's based on absolute zero, all values are positive numbers. This avoids negative-number issues in physics calculations. The kelvin scale was adopted as SI in 1954; the size of a kelvin is identical to a degree Celsius for ease of conversion."
+      ),
+      createFAQ(
+        "Should it be °K or just K?",
+        "Just K. The degree symbol was officially dropped in 1967. So write '298 K' not '298 °K'. Same convention applies to all kelvin temperatures."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kelvin-to-celsius", label: "Kelvin to Celsius" },
+      { slug: "celsius-to-fahrenheit", label: "Celsius to Fahrenheit" },
+      { slug: "fahrenheit-to-kelvin", label: "Fahrenheit to Kelvin" },
+    ],
+  },
+
+  "kelvin-to-celsius": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kelvin to Celsius",
+        "Subtract 273.15 from kelvin. Formula: °C = K - 273.15. So 300 K - 273.15 = 26.85 °C. The kelvin and Celsius scales use the same degree size; they differ only by the offset (Celsius zero is water freezing, Kelvin zero is absolute zero).",
+        "Used when interpreting scientific measurements (which often quote kelvin) for everyday context. A scientific paper might describe a process at 350 K - that's 76.85 °C, well above body temperature but below boiling. Astronomy and physics commonly use kelvin; everyday weather and cooking use Celsius."
+      ),
+      {
+        heading: "Common Kelvin to Celsius Conversions",
+        table: {
+          headers: ["Kelvin", "Celsius"],
+          rows: [
+            ["0 K (abs zero)", "-273.15 °C"],
+            ["100 K", "-173.15 °C"],
+            ["200 K", "-73.15 °C"],
+            ["273.15 K", "0 °C (freezing)"],
+            ["293.15 K", "20 °C (room temp)"],
+            ["310 K", "36.85 °C (body)"],
+            ["373.15 K", "100 °C (boiling)"],
+            ["1000 K", "726.85 °C"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why include the .15?",
+        "The 0.15 in 273.15 K = 0 °C reflects the precise definition of the triple point of water (273.16 K) used to define both scales. For everyday use, 273 K is a fine approximation."
+      ),
+      createFAQ(
+        "What's the temperature of space?",
+        "Approximately 2.7 K (2.7 K above absolute zero) - the cosmic microwave background temperature. That's -270.45 °C. 'Space' isn't actually empty enough to have a single temperature, but the radiation flowing through it has this characteristic temperature."
+      ),
+    ],
+    relatedTools: [
+      { slug: "celsius-to-kelvin", label: "Celsius to Kelvin" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+      { slug: "kelvin-to-fahrenheit", label: "Kelvin to Fahrenheit" },
+    ],
+  },
+
+  "cups-to-ml": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Cups to Millilitres",
+        "1 US cup = 240 ml. Multiply cups by 240 to get ml. So 2 cups = 480 ml. UK and Australian cups are slightly larger (250 ml standard); the US cup at 240 ml is the most common in published recipes globally because of US recipe export.",
+        "American recipes use cups for liquids and bulk dry ingredients. Converting to ml gives metric kitchens an exact volume. A US cup of milk is 240 ml. A UK cup of stock is 250 ml. The 4% difference rarely matters for savory cooking; precision baking should match the recipe's origin (US recipe = US cup = 240 ml)."
+      ),
+      {
+        heading: "Common Cups to Millilitres Conversions",
+        table: {
+          headers: ["Cups (US)", "Millilitres"],
+          rows: [
+            ["1/4 cup", "60 ml"],
+            ["1/3 cup", "80 ml"],
+            ["1/2 cup", "120 ml"],
+            ["2/3 cup", "160 ml"],
+            ["3/4 cup", "180 ml"],
+            ["1 cup", "240 ml"],
+            ["1.5 cups", "360 ml"],
+            ["2 cups", "480 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is a UK cup the same as a US cup?",
+        "Close but not identical. US cup = 240 ml; UK metric cup = 250 ml; UK old (imperial) cup = 284 ml (rare now). The 4% difference between US and UK metric cup rarely matters for most recipes."
+      ),
+      createFAQ(
+        "Can I use a measuring jug for cups?",
+        "Yes if marked. Most measuring jugs show ml/L primarily, sometimes with cup markings. Converting cups to ml first lets you use any volume measuring device. For dry ingredients in cups, weight (grams) is more accurate than volume."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+      { slug: "cups-to-grams", label: "Cups to Grams" },
+      { slug: "cups-to-tbsp", label: "Cups to Tablespoons" },
+    ],
+  },
+
+  "ml-to-cups": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millilitres to Cups",
+        "1 cup (US) = 240 ml. Divide millilitres by 240 to get cups. So 480 ml ÷ 240 = 2 cups. UK metric cups are 250 ml so divide by 250 if working with UK recipes specifically. Most published recipes globally use the 240 ml US cup standard.",
+        "Useful when reading European recipes that specify volumes in ml/L and you're more comfortable with cups, or when scaling recipes proportionally. A 750 ml batch ÷ 240 = 3.13 cups, useful for figuring out cup-based equivalent."
+      ),
+      {
+        heading: "Common Millilitres to Cups Conversions",
+        table: {
+          headers: ["Millilitres", "Cups (US)"],
+          rows: [
+            ["50 ml", "0.21 cup"],
+            ["100 ml", "0.42 cup"],
+            ["120 ml", "0.5 cup"],
+            ["240 ml", "1 cup"],
+            ["360 ml", "1.5 cups"],
+            ["480 ml", "2 cups"],
+            ["720 ml", "3 cups"],
+            ["1000 ml (1 L)", "4.17 cups"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many cups in a litre?",
+        "About 4.17 US cups per litre, or exactly 4 metric cups (250 ml each). Quick mental: 1 L ≈ 4 cups + a splash."
+      ),
+      createFAQ(
+        "Why are cup sizes different by region?",
+        "Tradition. US adopted 8 fl oz = 236.6 ml ≈ 240 ml standard. UK and Australia later defined the 'metric cup' as a clean 250 ml. The historical UK imperial cup was 284 ml. Always check which 'cup' a recipe means if precision matters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+      { slug: "litres-to-pints", label: "Litres to Pints" },
+    ],
+  },
+
+  "cups-to-grams": {
+    sections: [
+      createAnswerFirstSection(
+        "Cups to Grams Depends on the Ingredient",
+        "Volume-to-weight conversion isn't a single number - it depends on what you're measuring. 1 cup of flour weighs about 125 g; 1 cup of sugar weighs 200 g; 1 cup of butter is 227 g; 1 cup of honey is 340 g. Same volume, very different weights because each ingredient has different density.",
+        "For accurate baking, weight is far more reliable than volume. American recipes use cups by tradition; professional bakers and modern recipe writers globally are shifting to grams. When converting an American recipe, look up each ingredient's specific cup-to-gram conversion."
+      ),
+      {
+        heading: "Common Ingredient Cup-to-Gram Conversions",
+        table: {
+          headers: ["Ingredient", "1 Cup =", "2 Cups ="],
+          rows: [
+            ["All-purpose flour", "125 g", "250 g"],
+            ["Bread flour", "130 g", "260 g"],
+            ["Granulated sugar", "200 g", "400 g"],
+            ["Brown sugar (packed)", "215 g", "430 g"],
+            ["Butter", "227 g", "454 g"],
+            ["Honey/molasses", "340 g", "680 g"],
+            ["Cocoa powder", "85 g", "170 g"],
+            ["Rice (uncooked)", "200 g", "400 g"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is volume measurement unreliable?",
+        "Packing density varies. A 'cup of flour' can weigh 110-150 g depending on whether it was scooped (denser) or sifted (lighter). Weight measurement gives consistent results. Recipe writers who trust weight will get consistent baking; volume measurement leads to high recipe failure rates."
+      ),
+      createFAQ(
+        "What's the standard cup size?",
+        "US cup = 240 ml. UK metric cup = 250 ml. The 4% difference rarely matters for cooking but can matter for baking. Use the cup-to-gram conversion that matches the recipe's origin (US recipes use US cups)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "recipe-unit-converter", label: "Recipe Unit Converter" },
+      { slug: "kitchen-unit-converter", label: "Kitchen Unit Converter" },
+    ],
+  },
+
+  "tbsp-to-ml": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Tablespoons to Millilitres",
+        "1 US tablespoon = 15 ml (technically 14.79 ml, rounded). Multiply tablespoons by 15 to get ml. So 4 tbsp = 60 ml. UK and Canadian tablespoons are 15 ml standard; Australian tablespoons are 20 ml (notably larger).",
+        "Most recipes assume 15 ml per tbsp. If following an Australian recipe, the 20 ml tbsp gives slightly more (33% more) per spoon - usually noted in the recipe header. For everyday use across countries, 15 ml is the safe default."
+      ),
+      {
+        heading: "Common Tablespoons to Millilitres Conversions",
+        table: {
+          headers: ["Tablespoons", "Millilitres"],
+          rows: [
+            ["1 tbsp", "15 ml"],
+            ["2 tbsp", "30 ml"],
+            ["4 tbsp (1/4 cup)", "60 ml"],
+            ["6 tbsp", "90 ml"],
+            ["8 tbsp (1/2 cup)", "120 ml"],
+            ["10 tbsp", "150 ml"],
+            ["12 tbsp (3/4 cup)", "180 ml"],
+            ["16 tbsp (1 cup)", "240 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many tablespoons in a cup?",
+        "16 US tablespoons = 1 US cup (240 ml). The math: 240 ÷ 15 = 16. UK/Canadian similar. Australian 20 ml tablespoons = 12 per metric cup (250 ml ÷ 20 = 12.5)."
+      ),
+      createFAQ(
+        "Should I use measuring spoons or eyeball?",
+        "Always use measuring spoons for baking and precise cooking. Eyeballing 'a tablespoon of soy sauce' is fine for everyday cooking. For bread, pastry, or recipes specifying exact ratios, measuring spoons are essential."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tbsp-to-tsp", label: "Tablespoons to Teaspoons" },
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "tsp-to-ml", label: "Teaspoons to Millilitres" },
+    ],
+  },
+
+  "tsp-to-ml": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Teaspoons to Millilitres",
+        "1 teaspoon = 5 ml (technically 4.93 ml in US, rounded to 5). Multiply teaspoons by 5 to get ml. So 3 tsp = 15 ml. UK, US, Canadian and Australian teaspoons are all 5 ml standard - unlike tablespoons, the teaspoon size is consistent globally.",
+        "Most precise small-volume measurement in cooking. Used for spices, vanilla extract, baking powder, salt. Critical for baking where small differences matter (1 tsp baking soda vs 1.25 tsp can ruin a cake). Use measuring spoons, not table teaspoons - actual teaspoons vary widely in size."
+      ),
+      {
+        heading: "Common Teaspoons to Millilitres Conversions",
+        table: {
+          headers: ["Teaspoons", "Millilitres"],
+          rows: [
+            ["1/4 tsp", "1.25 ml"],
+            ["1/2 tsp", "2.5 ml"],
+            ["1 tsp", "5 ml"],
+            ["1.5 tsp", "7.5 ml"],
+            ["2 tsp", "10 ml"],
+            ["3 tsp (1 tbsp)", "15 ml"],
+            ["6 tsp", "30 ml"],
+            ["10 tsp", "50 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many tsp in a tablespoon?",
+        "3 teaspoons = 1 tablespoon (in US, UK, Canada). Australian: 4 teaspoons = 1 (Australian) tablespoon, since their tbsp is 20 ml. The 3:1 ratio is standard everywhere except Australia."
+      ),
+      createFAQ(
+        "Are kitchen teaspoons accurate?",
+        "Measuring teaspoons (the calibrated ones from a set) are accurate. Regular dining teaspoons vary widely - typically 4-8 ml depending on style. Always use measuring teaspoons for cooking, never table flatware."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ml-to-tsp", label: "Millilitres to Teaspoons" },
+      { slug: "tsp-to-tbsp", label: "Teaspoons to Tablespoons" },
+      { slug: "tbsp-to-ml", label: "Tablespoons to Millilitres" },
+    ],
+  },
+
+  "ml-to-tsp": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millilitres to Teaspoons",
+        "1 teaspoon = 5 ml. Divide millilitres by 5 to get teaspoons. So 30 ml ÷ 5 = 6 tsp. The teaspoon is one of the more consistent kitchen units globally - 5 ml across US, UK, Canada and Australia.",
+        "Useful when reading metric cooking instructions (often given in ml for liquids) and translating to spoon measurements for kitchens equipped only with measuring spoons. 10 ml = 2 tsp = 2/3 tbsp. 25 ml = 5 tsp = 1.67 tbsp."
+      ),
+      {
+        heading: "Common Millilitres to Teaspoons Conversions",
+        table: {
+          headers: ["Millilitres", "Teaspoons"],
+          rows: [
+            ["1 ml", "0.2 tsp"],
+            ["2.5 ml", "0.5 tsp"],
+            ["5 ml", "1 tsp"],
+            ["10 ml", "2 tsp"],
+            ["15 ml", "3 tsp (1 tbsp)"],
+            ["25 ml", "5 tsp"],
+            ["30 ml", "6 tsp (2 tbsp)"],
+            ["50 ml", "10 tsp"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How precise is teaspoon measurement?",
+        "Measuring teaspoons (the standardised set kind) are accurate to within 5%. The variation between different brands of measuring spoons is small. The bigger error is from using non-measuring spoons (regular tea or table spoons), which can vary 30-50% from the standard 5 ml."
+      ),
+      createFAQ(
+        "Can I use ml-marked syringes?",
+        "Yes, if you have one (often used for medicine dosing). 5 ml syringe = 1 tsp. More precise than measuring spoons for very small quantities. Useful for liquid medicines or extracts where 1-2 ml accuracy matters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tsp-to-ml", label: "Teaspoons to Millilitres" },
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+      { slug: "tbsp-to-ml", label: "Tablespoons to Millilitres" },
+    ],
+  },
+
+  "cups-to-tbsp": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Cups to Tablespoons",
+        "1 cup = 16 tablespoons (US/UK/Canada). Multiply cups by 16 to get tablespoons. So 1/2 cup = 8 tbsp; 1/4 cup = 4 tbsp. Australian cups (250 ml) at Australian tablespoons (20 ml) = 12.5 per cup, so for Australian recipes the math differs.",
+        "Useful when scaling down a recipe that uses cups but you want spoon-level precision, or when measuring just a small amount of an ingredient that would be unwieldy with a full cup. 1/8 cup is awkward to measure as 1/8 cup but easy as 2 tbsp."
+      ),
+      {
+        heading: "Common Cups to Tablespoons Conversions",
+        table: {
+          headers: ["Cups", "Tablespoons"],
+          rows: [
+            ["1/8 cup", "2 tbsp"],
+            ["1/4 cup", "4 tbsp"],
+            ["1/3 cup", "5.33 tbsp"],
+            ["1/2 cup", "8 tbsp"],
+            ["2/3 cup", "10.67 tbsp"],
+            ["3/4 cup", "12 tbsp"],
+            ["1 cup", "16 tbsp"],
+            ["2 cups", "32 tbsp"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does 1/3 cup not divide evenly?",
+        "Because 16 (tbsp per cup) doesn't divide cleanly by 3. 1/3 cup = 5.33 tbsp, rounded down to 5 tbsp + 1 tsp (since 0.33 tbsp = 1 tsp). 2/3 cup = 10 tbsp + 2 tsp."
+      ),
+      createFAQ(
+        "Should I scale up or scale down?",
+        "Scale down (cup to tbsp) when the cup amount is small (1/4 cup or less) - tbsp is easier to measure precisely. Scale up (tbsp to cup) when the recipe calls for many tbsp of the same ingredient - 8+ tbsp is faster as a half cup."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tbsp-to-cups", label: "Tablespoons to Cups" },
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "tbsp-to-tsp", label: "Tablespoons to Teaspoons" },
+    ],
+  },
+
+  "tbsp-to-cups": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Tablespoons to Cups",
+        "16 tablespoons = 1 cup (US/UK/Canada). Divide tablespoons by 16 to get cups. So 8 tbsp = 0.5 cup. Australian: 12 Australian tbsp = 1 Australian cup (since AU tbsp is 20 ml).",
+        "Useful when a recipe lists many tablespoons of the same ingredient and you want to scale up to a single cup measurement. 12 tbsp of butter is much easier to measure as 3/4 cup than 12 individual spoonfuls."
+      ),
+      {
+        heading: "Common Tablespoons to Cups Conversions",
+        table: {
+          headers: ["Tablespoons", "Cups"],
+          rows: [
+            ["2 tbsp", "1/8 cup"],
+            ["4 tbsp", "1/4 cup"],
+            ["6 tbsp", "3/8 cup"],
+            ["8 tbsp", "1/2 cup"],
+            ["10 tbsp", "5/8 cup"],
+            ["12 tbsp", "3/4 cup"],
+            ["14 tbsp", "7/8 cup"],
+            ["16 tbsp", "1 cup"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the easiest fraction?",
+        "Halves and quarters are simplest: 8 tbsp = 1/2 cup, 4 tbsp = 1/4 cup, 12 tbsp = 3/4 cup. These are clean to measure. Eighths (2 tbsp = 1/8 cup, 6 tbsp = 3/8 cup) work too but feel less natural."
+      ),
+      createFAQ(
+        "When should I use cups vs tbsp?",
+        "Cups for amounts above 6-8 tbsp (faster to measure). Tbsp for amounts under 4 (more precise for small quantities). The decision is mostly about ease of measurement and avoiding decimals."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-tbsp", label: "Cups to Tablespoons" },
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+      { slug: "tbsp-to-tsp", label: "Tablespoons to Teaspoons" },
+    ],
+  },
+
+  "tbsp-to-tsp": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Tablespoons to Teaspoons",
+        "1 tablespoon = 3 teaspoons (US/UK/Canada). Multiply tablespoons by 3 to get teaspoons. So 2 tbsp = 6 tsp. Australian: 1 Australian tbsp (20 ml) = 4 teaspoons. Outside Australia, the 3:1 ratio is universal.",
+        "Useful when scaling down a recipe that uses tablespoons but you want spoon-level precision, or when out of measuring tablespoons but have teaspoons available. 1 tbsp baking powder = 3 tsp baking powder - same amount, just different spoon."
+      ),
+      {
+        heading: "Common Tablespoons to Teaspoons Conversions",
+        table: {
+          headers: ["Tablespoons", "Teaspoons"],
+          rows: [
+            ["1/2 tbsp", "1.5 tsp"],
+            ["1 tbsp", "3 tsp"],
+            ["1.5 tbsp", "4.5 tsp"],
+            ["2 tbsp", "6 tsp"],
+            ["3 tbsp", "9 tsp"],
+            ["4 tbsp (1/4 cup)", "12 tsp"],
+            ["6 tbsp", "18 tsp"],
+            ["8 tbsp (1/2 cup)", "24 tsp"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are tbsp 3 tsp?",
+        "Historical convention from the metric/customary system standardisation. The relationship goes back to apothecary measurements where 60 grains = 1 dram, 8 drams = 1 ounce, etc. The 3:1 tbsp:tsp ratio fits the broader hierarchy."
+      ),
+      createFAQ(
+        "Are tbsp and tsp interchangeable for small amounts?",
+        "Mathematically yes (3 tsp = 1 tbsp). Physically using a tbsp scoop for 3 tsp of an ingredient is fine. The reverse (using a tsp scoop 3 times for 1 tbsp) works but takes longer and increases small measurement errors."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tsp-to-tbsp", label: "Teaspoons to Tablespoons" },
+      { slug: "tbsp-to-ml", label: "Tablespoons to Millilitres" },
+      { slug: "tsp-to-ml", label: "Teaspoons to Millilitres" },
+    ],
+  },
+
+  "tsp-to-tbsp": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Teaspoons to Tablespoons",
+        "3 teaspoons = 1 tablespoon (US/UK/Canada). Divide teaspoons by 3 to get tablespoons. So 6 tsp ÷ 3 = 2 tbsp. Australian: 4 Australian teaspoons = 1 Australian tbsp.",
+        "Useful when a recipe lists many teaspoons of the same ingredient (often for spices) and you want to scale up to fewer tablespoon measurements. Six teaspoons of dried herbs in a single recipe is awkward to measure individually; 2 tbsp is one quick scoop."
+      ),
+      {
+        heading: "Common Teaspoons to Tablespoons Conversions",
+        table: {
+          headers: ["Teaspoons", "Tablespoons"],
+          rows: [
+            ["1 tsp", "0.33 tbsp"],
+            ["1.5 tsp", "0.5 tbsp"],
+            ["3 tsp", "1 tbsp"],
+            ["6 tsp", "2 tbsp"],
+            ["9 tsp", "3 tbsp"],
+            ["12 tsp", "4 tbsp"],
+            ["18 tsp", "6 tbsp"],
+            ["24 tsp", "8 tbsp (1/2 cup)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "When does converting tsp to tbsp save time?",
+        "Mostly when measuring 6+ tsp of the same ingredient. Below 6 tsp, just measuring with a tsp is faster than computing the conversion to tbsp."
+      ),
+      createFAQ(
+        "Are 1.5 tsp and 1/2 tbsp the same?",
+        "Yes. 1 tbsp = 3 tsp, so 0.5 tbsp = 1.5 tsp. Useful when a recipe specifies 1/2 tbsp - measure as 1 tsp + 1/2 tsp if you don't have a 1/2 tbsp scoop."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tbsp-to-tsp", label: "Tablespoons to Teaspoons" },
+      { slug: "tsp-to-ml", label: "Teaspoons to Millilitres" },
+      { slug: "tbsp-to-cups", label: "Tablespoons to Cups" },
+    ],
+  },
+
+  "fl-oz-to-ml": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Fluid Ounces to Millilitres",
+        "1 US fluid ounce = 29.57 ml. Multiply fl oz by 29.57 to get ml. So 16 fl oz × 29.57 = 473 ml. UK fluid ounce = 28.41 ml (slightly smaller); old British imperial cooking still uses UK fl oz, but US measurements dominate global recipes.",
+        "Common when converting American liquid measurements (drinks, broths, sauces) to metric. A 12 fl oz can of soda = 355 ml. A US pint (16 fl oz) = 473 ml. Cooking oils are often sold in fl oz US bottles - a 16 fl oz bottle is 473 ml."
+      ),
+      {
+        heading: "Common Fluid Ounces to Millilitres Conversions",
+        table: {
+          headers: ["Fluid Ounces (US)", "Millilitres"],
+          rows: [
+            ["1 fl oz", "30 ml"],
+            ["4 fl oz", "118 ml"],
+            ["8 fl oz (1 cup)", "237 ml"],
+            ["12 fl oz", "355 ml"],
+            ["16 fl oz (1 pint)", "473 ml"],
+            ["20 fl oz", "591 ml"],
+            ["32 fl oz (1 quart)", "946 ml"],
+            ["64 fl oz", "1893 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are US and UK fl oz the same?",
+        "Different. US fl oz = 29.57 ml, UK fl oz = 28.41 ml. The US value is slightly larger (about 4% bigger). For everyday recipe conversion, either is fine. Precision drink-mixing (cocktails, coffee) might care."
+      ),
+      createFAQ(
+        "How big is a US pint?",
+        "16 US fluid ounces = 473 ml. Notably smaller than the UK pint (568 ml). When ordering 'a pint' of beer, the UK gets 95 ml more than the US."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+      { slug: "pints-to-litres", label: "Pints to Litres" },
+    ],
+  },
+
+  "ml-to-fl-oz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millilitres to Fluid Ounces",
+        "1 ml = 0.0338 US fluid ounces (or 0.0352 UK fl oz). Divide ml by 29.57 to get US fl oz. So 500 ml ÷ 29.57 = 16.91 US fl oz. Common context: converting European-bottled liquids (wine, oil, sauces) to American fluid ounce equivalents.",
+        "A 750 ml bottle of wine = 25.4 fl oz, the standard US wine bottle size. A 100 ml shot = 3.38 fl oz. A 500 ml beer can = 16.9 fl oz, slightly more than a US pint. Useful for international shopping and recipe adaptation."
+      ),
+      {
+        heading: "Common Millilitres to Fluid Ounces Conversions",
+        table: {
+          headers: ["Millilitres", "US Fluid Ounces"],
+          rows: [
+            ["10 ml", "0.34 fl oz"],
+            ["50 ml", "1.69 fl oz"],
+            ["100 ml", "3.38 fl oz"],
+            ["250 ml", "8.45 fl oz"],
+            ["500 ml", "16.91 fl oz"],
+            ["750 ml", "25.36 fl oz"],
+            ["1000 ml (1 L)", "33.81 fl oz"],
+            ["1500 ml", "50.72 fl oz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my recipe say 'fluid ounce' but the package says 'oz'?",
+        "Likely either liquid (fl oz) or weight (oz) - context tells you which. Liquids: 'fl oz'. Solids: 'oz'. American packaging sometimes drops 'fl' in informal labels but keeps it on official nutrition labels."
+      ),
+      createFAQ(
+        "Can I substitute fl oz for cup measurements?",
+        "8 fl oz = 1 US cup. So 4 fl oz = 1/2 cup, 16 fl oz = 2 cups. Direct equivalence for water and most liquid ingredients (since cups are essentially fl oz × 8 for liquids)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fl-oz-to-ml", label: "Fluid Ounces to Millilitres" },
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+      { slug: "litres-to-pints", label: "Litres to Pints" },
+    ],
+  },
+
+  "pints-to-litres": {
+    sections: [
+      createAnswerFirstSection(
+        "Pints Are Different Sizes (UK vs US)",
+        "UK pint = 568 ml = 0.568 litres. US pint = 473 ml = 0.473 litres. The UK pint is about 20% larger - a major difference for beer drinkers crossing the Atlantic. Both are 'pints' but the volume differs significantly. Multiply UK pints by 0.568 (or US pints by 0.473) to get litres.",
+        "UK pubs serve UK pints (568 ml). US bars serve US pints (473 ml). The pint glass size is a national tradition; same word, very different drink. UK milk has historically been sold in pints; this is now mostly metric in supermarkets but the 'pint of milk' phrase persists."
+      ),
+      {
+        heading: "Common Pints to Litres Conversions",
+        table: {
+          headers: ["Pints", "UK Litres", "US Litres"],
+          rows: [
+            ["1 pint", "0.568 L", "0.473 L"],
+            ["2 pints", "1.136 L", "0.946 L"],
+            ["4 pints", "2.273 L", "1.893 L"],
+            ["6 pints", "3.409 L", "2.839 L"],
+            ["8 pints", "4.546 L", "3.785 L"],
+            ["10 pints", "5.682 L", "4.732 L"],
+            ["12 pints", "6.819 L", "5.678 L"],
+            ["20 pints", "11.36 L", "9.46 L"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are UK pints bigger?",
+        "Historical accident. The UK retained the older Imperial pint (568 ml) when it standardised in 1824. The US, having gained independence in 1776, used an earlier (smaller) Queen Anne pint definition (473 ml). Both retained their respective pint sizes."
+      ),
+      createFAQ(
+        "Is beer always served in pints?",
+        "In UK pubs: standard pour is a UK pint (568 ml) or a half pint (284 ml). US bars: pints are 473 ml, but many serve 16 oz pints in deceptive 'pub' glasses that look bigger. Australia uses 'schooners' (425 ml) and 'middys' (285 ml) instead of pints in most states."
+      ),
+    ],
+    relatedTools: [
+      { slug: "litres-to-pints", label: "Litres to Pints" },
+      { slug: "gallons-to-litres", label: "Gallons to Litres" },
+      { slug: "fl-oz-to-ml", label: "Fluid Ounces to Millilitres" },
+    ],
+  },
+
+  "litres-to-pints": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Litres to Pints",
+        "1 litre = 1.76 UK pints OR 2.11 US pints. Divide litres by 0.568 (UK) or 0.473 (US) to get pints. So 2 L = 3.52 UK pints or 4.23 US pints. Always specify which system - the pint size differs significantly between UK and US.",
+        "Common context: scaling up drink quantities for parties, converting European bottle sizes to pint equivalents. A 2 L Coca-Cola bottle = 3.52 UK pints (or 4.23 US). A 750 ml wine bottle = 1.32 UK pints (or 1.59 US). Standard UK milk bottles are sold in 1, 2, 4 or 6 pint sizes (568 ml × n)."
+      ),
+      {
+        heading: "Common Litres to Pints Conversions",
+        table: {
+          headers: ["Litres", "UK Pints", "US Pints"],
+          rows: [
+            ["0.5 L", "0.88 pt", "1.06 pt"],
+            ["1 L", "1.76 pt", "2.11 pt"],
+            ["1.5 L", "2.64 pt", "3.17 pt"],
+            ["2 L", "3.52 pt", "4.23 pt"],
+            ["3 L", "5.28 pt", "6.34 pt"],
+            ["5 L", "8.80 pt", "10.57 pt"],
+            ["10 L", "17.60 pt", "21.13 pt"],
+            ["20 L", "35.20 pt", "42.27 pt"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many pints in a 2-litre bottle?",
+        "2 L = 3.52 UK pints (or 4.23 US pints). A typical 2 L Coca-Cola bottle is just over 3.5 UK pints or just over 4 US pints."
+      ),
+      createFAQ(
+        "Why doesn't a litre equal a pint?",
+        "Pints are an old non-metric volume measurement; litres are metric. They were independently defined - 1 L is 1000 ml; 1 UK pint is 568 ml. The conversion factor reflects that history."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pints-to-litres", label: "Pints to Litres" },
+      { slug: "litres-to-gallons", label: "Litres to Gallons" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+    ],
+  },
+
+  "gallons-to-litres": {
+    sections: [
+      createAnswerFirstSection(
+        "Gallons Are Different Sizes (UK vs US)",
+        "UK gallon = 4.546 litres. US gallon = 3.785 litres. The UK gallon is about 20% larger - significant when converting fuel prices or bulk liquid measurements. Multiply UK gallons by 4.546 (or US gallons by 3.785) to get litres.",
+        "Most US fuel pricing uses US gallons. UK fuel pricing now uses litres exclusively (since 1995); the UK gallon survives mainly in older non-fuel contexts. American brewing recipes often specify 'a gallon of water' meaning US gallon (3.785 L). Always check origin."
+      ),
+      {
+        heading: "Common Gallons to Litres Conversions",
+        table: {
+          headers: ["Gallons", "UK Litres", "US Litres"],
+          rows: [
+            ["1 gal", "4.546 L", "3.785 L"],
+            ["2 gal", "9.092 L", "7.571 L"],
+            ["3 gal", "13.638 L", "11.356 L"],
+            ["5 gal", "22.730 L", "18.927 L"],
+            ["10 gal", "45.461 L", "37.854 L"],
+            ["15 gal", "68.191 L", "56.781 L"],
+            ["20 gal", "90.922 L", "75.708 L"],
+            ["50 gal", "227.305 L", "189.271 L"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are UK and US gallons different?",
+        "Different historical bases. UK gallon comes from the wine gallon as defined by Queen Anne in 1707, equal to 8 pints of 568 ml. The US adopted a smaller version of the gallon definition (231 cubic inches), which became 3.785 L."
+      ),
+      createFAQ(
+        "What does '1 gallon' mean in a recipe?",
+        "Almost always US gallon (3.785 L) for American recipes, UK gallon (4.546 L) for British recipes. The 20% difference can ruin yields if the wrong assumption is made. American recipe sites and cookbooks default to US gallon."
+      ),
+    ],
+    relatedTools: [
+      { slug: "litres-to-gallons", label: "Litres to Gallons" },
+      { slug: "pints-to-litres", label: "Pints to Litres" },
+      { slug: "fl-oz-to-ml", label: "Fluid Ounces to Millilitres" },
+    ],
+  },
+
+  "litres-to-gallons": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Litres to Gallons",
+        "1 litre = 0.220 UK gallons OR 0.264 US gallons. Divide litres by 4.546 (UK) or 3.785 (US). So 50 L = 11 UK gallons or 13.2 US gallons. Specify which gallon you mean - the UK gallon is about 20% larger than the US.",
+        "Useful when converting European fuel quantities or bulk liquids to gallon-based pricing for comparison. Petrol at £1.45/L in UK = roughly £6.59/UK gallon (2.5 imperial gallons of petrol per £10) or $5.49/US gallon for direct comparison with US pump prices."
+      ),
+      {
+        heading: "Common Litres to Gallons Conversions",
+        table: {
+          headers: ["Litres", "UK Gallons", "US Gallons"],
+          rows: [
+            ["1 L", "0.22 gal", "0.26 gal"],
+            ["10 L", "2.20 gal", "2.64 gal"],
+            ["20 L", "4.40 gal", "5.28 gal"],
+            ["50 L", "11.00 gal", "13.21 gal"],
+            ["100 L", "22.00 gal", "26.42 gal"],
+            ["200 L", "43.99 gal", "52.83 gal"],
+            ["500 L", "109.99 gal", "132.09 gal"],
+            ["1000 L", "219.97 gal", "264.17 gal"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many litres are in a US gallon of fuel?",
+        "1 US gallon = 3.785 L. So $4 per US gallon = $1.06 per L. To compare with UK pump prices in £/L, also convert currency. US fuel is dramatically cheaper per L than UK fuel - largely due to lower fuel tax."
+      ),
+      createFAQ(
+        "Are wine bottles in gallons?",
+        "Standard wine bottle: 750 ml = 0.165 UK gallons or 0.198 US gallons. A case of 12 bottles = 9 L = 2 UK gallons (1.98 to be precise) or 2.4 US gallons. Pints rather than gallons are more common for retail wine."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gallons-to-litres", label: "Gallons to Litres" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+      { slug: "litres-to-pints", label: "Litres to Pints" },
+    ],
+  },
+
+  "mph-to-kph": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MPH to KPH",
+        "1 mph = 1.60934 km/h. Multiply mph by 1.60934 to get km/h. So 60 mph × 1.60934 = 96.56 km/h. Quick mental: multiply by 1.6, or by 8/5. 70 mph × 8/5 = 112 km/h, accurate to within 0.5%.",
+        "Most useful for driving across borders. UK and US use mph for road speed limits. Most of the rest of the world (including all of Europe except UK) uses km/h. A 70 mph US/UK motorway speed = 113 km/h. A 30 mph residential = 48 km/h. Useful when adapting US road trip plans for European travel."
+      ),
+      {
+        heading: "Common MPH to KPH Conversions",
+        table: {
+          headers: ["MPH", "KPH"],
+          rows: [
+            ["20 mph", "32.19 km/h"],
+            ["30 mph", "48.28 km/h"],
+            ["40 mph", "64.37 km/h"],
+            ["50 mph", "80.47 km/h"],
+            ["60 mph", "96.56 km/h"],
+            ["70 mph", "112.65 km/h"],
+            ["80 mph", "128.75 km/h"],
+            ["100 mph", "160.93 km/h"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the German Autobahn speed?",
+        "Most stretches have no posted limit but the recommended (advisory) speed is 130 km/h = 81 mph. Many drivers exceed this. UK motorway top legal speed is 70 mph = 113 km/h. The Autobahn experience is generally faster than UK motorways."
+      ),
+      createFAQ(
+        "How do speed cameras handle the conversion?",
+        "Speed cameras measure in the local unit (mph in UK/US, km/h elsewhere). The reading is the local unit; conversion is just for travelers' understanding. UK police will quote you 32 mph; converting that to 51 km/h for your insurance company doesn't change the offence."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kph-to-mph", label: "KPH to MPH" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "knots-to-mph", label: "Knots to MPH" },
+    ],
+  },
+
+  "kph-to-mph": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert KPH to MPH",
+        "1 km/h = 0.621 mph. Divide km/h by 1.60934 (or multiply by 0.621) to get mph. So 100 km/h ÷ 1.60934 = 62.14 mph. Quick mental: multiply by 5/8 or by 0.625. 100 × 5/8 = 62.5 mph (within 0.6% of exact 62.14).",
+        "Useful when interpreting European speed limits in UK/US terms. A 130 km/h French motorway limit = 81 mph (faster than UK/US 70 mph). A 50 km/h urban limit = 31 mph. A 30 km/h school zone = 19 mph. The 5/8 rule (multiply by 5/8) is fast enough to do mentally."
+      ),
+      {
+        heading: "Common KPH to MPH Conversions",
+        table: {
+          headers: ["KPH", "MPH"],
+          rows: [
+            ["30 km/h", "18.64 mph"],
+            ["50 km/h", "31.07 mph"],
+            ["60 km/h", "37.28 mph"],
+            ["80 km/h", "49.71 mph"],
+            ["100 km/h", "62.14 mph"],
+            ["110 km/h", "68.35 mph"],
+            ["120 km/h", "74.56 mph"],
+            ["130 km/h", "80.78 mph"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a typical European motorway limit?",
+        "Most EU countries: 130 km/h (81 mph), some allow 150 km/h on selected motorways. UK: 70 mph (113 km/h). Germany Autobahn: no limit on most stretches (advisory 130 km/h). Italy 130 km/h, France 130 km/h."
+      ),
+      createFAQ(
+        "Should rental cars switch to mph in UK?",
+        "Most rental cars in UK come with mph speedometers (UK uses mph). European mainland rentals typically have km/h (or both). Always check before driving - misreading mph as km/h leads to embarrassing fines."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mph-to-kph", label: "MPH to KPH" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "knots-to-kph", label: "Knots to KPH" },
+    ],
+  },
+
+  "oz-to-ml": {
+    sections: [
+      createAnswerFirstSection(
+        "Volume Ounces to Millilitres",
+        "1 US fl oz = 29.57 ml. Multiply by 30 for quick mental math (within 1.5%) or 29.57 for precision. So 8 fl oz = 237 ml. UK fluid ounce is 28.41 ml (slightly smaller). Note: this is fluid ounce (volume), not weight ounce (28.35 g) - they share the name and rough number but measure different things.",
+        "Common context: converting American liquid recipes to metric. A 12 fl oz can of soda = 355 ml. A 32 fl oz US quart = 946 ml. A 64 fl oz half-gallon = 1.89 L. Cooking oils sold in US fl oz bottles convert directly when reading European recipes."
+      ),
+      {
+        heading: "Common Fluid Ounces to Millilitres",
+        table: {
+          headers: ["Fluid Ounces", "Millilitres"],
+          rows: [
+            ["1 oz", "29.57 ml"],
+            ["4 oz", "118.29 ml"],
+            ["8 oz", "236.59 ml"],
+            ["12 oz", "354.88 ml"],
+            ["16 oz (1 pint)", "473.18 ml"],
+            ["24 oz", "709.76 ml"],
+            ["32 oz (1 quart)", "946.35 ml"],
+            ["64 oz", "1892.71 ml"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is this fl oz or weight oz?",
+        "fl oz (fluid, volume). For weight ounces (oz, used for solids), see [Ounces to Grams](/oz-to-grams). They happen to be roughly equal for water (1 fl oz of water weighs about 1 oz) but differ for everything else."
+      ),
+      createFAQ(
+        "Quick mental math?",
+        "Multiply by 30. 8 oz × 30 = 240 ml (true value 237 ml, within 1.5%). Good enough for kitchen use. Use 29.57 for precise pharmaceutical or scientific work."
+      ),
+    ],
+    relatedTools: [
+      { slug: "ml-to-oz", label: "Millilitres to Fluid Ounces" },
+      { slug: "fl-oz-to-ml", label: "Fluid Ounces to Millilitres" },
+      { slug: "cups-to-ml", label: "Cups to Millilitres" },
+    ],
+  },
+
+  "ml-to-oz": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Millilitres to Fluid Ounces",
+        "1 ml = 0.0338 US fluid ounces. Divide ml by 29.57 to get US fl oz, or by 28.41 for UK fl oz. So 500 ml ÷ 29.57 = 16.91 US fl oz. The conversion is most useful when reading European liquid measurements (wine, oil, sauce bottles) and translating to American fluid ounce equivalents.",
+        "Common bottles and what they convert to: 750 ml wine = 25.36 fl oz, 500 ml beer = 16.91 fl oz, 330 ml can = 11.16 fl oz, 100 ml = 3.38 fl oz. UK milk in 1-litre cartons = 33.81 US fl oz. Useful for adapting recipes that specify metric ml to US fl oz traditional kitchen tools."
+      ),
+      {
+        heading: "Common Millilitres to Fluid Ounces",
+        table: {
+          headers: ["Millilitres", "US Fluid Ounces"],
+          rows: [
+            ["50 ml", "1.69 fl oz"],
+            ["100 ml", "3.38 fl oz"],
+            ["250 ml", "8.45 fl oz"],
+            ["330 ml", "11.16 fl oz"],
+            ["500 ml", "16.91 fl oz"],
+            ["750 ml", "25.36 fl oz"],
+            ["1000 ml (1 L)", "33.81 fl oz"],
+            ["1500 ml", "50.72 fl oz"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do labels show both ml and fl oz?",
+        "International product packaging often shows both for global compatibility. A US-imported wine in UK shows '750 ml' and '25.4 fl oz' or similar. The fl oz value is for American consumers; ml for everyone else."
+      ),
+      createFAQ(
+        "Can I convert via cups?",
+        "Yes. 1 cup = 240 ml = 8 fl oz. So divide ml by 240 to get cups, then multiply by 8 to get fl oz. Or divide ml directly by 29.57 to get fl oz - one step, same answer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "oz-to-ml", label: "Fluid Ounces to Millilitres" },
+      { slug: "ml-to-fl-oz", label: "Millilitres to Fluid Ounces" },
+      { slug: "ml-to-cups", label: "Millilitres to Cups" },
+    ],
+  },
+
+  "miles-to-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Miles to Metres",
+        "1 mile = 1609.344 metres exactly. Multiply miles by 1609.344 to get metres. So 1 mile = 1,609 m, 5 miles = 8,047 m. The international mile has been defined as exactly 1,609.344 m since the 1959 international yard and pound agreement.",
+        "Less common than miles-to-km (which gives a smaller, more readable number) but useful for athletics where event distances are sometimes specified in miles but tracks/measurements use metres. A mile race on a 400 m track is exactly 4 laps + 9.344 m. That extra 9.34 m is why the 1500 m race is preferred over the mile in metric athletics meets."
+      ),
+      {
+        heading: "Common Miles to Metres",
+        table: {
+          headers: ["Miles", "Metres"],
+          rows: [
+            ["1 mile", "1609 m"],
+            ["2 miles", "3219 m"],
+            ["3 miles", "4828 m"],
+            ["5 miles", "8047 m"],
+            ["10 miles", "16093 m"],
+            ["13.1 miles (half)", "21082 m"],
+            ["26.2 miles (mar.)", "42164 m"],
+            ["100 miles", "160934 m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many metres in a 5-mile race?",
+        "5 miles = 8,047 m, or 8.047 km. Common road race distance in the UK and US, slightly shorter than a 10K (which is 6.21 miles)."
+      ),
+      createFAQ(
+        "Why use metres instead of km?",
+        "Metres for short-distance precision (track athletics, race walks). Kilometres for long-distance readability (road races, driving distances). Both are SI; metres is the base unit, km is just metres × 1000."
+      ),
+    ],
+    relatedTools: [
+      { slug: "metres-to-miles", label: "Metres to Miles" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "metres-to-miles": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Metres to Miles",
+        "1 metre = 0.000621 miles. Divide metres by 1609.344 (or multiply by 0.000621) to get miles. So 5,000 m ÷ 1609 = 3.11 miles. The cleanest way to convert is via km first (m → km → miles): divide by 1000, then divide by 1.609.",
+        "Used for converting athletic distances or scientific measurements expressed in metres into mile-based contexts. A 400 m track lap = 0.249 miles. A 10,000 m run = 6.21 miles. The Mariana Trench is 10,994 m deep = 6.83 miles."
+      ),
+      {
+        heading: "Common Metres to Miles",
+        table: {
+          headers: ["Metres", "Miles"],
+          rows: [
+            ["100 m", "0.062 mi"],
+            ["400 m", "0.249 mi"],
+            ["1000 m", "0.621 mi"],
+            ["1609 m", "1 mi"],
+            ["5000 m", "3.107 mi"],
+            ["10000 m", "6.214 mi"],
+            ["21097 m (half)", "13.109 mi"],
+            ["42195 m (mar.)", "26.219 mi"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many laps of a 400 m track is a mile?",
+        "4 laps = 1600 m, just 9 m short of an actual mile. Some tracks have a 'mile mark' painted slightly past the 4-lap line. The IAAF's metric 1500 m race (3.75 laps) is preferred over the mile for major international meets."
+      ),
+      createFAQ(
+        "Why isn't the metre used for road distance?",
+        "Awkward numbers. A road sign saying '5,000 metres' is harder to read than '5 km' - same distance, cleaner display. Metres are used for short distances; km for longer."
+      ),
+    ],
+    relatedTools: [
+      { slug: "miles-to-metres", label: "Miles to Metres" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+    ],
+  },
+
+  "ounces-to-kg": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Ounces to Kilograms",
+        "1 oz = 0.02835 kg. Divide ounces by 35.274 (or multiply by 0.02835) to get kilograms. So 100 oz ÷ 35.274 = 2.83 kg. This combines two conversions (oz → grams → kg) into one step. Cleanest for larger weights; small ounce values produce very small kg values better expressed in grams.",
+        "Most useful when reading large American-weight specifications (shipping weights, agricultural produce) and translating to metric. A 16 oz package = 0.45 kg = 454 g. A 32 oz tub of yoghurt = 0.91 kg. A 50 oz bag of dog food = 1.42 kg."
+      ),
+      {
+        heading: "Common Ounces to Kilograms",
+        table: {
+          headers: ["Ounces", "Kilograms"],
+          rows: [
+            ["8 oz", "0.23 kg"],
+            ["16 oz (1 lb)", "0.45 kg"],
+            ["32 oz (2 lb)", "0.91 kg"],
+            ["48 oz", "1.36 kg"],
+            ["64 oz (4 lb)", "1.81 kg"],
+            ["100 oz", "2.83 kg"],
+            ["160 oz (10 lb)", "4.54 kg"],
+            ["320 oz (20 lb)", "9.07 kg"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I convert via lbs or directly?",
+        "Either works. Direct: divide oz by 35.274. Via lbs: oz ÷ 16 = lbs, lbs × 0.4536 = kg. Same answer; via-lbs has cleaner intermediate numbers (whole lbs from whole oz multiples of 16)."
+      ),
+      createFAQ(
+        "Why does this conversion have decimals?",
+        "Because the oz-to-kg ratio (0.02835) isn't a clean number. The avoirdupois ounce wasn't designed to align with metric. Going via grams (1 oz = 28.35 g) is sometimes more intuitive."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kg-to-ounces", label: "Kilograms to Ounces" },
+      { slug: "lbs-to-kg", label: "Pounds to Kilograms" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "sticks-butter-to-grams": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Stick of Butter?",
+        "A stick of butter (US) is 1/2 cup = 8 tbsp = 4 oz = 113 grams. American butter is sold in 1-lb (453 g) packages divided into 4 sticks of 113 g each, with tablespoon markings on the wrapper for easy partial-stick measurement. UK and Australian butter is sold in 250 g blocks without stick divisions.",
+        "When a US recipe calls for '1 stick of butter,' substitute 113 g (or roughly 100-115 g for non-precision baking). 2 sticks = 226 g, close to a UK 250 g block (within 10%). 4 sticks = 453 g = 1 lb. The difference between 113 g (1 US stick) and 125 g (a UK quarter-block) is small enough that most baking recipes survive the swap."
+      ),
+      {
+        heading: "Sticks of Butter to Grams",
+        table: {
+          headers: ["Sticks", "Grams", "Cups"],
+          rows: [
+            ["1/4 stick", "28 g", "1/16 cup"],
+            ["1/2 stick", "57 g", "1/4 cup"],
+            ["1 stick", "113 g", "1/2 cup"],
+            ["1.5 sticks", "170 g", "3/4 cup"],
+            ["2 sticks", "227 g", "1 cup"],
+            ["3 sticks", "340 g", "1.5 cups"],
+            ["4 sticks (1 lb)", "453 g", "2 cups"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why doesn't UK butter come in sticks?",
+        "Different packaging tradition. UK butter is sold in 250 g blocks (sometimes 500 g). The US packaging convention dates to the 1880s; UK never adopted it. Both work; sticks are slightly more convenient for measuring partial amounts via tbsp markings."
+      ),
+      createFAQ(
+        "How much salt is in salted vs unsalted?",
+        "US salted butter: about 1.5-2% salt by weight (so a 113 g stick has 1.7-2.3 g salt). UK salted: similar 1.5-2%. Recipes calling for unsalted butter assume you'll add salt separately to control total seasoning."
+      ),
+    ],
+    relatedTools: [
+      { slug: "cups-to-grams", label: "Cups to Grams" },
+      { slug: "tbsp-to-ml", label: "Tablespoons to Millilitres" },
+      { slug: "oz-to-grams", label: "Ounces to Grams" },
+    ],
+  },
+
+  "gas-mark-to-celsius": {
+    sections: [
+      createAnswerFirstSection(
+        "How British Gas Marks Translate to °C",
+        "Older UK ovens use Gas Marks instead of degrees: Gas Mark 1 = 140 °C, Mark 2 = 150 °C, Mark 3 = 170 °C, Mark 4 = 180 °C, Mark 5 = 190 °C, Mark 6 = 200 °C, Mark 7 = 220 °C, Mark 8 = 230 °C, Mark 9 = 240 °C. Each mark step is roughly 10-25 °C. Modern UK ovens show °C primarily; gas marks are now the secondary scale.",
+        "Recipe conversion: a gas oven 'preheat to Mark 6' = 200 °C, equivalent to a 'moderate to hot' setting. Mark 4 = 180 °C is the most common baking temperature (cakes, biscuits). Mark 7 = 220 °C is for breads and quick-roast vegetables. Mark 1 = 140 °C is for slow-cooking, casseroles, low-and-slow roasts."
+      ),
+      {
+        heading: "Gas Mark to Celsius (and Fahrenheit)",
+        table: {
+          headers: ["Gas Mark", "°C", "°F"],
+          rows: [
+            ["1/4", "110 °C", "225 °F"],
+            ["1/2", "130 °C", "250 °F"],
+            ["1", "140 °C", "275 °F"],
+            ["2", "150 °C", "300 °F"],
+            ["3", "170 °C", "325 °F"],
+            ["4", "180 °C", "350 °F"],
+            ["5", "190 °C", "375 °F"],
+            ["6", "200 °C", "400 °F"],
+            ["7", "220 °C", "425 °F"],
+            ["8", "230 °C", "450 °F"],
+            ["9", "240 °C", "475 °F"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do gas ovens use Marks not °C?",
+        "Pre-electronic gas ovens couldn't easily display precise temperatures, so a numbered scale (1-9) was used. The Mark system was standardised by British Gas in the 1950s. Modern gas ovens show °C; Mark labels persist for older recipes and oven dials."
+      ),
+      createFAQ(
+        "Should I reduce temperature for fan/convection ovens?",
+        "Yes - reduce by 20 °C from the recipe's stated temperature. A recipe specifying 200 °C should be set to 180 °C in a fan oven. Same temperature transfer to food, less browning. The Mark equivalent is roughly one mark down (Mark 6 → Mark 5)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "celsius-to-fahrenheit", label: "Celsius to Fahrenheit" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+      { slug: "oven-temperature-converter", label: "Oven Temperature Converter" },
+    ],
+  },
+
+  "fahrenheit-to-kelvin": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Fahrenheit to Kelvin",
+        "Two-step conversion. First convert F to C: °C = (°F - 32) × 5/9. Then add 273.15 for K. Combined formula: K = (°F + 459.67) × 5/9. So 70 °F: (70 + 459.67) × 5/9 = 294.26 K.",
+        "Used in scientific contexts where Fahrenheit-measured data needs conversion to absolute temperature for calculations. Astronomy and physics commonly require kelvin. Standard room temperature 70 °F = 294 K. Body temperature 98.6 °F = 310 K. Boiling water 212 °F = 373 K."
+      ),
+      {
+        heading: "Common Fahrenheit to Kelvin",
+        table: {
+          headers: ["Fahrenheit", "Kelvin"],
+          rows: [
+            ["-460 °F (~abs zero)", "0 K"],
+            ["0 °F", "255.37 K"],
+            ["32 °F (freezing)", "273.15 K"],
+            ["70 °F (room)", "294.26 K"],
+            ["98.6 °F (body)", "310.15 K"],
+            ["100 °F", "310.93 K"],
+            ["212 °F (boiling)", "373.15 K"],
+            ["1000 °F", "810.93 K"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why convert F to K directly?",
+        "Saves a step in scientific work. Most measurements done in Fahrenheit (US lab equipment) sometimes need direct K conversion for thermodynamic calculations. The combined formula K = (°F + 459.67) × 5/9 is faster than going via Celsius."
+      ),
+      createFAQ(
+        "What's absolute zero in Fahrenheit?",
+        "-459.67 °F. Below this, no thermal motion. Theoretical lower bound for temperature in any unit. In Celsius: -273.15 °C. In Kelvin: 0 K."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kelvin-to-fahrenheit", label: "Kelvin to Fahrenheit" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+      { slug: "celsius-to-kelvin", label: "Celsius to Kelvin" },
+    ],
+  },
+
+  "kelvin-to-fahrenheit": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kelvin to Fahrenheit",
+        "Two-step: K to C (subtract 273.15), then C to F (multiply by 9/5, add 32). Combined formula: °F = K × 9/5 - 459.67. So 300 K × 9/5 - 459.67 = 80.33 °F.",
+        "Used when interpreting scientific temperatures (often given in K) for everyday Fahrenheit context. The Sun's surface is about 5,778 K = 9,941 °F. The cosmic microwave background is 2.7 K = -454.81 °F. Liquid nitrogen boils at 77 K = -321 °F."
+      ),
+      {
+        heading: "Common Kelvin to Fahrenheit",
+        table: {
+          headers: ["Kelvin", "Fahrenheit"],
+          rows: [
+            ["0 K", "-459.67 °F"],
+            ["100 K", "-279.67 °F"],
+            ["200 K", "-99.67 °F"],
+            ["273.15 K", "32 °F"],
+            ["294 K", "69.53 °F"],
+            ["310 K", "98.33 °F"],
+            ["373.15 K", "212 °F"],
+            ["1000 K", "1340.33 °F"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How hot is liquid nitrogen?",
+        "Liquid nitrogen boils at 77.36 K = -195.79 °C = -320.4 °F. So storing things in 'liquid nitrogen' means at -195 °C. Used in cryogenic preservation, food freezing, and some industrial processes."
+      ),
+      createFAQ(
+        "What's the temperature inside the Sun?",
+        "Surface: ~5,778 K (~9,941 °F). Core: ~15,000,000 K (~27 million °F). Solar fusion happens at the core's high temperature. Sun's surface is what we see; the corona above is hotter (~1-2 million K)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "fahrenheit-to-kelvin", label: "Fahrenheit to Kelvin" },
+      { slug: "kelvin-to-celsius", label: "Kelvin to Celsius" },
+      { slug: "fahrenheit-to-celsius", label: "Fahrenheit to Celsius" },
+    ],
+  },
+
+  "square-feet-to-square-metres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Feet to Square Metres",
+        "1 sq ft = 0.0929 sq m. Multiply square feet by 0.0929 (or divide by 10.764). So 1,000 sq ft × 0.0929 = 92.9 sq m. The square-metre value comes from squaring the metre-foot conversion: 1 ft = 0.3048 m, so 1 sq ft = 0.3048² = 0.09290304 sq m.",
+        "Most common context: real estate. American property listings show square feet; international/UK listings show square metres. A typical 2,000 sq ft American house = 186 sq m, comparable to a UK '186 m² house' (large 4-bedroom). A 1,200 sq ft apartment = 111 sq m."
+      ),
+      {
+        heading: "Common Square Feet to Square Metres",
+        table: {
+          headers: ["Square Feet", "Square Metres"],
+          rows: [
+            ["100 sq ft", "9.29 sq m"],
+            ["500 sq ft", "46.45 sq m"],
+            ["750 sq ft", "69.68 sq m"],
+            ["1000 sq ft", "92.90 sq m"],
+            ["1500 sq ft", "139.35 sq m"],
+            ["2000 sq ft", "185.81 sq m"],
+            ["3000 sq ft", "278.71 sq m"],
+            ["5000 sq ft", "464.52 sq m"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is a typical UK 1-bed flat?",
+        "Typically 30-50 sq m = 323-538 sq ft. UK new-builds often around 35 sq m for 1-bed, 60 sq m for 2-bed. American 1-bed apartments often 600-800 sq ft = 56-74 sq m, slightly larger than UK norms."
+      ),
+      createFAQ(
+        "How does this affect property pricing?",
+        "Price per square metre or per square foot is the standard normalised property metric. UK prices typically £4,000-£12,000/sq m in major cities. US prices typically $200-$1,000/sq ft, varies hugely by city. Compare via /sq m for international standardisation."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-metres-to-square-feet", label: "Square Metres to Square Feet" },
+      { slug: "acres-to-hectares", label: "Acres to Hectares" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
+
+  "square-metres-to-square-feet": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Square Metres to Square Feet",
+        "1 sq m = 10.764 sq ft. Multiply square metres by 10.764 (or divide by 0.0929). So 100 sq m × 10.764 = 1,076 sq ft. The factor is the square of the metre-foot conversion: (3.2808)² = 10.7639.",
+        "Useful for converting European real estate listings to American square footage. A typical 100 sq m UK flat = 1,076 sq ft, a comfortable 2-bed apartment by US standards. A 200 sq m house = 2,153 sq ft, mid-size US suburban home. Hotel rooms internationally often listed in sq m; US hotels typically in sq ft."
+      ),
+      {
+        heading: "Common Square Metres to Square Feet",
+        table: {
+          headers: ["Square Metres", "Square Feet"],
+          rows: [
+            ["10 sq m", "107.64 sq ft"],
+            ["25 sq m", "269.10 sq ft"],
+            ["50 sq m", "538.20 sq ft"],
+            ["75 sq m", "807.29 sq ft"],
+            ["100 sq m", "1076.39 sq ft"],
+            ["150 sq m", "1614.59 sq ft"],
+            ["200 sq m", "2152.78 sq ft"],
+            ["300 sq m", "3229.17 sq ft"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why are UK flats smaller than US apartments?",
+        "Land scarcity and density. UK new-build minimum standards (since 2015 in London) are 37 sq m for 1-bed, 50 sq m for 2-bed. US apartments often 60+ sq m for 1-bed, 80+ sq m for 2-bed. Big urban differences too: NYC apartments smaller than typical Texas equivalents."
+      ),
+      createFAQ(
+        "Does sq m include common areas?",
+        "Depends on listing. Some show 'gross internal area' (within walls), some include corridor allotments, some include exterior balconies. Always check what's measured. UK uses NIA (Net Internal Area) standard for flats; US sometimes includes hall/lobby floor area."
+      ),
+    ],
+    relatedTools: [
+      { slug: "square-feet-to-square-metres", label: "Square Feet to Square Metres" },
+      { slug: "hectares-to-acres", label: "Hectares to Acres" },
+      { slug: "metres-to-feet", label: "Metres to Feet" },
+    ],
+  },
+
+  "acres-to-hectares": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Acres to Hectares",
+        "1 acre = 0.405 hectares. Multiply acres by 0.4047 to get hectares. So 100 acres × 0.4047 = 40.47 ha. The hectare (10,000 sq m = 100 m × 100 m) is the standard metric unit for land area; the acre is the imperial counterpart.",
+        "Used for international land transactions, agriculture, and conservation reporting. A typical UK farm: 200-500 acres = 81-202 ha. A residential estate: 1-5 acres = 0.4-2 ha. Central Park NYC = 843 acres = 341 ha. Agricultural pricing per hectare or acre varies hugely by location and use."
+      ),
+      {
+        heading: "Common Acres to Hectares",
+        table: {
+          headers: ["Acres", "Hectares"],
+          rows: [
+            ["0.5 acre", "0.20 ha"],
+            ["1 acre", "0.40 ha"],
+            ["2.5 acres", "1.01 ha"],
+            ["5 acres", "2.02 ha"],
+            ["10 acres", "4.05 ha"],
+            ["25 acres", "10.12 ha"],
+            ["100 acres", "40.47 ha"],
+            ["1000 acres", "404.69 ha"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is 1 acre 0.4 hectares?",
+        "Historical accident. The acre was originally 'as much land as a yoke of oxen could plough in one day' - eventually standardised at 4,840 sq yards = 43,560 sq ft. The hectare is purely metric (100 × 100 m). Their ratio (0.4047) reflects the imperial-metric differences in linear units squared."
+      ),
+      createFAQ(
+        "What's a typical farm size?",
+        "UK average farm: 86 ha = 213 acres. US average farm: 446 acres = 180 ha. Australian average farm: vast - 4,330 ha = 10,700 acres typical due to outback grazing. Sizes vary enormously by farm type and country."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hectares-to-acres", label: "Hectares to Acres" },
+      { slug: "square-feet-to-square-metres", label: "Square Feet to Square Metres" },
+      { slug: "square-miles-to-square-km", label: "Square Miles to Square Km" },
+    ],
+  },
+
+  "hectares-to-acres": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Hectares to Acres",
+        "1 hectare = 2.471 acres. Multiply hectares by 2.471 to get acres. So 100 ha × 2.471 = 247.1 acres. The hectare is 10,000 square metres, defined to match a 100m × 100m square, the basic unit of land in metric countries.",
+        "Useful for translating European agricultural and forestry data into acre-based context. Wine industry: a small French vineyard might be 10 ha = 24.7 acres. National parks: Welsh Brecon Beacons = 134,000 ha = 331,000 acres. Agricultural land prices commonly quoted per ha in EU, per acre in US/UK rural areas."
+      ),
+      {
+        heading: "Common Hectares to Acres",
+        table: {
+          headers: ["Hectares", "Acres"],
+          rows: [
+            ["0.5 ha", "1.24 acres"],
+            ["1 ha", "2.47 acres"],
+            ["2.5 ha", "6.18 acres"],
+            ["5 ha", "12.36 acres"],
+            ["10 ha", "24.71 acres"],
+            ["25 ha", "61.78 acres"],
+            ["100 ha", "247.11 acres"],
+            ["1000 ha", "2471.05 acres"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How big is a hectare?",
+        "10,000 square metres - a 100m × 100m square. A football pitch (FIFA standard) is roughly 0.7 hectare; a city block is variable but typically 1-2 hectares. Useful baseline for visualising larger land areas."
+      ),
+      createFAQ(
+        "Are hectares used in the US?",
+        "Rarely. American real estate and farming use acres almost exclusively. Hectares appear in international export data, scientific publications, and some conservation organisations operating internationally. US Geological Survey publishes data in both."
+      ),
+    ],
+    relatedTools: [
+      { slug: "acres-to-hectares", label: "Acres to Hectares" },
+      { slug: "square-metres-to-square-feet", label: "Square Metres to Square Feet" },
+      { slug: "square-km-to-square-miles", label: "Square Km to Square Miles" },
+    ],
+  },
+
+  "mb-to-gb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MB to GB",
+        "1 GB = 1,024 MB (binary, IEC standard) or 1,000 MB (decimal, marketing standard). Most operating systems use binary (1 GB = 1,024 MB); most storage manufacturers and ISPs use decimal (1 GB = 1,000 MB), which is why a '1 TB' drive shows as 931 GB in your OS.",
+        "Practical conversion: divide MB by 1,024 (or 1,000). So 5,120 MB = 5 GB binary, or 5.12 GB decimal. The choice usually doesn't matter for ordinary use but does explain the 'missing storage' that confuses people when checking new drives. A 64 GB phone often shows ~58 GB in OS due to binary conversion plus system files."
+      ),
+      {
+        heading: "Common MB to GB",
+        table: {
+          headers: ["Megabytes", "Gigabytes (binary)", "Gigabytes (decimal)"],
+          rows: [
+            ["100 MB", "0.098 GB", "0.1 GB"],
+            ["500 MB", "0.488 GB", "0.5 GB"],
+            ["1024 MB", "1 GB", "1.024 GB"],
+            ["2048 MB", "2 GB", "2.048 GB"],
+            ["5120 MB", "5 GB", "5.12 GB"],
+            ["10240 MB", "10 GB", "10.24 GB"],
+            ["51200 MB", "50 GB", "51.2 GB"],
+            ["102400 MB", "100 GB", "102.4 GB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my new 500 GB drive show as 465 GB?",
+        "The drive manufacturer used decimal (1 GB = 10^9 bytes), but your OS uses binary (1 GiB = 2^30 bytes = 1.074 × 10^9 bytes). 500 × 10^9 / 2^30 = 465.66 GiB. The 'missing' 35 GB is real to the marketing definition; the binary GiB is what your OS reports."
+      ),
+      createFAQ(
+        "Should I use MB or MiB?",
+        "Strictly, MiB (mebibyte = 2^20) = 1,048,576 bytes. MB (megabyte) usually = 10^6 = 1,000,000 bytes (decimal). Most consumers use MB for both; technically rigorous specifications use MiB for binary."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gb-to-mb", label: "GB to MB" },
+      { slug: "kb-to-mb", label: "KB to MB" },
+      { slug: "gb-to-tb", label: "GB to TB" },
+    ],
+  },
+
+  "gb-to-mb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert GB to MB",
+        "1 GB = 1,024 MB (binary) or 1,000 MB (decimal). Multiply GB by 1,024 (or 1,000). So 5 GB = 5,120 MB binary, or 5,000 MB decimal. The operating system standard is binary (1 GB = 1,024 MB), so when you see a file's actual size after download, it usually shows MB in binary terms.",
+        "Useful when planning storage usage for video files, large datasets, or game installs. A typical 1080p movie is 4-8 GB = 4,096-8,192 MB. A modern game is 50-150 GB = 51,200-153,600 MB. Cloud storage purchases often quote in GB; downloads complete and report progress in MB."
+      ),
+      {
+        heading: "Common GB to MB",
+        table: {
+          headers: ["Gigabytes", "Megabytes (binary)", "Megabytes (decimal)"],
+          rows: [
+            ["0.5 GB", "512 MB", "500 MB"],
+            ["1 GB", "1024 MB", "1000 MB"],
+            ["2 GB", "2048 MB", "2000 MB"],
+            ["5 GB", "5120 MB", "5000 MB"],
+            ["10 GB", "10240 MB", "10000 MB"],
+            ["25 GB", "25600 MB", "25000 MB"],
+            ["50 GB", "51200 MB", "50000 MB"],
+            ["100 GB", "102400 MB", "100000 MB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many MB in a movie?",
+        "Highly variable. A 1080p movie from a streaming service compressed: 4-8 GB. A 4K movie: 25-100 GB. A blu-ray rip: 30-50 GB. Downloads quoted in GB; progress and speed often shown in MB/sec."
+      ),
+      createFAQ(
+        "What's the difference between MB/s and Mbps?",
+        "Megabytes per second vs megabits per second. 1 byte = 8 bits, so 100 Mbps = 12.5 MB/s. Internet speeds are typically advertised in Mbps; download progress shown in MB/s. Watch the case - 'MB' (capital B) is megabyte; 'Mb' (lowercase) is megabit."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mb-to-gb", label: "MB to GB" },
+      { slug: "gb-to-tb", label: "GB to TB" },
+      { slug: "kb-to-mb", label: "KB to MB" },
+    ],
+  },
+
+  "gb-to-tb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert GB to TB",
+        "1 TB = 1,024 GB (binary) or 1,000 GB (decimal). Divide GB by 1,024 (or 1,000) to get TB. So 2,048 GB = 2 TB binary, or 2.048 TB decimal. As with all data conversions, OS and consumer/marketing usage diverges - drives marketed as '1 TB' actually deliver 0.91 TiB (931 GiB) in OS terms.",
+        "Useful for planning large storage purchases. A 4 TB external drive holds about 4,000 GB of files (decimal) or 3,725 GiB in OS view (binary). Cloud storage commonly purchased in TB increments (1 TB iCloud, 2 TB Google One). Personal media archives can grow into TB territory quickly with 4K video."
+      ),
+      {
+        heading: "Common GB to TB",
+        table: {
+          headers: ["Gigabytes", "Terabytes (binary)", "Terabytes (decimal)"],
+          rows: [
+            ["100 GB", "0.098 TB", "0.1 TB"],
+            ["512 GB", "0.5 TB", "0.512 TB"],
+            ["1024 GB", "1 TB", "1.024 TB"],
+            ["2048 GB", "2 TB", "2.048 TB"],
+            ["4096 GB", "4 TB", "4.096 TB"],
+            ["8192 GB", "8 TB", "8.192 TB"],
+            ["10240 GB", "10 TB", "10.24 TB"],
+            ["20480 GB", "20 TB", "20.48 TB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What can I store in 1 TB?",
+        "About 250,000 photos at 4 MB each, or 250 hours of HD video, or 200 typical games (50 GB average), or about 500,000 documents. Modern phones can shoot 100 GB of 4K video per hour, so a TB holds about 10 hours of 4K phone footage."
+      ),
+      createFAQ(
+        "Are SSD and HDD storage measured the same?",
+        "Yes - both use the same GB/TB measurements. SSDs are typically smaller capacity per dollar but much faster. Modern SSDs and HDDs both use the decimal marketing standard (TB = 10^12 bytes), so a '1 TB SSD' and a '1 TB HDD' have nominally the same capacity."
+      ),
+    ],
+    relatedTools: [
+      { slug: "tb-to-gb", label: "TB to GB" },
+      { slug: "mb-to-gb", label: "MB to GB" },
+      { slug: "gb-to-mb", label: "GB to MB" },
+    ],
+  },
+
+  "tb-to-gb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert TB to GB",
+        "1 TB = 1,024 GB (binary) or 1,000 GB (decimal). Multiply TB by 1,024 (or 1,000). So 5 TB = 5,120 GB binary, or 5,000 GB decimal. The binary value is what your OS reports; the decimal is what the manufacturer puts on the box.",
+        "Useful when purchasing storage and planning capacity. A 2 TB drive marketed by capacity = 2,000 GB decimal = 1,863 GB binary as your OS will show it. The 137 GB difference is real - your OS files don't see capacity that the manufacturer labelled."
+      ),
+      {
+        heading: "Common TB to GB",
+        table: {
+          headers: ["Terabytes", "Gigabytes (binary)", "Gigabytes (decimal)"],
+          rows: [
+            ["0.5 TB", "512 GB", "500 GB"],
+            ["1 TB", "1024 GB", "1000 GB"],
+            ["2 TB", "2048 GB", "2000 GB"],
+            ["3 TB", "3072 GB", "3000 GB"],
+            ["4 TB", "4096 GB", "4000 GB"],
+            ["8 TB", "8192 GB", "8000 GB"],
+            ["12 TB", "12288 GB", "12000 GB"],
+            ["20 TB", "20480 GB", "20000 GB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Should I buy a TB drive or multiple GB drives?",
+        "TB drives almost always cheaper per GB at consumer level. A 4 TB drive often costs less than 4× a 1 TB drive. Multiple smaller drives offer redundancy through RAID setups - 2× 4 TB drives in RAID 1 give 4 TB usable plus mirroring."
+      ),
+      createFAQ(
+        "What's a petabyte?",
+        "1 PB = 1,024 TB (binary) or 1,000 TB (decimal). Mostly relevant in enterprise/data-center contexts. Personal storage rarely reaches PB scale. Massive media archives (video production studios, scientific research) can be in PB."
+      ),
+    ],
+    relatedTools: [
+      { slug: "gb-to-tb", label: "GB to TB" },
+      { slug: "gb-to-mb", label: "GB to MB" },
+      { slug: "mb-to-gb", label: "MB to GB" },
+    ],
+  },
+
+  "kb-to-mb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert KB to MB",
+        "1 MB = 1,024 KB (binary) or 1,000 KB (decimal). Divide KB by 1,024 (or 1,000) to get MB. So 5,120 KB = 5 MB binary. Most software uses binary, so a 5 MB attachment is technically 5,120 KB by file system measurement.",
+        "Useful for understanding email attachment limits, image file sizes, and document storage. A typical email-friendly image is 50-500 KB = 0.05-0.5 MB. A pdf document averages 200 KB - 2 MB depending on content. Email providers typically cap attachments at 25 MB = 25,600 KB."
+      ),
+      {
+        heading: "Common KB to MB",
+        table: {
+          headers: ["Kilobytes", "Megabytes (binary)", "Megabytes (decimal)"],
+          rows: [
+            ["100 KB", "0.098 MB", "0.1 MB"],
+            ["500 KB", "0.488 MB", "0.5 MB"],
+            ["1024 KB", "1 MB", "1.024 MB"],
+            ["2048 KB", "2 MB", "2.048 MB"],
+            ["5120 KB", "5 MB", "5.12 MB"],
+            ["10240 KB", "10 MB", "10.24 MB"],
+            ["25600 KB", "25 MB", "25.6 MB"],
+            ["51200 KB", "50 MB", "51.2 MB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's a typical photo file size?",
+        "JPEG from phone camera: 2-5 MB = 2,048-5,120 KB. RAW files: 10-50 MB. Compressed for web: 50-500 KB. Compressed for email: under 1 MB usually fine. Compression matters - same photo can range 100x in file size depending on compression settings."
+      ),
+      createFAQ(
+        "Why do file sizes round oddly?",
+        "Binary vs decimal interpretation differences. A 'truly 1 MB' file (1,000,000 bytes decimal) shows as 0.95 MB binary. A 'truly 1 MiB' file (1,048,576 bytes binary) shows as 1.05 MB decimal. Round numbers in one system are awkward in the other."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mb-to-kb", label: "MB to KB" },
+      { slug: "mb-to-gb", label: "MB to GB" },
+      { slug: "bits-to-bytes", label: "Bits to Bytes" },
+    ],
+  },
+
+  "mb-to-kb": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MB to KB",
+        "1 MB = 1,024 KB (binary) or 1,000 KB (decimal). Multiply MB by 1,024 (or 1,000). So 25 MB = 25,600 KB binary, or 25,000 KB decimal. Most operating systems and software use binary, so the 1,024 multiplier is the standard.",
+        "Useful when working with very small files (icons, web favicons, simple text documents) or when a system reports sizes in MB but you need KB resolution. A 1 MB email attachment = 1,024 KB. A small 100 KB PDF = 0.097 MB. A standard 2 MB photo = 2,048 KB."
+      ),
+      {
+        heading: "Common MB to KB",
+        table: {
+          headers: ["Megabytes", "Kilobytes (binary)", "Kilobytes (decimal)"],
+          rows: [
+            ["0.1 MB", "102.4 KB", "100 KB"],
+            ["0.5 MB", "512 KB", "500 KB"],
+            ["1 MB", "1024 KB", "1000 KB"],
+            ["2 MB", "2048 KB", "2000 KB"],
+            ["5 MB", "5120 KB", "5000 KB"],
+            ["10 MB", "10240 KB", "10000 KB"],
+            ["25 MB", "25600 KB", "25000 KB"],
+            ["100 MB", "102400 KB", "100000 KB"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How small can I make a photo?",
+        "Compressed JPEG can drop to 50-100 KB and still look acceptable for web display. Below 50 KB, visible quality loss appears. Original camera photos are typically 2-5 MB; aggressive web optimization can take them to 100-200 KB."
+      ),
+      createFAQ(
+        "What's a kilobyte good for?",
+        "Plain text documents (1 KB ≈ 1,000 characters). Small icons. CSS files. Simple data files. Email body text. The KB is the practical unit for these small file types."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kb-to-mb", label: "KB to MB" },
+      { slug: "mb-to-gb", label: "MB to GB" },
+      { slug: "bytes-to-bits", label: "Bytes to Bits" },
+    ],
+  },
+
+  "bits-to-bytes": {
+    sections: [
+      createAnswerFirstSection(
+        "Bits and Bytes - 8:1 Ratio",
+        "1 byte = 8 bits. Divide bits by 8 to get bytes. So 1,024 bits = 128 bytes; 1 megabit = 125,000 bytes (1 million ÷ 8) = 122 KB binary. The byte is 8 bits because that's the historical word size of early computers (and a clean 256 = 2^8 unique values per byte).",
+        "Most useful for understanding internet speed claims. ISPs advertise speeds in megabits per second (Mbps); files download at megabytes per second (MB/s). 100 Mbps = 12.5 MB/s. So a 100 Mbps connection downloads a 1 GB file in about 80 seconds (1,024 MB ÷ 12.5 MB/s)."
+      ),
+      {
+        heading: "Common Bits to Bytes",
+        table: {
+          headers: ["Bits", "Bytes"],
+          rows: [
+            ["8 bits", "1 byte"],
+            ["16 bits", "2 bytes"],
+            ["32 bits", "4 bytes"],
+            ["64 bits", "8 bytes"],
+            ["1000 bits (1 kbit)", "125 bytes"],
+            ["1 megabit (1 Mbit)", "125000 bytes (125 KB)"],
+            ["1 gigabit", "125 megabytes"],
+            ["10 gigabits", "1.25 gigabytes"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do ISPs use Mbps instead of MB/s?",
+        "Marketing - bigger numbers look better. 100 Mbps is the same speed as 12.5 MB/s; the Mbps figure is 8x larger. Most internet quality discussions and review sites translate to MB/s for the practical 'how fast files download' picture."
+      ),
+      createFAQ(
+        "What's a 64-bit operating system?",
+        "Refers to processor word size - 64-bit CPUs handle 64 bits (8 bytes) of memory address per operation, supporting much more RAM than 32-bit (4 bytes) systems. All modern desktops and phones are 64-bit; 32-bit systems are mostly legacy."
+      ),
+    ],
+    relatedTools: [
+      { slug: "bytes-to-bits", label: "Bytes to Bits" },
+      { slug: "kb-to-mb", label: "KB to MB" },
+      { slug: "mb-to-gb", label: "MB to GB" },
+    ],
+  },
+
+  "bytes-to-bits": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Bytes to Bits",
+        "1 byte = 8 bits. Multiply bytes by 8 to get bits. So 100 bytes = 800 bits. The relationship is fixed across all computing systems - the byte was historically defined as 8 bits when 8-bit microprocessors became standard in the 1970s.",
+        "Used mainly when crossing between data storage measurements (which use bytes) and data transmission rates (which use bits). A 10 MB file = 80 megabits. Transmitted on a 100 megabit per second connection, that's 0.8 seconds of theoretical speed (real world: 1-2x slower due to overhead)."
+      ),
+      {
+        heading: "Common Bytes to Bits",
+        table: {
+          headers: ["Bytes", "Bits"],
+          rows: [
+            ["1 byte", "8 bits"],
+            ["10 bytes", "80 bits"],
+            ["100 bytes", "800 bits"],
+            ["1024 bytes (1 KB)", "8192 bits (8 kbits)"],
+            ["1 MB", "8 megabits"],
+            ["1 GB", "8 gigabits"],
+            ["1 TB", "8 terabits"],
+            ["1 PB", "8 petabits"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How does 'bit' relate to 'binary'?",
+        "Bit is short for 'binary digit' - a 0 or 1. Combining 8 bits gives 256 unique combinations (2^8) which is enough to represent characters in ASCII or numbers 0-255. The byte is the smallest practically-useful storage unit; bits matter for transmission speeds and individual flag values."
+      ),
+      createFAQ(
+        "Why is 'b' lowercase for bits, capital for bytes?",
+        "Lowercase 'b' = bit. Capital 'B' = byte. So 'Mbps' (lowercase b) = megabits per second; 'MB/s' (capital B) = megabytes per second. The case distinction matters - getting it wrong off by 8x."
+      ),
+    ],
+    relatedTools: [
+      { slug: "bits-to-bytes", label: "Bits to Bytes" },
+      { slug: "mb-to-kb", label: "MB to KB" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+    ],
+  },
+
+  "hex-to-decimal": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Hexadecimal to Decimal",
+        "Hex (base 16) uses digits 0-9 and letters A-F (where A=10, B=11, C=12, D=13, E=14, F=15). To convert to decimal, multiply each digit by 16 raised to its position power (rightmost = 16^0). So 'FF' hex = (15 × 16) + (15 × 1) = 240 + 15 = 255 decimal.",
+        "Used in programming for memory addresses, color codes (#FF0000 = red), and unicode. A hex byte (00-FF) covers 0-255 in decimal. Two hex digits = 1 byte. The 6-character HTML colour codes (e.g. #2C3E50) are three byte values for red/green/blue intensity."
+      ),
+      {
+        heading: "Common Hex to Decimal",
+        table: {
+          headers: ["Hex", "Decimal"],
+          rows: [
+            ["1", "1"],
+            ["A", "10"],
+            ["F", "15"],
+            ["10", "16"],
+            ["20", "32"],
+            ["FF", "255"],
+            ["100", "256"],
+            ["FFFF", "65535"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use hex instead of binary?",
+        "Hex is more compact - one hex digit = 4 bits. So a 32-bit number is 8 hex digits vs 32 binary digits. Easier to read and write. Computer science discussions and binary file inspection routinely use hex."
+      ),
+      createFAQ(
+        "How are hex colours read?",
+        "RGB color codes use 6 hex digits: first 2 = red intensity (00-FF), next 2 = green, last 2 = blue. So #FF0000 = pure red. #00FF00 = green. #0000FF = blue. #FFFFFF = white. #000000 = black."
+      ),
+    ],
+    relatedTools: [
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+      { slug: "hex-to-rgb", label: "Hex to RGB" },
+    ],
+  },
+
+  "decimal-to-hex": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Decimal to Hexadecimal",
+        "Divide the decimal number by 16 repeatedly, recording remainders. The remainders form the hex digits (read from bottom to top). For decimal 255: 255 ÷ 16 = 15 remainder 15. 15 ÷ 16 = 0 remainder 15. Reading bottom-up: 15, 15 = 'FF' hex.",
+        "Most useful in programming, color manipulation, and data inspection. Decimal 256 = '100' in hex (just one more than 255 = FF). Decimal 65535 = 'FFFF' (two bytes, max value). Browser developer tools often show colour values in both hex and decimal RGB formats."
+      ),
+      {
+        heading: "Common Decimal to Hex",
+        table: {
+          headers: ["Decimal", "Hex"],
+          rows: [
+            ["10", "A"],
+            ["16", "10"],
+            ["32", "20"],
+            ["100", "64"],
+            ["128", "80"],
+            ["255", "FF"],
+            ["1000", "3E8"],
+            ["65535", "FFFF"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why do hex addresses look weird?",
+        "Hex digits A-F look like letters but represent values 10-15. So 'A2' hex = 162 decimal. The mix of letters and digits is the trade-off for compactness - hex packs more value per character than decimal or binary."
+      ),
+      createFAQ(
+        "Can hex be capitalised differently?",
+        "Yes - 'FF' and 'ff' are both valid hex for 255. Most conventions favour uppercase for HTML/CSS color codes (#FF0000), lowercase or mixed for programming (0xff). Both work; consistency within a codebase matters."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+      { slug: "hex-to-rgb", label: "Hex to RGB" },
+    ],
+  },
+
+  "binary-to-decimal": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Binary to Decimal",
+        "Binary (base 2) uses only 0 and 1. Each digit's value is its position raised by power of 2 (rightmost = 2^0 = 1). So binary '1011' = (1×8) + (0×4) + (1×2) + (1×1) = 11 decimal. Each binary digit (bit) doubles in value as you move left.",
+        "Used in computing fundamentals - all data is binary at the lowest level. CPU operations, network packets, file storage all happen in binary at the hardware level. Programmers occasionally convert between binary and decimal when working with bit manipulation, error codes, or low-level protocols."
+      ),
+      {
+        heading: "Common Binary to Decimal",
+        table: {
+          headers: ["Binary", "Decimal"],
+          rows: [
+            ["0", "0"],
+            ["1", "1"],
+            ["10", "2"],
+            ["100", "4"],
+            ["1010", "10"],
+            ["11111111", "255"],
+            ["10000000", "128"],
+            ["1111111111111111", "65535"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the largest 8-bit binary number?",
+        "11111111 = 255 decimal. This is one byte's maximum value. The next number (256) requires 9 bits: 100000000. The byte structure (8 bits = 0-255) is the foundation of all character encodings, RGB colour values, and many protocols."
+      ),
+      createFAQ(
+        "Why is computing binary?",
+        "Hardware reliability. A circuit can be reliably 'on' or 'off' (1 or 0) but harder to distinguish 10 voltage levels for decimal. Binary makes hardware simpler and faster. The translation from binary to decimal/hex/text happens in software for human readability."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "bits-to-bytes", label: "Bits to Bytes" },
+    ],
+  },
+
+  "number-to-roman-numerals": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Numbers to Roman Numerals",
+        "Roman numerals use seven base symbols: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. Combine them by addition (II=2, XII=12, MCC=1200) or subtraction when a smaller symbol precedes a larger one (IV=4, IX=9, XL=40, XC=90, CD=400, CM=900). The system has no zero.",
+        "Most modern uses: book/movie sequel numbering (Star Wars: Episode IV), Super Bowl labels (Super Bowl LVIII = 58), monarch names (Queen Elizabeth II), clock faces, copyright dates. Maximum standard numeric is 3999 (MMMCMXCIX); larger numbers historically used various extensions but no single accepted system."
+      ),
+      {
+        heading: "Common Numbers to Roman Numerals",
+        table: {
+          headers: ["Number", "Roman Numeral"],
+          rows: [
+            ["1", "I"],
+            ["4", "IV"],
+            ["9", "IX"],
+            ["50", "L"],
+            ["100", "C"],
+            ["500", "D"],
+            ["1000", "M"],
+            ["2024", "MMXXIV"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why no zero?",
+        "Romans didn't conceptualise zero as a number. Roman numerals predate the Arabic-Hindu zero by centuries. The lack of zero makes Roman arithmetic harder than positional decimal systems - one of the reasons for the eventual switch to Arabic numerals in Europe (around 13th century)."
+      ),
+      createFAQ(
+        "What's IIII vs IV?",
+        "Both used historically. IV is the standard subtractive form (5-1=4). IIII appears on clock faces (a stylistic exception). Both technically valid; subtractive notation (IV) became standard from the Middle Ages onwards for written numbers."
+      ),
+    ],
+    relatedTools: [
+      { slug: "roman-numerals-to-number", label: "Roman Numerals to Numbers" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+    ],
+  },
+
+  "roman-numerals-to-number": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Roman Numerals to Numbers",
+        "Add up symbol values, but subtract when a smaller symbol precedes a larger one. So MCMXC: M=1000, C before M means -100, M=1000, X before C means -10, so 1000 + (1000-100) + (100-10) = 1000 + 900 + 90 = 1990.",
+        "Useful for reading old building dates, movie sequel numbers, or pope/monarch designations. Roman numerals appear on copyright dates (MCMXC = 1990), Super Bowl events, dynasty names. The conversion isn't always linear - subtractive pairs (IV, IX, XL, XC, CD, CM) need careful reading."
+      ),
+      {
+        heading: "Common Roman Numerals to Numbers",
+        table: {
+          headers: ["Roman Numeral", "Number"],
+          rows: [
+            ["I", "1"],
+            ["X", "10"],
+            ["L", "50"],
+            ["C", "100"],
+            ["MCM", "1900"],
+            ["MMXX", "2020"],
+            ["MMXXIV", "2024"],
+            ["MMMCMXCIX", "3999"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the maximum?",
+        "Standard form: 3999 = MMMCMXCIX. Above this, no single accepted notation - some use 'M̄' (M with overbar) for 1000×1000, but this isn't standard. For numbers above 3999, modern usage typically reverts to Arabic numerals."
+      ),
+      createFAQ(
+        "Are Roman numerals still used in legal contexts?",
+        "Yes - some legal documents, book chapter numbering, and outline numbering use Roman numerals. Court cases sometimes use 'I, II, III...' for numbered defendants. Religious texts use Roman numerals for chapter and verse references."
+      ),
+    ],
+    relatedTools: [
+      { slug: "number-to-roman-numerals", label: "Numbers to Roman Numerals" },
+      { slug: "decimal-to-hex", label: "Decimal to Hex" },
+      { slug: "binary-to-decimal", label: "Binary to Decimal" },
+    ],
+  },
+
+  "calories-to-joules": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Calories to Joules",
+        "1 calorie (cal) = 4.184 joules (J). Multiply calories by 4.184 to get joules. So 100 cal × 4.184 = 418.4 J. Note: this 'small calorie' (cal) is rare in everyday use; 'food calories' (kcal or Cal) are 1,000 small calories each, so 1 kcal = 4,184 J = 4.184 kJ.",
+        "Used in scientific energy calculations and precision nutrition labelling. The thermodynamics calorie (4.184 J) is the energy needed to raise 1 gram of water by 1 °C. Most everyday 'calorie' references are food calories (kcal), thousand times larger - a 250 kcal snack = 1,046 kJ."
+      ),
+      {
+        heading: "Common Calories to Joules",
+        table: {
+          headers: ["Calories (cal)", "Joules (J)"],
+          rows: [
+            ["1 cal", "4.184 J"],
+            ["10 cal", "41.84 J"],
+            ["100 cal", "418.4 J"],
+            ["500 cal", "2092 J"],
+            ["1000 cal (1 kcal)", "4184 J"],
+            ["2000 kcal (food)", "8368 kJ"],
+            ["10000 kcal", "41840 kJ"],
+            ["50000 kcal", "209200 kJ"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are food calories small or large calories?",
+        "Food 'calories' are large calories (kcal). When a label says '500 calories', it means 500 kcal = 500,000 small calories. The capital C in 'Calorie' (rarely seen) historically distinguished kcal from cal, but most modern usage just says 'calorie' for food despite meaning kcal."
+      ),
+      createFAQ(
+        "Should I use joules or calories for nutrition?",
+        "EU nutrition labels show both kJ and kcal. UK uses both equally. US uses kcal only (called 'calories'). Australian and many Asian countries use kJ primarily. 1 kcal = 4.184 kJ for conversion."
+      ),
+    ],
+    relatedTools: [
+      { slug: "joules-to-calories", label: "Joules to Calories" },
+      { slug: "kcal-to-calories", label: "Kcal to Calories" },
+      { slug: "calories-to-kcal", label: "Calories to Kcal" },
+    ],
+  },
+
+  "joules-to-calories": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Joules to Calories",
+        "1 joule = 0.239 calories. Divide joules by 4.184 to get calories. So 1000 J ÷ 4.184 = 239 cal. This conversion uses the 'small calorie' (cal); for food calories (kcal), divide by 4,184. So 8,368 kJ = 2,000 kcal (a typical daily food intake).",
+        "Most useful for translating European nutrition labels (which often lead with kJ) to American kcal-based calorie counts. A 500 kJ snack = 119 kcal. A 2,000 kJ meal = 478 kcal. 'Daily energy intake' targets vary by country: US ~2,000 kcal = 8,368 kJ; AU/NZ ~8,700 kJ = 2,080 kcal."
+      ),
+      {
+        heading: "Common Joules to Calories",
+        table: {
+          headers: ["Joules (J)", "Calories (cal)", "Kcal (food)"],
+          rows: [
+            ["100 J", "23.9 cal", "0.024 kcal"],
+            ["1000 J (1 kJ)", "239 cal", "0.239 kcal"],
+            ["10000 J", "2390 cal", "2.39 kcal"],
+            ["100000 J (100 kJ)", "23,900 cal", "23.9 kcal"],
+            ["500 kJ", "119,500 cal", "119.5 kcal"],
+            ["1000 kJ (1 MJ)", "239,000 cal", "239 kcal"],
+            ["8400 kJ", "2,008,000 cal", "2008 kcal"],
+            ["10000 kJ", "2,390,000 cal", "2390 kcal"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does my Australian food label show kJ?",
+        "Australian nutrition labelling regulation defaults to kJ. UK shows both kJ and kcal. US shows only kcal (labelled as 'calories'). A 2000 kcal daily diet = 8,400 kJ approximately. Use 4.184 as the conversion factor."
+      ),
+      createFAQ(
+        "How precise is the 4.184 factor?",
+        "More precisely 4.18400 J per cal (exact, by definition since 1956). Some older sources use 4.1868 (different historical definition). Modern usage standardises on 4.184. Within nutrition/cooking contexts, the 0.04% difference is irrelevant."
+      ),
+    ],
+    relatedTools: [
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+      { slug: "calories-to-kcal", label: "Calories to Kcal" },
+      { slug: "kcal-to-calories", label: "Kcal to Calories" },
+    ],
+  },
+
+  "calories-to-kcal": {
+    sections: [
+      createAnswerFirstSection(
+        "Calories vs Kilocalories - the Confusion Cleared",
+        "1 kcal = 1,000 calories. The 'calorie' on a food label (US) is actually a kilocalorie scientifically. So 100 'food calories' = 100 kcal = 100,000 small calories (cal). Divide calories by 1,000 to get kcal. The capital C in 'Calorie' historically signalled kcal, but most American food labels just say 'calorie' meaning kcal.",
+        "Most useful for understanding scientific vs nutritional contexts. A 100 cal physics calculation = 0.1 kcal. A 100 'calorie' food label = 100 kcal = 418 kJ. Always check whether a 'calorie' is the small (cal) or large (kcal) variety. Most everyday usage means kcal; most physics texts mean cal."
+      ),
+      {
+        heading: "Calories to Kcal",
+        table: {
+          headers: ["Calories (cal)", "Kilocalories (kcal)"],
+          rows: [
+            ["1 cal", "0.001 kcal"],
+            ["100 cal", "0.1 kcal"],
+            ["1000 cal", "1 kcal"],
+            ["5000 cal", "5 kcal"],
+            ["10000 cal", "10 kcal"],
+            ["100000 cal", "100 kcal"],
+            ["1000000 cal", "1000 kcal"],
+            ["2000000 cal", "2000 kcal (daily)"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Is a 'food calorie' really a kcal?",
+        "Yes. A US 'calorie' on food labels is technically a kilocalorie (kcal). The capital C convention was meant to distinguish them but it's not consistently used. Practical rule: 'calorie' in food/nutrition = kcal; 'calorie' in physics/chemistry = small cal."
+      ),
+      createFAQ(
+        "When does the small calorie matter?",
+        "Mostly in physics, chemistry, and engineering. Heat capacity (4.184 J/cal), thermodynamics, and certain industrial processes. Everyday nutrition uses kcal exclusively, even when the label just says 'calories'."
+      ),
+    ],
+    relatedTools: [
+      { slug: "kcal-to-calories", label: "Kcal to Calories" },
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+      { slug: "joules-to-calories", label: "Joules to Calories" },
+    ],
+  },
+
+  "kcal-to-calories": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Kcal to Calories",
+        "1 kcal = 1,000 small calories. Multiply kcal by 1,000 to get small calories. So 250 kcal × 1,000 = 250,000 cal. This conversion only matters in scientific contexts; for nutrition, kcal IS the food 'calorie' (despite the labels just saying 'calories').",
+        "When a recipe or food label says '250 calories,' this means 250 kcal = 250,000 small calories. Most calorie-tracking apps and food databases use kcal even when labelled simply 'calories.' The conversion to small cal is mostly relevant for thermodynamic or chemistry calculations."
+      ),
+      {
+        heading: "Kcal to Calories (small)",
+        table: {
+          headers: ["Kcal", "Small Calories"],
+          rows: [
+            ["1 kcal", "1000 cal"],
+            ["10 kcal", "10000 cal"],
+            ["100 kcal", "100000 cal"],
+            ["250 kcal", "250000 cal"],
+            ["500 kcal", "500000 cal"],
+            ["1000 kcal", "1000000 cal"],
+            ["2000 kcal (daily)", "2000000 cal"],
+            ["3500 kcal (1 lb fat)", "3500000 cal"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is there confusion between cal and kcal?",
+        "The 'big calorie' was originally written 'Calorie' (capital C) and 'small calorie' was 'calorie' (lowercase). When food labels dropped the capital, the distinction became invisible. Most everyday usage is fine treating 'calorie' as kcal in nutrition contexts."
+      ),
+      createFAQ(
+        "How many kcal in a pound of fat?",
+        "Roughly 3,500 kcal in a pound of body fat. To lose 1 lb of fat, you need a 3,500 kcal deficit (deficit of 500 kcal/day for a week). This rule of thumb is approximate but useful for weight management math."
+      ),
+    ],
+    relatedTools: [
+      { slug: "calories-to-kcal", label: "Calories to Kcal" },
+      { slug: "joules-to-calories", label: "Joules to Calories" },
+      { slug: "calories-to-joules", label: "Calories to Joules" },
+    ],
+  },
+
+  "knots-to-mph": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Knots to MPH",
+        "1 knot = 1.151 mph. Multiply knots by 1.151 (or 1.15 for quick mental). So 30 knots × 1.151 = 34.5 mph. The knot is the standard speed unit for marine and aviation - 1 knot is exactly 1 nautical mile per hour, and 1 nautical mile = 1.151 statute miles.",
+        "Used for sailing, marine weather, aviation. A storm with 50 knot winds = 57.6 mph (severe gale). 100 knots = 115 mph (most aircraft cruise speed). Hurricane categories use knots: Cat 1 (74-95 mph) = 64-82 knots, Cat 5 (157+ mph) = 137+ knots."
+      ),
+      {
+        heading: "Common Knots to MPH",
+        table: {
+          headers: ["Knots", "MPH"],
+          rows: [
+            ["1 knot", "1.15 mph"],
+            ["10 knots", "11.51 mph"],
+            ["20 knots", "23.02 mph"],
+            ["30 knots", "34.52 mph"],
+            ["40 knots", "46.03 mph"],
+            ["50 knots", "57.54 mph"],
+            ["75 knots", "86.30 mph"],
+            ["100 knots", "115.08 mph"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use knots instead of mph?",
+        "Maritime and aviation tradition. 1 knot = 1 nautical mile/hour, where the nautical mile is 1 minute of latitude at the equator (1,852 m). This makes the unit naturally aligned with navigation - useful when working with ocean charts or great-circle aviation routes."
+      ),
+      createFAQ(
+        "What's a typical sailboat speed?",
+        "Cruising sailboats: 5-7 knots typical (5.7-8 mph). Racing boats: 8-12 knots. The 'hull speed' for displacement boats: roughly 1.34 × sqrt(waterline length in feet). A 32-foot waterline boat: 1.34 × √32 = 7.6 knots = 8.7 mph."
+      ),
+    ],
+    relatedTools: [
+      { slug: "mph-to-knots", label: "MPH to Knots" },
+      { slug: "knots-to-kph", label: "Knots to KPH" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+    ],
+  },
+
+  "mph-to-knots": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert MPH to Knots",
+        "1 mph = 0.869 knots. Multiply mph by 0.869 (or divide by 1.151) to get knots. So 60 mph × 0.869 = 52.14 knots. The conversion comes up most often when interpreting marine forecasts (which use knots) for boat owners more familiar with mph.",
+        "Useful for boating, sailing, and aviation contexts where mph values need to be expressed in knots. A 25 mph wind = 21.7 knots = moderate breeze. 35 mph = 30.4 knots = near gale. 60 mph = 52 knots = strong gale to storm. Hurricane minimum (74 mph) = 64.3 knots."
+      ),
+      {
+        heading: "Common MPH to Knots",
+        table: {
+          headers: ["MPH", "Knots"],
+          rows: [
+            ["10 mph", "8.69 kt"],
+            ["20 mph", "17.38 kt"],
+            ["25 mph", "21.72 kt"],
+            ["35 mph", "30.41 kt"],
+            ["50 mph", "43.45 kt"],
+            ["74 mph (hurricane)", "64.30 kt"],
+            ["100 mph", "86.90 kt"],
+            ["157 mph (Cat 5)", "136.43 kt"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How does the Beaufort scale relate to knots?",
+        "Beaufort 0 (calm): 0 knots. Beaufort 5 (fresh breeze): 17-21 knots. Beaufort 8 (gale): 34-40 knots. Beaufort 12 (hurricane): 64+ knots. The scale is the standard global wind classification."
+      ),
+      createFAQ(
+        "What's typical aircraft speed in knots?",
+        "Commercial jets cruise at 450-490 knots true airspeed (about 520-565 mph). Private aircraft: 100-200 knots. Helicopter cruise: 100-150 knots. The 'V speeds' on aircraft instruments (rotation speed, takeoff safety) are always in knots."
+      ),
+    ],
+    relatedTools: [
+      { slug: "knots-to-mph", label: "Knots to MPH" },
+      { slug: "mph-to-kph", label: "MPH to KPH" },
+      { slug: "kph-to-knots", label: "KPH to Knots" },
+    ],
+  },
+
+  "psi-to-bar": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert PSI to Bar",
+        "1 bar = 14.504 psi. Divide psi by 14.504 to get bar. So 30 psi ÷ 14.504 = 2.07 bar. Bar is roughly equal to atmospheric pressure (1 atm ≈ 1.013 bar), so it's intuitive for everyday pressure measurements like tyre pressure, plumbing, or weather.",
+        "Tyre pressure example: a typical car tyre at 32 psi = 2.21 bar. UK and EU tyre placards usually show bar; US show psi. Cycling tyres: road bike 100-130 psi = 6.9-9.0 bar. Mountain bike 25-50 psi = 1.7-3.4 bar. Higher pressures = harder rolling (better for road), lower = better grip (better for mountain)."
+      ),
+      {
+        heading: "Common PSI to Bar",
+        table: {
+          headers: ["PSI", "Bar"],
+          rows: [
+            ["1 psi", "0.069 bar"],
+            ["14.5 psi", "1 bar"],
+            ["30 psi", "2.07 bar"],
+            ["32 psi (typical tyre)", "2.21 bar"],
+            ["50 psi", "3.45 bar"],
+            ["100 psi (road bike)", "6.89 bar"],
+            ["120 psi", "8.27 bar"],
+            ["200 psi", "13.79 bar"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the right tyre pressure?",
+        "Check the placard in the driver's door jamb or owner's manual. Typically 30-35 psi (2.07-2.41 bar) for cars. Truck tyres often higher 50-60 psi (3.4-4.1 bar). Always check pressure cold (before driving)."
+      ),
+      createFAQ(
+        "Are bar and atmosphere the same?",
+        "Close: 1 atm = 1.01325 bar. Bar is metric pressure (10^5 pascal); atmosphere is the average pressure at sea level. Often used interchangeably in casual usage but technically different by about 1.3%."
+      ),
+    ],
+    relatedTools: [
+      { slug: "bar-to-psi", label: "Bar to PSI" },
+      { slug: "atm-to-psi", label: "Atmosphere to PSI" },
+      { slug: "psi-to-atm", label: "PSI to Atmosphere" },
+    ],
+  },
+
+  "bar-to-psi": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Bar to PSI",
+        "1 bar = 14.504 psi. Multiply bar by 14.504 to get psi. So 2.5 bar × 14.504 = 36.26 psi. Most European/UK tyre and pressure equipment uses bar; US equipment uses psi. The conversion is essential for international car owners or anyone using equipment from another region.",
+        "Air conditioning systems: typically 30-50 psi = 2.07-3.45 bar low side, 200-300 psi = 13.79-20.68 bar high side. Espresso machines: 9 bar = 130.5 psi (the standard pressure for proper espresso extraction). Hot water tanks: typically 1.5-3 bar = 22-44 psi safety pressure."
+      ),
+      {
+        heading: "Common Bar to PSI",
+        table: {
+          headers: ["Bar", "PSI"],
+          rows: [
+            ["0.5 bar", "7.25 psi"],
+            ["1 bar", "14.50 psi"],
+            ["1.5 bar", "21.76 psi"],
+            ["2 bar", "29.01 psi"],
+            ["2.5 bar", "36.26 psi"],
+            ["3 bar", "43.51 psi"],
+            ["6 bar", "87.02 psi"],
+            ["10 bar", "145.04 psi"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does espresso use 9 bar?",
+        "9 bar (130 psi) is the pressure traditionally needed to force water through tightly-packed coffee grounds for proper extraction. Modern machines deliver 9 bar at the group head despite pumps producing higher pressures (15+ bar). Some specialty equipment uses lower 6-7 bar for distinctive extraction styles."
+      ),
+      createFAQ(
+        "What does '3 bar' on a watch mean?",
+        "Watch water resistance rating in bar (often labelled '30 m', '100 m', etc.). 3 bar = approximately 30 metres = 'splash resistant' but not for swimming. 10 bar = 100 metres = swimming/snorkelling. 20 bar = scuba diving. The depth ratings are approximate; actual safe depth is usually less than the rating suggests."
+      ),
+    ],
+    relatedTools: [
+      { slug: "psi-to-bar", label: "PSI to Bar" },
+      { slug: "atm-to-psi", label: "Atmosphere to PSI" },
+      { slug: "psi-to-atm", label: "PSI to Atmosphere" },
+    ],
+  },
+
+  "degrees-to-radians": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Degrees to Radians",
+        "Multiply degrees by π/180. So 90° × π/180 = π/2 ≈ 1.571 radians. Radians are the SI unit for angles, mathematically natural because the radian definition makes calculus and trigonometry cleaner. Full circle = 360° = 2π radians = 6.283 radians.",
+        "Used in mathematics, physics, computer graphics, and game programming. Trigonometric functions (sin, cos, tan) in most programming languages require radians, not degrees. So if your input is in degrees, multiply by π/180 first. Common conversion in graphics programming: rotating a sprite '45°' means rotating it π/4 ≈ 0.785 radians."
+      ),
+      {
+        heading: "Common Degrees to Radians",
+        table: {
+          headers: ["Degrees", "Radians"],
+          rows: [
+            ["0°", "0"],
+            ["30°", "π/6 ≈ 0.524"],
+            ["45°", "π/4 ≈ 0.785"],
+            ["60°", "π/3 ≈ 1.047"],
+            ["90°", "π/2 ≈ 1.571"],
+            ["180°", "π ≈ 3.142"],
+            ["270°", "3π/2 ≈ 4.712"],
+            ["360°", "2π ≈ 6.283"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why use radians instead of degrees?",
+        "Mathematical elegance. The derivative of sin(x) is cos(x) only when x is in radians (in degrees, you get extra factors of π/180 cluttering the math). Calculus, physics, and engineering use radians for cleaner equations. Geometry textbooks often use degrees for accessibility."
+      ),
+      createFAQ(
+        "How do I convert in code?",
+        "Most languages: radians = degrees × Math.PI / 180. So 90 degrees in JavaScript: 90 * Math.PI / 180 = 1.5708. The reverse: degrees = radians × 180 / Math.PI."
+      ),
+    ],
+    relatedTools: [
+      { slug: "radians-to-degrees", label: "Radians to Degrees" },
+      { slug: "degrees-to-gradians", label: "Degrees to Gradians" },
+      { slug: "gradians-to-degrees", label: "Gradians to Degrees" },
+    ],
+  },
 };

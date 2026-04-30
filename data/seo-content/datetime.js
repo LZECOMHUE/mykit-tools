@@ -810,4 +810,331 @@ export const datetimeSEO = {
       { slug: "us-state-tax-comparison", label: "US State Tax Comparison" },
     ],
   },
+
+  "hours-to-minutes": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Hours to Minutes",
+        "1 hour = 60 minutes. Multiply hours by 60 to get minutes. So 2.5 hours × 60 = 150 minutes. The cleanest possible time conversion - exactly 60 minutes per hour, no decimals or rounding involved.",
+        "Useful for project planning, time-tracking, and converting between work timesheet formats. A 7.5-hour workday = 450 minutes. A 40-hour work week = 2,400 minutes. An 8-hour overnight sleep = 480 minutes. Cooking timers and exercise routines often quoted in minutes; converting from hours simplifies planning."
+      ),
+      {
+        heading: "Common Hours to Minutes",
+        table: {
+          headers: ["Hours", "Minutes"],
+          rows: [
+            ["0.25 hr (15 min)", "15 min"],
+            ["0.5 hr", "30 min"],
+            ["1 hr", "60 min"],
+            ["1.5 hr", "90 min"],
+            ["2 hr", "120 min"],
+            ["3 hr", "180 min"],
+            ["8 hr", "480 min"],
+            ["24 hr", "1440 min"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I handle decimal hours like 1.75 hours?",
+        "Multiply by 60. 1.75 × 60 = 105 minutes (1 hour 45 minutes). Decimal hours often appear in time-tracking software; converting to minutes makes them more readable."
+      ),
+      createFAQ(
+        "What about 0.6 hours?",
+        "0.6 × 60 = 36 minutes. So 0.6 hours = 36 minutes. Time-tracking systems commonly show '1.6 hours' meaning 1 hour 36 minutes - knowing this conversion lets you read decimal time correctly."
+      ),
+    ],
+    relatedTools: [
+      { slug: "minutes-to-hours", label: "Minutes to Hours" },
+      { slug: "days-to-hours", label: "Days to Hours" },
+      { slug: "hours-to-days", label: "Hours to Days" },
+    ],
+  },
+
+  "minutes-to-hours": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Minutes to Hours",
+        "60 minutes = 1 hour. Divide minutes by 60 to get hours. So 90 minutes ÷ 60 = 1.5 hours. For values that don't divide evenly, the remainder gives leftover minutes: 100 min ÷ 60 = 1 hr 40 min.",
+        "Common for time tracking, exercise/workout durations, and meeting scheduling. A 90-minute meeting = 1.5 hours billable. A 240-minute movie = 4 hours. The conversion comes up when consolidating time entries from minute-based logs to hour-based timesheets."
+      ),
+      {
+        heading: "Common Minutes to Hours",
+        table: {
+          headers: ["Minutes", "Hours (decimal)", "Hours and Minutes"],
+          rows: [
+            ["15 min", "0.25 hr", "0 hr 15 min"],
+            ["30 min", "0.5 hr", "0 hr 30 min"],
+            ["45 min", "0.75 hr", "0 hr 45 min"],
+            ["60 min", "1 hr", "1 hr 0 min"],
+            ["90 min", "1.5 hr", "1 hr 30 min"],
+            ["120 min", "2 hr", "2 hr 0 min"],
+            ["180 min", "3 hr", "3 hr 0 min"],
+            ["480 min", "8 hr", "8 hr 0 min"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How do I express 100 minutes as hours?",
+        "Two ways: as decimal hours (100/60 = 1.67 hr) or as hours and minutes (1 hr 40 min). Time-tracking software often uses decimal; calendars and scheduling use hours-and-minutes format."
+      ),
+      createFAQ(
+        "What's a useful conversion for meeting planning?",
+        "60-minute meetings = 1 hr (good standard length). 90-minute meetings = 1.5 hr (deep dives). 30-minute meetings = 0.5 hr (quick updates). Most calendars default to 30 or 60 minute slots; longer meetings should be deliberately sized."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hours-to-minutes", label: "Hours to Minutes" },
+      { slug: "hours-to-days", label: "Hours to Days" },
+      { slug: "days-to-hours", label: "Days to Hours" },
+    ],
+  },
+
+  "days-to-hours": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Days to Hours",
+        "1 day = 24 hours. Multiply days by 24 to get hours. So 7 days × 24 = 168 hours. The conversion assumes a standard 24-hour day; adjusts in special cases like daylight saving time transitions where a calendar day is 23 or 25 hours.",
+        "Used for project deadlines, deployment timelines, and travel duration calculations. A weeklong holiday = 168 hours. A 30-day month = 720 hours. Cloud computing uptime SLAs measured in hours per month - 99.9% uptime allows 43.8 minutes of downtime per month (720 hours × 0.001)."
+      ),
+      {
+        heading: "Common Days to Hours",
+        table: {
+          headers: ["Days", "Hours"],
+          rows: [
+            ["1 day", "24 hr"],
+            ["2 days", "48 hr"],
+            ["3 days", "72 hr"],
+            ["7 days (1 week)", "168 hr"],
+            ["14 days (2 weeks)", "336 hr"],
+            ["30 days (1 month)", "720 hr"],
+            ["90 days (3 mo)", "2160 hr"],
+            ["365 days (1 yr)", "8760 hr"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are months always 720 hours?",
+        "No - depends on month length. 28-day February = 672 hr, 30-day month = 720 hr, 31-day month = 744 hr. For SLA contracts and billing periods, use the actual days in the month."
+      ),
+      createFAQ(
+        "How many hours in a year?",
+        "365 × 24 = 8,760 hours per non-leap year. Leap year: 366 × 24 = 8,784 hours. Useful for annual capacity planning, energy bills, or anything billed by hours over a yearly period."
+      ),
+    ],
+    relatedTools: [
+      { slug: "hours-to-days", label: "Hours to Days" },
+      { slug: "weeks-to-days", label: "Weeks to Days" },
+      { slug: "days-to-weeks", label: "Days to Weeks" },
+    ],
+  },
+
+  "hours-to-days": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Hours to Days",
+        "24 hours = 1 day. Divide hours by 24 to get days. So 168 hours ÷ 24 = 7 days. For values that don't divide evenly: 100 hours = 4 days 4 hours.",
+        "Common in project planning - scoping hours of work into calendar days. A 200-hour project = 8.33 days of full-time work, but realistically 25-40 calendar days when accounting for meetings, breaks, and dependencies. SLA measurements sometimes report uptime in hours per month, which converts to days for executive summaries."
+      ),
+      {
+        heading: "Common Hours to Days",
+        table: {
+          headers: ["Hours", "Days"],
+          rows: [
+            ["8 hr", "0.33 day"],
+            ["24 hr", "1 day"],
+            ["48 hr", "2 days"],
+            ["72 hr", "3 days"],
+            ["100 hr", "4.17 days"],
+            ["168 hr", "7 days"],
+            ["336 hr", "14 days"],
+            ["720 hr", "30 days"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many work days in 100 hours?",
+        "Roughly 12.5 work days at 8 hours/day, or 13.3 days at 7.5 hours/day (UK with lunch deducted). For project estimation, double the work-hour-to-calendar-day estimate to account for meetings, context-switching, and unexpected delays."
+      ),
+      createFAQ(
+        "Are SLA hours business hours or 24/7?",
+        "Depends on the contract. 'Business hours' SLAs typically count 9am-5pm Monday-Friday (40 hours/week). '24/7' SLAs count all 168 hours/week. Always confirm the SLA reference period before assuming."
+      ),
+    ],
+    relatedTools: [
+      { slug: "days-to-hours", label: "Days to Hours" },
+      { slug: "minutes-to-hours", label: "Minutes to Hours" },
+      { slug: "weeks-to-days", label: "Weeks to Days" },
+    ],
+  },
+
+  "weeks-to-days": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Weeks to Days",
+        "1 week = 7 days. Multiply weeks by 7 to get days. So 4 weeks × 7 = 28 days. The 7-day week is standardised globally despite different cultural starting days (Monday in most of Europe; Sunday in US).",
+        "Useful for project timelines, due dates, and pregnancy/medical tracking. A 2-week sprint = 14 days. A 6-week course = 42 days. Pregnancy is measured in weeks (40 weeks = 280 days from LMP, though actual gestation is 38 weeks/266 days from conception). UK statutory holidays often quoted in weeks (28 days = 4 weeks for full-time)."
+      ),
+      {
+        heading: "Common Weeks to Days",
+        table: {
+          headers: ["Weeks", "Days"],
+          rows: [
+            ["1 week", "7 days"],
+            ["2 weeks", "14 days"],
+            ["4 weeks", "28 days"],
+            ["6 weeks", "42 days"],
+            ["8 weeks", "56 days"],
+            ["12 weeks (1 quarter)", "84 days"],
+            ["26 weeks", "182 days"],
+            ["52 weeks (1 year)", "364 days"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is 52 weeks 364 days, not 365?",
+        "52 × 7 = 364, but a year is 365 days (or 366 in leap years). The extra day is why your week-day birthday shifts forward by 1 each year (or 2 days after a leap year). 52 weeks = 364 days; 1 year ≈ 52 weeks + 1 day."
+      ),
+      createFAQ(
+        "How many weeks in a typical month?",
+        "Approximately 4.33 weeks per average month (30.44 days / 7). Calendar months range 4-5 weeks: 28-day February = exactly 4 weeks; 30-day month = 4 weeks + 2 days; 31-day month = 4 weeks + 3 days. Pay periods for biweekly schedules use 26 paychecks/year (52 ÷ 2)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "days-to-weeks", label: "Days to Weeks" },
+      { slug: "days-to-hours", label: "Days to Hours" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "days-to-weeks": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Convert Days to Weeks",
+        "7 days = 1 week. Divide days by 7 to get weeks. So 28 days ÷ 7 = 4 weeks. For values not divisible by 7, the remainder gives leftover days: 30 days = 4 weeks 2 days. The 7-day week is universal globally.",
+        "Useful for time-frame estimation. A 30-day project = roughly 4.3 weeks. A 90-day quarter = 12.86 weeks. Annual leave allowance in UK: 28 days = 4 weeks for full-time employees. Statutory employment law often quoted in weeks (12 weeks parental leave = 84 days)."
+      ),
+      {
+        heading: "Common Days to Weeks",
+        table: {
+          headers: ["Days", "Weeks (decimal)", "Weeks and Days"],
+          rows: [
+            ["7 days", "1 week", "1 week"],
+            ["14 days", "2 weeks", "2 weeks"],
+            ["21 days", "3 weeks", "3 weeks"],
+            ["28 days", "4 weeks", "4 weeks"],
+            ["30 days", "4.29 weeks", "4 weeks 2 days"],
+            ["60 days", "8.57 weeks", "8 weeks 4 days"],
+            ["90 days", "12.86 weeks", "12 weeks 6 days"],
+            ["365 days", "52.14 weeks", "52 weeks 1 day"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How many weeks is 6 months?",
+        "About 26 weeks (181 days, or 184 if including 31-day months). Six calendar months ranges from 181-184 days depending on which months. For pregnancy tracking, '6 months' is approximately 26 weeks (out of 40 total weeks)."
+      ),
+      createFAQ(
+        "What's a 'business week'?",
+        "5 working days (Mon-Fri) = 1 business week. Excludes weekends and public holidays. UK: 252 working days/year typically. US: 250 (including 10 federal holidays). Business-week metrics matter for SLAs and project planning more than calendar weeks."
+      ),
+    ],
+    relatedTools: [
+      { slug: "weeks-to-days", label: "Weeks to Days" },
+      { slug: "hours-to-days", label: "Hours to Days" },
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+    ],
+  },
+
+  "days-until-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Counting Days Until a Date",
+        "Subtract today's date from the target date in days. Days until Christmas (December 25): if today is October 30, that's 56 days. Most date calculators handle this automatically and account for leap years, month-length variation, and time zones.",
+        "Used for event countdowns: weddings, holidays, exams, deadlines, retirement dates. A common psychological trick - putting a number on a future event makes it feel concrete. People often plan more effectively when they can see '90 days to launch' rather than 'about 3 months'."
+      ),
+      {
+        heading: "Common Days-Until Calculations",
+        table: {
+          headers: ["Target", "From January 1", "From July 1"],
+          rows: [
+            ["Valentine's Day (Feb 14)", "44 days", "228 days"],
+            ["Mother's Day UK (Mar)", "~75 days", "~250 days"],
+            ["Easter (variable)", "~80-110 days", "~250-285 days"],
+            ["Summer (June 21)", "171 days", "-10 days"],
+            ["Halloween (Oct 31)", "303 days", "122 days"],
+            ["Christmas (Dec 25)", "358 days", "177 days"],
+            ["New Year's Day", "0 days", "184 days"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Does the calculator account for leap years?",
+        "Yes - any decent date calculator adjusts for the 366-day leap year (every 4 years, except century years not divisible by 400). The next leap years: 2024, 2028, 2032. The extra February 29 affects day counts that span across the date."
+      ),
+      createFAQ(
+        "What about time zones?",
+        "Most online calculators assume your local time zone or UTC. For international scheduling (event countdowns spanning time zones), be specific about the target's location. A 'New Year's Eve countdown' is meaningful only in your local time."
+      ),
+    ],
+    relatedTools: [
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "weeks-to-days", label: "Weeks to Days" },
+      { slug: "holiday-countdown-generator", label: "Holiday Countdown Generator" },
+    ],
+  },
+
+  "unix-timestamp-converter": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Unix Timestamp?",
+        "A Unix timestamp is the number of seconds elapsed since January 1, 1970 00:00:00 UTC (the 'epoch'). So '1700000000' = November 14, 2023, 22:13:20 UTC. Used universally in computing for date storage, log files, database timestamps, and time arithmetic.",
+        "Convert a timestamp to readable date by adding it as seconds to the epoch. A 32-bit Unix timestamp can represent dates up to January 19, 2038 (the 'Year 2038 problem'). Modern systems use 64-bit timestamps avoiding this. Most programming languages have built-in functions: Date(timestamp * 1000) in JavaScript (which uses milliseconds), datetime.fromtimestamp() in Python."
+      ),
+      {
+        heading: "Common Unix Timestamps",
+        table: {
+          headers: ["Date/Time UTC", "Unix Timestamp"],
+          rows: [
+            ["Jan 1, 1970 00:00", "0"],
+            ["Jan 1, 2000 00:00", "946684800"],
+            ["Jan 1, 2020 00:00", "1577836800"],
+            ["Jan 1, 2024 00:00", "1704067200"],
+            ["Jan 1, 2025 00:00", "1735689600"],
+            ["Jan 19, 2038", "2147483647 (32-bit max)"],
+            ["1 day in seconds", "86400"],
+            ["1 year (~)", "31536000"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why does Unix start from 1970?",
+        "Arbitrary choice by Unix designers in early 1970s. They needed a reference point; January 1, 1970 was rounded up from the Unix system creation date. The epoch has stuck for 50+ years and is now embedded in countless systems."
+      ),
+      createFAQ(
+        "What's the Year 2038 problem?",
+        "32-bit signed integer Unix timestamps overflow at 2,147,483,647 seconds = January 19, 2038. After that, the value wraps to a negative number, breaking 32-bit systems. Fix: 64-bit timestamps (handles dates billions of years out). Modern systems (Linux, macOS) already use 64-bit; some embedded systems still vulnerable."
+      ),
+    ],
+    relatedTools: [
+      { slug: "date-difference-calculator", label: "Date Difference Calculator" },
+      { slug: "days-until-calculator", label: "Days Until Calculator" },
+      { slug: "hex-to-decimal", label: "Hex to Decimal" },
+    ],
+  },
 };

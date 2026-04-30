@@ -1846,4 +1846,83 @@ export const homeSEO = {
       { slug: "australia-stamp-duty-calculator", label: "Australia Stamp Duty Calculator" },
     ],
   },
+
+  "board-foot-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What's a Board Foot?",
+        "A board foot is the standard US lumber volume measurement: 144 cubic inches (1 inch thick × 12 inches wide × 12 inches long). For other dimensions, use: thickness (inches) × width (inches) × length (feet) ÷ 12. So a 2x4x8 (1.5 in × 3.5 in × 96 in) is (1.5 × 3.5 × 96) ÷ 144 = 3.5 board feet.",
+        "Used in lumber pricing - dealers quote per board foot. A 2x4x8 might be £4 per board foot × 3.5 board feet = £14. Hardwoods (oak, walnut, cherry) range £6-30/bf depending on species and grade. Softwoods (pine, spruce, fir): £2-8/bf. The board foot accounts for both length and cross-section, making it the natural unit for lumber volume calculations."
+      ),
+      {
+        heading: "Common Lumber Board Feet",
+        table: {
+          headers: ["Lumber size", "Length", "Board feet"],
+          rows: [
+            ["2x4 (1.5x3.5)", "8 ft", "3.50 bf"],
+            ["2x4", "10 ft", "4.38 bf"],
+            ["2x6 (1.5x5.5)", "8 ft", "5.50 bf"],
+            ["2x8 (1.5x7.25)", "8 ft", "7.25 bf"],
+            ["4x4 (3.5x3.5)", "8 ft", "8.17 bf"],
+            ["1x6 (0.75x5.5)", "8 ft", "2.75 bf"],
+            ["1x12 (0.75x11.25)", "8 ft", "5.62 bf"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is a 2x4 actually 1.5x3.5?",
+        "Lumber is sold by 'nominal' size (the rough sawn dimension before planing/drying). A 2x4 is rough-sawn at 2 inches × 4 inches, then dried and planed to its final 1.5 × 3.5 inches. Nominal sizes are the standard for ordering and pricing; actual sizes matter for fitting."
+      ),
+      createFAQ(
+        "Is board foot the same as linear foot?",
+        "No. Board foot is volume; linear foot is length only. A 2x4 has 1 linear foot per foot of length, but 0.44 board feet per foot of length (since it's smaller than 1ft x 1ft x 1in cross-section). Linear feet for fence boards or trim; board feet for ordering bulk rough lumber."
+      ),
+    ],
+    relatedTools: [
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+      { slug: "inches-to-mm", label: "Inches to Millimetres" },
+      { slug: "sawhorse-angle-calculator", label: "Sawhorse Angle Calculator" },
+    ],
+  },
+
+  "sawhorse-angle-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "What Angle for Sawhorse Legs",
+        "Standard sawhorse leg angle: 12-15 degrees from vertical. This gives stability without making the unit overly wide. Steeper angles (20+ degrees) give wider base but use more material and create awkward storage. Steel sawhorses often use 10-12 degrees; wooden DIY sawhorses commonly 12-15 degrees.",
+        "For DIY construction, the angle is set by the relationship between leg height and base width. A 30-inch tall sawhorse with legs splayed at 12 degrees has a base width of 30 × tan(12°) × 2 = 12.75 inches between leg bottoms. A 15-degree splay gives 16.1 inches base width. Both stable; the wider base offers more lateral stability for heavy work."
+      ),
+      {
+        heading: "Sawhorse Geometry",
+        table: {
+          headers: ["Leg angle", "Stability", "Use case"],
+          rows: [
+            ["8°", "Less stable", "Light work, narrow access"],
+            ["10°", "Adequate", "General DIY"],
+            ["12°", "Good standard", "Most home woodworking"],
+            ["15°", "Very stable", "Heavy materials, professional"],
+            ["18°", "Very stable, wide", "Outdoor, uneven ground"],
+            ["20°+", "Maximum stability", "Industrial, heaviest loads"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "What's the standard sawhorse height?",
+        "30-32 inches typical for hand tool work; matches typical workbench height. Taller (34-36 inches) for power tool work where you need clearance under boards. Shorter (24 inches) for sawing operations where you need to bear down. Match to your typical task."
+      ),
+      createFAQ(
+        "Should I cut the angle on the legs or use a metal bracket?",
+        "Both work. Metal sawhorse brackets (HD/Lowes/B&Q) handle the angle math for you - you just fit standard 2x4 legs and crossbar. DIY angled cuts require accurate marking but produce a more refined result and use less hardware."
+      ),
+    ],
+    relatedTools: [
+      { slug: "board-foot-calculator", label: "Board Foot Calculator" },
+      { slug: "degrees-to-radians", label: "Degrees to Radians" },
+      { slug: "feet-to-metres", label: "Feet to Metres" },
+    ],
+  },
 };

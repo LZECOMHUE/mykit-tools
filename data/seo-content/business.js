@@ -1597,6 +1597,45 @@ export const businessSEO = {
       { slug: "business-profit-calculator", label: "Business Profit Calculator" },
     ],
   },
+
+  "invoice-number-generator": {
+    sections: [
+      createAnswerFirstSection(
+        "How to Number Invoices",
+        "Most small businesses use sequential numbering: INV-001, INV-002, INV-003, etc. Larger systems often add a year prefix (2024-001, 2024-002), customer code (ACME-001), or department prefix (ENG-2024-001). The key is consistency - once you pick a format, stick with it for accounting reconciliation.",
+        "Sequential numbering matters for tax compliance. UK HMRC and most tax authorities expect to see no gaps in invoice numbers. If you cancel an invoice, mark it as cancelled rather than reusing the number - tax investigators look for gaps as evidence of unreported income. Most accounting software (Xero, QuickBooks, FreshBooks) auto-generates numbers in your chosen format."
+      ),
+      {
+        heading: "Common Invoice Number Formats",
+        table: {
+          headers: ["Format", "Example", "When to Use"],
+          rows: [
+            ["Sequential", "INV-001", "Simplest, small businesses"],
+            ["Year + sequential", "2024-001", "Multi-year tracking"],
+            ["Date-based", "20240315-1", "Date-driven reporting"],
+            ["Customer code + seq", "ACME-001", "Customer-specific tracking"],
+            ["Project + seq", "PROJ47-1", "Project-based billing"],
+            ["Department + year + seq", "ENG-2024-001", "Multi-department orgs"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Do invoice numbers need to be sequential?",
+        "Most tax authorities require unique, identifiable invoice numbers but don't strictly require sequential. UK HMRC accepts any system that's consistent and uniquely identifies each invoice. Sequential is easier to audit; gap analysis is the simplest fraud check."
+      ),
+      createFAQ(
+        "Can I restart numbering each year?",
+        "Yes - many businesses do, using year prefixes (2024-001, 2025-001). Tax authorities accept this if the year is part of the unique identifier. Don't restart without the year prefix - that creates duplicate numbers across years which is non-compliant."
+      ),
+    ],
+    relatedTools: [
+      { slug: "invoice-generator", label: "Invoice Generator" },
+      { slug: "salary-to-hourly-converter", label: "Salary to Hourly Converter" },
+      { slug: "us-self-employment-tax-calculator", label: "Self-Employment Tax Calculator" },
+    ],
+  },
 };
 
 

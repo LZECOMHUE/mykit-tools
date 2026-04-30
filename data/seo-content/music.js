@@ -734,4 +734,84 @@ export const musicSEO = {
       { slug: "chord-library", label: "Guitar Chord Library" },
     ],
   },
+
+  "guitar-string-cost": {
+    sections: [
+      createAnswerFirstSection(
+        "What Guitar Strings Actually Cost",
+        "Standard 6-string acoustic or electric guitar set: £5-15 typical, £15-30 for premium brands (Elixir, D'Addario coated). 12-string sets: £10-25. Bass guitar (4-string): £15-35; bass 5/6-string: £25-50. Classical guitar (nylon): £8-20. Pricing varies by gauge, brand, and coating - coated strings (Elixir, D'Addario XS) cost 2-3x but last 3-5x longer.",
+        "Frequent players replace strings every 4-8 weeks; light players every 3-6 months. A gigging musician changing strings monthly spends £60-180/year on strings alone. Coated strings shift the math - £20/set every 3 months vs £8/set every month favours coated despite higher per-set cost. Beginners should start with cheaper uncoated strings while learning."
+      ),
+      {
+        heading: "Typical Guitar String Costs",
+        table: {
+          headers: ["Type", "Budget set", "Premium set", "Coated"],
+          rows: [
+            ["Acoustic 6-string", "£5-8", "£12-18", "£15-25"],
+            ["Electric 6-string", "£5-10", "£12-20", "£15-25"],
+            ["12-string acoustic", "£10-15", "£18-30", "£25-40"],
+            ["Bass 4-string", "£15-22", "£25-40", "£35-60"],
+            ["Bass 5-string", "£25-35", "£35-50", "£50-80"],
+            ["Classical/nylon", "£8-12", "£15-25", "n/a"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are coated strings worth the extra cost?",
+        "For frequent players, yes - they last 3-5x longer than uncoated. For occasional players, often not worth it because strings die from oxidation and humidity even when not played. Coated strings have a slightly different feel and tone (some prefer it; some don't)."
+      ),
+      createFAQ(
+        "What's the most popular brand?",
+        "D'Addario, Ernie Ball Slinky, Elixir (coated), GHS Boomers, Martin (acoustic specialty). D'Addario probably has the largest market share globally. Brand preference is highly subjective - try a few sets to find your favourite combination of feel, tone, and longevity."
+      ),
+    ],
+    relatedTools: [
+      { slug: "scale-finder", label: "Guitar Scale Finder" },
+      { slug: "chord-library", label: "Guitar Chord Library" },
+      { slug: "frequency-to-note", label: "Frequency to Note" },
+    ],
+  },
+
+  "frequency-to-note": {
+    sections: [
+      createAnswerFirstSection(
+        "How Musical Notes Map to Frequencies",
+        "Each musical note has a specific frequency. The reference is A4 = 440 Hz (concert pitch, standardised in 1955). Each octave doubles the frequency: A3 = 220 Hz, A5 = 880 Hz. Each semitone is a factor of the 12th root of 2 (≈1.0595). So A4 to A#4: 440 × 1.0595 = 466 Hz.",
+        "Useful for instrument tuning, sound design, audio engineering, and music theory analysis. Middle C (C4) = 261.63 Hz. The lowest E on a standard tuned guitar (E2) = 82.41 Hz. The highest E on a piano (C8) = 4186 Hz. Concert tuning hovers around A4 = 440 Hz; orchestras sometimes tune slightly higher (442-444 Hz) for brightness."
+      ),
+      {
+        heading: "Common Note Frequencies",
+        table: {
+          headers: ["Note", "Frequency (Hz)"],
+          rows: [
+            ["A0 (lowest piano)", "27.50"],
+            ["E2 (low E guitar)", "82.41"],
+            ["A2", "110.00"],
+            ["A3", "220.00"],
+            ["C4 (middle C)", "261.63"],
+            ["A4 (concert pitch)", "440.00"],
+            ["A5", "880.00"],
+            ["C8 (highest piano)", "4186.01"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Why is concert pitch 440 Hz?",
+        "International agreement in 1955 (ISO 16) set A = 440 Hz as the global standard. Before that, orchestras used 415-450 Hz variously. The 440 Hz value was a compromise between bright (higher) and dark (lower) preferences across European orchestral traditions."
+      ),
+      createFAQ(
+        "Can I tune to a different reference?",
+        "Yes. Some performers use A = 432 Hz (claimed esoteric 'natural tuning'). Some baroque ensembles use A = 415 Hz (lower, period-authentic). Some jazz musicians tune slightly sharp. The note ratios (octaves, fifths, thirds) remain mathematically identical regardless of reference."
+      ),
+    ],
+    relatedTools: [
+      { slug: "guitar-string-cost", label: "Guitar String Cost" },
+      { slug: "scale-finder", label: "Guitar Scale Finder" },
+      { slug: "chord-library", label: "Guitar Chord Library" },
+    ],
+  },
 };

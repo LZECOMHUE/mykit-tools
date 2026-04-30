@@ -310,4 +310,84 @@ export const sportsSEO = {
       { slug: "dice-roller", label: "Dice Roller" },
     ],
   },
+
+  "pace-to-finish-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "Predicting Race Finish Times from Pace",
+        "Multiply pace per mile (or km) by total distance. So 10-minute miles × 26.2 miles = 262 minutes = 4 hours 22 minutes for a marathon. Pace is most useful for predicting longer race times from training runs - if you're hitting 8:00 miles in 10K training, your half marathon is roughly 1:45 (8:00 × 13.1 = 105 minutes).",
+        "Race-day pace differs from training pace. Most runners aim for 'race pace' which is 5-15% faster than 'training pace' but slower than '5K race pace' due to endurance fatigue. Marathon pace is typically 30-60 seconds/mile slower than 10K race pace. Use a pace calculator to set realistic targets across distances."
+      ),
+      {
+        heading: "Pace to Finish Time Reference",
+        table: {
+          headers: ["Pace per mile", "5K", "10K", "Half mar.", "Marathon"],
+          rows: [
+            ["6:00", "18:38", "37:17", "1:18:38", "2:37:17"],
+            ["7:00", "21:45", "43:30", "1:31:45", "3:03:30"],
+            ["8:00", "24:51", "49:43", "1:44:51", "3:29:43"],
+            ["9:00", "27:58", "55:56", "1:57:58", "3:55:56"],
+            ["10:00", "31:04", "1:02:08", "2:11:04", "4:22:08"],
+            ["11:00", "34:11", "1:08:21", "2:24:11", "4:48:21"],
+            ["12:00", "37:17", "1:14:34", "2:37:17", "5:14:34"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "How accurate is pace-to-finish prediction?",
+        "Within 5-10% for most runners. Real race times depend on endurance, hills, weather, hydration, and pacing strategy. Training pace at fast distances usually predicts faster times than slower ones - 5K pace under-predicts marathon time."
+      ),
+      createFAQ(
+        "What's a typical recreational marathon pace?",
+        "Most recreational marathoners finish around 4:00-5:00 (9:00-11:30/mile pace). Elite runners: under 2:30 (5:30-5:45/mile). World record (Eliud Kipchoge, 2:01:09): 4:36/mile pace. Most first-time marathoners aim for 4:30-5:30 finish (10:00-12:30/mile)."
+      ),
+    ],
+    relatedTools: [
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+      { slug: "km-to-miles", label: "Kilometres to Miles" },
+      { slug: "cycling-calorie-calculator", label: "Cycling Calorie Calculator" },
+    ],
+  },
+
+  "cycling-calorie-calculator": {
+    sections: [
+      createAnswerFirstSection(
+        "How Many Calories Cycling Burns",
+        "A 70 kg cyclist burns approximately: leisure pace (10 mph): 280-340 cal/hour; moderate (12-14 mph): 480-560 cal/hour; fast (16-19 mph): 600-720 cal/hour; very fast (20+ mph): 800-1,000 cal/hour. Heavier riders burn more (proportional to weight); lighter riders burn less. Hills, headwinds, and acceleration spikes burn well above flat-road averages.",
+        "For weight loss: a 1-hour moderate ride at 13 mph burns roughly 500 cal, equivalent to a substantial meal or snack. Daily commuting at 12 mph for 30 minutes each way (1 hour total): ~500 cal/day, roughly 3,500 cal/week (1 lb of fat equivalent). Cycling is among the highest-calorie-burn cardio activities for moderate effort levels."
+      ),
+      {
+        heading: "Cycling Calories per Hour by Pace",
+        table: {
+          headers: ["Pace", "70 kg rider", "85 kg rider", "100 kg rider"],
+          rows: [
+            ["10 mph (leisure)", "300 cal", "365 cal", "430 cal"],
+            ["12 mph", "440 cal", "535 cal", "630 cal"],
+            ["14 mph", "560 cal", "680 cal", "800 cal"],
+            ["16 mph", "640 cal", "780 cal", "915 cal"],
+            ["18 mph", "720 cal", "875 cal", "1030 cal"],
+            ["20 mph", "850 cal", "1035 cal", "1215 cal"],
+            ["Mountain (steep)", "600-1000 cal", "730-1215 cal", "860-1430 cal"],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      createFAQ(
+        "Are these numbers accurate for me?",
+        "Within 15-25% typically. Cycling calorie burn depends on weight (most), terrain, fitness level, equipment efficiency, body position (aerodynamic costs power), wind, and individual metabolism. Use as planning estimate; track actual results over weeks for better personal accuracy."
+      ),
+      createFAQ(
+        "Does cycling really help with weight loss?",
+        "Yes - high-volume moderate cycling (4-5 hours/week) creates a sustained calorie deficit that supports fat loss when paired with controlled diet. Cycling is gentler on joints than running, allowing higher training volume. Important: don't 'eat back' all the calories burned - that defeats the deficit."
+      ),
+    ],
+    relatedTools: [
+      { slug: "pace-to-finish-calculator", label: "Pace to Finish Calculator" },
+      { slug: "tdee-calculator", label: "TDEE Calculator" },
+      { slug: "miles-to-km", label: "Miles to Kilometres" },
+    ],
+  },
 };
